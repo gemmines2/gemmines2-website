@@ -1,5 +1,7 @@
 Gemmines2 Website - Readme
 
+
+
 Files included:
 - index.html
 - style.css
@@ -19,3 +21,4 @@ Notes:
 - To edit text or images, open index.html in a text editor (Notepad, VSCode), change the text or replace images in the images/ folder, then re-upload to the repository.
 - To change the logo, replace images/logo.png with your own 400x200 PNG file.
 - All contact buttons point to your WhatsApp number and email.
+<!-- rebuild -->
