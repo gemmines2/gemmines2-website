@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return Policy - Gemmines</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gemmines Return Policy</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Return & Exchange Policy</h2>
+      <p>
+        At Gemmines, your satisfaction is our top priority.  
+        We accept returns and exchanges within <strong>7 days</strong> of delivery, 
+        provided the gemstone or jewelry piece is unused, in its original packaging, 
+        and accompanied by proof of purchase.
+      </p>
+      <p>
+        Custom or resized items cannot be returned unless faulty.  
+        For return requests, please contact us via WhatsApp or email before sending back any item.
+      </p>
+      <p>
+        Refunds are processed through the original payment method after inspection of the returned item.
+      </p>
+      <p><strong>For assistance:</strong></p>
+      <ul>
+        <li>📞 WhatsApp: +92 300 0000000</li>
+        <li>✉️ Email: support@gemmines.com</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Gemmines. All rights reserved.</p>
+  </footer>
+</body>
+</html>
