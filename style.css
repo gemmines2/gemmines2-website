@@ -1,25 +1,25 @@
-/* Gemmines2 Website Styles */
+/* Gemmines2 Main Theme - Blue Black Luxury Look */
 
-/* GENERAL BODY */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
+  background: linear-gradient(180deg, #000428, #004e92);
+  color: #fff;
   line-height: 1.6;
 }
 
-/* HEADER */
 header {
-  background-color: #003366;
-  color: white;
-  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.6);
   text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #00bcd4;
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
+  color: #00bcd4;
+  letter-spacing: 1px;
 }
 
 nav {
@@ -27,82 +27,87 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   margin: 0 15px;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #00bcd4;
 }
 
-/* HERO SECTION */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url("banner.jpg") no-repeat center center/cover;
-  color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #001f3f, #000);
+  border-bottom: 2px solid #00bcd4;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  color: #00bcd4;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 10px auto;
 }
 
-/* PRODUCT SECTION */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 40px;
+  padding: 50px 20px;
 }
 
 .product-card {
-  background-color: white;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 260px;
   text-align: center;
-  padding: 15px;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .product-card img {
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .product-card h3 {
-  color: #003366;
-  margin: 10px 0;
+  color: #00bcd4;
+  margin-bottom: 5px;
 }
 
-/* FOOTER */
 .footer {
-  background-color: #003366;
-  color: white;
   text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
+  padding: 30px 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 2px solid #00bcd4;
+  font-size: 14px;
 }
 
 .footer a {
-  color: #ffcc00;
+  color: #00bcd4;
   text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
+
+
+
 
