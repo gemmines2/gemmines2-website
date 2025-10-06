@@ -138,5 +138,29 @@ nav a:hover {
 }
 
 
-fsfaffdsfsadf
+/* === Visibility Fix for Dark Theme === */
+body, h1, h2, h3, h4, h5, h6, p, span, li, label {
+  color: #ffffff !important;
+}
+
+a, a:visited {
+  color: #00bfff !important; /* Bright blue links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1e90ff !important; /* Lighter blue on hover */
+  text-decoration: underline;
+}
+
+button, .btn {
+  background-color: #007bff !important;
+  color: #fff !important;
+  border: none;
+}
+
+button:hover, .btn:hover {
+  background-color: #0056b3 !important;
+}
+
 
