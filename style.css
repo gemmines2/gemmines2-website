@@ -91,6 +91,32 @@ nav a:hover {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+/* ===== Homepage gallery images ===== */
+.gallery .card img {
+  width: 100%;       /* Fill card width */
+  height: 200px;     /* uniform height */
+  object-fit: cover; /* scale/crop large images nicely */
+  border-radius: 10px;
+  border: 1px solid #004466;
+  transition: transform 0.3s;
+}
+
+.gallery .card img:hover {
+  transform: scale(1.05); /* small zoom effect on hover */
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 768px) {
+  .gallery .card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery .card img {
+    height: 150px;
+  }
+}
 
 .product-card h3 {
   color: #00bcd4;
