@@ -90,7 +90,31 @@ nav a:hover {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
+}section.gallery .card img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 10px;
+  border: 1px solid #004466;
+  transition: transform 0.3s;
 }
+
+section.gallery .card img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  section.gallery .card img {
+    height: 180px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section.gallery .card img {
+    height: 150px !important;
+  }
+}
+
 /* ===== Homepage gallery images ===== */
 .gallery .card img {
   width: 100%;       /* Fill card width */
