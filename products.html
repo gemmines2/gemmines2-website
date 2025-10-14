@@ -66,9 +66,9 @@
 
     .product-card img {
       width: 100%;
-      height: auto; /* height adjusts automatically */
-      max-height: 250px; /* limits very tall images */
-      object-fit: cover; /* crops without stretching */
+      height: auto;
+      max-height: 250px;
+      object-fit: cover;
       border-radius: 10px;
       border: 1px solid #004466;
       margin-bottom: 10px;
@@ -115,26 +115,14 @@
       margin-top: 40px;
     }
 
-    /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .products-container {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
-      }
+      nav { flex-direction: column; gap: 10px; }
+      .products-container { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 480px) {
-      .products-container {
-        grid-template-columns: 1fr; /* 1 column on phones */
-      }
-
-      .product-card img {
-        max-height: 200px;
-      }
+      .products-container { grid-template-columns: 1fr; }
+      .product-card img { max-height: 200px; }
     }
   </style>
 </head>
@@ -160,7 +148,7 @@
       <img src="images/citrine.jpg" alt="Golden Citrine">
       <h3>Golden Citrine</h3>
       <p>Natural unheated Citrine set in Italian Silver with zircon.</p>
-      <a href="checkout.html" class="buy-button">Buy Now</a>
+      <a href="checkout.html?product=Golden%20Citrine" class="buy-button">Buy Now</a>
     </div>
 
     <!-- Product 2 -->
@@ -168,11 +156,10 @@
       <img src="images/garnet.jpg" alt="Rhodolite Garnet">
       <h3>Rhodolite Garnet</h3>
       <p>Natural unheated Garnet set in Italian Silver with zircon.</p>
-      <a href="checkout.html" class="buy-button">Buy Now</a>
+      <a href="checkout.html?product=Rhodolite%20Garnet" class="buy-button">Buy Now</a>
     </div>
 
-    <!-- You can add more product cards below -->
-    <!-- <div class="product-card">...</div> -->
+    <!-- Add more gemstones here by copying product-card block -->
   </section>
 
   <footer>
@@ -181,6 +168,3 @@
 
 </body>
 </html>
-
-
-
