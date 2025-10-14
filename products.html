@@ -1,121 +1,186 @@
-Delete old website files to start fresh
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Gemstone Collection | Gemmines2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background-color: #020b1b;
-      color: #f2f2f2;
       font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #f1f1f1;
       margin: 0;
       padding: 0;
     }
+
     header {
+      background-color: #1f2833;
+      color: #66fcf1;
       text-align: center;
-      padding: 30px 10px;
-      background: linear-gradient(90deg, #001f3f, #001a33);
-      border-bottom: 1px solid #003366;
+      padding: 20px 0;
     }
-    header h1 {
-      font-size: 2em;
-      color: #7fe7ff;
-      letter-spacing: 1px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    nav {
+      background-color: #0b0c10;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
+      padding: 10px 0;
     }
-    .card {
-      background-color: #0a162a;
+
+    nav a {
+      color: #45a29e;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #66fcf1;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background-color: #1f2833;
       border-radius: 12px;
       padding: 15px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card:hover {
+
+    .product-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 15px rgba(0,0,0,0.6);
     }
-    .card img {
+
+    .product-card img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: auto; /* height adjusts automatically */
+      max-height: 250px; /* limits very tall images */
+      object-fit: cover; /* crops without stretching */
       border-radius: 10px;
       border: 1px solid #004466;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
     }
-    h3 {
-      color: #7fe7ff;
-      margin: 10px 0 5px;
-      font-size: 1.1em;
+
+    .product-card img:hover {
+      transform: scale(1.05);
     }
-    p {
+
+    .product-card h3 {
+      color: #66fcf1;
+      margin: 5px 0;
+    }
+
+    .product-card p {
+      color: #c5c6c7;
       font-size: 0.95em;
-      color: #ccc;
+      margin-bottom: 10px;
     }
-    .center {
-      text-align: center;
-      margin-top: 30px;
-    }
-    a {
-      color: #7fe7ff;
+
+    .buy-button {
+      background-color: #45a29e;
+      color: #0b0c10;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
       text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .buy-button:hover {
+      background-color: #66fcf1;
+    }
+
+    footer {
+      background-color: #1f2833;
+      color: #c5c6c7;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* ===== MOBILE RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .products-container {
+        grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products-container {
+        grid-template-columns: 1fr; /* 1 column on phones */
+      }
+
+      .product-card img {
+        max-height: 200px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Our Natural Gemstone Collection</h1>
+    <h1>💎 Gemmines2</h1>
+    <p>Authentic Natural Gemstones from Pakistan and Other Regions – Worldwide Shipping Available</p>
   </header>
 
-  <main class="container">
-    <div class="grid">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="refund.html">Refund</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-      <!-- Replace image filenames below with your actual image names -->
-      <article class="card">
-        <img src="images/almandine-garnet.jpg" alt="Pyrope Almandine Garnet">
-        <h3>Unheated Pyrope Almandine Garnet</h3>
-        <p>Origin: Pakistan • Deep red hue with excellent lustre</p>
-      </article>
-
-      <article class="card">
-        <img src="images/katlang-topaz.jpg" alt="Light Pink Katlang Topaz">
-        <h3>Light Pink Katlang Topaz – 14 Carats</h3>
-        <p>Natural, unheated • Origin: Katlang, Pakistan</p>
-      </article>
-
-      <article class="card">
-        <img src="images/golden-citrine.jpg" alt="Golden Citrine">
-        <h3>Golden Citrine Set in Italian Silver</h3>
-        <p>Crystal-clear golden citrine • Handcrafted silver setting</p>
-      </article>
-
-      <article class="card">
-        <img src="images/kunzite.jpg" alt="Lilac Kunzite">
-        <h3>Lilac Kunzite – 4 Carats</h3>
-        <p>Soft lilac hue • High lustre • Natural gem</p>
-      </article>
-
-      <article class="card">
-        <img src="images/aquamarine.jpg" alt="Aquamarine Rough">
-        <h3>Aquamarine Rough – 250g</h3>
-        <p>Natural rough aquamarine • Ideal for collectors</p>
-      </article>
-
+  <section class="products-container">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="images/citrine.jpg" alt="Golden Citrine">
+      <h3>Golden Citrine</h3>
+      <p>Natural unheated Citrine set in Italian Silver with zircon.</p>
+      <a href="checkout.html" class="buy-button">Buy Now</a>
     </div>
-    <p class="center"><a href="index.html">← Back to Home</a></p>
-  </main>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="images/garnet.jpg" alt="Rhodolite Garnet">
+      <h3>Rhodolite Garnet</h3>
+      <p>Natural unheated Garnet set in Italian Silver with zircon.</p>
+      <a href="checkout.html" class="buy-button">Buy Now</a>
+    </div>
+
+    <!-- You can add more product cards below -->
+    <!-- <div class="product-card">...</div> -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
+
+
+
