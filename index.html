@@ -1,132 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Gemmines2 | Natural Gemstones from Pakistan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemmines2 | Authentic Gemstones</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background-color: #020b1b;
-      color: #f2f2f2;
       font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #f1f1f1;
       margin: 0;
       padding: 0;
     }
 
     header {
-      background: linear-gradient(90deg, #001f3f, #001a33);
-      color: #7fe7ff;
-      padding: 40px 10px;
+      background-color: #1f2833;
+      color: #66fcf1;
       text-align: center;
-      border-bottom: 1px solid #003366;
+      padding: 20px 0;
     }
 
-    header h1 {
-      font-size: 2em;
-      letter-spacing: 1px;
+    nav {
+      background-color: #0b0c10;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #45a29e;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #66fcf1;
     }
 
     .hero {
       text-align: center;
       padding: 40px 20px;
-      background: radial-gradient(circle at center, #001a33 0%, #000814 100%);
+      background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      color: #66fcf1;
+      margin-bottom: 10px;
     }
 
     .hero p {
-      font-size: 1.1em;
-      color: #d1eaff;
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #c5c6c7;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
+      padding: 40px;
+      background-color: #0b0c10;
     }
 
-    .card {
-      background-color: #0a162a;
-      border-radius: 12px;
-      text-align: center;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.6);
-    }
-
-    .card img {
+    .gallery img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
       border-radius: 10px;
-      border: 1px solid #004466;
+      transition: transform 0.3s;
     }
 
-    h3 {
-      color: #7fe7ff;
-      margin: 10px 0 5px;
-      font-size: 1.1em;
-    }
-
-    p {
-      color: #ccc;
-      font-size: 0.95em;
+    .gallery img:hover {
+      transform: scale(1.05);
     }
 
     footer {
+      background-color: #1f2833;
+      color: #c5c6c7;
       text-align: center;
       padding: 20px;
-      border-top: 1px solid #003366;
-      background-color: #001a33;
-      color: #7fe7ff;
-      font-size: 0.9em;
+      margin-top: 40px;
     }
 
-    a {
-      color: #7fe7ff;
+    .social-links a {
+      color: #66fcf1;
+      margin: 0 10px;
       text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .social-links a:hover {
+      color: #45a29e;
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <h1>Gemmines2</h1>
-    <p>Authentic Natural Gemstones from Pakistan</p>
+    <h1>💎 Gemmines2</h1>
+    <p>Authentic Natural Gemstones from Pakistan and Other Regions – Worldwide Shipping Available</p>
   </header>
 
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="refund.html">Refund</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <section class="hero">
-    <p>Discover our collection of unheated, natural gemstones — ethically sourced from Pakistan’s rich mines. Each piece is unique, tested, and ready for collectors and jewelry makers worldwide.</p>
+    <h1>Discover the Beauty of Natural Gemstones</h1>
+    <p>Handpicked, authentic, and ethically sourced stones for collectors and jewelry lovers worldwide.</p>
   </section>
 
   <section class="gallery">
-    <div class="card">
-      <img src="images/garnet.jpg" alt="Natural Rhodolite Garnet">
-      <h3>Rhodolite Garnet</h3>
-      <p>Natural unheated Rhodolite Garnet set in Italian Silver with zircon.</p>
-    </div>
-
-    <div class="card">
-      <img src="images/citrine.jpg" alt="Golden Citrine">
-      <h3>Golden Citrine</h3>
-      <p>Natural unheated Golden Citrine set in Italian Silver with zircon.</p>
-    </div>
+    <img src="images/citrine.jpg" alt="Natural Citrine">
+    <img src="images/garnet.jpg" alt="Natural Garnet">
   </section>
 
   <footer>
-    <p>&copy; 2025 Gemmines2 | <a href="products.html">View All Products</a></p>
+    <p>Contact us: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: <a href="https://wa.me/923362149415" target="_blank">+92 336 2149415</a></p>
+    <div class="social-links">
+      <a href="#" title="Instagram">📸</a>
+      <a href="#" title="Facebook">📘</a>
+      <a href="#" title="TikTok">🎵</a>
+    </div>
+    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
