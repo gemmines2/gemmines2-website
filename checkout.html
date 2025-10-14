@@ -25,100 +25,59 @@
       background-color: #0b0c10;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
       padding: 10px 0;
     }
 
-    nav a {
-      color: #45a29e;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+    nav a { color: #45a29e; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #66fcf1; }
 
-    nav a:hover {
-      color: #66fcf1;
-    }
-
-    .checkout-container {
-      max-width: 800px;
+    .checkout-form {
+      max-width: 600px;
       margin: 40px auto;
+      padding: 20px;
       background-color: #1f2833;
-      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
-    .checkout-container h2 {
-      color: #66fcf1;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+    .checkout-form h2 { color: #66fcf1; text-align: center; margin-bottom: 20px; }
 
-    .section {
-      margin-bottom: 30px;
-    }
-
-    .section h3 {
-      color: #45a29e;
-      border-bottom: 1px solid #45a29e;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-
-    input, select, textarea {
+    .checkout-form label { display: block; margin: 10px 0 5px; }
+    .checkout-form input, .checkout-form textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
       border-radius: 5px;
-      border: none;
+      border: 1px solid #004466;
       background-color: #0b0c10;
-      color: #fff;
+      color: #f1f1f1;
     }
 
-    button {
-      width: 100%;
-      padding: 12px;
+    .checkout-form input[readonly] { background-color: #333; }
+
+    .checkout-form button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
       background-color: #45a29e;
       color: #0b0c10;
       font-weight: bold;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      width: 100%;
     }
 
-    button:hover {
-      background-color: #66fcf1;
-    }
+    .checkout-form button:hover { background-color: #66fcf1; }
 
-    footer {
-      background-color: #1f2833;
-      color: #c5c6c7;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    .note {
-      color: #c5c6c7;
-      font-size: 0.9em;
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .payment-methods img {
-      width: 50px;
-      margin: 10px;
-      vertical-align: middle;
-    }
+    footer { background-color: #1f2833; color: #c5c6c7; text-align: center; padding: 20px; margin-top: 40px; }
   </style>
 </head>
 <body>
 
   <header>
     <h1>💎 Gemmines2</h1>
-    <p>Authentic Natural Gemstones from Pakistan and Other Regions – Worldwide Shipping Available</p>
+    <p>Checkout – Worldwide Shipping Available</p>
   </header>
 
   <nav>
@@ -130,58 +89,40 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="checkout-container">
-    <h2>Checkout</h2>
+  <div class="checkout-form">
+    <h2>Place Your Order</h2>
+    <form>
+      <label for="product">Product</label>
+      <input type="text" id="product" name="product" readonly>
 
-    <div class="section">
-      <h3>Customer Details</h3>
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Phone / WhatsApp Number" required>
-        <textarea placeholder="Shipping Address" rows="3" required></textarea>
-      </form>
-    </div>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
 
-    <div class="section">
-      <h3>Order Summary</h3>
-      <p>You can review your gemstone details and confirm before payment.</p>
-      <p><strong>Example:</strong> Natural Rhodolite Garnet – Italian Silver Ring</p>
-      <p><strong>Total Amount:</strong> USD $120 (or equivalent in PKR)</p>
-    </div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
 
-    <div class="section">
-      <h3>Payment Options</h3>
-      <p>Choose one of the available payment methods below:</p>
-      <div class="payment-methods">
-        💳 PayPal • 💵 Western Union • 💸 Ria Money Transfer
-      </div>
-      <p class="note">After completing payment, please send a confirmation with your transaction ID to:  
-      <strong>gemmines2@gmail.com</strong> or WhatsApp <strong>+92 336 2149415</strong>.</p>
-    </div>
+      <label for="whatsapp">WhatsApp Number</label>
+      <input type="text" id="whatsapp" name="whatsapp" required>
 
-    <button>Place Order</button>
-    <p class="note">We will confirm your order and ship worldwide within 3–7 business days.</p>
+      <label for="address">Shipping Address</label>
+      <textarea id="address" name="address" rows="4" required></textarea>
+
+      <button type="submit">Place Order</button>
+    </form>
   </div>
 
   <footer>
     <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    // Auto-fill product from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product');
+    if(product) {
+      document.getElementById('product').value = product;
+    }
+  </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ChatGPT can make mistakes. Check important info.
