@@ -1,260 +1,6 @@
-/* Gemmines2 Dark Blue Theme – Readability Enhanced */
-
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #000428, #004e92);
-  color: #e0e0e0;
-  line-height: 1.6;
-}
-
-/* Header */
-header {
-  background: rgba(0, 0, 0, 0.75);
+.gallery {
   text-align: center;
-  padding: 20px;
-  border-bottom: 2px solid #00bcd4;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #00bcd4;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 3px #000;
-}
-
-nav {
-  margin-top: 10px;
-}
-
-nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #00bcd4;
-}
-
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(180deg, #001f3f, #000);
-  border-bottom: 2px solid #00bcd4;
-}
-
-.hero h2 {
-  font-size: 2rem;
-  color: #00bcd4;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 10px auto;
-  color: #f0f0f0;
-}
-
-/* Product cards */
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px 20px;
-}
-
-.product-card {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  padding: 20px;
-  width: 260px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s, background 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  background: rgba(0, 188, 212, 0.15);
-}
-
-.product-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}section.gallery .card img {
-  width: 100% !important;
-  height: 200px !important;
-  object-fit: cover !important;
-  border-radius: 10px;
-  border: 1px solid #004466;
-  transition: transform 0.3s;
-}
-
-section.gallery .card img:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  section.gallery .card img {
-    height: 180px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  section.gallery .card img {
-    height: 150px !important;
-  }
-}
-section.gallery .card img {
-  width: 100% !important;       /* Fill card width */
-  height: 200px !important;     /* uniform height */
-  object-fit: cover !important; /* crop large images nicely */
-  border-radius: 10px;
-  border: 1px solid #004466;
-  transition: transform 0.3s;
-}
-
-section.gallery .card img:hover {
-  transform: scale(1.05);       /* small zoom effect on hover */
-}
-
-/* ===== Responsive adjustments ===== */
-@media (max-width: 768px) {
-  section.gallery .card img {
-    height: 180px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  section.gallery .card img {
-    height: 150px !important;
-  }
-}
-/* ===== Homepage gallery images ===== */
-.gallery .card img {
-  width: 100%;       /* Fill card width */
-  height: 200px;     /* uniform height */
-  object-fit: cover; /* scale/crop large images nicely */
-  border-radius: 10px;
-  border: 1px solid #004466;
-  transition: transform 0.3s;
-}
-
-.gallery .card img:hover {
-  transform: scale(1.05); /* small zoom effect on hover */
-}
-
-/* ===== Responsive adjustments ===== */
-@media (max-width: 768px) {
-  .gallery .card img {
-    height: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery .card img {
-    height: 150px;
-  }
-}
-
-.product-card h3 {
-  color: #00bcd4;
-  margin-bottom: 5px;
-}
-
-.product-card p {
-  color: #ddd;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 30px 10px;
-  background: rgba(0, 0, 0, 0.9);
-  border-top: 2px solid #00bcd4;
-  font-size: 14px;
-  color: #ccc;
-}
-
-.footer a {
-  color: #00bcd4;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  background: #00bcd4;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #00a0b2;
-  color: #fff;
-}
-
-
-/* === Visibility Fix for Dark Theme === */
-body, h1, h2, h3, h4, h5, h6, p, span, li, label {
-  color: #ffffff !important;
-}
-
-a, a:visited {
-  color: #00bfff !important; /* Bright blue links */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #1e90ff !important; /* Lighter blue on hover */.navbar {
-  background-color: #001f33;
-  padding: 10px 0;
-  text-align: center;
-  border-bottom: 2px solid #004466;
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #00ccff;
-}
-  text-decoration: underline;.gallery {
-  text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
   color: #fff;
 }
 
@@ -265,7 +11,7 @@ a:hover {
 
 .gallery p {
   color: #ccc;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -273,54 +19,48 @@ a:hover {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
   justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .gallery-item {
-  background: #0a0a1a;
+  background: #0b0b1a;
   border-radius: 14px;
-  padding: 15px;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  overflow: hidden;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gallery-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.8);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.8);
 }
 
 .gallery-item img {
   width: 100%;
-  height: 180px;
-  border-radius: 10px;
+  height: 200px; /* force all images same height */
   object-fit: cover;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #222;
 }
 
 .gallery-item h3 {
-  margin: 5px 0;
-  color: #f4f4f4;
+  margin-top: 10px;
   font-size: 1.1em;
+  color: #f4f4f4;
 }
 
 .gallery-item p {
   font-size: 0.9em;
   color: #bbb;
+  padding: 0 10px 15px;
+  text-align: center;
 }
-
-}
-
-button, .btn {
-  background-color: #007bff !important;
-  color: #fff !important;
-  border: none;
-}
-
-button:hover, .btn:hover {
-  background-color: #0056b3 !important;
-}
-
-
