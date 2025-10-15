@@ -2,169 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0b0c10;
-      color: #f1f1f1;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #1f2833;
-      color: #66fcf1;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    nav {
-      background-color: #0b0c10;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: #45a29e;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #66fcf1;
-    }
-
-    .products-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .product-card {
-      background-color: #1f2833;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.6);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: auto;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid #004466;
-      margin-bottom: 10px;
-      transition: transform 0.3s;
-    }
-
-    .product-card img:hover {
-      transform: scale(1.05);
-    }
-
-    .product-card h3 {
-      color: #66fcf1;
-      margin: 5px 0;
-    }
-
-    .product-card p {
-      color: #c5c6c7;
-      font-size: 0.95em;
-      margin-bottom: 10px;
-    }
-
-    .buy-button {
-      background-color: #45a29e;
-      color: #0b0c10;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s;
-    }
-
-    .buy-button:hover {
-      background-color: #66fcf1;
-    }
-
-    footer {
-      background-color: #1f2833;
-      color: #c5c6c7;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      nav { flex-direction: column; gap: 10px; }
-      .products-container { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .products-container { grid-template-columns: 1fr; }
-      .product-card img { max-height: 200px; }
-    }
-  </style>
 </head>
 <body>
-
   <header>
-    <h1>💎 Gemmines2</h1>
-    <p>Authentic Natural Gemstones from Pakistan and Other Regions – Worldwide Shipping Available</p>
+    <h1>Gemmines2</h1>
+    <p>Authentic Gemstones from Pakistan & Worldwide</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="refund.html">Refund</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <section class="gallery">
+    <h2>All Gemstones</h2>
 
-  <section class="products-container">
-    <!-- Product 1 -->
-    <div class="product-card">
+    <div class="card">
       <img src="images/citrine.jpg" alt="Golden Citrine">
       <h3>Golden Citrine</h3>
-      <p>Natural unheated Citrine set in Italian Silver with zircon.</p>
-      <a href="checkout.html?product=Golden%20Citrine" class="buy-button">Buy Now</a>
+      <p>Natural unheated Citrine set in Italian Silver.</p>
+      <a href="checkout.html?product=Golden Citrine" class="btn">Buy Now</a>
     </div>
 
-    <!-- Product 2 -->
-    <div class="product-card">
+    <div class="card">
       <img src="images/garnet.jpg" alt="Rhodolite Garnet">
       <h3>Rhodolite Garnet</h3>
-      <p>Natural unheated Garnet set in Italian Silver with zircon.</p>
-      <a href="checkout.html?product=Rhodolite%20Garnet" class="buy-button">Buy Now</a>
+      <p>Natural unheated Garnet set in Italian Silver.</p>
+      <a href="checkout.html?product=Rhodolite Garnet" class="btn">Buy Now</a>
     </div>
 
-    <!-- Add more gemstones here by copying product-card block -->
+    <!-- Add more gemstone cards here -->
   </section>
 
   <footer>
-    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
+    <p>&copy; 2025 Gemmines2 | 
+      <a href="index.html">Home</a> | 
+      <a href="about.html">About Us</a> | 
+      <a href="products.html">Products</a>
+    </p>
+    <p>Email: gemmines2@gmail.com | WhatsApp: +923362149415</p>
+    <p>Follow us: 
+      <a href="#">Instagram</a> | 
+      <a href="#">Facebook</a> | 
+      <a href="#">TikTok</a>
+    </p>
   </footer>
-
 </body>
 </html>
+✅ Next Steps
