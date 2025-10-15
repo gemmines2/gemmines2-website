@@ -223,7 +223,35 @@ a, a:visited {
 }
 
 a:hover {
-  color: #1e90ff !important; /* Lighter blue on hover */
+  color: #1e90ff !important; /* Lighter blue on hover */.navbar {
+  background-color: #001f33;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 2px solid #004466;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00ccff;
+}
   text-decoration: underline;
 }
 
