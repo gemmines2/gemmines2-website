@@ -1,159 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gemmines2 | Gemstone Gallery</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background: #0b0e2a;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      text-align: center;
-      padding: 30px 20px;
-      background: linear-gradient(90deg, #0b0e2a, #11163d);
-    }
-
-    header h1 {
-      color: #00bfff;
-      margin-bottom: 5px;
-    }
-
-    nav {
-      background: #080a20;
-      text-align: center;
-      padding: 10px;
-    }
-
-    nav a {
-      color: #00bfff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .gallery-card {
-      background: #11163d;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.7);
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 2px solid #00bfff;
-    }
-
-    .gallery-card h3 {
-      color: #00bfff;
-      margin: 10px;
-      text-align: center;
-      font-size: 18px;
-    }
-
-    .gallery-card p {
-      font-size: 14px;
-      color: #ccc;
-      text-align: center;
-      margin: 0 10px 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #080a20;
-      color: #888;
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>Gemmines2 Gemstone Gallery</h1>
-    <p>Authentic Gemstones from Pakistan & Worldwide</p>
+    <h1>Gemmines2 Gallery</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="products.html">Products</a>
-    <a href="refund.html">Refund</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <section class="gallery-page">
+    <h2>Gemstones Collection</h2>
+    <div class="gallery-grid">
+      <div class="card">
+        <img src="images/aquamarine.jpg" alt="Aquamarine" />
+        <h3>Aquamarine</h3>
+        <p>Natural Aquamarine with ocean-blue clarity and fine luster.</p>
+      </div>
 
-  <section class="gallery-container">
+      <div class="card">
+        <img src="images/citrine.jpg" alt="Citrine" />
+        <h3>Citrine</h3>
+        <p>Natural unheated golden Citrine with radiant brilliance.</p>
+      </div>
 
-    <div class="gallery-card">
-      <img src="images/aquamarine.jpg" alt="Aquamarine">
-      <h3>Aquamarine</h3>
-      <p>Natural sky-blue Aquamarine with calming ocean hues from Pakistan.</p>
+      <div class="card">
+        <img src="images/garnet.jpg" alt="Garnet" />
+        <h3>Garnet</h3>
+        <p>Natural Rhodolite Garnet with deep pink-red hue.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/green-jasper.jpg" alt="Green Jasper" />
+        <h3>Green Jasper</h3>
+        <p>Earthy natural Jasper from Pakistan with calming patterns.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/peridot.jpg" alt="Peridot" />
+        <h3>Peridot</h3>
+        <p>Natural Peridot with lime-green brilliance, symbol of energy.</p>
+      </div>
+
+      <div class="card">
+        <img src="images/ferrugenious.jpg" alt="Ferrugenious" />
+        <h3>Ferrugenious Quartz</h3>
+        <p>Unique natural quartz featuring golden-red iron inclusions.</p>
+      </div>
     </div>
-
-    <div class="gallery-card">
-      <img src="images/citrine.jpg" alt="Citrine">
-      <h3>Citrine</h3>
-      <p>Golden-yellow unheated Citrine with brilliant sparkle and clarity.</p>
-    </div>
-
-    <div class="gallery-card">
-      <img src="images/garnet.jpg" alt="Garnet">
-      <h3>Garnet</h3>
-      <p>Deep red natural Garnet with lustrous surface and fine polish.</p>
-    </div>
-
-    <div class="gallery-card">
-      <img src="images/green-jasper.jpg" alt="Green Jasper">
-      <h3>Green Jasper</h3>
-      <p>Earthy green Jasper gemstone, perfect for balance and healing.</p>
-    </div>
-
-    <div class="gallery-card">
-      <img src="images/peridot.jpg" alt="Peridot">
-      <h3>Peridot</h3>
-      <p>Vibrant lime-green natural Peridot symbolizing renewal and energy.</p>
-    </div>
-
-    <div class="gallery-card">
-      <img src="images/ferrugenious.jpg" alt="Ferrugenious Garnet">
-      <h3>Ferrugenious Garnet</h3>
-      <p>Unique reddish-brown Ferrugenious Garnet with natural unheated clarity.</p>
-    </div>
-
   </section>
 
   <footer>
-    © 2025 Gemmines2 | Authentic Gemstones from Pakistan & Worldwide
+    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: <a href="https://wa.me/923362149415" target="_blank">+923362149415</a></p>
+    <p>Follow us: 
+      <a href="#">Instagram</a> | 
+      <a href="#">Facebook</a> | 
+      <a href="#">TikTok</a>
+    </p>
+    <p>&copy; 2025 Gemmines2 | All Rights Reserved</p>
   </footer>
-
 </body>
 </html>
