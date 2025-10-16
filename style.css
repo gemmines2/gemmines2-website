@@ -2,10 +2,16 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #0d0d1a;
-  color: #fff;
+  color: #d9d9d9;
 }
 
-/* Header */
+a {
+  text-decoration: none;
+}
+
+/* ============================= */
+/* HEADER & NAVIGATION */
+/* ============================= */
 header {
   text-align: center;
   background: linear-gradient(90deg, #001f3f, #000);
@@ -15,6 +21,7 @@ header {
 header h1 {
   font-size: 2rem;
   color: #00bcd4;
+  margin: 0;
 }
 
 nav ul {
@@ -27,7 +34,6 @@ nav ul {
 }
 
 nav a {
-  text-decoration: none;
   color: #fff;
   font-weight: bold;
   transition: color 0.3s;
@@ -38,7 +44,9 @@ nav a.active {
   color: #00bcd4;
 }
 
-/* Hero Section */
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
 .hero {
   text-align: center;
   background: url('images/hero-bg.jpg') center/cover no-repeat;
@@ -49,12 +57,13 @@ nav a.active {
 .hero h2 {
   font-size: 1.8rem;
   color: #00bcd4;
+  margin: 0.5rem 0;
 }
 
 .hero p {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #ccc;
+  color: #d9d9d9;
 }
 
 .btn {
@@ -64,16 +73,18 @@ nav a.active {
   color: #000;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
-  text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .btn:hover {
   background-color: #00acc1;
+  transform: translateY(-2px);
 }
 
-/* Featured Section */
+/* ============================= */
+/* FEATURED GEMSTONES */
+/* ============================= */
 .featured {
   text-align: center;
   padding: 3rem 1rem;
@@ -84,12 +95,15 @@ nav a.active {
   margin-bottom: 2rem;
 }
 
-/* Gallery Grid */
+/* ============================= */
+/* GALLERY GRID */
+/* ============================= */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   justify-items: center;
+  padding: 1rem;
 }
 
 .card {
@@ -97,12 +111,14 @@ nav a.active {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 300px;
+  text-align: center;
 }
 
 .card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
 }
 
 .card img {
@@ -117,12 +133,14 @@ nav a.active {
 }
 
 .card p {
-  color: #ccc;
-  padding: 0 0.5rem;
+  color: #d9d9d9;
+  font-size: 0.95rem;
+  padding: 0 0.5rem 1rem;
 }
 
-/* Footer */
-
+/* ============================= */
+/* FOOTER */
+/* ============================= */
 footer {
   background-color: #000;
   text-align: center;
@@ -144,4 +162,22 @@ footer a {
 
 footer a:hover {
   color: #fff;
+}
+
+/* ============================= */
+/* RESPONSIVE ADJUSTMENTS */
+/* ============================= */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .card img {
+    height: 180px;
+  }
 }
