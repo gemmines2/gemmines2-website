@@ -122,14 +122,26 @@ nav a.active {
 }
 
 /* Footer */
+
 footer {
   background-color: #000;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #999;
+  border-top: 1px solid #00bcd4;
 }
 
 footer p {
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
+}
+
+footer a {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
 }
