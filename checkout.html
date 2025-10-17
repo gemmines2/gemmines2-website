@@ -1,59 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Gemmines2</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    form {
-      max-width: 500px;
-      margin: 2rem auto;
-      background: #0b0b18;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,188,212,0.1);
-    }
-    label {display:block;margin-bottom:0.5rem;color:#00bcd4;}
-    input, textarea {
-      width: 100%;padding:0.7rem;margin-bottom:1rem;
-      border:none;border-radius:6px;background:#111;color:#fff;
-    }
-    button {
-      background:#00bcd4;color:#000;padding:0.8rem 1.5rem;
-      border:none;border-radius:25px;font-weight:600;cursor:pointer;
-      transition:background .3s ease;
-    }
-    button:hover {background:#0099cc;}
+    /* small page-specific styles to ensure readability */
+    .checkout-wrap { max-width:700px; margin:2.5rem auto; padding:1.5rem; }
+    form { background:#0b0b18; padding:1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,188,212,0.08); }
+    .form-row { margin-bottom:1rem; }
+    label { display:block; color:#00bcd4; font-weight:600; margin-bottom:.4rem; }
+    input, textarea, select { width:100%; padding:.65rem; border-radius:8px; border:none; background:#121224; color:#fff; }
+    .note { color:#ccc; font-size:.95rem; margin-bottom:1rem; }
+    .actions { margin-top:1rem; text-align:center; }
   </style>
 </head>
 <body>
-<header>
-  <h1>Checkout</h1>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Gemmines2</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<form action="order-success.html" method="post">
-  <label for="name">Full Name</label>
-  <input type="text" id="name" name="name" required>
+  <main class="container checkout-wrap">
+    <h2 class="section-title">Secure Checkout</h2>
+    <p class="note">Fill in your details. Payment instructions will be provided after order confirmation.</p>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required>
+    <form action="order-success.html" method="post" id="checkoutForm">
+      <div class="form-row">
+        <label for="gem-name">Selected Gemstone</label>
+        <input type="text" id="gem-name" name="gem-name" placeholder="Gemstone name" required />
+      </div>
 
-  <label for="address">Shipping Address</label>
-  <textarea id="address" name="address" required></textarea>
+      <div class="form-row">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full-name" required />
+      </div>
 
-  <label for="payment">Payment Method</label>
-  <select id="payment" name="payment" required>
-    <option value="Western Union">Western Union</option>
-    <option value="Ria">Ria</option>
-    <option value="PayPal">PayPal</option>
-  </select>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
 
-  <button type="submit">Confirm Order</button>
-</form>
+      <div class="form-row">
+        <label for="address">Shipping Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
 
-<footer>
-  <p>&copy; 2025 Gemmines2 — Authentic Gemstones Worldwide</p>
-</footer>
+      <div class="form-row">
+        <label for="country">Country</label>
+        <input id="country" name="country" required />
+      </div>
+
+      <div class="form-row">
+        <label for="payment">Payment Method</label>
+        <select id="payment" name="payment" required>
+          <option value="">Choose payment method</option>
+          <option value="western_union">Western Union</option>
+          <option value="ria">Ria</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank">Bank Transfer</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button class="buy-btn" type="submit">Confirm Order</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // Pre-fill gem-name from URL parameter ?gem=...
+    (function(){
+      function getParam(name){
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name) || '';
+      }
+      const gem = decodeURIComponent(getParam('gem')).replace(/\+/g,' ');
+      if(gem){
+        const gemInput = document.getElementById('gem-name');
+        if(gemInput) gemInput.value = gem;
+      }
+    })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Gemmines2 — Authentic Gemstones Worldwide</p>
+    </div>
+  </footer>
 </body>
 </html>
