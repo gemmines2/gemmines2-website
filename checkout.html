@@ -5,124 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0b0c10;
-      color: #f1f1f1;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #1f2833;
-      color: #66fcf1;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    nav {
-      background-color: #0b0c10;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 10px 0;
-    }
-
-    nav a { color: #45a29e; text-decoration: none; font-weight: bold; }
-    nav a:hover { color: #66fcf1; }
-
-    .checkout-form {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #1f2833;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .checkout-form h2 { color: #66fcf1; text-align: center; margin-bottom: 20px; }
-
-    .checkout-form label { display: block; margin: 10px 0 5px; }
-    .checkout-form input, .checkout-form textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #004466;
-      background-color: #0b0c10;
-      color: #f1f1f1;
-    }
-
-    .checkout-form input[readonly] { background-color: #333; }
-
-    .checkout-form button {
-      margin-top: 15px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #45a29e;
-      color: #0b0c10;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .checkout-form button:hover { background-color: #66fcf1; }
-
-    footer { background-color: #1f2833; color: #c5c6c7; text-align: center; padding: 20px; margin-top: 40px; }
-  </style>
 </head>
 <body>
-
+  <!-- Header -->
   <header>
-    <h1>💎 Gemmines2</h1>
-    <p>Checkout – Worldwide Shipping Available</p>
+    <h1>Gemmines2</h1>
+    <p>Secure Checkout — Authentic Gemstones Worldwide</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="refund.html">Refund</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- Checkout Form -->
+  <section class="checkout-form">
+    <h2>Complete Your Purchase</h2>
+    <form action="order-success.html" method="post">
+      <label for="gem-name">Selected Gemstone</label>
+      <input type="text" id="gem-name" name="gem-name" placeholder="Enter gemstone name..." required>
 
-  <div class="checkout-form">
-    <h2>Place Your Order</h2>
-    <form>
-      <label for="product">Product</label>
-      <input type="text" id="product" name="product" readonly>
-
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Enter your name" required>
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="whatsapp">WhatsApp Number</label>
-      <input type="text" id="whatsapp" name="whatsapp" required>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
       <label for="address">Shipping Address</label>
-      <textarea id="address" name="address" rows="4" required></textarea>
+      <textarea id="address" name="address" rows="3" placeholder="Enter complete address" required></textarea>
 
-      <button type="submit">Place Order</button>
+      <label for="country">Country</label>
+      <input type="text" id="country" name="country" placeholder="Enter your country" required>
+
+      <label for="payment">Select Payment Method</label>
+      <select id="payment" name="payment" required>
+        <option value="">Choose payment method</option>
+        <option value="western_union">Western Union</option>
+        <option value="ria">Ria Money Transfer</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+
+      <button type="submit" class="buy-btn">Confirm Order</button>
     </form>
-  </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
+    <p>&copy; 2025 Gemmines2 — Authentic Gemstones Worldwide</p>
   </footer>
-
-  <script>
-    // Auto-fill product from URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const product = urlParams.get('product');
-    if(product) {
-      document.getElementById('product').value = product;
-    }
-  </script>
-
 </body>
 </html>
