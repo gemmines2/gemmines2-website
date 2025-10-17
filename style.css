@@ -268,7 +268,52 @@ footer a:hover {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+.order-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-color: #0b0b18;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
 
+.success-box {
+  background-color: #101020;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+  max-width: 600px;
+}
+
+.success-box h2 {
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+.success-box .info {
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.success-box a.buy-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #003366;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.success-box a.buy-btn:hover {
+  background-color: #00bcd4;
+  color: #000;
+}
 .checkout-form button:hover {
   background-color: #00bcd4;
   color: #000;
