@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart — Gemmines2</title>
+  <title>Cart | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="brand">Gemmines2</h1>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="active" href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container">
-    <h2 class="section-title">Checkout Details</h2>
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <p>Your cart is empty.</p>
+    </div>
 
-    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST" class="checkout-form">
+    <h3>Checkout Details</h3>
+    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="_replyto" placeholder="Email" required>
       <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
       <input type="text" name="country" placeholder="Country" required>
       <input type="text" name="address" placeholder="Shipping Address" required>
 
-      <label for="payment" style="color:#00bcd4;">Select Payment Method</label>
+      <label for="payment">Select Payment Method</label>
       <select name="payment" id="payment" required>
         <option value="">-- Choose Payment Method --</option>
         <option value="Western Union">Western Union</option>
@@ -44,12 +49,10 @@
 
       <button type="submit" class="btn">Place Order</button>
     </form>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Gemmines2 | Email: gemmines2@gmail.com | WhatsApp: +923362149415</p>
-    </div>
+  <footer>
+    <p>© 2025 Gemmines2 | All Rights Reserved</p>
   </footer>
 
   <script src="cart.js"></script>
