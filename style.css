@@ -171,7 +171,55 @@ footer {.contact-form {
   background-color: #000;
   text-align: center;
   padding: 2rem 1rem;
+  font-size: 0.9rem;.featured h2 {
+  font-size: 1.8rem;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+.featured p {
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.card {
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card h3 {
+  color: #00bcd4;
+  margin: 0.6rem 0 0.3rem;
+}
+
+.card p {
+  color: #ccc;
   font-size: 0.9rem;
+  padding: 0 0.5rem 1rem;
+}
+
   color: #999;
   border-top: 1px solid #00bcd4;
 }
