@@ -5,7 +5,7 @@ body {
   color: #fff;
 }
 
-/* Header */
+/* ========= Header ========= */
 header {
   text-align: center;
   background: linear-gradient(90deg, #001f3f, #000);
@@ -38,7 +38,7 @@ nav a.active {
   color: #00bcd4;
 }
 
-/* Hero Section */
+/* ========= Hero Section ========= */
 .hero {
   text-align: center;
   background: url('images/hero-bg.jpg') center/cover no-repeat;
@@ -73,7 +73,7 @@ nav a.active {
   background-color: #00acc1;
 }
 
-/* Featured Section */
+/* ========= Featured Section ========= */
 .featured {
   text-align: center;
   padding: 3rem 1rem;
@@ -84,7 +84,7 @@ nav a.active {
   margin-bottom: 2rem;
 }
 
-/* Gallery Grid */
+/* ========= Gallery Grid ========= */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,104 +98,8 @@ nav a.active {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   transition: transform 0.3s ease;
-  max-width: 300px;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.card h3 {
-  margin: 0.5rem 0;
-  color: #00bcd4;
-}
-
-.card p {
-  color: #ccc;
-  padding: 0 0.5rem;
-}
-
-/* Footer */
-footer {.contact-form {
-  max-width: 600px;
-  margin: 3rem auto;
-  text-align: center;
-  background: #111;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
-}
-
-.contact-form h2 {
-  color: #00bcd4;
-  margin-bottom: 1rem;
-}
-
-.contact-form p {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 90%;
-  margin: 0.5rem 0;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 6px;
-  background: #222;
-  color: #fff;
-}
-
-.contact-form button {
-  background-color: #00bcd4;
-  color: #000;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #00acc1;
-}
-
-  background-color: #000;
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;.featured h2 {
-  font-size: 1.8rem;
-  color: #00bcd4;
-  margin-bottom: 1rem;
-}
-
-.featured p {
-  color: #ccc;
-  margin-bottom: 2rem;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-}
-
-.card {
-  background-color: #111;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   max-width: 280px;
   text-align: center;
-  transition: transform 0.3s ease;
 }
 
 .card:hover {
@@ -204,39 +108,21 @@ footer {.contact-form {
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
 }
 
 .card h3 {
+  margin: 0.5rem 0;
   color: #00bcd4;
-  margin: 0.6rem 0 0.3rem;
 }
 
 .card p {
   color: #ccc;
-  font-size: 0.9rem;
   padding: 0 0.5rem 1rem;
 }
 
-  color: #999;
-  border-top: 1px solid #00bcd4;
-}
-
-footer p {
-  margin: 0.4rem 0;
-}
-
-footer a {
-  color: #00bcd4;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: #fff;
-}
+/* ========= Contact Form ========= */
 .contact-container {
   display: flex;
   justify-content: center;
@@ -285,71 +171,27 @@ footer a:hover {
   font-weight: bold;
   transition: 0.3s;
 }
-.cart-section {
-  max-width: 700px;
-  margin: 3rem auto;
+
+.contact-card button:hover {
+  background-color: #00acc1;
+}
+
+/* ========= Cart & Checkout ========= */
+.cart-section, .checkout-form {
   background: #111;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
-}
-
-.cart-section h2, .cart-section h3 {
-  color: #00bcd4;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-#cart-items {
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.cart-item {
-  background: #222;
-  padding: 0.5rem;
-  border-radius: 6px;
-  margin: 0.5rem 0;
-}
-
-#checkout-form input,
-#checkout-form textarea {
-  width: 100%;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-}
-
-#checkout-form button {
-  background-color: #00bcd4;
-  color: #000;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#checkout-form button:hover {
-  background-color: #00acc1;
-}
-#checkout-form label {
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  display: block;.checkout-form {
-  background-color: #111;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+  max-width: 600px;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 500px;
-  margin: 2rem auto;
+}
+
+.cart-section h2, .checkout-form h2 {
+  color: #00bcd4;
+  text-align: center;
 }
 
 .checkout-form input,
@@ -367,18 +209,42 @@ footer a:hover {
   height: 100px;
   resize: none;
 }
-}
 
-#checkout-form select {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.3rem;
-  background: #222;
-  color: #fff;
+.checkout-form button {
+  background-color: #00bcd4;
+  color: #000;
   border: none;
+  padding: 0.8rem 1.5rem;
   border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.contact-card button:hover {
+.checkout-form button:hover {
   background-color: #00acc1;
+}
+
+/* ========= Footer ========= */
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #999;
+  border-top: 1px solid #00bcd4;
+}
+
+footer p {
+  margin: 0.4rem 0;
+}
+
+footer a {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
 }
