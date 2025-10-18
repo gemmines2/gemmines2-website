@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Gemmines2</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="brand">Gemmines2</h1>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Contact Gemmines2</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <p>For orders & enquiries:</p>
-    <ul>
-      <li>Email: <strong>info@gemmines2.example</strong> (replace with your real email)</li>
-      <li>WhatsApp: <strong>+92 300 1234567</strong> (replace with your number)</li>
-    </ul>
-  </main>
+  <section class="contact-form">
+    <h2>Get in Touch</h2>
+    <p>Have questions or special requests? Send us a message below.</p>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Gemmines2</p>
-    </div>
+    <form action="https://formspree.io/f/xjkbvwny" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
+    <p>WhatsApp: +92 336 2149415</p>
+    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a></p>
+    <p>© 2025 Gemmines2 | All rights reserved</p>
   </footer>
 </body>
 </html>
