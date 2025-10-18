@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Your Shopping Cart</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a class="active" href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+    <h2>Selected Gemstones</h2>
+    <div id="cart-items"></div>
+    <h3 id="cart-total"></h3>
+
+    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
+      <h2>Checkout Details</h2>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="_replyto" placeholder="Email" required>
+      <input type="text" name="address" placeholder="Shipping Address" required>
+      <textarea name="message" placeholder="Additional Notes"></textarea>
+      <input type="hidden" name="order" id="order-details">
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
+    <p>WhatsApp: +92 336 2149415</p>
+    <p>© 2025 Gemmines2 | All rights reserved</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
