@@ -1,35 +1,39 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-document.querySelectorAll(".add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    const name = button.getAttribute("data-name");
-    const price = parseFloat(button.getAttribute("data-price"));
-    cart.push({ name, price });
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${name} added to cart!`);
-    window.location.href = "cart.html";
-  });
-});
-
-// Display Cart Items
-if (document.getElementById("cart-items")) {
-  const cartItems = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-  let total = 0;
-
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-  } else {
-    cartItems.innerHTML = cart
-      .map(item => `<div class="cart-item">${item.name} - $${item.price}</div>`)
-      .join("");
-    total = cart.reduce((sum, item) => sum + item.price, 0);
-    cartTotal.textContent = `Total: $${total}`;
+function loadCart() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+  if (storedCart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+    return;
   }
 
-  // Fill order details for checkout form
-  const orderField = document.getElementById("order-details");
-  if (orderField) {
-    orderField.value = cart.map(item => `${item.name} - $${item.price}`).join(", ");
-  }
+  cartItemsContainer.innerHTML = storedCart.map((item, index) => `
+    <div class="cart-item">
+      <strong>${item.name}</strong><br>
+      Price: $${item.price}<br>
+      <button onclick="removeItem(${index})" class="btn">Remove</button>
+    </div>
+  `).join("");
+
+  // Update hidden order field for Formspree
+  document.getElementById("order-details").value = storedCart
+    .map(item => `${item.name} - $${item.price}`)
+    .join(", ");
 }
+
+// Remove an item from the cart
+function removeItem(index) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
+}
+
+// On page load
+window.onload = loadCart;
+
+// When user submits the form
+document.getElementById("checkout-form").addEventListener("submit", function() {
+  localStorage.removeItem("cart");
+  alert("Your order has been submitted successfully!");
+});
