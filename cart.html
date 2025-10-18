@@ -1,24 +1,57 @@
-<form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
-  <h2>Checkout Details</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart — Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Gemmines2</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="email" name="_replyto" placeholder="Email" required>
-  <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
-  <input type="text" name="country" placeholder="Country" required>
-  <input type="text" name="address" placeholder="Shipping Address" required>
-  
-  <label for="payment" style="color:#00bcd4;display:block;margin-top:0.5rem;">Select Payment Method</label>
-  <select name="payment" id="payment" required style="width:100%;padding:0.8rem;margin-top:0.5rem;background:#222;color:#fff;border:none;border-radius:6px;">
-    <option value="">-- Choose Payment Method --</option>
-    <option value="Western Union">Western Union</option>
-    <option value="RIA">RIA</option>
-    <option value="PayPal">PayPal</option>
-    <option value="Bank Transfer">Bank Transfer</option>
-    <option value="Other">Other</option>
-  </select>
+  <main class="container">
+    <h2 class="section-title">Checkout Details</h2>
 
-  <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
-  <input type="hidden" name="order" id="order-details">
+    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST" class="checkout-form">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="_replyto" placeholder="Email" required>
+      <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
+      <input type="text" name="country" placeholder="Country" required>
+      <input type="text" name="address" placeholder="Shipping Address" required>
 
-  <button type="submit" class="btn">Place Order</button>
-</form>
+      <label for="payment" style="color:#00bcd4;">Select Payment Method</label>
+      <select name="payment" id="payment" required>
+        <option value="">-- Choose Payment Method --</option>
+        <option value="Western Union">Western Union</option>
+        <option value="RIA">RIA</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
+      <input type="hidden" name="order" id="order-details">
+
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Gemmines2 | Email: gemmines2@gmail.com | WhatsApp: +923362149415</p>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
