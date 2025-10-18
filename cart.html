@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart | Gemmines2</title>
+  <title>Your Cart | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,44 +15,22 @@
         <li><a href="products.html">Products</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a class="active" href="cart.html">Cart</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="cart-section">
-    <h2>Your Cart</h2>
-    <div id="cart-items">
-      <p>Your cart is empty.</p>
-    </div>
+  <main class="cart-section">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: $<span id="cart-total">0</span></h3>
 
-    <h3>Checkout Details</h3>
-    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="_replyto" placeholder="Email" required>
-      <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
-      <input type="text" name="country" placeholder="Country" required>
-      <input type="text" name="address" placeholder="Shipping Address" required>
-
-      <label for="payment">Select Payment Method</label>
-      <select name="payment" id="payment" required>
-        <option value="">-- Choose Payment Method --</option>
-        <option value="Western Union">Western Union</option>
-        <option value="RIA">RIA</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Bank Transfer">Bank Transfer</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
-      <input type="hidden" name="order" id="order-details">
-
-      <button type="submit" class="btn">Place Order</button>
-    </form>
-  </section>
+    <button id="checkout-btn" class="btn">Proceed to Checkout</button>
+  </main>
 
   <footer>
-    <p>© 2025 Gemmines2 | All Rights Reserved</p>
+    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
+    <p>WhatsApp: +92 336 2149415</p>
+    <p>© 2025 Gemmines2 | All rights reserved</p>
   </footer>
 
   <script src="cart.js"></script>
