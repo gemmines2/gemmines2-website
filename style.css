@@ -337,6 +337,21 @@ footer a:hover {
 #checkout-form button:hover {
   background-color: #00acc1;
 }
+#checkout-form label {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+#checkout-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.3rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
 .contact-card button:hover {
   background-color: #00acc1;
 }
