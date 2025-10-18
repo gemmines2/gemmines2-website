@@ -1,45 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Cart | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Your Shopping Cart</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a class="active" href="cart.html">Cart</a></li>
-      </ul>
-    </nav>
-  </header>
+<form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
+  <h2>Checkout Details</h2>
 
-  <section class="cart-section">
-    <h2>Selected Gemstones</h2>
-    <div id="cart-items"></div>
-    <h3 id="cart-total"></h3>
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="_replyto" placeholder="Email" required>
+  <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
+  <input type="text" name="country" placeholder="Country" required>
+  <input type="text" name="address" placeholder="Shipping Address" required>
+  
+  <label for="payment" style="color:#00bcd4;display:block;margin-top:0.5rem;">Select Payment Method</label>
+  <select name="payment" id="payment" required style="width:100%;padding:0.8rem;margin-top:0.5rem;background:#222;color:#fff;border:none;border-radius:6px;">
+    <option value="">-- Choose Payment Method --</option>
+    <option value="Western Union">Western Union</option>
+    <option value="RIA">RIA</option>
+    <option value="PayPal">PayPal</option>
+    <option value="Bank Transfer">Bank Transfer</option>
+    <option value="Other">Other</option>
+  </select>
 
-    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
-      <h2>Checkout Details</h2>
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="_replyto" placeholder="Email" required>
-      <input type="text" name="address" placeholder="Shipping Address" required>
-      <textarea name="message" placeholder="Additional Notes"></textarea>
-      <input type="hidden" name="order" id="order-details">
-      <button type="submit" class="btn">Place Order</button>
-    </form>
-  </section>
+  <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
+  <input type="hidden" name="order" id="order-details">
 
-  <footer>
-    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
-    <p>WhatsApp: +92 336 2149415</p>
-    <p>© 2025 Gemmines2 | All rights reserved</p>
-  </footer>
-
-  <script src="cart.js"></script>
-</body>
-</html>
+  <button type="submit" class="btn">Place Order</button>
+</form>
