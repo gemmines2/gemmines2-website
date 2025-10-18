@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Checkout — Gemmines2</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* small page-specific styles to ensure readability */
-    .checkout-wrap { max-width:700px; margin:2.5rem auto; padding:1.5rem; }
-    form { background:#0b0b18; padding:1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,188,212,0.08); }
-    .form-row { margin-bottom:1rem; }
-    label { display:block; color:#00bcd4; font-weight:600; margin-bottom:.4rem; }
-    input, textarea, select { width:100%; padding:.65rem; border-radius:8px; border:none; background:#121224; color:#fff; }
-    .note { color:#ccc; font-size:.95rem; margin-bottom:1rem; }
-    .actions { margin-top:1rem; text-align:center; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="brand">Gemmines2</h1>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Gemmines2</h1>
+    <p>Authentic Gemstones from Pakistan & Worldwide</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container checkout-wrap">
-    <h2 class="section-title">Secure Checkout</h2>
-    <p class="note">Fill in your details. Payment instructions will be provided after order confirmation.</p>
+  <main>
+    <section class="featured">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+    </section>
 
-    <form action="order-success.html" method="post" id="checkoutForm">
-      <div class="form-row">
-        <label for="gem-name">Selected Gemstone</label>
-        <input type="text" id="gem-name" name="gem-name" placeholder="Gemstone name" required />
-      </div>
+    <section class="checkout-section">
+      <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST">
+        <h2>Checkout Details</h2>
 
-      <div class="form-row">
-        <label for="full-name">Full Name</label>
-        <input type="text" id="full-name" name="full-name" required />
-      </div>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="_replyto" placeholder="Email" required>
+        <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
+        <input type="text" name="country" placeholder="Country" required>
+        <input type="text" name="address" placeholder="Shipping Address" required>
 
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-
-      <div class="form-row">
-        <label for="address">Shipping Address</label>
-        <textarea id="address" name="address" rows="3" required></textarea>
-      </div>
-
-      <div class="form-row">
-        <label for="country">Country</label>
-        <input id="country" name="country" required />
-      </div>
-
-      <div class="form-row">
-        <label for="payment">Payment Method</label>
-        <select id="payment" name="payment" required>
-          <option value="">Choose payment method</option>
-          <option value="western_union">Western Union</option>
-          <option value="ria">Ria</option>
-          <option value="paypal">PayPal</option>
-          <option value="bank">Bank Transfer</option>
+        <label for="payment">Select Payment Method</label>
+        <select name="payment" id="payment" required>
+          <option value="">-- Choose Payment Method --</option>
+          <option value="Western Union">Western Union</option>
+          <option value="RIA">RIA</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="Other">Other</option>
         </select>
-      </div>
 
-      <div class="actions">
-        <button class="buy-btn" type="submit">Confirm Order</button>
-      </div>
-    </form>
+        <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
+        <input type="hidden" name="order" id="order-details">
+
+        <button type="submit" class="btn">Place Order</button>
+      </form>
+    </section>
   </main>
 
-  <script>
-    // Pre-fill gem-name from URL parameter ?gem=...
-    (function(){
-      function getParam(name){
-        const params = new URLSearchParams(window.location.search);
-        return params.get(name) || '';
-      }
-      const gem = decodeURIComponent(getParam('gem')).replace(/\+/g,' ');
-      if(gem){
-        const gemInput = document.getElementById('gem-name');
-        if(gemInput) gemInput.value = gem;
-      }
-    })();
-  </script>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Gemmines2 — Authentic Gemstones Worldwide</p>
-    </div>
+  <footer>
+    <p>Email: gemmines2@gmail.com | WhatsApp: +923362149415</p>
+    <p>Follow us: 
+      <a href="#">Instagram</a> | 
+      <a href="#">Facebook</a> | 
+      <a href="#">TikTok</a>
+    </p>
+    <p>© 2025 Gemmines2 | All Rights Reserved</p>
   </footer>
+
+  <script>
+    const cartItemsContainer = document.getElementById('cart-items');
+    const orderDetailsInput = document.getElementById('order-details');
+
+    function displayCartItems() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+      }
+
+      let html = '<ul>';
+      cart.forEach(item => {
+        html += `<li>${item.name} - $${item.price}</li>`;
+      });
+      html += '</ul>';
+      cartItemsContainer.innerHTML = html;
+
+      // store in hidden input for Formspree
+      const orderDetails = cart.map(item => `${item.name} ($${item.price})`).join(', ');
+      orderDetailsInput.value = orderDetails;
+    }
+
+    displayCartItems();
+
+    document.getElementById('checkout-form').addEventListener('submit', () => {
+      localStorage.removeItem('cart');
+    });
+  </script>
 </body>
 </html>
