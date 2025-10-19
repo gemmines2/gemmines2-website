@@ -254,3 +254,6 @@ buy-button:hover {
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
+buy-button:active {
+  background-color: #ffaa00;
+}
