@@ -1,3 +1,4 @@
+// Initialize or load cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Update the cart display
@@ -76,22 +77,3 @@ if (checkoutForm) {
 
 // Run updateCart when on cart page
 document.addEventListener("DOMContentLoaded", updateCart);
-🔧 Where your line belongs:
-Your snippet:
-
-js
-Copy code
-orderInput.value = cart.map(item => `${item.name} x${item.quantity} ($${item.price})`).join(', ');
-is already included in the section marked ✅ above — inside:
-
-js
-Copy code
-if (checkoutForm) {
-  checkoutForm.addEventListener("submit", () => {
-    const orderInput = document.getElementById("order-details");
-    if (orderInput) {
-      // Attach hidden order details here
-      orderInput.value = ...
-    }
-  });
-}
