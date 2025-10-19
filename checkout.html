@@ -178,7 +178,6 @@
 </main>
 
 <script>
-  // Load selected gemstone info from cart
   const cartData = JSON.parse(localStorage.getItem('cart')) || [];
   const checkoutItem = document.getElementById('checkout-item');
   if (cartData.length > 0) {
@@ -191,7 +190,6 @@
     checkoutItem.innerHTML = "<p>Your cart is empty.</p>";
   }
 
-  // Handle form submission
   document.getElementById('checkout-form').addEventListener('submit', e => {
     e.preventDefault();
     document.getElementById('confirmation').style.display = 'block';
