@@ -5,52 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="cart.js"></script>
 </head>
 <body>
   <header>
-    <h1>Gemmines2</h1>
+    <h1>Your Cart</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-<script>
-  const cartData = JSON.parse(localStorage.getItem('cart')) || [];
-  const cartContainer = document.getElementById('cart-items');
-  if (cartContainer && cartData.length > 0) {
-    cartContainer.innerHTML = `
-      <section class="cart-section">
-  <h2>Your Shopping Cart</h2>
-  <div id="cart-items" class="cart-list"></div>
 
-  <div class="cart-summary">
-    <h3>Total: <span id="cart-total">$0</span></h3>
-    <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout →</a>
-  </div>
-</section>
-    `;
-  } else {
-    cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-  }
-</script>
   <main class="cart-section">
-    <h2>Your Shopping Cart</h2>
-    <div id="cart-items"></div>
-    <p><a href="checkout.html" class="btn">Proceed to Checkout →</a></p>
-    <h3>Total: $<span id="cart-total">0</span></h3>
+    <h2>Your Selected Items</h2>
 
-    
+    <div id="cart-items"></div>
+    <h3 id="cart-total">Total: $0</h3>
+
+    <hr style="border-color:#00bcd4;margin:2rem 0;">
+
+    <form id="checkout-form" action="https://formspree.io/f/xjkbvwny" method="POST" class="checkout-form">
+      <h2>Checkout Details</h2>
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="_replyto" placeholder="Email" required>
+      <input type="text" name="contact" placeholder="Contact Number (WhatsApp or Mobile)" required>
+      <input type="text" name="country" placeholder="Country" required>
+      <input type="text" name="address" placeholder="Shipping Address" required>
+
+      <label for="payment">Select Payment Method</label>
+      <select name="payment" id="payment" required>
+        <option value="">-- Choose Payment Method --</option>
+        <option value="Western Union">Western Union</option>
+        <option value="RIA">RIA</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <textarea name="message" placeholder="Additional Notes (optional)"></textarea>
+      <input type="hidden" name="order" id="order-details">
+
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </main>
 
   <footer>
-    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
-    <p>WhatsApp: +92 336 2149415</p>
-    <p>© 2025 Gemmines2 | All rights reserved</p>
+    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: +92 336 2149415</p>
+    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a></p>
+    <p>© 2025 Gemmines2 | All Rights Reserved</p>
   </footer>
-
-  <script src="cart.js"></script>
 </body>
 </html>
