@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +16,6 @@
 <main>
   <div id="checkout-item"></div>
 
-  <h3>Enter Your Details</h3>
   <form id="checkout-form">
     <label>Name:</label><br>
     <input type="text" id="name" required><br><br>
@@ -29,17 +29,12 @@
     <button type="submit" class="btn">Confirm Order</button>
   </form>
 
-  <p id="confirmation" style="color: green; font-weight: bold; display: none;">
-    ✅ Your order has been placed successfully! Thank you for shopping at Gemmines2.
+  <p id="confirmation" style="display:none;color:green;font-weight:bold;">
+    ✅ Your order has been placed successfully!
   </p>
 </main>
 
-<footer>
-  <p>&copy; 2025 Gemmines2 | All Rights Reserved</p>
-</footer>
-
 <script>
-  // Display selected gem
   const cartData = JSON.parse(localStorage.getItem('cart')) || [];
   const checkoutItem = document.getElementById('checkout-item');
   if (checkoutItem && cartData.length > 0) {
@@ -53,9 +48,8 @@
     checkoutItem.innerHTML = '<p>Your cart is empty.</p>';
   }
 
-  // Handle order confirmation
-  document.getElementById('checkout-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+  document.getElementById('checkout-form').addEventListener('submit', e => {
+    e.preventDefault();
     document.getElementById('confirmation').style.display = 'block';
     localStorage.removeItem('cart');
   });
