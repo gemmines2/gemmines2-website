@@ -268,3 +268,12 @@ buy-button:active {
 .btn:hover {
   background-color: #0056b3;
 }
+.checkout-form {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #0a0a0a;
+  border: 1px solid #00bcd4;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+}
