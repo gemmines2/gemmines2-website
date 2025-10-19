@@ -23,11 +23,15 @@
   const cartContainer = document.getElementById('cart-items');
   if (cartContainer && cartData.length > 0) {
     cartContainer.innerHTML = `
-      <div class="cart-item">
-        <h3>${cartData[0].name}</h3>
-        <p>Price: $${cartData[0].price}</p>
-        <p>Quantity: ${cartData[0].quantity}</p>
-      </div>
+      <section class="cart-section">
+  <h2>Your Shopping Cart</h2>
+  <div id="cart-items" class="cart-list"></div>
+
+  <div class="cart-summary">
+    <h3>Total: <span id="cart-total">$0</span></h3>
+    <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout →</a>
+  </div>
+</section>
     `;
   } else {
     cartContainer.innerHTML = '<p>Your cart is empty.</p>';
