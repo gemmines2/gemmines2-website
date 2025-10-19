@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gemstone Gallery | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .buy-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      margin-top: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .buy-button:hover {
+      background-color: #ffcc00;
+      color: #000;
+      transform: scale(1.05);
+    }
+    @keyframes cart-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .cart-animate {
+      animation: cart-bounce 0.6s ease;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #cart-icon {
+      font-size: 22px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,22 +55,54 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+  <i id="cart-icon" class="fa fa-shopping-cart"></i>
 </header>
 
 <section class="featured">
   <h2>Gemstone Gallery</h2>
   <div class="gallery-grid">
-    <div class="card"><img src="images/aquamarine.jpg" alt="Aquamarine"><h3>Aquamarine</h3><p>Natural unheated with ocean-blue color.</p></div>
-    <div class="card"><img src="images/citrine.jpg" alt="Citrine"><h3>Citrine</h3><p>Golden yellow unheated gemstone with fine luster.</p></div>
-    <div class="card"><img src="images/garnet.jpg" alt="Garnet"><h3>Garnet</h3><p>Rhodolite variety with deep red brilliance.</p></div>
-    <div class="card"><img src="images/green-jasper.jpg" alt="Green Jasper"><h3>Green Jasper</h3><p>Natural earthy green tones, polished finish.</p></div>
-    <div class="card"><img src="images/peridot.jpg" alt="Peridot"><h3>Peridot</h3><p>Vibrant olive-green gemstone, flawless cut.</p></div>
-    <div class="card"><img src="images/ferrugenious.jpg" alt="Ferruginous Quartz"><h3>Ferruginous Quartz</h3><p>Yellow-white hues with natural inclusions.</p></div>
+    <div class="card">
+      <img src="images/aquamarine.jpg" alt="Aquamarine">
+      <h3>Aquamarine</h3>
+      <p>Natural unheated with ocean-blue color.</p>
+      <button class="buy-button" onclick="buyGem('gem001', 'Aquamarine', 69.99)">Buy</button>
+    </div>
+    <div class="card">
+      <img src="images/citrine.jpg" alt="Citrine">
+      <h3>Citrine</h3>
+      <p>Golden yellow unheated gemstone with fine luster.</p>
+      <button class="buy-button" onclick="buyGem('gem002', 'Citrine', 59.99)">Buy</button>
+    </div>
+    <div class="card">
+      <img src="images/garnet.jpg" alt="Garnet">
+      <h3>Garnet</h3>
+      <p>Rhodolite variety with deep red brilliance.</p>
+      <button class="buy-button" onclick="buyGem('gem003', 'Garnet', 54.99)">Buy</button>
+    </div>
+    <div class="card">
+      <img src="images/green-jasper.jpg" alt="Green Jasper">
+      <h3>Green Jasper</h3>
+      <p>Natural earthy green tones, polished finish.</p>
+      <button class="buy-button" onclick="buyGem('gem004', 'Green Jasper', 49.99)">Buy</button>
+    </div>
+    <div class="card">
+      <img src="images/peridot.jpg" alt="Peridot">
+      <h3>Peridot</h3>
+      <p>Vibrant olive-green gemstone, flawless cut.</p>
+      <button class="buy-button" onclick="buyGem('gem005', 'Peridot', 64.99)">Buy</button>
+    </div>
+    <div class="card">
+      <img src="images/ferrugenious.jpg" alt="Ferruginous Quartz">
+      <h3>Ferruginous Quartz</h3>
+      <p>Yellow-white hues with natural inclusions.</p>
+      <button class="buy-button" onclick="buyGem('gem006', 'Ferruginous Quartz', 44.99)">Buy</button>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: <a href="https://wa.me/923362149415" target="_blank">+923362149415</a></p>
+  <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: 
+    <a href="https://wa.me/923362149415" target="_blank">+923362149415</a></p>
   <p>Follow us: 
     <a href="#">Instagram</a> | 
     <a href="#">Facebook</a> | 
@@ -42,6 +110,26 @@
   </p>
   <p>&copy; 2025 Gemmines2 | All Rights Reserved</p>
 </footer>
+
+<script>
+  function buyGem(gemId, gemName, gemPrice) {
+    const cart = [
+      {
+        id: gemId,
+        name: gemName,
+        price: gemPrice,
+        quantity: 1
+      }
+    ];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    const cartIcon = document.getElementById('cart-icon');
+    cartIcon.classList.add('cart-animate');
+    setTimeout(() => {
+      cartIcon.classList.remove('cart-animate');
+      window.location.href = 'cart.html';
+    }, 600);
+  }
+</script>
 
 </body>
 </html>
