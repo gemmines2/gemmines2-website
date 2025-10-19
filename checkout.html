@@ -8,99 +8,90 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background: #f3f3f3;
       margin: 0;
       padding: 0;
     }
     header {
-      background: #222;
-      color: #fff;
+      background-color: #222;
+      color: white;
       text-align: center;
-      padding: 20px 0;
+      padding: 20px;
     }
     main {
       max-width: 900px;
       margin: 30px auto;
-      background: #fff;
-      border-radius: 8px;
+      background: white;
       padding: 30px;
+      border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h2 {
-      border-bottom: 2px solid #eee;
+      border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
-      margin-bottom: 20px;
+      color: #444;
     }
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .section {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
     }
     label {
       display: block;
-      font-weight: bold;
       margin-bottom: 5px;
+      font-weight: bold;
     }
     input, select, textarea {
       width: 100%;
       padding: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 15px;
     }
-    textarea { resize: vertical; }
-    .section {
-      grid-column: 1 / -1;
-      background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    .section h3 {
-      margin-top: 0;
-      color: #333;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     .payment-options, .shipping-options {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
     }
     .payment-options label, .shipping-options label {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 8px 12px;
-      background: #f9f9f9;
-      cursor: pointer;
     }
     button {
       background: #007bff;
       color: white;
-      padding: 12px 25px;
       border: none;
+      padding: 12px 25px;
+      font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
     }
     button:hover {
       background: #0056b3;
     }
     #confirmation {
       display: none;
-      background: #e6ffe6;
+      background: #e7ffe7;
       border: 1px solid #8bc34a;
-      color: #2e7d32;
       padding: 15px;
-      margin-top: 20px;
-      border-radius: 6px;
+      border-radius: 8px;
+      color: #2e7d32;
       font-weight: bold;
-      grid-column: 1 / -1;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -111,46 +102,51 @@
 </header>
 
 <main>
-  <h2>Order Summary</h2>
-  <div id="checkout-item" class="section"></div>
 
-  <h2>Shipping Details</h2>
+  <h2>🛒 Order Summary</h2>
+  <div id="checkout-item" class="section">Loading your item...</div>
+
+  <h2>📦 Shipping Details</h2>
   <form id="checkout-form">
 
-    <div>
-      <label>First Name</label>
-      <input type="text" id="first-name" required>
-    </div>
+    <div class="section">
+      <div class="grid-2">
+        <div>
+          <label>First Name</label>
+          <input type="text" id="first-name" required>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" id="last-name" required>
+        </div>
+      </div>
 
-    <div>
-      <label>Last Name</label>
-      <input type="text" id="last-name" required>
-    </div>
+      <label>Contact Number</label>
+      <input type="tel" id="phone" required>
 
-    <div>
       <label>Email</label>
       <input type="email" id="email" required>
-    </div>
 
-    <div>
-      <label>Phone Number</label>
-      <input type="tel" id="phone" required>
-    </div>
-
-    <div class="section">
-      <h3>Address Information</h3>
       <label>Address</label>
-      <input type="text" id="address" required><br><br>
-      <label>City</label>
-      <input type="text" id="city" required><br><br>
-      <label>Postal Code</label>
-      <input type="text" id="postal" required><br><br>
+      <textarea id="address" rows="3" required></textarea>
+
+      <div class="grid-2">
+        <div>
+          <label>City</label>
+          <input type="text" id="city" required>
+        </div>
+        <div>
+          <label>Postal Code</label>
+          <input type="text" id="postal" required>
+        </div>
+      </div>
+
       <label>Country / Region</label>
       <input type="text" id="country" required>
     </div>
 
     <div class="section">
-      <h3>Shipping Method</h3>
+      <h3>🚚 Shipping Method</h3>
       <div class="shipping-options">
         <label><input type="radio" name="shipping" value="standard" checked> Standard (Free)</label>
         <label><input type="radio" name="shipping" value="express"> Express ($10)</label>
@@ -158,7 +154,7 @@
     </div>
 
     <div class="section">
-      <h3>Payment Method</h3>
+      <h3>💳 Payment Method</h3>
       <div class="payment-options">
         <label><input type="radio" name="payment" value="credit-card" checked> Credit Card</label>
         <label><input type="radio" name="payment" value="paypal"> PayPal</label>
@@ -170,35 +166,32 @@
     </div>
 
     <div class="section">
-      <h3>Billing Address</h3>
+      <h3>🏠 Billing Address</h3>
       <label><input type="checkbox" id="sameAsShipping" checked> Same as shipping address</label>
     </div>
 
-    <div style="grid-column: 1 / -1;">
-      <button type="submit">Confirm Order</button>
-      <p id="confirmation">✅ Your order has been successfully placed! Thank you for shopping with Gemmines2.</p>
-    </div>
+    <button type="submit">✅ Confirm Order</button>
+
+    <p id="confirmation">Your order has been placed successfully! Thank you for shopping at Gemmines2.</p>
 
   </form>
 </main>
 
 <script>
-  // Show selected gem item
+  // Load selected gemstone info from cart
   const cartData = JSON.parse(localStorage.getItem('cart')) || [];
   const checkoutItem = document.getElementById('checkout-item');
-  if (checkoutItem && cartData.length > 0) {
+  if (cartData.length > 0) {
     checkoutItem.innerHTML = `
-      <div class="cart-item">
-        <strong>Item:</strong> ${cartData[0].name}<br>
-        <strong>Price:</strong> $${cartData[0].price}<br>
-        <strong>Quantity:</strong> ${cartData[0].quantity}
-      </div>
+      <p><strong>Gemstone:</strong> ${cartData[0].name}</p>
+      <p><strong>Price:</strong> $${cartData[0].price}</p>
+      <p><strong>Quantity:</strong> ${cartData[0].quantity}</p>
     `;
   } else {
-    checkoutItem.innerHTML = '<p>Your cart is empty.</p>';
+    checkoutItem.innerHTML = "<p>Your cart is empty.</p>";
   }
 
-  // Confirmation action
+  // Handle form submission
   document.getElementById('checkout-form').addEventListener('submit', e => {
     e.preventDefault();
     document.getElementById('confirmation').style.display = 'block';
