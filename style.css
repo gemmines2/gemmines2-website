@@ -248,3 +248,9 @@ footer a {
 footer a:hover {
   color: #fff;
 }
+buy-button:hover {
+  background-color: #ffcc00;
+  color: #000;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
