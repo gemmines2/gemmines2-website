@@ -300,7 +300,15 @@ buy-button:active {
 checkout-form .btn {
   width: 100%;
   background: #00bcd4;
-  color: #000;
+  color: #000;.cart-summary {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  background: #111;
+  border: 1px solid #00bcd4;
+  border-radius: 15px;
+  color: #fff;
+}
   font-weight: bold;
   border: none;
   padding: 12px;
