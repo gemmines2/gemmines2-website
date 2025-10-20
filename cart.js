@@ -1,33 +1,9 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({ name, price, quantity: 1 });
-    }
-    saveCart();
-    displayCart();
-}
-
-function removeFromCart(name) {
-    cart = cart.filter(item => item.name !== name);
-    saveCart();
-    displayCart();
-}
-
-function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
 function displayCart() {
     const cartContainer = document.getElementById("cart-items");
-    const totalContainer = document.getElementById("cart-total");
+    if(!cartContainer) return; // STOP if the page doesn't have a cart section
     cartContainer.innerHTML = "";
-
+    
     let total = 0;
-
     cart.forEach(item => {
         total += item.price * item.quantity;
         const itemDiv = document.createElement("div");
@@ -39,15 +15,5 @@ function displayCart() {
         cartContainer.appendChild(itemDiv);
     });
 
-    totalContainer.textContent = `Total: $${total.toFixed(2)}`;
-}
-
-// Clear cart on successful checkout
-function clearCart() {
-    cart = [];
-    saveCart();
-    displayCart();
-}
-
-// Initialize cart display
-document.addEventListener("DOMContentLoaded", displayCart)
+    const totalContainer = document.getElementById("cart-total");
+    if(totalContainer) totalContainer.textContent = `Total: $${total.toFixed(2)}`;
