@@ -1,73 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Gemmines2</title>
+<link rel="stylesheet" href="style.css">
+<script src="cart.js" defer></script>
+<style>
+body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; margin: 0; padding: 20px; }
+h1 { text-align: center; margin-bottom: 20px; }
+.products-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+.product-card { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+.product-card img { max-width: 100%; border-radius: 8px; margin-bottom: 10px; }
+.product-card h3 { margin: 10px 0 5px 0; font-size: 1.1em; }
+.product-card p { font-size: 0.9em; margin-bottom: 10px; color: #555; }
+.product-card strong { display: block; margin-bottom: 10px; font-size: 1em; color: #000; }
+.product-card button { padding: 10px 16px; background: #007BFF; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+.product-card button:hover { background: #0056b3; }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Gemmines2</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a class="active" href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="featured">
-    <h2>Available Gemstones</h2>
-    <p>Explore our curated selection of natural, unheated gemstones available for worldwide shipping.</p>
+<h1>Our Gemstone Collection</h1>
 
-    <div class="gallery-grid">
-      <div class="card">
+<div class="products-container">
+    <!-- Example Product 1 -->
+    <div class="product-card">
         <img src="images/aquamarine.jpg" alt="Aquamarine">
         <h3>Aquamarine</h3>
-        <p>Natural unheated aquamarine gemstone with eye-clean clarity.</p>
-        <button class="btn add-to-cart" data-name="Aquamarine" data-price="50">Buy Now</button>
-      </div>
+        <p>Natural, unheated, eye-clean gemstone. Rough or polished stone available.</p>
+        <strong>$50</strong>
+        <button onclick="addToCart('Aquamarine', 50)">Buy Now</button>
+    </div>
 
-      <div class="card">
-        <img src="images/garnet.jpg" alt="Garnet">
+    <!-- Example Product 2 -->
+    <div class="product-card">
+        <img src="images/rhodolite.jpg" alt="Rhodolite Garnet">
         <h3>Rhodolite Garnet</h3>
-        <p>Beautiful unheated rhodolite garnet, rich color and natural shine.</p>
-        <button class="btn add-to-cart" data-name="Rhodolite Garnet" data-price="45">Buy Now</button>
-      </div>
+        <p>Natural rough gemstone, perfect for jewelry making.</p>
+        <strong>$45</strong>
+        <button onclick="addToCart('Rhodolite Garnet', 45)">Buy Now</button>
+    </div>
 
-      <div class="card">
-        <img src="images/citrine.jpg" alt="Citrine">
-        <h3>Golden Citrine</h3>
-        <p>Golden yellow citrine, unheated and full of brilliance.</p>
-        <button class="btn add-to-cart" data-name="Golden Citrine" data-price="40">Buy Now</button>
-      </div>
-
-      <div class="card">
+    <!-- Example Product 3 -->
+    <div class="product-card">
         <img src="images/peridot.jpg" alt="Peridot">
         <h3>Peridot</h3>
-        <p>Bright olive-green peridot, natural and unheated from Pakistan.</p>
-        <button class="btn add-to-cart" data-name="Peridot" data-price="38">Buy Now</button>
-      </div>
-
-      <div class="card">
-        <img src="images/ferrugenious.jpg" alt="Ferruginous Quartz">
-        <h3>Ferruginous Quartz</h3>
-        <p>Unique yellow-white ferruginous quartz with natural texture.</p>
-        <button class="btn add-to-cart" data-name="Ferruginous Quartz" data-price="42">Buy Now</button>
-      </div>
+        <p>High-lustre, unheated rough or polished stone.</p>
+        <strong>$38</strong>
+        <button onclick="addToCart('Peridot', 38)">Buy Now</button>
     </div>
-  </section>
 
-  <footer>
-    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
-    <p>WhatsApp: +92 336 2149415</p>
-    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a></p>
-    <p>© 2025 Gemmines2 | All rights reserved</p>
-  </footer>
+    <!-- Add more products following same structure -->
+</div>
 
-  <script src="cart.js"></script>
 </body>
 </html>
