@@ -1,98 +1,135 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gemmines2 — Natural Gemstones cut and polished and tumbled river stones, gemstones in jewellery</title>
-<meta name="description" content="Gemmines2 — Natural gemstones (cut, polished, tumbled river stones). Handmade jewelry and loose stones. Worldwide shipping." />
-
-
-<style>
-:root{
---accent:#0b3b66;
---accent-2:#081826;
---panel:#0f1724;
---muted:#98a4b3;
---glass: rgba(255,255,255,0.03);
---card-shadow: 0 6px 18px rgba(2,6,23,0.6);
---radius:12px;
---max-width:1100px;
---accent-bright:#2ea6ff;
-}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,var(--accent) 0%, var(--accent-2) 100%);-webkit-font-smoothing:antialiased}
-.container{max-width:var(--max-width);margin:0 auto;padding:28px}
-header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0e5a8a,#071031);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-.brand h1{font-size:1.05rem;margin:0}
-nav{display:flex;gap:12px;align-items:center}
-a.btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600}
-a.btn:hover{color:white}
-main.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:24px}
-.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:16px;box-shadow:var(--card-shadow)}
-.hero h2{margin:0 0 8px;font-size:1.8rem}
-.hero p{color:var(--muted);margin:0 0 18px}
-.hero .cta{display:flex;gap:12px}
-.cta .primary{background:linear-gradient(90deg,var(--accent-bright),#0db9ff);color:#021226;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
-.cta .secondary{background:transparent;color:var(--muted);padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
-.search{margin-top:12px;display:flex;gap:8px}
-.search input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:22px}
-.product{background:var(--panel);border-radius:12px;padding:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-.product img{width:100%;height:160px;object-fit:cover;border-radius:10px;background:#071426}
-.product h3{margin:10px 0 6px;font-size:1.05rem}
-.product p{font-size:0.9rem;color:var(--muted);height:44px;overflow:hidden}
-.product .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-.price{font-weight:800}
-.buy{background:linear-gradient(90deg,#1fb6ff,#0d6b9f);padding:8px 10px;border-radius:10px;border:none;color:#021226;cursor:pointer;font-weight:700}
-.buy:hover{transform:translateY(-2px)}
-.cart-panel{position:fixed;right:18px;top:88px;width:340px;background:linear-gradient(180deg,rgba(2,6,23,0.9),rgba(2,6,23,0.95));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 48px rgba(2,6,23,0.7)}
-.cart-panel h4{margin:6px 0;color:var(--muted)}
-.cart-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px}
-.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:8px}
-.cart-bottom{border-top:1px dashed rgba(255,255,255,0.03);padding-top:8px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
-.checkout-btn{background:linear-gradient(90deg,#2ea6ff,#0d6b9f);padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:800}
-section.page{display:none;margin-top:18px}
-section.page.active{display:block}
-label{display:block;margin:8px 0 4px;color:var(--muted)}
-input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-textarea{min-height:120px}
-footer{margin:36px 0 12px;color:var(--muted);text-align:center}
-@media(max-width:900px){main.hero{grid-template-columns:1fr;}.cart-panel{right:12px;left:12px;width:auto;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemmines2</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #000814, #001d3d);
+      color: #e0e6f0;
+    }
+    header {
+      background: #001233;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9fb7d6;
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: #e8f0ff;
+    }
+    main {
+      padding: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .product {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.1rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #87ceeb;
+    }
+    button {
+      background: #004aad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #005ff5;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000814;
+      color: #9fb7d6;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<header>
-<div class="brand">
-<div class="logo">GM</div>
-<div>
-<h1>Gemmines2</h1>
-<div style="font-size:0.85rem;color:var(--muted)">Natural gemstones — cut, polished & tumbled river stones</div>
-</div>
-</div>
+  <header>
+    <h1>Gemmines2</h1>
+    <div>Cart (<span id="cart-count">0</span>)</div>
+  </header>
 
+  <main>
+    <h2>Natural Gemstones — Cut, Polished & Tumbled River Stones</h2>
+    <div id="products-grid" class="grid"></div>
+  </main>
 
-<nav>
-<a class="btn" data-nav="home">Home</a>
-<a class="btn" data-nav="products">Products</a>
-<a class="btn" data-nav="shipping">Shipping</a>
-<a class="btn" data-nav="refund">Refund</a>
-<a class="btn" id="cart-toggle">Cart (<span id="cart-count">0</span>)</a>
-</nav>
-</header>
+  <footer>
+    <p>© <span id="year"></span> Gemmines2 — All Rights Reserved</p>
+  </footer>
 
+  <script>
+  const PRODUCTS = [
+    { id: "aq", name: "Aquamarine", desc: "Natural unheated aquamarine — sky blue, polished gem.", price: 50, img: "images/aquamarine.jpg" },
+    { id: "rh", name: "Rhodolite Garnet", desc: "Deep pink-purple rhodolite — cut and polished.", price: 45, img: "images/rhodolite.jpg" },
+    { id: "pe", name: "Peridot", desc: "Fresh green peridot — eye clean and lustrous.", price: 38, img: "images/peridot.jpg" },
+    { id: "he", name: "Hessonite", desc: "Honey-orange hessonite — natural and unheated.", price: 42, img: "images/hessonite.jpg" },
+    { id: "lq", name: "Lemon Quartz", desc: "Bright lemon quartz — flawless clarity, cut and polished.", price: 35, img: "images/lemon-quartz.jpg" }
+  ];
 
-<main class="hero">
-<div class="hero-card">
-<div class="hero">
-<div>
-<h2>Natural Gemstones cut and polished and tumbled river stones — crafted for jewellery</h2>
-<p>Hand-picked rough, cut, polished and tumbled stones. Editable product descriptions, prices in USD, worldwide shipping available. Secure checkout.</p>
-<div class="cta">
-<button class="primary" data-nav="products">Shop gemstones</button>
-<button class="secondary" id="learn-more">Contact / Custom Orders</button>
-</div>
+  const CART_KEY = 'GM2_CART';
 
+  function getCart(){ return JSON.parse(localStorage.getItem(CART_KEY)||'[]'); }
+  function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCartCount(); }
+  function addToCart(id){ let c=getCart(); let f=c.find(i=>i.id===id); if(f) f.qty++; else c.push({id,qty:1}); saveCart(c); alert("Added to cart!"); }
+
+  function renderProducts(){
+    const grid=document.getElementById('products-grid');
+    grid.innerHTML='';
+    PRODUCTS.forEach(p=>{
+      const el=document.createElement('div');
+      el.className='product';
+      el.innerHTML=`
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price">$${p.price}</div>
+        <button onclick="addToCart('${p.id}')">Buy Now</button>
+      `;
+      grid.appendChild(el);
+    });
+  }
+
+  function renderCartCount(){
+    const items=getCart().reduce((s,i)=>s+i.qty,0);
+    document.getElementById('cart-count').innerText=items;
+  }
+
+  function init(){
+    renderProducts();
+    renderCartCount();
+    document.getElementById('year').innerText=new Date().getFullYear();
+  }
+  init();
+  </script>
+</body>
+</html>
