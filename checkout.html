@@ -1,1 +1,80 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - Gemmines2</title>
+<link rel="stylesheet" href="style.css">
+<script src="cart.js" defer></script>
+<style>
+body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; padding: 20px; }
+h1 { text-align: center; margin-bottom: 20px; }
+.checkout-container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; }
+input, select, textarea { width: 100%; padding: 10px; margin: 6px 0 12px 0; border-radius: 6px; border: 1px solid #ccc; }
+button { padding: 12px 20px; background: #007BFF; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+button:hover { background: #0056b3; }
+.error { color: red; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div class="checkout-container">
+<h1>Checkout Details</h1>
+
+<div id="cart-summary">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <strong id="cart-total"></strong>
+</div>
+
+<h3>Shipping & Contact Information</h3>
+<form id="checkout-form">
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" required>
+
+    <label for="contact">Contact Number (WhatsApp/Phone) *</label>
+    <input type="text" id="contact" required>
+
+    <label for="country">Country *</label>
+    <input type="text" id="country" required>
+
+    <label for="postal">Postal / ZIP Code *</label>
+    <input type="text" id="postal" required>
+
+    <label for="address">Full Address *</label>
+    <textarea id="address" rows="3" required></textarea>
+
+    <button type="submit">Place Order</button>
+    <p class="error" id="error-msg"></p>
+</form>
+</div>
+
+<script>
+document.getElementById("checkout-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+    const country = document.getElementById("country").value.trim();
+    const postal = document.getElementById("postal").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const errorMsg = document.getElementById("error-msg");
+
+    if (!name || !email || !contact || !country || !postal || !address) {
+        errorMsg.textContent = "Please fill in all required fields.";
+        return;
+    }
+
+    // Simulate order success
+    alert("Order placed successfully! Thank you, " + name + ".");
+    clearCart();
+    this.reset();
+    window.location.href = "index.html"; // redirect after success
+});
+</script>
+</body>
+</html>
