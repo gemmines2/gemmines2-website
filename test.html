@@ -1,94 +1,135 @@
+<!DOCTYPE html>
 <html lang="en">
-<div>
-<div style="font-size:0.9rem;color:var(--muted)">Total</div>
-<div id="cart-total" style="font-weight:800;font-size:1.1rem">$0</div>
-</div>
-<button id="go-checkout" class="checkout-btn">Checkout</button>
-</div>
-</div>
-<script>
-// Site settings
-const SITE = { title: 'Gemmines2', ownerEditMode: true }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemmines2</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: linear-gradient(180deg, #000814, #001d3d);
+      color: #e0e6f0;
+    }
+    header {
+      background: #001233;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9fb7d6;
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: #e8f0ff;
+    }
+    main {
+      padding: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .product {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 0.5rem 0 0.3rem;
+      font-size: 1.1rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #87ceeb;
+    }
+    button {
+      background: #004aad;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #005ff5;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000814;
+      color: #9fb7d6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gemmines2</h1>
+    <div>Cart (<span id="cart-count">0</span>)</div>
+  </header>
 
+  <main>
+    <h2>Natural Gemstones — Cut, Polished & Tumbled River Stones</h2>
+    <div id="products-grid" class="grid"></div>
+  </main>
 
-// Products list — image sources include fallbacks (tries images/filename then filename)
-const PRODUCTS = [
-{id:'aq-1', name:'Aquamarine', desc:'Clean aquamarine — approx 2.5 carats — polished', price:50, imgs:['images/aquamarine.jpg','aquamarine.jpg','images/aqumarine.jpg','aqumarine.jpg']},
-{id:'rh-1', name:'Rhodolite Garnet', desc:'Rough rhodolite — 3.1 carats — rough stone', price:45, imgs:['images/rhodolite.jpg','rhodolite.jpg','rhodolite.jp','rhodolite.jpeg']},
-{id:'ci-1', name:'Citrine', desc:'Bright citrine — warm yellow — polished', price:40, imgs:['images/citrine.jpg','citrine.jpg']},
-{id:'gj-1', name:'Green Jasper', desc:'Green jasper, tumbled river stone — nice polish', price:30, imgs:['images/green-jasper.jpg','green-jasper.jpg','images/greenjasper.jpg','greenjasper.jpg']},
-{id:'lq-1', name:'Lemon Quartz', desc:'Unheated lemon quartz — good lustre', price:38, imgs:['images/lemon-quartz.jpg','lemon-quartz.jpg','lemonquartz.jpg']},
-{id:'he-1', name:'Hessonite', desc:'Hessonite — rich honey-brown garnet', price:35, imgs:['images/hessonite.jpg','hessonite.jpg']},
-{id:'pe-1', name:'Peridot', desc:'Bright green peridot — polished', price:38, imgs:['images/peridot.jpg','peridot.jpg']}
-];
+  <footer>
+    <p>© <span id="year"></span> Gemmines2 — All Rights Reserved</p>
+  </footer>
 
+  <script>
+  const PRODUCTS = [
+    { id: "aq", name: "Aquamarine", desc: "Natural unheated aquamarine — sky blue, polished gem.", price: 50, img: "images/aquamarine.jpg" },
+    { id: "rh", name: "Rhodolite Garnet", desc: "Deep pink-purple rhodolite — cut and polished.", price: 45, img: "images/rhodolite.jpg" },
+    { id: "pe", name: "Peridot", desc: "Fresh green peridot — eye clean and lustrous.", price: 38, img: "images/peridot.jpg" },
+    { id: "he", name: "Hessonite", desc: "Honey-orange hessonite — natural and unheated.", price: 42, img: "images/hessonite.jpg" },
+    { id: "lq", name: "Lemon Quartz", desc: "Bright lemon quartz — flawless clarity, cut and polished.", price: 35, img: "images/lemon-quartz.jpg" }
+  ];
 
-const CART_KEY = 'gemmines2_cart_v1';
-function loadCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||{}}catch(e){return {}}}
-function saveCart(cart){localStorage.setItem(CART_KEY,JSON.stringify(cart));renderCartCount();}
-function addToCart(productId,qty=1){const cart=loadCart();cart[productId]=(cart[productId]||0)+qty;saveCart(cart);renderCartPanel();}
-function removeFromCart(productId){const cart=loadCart();delete cart[productId];saveCart(cart);renderCartPanel();}
-function setQty(productId,qty){const cart=loadCart();if(qty<=0) delete cart[productId]; else cart[productId]=qty;saveCart(cart);renderCartPanel();}
-function cartItemsDetailed(){const cart=loadCart();const items=[];for(const id in cart){const p=PRODUCTS.find(x=>x.id===id);if(p) items.push({...p,qty:cart[id]})}return items}
+  const CART_KEY = 'GM2_CART';
 
+  function getCart(){ return JSON.parse(localStorage.getItem(CART_KEY)||'[]'); }
+  function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCartCount(); }
+  function addToCart(id){ let c=getCart(); let f=c.find(i=>i.id===id); if(f) f.qty++; else c.push({id,qty:1}); saveCart(c); alert("Added to cart!"); }
 
-// Image fallback loader: each product has imgs array; set first available
-function setImgWithFallback(imgEl, srcList){imgEl._tries = 0; imgEl.onerror = function(){ imgEl._tries++; if(imgEl._tries < srcList.length){ imgEl.src = srcList[imgEl._tries]; } else { imgEl.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="#071426"/><text x="50%" y="50%" fill="#9fb7d6" font-size="18" text-anchor="middle" dy=".3em">Image not found</text></svg>'; } }; imgEl.src = srcList[0]; }
+  function renderProducts(){
+    const grid=document.getElementById('products-grid');
+    grid.innerHTML='';
+    PRODUCTS.forEach(p=>{
+      const el=document.createElement('div');
+      el.className='product';
+      el.innerHTML=`
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price">$${p.price}</div>
+        <button onclick="addToCart('${p.id}')">Buy Now</button>
+      `;
+      grid.appendChild(el);
+    });
+  }
 
+  function renderCartCount(){
+    const items=getCart().reduce((s,i)=>s+i.qty,0);
+    document.getElementById('cart-count').innerText=items;
+  }
 
-// Render products
-const grid = document.getElementById('products-grid');
-function renderProducts(list = PRODUCTS){grid.innerHTML='';document.getElementById('products-count').innerText = list.length; list.forEach(p => {
-const el = document.createElement('div'); el.className='product';
-const img = document.createElement('img'); img.alt = p.name; setImgWithFallback(img, p.imgs);
-el.appendChild(img);
-const h = document.createElement('h3'); h.className='p-name'; h.contentEditable = SITE.ownerEditMode; h.dataset.id = p.id; h.innerText = p.name; el.appendChild(h);
-const desc = document.createElement('p'); desc.className='p-desc'; desc.contentEditable = SITE.ownerEditMode; desc.dataset.id = p.id; desc.innerText = p.desc; el.appendChild(desc);
-const meta = document.createElement('div'); meta.className='meta'; meta.innerHTML = `<div class="price">$${p.price}</div><div><button class="buy" data-id="${p.id}">Buy</button></div>`;
-el.appendChild(meta);
-grid.appendChild(el);
-});
-}
-
-
-function attachInlineSave(){if(!SITE.ownerEditMode) return; grid.addEventListener('blur', e => { const t = e.target; if(t.matches('[data-id].p-desc')||t.matches('[data-id].p-name')){ const id = t.dataset.id; const prod = PRODUCTS.find(x=>x.id===id); if(prod){ if(t.classList.contains('p-name')) prod.name = t.innerText.trim(); else prod.desc = t.innerText.trim(); } } }, true); }
-
-
-// Search
-document.getElementById('quick-search').addEventListener('input', e => { const q = e.target.value.trim().toLowerCase(); if(!q) renderProducts(); else { const filtered = PRODUCTS.filter(p => (p.name + p.desc).toLowerCase().includes(q)); renderProducts(filtered); } });
-document.getElementById('clear-search').addEventListener('click', ()=>{ document.getElementById('quick-search').value=''; renderProducts(); });
-
-
-// Nav
-document.querySelectorAll('[data-nav]').forEach(btn => btn.addEventListener('click', ()=>{ showPage(btn.dataset.nav); }));
-function showPage(id){ document.querySelectorAll('.page').forEach(s=>s.classList.remove('active')); const el = document.getElementById(id); if(el) el.classList.add('active'); if(id==='products') renderProducts(); if(id==='checkout') renderCheckout(); scrollToTop(); }
-function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
-
-
-// Cart UI
-document.getElementById('cart-toggle').addEventListener('click', ()=>{ const c = document.getElementById('cart'); c.style.display = c.style.display==='none' ? 'block' : 'none'; renderCartPanel(); });
-function renderCartCount(){ const items = cartItemsDetailed().reduce((s,i)=>s+i.qty,0); document.getElementById('cart-count').innerText = items; }
-function renderCartPanel(){ const c = document.getElementById('cart'); const container = document.getElementById('cart-items'); const items = cartItemsDetailed(); container.innerHTML=''; let total=0; items.forEach(it=>{ total += it.qty * it.price; const row = document.createElement('div'); row.className='cart-item'; row.innerHTML = `<img src="${(it.imgs&&it.imgs[0])||'placeholder.jpg'}" alt="${it.name}"/><div style="flex:1"><div class="title">${it.name}</div><div style="color:var(--muted);font-size:0.9rem">$${it.price} × <input style="width:44px;border-radius:6px;padding:6px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit" type="number" value="${it.qty}" min="1" data-cart-id="${it.id}" class="qty-input" /></div></div><button data-remove="${it.id}" style="background:transparent;border:none;color:var(--muted);font-weight:700;cursor:pointer">Remove</button>`; container.appendChild(row); }); document.getElementById('cart-total').innerText = '$' + (total.toFixed(2)); document.getElementById('cart').style.display = items.length ? 'block' : 'none'; container.querySelectorAll('.qty-input').forEach(inp=>inp.addEventListener('change', e=>{ const id = e.target.dataset.cartId; const v = parseInt(e.target.value) || 1; setQty(id,v); })); container.querySelectorAll('[data-remove]').forEach(b=>b.addEventListener('click', e=>{ removeFromCart(b.dataset.remove); })); renderCartCount(); }
-
-
-// Buy
-document.addEventListener('click', e => { if(e.target.matches('.buy')){ const id = e.target.dataset.id; addToCart(id); } });
-
-
-// Checkout
-document.getElementById('go-checkout').addEventListener('click', ()=>{ showPage('checkout'); });
-function renderCheckout(){ const items = cartItemsDetailed(); const container = document.getElementById('cart-summary'); if(items.length===0){ container.innerHTML = '<div style="color:var(--muted)">Your cart is empty.</div>'; return } let html = '<div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">'; let total = 0; items.forEach(it=>{ html += `<div style="display:flex;justify-content:space-between;padding:6px 0"><div>${it.name} × ${it.qty}</div><div>$${(it.price*it.qty).toFixed(2)}</div></div>`; total += it.price*it.qty; }); html += `<hr style="border:none;border-top:1px dashed rgba(255,255,255,0.04);margin:8px 0"/><div style="display:flex;justify-content:space-between;font-weight:800">Total<div>$${total.toFixed(2)}</div></div></div>`; container.innerHTML = html; document.getElementById('cart-total').innerText = '$' + total.toFixed(2); }
-
-
-document.getElementById('place-order').addEventListener('click', ()=>{ const name = document.getElementById('c-name').value.trim(); const email = document.getElementById('c-email').value.trim(); const phone = document.getElementById('c-phone').value.trim(); const addr = document.getElementById('c-address').value.trim(); if(!name||!email||!phone||!addr){ alert('Please complete contact & shipping information.'); return } const order = { id:'ORD-'+Date.now(), items:cartItemsDetailed(), contact:{name,email,phone,addr}, total:document.getElementById('cart-total').innerText }; console.log('ORDER',order); localStorage.removeItem(CART_KEY); renderCartPanel(); renderCartCount(); document.getElementById('order-success').style.display='block'; document.getElementById('c-name').value=''; document.getElementById('c-email').value=''; document.getElementById('c-phone').value=''; document.getElementById('c-address').value=''; document.getElementById('cart-summary').innerHTML=''; });
-
-
-// helper
-window.__addToCart = addToCart;
-function init(){ renderProducts(); attachInlineSave(); renderCartPanel(); document.getElementById('year').innerText = new Date().getFullYear(); }
-init();
-</script>
-
-
+  function init(){
+    renderProducts();
+    renderCartCount();
+    document.getElementById('year').innerText=new Date().getFullYear();
+  }
+  init();
+  </script>
 </body>
 </html>
