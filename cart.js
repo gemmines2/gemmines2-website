@@ -1,79 +1,53 @@
-// Initialize or load cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Update the cart display
-function updateCart() {
-  const cartItemsContainer = document.getElementById("cart-items");
-  const totalElement = document.getElementById("cart-total");
-  if (!cartItemsContainer) return;
-
-  cartItemsContainer.innerHTML = "";
-  let total = 0;
-
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-    totalElement.textContent = "Total: $0";
-    return;
-  }
-
-  cart.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.classList.add("cart-item");
-    div.innerHTML = `
-      <p>${item.name} — $${item.price} × ${item.quantity}</p>
-      <button class="remove-item" data-index="${index}">Remove</button>
-    `;
-    cartItemsContainer.appendChild(div);
-    total += item.price * item.quantity;
-  });
-
-  totalElement.textContent = `Total: $${total}`;
-
-  // Enable remove button
-  document.querySelectorAll(".remove-item").forEach(button => {
-    button.addEventListener("click", e => {
-      const index = e.target.dataset.index;
-      cart.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCart();
-    });
-  });
-}
-
-// Add to Cart Button Logic
-document.querySelectorAll(".add-to-cart").forEach(button => {
-  button.addEventListener("click", e => {
-    const name = e.target.dataset.name;
-    const price = parseFloat(e.target.dataset.price);
-
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-      existing.quantity += 1;
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
     } else {
-      cart.push({ name, price, quantity: 1 });
+        cart.push({ name, price, quantity: 1 });
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.href = "cart.html";
-  });
-});
-
-// Checkout Form Logic
-const checkoutForm = document.getElementById("checkout-form");
-if (checkoutForm) {
-  checkoutForm.addEventListener("submit", () => {
-    const orderInput = document.getElementById("order-details");
-    if (orderInput) {
-      // ✅ Attach hidden order details here
-      orderInput.value = cart
-        .map(item => `${item.name} x${item.quantity} ($${item.price})`)
-        .join(", ");
-    }
-
-    // Clear cart after submission
-    localStorage.removeItem("cart");
-  });
+    saveCart();
+    displayCart();
 }
 
-// Run updateCart when on cart page
-document.addEventListener("DOMContentLoaded", updateCart);
+function removeFromCart(name) {
+    cart = cart.filter(item => item.name !== name);
+    saveCart();
+    displayCart();
+}
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function displayCart() {
+    const cartContainer = document.getElementById("cart-items");
+    const totalContainer = document.getElementById("cart-total");
+    cartContainer.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+            <span>${item.name} — $${item.price} × ${item.quantity}</span>
+            <button onclick="removeFromCart('${item.name}')">Remove</button>
+        `;
+        cartContainer.appendChild(itemDiv);
+    });
+
+    totalContainer.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Clear cart on successful checkout
+function clearCart() {
+    cart = [];
+    saveCart();
+    displayCart();
+}
+
+// Initialize cart display
+document.addEventListener("DOMContentLoaded", displayCart)
