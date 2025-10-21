@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products - Gemmines2</title>
-<link rel="stylesheet" href="style.css">
-<script src="cart.js" defer></script>
-<style>
-body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; margin: 0; padding: 20px; }
-h1 { text-align: center; margin-bottom: 20px; }
-.products-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
-.product-card { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
-.product-card img { max-width: 100%; border-radius: 8px; margin-bottom: 10px; }
-.product-card h3 { margin: 10px 0 5px 0; font-size: 1.1em; }
-.product-card p { font-size: 0.9em; margin-bottom: 10px; color: #555; }
-.product-card strong { display: block; margin-bottom: 10px; font-size: 1em; color: #000; }
-.product-card button { padding: 10px 16px; background: #007BFF; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-.product-card button:hover { background: #0056b3; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Gemmines2</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Header / Navbar -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="contact.html">Contact</a>
+      <button id="cart-toggle">Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+  </header>
 
-<h1>Our Gemstone Collection</h1>
+  <!-- Products Section -->
+  <main>
+    <h1>Our Products</h1>
 
-<div class="products-container">
-    <!-- Example Product 1 -->
-    <div class="product-card">
-        <img src="images/aquamarine.jpg" alt="Aquamarine">
-        <h3>Aquamarine</h3>
-        <p>Natural, unheated, eye-clean gemstone. Rough or polished stone available.</p>
-        <strong>$50</strong>
-        <button onclick="addToCart('Aquamarine', 50)">Buy Now</button>
+    <div id="products-cut-section">
+      <h2>Cut & Polished <span id="products-count-cut"></span></h2>
+      <div id="products-cut" class="products-grid"></div>
     </div>
 
-    <!-- Example Product 2 -->
-    <div class="product-card">
-        <img src="images/rhodolite.jpg" alt="Rhodolite Garnet">
-        <h3>Rhodolite Garnet</h3>
-        <p>Natural rough gemstone, perfect for jewelry making.</p>
-        <strong>$45</strong>
-        <button onclick="addToCart('Rhodolite Garnet', 45)">Buy Now</button>
+    <div id="products-rough-section">
+      <h2>Rough & Uncut <span id="products-count-rough"></span></h2>
+      <div id="products-rough" class="products-grid"></div>
     </div>
 
-    <!-- Example Product 3 -->
-    <div class="product-card">
-        <img src="images/peridot.jpg" alt="Peridot">
-        <h3>Peridot</h3>
-        <p>High-lustre, unheated rough or polished stone.</p>
-        <strong>$38</strong>
-        <button onclick="addToCart('Peridot', 38)">Buy Now</button>
+    <div id="products-tumbled-section">
+      <h2>River Tumbled <span id="products-count-tumbled"></span></h2>
+      <div id="products-tumbled" class="products-grid"></div>
     </div>
+  </main>
 
-    <!-- Add more products following same structure -->
-</div>
+  <!-- Cart Panel -->
+  <div id="cart" style="display:none;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div>Total: <span id="cart-total">$0.00</span></div>
+    <button id="go-checkout">Checkout</button>
+  </div>
 
+  <!-- Checkout (optional on this page) -->
+  <section id="checkout">
+    <h2>Checkout</h2>
+    <div id="cart-summary"></div>
+    <input type="text" id="c-name" placeholder="Full Name">
+    <input type="email" id="c-email" placeholder="Email">
+    <input type="text" id="c-phone" placeholder="Contact Number">
+    <input type="text" id="c-address" placeholder="Shipping Address">
+    <button id="place-order">Place Order</button>
+    <div id="order-success" style="display:none;">Thank you! Your order has been placed.</div>
+  </section>
+
+  <!-- JS -->
+  <script src="products.js"></script>
 </body>
 </html>
