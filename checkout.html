@@ -4,168 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout – Gemmines2</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #e6f0f8;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #444;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 12px;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-    .payment-info {
-      background-color: #f0f0f0;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 5px;
-      font-size: 14px;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <h2>Checkout</h2>
-    <form id="checkoutForm">
-      <label>Product</label>
-      <input type="text" id="product" name="product" readonly />
-
-      <label>Price</label>
-      <input type="text" id="price" name="price" readonly />
-
-      <label>Your Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label>Phone Number</label>
-      <input type="tel" id="phone" name="phone" required />
-
-      <label>Country</label>
-      <select id="country" name="country" required>
-        <option value="">Select Country</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="UAE">UAE</option>
-        <option value="Saudi Arabia">Saudi Arabia</option>
-        <option value="UK">UK</option>
-        <option value="USA">USA</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label>Shipping Address</label>
-      <textarea id="address" name="address" rows="3" required></textarea>
-
-      <label>Payment Method</label>
-      <select id="payment" name="payment" required>
-        <option value="">Select</option>
-        <option value="Bank Transfer">Bank Transfer</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Payoneer">Payoneer</option>
-        <option value="Western Union">Western Union</option>
-        <option value="Ria Money">Ria Money</option>
-        <option value="Credit Card">Credit Card</option>
-        <option value="Cash on Delivery">Cash on Delivery</option>
-      </select>
-
-      <div class="payment-info" id="paymentDetails"></div>
-
-      <button type="submit">Place Order via WhatsApp</button>
-    </form>
-  </div>
-
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const product = urlParams.get('product') || '';
-    const price = urlParams.get('price') || '';
-
-    document.getElementById('product').value = product;
-    document.getElementById('price').value = `$${price}`;
-
-    const paymentDetails = document.getElementById('paymentDetails');
-    const paymentSelect = document.getElementById('payment');
-
-    paymentSelect.addEventListener('change', function () {
-      const method = this.value;
-      switch (method) {
-        case 'Bank Transfer':
-          paymentDetails.innerHTML = 'Bank Name: XYZ Bank<br>Account #: 123456789<br>IBAN: PK00XYZ123456789';
-          break;
-        case 'PayPal':
-          paymentDetails.innerHTML = 'Send payment to: <strong>paypal.me/yourbusiness</strong>';
-          break;
-        case 'Payoneer':
-          paymentDetails.innerHTML = 'Send to Payoneer account: <strong>your@email.com</strong>';
-          break;
-        case 'Western Union':
-          paymentDetails.innerHTML = 'Receiver Name: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'Ria Money':
-          paymentDetails.innerHTML = 'Receiver Name: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'Credit Card':
-          paymentDetails.innerHTML = 'We accept Visa, Mastercard, and UnionPay via Stripe or PayPal.';
-          break;
-        case 'Cash on Delivery':
-          paymentDetails.innerHTML = 'You will pay when the gem is delivered to your address.';
-          break;
-        default:
-          paymentDetails.innerHTML = '';
-      }
-    });
-
-    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const country = document.getElementById('country').value;
-      const address = document.getElementById('address').value;
-      const payment = document.getElementById('payment').value;
-
-      const message = `Hello, I would like to order:\n\nProduct: ${product}\nPrice: $${price}\n\nName: ${name}\nPhone: ${phone}\nCountry: ${country}\nAddress: ${address}\nPayment Method: ${payment}`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/923362149415?text=${encodedMessage}`;
-      window.open(whatsappURL, '_blank');
-    });
-  </script>
-
+  
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0f8;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #005fa3;
+  }
+  .payment-info {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+</style>
 </body>
 </html>
