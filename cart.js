@@ -15,4 +15,6 @@ function displayCart() {
         cartContainer.appendChild(itemDiv);
     });
 
-    
+    const totalContainer = document.getElementById("cart-total");
+    if(totalContainer) totalContainer.textContent = `Total: $${total.toFixed(2)}`;
+}
