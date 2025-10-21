@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products - Gemmines2</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemmines2 - Products</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header / Navbar -->
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="contact.html">Contact</a>
-      <button id="cart-toggle">Cart (<span id="cart-count">0</span>)</button>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><button id="cart-toggle">Cart (<span id="cart-count">0</span>)</button></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- Products Section -->
-  <main>
-    <h1>Our Products</h1>
-
-    <div id="products-cut-section">
-      <h2>Cut & Polished <span id="products-count-cut"></span></h2>
-      <div id="products-cut" class="products-grid"></div>
-    </div>
-
-    <div id="products-rough-section">
-      <h2>Rough & Uncut <span id="products-count-rough"></span></h2>
-      <div id="products-rough" class="products-grid"></div>
-    </div>
-
-    <div id="products-tumbled-section">
-      <h2>River Tumbled <span id="products-count-tumbled"></span></h2>
-      <div id="products-tumbled" class="products-grid"></div>
-    </div>
-  </main>
-
-  <!-- Cart Panel -->
-  <div id="cart" style="display:none;">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <div>Total: <span id="cart-total">$0.00</span></div>
-    <button id="go-checkout">Checkout</button>
-  </div>
-
-  <!-- Checkout (optional on this page) -->
-  <section id="checkout">
-    <h2>Checkout</h2>
-    <div id="cart-summary"></div>
-    <input type="text" id="c-name" placeholder="Full Name">
-    <input type="email" id="c-email" placeholder="Email">
-    <input type="text" id="c-phone" placeholder="Contact Number">
-    <input type="text" id="c-address" placeholder="Shipping Address">
-    <button id="place-order">Place Order</button>
-    <div id="order-success" style="display:none;">Thank you! Your order has been placed.</div>
+<main>
+  <section id="search">
+    <input type="text" id="quick-search" placeholder="Search products...">
+    <button id="clear-search">Clear</button>
   </section>
 
-  <!-- JS -->
-  <script src="products.js"></script>
+  <section id="products">
+    <h2>Cut & Polished</h2>
+    <div id="products-cut" class="products-container"></div>
+    <p>Total: <span id="products-count-cut">0</span></p>
+
+    <h2>Rough & Uncut</h2>
+    <div id="products-rough" class="products-container"></div>
+    <p>Total: <span id="products-count-rough">0</span></p>
+
+    <h2>River Tumbled</h2>
+    <div id="products-tumbled" class="products-container"></div>
+    <p>Total: <span id="products-count-tumbled">0</span></p>
+  </section>
+</main>
+
+<!-- CART PANEL -->
+<div id="cart" style="display:none;">
+  <h3>Shopping Cart</h3>
+  <div id="cart-items"></div>
+  <div>Total: <span id="cart-total">$0.00</span></div>
+  <button id="go-checkout">Checkout</button>
+</div>
+
+<!-- CHECKOUT SECTION -->
+<section id="checkout">
+  <h2>Checkout</h2>
+  <div id="cart-summary"></div>
+  <div>
+    <input id="c-name" placeholder="Full Name">
+    <input id="c-email" placeholder="Email">
+    <input id="c-phone" placeholder="Phone">
+    <input id="c-address" placeholder="Shipping Address">
+    <button id="place-order">Place Order</button>
+  </div>
+  <div id="order-success" style="display:none; color:green;">Order placed successfully!</div>
+</section>
+
+<script src="products.js"></script>
 </body>
 </html>
