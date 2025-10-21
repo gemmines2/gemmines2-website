@@ -227,7 +227,8 @@
       };
       imgEl.src = srcList[0];
     }
-
+// Detect if we are on the homepage
+const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
     /* ---------- RENDERING ---------- */
     function renderSection(cat, containerId, counterId){
       const container = document.getElementById(containerId);
