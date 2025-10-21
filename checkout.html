@@ -4,64 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout – Gemmines2</title>
-  
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #e6f0f8;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 600px;
-    margin: 60px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #444;
-  }
-  input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  button {
-    margin-top: 25px;
-    width: 100%;
-    padding: 12px;
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #005fa3;
-  }
-  .payment-info {
-    background-color: #f0f0f0;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-  }
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f0f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .payment-info {
+      background-color: #f0f0f0;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label>Product</label>
+      <input type="text" id="product" name="product" readonly />
+
+      <label>Price</label>
+      <input type="text" id="price" name="price" readonly />
+
+      <label>First Name</label>
+      <input type="text" id="firstName" name="firstName" required />
+
+      <label>Last Name</label>
+      <input type="text" id="lastName" name="lastName" required />
+
+      <label>Country / Region</label>
+      <select id="country" name="country" required>
+        <option value="">Select Country</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="UAE">UAE</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Address</label>
+      <textarea id="address" name="address" rows="2" required></textarea>
+
+      <label>City</label>
+      <input type="text" id="city" name="city" required />
+
+      <label>Postal Code</label>
+      <input type="text" id="postal" name="postal" required />
+
+      <label>Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label>Shipping Method</label>
+      <select id="shipping" name="shipping" required>
+        <option value="">Select Shipping</option>
+        <option value="Standard Shipping">Standard Shipping</option>
+        <option value="Express Shipping">Express Shipping</option>
+      </select>
+
+      <label>Payment Method</label>
+      <select id="payment" name="payment" required>
+        <option value="">Select Payment</option>
+        <option value="Ria Money">Ria Money</option>
+        <option value="Stripe">Stripe</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+        <option value="Western Union">Western Union</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Payoneer">Payoneer</option>
+      </select>
+
+      <div class="payment-info" id="paymentDetails"></div>
+
+      <button type="submit">Place Order via WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product') || '';
+    const price = urlParams.get('price') || '';
+
+    document.getElementById('product').value = product;
+    document.getElementById('price').value = `$${price}`;
+
+    const paymentDetails = document.getElementById('paymentDetails');
+    const paymentSelect = document.getElementById('payment');
+
+    paymentSelect.addEventListener('change', function () {
+      const method = this.value;
+      switch (method) {
+        case 'Ria Money':
+          paymentDetails.innerHTML = 'Receiver: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
+          break;
+        case 'Stripe':
+          paymentDetails.innerHTML = 'You will be redirected to Stripe for secure card payment.';
+          break;
+        case 'Bank Transfer':
+          paymentDetails.innerHTML = 'Bank Name: XYZ Bank<br>Account #: 123456789<br>IBAN: PK00XYZ123456789';
+          break;
+        case 'Western Union':
+          paymentDetails.innerHTML = 'Receiver: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
+          break;
+        case 'PayPal':
+          paymentDetails.innerHTML = 'Send payment to: <strong>paypal.me/yourbusiness</strong>';
+          break;
+        case 'Payoneer':
+          paymentDetails.innerHTML = 'Send to Payoneer account: <strong>your@email.com</strong>';
+          break;
+        default:
+          paymentDetails.innerHTML = '';
+      }
+    });
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const country = document.getElementById('country').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const postal = document.getElementById('postal').value;
+      const phone = document.getElementById('phone').value;
+      const shipping = document.getElementById('shipping').value;
+      const payment = document.getElementById('payment').value;
+
+      const message = `Hello, I would like to order:\n\nProduct: ${product}\nPrice: $${price}\n\nName: ${firstName} ${lastName}\nCountry: ${country}\nAddress: ${address}, ${city}, ${postal}\nPhone: ${phone}\nShipping: ${shipping}\nPayment Method: ${payment}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/923362149415?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
 </body>
 </html>
