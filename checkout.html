@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +12,7 @@
       padding: 0;
     }
     .container {
-      max-width: 700px;
+      max-width: 600px;
       margin: 40px auto;
       background: white;
       padding: 30px;
@@ -52,13 +50,6 @@
     button:hover {
       background-color: #005fa3;
     }
-    .payment-info {
-      background-color: #f0f0f0;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
@@ -84,16 +75,10 @@
       <label>Payment Method</label>
       <select id="payment" name="payment" required>
         <option value="">Select</option>
-        <option value="Stripe">Stripe (Credit/Debit Card)</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Payoneer">Payoneer</option>
         <option value="Bank Transfer">Bank Transfer</option>
-        <option value="Western Union">Western Union</option>
-        <option value="Ria Money">Ria Money</option>
+        <option value="PayPal">PayPal</option>
         <option value="Cash on Delivery">Cash on Delivery</option>
       </select>
-
-      <div class="payment-info" id="paymentDetails"></div>
 
       <button type="submit">Place Order via WhatsApp</button>
     </form>
@@ -106,38 +91,6 @@
 
     document.getElementById('product').value = product;
     document.getElementById('price').value = `$${price}`;
-
-    const paymentDetails = document.getElementById('paymentDetails');
-    const paymentSelect = document.getElementById('payment');
-
-    paymentSelect.addEventListener('change', function () {
-      const method = this.value;
-      switch (method) {
-        case 'Stripe':
-          paymentDetails.innerHTML = 'You will be redirected to Stripe for secure card payment.';
-          break;
-        case 'PayPal':
-          paymentDetails.innerHTML = 'Send payment to: <strong>paypal.me/yourbusiness</strong>';
-          break;
-        case 'Payoneer':
-          paymentDetails.innerHTML = 'Send to Payoneer account: <strong>your@email.com</strong>';
-          break;
-        case 'Bank Transfer':
-          paymentDetails.innerHTML = 'Bank Name: XYZ Bank<br>Account #: 123456789<br>IBAN: PK00XYZ123456789';
-          break;
-        case 'Western Union':
-          paymentDetails.innerHTML = 'Receiver Name: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'Ria Money':
-          paymentDetails.innerHTML = 'Receiver Name: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'Cash on Delivery':
-          paymentDetails.innerHTML = 'You will pay when the gem is delivered to your address.';
-          break;
-        default:
-          paymentDetails.innerHTML = '';
-      }
-    });
 
     document.getElementById('checkoutForm').addEventListener('submit', function(e) {
       e.preventDefault();
