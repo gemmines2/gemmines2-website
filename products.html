@@ -1,66 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gemmines2 - Products</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemmines2 – Products</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><button id="cart-toggle">Cart (<span id="cart-count">0</span>)</button></li>
-    </ul>
-  </nav>
-</header>
 
-<main>
-  <section id="search">
-    <input type="text" id="quick-search" placeholder="Search products...">
-    <button id="clear-search">Clear</button>
-  </section>
+  <header>
+    <h1>Our Gem Collection</h1>
+  </header>
 
-  <section id="products">
-    <h2>Cut & Polished</h2>
-    <div id="products-cut" class="products-container"></div>
-    <p>Total: <span id="products-count-cut">0</span></p>
+  <div class="product-grid">
 
-    <h2>Rough & Uncut</h2>
-    <div id="products-rough" class="products-container"></div>
-    <p>Total: <span id="products-count-rough">0</span></p>
+    <!-- Aquamarine -->
+    <div class="product-card">
+      <img src="images/gems/aquamarine.jpg" alt="Aquamarine">
+      <h3>Aquamarine</h3>
+      <p>Beautiful blue gem, 2.5ct</p>
+      <p><strong>$120</strong></p>
+      <a href="checkout.html?product=Aquamarine&price=120" class="buy-button">Buy Now</a>
+    </div>
 
-    <h2>River Tumbled</h2>
-    <div id="products-tumbled" class="products-container"></div>
-    <p>Total: <span id="products-count-tumbled">0</span></p>
-  </section>
-</main>
+    <!-- Ruby -->
+    <div class="product-card">
+      <img src="images/gems/ruby.jpg" alt="Ruby">
+      <h3>Ruby</h3>
+      <p>Deep red gem, 3ct</p>
+      <p><strong>$180</strong></p>
+      <a href="checkout.html?product=Ruby&price=180" class="buy-button">Buy Now</a>
+    </div>
 
-<!-- CART PANEL -->
-<div id="cart" style="display:none;">
-  <h3>Shopping Cart</h3>
-  <div id="cart-items"></div>
-  <div>Total: <span id="cart-total">$0.00</span></div>
-  <button id="go-checkout">Checkout</button>
-</div>
+    <!-- Emerald -->
+    <div class="product-card">
+      <img src="images/gems/emerald.jpg" alt="Emerald">
+      <h3>Emerald</h3>
+      <p>Vibrant green gem, 2ct</p>
+      <p><strong>$150</strong></p>
+      <a href="checkout.html?product=Emerald&price=150" class="buy-button">Buy Now</a>
+    </div>
 
-<!-- CHECKOUT SECTION -->
-<section id="checkout">
-  <h2>Checkout</h2>
-  <div id="cart-summary"></div>
-  <div>
-    <input id="c-name" placeholder="Full Name">
-    <input id="c-email" placeholder="Email">
-    <input id="c-phone" placeholder="Phone">
-    <input id="c-address" placeholder="Shipping Address">
-    <button id="place-order">Place Order</button>
+    <!-- Add more gems below as needed -->
+
   </div>
-  <div id="order-success" style="display:none; color:green;">Order placed successfully!</div>
-</section>
 
-<script src="products.js"></script>
 </body>
 </html>
