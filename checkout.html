@@ -1,213 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout – Gemmines2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Gemmines2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg1: #071428;
+      --bg2: #02060a;
+      --gold: #b8862b;
+      --muted: #9fb7d6;
+      --panel: rgba(255,255,255,0.03);
+    }
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #000000, #0a1a2f);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: #e8f4fb;
       margin: 0;
       padding: 0;
-      color: white;
     }
     .container {
-      max-width: 700px;
+      max-width: 900px;
       margin: 40px auto;
-      background: #1c1c1c;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      color: white;
+      background: var(--panel);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
-    .logo {
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
       text-align: center;
-      margin-bottom: 20px;
     }
-    .logo img {
-      max-width: 160px;
-    }
-    .logo h1 {
-      margin-top: 10px;
-      font-size: 24px;
-      color: #00aaff;
-      font-weight: bold;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #00aaff;
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #ddd;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
     }
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      font-size: 14px;
-      background-color: #2a2a2a;
-      color: white;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+      color: #fff;
+      font-size: 1rem;
     }
-    button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 12px;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
+    textarea { grid-column: span 2; min-height: 100px; }
+    .section-title {
+      grid-column: span 2;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+    .radio-group, .payment-group {
+      grid-column: span 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .radio-group label, .payment-group label {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 8px 12px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005fa3;
+    .radio-group input, .payment-group input {
+      margin-right: 8px;
     }
-    .payment-info {
-      background-color: #2a2a2a;
-      padding: 15px;
+    .primary {
+      grid-column: span 2;
+      background: linear-gradient(90deg, var(--gold), #f2cf8f);
+      color: #071022;
+      font-weight: 800;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 1.1rem;
       margin-top: 20px;
-      border-radius: 5px;
-      font-size: 14px;
-      color: #ccc;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin: 40px 0 10px;
+    }
+    @media(max-width: 700px) {
+      form { grid-template-columns: 1fr; }
+      textarea, .section-title, .primary { grid-column: span 1; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div class="logo">
-      <img src="images/logo.png" alt="Gemmines2 Logo" />
-      <h1>Gemmines2</h1>
-    </div>
+    <h1>Checkout</h1>
+    <p style="text-align:center;color:var(--muted);">Complete your order by providing your contact and payment details.</p>
 
-    <h2>Checkout</h2>
-    <form id="checkoutForm">
-      <label>Product</label>
-      <input type="text" id="product" name="product" readonly />
+    <form id="checkout-form">
+      <div class="section-title">Contact Information</div>
 
-      <label>Price</label>
-      <input type="text" id="price" name="price" readonly />
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
 
-      <label>First Name</label>
-      <input type="text" id="firstName" name="firstName" required />
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="+1 234 567 890" required>
+      </div>
 
-      <label>Last Name</label>
-      <input type="text" id="lastName" name="lastName" required />
+      <div class="section-title">Delivery Address</div>
 
-      <label>Country / Region</label>
-      <select id="country" name="country" required>
-        <option value="">Select Country</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="UAE">UAE</option>
-        <option value="Saudi Arabia">Saudi Arabia</option>
-        <option value="UK">UK</option>
-        <option value="USA">USA</option>
-        <option value="Other">Other</option>
-      </select>
+      <div>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" required>
+      </div>
 
-      <label>Address</label>
-      <textarea id="address" name="address" rows="2" required></textarea>
+      <div>
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" required>
+      </div>
 
-      <label>City</label>
-      <input type="text" id="city" name="city" required />
+      <div style="grid-column: span 2;">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Street, apartment, etc." required>
+      </div>
 
-      <label>Postal Code</label>
-      <input type="text" id="postal" name="postal" required />
+      <div>
+        <label for="city">City</label>
+        <input type="text" id="city" required>
+      </div>
 
-      <label>Phone Number</label>
-      <input type="tel" id="phone" name="phone" required />
+      <div>
+        <label for="postal">Postal Code</label>
+        <input type="text" id="postal" required>
+      </div>
 
-      <label>Shipping Method</label>
-      <select id="shipping" name="shipping" required>
-        <option value="">Select Shipping</option>
-        <option value="Standard Shipping">Standard Shipping</option>
-        <option value="Express Shipping">Express Shipping</option>
-      </select>
+      <div>
+        <label for="country">Country / Region</label>
+        <select id="country" required>
+          <option value="">Select your country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>India</option>
+          <option>South Africa</option>
+          <option>Other</option>
+        </select>
+      </div>
 
-      <label>Payment Method</label>
-      <select id="payment" name="payment" required>
-        <option value="">Select Payment</option>
-        <option value="Ria Money">Ria Money</option>
-        <option value="Stripe">Stripe</option>
-        <option value="Bank Transfer">Bank Transfer</option>
-        <option value="Western Union">Western Union</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Payoneer">Payoneer</option>
-      </select>
+      <div class="section-title">Shipping Method</div>
+      <div class="radio-group">
+        <label><input type="radio" name="shipping" value="standard" checked> Standard Shipping (Free)</label>
+        <label><input type="radio" name="shipping" value="express"> Express Shipping (+$15)</label>
+      </div>
 
-      <div class="payment-info" id="paymentDetails"></div>
+      <div class="section-title">Payment Method</div>
+      <div class="payment-group">
+        <label><input type="radio" name="payment" value="western-union" checked> Western Union</label>
+        <label><input type="radio" name="payment" value="ria"> RIA Money Transfer</label>
+        <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+        <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+        <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+        <label><input type="radio" name="payment" value="stripe"> Stripe</label>
+      </div>
 
-      <button type="submit">Place Order via WhatsApp</button>
+      <textarea placeholder="Additional notes or delivery instructions (optional)"></textarea>
+
+      <button type="submit" class="primary">Place Order</button>
     </form>
   </div>
 
+  <footer>
+    © <span id="year"></span> Gemmines2 — Secure Checkout
+  </footer>
+
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const product = urlParams.get('product') || '';
-    const price = urlParams.get('price') || '';
+    document.getElementById("year").innerText = new Date().getFullYear();
 
-    document.getElementById('product').value = product;
-    document.getElementById('price').value = `$${price}`;
-
-    const paymentDetails = document.getElementById('paymentDetails');
-    const paymentSelect = document.getElementById('payment');
-
-    paymentSelect.addEventListener('change', function () {
-      const method = this.value;
-      switch (method) {
-        case 'Ria Money':
-          paymentDetails.innerHTML = 'Receiver: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'Stripe':
-          paymentDetails.innerHTML = 'You will be redirected to Stripe for secure card payment.';
-          break;
-        case 'Bank Transfer':
-          paymentDetails.innerHTML = 'Bank Name: XYZ Bank<br>Account #: 123456789<br>IBAN: PK00XYZ123456789';
-          break;
-        case 'Western Union':
-          paymentDetails.innerHTML = 'Receiver: Your Name<br>Location: Pakistan<br>Send receipt via WhatsApp.';
-          break;
-        case 'PayPal':
-          paymentDetails.innerHTML = 'Send payment to: <strong>paypal.me/yourbusiness</strong>';
-          break;
-        case 'Payoneer':
-          paymentDetails.innerHTML = 'Send to Payoneer account: <strong>your@email.com</strong>';
-          break;
-        default:
-          paymentDetails.innerHTML = '';
-      }
-    });
-
-    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    document.getElementById("checkout-form").addEventListener("submit", e => {
       e.preventDefault();
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const country = document.getElementById('country').value;
-      const address = document.getElementById('address').value;
-      const city = document.getElementById('city').value;
-      const postal = document.getElementById('postal').value;
-      const phone = document.getElementById('phone').value;
-      const shipping = document.getElementById('shipping').value;
-      const payment = document.getElementById('payment').value;
-
-      const message = `Hello, I would like to order:\n\nProduct: ${product}\nPrice: $${price}\n\nName: ${firstName} ${lastName}\nCountry: ${country}\nAddress: ${address}, ${city}, ${postal}\nPhone: ${phone}\nShipping: ${shipping}\nPayment Method: ${payment}`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/923362149415?text=${encodedMessage}`;
-      window.open(whatsappURL, '_blank');
+      alert("Thank you for your order! Our team will contact you shortly for confirmation.");
+      e.target.reset();
     });
   </script>
-
 </body>
 </html>
-✅ What to Do Now
-Replace your current checkout.html with this code
-
-Upload your log
