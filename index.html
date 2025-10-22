@@ -80,6 +80,8 @@
       border-radius: 12px;
       font-weight: 800;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
     .secondary {
       background: transparent;
@@ -88,75 +90,12 @@
       padding: 12px 18px;
       border-radius: 12px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
-    section.page {
-      margin-top: 40px;
-    }
-    <!-- FEATURED GEMS -->
-<section id="featured" class="page" style="margin-top:32px">
-  <h3 style="color:var(--gold);font-family:'Playfair Display',serif;margin-bottom:10px">
-    Featured Gems
-  </h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px">
-    <div class="product">
-      <img src="images/aquamarine.jpg" alt="Aquamarine" style="width:100%;height:160px;object-fit:cover;border-radius:10px">
-      <h3>Aquamarine</h3>
-      <p style="color:var(--muted)">Clean aquamarine — approx 2.5 carats — polished</p>
-      <div class="meta"><div class="price">$50</div></div>
-    </div>
-
-    <div class="product">
-      <img src="images/rhodolite.jpg" alt="Rhodolite Garnet" style="width:100%;height:160px;object-fit:cover;border-radius:10px">
-      <h3>Rhodolite Garnet</h3>
-      <p style="color:var(--muted)">Rhodolite — polished, high lustre</p>
-      <div class="meta"><div class="price">$45</div></div>
-    </div>
-
-    <div class="product">
-      <img src="images/peridot.jpg" alt="Peridot" style="width:100%;height:160px;object-fit:cover;border-radius:10px">
-      <h3>Peridot</h3>
-      <p style="color:var(--muted)">Bright green Peridot — polished</p>
-      <div class="meta"><div class="price">$38</div></div>
-    </div>
-
-    <div class="product">
-      <img src="images/jasper-tumbled.jpg" alt="Mixed Tumbled Jasper" style="width:100%;height:160px;object-fit:cover;border-radius:10px">
-      <h3>Mixed Tumbled Jasper</h3>
-      <p style="color:var(--muted)">Tumbled river jasper pebbles — smooth & polished</p>
-      <div class="meta"><div class="price">$28</div></div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:16px">
-    <a href="products.html" class="primary">View All Products</a>
-  </div>
-</section>
-    <section id="featured" style="padding:40px 0;">
-  <h2 style="font-family:'Playfair Display',serif;color:var(--gold);text-align:center;margin-bottom:30px;">
-    Featured Gemstones
-  </h2>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
-    <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;box-shadow:var(--card-shadow);">
-      <img src="images/umbalite.jpg" alt="Umbalite Garnet" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
-      <h3 style="margin:10px 0 6px;">Umbalite Garnet</h3>
-      <p style="color:var(--muted);font-size:0.92rem;">A rare variety of rhodolite garnet, rich in pink-purple brilliance — highly prized for jewelry.</p>
-    </div>
-
-    <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;box-shadow:var(--card-shadow);">
-      <img src="images/lemon-quartz.jpg" alt="Lemon Quartz" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
-      <h3 style="margin:10px 0 6px;">Lemon Quartz</h3>
-      <p style="color:var(--muted);font-size:0.92rem;">Bright yellow-green quartz with excellent clarity — symbolizing positivity and light.</p>
-    </div>
-  </div>
-</section>
-    footer {
-      text-align: center;
-      color: var(--muted);
-      margin: 40px 0 10px;
-    }
-    @media(max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-    }
+    section.page { margin-top: 40px; }
+    footer { text-align: center; color: var(--muted); margin: 40px 0 10px; }
+    @media(max-width: 900px) { .hero { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -191,6 +130,31 @@
         <p style="color:var(--muted)">Aquamarine — clean, eye-catching blue. Price: $50</p>
       </aside>
     </main>
+
+    <!-- Featured Gemstones Section -->
+    <section id="featured" style="padding:40px 0;">
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold);text-align:center;margin-bottom:30px;">
+        Featured Gemstones
+      </h2>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
+        <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;">
+          <img src="images/umbalite.jpg" alt="Umbalite Garnet" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
+          <h3 style="margin:10px 0 6px;">Umbalite Garnet</h3>
+          <p style="color:var(--muted);font-size:0.92rem;">A rare variety of rhodolite garnet, rich in pink-purple brilliance — highly prized for jewelry.</p>
+        </div>
+
+        <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;">
+          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
+          <h3 style="margin:10px 0 6px;">Lemon Quartz</h3>
+          <p style="color:var(--muted);font-size:0.92rem;">Bright yellow-green quartz with excellent clarity — symbolizing positivity and light.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <a href="products.html" class="primary">View All Products →</a>
+      </div>
+    </section>
 
     <section id="about" class="page">
       <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">About Gemmines2</h3>
