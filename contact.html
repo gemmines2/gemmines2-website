@@ -1,43 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gemmines2 — Contact</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Contact Gemmines2</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a class="active" href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="contact-container">
-    <div class="contact-card">
-      <h2>Get in Touch</h2>
-      <p>We’d love to hear from you. Send us your message below and we’ll get back soon!</p>
-      <form action="https://formspree.io/f/xjkbvwny" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="_replyto" placeholder="Email Address" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+<div class="container">
+<header>
+  <div class="brand">
+    <div class="logo">GM</div>
+    <div>
+      <h1>Gemmines2</h1>
+      <small>Contact / Custom Orders</small>
     </div>
-  </section>
+  </div>
+  <nav>
+    <a class="btn" href="index.html">Home</a>
+    <a class="btn" href="products.html">Products</a>
+    <a class="btn" href="checkout.html">Cart</a>
+    <a class="btn" href="contact.html">Contact</a>
+    <a class="btn" href="about.html">About</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>Email: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a></p>
-    <p>WhatsApp: +92 336 2149415</p>
-    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a></p>
-    <p>© 2025 Gemmines2 | All rights reserved</p>
-  </footer>
-</body>
-</html>
+<h2 style="color:var(--gold);margin-top:20px;">Contact / Custom Orders</h2>
+<label>Email</label>
+<input id="contact-email" placeholder="you@domain.com"/>
+<label>WhatsApp / Phone</label>
+<input id="contact-phone" placeholder="+92..."/>
+<label>Message</label>
+<textarea id="contact-message" placeholder="Tell us about your custom order..."></textarea>
+<button id="send-contact" class="primary" style="margin-top:12px;">Send Inquiry</button>
+<div id="contact-status" style="color:var(--muted);margin-top:8px"></div>
+
+<footer>
+© Gemmines2 — Natural Gemstones • <span id="year"></span>
+</footer>
+
+</div>
+<script>
+document.getElementById('year').innerText = new Date().getFullYear();
+document.getElementById('send-contact').addEventListener('click', ()=>{
+  const email = document.getElementById('contact-email').value.trim();
+  const phone = document.getElementById('contact-phone').value.trim();
+  const msg = document.getElementById('contact-message').value.trim();
+  if(!email && !phone){ document.getElementById('contact-status').innerText='Provide an email or phone.'; return; }
+  document.getElementById('contact-status').innerText='Inquiry sent — we will contact you shortly.';
+  document.getElementById('contact-email').value=''; document
