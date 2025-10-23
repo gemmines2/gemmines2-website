@@ -1,185 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemmines2 — Natural Gemstones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemmines2 | Home</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root{
-      --bg1:#071428; --bg2:#02060a; --gold:#b8862b; --muted:#9fb7d6;
-      --panel:rgba(255,255,255,0.03); --radius:12px;
-    }
     body {
       margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2));
-      color: #e8f4fb;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #000814, #001233);
+      color: #e0e0e0;
     }
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px;
+
+    /* Navigation */
+    nav {
+      background: #000814;
+      border-bottom: 1px solid #002855;
+      padding: 15px 0;
+      text-align: center;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #0b4f7a, #021122);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-weight: 800;
-      font-family: 'Playfair Display', serif;
-    }
-    .brand h1 { margin: 0; font-size: 1.2rem; font-family: 'Playfair Display', serif; }
-    .brand small { color: var(--muted); display: block; font-size: 0.8rem; }
-    nav { display: flex; gap: 12px; }
-    .btn {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.05);
-      padding: 8px 14px;
-      border-radius: 10px;
-      color: var(--muted);
+    nav a {
+      color: #ffd60a;
+      text-decoration: none;
+      margin: 0 18px;
       font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
     }
-    .btn:hover { color: var(--gold); }
-    .hero {
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #ffd60a;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+    header h1 {
+      color: #ffd60a;
+      font-size: 2rem;
+      text-shadow: 0 0 10px rgba(255, 214, 10, 0.4);
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #ffd60a;
+      color: #000814;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background: #ffe169;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #003566;
+      color: #999;
       margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 24px;
-      align-items: center;
     }
-    .hero-card {
-      background: var(--panel);
-      padding: 24px;
-      border-radius: 16px;
-    }
-    h2 { font-family: 'Playfair Display', serif; color: #fff; }
-    .cta { margin-top: 16px; display: flex; gap: 12px; }
-    .primary {
-      background: linear-gradient(90deg, var(--gold), #f2cf8f);
-      color: #071022;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.05);
-      color: var(--muted);
-      padding: 12px 18px;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-    section.page { margin-top: 40px; }
-    footer { text-align: center; color: var(--muted); margin: 40px 0 10px; }
-    @media(max-width: 900px) { .hero { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">GM</div>
-        <div>
-          <h1>Gemmines2</h1>
-          <small>Natural gemstones — cut, polished & tumbled river stones</small>
-        </div>
-      </div>
-      <nav>
-        <a href="index.html" class="btn">Home</a>
-        <a href="products.html" class="btn">Products</a>
-        <a href="#contact" class="btn">Contact</a>
-      </nav>
-    </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
 
-    <main class="hero">
-      <div class="hero-card">
-        <h2>Natural Gemstones — Cut, Polished & Tumbled</h2>
-        <p>Explore our collection of fine gemstones and river-tumbled stones for jewellery and collectors. Worldwide shipping and custom cuts available.</p>
-        <div class="cta">
-          <a href="products.html" class="primary">Shop Now</a>
-          <a href="#contact" class="secondary">Contact Us</a>
-        </div>
-      </div>
-      <aside class="hero-card">
-        <h3 style="color:var(--gold);margin-top:0;">Featured Gem</h3>
-        <img src="images/aquamarine.jpg" alt="Aquamarine" style="width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:10px;">
-        <p style="color:var(--muted)">Aquamarine — clean, eye-catching blue. Price: $50</p>
-      </aside>
-    </main>
+  <header>
+    <h1>Welcome to Gemmines2</h1>
+    <div class="intro">
+      Discover genuine natural gemstones — ethically sourced, beautifully polished, and shipped worldwide.
+    </div>
+    <a href="products.html" class="btn">Explore Products</a>
+  </header>
 
-    <!-- Featured Gemstones Section -->
-    <section id="featured" style="padding:40px 0;">
-      <h2 style="font-family:'Playfair Display',serif;color:var(--gold);text-align:center;margin-bottom:30px;">
-        Featured Gemstones
-      </h2>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
-        <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;">
-          <img src="images/umbalite.jpg" alt="Umbalite Garnet" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
-          <h3 style="margin:10px 0 6px;">Umbalite Garnet</h3>
-          <p style="color:var(--muted);font-size:0.92rem;">A rare variety of rhodolite garnet, rich in pink-purple brilliance — highly prized for jewelry.</p>
-        </div>
-
-        <div style="background:var(--panel);border-radius:12px;padding:12px;text-align:center;">
-          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz" style="width:100%;height:220px;object-fit:cover;border-radius:10px;background:#071426;">
-          <h3 style="margin:10px 0 6px;">Lemon Quartz</h3>
-          <p style="color:var(--muted);font-size:0.92rem;">Bright yellow-green quartz with excellent clarity — symbolizing positivity and light.</p>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:40px;">
-        <a href="products.html" class="primary">View All Products →</a>
-      </div>
-    </section>
-
-    <section id="about" class="page">
-      <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">About Gemmines2</h3>
-      <p style="color:var(--muted);line-height:1.6;">
-        We specialize in genuine natural gemstones — from cut & polished to rough and tumbled river stones. Our mission is to bring you beautiful, authentic stones for personal, jewellery, or collection use.
-      </p>
-    </section>
-
-    <section id="contact" class="page">
-      <h3 style="color:var(--gold);font-family:'Playfair Display',serif;">Contact / Custom Orders</h3>
-      <p style="color:var(--muted);">For custom cuts, bulk orders or wholesale inquiries, reach us through email or WhatsApp.</p>
-      <label>Email</label>
-      <input type="email" placeholder="you@example.com" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff;">
-      <label>Message</label>
-      <textarea placeholder="Tell us about your request..." style="width:100%;min-height:120px;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:#fff;"></textarea>
-      <button class="primary" style="margin-top:12px;">Send Inquiry</button>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Gemmines2 — Natural Gemstones
-    </footer>
-  </div>
+  <footer>
+    &copy; <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
 
   <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
