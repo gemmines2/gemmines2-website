@@ -1,135 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gemmines2 | Products</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000814, #001233);
-      color: #e0e0e0;
-    }
-
-    nav {
-      background: #000814;
-      border-bottom: 1px solid #002855;
-      padding: 15px 0;
-      text-align: center;
-    }
-    nav a {
-      color: #ffd60a;
-      text-decoration: none;
-      margin: 0 18px;
-      font-weight: 600;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px #ffd60a;
-    }
-
-    header {
-      text-align: center;
-      padding: 30px 0 10px;
-    }
-    header h1 {
-      color: #ffd60a;
-      font-size: 1.8rem;
-      text-shadow: 0 0 10px rgba(255, 214, 10, 0.4);
-    }
-
-    #products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .product {
-      background: #001845;
-      border: 1px solid #003566;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .product:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(255, 214, 10, 0.5);
-    }
-
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-    .product h3 {
-      color: #ffd60a;
-      margin-bottom: 6px;
-    }
-    .product p {
-      color: #ccc;
-      font-size: 0.9rem;
-      min-height: 50px;
-    }
-    .price {
-      color: #ffd60a;
-      font-weight: bold;
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-
-    .buy-btn {
-      background: #ffd60a;
-      color: #000814;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .buy-btn:hover {
-      background: #ffe169;
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid #003566;
-      color: #999;
-      margin-top: 30px;
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">Gemmines2</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </div>
   </nav>
 
-  <header>
-    <h1>Gemmines2 Natural Gemstone Collection</h1>
+  <header class="page-header">
+    <h2>Our Gemstone Collection</h2>
+    <p>Click a product to view details and buy.</p>
   </header>
 
-  <section id="products-grid"></section>
+  <main class="container">
+    <section id="products-grid" class="grid"></section>
+  </main>
 
-  <footer>
-    &copy; <span id="year"></span> Gemmines2. All rights reserved.
+  <footer class="site-footer">
+    <div>&copy; <span id="year"></span> Gemmines2. All rights reserved.</div>
   </footer>
 
   <script src="products.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
