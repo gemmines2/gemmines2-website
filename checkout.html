@@ -196,5 +196,21 @@
       e.target.reset();
     });
   </script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+  if (product) {
+    document.getElementById('checkout-item').innerHTML = `
+      <img src="${product.img}" alt="${product.name}" style="width:100px;border-radius:8px;">
+      <h3>${product.name}</h3>
+      <p>${product.desc}</p>
+      <strong>Price: $${product.price}</strong>
+    `;
+  } else {
+    document.getElementById('checkout-item').innerHTML = '<p>No product selected.</p>';
+  }
+});
+</script>
 </body>
 </html>
