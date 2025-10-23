@@ -1,101 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gemmines2 | Home</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000814, #001233);
-      color: #e0e0e0;
-    }
-
-    /* Navigation */
-    nav {
-      background: #000814;
-      border-bottom: 1px solid #002855;
-      padding: 15px 0;
-      text-align: center;
-    }
-    nav a {
-      color: #ffd60a;
-      text-decoration: none;
-      margin: 0 18px;
-      font-weight: 600;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px #ffd60a;
-    }
-
-    header {
-      text-align: center;
-      padding: 50px 20px 20px;
-    }
-    header h1 {
-      color: #ffd60a;
-      font-size: 2rem;
-      text-shadow: 0 0 10px rgba(255, 214, 10, 0.4);
-    }
-
-    .intro {
-      max-width: 700px;
-      margin: 20px auto;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #ccc;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 25px;
-      background: #ffd60a;
-      color: #000814;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .btn:hover {
-      background: #ffe169;
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid #003566;
-      color: #999;
-      margin-top: 40px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">Gemmines2</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </div>
   </nav>
 
-  <header>
-    <h1>Welcome to Gemmines2</h1>
-    <div class="intro">
-      Discover genuine natural gemstones — ethically sourced, beautifully polished, and shipped worldwide.
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Gemmines2 — Natural Gemstones</h1>
+      <p>Genuine, ethically-sourced gemstones — polished or rough. Worldwide shipping & customised tailoring.</p>
+      <a class="btn-primary" href="products.html">Explore Products</a>
     </div>
-    <a href="products.html" class="btn">Explore Products</a>
   </header>
 
-  <footer>
-    &copy; <span id="year"></span> Gemmines2. All rights reserved.
+  <main class="container">
+    <section class="features">
+      <div class="feature">
+        <h3>High Quality</h3>
+        <p>Polished and natural stones with certificate available on request.</p>
+      </div>
+      <div class="feature">
+        <h3>Worldwide Shipping</h3>
+        <p>We ship internationally via trusted services.</p>
+      </div>
+      <div class="feature">
+        <h3>Secure Payments</h3>
+        <p>Payments via Western Union, Ria, Bank Transfer and PayPal.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>&copy; <span id="year"></span> Gemmines2. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+</body>
+</html>
+2) products.html
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gemmines2 | Products</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">Gemmines2</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h2>Our Gemstone Collection</h2>
+    <p>Click a product to view details and buy.</p>
+  </header>
+
+  <main class="container">
+    <section id="products-grid" class="grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div>&copy; <span id="year"></span> Gemmines2. All rights reserved.</div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
