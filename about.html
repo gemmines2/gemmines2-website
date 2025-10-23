@@ -1,33 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Gemmines2</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Gemmines2 — About</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <h1 class="brand">Gemmines2</h1>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GM</div>
+        <div>
+          <h1>Gemmines2</h1>
+          <small>About</small>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="products.html">Products</a>
+        <a class="btn" href="cart.html">Cart</a>
+        <a class="btn" href="contact.html">Contact</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <h2 class="section-title">About Gemmines2</h2>
-    <p>Gemmines2 sources natural, unheated gemstones from Pakistan and other places. We focus on quality, honesty, and worldwide shipping. Contact us for custom orders and bulk inquiries.</p>
-  </main>
+    <main style="margin-top:18px">
+      <h2 style="color:var(--gold)">About Gemmines2</h2>
+      <p style="color:var(--muted)">Gemmines2 sources and sells natural gemstones — cut, polished, and tumbled. We ship worldwide and support custom orders. For large orders or wholesale, contact us via the Contact page.</p>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Gemmines2</p>
-    </div>
-  </footer>
+    <footer>
+      © Gemmines2 — Natural Gemstones • <span id="year"></span>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').innerText = new Date().getFullYear();</script>
 </body>
 </html>
