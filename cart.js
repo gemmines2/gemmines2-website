@@ -1,36 +1,95 @@
-const SITE={ownerEditMode:true};
-const CART_KEY='gemmines2_cart_v3';
+/* cart.js - cart persistence and UI */
+const CART_KEY = 'gemmines2_cart_v1';
 
-const PRODUCTS = [
-  { id:'aq-1', cat:'cut', name:'Aquamarine', desc:'Clean aquamarine — approx 2.5 carats — polished', price:50, imgs:['images/aquamarine.jpg'] },
-  { id:'rh-1', cat:'cut', name:'Rhodolite Garnet', desc:'Rhodolite — polished, high lustre', price:45, imgs:['images/rhodolite.jpg'] },
-  { id:'ci-1', cat:'cut', name:'Citrine', desc:'Citrine — warm yellow, faceted', price:40, imgs:['images/citrine.jpg'] },
-  { id:'pe-1', cat:'cut', name:'Peridot', desc:'Peridot — bright green, polished', price:38, imgs:['images/peridot.jpg'] },
-  { id:'he-1', cat:'rough', name:'Hessonite', desc:'Hessonite — rich honey-brown garnet (rough)', price:35, imgs:['images/hessonite.jpg'] },
-  { id:'gj-1', cat:'rough', name:'Green Jasper', desc:'Rough green jasper', price:30, imgs:['images/green-jasper.jpg'] },
-  { id:'jt-1', cat:'tumbled', name:'Mixed Tumbled Jasper', desc:'Tumbled river jasper pebbles — polished & smooth', price:28, imgs:['images/jasper-tumbled.jpg'] }
-];
+function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch(e){ return {}; } }
+function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCartCount(); renderCartPanel(); renderCheckout(); }
 
-function loadCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||{}}catch(e){return{}}}
-function saveCart(cart){localStorage.setItem(CART_KEY,JSON.stringify(cart)); renderCartCount();}
-function addToCart(id,qty=1){const cart=loadCart();cart[id]=(cart[id]||0)+qty;saveCart(cart); renderCartPanel();}
-function removeFromCart(id){const cart=loadCart();delete cart[id];saveCart(cart); renderCartPanel();}
-function setQty(id,qty){const cart=loadCart();if(qty<=0)delete cart[id];else cart[id]=qty;saveCart(cart); renderCartPanel();}
-function cartItemsDetailed(){const cart=loadCart();const items=[];for(const id in cart){const p=PRODUCTS.find(x=>x.id===id);if(p)items.push({...p,qty:cart[id]});}return items;}
-
-function renderSection(cat,containerId){
-  const container=document.getElementById(containerId);
-  container.innerHTML='';
-  PRODUCTS.filter(p=>p.cat===cat).forEach(p=>{
-    const card=document.createElement('div'); card.className='product';
-    const img=document.createElement('img'); img.src=p.imgs[0]; img.alt=p.name;
-    const h=document.createElement('h3'); h.innerText=p.name; h.contentEditable=SITE.ownerEditMode;
-    const d=document.createElement('p'); d.innerText=p.desc; d.contentEditable=SITE.ownerEditMode;
-    const meta=document.createElement('div'); meta.className='meta'; meta.innerHTML=`<div class="price">$${p.price}</div><div><button class="buy" data-id="${p.id}">Buy</button></div>`;
-    card.appendChild(img); card.appendChild(h); card.appendChild(d); card.appendChild(meta); container.appendChild(card);
-  });
+function addToCart(productId, qty=1){
+  const cart = loadCart(); cart[productId] = (cart[productId]||0) + qty; saveCart(cart);
+}
+function removeFromCart(productId){
+  const cart = loadCart(); delete cart[productId]; saveCart(cart);
+}
+function setQty(productId, qty){
+  const cart = loadCart(); if(qty <= 0) delete cart[productId]; else cart[productId] = qty; saveCart(cart);
+}
+function cartItemsDetailed(){
+  const cart = loadCart(); const items = [];
+  for(const id in cart){ const p = PRODUCTS.find(x=>x.id===id); if(p) items.push({...p, qty: cart[id]}); }
+  return items;
 }
 
-function attachBuyButtons(){ document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',e=>{ addToCart(b.dataset.id); alert('Added to cart'); })); }
+/* Render helpers */
+function renderCartCount(){
+  const el = document.getElementById('cart-count');
+  if(!el) return;
+  const total = cartItemsDetailed().reduce((s,i)=>s+i.qty,0);
+  el.innerText = total;
+}
 
-function renderCartCount(){document.getElementById('cart-count')&&(document.getElementById('cart-count').innerText=cartItemsDetailed().reduce((s
+function renderCartPanel(){
+  const container = document.getElementById('cart-items');
+  if(!container) return;
+  const items = cartItemsDetailed(); container.innerHTML = '';
+  let total = 0;
+  items.forEach(it => {
+    total += it.qty * it.price;
+    const row = document.createElement('div'); row.className = 'cart-item';
+    row.innerHTML = `<img src="${(it.imgs && it.imgs[0])||''}" alt="${it.name}" /><div style="flex:1"><div style="font-weight:700">${it.name}</div><div style="color:var(--muted);font-size:0.9rem">$${it.price} × <input type="number" value="${it.qty}" min="1" data-id="${it.id}" style="width:64px;border-radius:6px;padding:6px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit" /></div></div><div><button data-remove="${it.id}" style="background:transparent;border:none;color:var(--muted);cursor:pointer">Remove</button></div>`;
+    container.appendChild(row);
+  });
+  const totalEl = document.getElementById('cart-total'); if(totalEl) totalEl.innerText = '$' + total.toFixed(2);
+
+  // attach qty change
+  container.querySelectorAll('input[type="number"]').forEach(inp=>{
+    inp.addEventListener('change', e=>{
+      const id = e.target.dataset.id; const v = parseInt(e.target.value) || 1; setQty(id, v);
+    });
+  });
+  // attach remove
+  container.querySelectorAll('[data-remove]').forEach(b=> b.addEventListener('click', e=>{
+    removeFromCart(b.dataset.remove);
+  }));
+}
+
+function renderCheckout(){
+  const container = document.getElementById('cart-summary');
+  if(!container) return;
+  const items = cartItemsDetailed();
+  if(items.length === 0){ container.innerHTML = '<div style="color:var(--muted)">Your cart is empty.</div>'; return; }
+  let html = '<div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">';
+  let total = 0;
+  items.forEach(it=>{
+    html += `<div style="display:flex;justify-content:space-between;padding:6px 0"><div>${it.name} × ${it.qty}</div><div>$${(it.price*it.qty).toFixed(2)}</div></div>`;
+    total += it.price * it.qty;
+  });
+  html += `<hr style="border:none;border-top:1px dashed rgba(255,255,255,0.04);margin:8px 0"/><div style="display:flex;justify-content:space-between;font-weight:800">Total<div>$${total.toFixed(2)}</div></div></div>`;
+  container.innerHTML = html;
+  const cartTotalEl = document.getElementById('cart-total'); if(cartTotalEl) cartTotalEl.innerText = '$' + total.toFixed(2);
+}
+
+/* place order (simulated) */
+function placeOrder(contact){
+  const order = { id:'ORD-'+Date.now(), items: cartItemsDetailed(), contact, created: new Date().toISOString() };
+  console.log('ORDER', order);
+  localStorage.removeItem(CART_KEY);
+  renderCartPanel(); renderCartCount(); renderCheckout();
+}
+
+/* wire up global UI from pages */
+document.addEventListener('DOMContentLoaded', ()=>{
+  // attach buy buttons dynamically (products may render after DOMContentLoaded)
+  document.body.addEventListener('click', (e)=>{
+    if(e.target && e.target.matches && e.target.matches('.buy')){
+      const id = e.target.dataset.id;
+      addToCart(id);
+      alert('Added to cart');
+      renderCartCount();
+    }
+  });
+
+  // render cart panel if exists
+  renderCartPanel();
+  renderCartCount();
+  renderCheckout();
+});
