@@ -3,214 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Checkout | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --bg1: #071428;
-      --bg2: #02060a;
-      --gold: #b8862b;
-      --muted: #9fb7d6;
-      --panel: rgba(255,255,255,0.03);
-    }
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2));
-      color: #e8f4fb;
+      background: linear-gradient(135deg, #000814, #001d3d);
+      color: #f1f1f1;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: var(--panel);
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
-    }
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--gold);
+    header {
       text-align: center;
+      padding: 20px 0;
+      background: #001d3d;
+      border-bottom: 1px solid #003566;
     }
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 20px;
+    header h1 {
+      color: #ffd60a;
+      margin: 0;
     }
-    label {
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .checkout-card {
+      background: #001d3d;
+      border: 1px solid #003566;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      margin-bottom: 25px;
+    }
+    .checkout-card img {
+      width: 100%;
+      max-width: 180px;
+      border-radius: 12px;
       display: block;
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 6px;
+      margin: 10px auto;
     }
-    input, select, textarea {
+    .checkout-card h3 {
+      text-align: center;
+      color: #ffd60a;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+    form input, form select {
       width: 100%;
       padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #003566;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.05);
-      background: rgba(255,255,255,0.02);
+      background: #000814;
       color: #fff;
-      font-size: 1rem;
     }
-    textarea { grid-column: span 2; min-height: 100px; }
-    .section-title {
-      grid-column: span 2;
-      font-weight: 700;
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      margin-top: 20px;
-      font-size: 1.2rem;
+    .total {
+      text-align: center;
+      font-size: 18px;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #ffd60a;
     }
-    .radio-group, .payment-group {
-      grid-column: span 2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .radio-group label, .payment-group label {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-    .radio-group input, .payment-group input {
-      margin-right: 8px;
-    }
-    .primary {
-      grid-column: span 2;
-      background: linear-gradient(90deg, var(--gold), #f2cf8f);
-      color: #071022;
-      font-weight: 800;
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #ffd60a;
+      color: #000;
       border: none;
-      border-radius: 12px;
-      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 1.1rem;
-      margin-top: 20px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #ffc300;
     }
     footer {
       text-align: center;
-      color: var(--muted);
-      margin: 40px 0 10px;
-    }
-    @media(max-width: 700px) {
-      form { grid-template-columns: 1fr; }
-      textarea, .section-title, .primary { grid-column: span 1; }
+      padding: 20px 0;
+      font-size: 14px;
+      border-top: 1px solid #003566;
+      margin-top: 30px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <header>
     <h1>Checkout</h1>
-    <p style="text-align:center;color:var(--muted);">Complete your order by providing your contact and payment details.</p>
+  </header>
 
-    <form id="checkout-form">
-      <div class="section-title">Contact Information</div>
+  <main>
+    <div id="checkout-item" class="checkout-card">
+      <!-- Product details will load here -->
+    </div>
 
-      <div>
+    <div class="checkout-card">
+      <form id="checkout-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="you@example.com" required>
-      </div>
+        <input type="email" id="email" required>
 
-      <div>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" placeholder="+1 234 567 890" required>
-      </div>
+        <label for="contact">Contact Number (WhatsApp)</label>
+        <input type="text" id="contact" required>
 
-      <div class="section-title">Delivery Address</div>
+        <label for="address">Full Address</label>
+        <input type="text" id="address" required>
 
-      <div>
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" required>
-      </div>
+        <label for="country">Country</label>
+        <input type="text" id="country" required>
 
-      <div>
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" required>
-      </div>
-
-      <div style="grid-column: span 2;">
-        <label for="address">Address</label>
-        <input type="text" id="address" placeholder="Street, apartment, etc." required>
-      </div>
-
-      <div>
-        <label for="city">City</label>
-        <input type="text" id="city" required>
-      </div>
-
-      <div>
         <label for="postal">Postal Code</label>
         <input type="text" id="postal" required>
-      </div>
 
-      <div>
-        <label for="country">Country / Region</label>
-        <select id="country" required>
-          <option value="">Select your country</option>
-          <option>United States</option>
-          <option>United Kingdom</option>
-          <option>Canada</option>
-          <option>Australia</option>
-          <option>India</option>
-          <option>South Africa</option>
-          <option>Other</option>
+        <label for="payment">Payment Method</label>
+        <select id="payment" required>
+          <option value="">Select</option>
+          <option value="Western Union">Western Union</option>
+          <option value="Ria">Ria</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="PayPal">PayPal</option>
         </select>
-      </div>
 
-      <div class="section-title">Shipping Method</div>
-      <div class="radio-group">
-        <label><input type="radio" name="shipping" value="standard" checked> Standard Shipping (Free)</label>
-        <label><input type="radio" name="shipping" value="express"> Express Shipping (+$15)</label>
-      </div>
+        <div class="total" id="total-price"></div>
 
-      <div class="section-title">Payment Method</div>
-      <div class="payment-group">
-        <label><input type="radio" name="payment" value="western-union" checked> Western Union</label>
-        <label><input type="radio" name="payment" value="ria"> RIA Money Transfer</label>
-        <label><input type="radio" name="payment" value="paypal"> PayPal</label>
-        <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-        <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-        <label><input type="radio" name="payment" value="stripe"> Stripe</label>
-      </div>
-
-      <textarea placeholder="Additional notes or delivery instructions (optional)"></textarea>
-
-      <button type="submit" class="primary">Place Order</button>
-    </form>
-  </div>
+        <button type="submit" class="btn">Place Order</button>
+      </form>
+    </div>
+  </main>
 
   <footer>
-    © <span id="year"></span> Gemmines2 — Secure Checkout
+    &copy; <span id="year"></span> Gemmines2. All rights reserved.
   </footer>
 
   <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', () => {
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
 
-    document.getElementById("checkout-form").addEventListener("submit", e => {
+    if (product) {
+      document.getElementById('checkout-item').innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <div class="price">Price: $${product.price}</div>
+      `;
+      document.getElementById('total-price').textContent = 'Total: $' + product.price;
+    } else {
+      document.getElementById('checkout-item').innerHTML = '<p>No product selected.</p>';
+      document.getElementById('total-price').textContent = '';
+    }
+
+    // Handle form submit
+    document.getElementById('checkout-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert("Thank you for your order! Our team will contact you shortly for confirmation.");
-      e.target.reset();
+      alert('Thank you! Your order has been placed. We will contact you soon.');
+      localStorage.removeItem('selectedProduct');
+      window.location.href = 'index.html';
     });
+  });
   </script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
-  if (product) {
-    document.getElementById('checkout-item').innerHTML = `
-      <img src="${product.img}" alt="${product.name}" style="width:100px;border-radius:8px;">
-      <h3>${product.name}</h3>
-      <p>${product.desc}</p>
-      <strong>Price: $${product.price}</strong>
-    `;
-  } else {
-    document.getElementById('checkout-item').innerHTML = '<p>No product selected.</p>';
-  }
-});
-</script>
 </body>
 </html>
