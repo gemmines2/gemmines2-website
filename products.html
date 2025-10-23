@@ -1,73 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemmines2 — Products</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gemmines2 — Products</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>💎 Gemmines2</h1>
-    <p>Genuine, ethically-sourced gemstones — polished or rough. Worldwide shipping & customised tailoring.</p>
-  </header>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="refund.html">Refund</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <section class="products-container" id="products-grid"></section>
-
-  <footer>
-    <p>Contact us: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: <a href="https://wa.me/923362149415" target="_blank">+92 336 2149415</a></p>
-    <div class="social-links">
-      <a href="#" title="Instagram">📸</a>
-      <a href="#" title="Facebook">📘</a>
-      <a href="#" title="TikTok">🎵</a>
+<div class="container">
+<header>
+  <div class="brand">
+    <div class="logo">GM</div>
+    <div>
+      <h1>Gemmines2</h1>
+      <small>Natural gemstones — cut, polished & tumbled</small>
     </div>
-    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
-  </footer>
+  </div>
+  <nav>
+    <a class="btn" href="index.html">Home</a>
+    <a class="btn" href="products.html">Products</a>
+    <a class="btn" href="checkout.html">Cart</a>
+    <a class="btn" href="contact.html">Contact</a>
+    <a class="btn" href="about.html">About</a>
+  </nav>
+</header>
 
-  <script>
-    const PRODUCTS = [
-      { name:'Aquamarine', desc:'Clean aquamarine — approx 2.5 carats — polished', price:50, img:'images/aquamarine.jpg' },
-      { name:'Rhodolite Garnet', desc:'Rhodolite — polished, high lustre', price:45, img:'images/rhodolite.jpg' },
-      { name:'Peridot', desc:'Peridot — bright green, polished', price:38, img:'images/peridot.jpg' },
-      { name:'Hessonite', desc:'Hessonite — rich honey-brown garnet (rough)', price:35, img:'images/hessonite.jpg' },
-      { name:'Green Jasper', desc:'Green jasper — rough uncut stone', price:30, img:'images/green-jasper.jpg' },
-      { name:'Garnet', desc:'Deep red natural garnet gemstone — polished and faceted', price:42, img:'images/garnet.jpg' }
-    ];
+<h2 style="color:var(--gold);margin-top:20px;">Cut & Polished Stones</h2>
+<div id="products-cut" class="products-grid"></div>
 
-    const grid = document.getElementById('products-grid');
+<h2 style="color:var(--gold);margin-top:20px;">Rough & Uncut Stones</h2>
+<div id="products-rough" class="products-grid"></div>
 
-    function renderProducts() {
-      grid.innerHTML = '';
-      PRODUCTS.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${product.img}" alt="${product.name}">
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <div class="price">$${product.price}</div>
-          <button class="btn" onclick="buyProduct('${product.name}')">Buy Now</button>
-        `;
-        grid.appendChild(card);
-      });
-    }
+<h2 style="color:var(--gold);margin-top:20px;">River Tumbled Stones</h2>
+<div id="products-tumbled" class="products-grid"></div>
 
-    function buyProduct(name) {
-      const product = PRODUCTS.find(p => p.name === name);
-      localStorage.setItem('selectedProduct', JSON.stringify(product));
-      window.location.href = 'checkout.html';
-    }
+<footer>
+© Gemmines2 — Natural Gemstones • <span id="year"></span>
+</footer>
+</div>
 
-    document.addEventListener('DOMContentLoaded', renderProducts);
-  </script>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script>document.getElementById('year').innerText = new Date().getFullYear();</script>
 </body>
 </html>
