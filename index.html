@@ -1,196 +1,423 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemmines2 — Natural Gemstones</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gemmines2 — Natural Gemstones (cut, polished & tumbled)</title>
+  <meta name="description" content="Gemmines2 — Natural gemstones: cut & polished, rough & uncut, and tumbled river stones for jewellery. Worldwide shipping." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== Body & Fonts ===== */
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(180deg, #000428, #004e92);
-      color: #e0e0e0;
-      line-height: 1.6;
+    :root{
+      --bg1:#071428; --bg2:#02060a; --gold:#b8862b; --muted:#9fb7d6;
+      --panel:rgba(255,255,255,0.03); --card-shadow:0 12px 36px rgba(2,6,23,0.6);
+      --radius:12px; --max-width:1180px;
     }
-
-    /* ===== Header ===== */
-    header {
-      background: rgba(0,0,0,0.75);
-      text-align: center;
-      padding: 20px;
-      border-bottom: 2px solid #00bcd4;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #00bcd4;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 3px #000;
-    }
-
-    header p {
-      margin: 5px 0 0 0;
-      color: #c5c6c7;
-    }
-
-    /* ===== Navigation ===== */
-    nav {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    /* ===== Hero Section ===== */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(180deg, #001f3f, #000);
-      border-bottom: 2px solid #00bcd4;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      color: #00bcd4;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #f0f0f0;
-    }
-
-    /* ===== Gallery ===== */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid #004466;
-      transition: transform 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      .gallery img { height: 180px; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery img { height: 150px; }
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background-color: #1f2833;
-      color: #c5c6c7;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      font-size: 1.2rem;
-      color: #66fcf1;
-      transition: color 0.3s;
-      text-decoration: none;
-    }
-
-    .social-links a:hover {
-      color: #45a29e;
-    }
-
-    /* ===== Buttons (reuse for Buy buttons later) ===== */
-    .btn {
-      display: inline-block;
-      background: #00bcd4;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #00a0b2;
-      color: #fff;
-    }
+    *{box-sizing:border-box}
+    body,html{height:100%;margin:0;font-family:Inter,system-ui,Roboto,Arial;color:#e8f4fb;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0b4f7a,#021122);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif}
+    .brand h1{font-size:1.05rem;margin:0;font-family:'Playfair Display',serif}
+    .brand small{display:block;color:var(--muted);font-size:0.82rem}
+    nav{display:flex;gap:10px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600;cursor:pointer}
+    .btn:hover{color:var(--gold)}
+    main.hero{display:grid;grid-template-columns:1fr 380px;gap:22px;align-items:center;margin-top:18px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:24px;border-radius:16px;box-shadow:var(--card-shadow)}
+    .hero h2{margin:0 0 8px;font-size:1.85rem;color:#fff;font-family:'Playfair Display',serif}
+    .hero p{color:var(--muted);margin:0 0 14px}
+    .cta{display:flex;gap:12px}
+    .primary{background:linear-gradient(90deg,var(--gold),#f0c46d);color:#071022;padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:800}
+    .secondary{background:transparent;color:var(--muted);padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+    .search{margin-top:12px;display:flex;gap:8px}
+    .search input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:14px}
+    .section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:20px}
+    .section-title h3{margin:0;color:var(--gold);font-family:'Playfair Display',serif}
+    .product{background:var(--panel);border-radius:12px;padding:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+    .product img{width:100%;height:160px;object-fit:cover;border-radius:10px;background:#071426}
+    .product h3{margin:10px 0 6px;font-size:1.03rem}
+    .product p{font-size:0.9rem;color:var(--muted);height:44px;overflow:hidden}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .price{font-weight:800;color:var(--gold)}
+    .buy{background:linear-gradient(90deg,var(--gold),#f2cf8f);padding:8px 10px;border-radius:10px;border:none;color:#071022;cursor:pointer;font-weight:800}
+    .cart-panel{position:fixed;right:18px;top:88px;width:360px;background:linear-gradient(180deg,rgba(2,6,23,0.95),rgba(2,6,23,0.98));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 48px rgba(2,6,23,0.7);z-index:1200}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px}
+    .cart-item img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+    .cart-bottom{border-top:1px dashed rgba(255,255,255,0.03);padding-top:8px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+    .checkout-btn{background:linear-gradient(90deg,var(--gold),#d6a94d);padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:800}
+    section.page{display:block;margin-top:18px}
+    label{display:block;margin:8px 0 4px;color:var(--muted)}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px}
+    footer{margin:36px 0 12px;color:var(--muted);text-align:center}
+    @media(max-width:900px){main.hero{grid-template-columns:1fr}.cart-panel{right:8px;left:8px;width:auto}}
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GM</div>
+        <div>
+          <h1>Gemmines2</h1>
+          <small>Natural gemstones — cut, polished & tumbled river stones</small>
+        </div>
+      </div>
+      <nav>
+        <button class="btn" data-nav="home">Home</button>
+        <button class="btn" data-nav="products">Products</button>
+        <button class="btn" id="cart-toggle">Cart (<span id="cart-count">0</span>)</button>
+      </nav>
+    </header>
 
-  <header>
-    <h1>💎 Gemmines2</h1>
-    <p>Genuine, ethically-sourced gemstones — polished or rough. Worldwide shipping & customised tailoring.</p>
-  </header>
+    <main class="hero">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <h2>Natural Gemstones — cut, polished & tumbled river stones</h2>
+          <p>Hand-picked gemstones and tumbled stones for jewellery. Edit product names and descriptions live. Worldwide shipping available — secure checkout.</p>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="refund.html">Refund</a>
-    <a href="shipping.html">Shipping</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+          <div class="cta">
+            <button class="primary" id="shop-now">Shop Cut & Polished</button>
+            <button class="secondary" id="contact-us">Contact / Custom Orders</button>
+          </div>
 
-  <section class="hero">
-    <h1>Discover the Beauty of Natural Gemstones</h1>
-    <p>Handpicked, authentic, and ethically sourced stones for collectors and jewelry lovers worldwide.</p>
-  </section>
+          <div class="search" style="margin-top:14px">
+            <input id="quick-search" placeholder="Search by name, weight, rough/polished..." />
+            <button class="btn" id="clear-search">Clear</button>
+          </div>
 
-  <section class="gallery">
-    <img src="images/citrine.jpg" alt="Natural Citrine">
-    <img src="images/garnet.jpg" alt="Natural Garnet">
-    <img src="images/aquamarine.jpg" alt="Natural Aquamarine">
-    <img src="images/peridot.jpg" alt="Natural Peridot">
-  </section>
+          <div style="margin-top:14px;color:var(--muted);font-size:0.9rem">
+            Tip: Click a product's name or description to edit (owner mode). Click Buy to add to cart.
+          </div>
+        </div>
+      </div>
 
-  <footer>
-    <p>Contact us: <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a> | WhatsApp: <a href="https://wa.me/923362149415" target="_blank">+92 336 2149415</a></p>
-    <div class="social-links">
-      <a href="#" title="Instagram">📸</a>
-      <a href="#" title="Facebook">📘</a>
-      <a href="#" title="TikTok">🎵</a>
-    </div>
-    <p>&copy; 2025 Gemmines2. All Rights Reserved.</p>
-  </footer>
+      <aside class="hero-card">
+        <h3 style="margin-top:0;color:var(--gold)">Featured Gem</h3>
+        <img id="featured-img" src="images/aquamarine.jpg" alt="featured" style="width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:12px" />
+        <div style="color:var(--muted)">Showcase: Aquamarine — clean, eye-catching blue. Price: $50</div>
+      </aside>
+    </main>
 
+    <!-- HOME / ABOUT -->
+    <section id="home" class="page">
+      <h3>About Gemmines2</h3>
+      <p style="color:var(--muted)">We curate and supply natural gemstones — cut, polished, and tumbled river stones suitable for jewellery. Use the products section to add items to your cart and proceed to checkout. Owner editing is enabled for quick updates.</p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="page">
+      <div class="section-title">
+        <h3>Cut & Polished Stones</h3>
+        <div style="color:var(--muted)">Total: <span id="products-count-cut">0</span></div>
+      </div>
+      <div id="products-cut" class="products-grid"></div>
+
+      <div class="section-title" style="margin-top:18px">
+        <h3>Rough & Uncut Stones</h3>
+        <div style="color:var(--muted)">Total: <span id="products-count-rough">0</span></div>
+      </div>
+      <div id="products-rough" class="products-grid"></div>
+
+      <div class="section-title" style="margin-top:18px">
+        <h3>River Tumbled Stones</h3>
+        <div style="color:var(--muted)">Total: <span id="products-count-tumbled">0</span></div>
+      </div>
+      <div id="products-tumbled" class="products-grid"></div>
+    </section>
+
+    <!-- SHIPPING & REFUND (quick blocks) -->
+    <section id="shipping" class="page">
+      <h3>Shipping</h3>
+      <p style="color:var(--muted)">Worldwide shipping available. Typical dispatch 3–7 business days. Customers pay shipping fees; tracked international services recommended.</p>
+    </section>
+
+    <section id="refund" class="page">
+      <h3>Refunds & Returns</h3>
+      <p style="color:var(--muted)">Due to the unique nature of gemstones, refunds are accepted within 7 days of delivery for items returned in original condition. Contact support for returns and disputes.</p>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section id="checkout" class="page" style="margin-top:18px">
+      <h3>Checkout</h3>
+      <div id="cart-summary" style="margin-bottom:12px"></div>
+
+      <h4>Contact & Shipping</h4>
+      <label>Full name</label>
+      <input id="c-name" placeholder="Full name" />
+      <label>Email</label>
+      <input id="c-email" placeholder="you@example.com" />
+      <label>Phone (WhatsApp preferred)</label>
+      <input id="c-phone" placeholder="+92..." />
+      <label>Shipping address</label>
+      <textarea id="c-address" placeholder="Street, City, Country"></textarea>
+
+      <div style="display:flex;gap:10px;margin-top:10px;align-items:center">
+        <button id="place-order" class="checkout-btn">Place Order</button>
+        <div style="color:var(--muted);font-size:0.9rem">Payments: Western Union, Ria, PayPal (buyer pays fees)</div>
+      </div>
+
+      <div id="order-success" style="display:none;margin-top:12px;padding:12px;border-radius:10px;background:rgba(186,134,43,0.06);color:var(--muted)">
+        <strong>Order placed!</strong> We'll contact you by email/WhatsApp to confirm details.
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page" style="margin-top:18px">
+      <h3>Contact / Custom Orders</h3>
+      <p style="color:var(--muted)">For custom cuts, larger orders or wholesale enquiries, contact us via email or WhatsApp. Provide details of the gemstone, size, and any special requests.</p>
+      <label>Email</label>
+      <input id="contact-email" placeholder="you@domain.com" />
+      <label>WhatsApp / Phone</label>
+      <input id="contact-phone" placeholder="+92..." />
+      <label>Message</label>
+      <textarea id="contact-message" placeholder="Tell us about your custom order..."></textarea>
+      <div style="margin-top:10px">
+        <button id="send-contact" class="primary">Send Inquiry</button>
+        <div id="contact-status" style="color:var(--muted);margin-top:8px"></div>
+      </div>
+    </section>
+
+    <footer>
+      © Gemmines2 — Natural Gemstones • Contact us for details • <span id="year"></span>
+    </footer>
+  </div>
+
+  
+  <script>
+    // Final single-file app
+    const SITE = { ownerEditMode: true };
+    const CART_KEY = 'gemmines2_cart_final_v2';
+
+    // PRODUCTS - using your images (no lemon quartz included)
+    const PRODUCTS = [
+      // Cut & Polished
+      { id:'aq-1', cat:'cut', name:'Aquamarine', desc:'Clean aquamarine — approx 2.5 carats — polished', price:50, imgs:['images/aquamarine.jpg','aquamarine.jpg'] },
+      { id:'rh-1', cat:'cut', name:'Rhodolite Garnet', desc:'Rhodolite — polished, high lustre', price:45, imgs:['images/rhodolite.jpg','rhodolite.jpg'] },
+      { id:'ci-1', cat:'cut', name:'Citrine', desc:'Citrine — warm yellow, faceted', price:40, imgs:['images/citrine.jpg','citrine.jpg'] },
+      { id:'pe-1', cat:'cut', name:'Peridot', desc:'Peridot — bright green, polished', price:38, imgs:['images/peridot.jpg','peridot.jpg'] },
+
+      // Rough & Uncut
+      { id:'he-1', cat:'rough', name:'Hessonite', desc:'Hessonite — rich honey-brown garnet (rough)', price:35, imgs:['images/hessonite.jpg','hessonite.jpg'] },
+      { id:'gj-1', cat:'rough', name:'Green Jasper (rough)', desc:'Green jasper — rough uncut stone', price:30, imgs:['images/green-jasper.jpg','green-jasper.jpg','images/greenjasper.jpg','greenjasper.jpg'] },
+
+      // River Tumbled
+      { id:'jt-1', cat:'tumbled', name:'Mixed Tumbled Jasper', desc:'Tumbled river jasper pebbles — polished & smooth', price:28, imgs:['images/jasper-tumbled.jpg','jasper-tumbled.jpg'] }
+    ];
+
+    /* ---------- CART STORAGE ---------- */
+    function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch(e){ return {}; } }
+    function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCartCount(); }
+    function addToCart(productId, qty=1){ const cart = loadCart(); cart[productId] = (cart[productId]||0) + qty; saveCart(cart); renderCartPanel(); renderCheckout(); }
+    function removeFromCart(productId){ const cart = loadCart(); delete cart[productId]; saveCart(cart); renderCartPanel(); renderCheckout(); }
+    function setQty(productId, qty){ const cart = loadCart(); if(qty <= 0) delete cart[productId]; else cart[productId] = qty; saveCart(cart); renderCartPanel(); renderCheckout(); }
+    function cartItemsDetailed(){ const cart = loadCart(); const items = []; for(const id in cart){ const p = PRODUCTS.find(x=>x.id===id); if(p) items.push({...p, qty: cart[id]}); } return items; }
+
+    /* ---------- IMAGE FALLBACK ---------- */
+    function setImgWithFallback(imgEl, srcList){
+      imgEl._tries = 0;
+      imgEl.onerror = function(){
+        imgEl._tries++;
+        if(imgEl._tries < srcList.length) { imgEl.src = srcList[imgEl._tries]; }
+        else {
+          imgEl.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="100%" height="100%" fill="#071426"/><text x="50%" y="50%" fill="#9fb7d6" font-size="18" text-anchor="middle" dy=".3em">Image not found</text></svg>`);
+        }
+      };
+      imgEl.src = srcList[0];
+    }
+// Detect if we are on the homepage
+const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+    /* ---------- RENDERING ---------- */
+    function renderSection(cat, containerId, counterId){
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      const list = PRODUCTS.filter(p => p.cat === cat);
+      document.getElementById(counterId).innerText = list.length;
+      list.forEach(p => {
+        const card = document.createElement('div'); card.className = 'product';
+        const img = document.createElement('img'); img.alt = p.name; setImgWithFallback(img, p.imgs);
+        const h = document.createElement('h3'); h.className = 'p-name'; h.contentEditable = SITE.ownerEditMode; h.dataset.id = p.id; h.innerText = p.name;
+        const d = document.createElement('p'); d.className = 'p-desc'; d.contentEditable = SITE.ownerEditMode; d.dataset.id = p.id; d.innerText = p.desc;
+        const meta = document.createElement('div'); meta.className = 'meta'; meta.innerHTML = `<div class="price">$${p.price}</div><div><button class="buy" data-id="${p.id}">Buy</button></div>`;
+        card.appendChild(img); card.appendChild(h); card.appendChild(d); card.appendChild(meta); container.appendChild(card);
+      });
+    }
+
+    function attachInlineSave(){
+      if(!SITE.ownerEditMode) return;
+      document.addEventListener('blur', function(e){
+        const t = e.target;
+        if(t.matches('[data-id].p-desc') || t.matches('[data-id].p-name')){
+          const id = t.dataset.id;
+          const prod = PRODUCTS.find(x => x.id === id);
+          if(prod){
+            if(t.classList.contains('p-name')) prod.name = t.innerText.trim();
+            else prod.desc = t.innerText.trim();
+          }
+        }
+      }, true);
+    }
+
+    /* ---------- SEARCH ---------- */
+    document.getElementById('quick-search').addEventListener('input', e => {
+      const q = e.target.value.trim().toLowerCase();
+      if(!q){ renderAll(); return; }
+      const filtered = PRODUCTS.filter(p => (p.name + ' ' + p.desc).toLowerCase().includes(q));
+      // clear all categories and render filtered in cut area (quick view)
+      document.getElementById('products-cut').innerHTML = '';
+      document.getElementById('products-rough').innerHTML = '';
+      document.getElementById('products-tumbled').innerHTML = '';
+      filtered.forEach(p => {
+        const el = document.createElement('div'); el.className='product';
+        const img = document.createElement('img'); img.alt = p.name; setImgWithFallback(img, p.imgs);
+        const h = document.createElement('h3'); h.className='p-name'; h.contentEditable = SITE.ownerEditMode; h.dataset.id = p.id; h.innerText = p.name;
+        const d = document.createElement('p'); d.className='p-desc'; d.contentEditable = SITE.ownerEditMode; d.dataset.id = p.id; d.innerText = p.desc;
+        const meta = document.createElement('div'); meta.className='meta'; meta.innerHTML = `<div class="price">$${p.price}</div><div><button class="buy" data-id="${p.id}">Buy</button></div>`;
+        el.appendChild(img); el.appendChild(h); el.appendChild(d); el.appendChild(meta);
+        document.getElementById('products-cut').appendChild(el);
+      });
+    });
+    document.getElementById('clear-search').addEventListener('click', ()=>{ document.getElementById('quick-search').value=''; renderAll(); });
+
+    /* ---------- NAV / ACTIONS ---------- */
+    document.querySelectorAll('[data-nav]').forEach(btn => btn.addEventListener('click', ()=>{
+      const id = btn.dataset.nav;
+      if(id === 'products'){ document.getElementById('products').scrollIntoView({behavior:'smooth'}); renderAll(); }
+      if(id === 'home'){ window.scrollTo({top:0, behavior:'smooth'}); }
+    }));
+    document.getElementById('shop-now').addEventListener('click', ()=> {
+      document.getElementById('products-cut').scrollIntoView({behavior:'smooth'});
+      renderAll();
+    });
+    document.getElementById('contact-us').addEventListener('click', ()=> { document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
+
+    /* ---------- CART UI ---------- */
+    document.getElementById('cart-toggle').addEventListener('click', ()=> {
+      const c = document.getElementById('cart');
+      c.style.display = c.style.display === 'none' ? 'block' : 'none';
+      renderCartPanel();
+    });
+
+    function renderCartCount(){
+      const items = cartItemsDetailed().reduce((s,i)=>s+i.qty,0);
+      document.getElementById('cart-count').innerText = items;
+    }
+
+    function renderCartPanel(){
+      const container = document.getElementById('cart-items');
+      const items = cartItemsDetailed();
+      container.innerHTML = '';
+      let total = 0;
+      items.forEach(it => {
+        total += it.qty * it.price;
+        const row = document.createElement('div'); row.className = 'cart-item';
+        const imgSrc = (it.imgs && it.imgs[0]) || '';
+        row.innerHTML = `<img src="${imgSrc}" alt="${it.name}" /><div style="flex:1"><div class="title">${it.name}</div><div style="color:var(--muted);font-size:0.9rem">$${it.price} × <input style="width:54px;border-radius:6px;padding:6px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit" type="number" value="${it.qty}" min="1" data-cart-id="${it.id}" class="qty-input" /></div></div><button data-remove="${it.id}" style="background:transparent;border:none;color:var(--muted);font-weight:700;cursor:pointer">Remove</button>`;
+        container.appendChild(row);
+      });
+      document.getElementById('cart-total').innerText = '$' + total.toFixed(2);
+      document.getElementById('cart').style.display = items.length ? 'block' : 'none';
+
+      container.querySelectorAll('.qty-input').forEach(inp => inp.addEventListener('change', e => {
+        const id = e.target.dataset.cartId; const v = parseInt(e.target.value) || 1; setQty(id,v);
+      }));
+      container.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', e => {
+        removeFromCart(b.dataset.remove);
+      }));
+      renderCartCount();
+    }
+
+    // Buy handling
+    document.addEventListener('click', e => {
+      if(e.target.matches('.buy')){
+        const id = e.target.dataset.id;
+        addToCart(id);
+        alert('Added to cart');
+      }
+    });
+
+    // Checkout button action
+    document.getElementById('go-checkout').addEventListener('click', ()=> {
+      document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Render checkout summary
+    function renderCheckout(){
+      const items = cartItemsDetailed();
+      const container = document.getElementById('cart-summary');
+      if(items.length === 0){ container.innerHTML = '<div style="color:var(--muted)">Your cart is empty.</div>'; return; }
+      let html = '<div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">';
+      let total = 0;
+      items.forEach(it => {
+        html += `<div style="display:flex;justify-content:space-between;padding:6px 0"><div>${it.name} × ${it.qty}</div><div>$${(it.price*it.qty).toFixed(2)}</div></div>`;
+        total += it.price*it.qty;
+      });
+      html += `<hr style="border:none;border-top:1px dashed rgba(255,255,255,0.04);margin:8px 0"/><div style="display:flex;justify-content:space-between;font-weight:800">Total<div>$${total.toFixed(2)}</div></div></div>`;
+      container.innerHTML = html;
+      document.getElementById('cart-total').innerText = '$' + total.toFixed(2);
+    }
+
+    // Place order (simulated)
+    document.getElementById('place-order').addEventListener('click', ()=> {
+      const name = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      const addr = document.getElementById('c-address').value.trim();
+      if(!name || !email || !phone || !addr){ alert('Please complete contact & shipping information.'); return; }
+      const order = { id: 'ORD-' + Date.now(), items: cartItemsDetailed(), contact:{name,email,phone,addr}, total: document.getElementById('cart-total').innerText };
+      console.log('ORDER', order);
+      localStorage.removeItem(CART_KEY);
+      renderCartPanel(); renderCartCount(); renderCheckout();
+      document.getElementById('order-success').style.display = 'block';
+      document.getElementById('c-name').value=''; document.getElementById('c-email').value=''; document.getElementById('c-phone').value=''; document.getElementById('c-address').value='';
+    });
+
+    // Contact send (simulated)
+    document.getElementById('send-contact').addEventListener('click', ()=> {
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const msg = document.getElementById('contact-message').value.trim();
+      if(!email && !phone){ document.getElementById('contact-status').innerText='Provide an email or phone to contact you.'; return; }
+      document.getElementById('contact-status').innerText = 'Inquiry sent — we will contact you shortly.';
+      document.getElementById('contact-email').value=''; document.getElementById('contact-phone').value=''; document.getElementById('contact-message').value='';
+    });
+
+    // Helpers
+    function cartItemsDetailed(){
+      const cart = loadCart(); const items = [];
+      for(const id in cart){ const p = PRODUCTS.find(x=>x.id===id); if(p) items.push({...p, qty: cart[id]}); }
+      return items;
+    }
+
+    function renderAll(){
+      renderSection('cut','products-cut','products-count-cut');
+      renderSection('rough','products-rough','products-count-rough');
+      renderSection('tumbled','products-tumbled','products-count-tumbled');
+      renderCartPanel(); renderCartCount(); renderCheckout();
+    }
+
+    // LocalStorage helpers
+    function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch(e){ return {}; } }
+    function saveCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCartPanel(); renderCartCount(); }
+
+    // cart action wrappers
+    function addToCart(productId, qty=1){ const cart = loadCart(); cart[productId] = (cart[productId]||0) + qty; saveCart(cart); renderCartPanel(); renderCheckout(); }
+    function removeFromCart(productId){ const cart = loadCart(); delete cart[productId]; saveCart(cart); renderCartPanel(); renderCheckout(); }
+    function setQty(productId, qty){ const cart = loadCart(); if(qty <= 0) delete cart[productId]; else cart[productId] = qty; saveCart(cart); renderCartPanel(); renderCheckout(); }
+
+    // Inline editing attach
+    attachInlineSave();
+
+    // Init
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderAll();
+      document.getElementById('year').innerText = new Date().getFullYear();
+    });
+
+    // expose for debugging
+    window.__addToCart = addToCart;
+  </script>
 </body>
 </html>
