@@ -1,46 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Gemmines2 — Products</title>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gemmines2 — Products</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-<header>
-  <div class="brand">
-    <div class="logo">GM</div>
-    <div>
-      <h1>Gemmines2</h1>
-      <small>Natural gemstones — cut, polished & tumbled</small>
-    </div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GM</div>
+        <div>
+          <h1>Gemmines2</h1>
+          <small>Natural gemstones — cut, polished & tumbled</small>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="products.html">Products</a>
+        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a class="btn" href="contact.html">Contact</a>
+        <a class="btn" href="about.html">About</a>
+      </nav>
+    </header>
+
+    <section style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:end;">
+        <h2 style="color:var(--gold);margin:0">Cut & Polished Stones</h2>
+        <div style="color:var(--muted)">Total: <span id="products-count-cut">0</span></div>
+      </div>
+      <div id="products-cut" class="products-grid"></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-top:20px;">
+        <h2 style="color:var(--gold);margin:0">Rough & Uncut Stones</h2>
+        <div style="color:var(--muted)">Total: <span id="products-count-rough">0</span></div>
+      </div>
+      <div id="products-rough" class="products-grid"></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-top:20px;">
+        <h2 style="color:var(--gold);margin:0">River Tumbled Stones</h2>
+        <div style="color:var(--muted)">Total: <span id="products-count-tumbled">0</span></div>
+      </div>
+      <div id="products-tumbled" class="products-grid"></div>
+    </section>
+
+    <footer>
+      © Gemmines2 — Natural Gemstones • <span id="year"></span>
+    </footer>
   </div>
-  <nav>
-    <a class="btn" href="index.html">Home</a>
-    <a class="btn" href="products.html">Products</a>
-    <a class="btn" href="checkout.html">Cart</a>
-    <a class="btn" href="contact.html">Contact</a>
-    <a class="btn" href="about.html">About</a>
-  </nav>
-</header>
 
-<h2 style="color:var(--gold);margin-top:20px;">Cut & Polished Stones</h2>
-<div id="products-cut" class="products-grid"></div>
-
-<h2 style="color:var(--gold);margin-top:20px;">Rough & Uncut Stones</h2>
-<div id="products-rough" class="products-grid"></div>
-
-<h2 style="color:var(--gold);margin-top:20px;">River Tumbled Stones</h2>
-<div id="products-tumbled" class="products-grid"></div>
-
-<footer>
-© Gemmines2 — Natural Gemstones • <span id="year"></span>
-</footer>
-</div>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script>document.getElementById('year').innerText = new Date().getFullYear();</script>
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // search from homepage
+    const q = localStorage.getItem('gemmines2_search') || '';
+    if(q){ document.querySelectorAll('.product').forEach(n=>n.remove()); localStorage.removeItem('gemmines2_search'); }
+    document.getElementById('year').innerText = new Date().getFullYear();
+    // render sections
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderSection('cut','products-cut','products-count-cut');
+      renderSection('rough','products-rough','products-count-rough');
+      renderSection('tumbled','products-tumbled','products-count-tumbled');
+      renderCartCount();
+      attachOwnerEditable(); // in products.js owner edit hook
+    });
+  </script>
 </body>
 </html>
