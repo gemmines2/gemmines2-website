@@ -1,91 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gemmines2 | Checkout</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gemmines2 — Checkout</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <nav class="site-nav">
-    <a href="index.html" class="nav-brand">Gemmines2</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="checkout.html">Checkout</a>
+<div class="container">
+<header>
+  <div class="brand">
+    <div class="logo">GM</div>
+    <div>
+      <h1>Gemmines2</h1>
+      <small>Checkout</small>
     </div>
+  </div>
+  <nav>
+    <a class="btn" href="index.html">Home</a>
+    <a class="btn" href="products.html">Products</a>
+    <a class="btn" href="checkout.html">Cart</a>
+    <a class="btn" href="contact.html">Contact</a>
+    <a class="btn" href="about.html">About</a>
   </nav>
+</header>
 
-  <header class="page-header">
-    <h2>Checkout</h2>
-    <p>Review your selected item and enter shipping details.</p>
-  </header>
+<h2 style="color:var(--gold);margin-top:20px;">Your Cart</h2>
+<div id="cart-summary"></div>
 
-  <main class="container">
-    <section class="checkout-card" id="checkout-item">
-      <!-- product inserted by script -->
-    </section>
+<h3>Contact & Shipping</h3>
+<label>Full name</label>
+<input id="c-name" placeholder="Full name"/>
+<label>Email</label>
+<input id="c-email" placeholder="you@example.com"/>
+<label>Phone</label>
+<input id="c-phone" placeholder="+92..."/>
+<label>Shipping address</label>
+<textarea id="c-address" placeholder="Street, City, Country"></textarea>
 
-    <section class="checkout-card">
-      <form id="checkout-form">
-        <label>Full Name</label>
-        <input id="name" type="text" required />
-        <label>Email</label>
-        <input id="email" type="email" required />
-        <label>Contact Number (WhatsApp)</label>
-        <input id="contact" type="text" required />
-        <label>Full Address</label>
-        <input id="address" type="text" required />
-        <label>Country</label>
-        <input id="country" type="text" required />
-        <label>Postal Code</label>
-        <input id="postal" type="text" required />
-        <label>Payment Method</label>
-        <select id="payment" required>
-          <option value="">Select</option>
-          <option>Western Union</option>
-          <option>Ria</option>
-          <option>Bank Transfer</option>
-          <option>PayPal</option>
-        </select>
+<button id="place-order" class="checkout-btn" style="margin-top:12px;">Place Order</button>
+<div id="order-success" style="display:none;margin-top:12px;padding:12px;border-radius:10px;background:rgba(186,134,43,0.06);color:var(--muted)">
+  <strong>Order placed!</strong> We'll contact you shortly.
+</div>
 
-        <div class="total" id="total-price"></div>
-        <button class="btn-primary" type="submit">Place Order</button>
-      </form>
-    </section>
-  </main>
+<footer>
+© Gemmines2 — Natural Gemstones • <span id="year"></span>
+</footer>
+</div>
 
-  <footer class="site-footer">
-    <div>&copy; <span id="year"></span> Gemmines2. All rights reserved.</div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.addEventListener('DOMContentLoaded', () => {
-      const product = JSON.parse(localStorage.getItem('selectedProduct'));
-      const out = document.getElementById('checkout-item');
-      const total = document.getElementById('total-price');
-      if (product && out) {
-        out.innerHTML = `
-          <img src="${product.img}" alt="${product.name}" class="checkout-img" />
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <div class="price">Price: $${product.price}</div>
-        `;
-        if (total) total.textContent = 'Total: $' + product.price;
-      } else if (out) {
-        out.innerHTML = '<p>No product selected. Go to Products and choose an item.</p>';
-      }
-
-      const form = document.getElementById('checkout-form');
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        // Basic confirmation — you can integrate real order handling later
-        alert('Thank you! Your order has been placed. We will contact you soon.');
-        localStorage.removeItem('selectedProduct');
-        window.location.href = 'index.html';
-      });
-    });
-  </script>
+<script src="cart.js"></script>
+<script>document.getElementById('year').innerText = new Date().getFullYear();</script>
 </body>
 </html>
