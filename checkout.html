@@ -1,80 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gemmines2 — Checkout</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Gemmines2</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">GM</div>
-        <div>
-          <h1>Gemmines2</h1>
-          <small>Checkout</small>
-        </div>
-      </div>
-      <nav>
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="products.html">Products</a>
-        <a class="btn" href="cart.html">Cart</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="about.html">About</a>
-      </nav>
-    </header>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
 
-    <main style="margin-top:18px;max-width:700px">
-      <h2 style="color:var(--gold)">Checkout</h2>
-      <div id="cart-summary" style="margin-bottom:12px"></div>
+  <main class="checkout-page">
+    <h2>Checkout</h2>
+    <div id="checkout-item"></div>
 
-      <h4>Contact & Shipping</h4>
-      <label>Full name</label>
-      <input id="c-name" placeholder="Full name" />
+    <form id="checkout-form">
+      <label>Full Name</label>
+      <input type="text" required />
+
       <label>Email</label>
-      <input id="c-email" placeholder="you@example.com" />
-      <label>Phone (WhatsApp preferred)</label>
-      <input id="c-phone" placeholder="+92..." />
-      <label>Shipping address</label>
-      <textarea id="c-address" placeholder="Street, City, Country"></textarea>
+      <input type="email" required />
 
-      <label style="margin-top:8px">Payment Method</label>
-      <select id="c-payment">
-        <option value="">Select</option>
-        <option>Western Union</option>
-        <option>Ria</option>
-        <option>Bank Transfer</option>
-        <option>PayPal</option>
-      </select>
+      <label>Country</label>
+      <input type="text" required />
 
-      <div style="display:flex;gap:12px;margin-top:14px;align-items:center">
-        <button id="place-order" class="checkout-btn">Place Order</button>
-        <div style="color:var(--muted);font-size:0.95rem">Payments: Western Union, Ria, Bank Transfer, PayPal.</div>
-      </div>
+      <label>Postal Code</label>
+      <input type="text" required />
 
-      <div id="order-success" style="display:none;margin-top:12px;padding:12px;border-radius:10px;background:rgba(186,134,43,0.06);color:var(--muted)">
-        <strong>Order placed!</strong> We'll contact you by email/WhatsApp to confirm details.
-      </div>
-    </main>
+      <button class="btn" type="submit">Place Order</button>
+    </form>
+  </main>
 
-    <footer>
-      © Gemmines2 — Natural Gemstones • <span id="year"></span>
-    </footer>
-  </div>
+  <footer class="footer">
+    © 2025 Gemmines2. All rights reserved.
+  </footer>
 
-  <script src="cart.js"></script>
   <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-    document.addEventListener('DOMContentLoaded', ()=>{ renderCheckout(); renderCartCount(); });
-    document.getElementById('place-order').addEventListener('click', ()=> {
-      const name = document.getElementById('c-name').value.trim();
-      const email = document.getElementById('c-email').value.trim();
-      const phone = document.getElementById('c-phone').value.trim();
-      const addr = document.getElementById('c-address').value.trim();
-      if(!name || !email || !phone || !addr){ alert('Please complete contact & shipping information.'); return; }
-      placeOrder({name,email,phone,addr,payment:document.getElementById('c-payment').value});
-      document.getElementById('order-success').style.display='block';
+    document.addEventListener("DOMContentLoaded", () => {
+      const product = JSON.parse(localStorage.getItem("selectedProduct"));
+      const container = document.getElementById("checkout-item");
+      if (product) {
+        container.innerHTML = `
+          <h3>${product.name}</h3>
+          <p>${product.desc}</p>
+          <p>Price: $${product.price}</p>
+        `;
+      } else {
+        container.innerHTML = "<p>No product selected.</p>";
+      }
     });
   </script>
 </body>
