@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -20,7 +20,7 @@
       <nav>
         <a class="btn" href="index.html">Home</a>
         <a class="btn" href="products.html">Products</a>
-        <a class="btn" href="checkout.html">Cart</a>
+        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
         <a class="btn" href="contact.html">Contact</a>
         <a class="btn" href="about.html">About</a>
       </nav>
@@ -28,21 +28,23 @@
 
     <main class="hero">
       <div class="hero-card">
-        <h2>Natural Gemstones — cut, polished & tumbled river stones</h2>
-        <p>Hand-picked gemstones and tumbled stones for jewellery. Edit product names and descriptions live. Worldwide shipping available — secure checkout.</p>
+        <div class="hero-inner">
+          <h2>Natural Gemstones — cut, polished & tumbled river stones</h2>
+          <p>Hand-picked gemstones and tumbled stones for jewellery. Worldwide shipping available — secure checkout.</p>
 
-        <div class="cta">
-          <a class="primary" href="products.html">Shop Cut & Polished</a>
-          <a class="secondary" href="contact.html">Contact / Custom Orders</a>
-        </div>
+          <div class="cta">
+            <a class="primary" href="products.html">Shop Cut & Polished</a>
+            <a class="secondary" href="contact.html">Contact / Custom Orders</a>
+          </div>
 
-        <div class="search" style="margin-top:14px">
-          <input id="quick-search" placeholder="Search by name, weight, rough/polished..." />
-          <button class="btn" id="clear-search">Clear</button>
-        </div>
+          <div class="search" style="margin-top:14px">
+            <input id="quick-search" placeholder="Search by name, rough/polished..." />
+            <button class="btn" id="clear-search">Clear</button>
+          </div>
 
-        <div style="margin-top:14px;color:var(--muted);font-size:0.9rem">
-          Tip: Click a product's name or description to edit (owner mode). Click Buy to add to cart.
+          <div style="margin-top:14px;color:var(--muted);font-size:0.9rem">
+            Tip: Click a product's name or description on the Products page to edit (owner mode). Click Buy to add to cart.
+          </div>
         </div>
       </div>
 
@@ -53,6 +55,11 @@
       </aside>
     </main>
 
+    <section id="home" class="page" style="margin-top:18px">
+      <h3>About Gemmines2</h3>
+      <p style="color:var(--muted)">We curate and supply natural gemstones — cut, polished, and tumbled river stones suitable for jewellery. Use the Products page to add items to your cart and proceed to checkout.</p>
+    </section>
+
     <footer>
       © Gemmines2 — Natural Gemstones • Contact us for details • <span id="year"></span>
     </footer>
@@ -61,6 +68,15 @@
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
+    // small home helpers (search will act by opening products page with query)
+    document.getElementById('clear-search').addEventListener('click', ()=>{ document.getElementById('quick-search').value=''; });
+    document.getElementById('quick-search').addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        const q = e.target.value.trim();
+        localStorage.setItem('gemmines2_search', q);
+        window.location.href = 'products.html';
+      }
+    });
     document.getElementById('year').innerText = new Date().getFullYear();
   </script>
 </body>
