@@ -1,35 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gemmines2 | Products</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav class="site-nav">
-    <a href="index.html" class="nav-brand">Gemmines2</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="checkout.html">Checkout</a>
-    </div>
-  </nav>
+const PRODUCTS = [
+  { name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 50, img: 'images/aquamarine.jpg' },
+  { name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 45, img: 'images/rhodolite.jpg' },
+  { name: 'Peridot', desc: 'Peridot — bright green, polished', price: 38, img: 'images/peridot.jpg' },
+  { name: 'Hessonite', desc: 'Hessonite — rich honey-brown garnet (rough)', price: 35, img: 'images/hessonite.jpg' },
+  { name: 'Green Jasper (rough)', desc: 'Green jasper — rough uncut stone', price: 30, img: 'images/green-jasper.jpg' },
+  { name: 'Garnet', desc: 'Deep red natural garnet gemstone — polished and faceted', price: 42, img: 'images/garnet.jpg' }
+];
 
-  <header class="page-header">
-    <h2>Our Gemstone Collection</h2>
-    <p>Click a product to view details and buy.</p>
-  </header>
+function renderProducts() {
+  const grid = document.getElementById('products-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
 
-  <main class="container">
-    <section id="products-grid" class="grid"></section>
-  </main>
+  PRODUCTS.forEach((p, i) => {
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.innerHTML = `
+      <img src="${p.img}" alt="${p.name}" loading="lazy" class="card-img" />
+      <h3 class="card-title">${p.name}</h3>
+      <p class="card-desc">${p.desc}</p>
+      <div class="card-bottom">
+        <div class="card-price">$${p.price}</div>
+        <button class="btn-primary buy-btn" data-index="${i}">Buy Now</button>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
 
-  <footer class="site-footer">
-    <div>&copy; <span id="year"></span> Gemmines2. All rights reserved.</div>
-  </footer>
+  // Add listeners
+  document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const idx = e.currentTarget.getAttribute('data-index');
+      const product = PRODUCTS[idx];
+      // Save to localStorage
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
+      // Go to checkout
+      window.location.href = 'checkout.html';
+    });
+  });
+}
 
-  <script src="products.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', renderProducts);
