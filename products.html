@@ -5,97 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gemmines2 Products</title>
 <link rel="stylesheet" href="style.css">
+<script src="products.js" defer></script>
 <script src="cart.js" defer></script>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #0a0a23;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-    }
+/* ===== Header ===== */
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #060622;
+}
 
-    header {
-        padding: 20px;
-        text-align: center;
-        background-color: #060622;
-    }
+header h1 {
+    font-size: 28px !important;
+    color: #ffcc00 !important;
+    margin: 0;
+}
 
-    header h1 {
-        font-size: 32px !important;
-        color: #ffcc00 !important;
-        margin: 0;
-    }
+@media (max-width: 768px) {
+    header h1 { font-size: 22px !important; }
+}
 
-    .product-container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-        padding: 20px;
-    }
+/* ===== Product Cards ===== */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
 
-    .product-card {
-        background-color: #121240;
-        padding: 15px;
-        border-radius: 12px;
-        text-align: center;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
+.product-card {
+    background-color: #121240;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    }
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
 
-    .product-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
-    .product-card h2 {
-        font-size: 22px !important;
-        margin: 10px 0 5px 0;
-    }
+.product-card h2 {
+    font-size: 22px !important;
+    margin: 10px 0 5px 0;
+}
 
-    .product-card p {
-        font-size: 16px !important;
-        margin: 5px 0 10px 0;
-        min-height: 40px;
-    }
+.product-card p {
+    font-size: 16px !important;
+    margin: 5px 0 10px 0;
+    min-height: 40px;
+}
 
-    .product-card .price {
-        font-size: 18px !important;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+.product-card .price {
+    font-size: 18px !important;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-    .buy {
-        background-color: #ffcc00;
-        color: #000;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.2s;
-    }
+/* ===== Buy Button ===== */
+.buy {
+    background-color: #0077ff !important;
+    color: #fff !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
 
-    .buy:hover {
-        background-color: #e6b800;
-    }
+.buy:hover {
+    background-color: #005fcc !important;
+}
 
-    /* Responsive */
-    @media (max-width: 1200px) { .product-container { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 992px)  { .product-container { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px)  { 
-        header h1 { font-size: 24px !important; }
-        .product-card h2 { font-size: 18px !important; }
-        .product-card p { font-size: 14px !important; }
-        .product-container { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px)  { .product-container { grid-template-columns: 1fr; } }
+/* ===== Responsive Grid ===== */
+@media (max-width: 1200px) { .product-container { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 992px)  { .product-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .product-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .product-container { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
