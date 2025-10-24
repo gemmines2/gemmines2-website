@@ -178,6 +178,13 @@ main.hero {
   object-fit: cover;
   border-radius: 10px;
   background: #071426;
+  max-height: 180px;
+  transition: transform 0.3s ease;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
 }
 .product h3 {
   margin: 10px 0 6px;
