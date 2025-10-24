@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Contact Page Specific Styling */
+    .contact-container {
+      max-width: 850px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      color: #e0e0e0;
+    }
+    .contact-container h2 {
+      text-align: center;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 25px;
+    }
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .contact-form textarea {
+      grid-column: span 2;
+      resize: none;
+      min-height: 130px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: border 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .contact-form button {
+      grid-column: span 2;
+      background: linear-gradient(90deg, var(--gold), #f0c46d);
+      color: #071022;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.3s;
+    }
+    .contact-form button:hover {
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) {
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+      .contact-form button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact-container">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" name="firstName" placeholder="First Name" required>
+      <input type="text" name="lastName" placeholder="Last Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone (Optional)">
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
