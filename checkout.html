@@ -21,13 +21,23 @@
       margin: 0;
       color: #00bfff;
     }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #00bfff;
+    }
     .checkout-container {
       max-width: 800px;
       margin: 40px auto;
       background: #111827;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+      border: 1px solid rgba(0, 191, 255, 0.25);
     }
     h2 {
       color: #00bfff;
@@ -46,7 +56,7 @@
     input, select {
       width: 100%;
       padding: 10px;
-      border: 1px solid #00bfff;
+      border: 1px solid rgba(0, 191, 255, 0.4);
       border-radius: 8px;
       background: #0d1117;
       color: #fff;
@@ -75,6 +85,13 @@
     }
     .submit-btn:hover {
       background-color: #1e90ff;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #0a0f16;
+      border-top: 1px solid #1e90ff;
     }
   </style>
 </head>
@@ -149,7 +166,11 @@
       <select required>
         <option value="">Choose a payment method</option>
         <option value="cod">Cash on Delivery (COD)</option>
-        <option value="card">Debit / Credit Card</option>
+        <option value="western">Western Union</option>
+        <option value="ria">Ria Money Transfer</option>
+        <option value="paypal">PayPal</option>
+        <option value="payoneer">Payoneer</option>
+        <option value="stripe">Stripe</option>
         <option value="bank">Bank Deposit</option>
       </select>
 
