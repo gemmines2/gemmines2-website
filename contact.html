@@ -6,21 +6,47 @@
   <title>Contact | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Contact Page Specific Styling */
+    body {
+      background: linear-gradient(180deg, #071428, #02060a);
+      color: #e8f4fb;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+    }
+    header {
+      text-align: center;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,224,255,0.4);
+    }
+    header h1 {
+      color: #00e0ff;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 0 0 6px #00e0ff;
+    }
+    nav a {
+      color: #e8f4fb;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00e0ff;
+      text-shadow: 0 0 6px #00e0ff;
+    }
     .contact-container {
       max-width: 850px;
       margin: 60px auto;
       background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0,224,255,0.4);
       border-radius: 12px;
       padding: 30px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-      color: #e0e0e0;
+      box-shadow: 0 0 24px rgba(0,224,255,0.1);
     }
     .contact-container h2 {
       text-align: center;
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
+      color: #00e0ff;
       margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
     }
     .contact-form {
       display: grid;
@@ -29,13 +55,13 @@
     }
     .contact-form textarea {
       grid-column: span 2;
-      resize: none;
       min-height: 130px;
+      resize: none;
     }
     .contact-form input,
     .contact-form textarea {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0,224,255,0.4);
       border-radius: 10px;
       padding: 12px;
       color: #fff;
@@ -45,22 +71,31 @@
     .contact-form input:focus,
     .contact-form textarea:focus {
       outline: none;
-      border-color: var(--gold);
+      border-color: #00e0ff;
+      box-shadow: 0 0 8px rgba(0,224,255,0.5);
     }
     .contact-form button {
       grid-column: span 2;
-      background: linear-gradient(90deg, var(--gold), #f0c46d);
-      color: #071022;
+      background: linear-gradient(90deg, #00e0ff, #00bfff);
+      color: #071428;
       border: none;
       padding: 12px;
       border-radius: 10px;
       cursor: pointer;
       font-weight: 700;
       font-size: 1rem;
-      transition: transform 0.3s;
+      transition: 0.3s;
     }
     .contact-form button:hover {
+      box-shadow: 0 0 16px rgba(0,224,255,0.6);
       transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid rgba(0,224,255,0.4);
+      color: #9fb7d6;
     }
     @media (max-width: 600px) {
       .contact-form {
@@ -77,9 +112,9 @@
   <header>
     <h1>Gemmines2</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="checkout.html">Checkout</a>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="checkout.html">Checkout</a> |
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
@@ -96,7 +131,7 @@
     </form>
   </section>
 
-  <footer class="footer">
+  <footer>
     © <span id="year"></span> Gemmines2. All rights reserved.
   </footer>
 
