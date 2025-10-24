@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="cart.js" defer></script>
     <style>
+        /* Body and header */
         body {
             font-family: Arial, sans-serif;
             background-color: #0a0a23;
@@ -22,17 +23,19 @@
         }
 
         header h1 {
-            font-size: 32px;
+            font-size: 32px !important;
             margin: 0;
         }
 
+        /* Product grid */
         .product-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(5, 1fr); /* 5 columns on desktop */
             gap: 20px;
             padding: 20px;
         }
 
+        /* Product card */
         .product-card {
             background-color: #121240;
             padding: 15px;
@@ -54,18 +57,18 @@
         }
 
         .product-card h2 {
-            font-size: 22px;
+            font-size: 22px !important;
             margin: 10px 0 5px 0;
         }
 
         .product-card p {
-            font-size: 16px;
+            font-size: 16px !important;
             margin: 5px 0 10px 0;
             min-height: 40px;
         }
 
         .product-card .price {
-            font-size: 18px;
+            font-size: 18px !important;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -85,10 +88,32 @@
             background-color: #e6b800;
         }
 
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .product-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            header h1 { font-size: 24px; }
-            .product-card h2 { font-size: 18px; }
-            .product-card p { font-size: 14px; }
+            header h1 { font-size: 24px !important; }
+            .product-card h2 { font-size: 18px !important; }
+            .product-card p { font-size: 14px !important; }
+            .product-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -123,7 +148,21 @@
         <button class="buy-btn" onclick="addToCart('Peridot', 38)">Buy Now</button>
     </div>
 
-    <!-- Add more products here -->
+    <div class="product-card">
+        <img src="images/garnet.jpg" alt="Garnet">
+        <h2>Garnet</h2>
+        <p>Deep red garnet — cut and polished.</p>
+        <div class="price">$42</div>
+        <button class="buy-btn" onclick="addToCart('Garnet', 42)">Buy Now</button>
+    </div>
+
+    <div class="product-card">
+        <img src="images/topaz.jpg" alt="Topaz">
+        <h2>Topaz</h2>
+        <p>Shiny topaz — polished, premium quality.</p>
+        <div class="price">$55</div>
+        <button class="buy-btn" onclick="addToCart('Topaz', 55)">Buy Now</button>
+    </div>
 </section>
 
 </body>
