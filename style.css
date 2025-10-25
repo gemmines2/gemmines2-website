@@ -181,3 +181,8 @@ footer {
   margin-top: 40px;
   font-size: 0.9rem;
 }
+nav a.btn:hover {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 8px var(--blue);
+}
