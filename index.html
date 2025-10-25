@@ -1,94 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gemmines2 — Natural Gemstones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- HEADER -->
-    <header>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
       <div class="brand">
-        <div class="logo">GM</div>
-        <div>
-          <h1>Gemmines2</h1>
-          <small>Natural gemstones — cut, polished & tumbled river stones</small>
-        </div>
+        <div class="logo">Gemmines2</div>
+        <h1>Natural Gemstones</h1>
       </div>
       <nav>
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="products.html">Products</a>
-        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-        <a class="btn" href="checkout.html">Checkout</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="about.html">About</a>
+        <a href="index.html" class="btn">Home</a>
+        <a href="products.html" class="btn">Products</a>
+        <a href="checkout.html" class="btn">Checkout</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- HERO SECTION -->
-    <main class="hero">
-      <div class="hero-card">
-        <div class="hero-inner">
-          <h2>Natural Gemstones — Cut, Polished & Tumbled River Stones</h2>
-          <p>Explore a curated collection of premium gemstones hand-selected for brilliance, clarity, and quality. Worldwide shipping and secure checkout available.</p>
-
-          <div class="cta">
-            <a class="primary" href="products.html">Shop Now</a>
-            <a class="secondary" href="contact.html">Custom Orders</a>
-          </div>
-
-          <div class="search" style="margin-top:14px">
-            <input id="quick-search" placeholder="Search gemstones..." />
-            <button class="btn" id="clear-search">Clear</button>
-          </div>
-
-          <div style="margin-top:14px;color:var(--muted);font-size:0.9rem">
-            Tip: Use the search to explore gems or visit Products to browse the full collection.
-          </div>
-        </div>
+  <!-- HERO SECTION -->
+  <section class="hero container">
+    <div class="hero-inner">
+      <h2>Discover the Beauty of Nature’s Gems</h2>
+      <p>We curate and supply natural gemstones — cut, polished, and tumbled river stones suitable for fine jewellery and collections. Browse our selection and add your favorites to the cart.</p>
+      <div class="cta">
+        <a href="products.html" class="primary">Shop Now</a>
+        <a href="checkout.html" class="secondary">Go to Checkout</a>
       </div>
+    </div>
+  </section>
 
-      <!-- FEATURED GEM -->
-      <aside class="hero-card">
-        <h3 style="margin-top:0;color:var(--gold)">Featured Gem</h3>
-        <img id="featured-img" src="images/aquamarine.jpg" alt="Aquamarine Gemstone" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:12px" />
-        <div style="color:var(--muted)">
-          Aquamarine — clean, eye-catching blue. Price: $50
-        </div>
-      </aside>
-    </main>
+  <!-- ABOUT SECTION -->
+  <section class="about container">
+    <h3>About Gemmines2</h3>
+    <p>Gemmines2 is dedicated to offering ethically sourced, high-quality gemstones. Each stone is carefully polished to highlight its natural beauty. We ship worldwide and offer customized gemstone selections upon request.</p>
+  </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="home" class="page" style="margin-top:18px">
-      <h3>About Gemmines2</h3>
-      <p style="color:var(--muted)">
-        At Gemmines2, we offer hand-picked, natural gemstones and tumbled river stones for collectors, jewelers, and enthusiasts worldwide. Each piece is ethically sourced and crafted to perfection.
-      </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      © <span id="year"></span> Gemmines2 — Natural Gemstones • All Rights Reserved
-    </footer>
-  </div>
-
-  <!-- SCRIPTS -->
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
-  <script>
-    // search & year functions
-    document.getElementById('clear-search').addEventListener('click', ()=>{ document.getElementById('quick-search').value=''; });
-    document.getElementById('quick-search').addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter'){
-        const q = e.target.value.trim();
-        localStorage.setItem('gemmines2_search', q);
-        window.location.href = 'products.html';
-      }
-    });
-    document.getElementById('year').innerText = new Date().getFullYear();
-  </script>
+  <!-- FOOTER -->
+  <footer>
+    <p>© Gemmines2 — Natural Gemstones • 2025 • Contact us for details</p>
+  </footer>
 </body>
 </html>
