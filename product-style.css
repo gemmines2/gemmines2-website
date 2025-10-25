@@ -1,0 +1,94 @@
+:root {
+  --bg1: #071428;
+  --bg2: #02060a;
+  --gold: #b8862b;
+  --muted: #9fb7d6;
+  --panel: rgba(255, 255, 255, 0.03);
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: #e8f4fb;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2,6,23,0.95);
+  padding: 12px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+header h1 {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.product {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product h3 {
+  color: var(--gold);
+  margin: 12px 0 6px;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.product .price {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+button.buy {
+  background: linear-gradient(90deg, var(--gold), #f2cf8f);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  color: #071022;
+  cursor: pointer;
+}
+
+button.buy:hover {
+  opacity: 0.85;
+}
