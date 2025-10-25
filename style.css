@@ -211,3 +211,20 @@ footer {
   padding: 12px;
   border-top: 1px solid #1e293b;
 }
+.btn {
+  background: linear-gradient(135deg, #1aa195, #3de1d0); /* turquoise gradient */
+  color: #fff;
+  border: 1px solid #3de1d0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #d4af37, #3de1d0); /* gold + turquoise */
+  box-shadow: 0 0 10px #2ee9d4;
+  transform: translateY(-2px);
+}
