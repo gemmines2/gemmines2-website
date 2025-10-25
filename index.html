@@ -6,9 +6,8 @@ Index.html
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gemmines2 — Natural Gemstones</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  
-</head><link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <div class="container">
     <header>
@@ -85,3 +84,144 @@ Index.html
 </html>
 
 
+
+
+Style.css  saturday :root {
+  --bg-dark: #0b0f1a;
+  --bg-light: #121826;
+  --gold: #d4af37;
+  --blue: #0078ff;
+  --muted: #a9b3c1;
+  --text-light: #f3f4f6;
+  --radius: 12px;
+}
+
+/* GENERAL */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  background: var(--bg-light);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  background: var(--gold);
+  color: var(--bg-dark);
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+header small {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* NAVIGATION */
+nav a.btn {
+  color: var(--text-light);
+  border: 1px solid var(--blue);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  margin-left: 6px;
+  transition: 0.25s;
+}
+
+nav a.btn:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* HERO SECTION */
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.hero-card {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-inner h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.hero-inner p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.cta {
+  margin-top: 18px;
+}
+
+a.primary,
+a.secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  margin-right: 10px;
+  transition: 0.25s;
+}
+
+a.primary {
+  background: var(--blue);
+  color: white;
+}
+
+a.primary:hover {
+  background: #0062d9;
+}
+
+a.secondary {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+a.secondary:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
