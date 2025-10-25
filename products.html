@@ -1,169 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gemmines2 Products</title>
-<link rel="stylesheet" href="style.css">
-<script src="products.js" defer></script>
-<script src="cart.js" defer></script>
-<style>
-/* ===== Header ===== */
-header {
-    padding: 20px;
-    text-align: center;
-    background-color: #060622;
-}
-
-header h1 {
-    font-size: 28px !important;
-    color: #ffcc00 !important;
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    header h1 { font-size: 22px !important; }
-}
-
-/* ===== Product Cards ===== */
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-.product-card {
-    background-color: #121240;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.product-card h2 {
-    font-size: 22px !important;
-    margin: 10px 0 5px 0;
-}
-
-.product-card p {
-    font-size: 16px !important;
-    margin: 5px 0 10px 0;
-    min-height: 40px;
-}
-
-.product-card .price {
-    font-size: 18px !important;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* ===== Buy Button ===== */
-.buy {
-    background-color: #0077ff !important;
-    color: #fff !important;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
-
-.buy:hover {
-    background-color: #005fcc !important;
-}
-
-/* ===== Responsive Grid ===== */
-@media (max-width: 1200px) { .product-container { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 992px)  { .product-container { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px)  { .product-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px)  { .product-container { grid-template-columns: 1fr; } }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemmines2 — Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GM</div>
+        <div>
+          <h1>Gemmines2</h1>
+          <small>Natural gemstones — cut, polished & tumbled river stones</small>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="products.html">Products</a>
+        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a class="btn" href="contact.html">Contact</a>
+        <a class="btn" href="about.html">About</a>
+      </nav>
+    </header>
 
-<header>
-    <h1>Gemmines2 Products</h1>
-</header>
+    <main style="margin-top: 20px;">
+      <h2 style="color: var(--gold); margin-bottom: 16px;">Our Gemstones</h2>
+      <div class="products-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px;">
+        
+        <!-- Example Product Card -->
+        <div class="hero-card">
+          <img src="images/aquamarine.jpg" alt="Aquamarine" style="width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:12px;">
+          <h3 style="color: var(--gold); margin-bottom:6px;">Aquamarine</h3>
+          <p style="color: var(--muted); font-size:0.9rem; margin-bottom:8px;">Clean, eye-catching blue — cut & polished.</p>
+          <div style="color: var(--muted); font-size:0.85rem; margin-bottom:8px;">Price: $50</div>
+          <button class="btn buy-btn" onclick="addToCart('Aquamarine',50,'images/aquamarine.jpg')">Buy Now</button>
+        </div>
 
-<section class="product-container">
-    <div class="product-card">
-        <img src="images/aquamarine.jpg" alt="Aquamarine">
-        <h2>Aquamarine</h2>
-        <p>Clean aquamarine — approx 2.5 carats — polished.</p>
-        <div class="price">$50</div>
-        <button class="buy" data-id="aquamarine">Buy Now</button>
-    </div>
+        <div class="hero-card">
+          <img src="images/rhodolite.jpg" alt="Rhodolite Garnet" style="width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:12px;">
+          <h3 style="color: var(--gold); margin-bottom:6px;">Rhodolite Garnet</h3>
+          <p style="color: var(--muted); font-size:0.9rem; margin-bottom:8px;">Polished, high lustre gemstone.</p>
+          <div style="color: var(--muted); font-size:0.85rem; margin-bottom:8px;">Price: $45</div>
+          <button class="btn buy-btn" onclick="addToCart('Rhodolite Garnet',45,'images/rhodolite.jpg')">Buy Now</button>
+        </div>
 
-    <div class="product-card">
-        <img src="images/rhodolite.jpg" alt="Rhodolite Garnet">
-        <h2>Rhodolite Garnet</h2>
-        <p>Rhodolite — polished, high lustre.</p>
-        <div class="price">$45</div>
-        <button class="buy" data-id="rhodolite">Buy Now</button>
-    </div>
+        <!-- Add more product cards here as needed -->
 
-    <div class="product-card">
-        <img src="images/peridot.jpg" alt="Peridot">
-        <h2>Peridot</h2>
-        <p>Bright green peridot — polished, premium quality.</p>
-        <div class="price">$38</div>
-        <button class="buy" data-id="peridot">Buy Now</button>
-    </div>
+      </div>
+    </main>
 
-    <div class="product-card">
-        <img src="images/garnet.jpg" alt="Garnet">
-        <h2>Garnet</h2>
-        <p>Deep red garnet — cut and polished.</p>
-        <div class="price">$42</div>
-        <button class="buy" data-id="garnet">Buy Now</button>
-    </div>
+    <footer style="margin-top:20px;">
+      © Gemmines2 — Natural Gemstones • Contact us • <span id="year"></span>
+    </footer>
+  </div>
 
-    <div class="product-card">
-        <img src="images/green-jasper.jpg" alt="Green Jasper">
-        <h2>Green Jasper</h2>
-        <p>Beautiful green jasper — polished, premium quality.</p>
-        <div class="price">$40</div>
-        <button class="buy" data-id="green-jasper">Buy Now</button>
-    </div>
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
 
-    <div class="product-card">
-        <img src="images/hessonite.jpg" alt="Hessonite">
-        <h2>Hessonite</h2>
-        <p>Rich brown-orange hessonite — cut and polished.</p>
-        <div class="price">$48</div>
-        <button class="buy" data-id="hessonite">Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="images/lemon-quartz.jpg" alt="Lemon Quartz">
-        <h2>Lemon Quartz</h2>
-        <p>Bright yellow lemon quartz — polished, premium quality.</p>
-        <div class="price">$52</div>
-        <button class="buy" data-id="lemon-quartz">Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="images/umbalite.jpg" alt="Umbalite Garnet">
-        <h2>Umbalite Garnet</h2>
-        <p>Natural unheated umbalite garnet — cut and polished.</p>
-        <div class="price">$70</div>
-        <button class="buy" data-id="umbalite">Buy Now</button>
-    </div>
-</section>
-
+    // Example addToCart function
+    function addToCart(name, price, img){
+      let cart = JSON.parse(localStorage.getItem('gemmines2_cart')||'[]');
+      cart.push({name, price, img});
+      localStorage.setItem('gemmines2_cart', JSON.stringify(cart));
+      document.getElementById('cart-count').innerText = cart.length;
+      alert(name + " added to cart!");
+    }
+  </script>
 </body>
 </html>
