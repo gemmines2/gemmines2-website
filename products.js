@@ -1,5 +1,3 @@
-// products.js - complete product list for Gemmines2
-
 const PRODUCTS = [
   { id: 'p1', name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 50, img: 'images/aquamarine.jpg' },
   { id: 'p2', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 45, img: 'images/rhodolite.jpg' },
@@ -9,7 +7,7 @@ const PRODUCTS = [
   { id: 'p6', name: 'Topaz', desc: 'Golden topaz, polished', price: 40, img: 'images/topaz.jpg' }
 ];
 
-// Dynamically generate product cards on the page
+// Generate product cards
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('product-container');
   if (!container) return;
