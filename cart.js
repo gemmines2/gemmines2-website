@@ -1,4 +1,4 @@
-/* cart.js - cart persistence and UI */
+// cart.js - cart persistence and UI
 const CART_KEY = 'gemmines2_cart_v1';
 
 function loadCart() {
@@ -59,6 +59,7 @@ function renderCartPanel() {
   const items = cartItemsDetailed();
   container.innerHTML = '';
   let total = 0;
+
   items.forEach(it => {
     total += it.qty * it.price;
     const row = document.createElement('div');
@@ -69,16 +70,21 @@ function renderCartPanel() {
         <div style="font-weight:700">${it.name}</div>
         <div style="color:var(--muted);font-size:0.9rem">
           $${it.price} × 
-          <input type="number" value="${it.qty}" min="1" data-id="${it.id}"
-            style="width:64px;border-radius:6px;padding:6px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit" />
+          <input type="number" value="${it.qty}" min="1" data-id="${it.id}" 
+            style="width:64px;border-radius:6px;padding:6px;background:transparent;
+            border:1px solid rgba(255,255,255,0.2);color:inherit" />
         </div>
       </div>
       <div>
-        <button data-remove="${it.id}" style="background:transparent;border:none;color:var(--muted);cursor:pointer">Remove</button>
+        <button data-remove="${it.id}" 
+          style="background:transparent;border:none;color:var(--muted);cursor:pointer">
+          Remove
+        </button>
       </div>
     `;
     container.appendChild(row);
   });
+
   const totalEl = document.getElementById('cart-total');
   if (totalEl) totalEl.innerText = '$' + total.toFixed(2);
 
@@ -90,11 +96,10 @@ function renderCartPanel() {
       setQty(id, v);
     });
   });
+
   // attach remove
   container.querySelectorAll('[data-remove]').forEach(b =>
-    b.addEventListener('click', e => {
-      removeFromCart(b.dataset.remove);
-    })
+    b.addEventListener('click', () => removeFromCart(b.dataset.remove))
   );
 }
 
@@ -102,24 +107,30 @@ function renderCheckout() {
   const container = document.getElementById('cart-summary');
   if (!container) return;
   const items = cartItemsDetailed();
+
   if (items.length === 0) {
     container.innerHTML = '<div style="color:var(--muted)">Your cart is empty.</div>';
     return;
   }
+
   let html = '<div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">';
   let total = 0;
   items.forEach(it => {
-    html += `<div style="display:flex;justify-content:space-between;padding:6px 0">
-      <div>${it.name} × ${it.qty}</div>
-      <div>$${(it.price * it.qty).toFixed(2)}</div>
-    </div>`;
+    html += `
+      <div style="display:flex;justify-content:space-between;padding:6px 0">
+        <div>${it.name} × ${it.qty}</div>
+        <div>$${(it.price * it.qty).toFixed(2)}</div>
+      </div>`;
     total += it.price * it.qty;
   });
-  html += `<hr style="border:none;border-top:1px dashed rgba(255,255,255,0.04);margin:8px 0"/>
-           <div style="display:flex;justify-content:space-between;font-weight:800">
-             Total<div>$${total.toFixed(2)}</div>
-           </div></div>`;
+  html += `
+    <hr style="border:none;border-top:1px dashed rgba(255,255,255,0.1);margin:8px 0"/>
+    <div style="display:flex;justify-content:space-between;font-weight:800">
+      Total<div>$${total.toFixed(2)}</div>
+    </div>
+  </div>`;
   container.innerHTML = html;
+
   const cartTotalEl = document.getElementById('cart-total');
   if (cartTotalEl) cartTotalEl.innerText = '$' + total.toFixed(2);
 }
@@ -142,7 +153,7 @@ function placeOrder(contact) {
 /* wire up global UI from pages */
 document.addEventListener('DOMContentLoaded', () => {
   // attach buy buttons dynamically (products may render after DOMContentLoaded)
-  document.body.addEventListener('click', e => {
+  document.body.addEventListener('click', (e) => {
     if (e.target && e.target.matches && e.target.matches('.buy')) {
       const id = e.target.dataset.id;
       addToCart(id);
