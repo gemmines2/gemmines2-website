@@ -1,3 +1,41 @@
+
+/* --- GEMMINES2 GLOBAL RESET --- */
+html, body {
+  font-size: 15px !important;
+  zoom: 1 !important;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Product Page Images --- */
+.product img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 224, 255, 0.2);
+}
+
+/* --- Typography Reset --- */
+h1 {
+  font-size: 2rem !important;
+}
+h2 {
+  font-size: 1.6rem !important;
+}
+h3 {
+  font-size: 1.2rem !important;
+}
+p, span, a, button {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+🟦 Step 2 — Save both files
 body {
   background: #050a1a;
   color: #e0e4f4;
