@@ -101,9 +101,29 @@
       border-top: 1px solid rgba(0, 224, 255, 0.3);
       color: #9fb7d6;
     }
-    /* Hide dynamic payment section initially */
-    #payment-details {
-      display: none;
+
+    /* Order summary */
+    #cart-summary {
+      background: rgba(0, 224, 255, 0.05);
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+    }
+    #cart-summary h3 {
+      margin-top: 0;
+      color: #00e0ff;
+    }
+    #cart-summary .item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(255,255,255,0.1);
+      padding: 5px 0;
+    }
+    #cart-summary .total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
       margin-top: 10px;
     }
   </style>
@@ -120,7 +140,14 @@
 
   <section class="checkout-container">
     <h2>Checkout</h2>
-    <form id="checkout-form">
+
+    <!-- Order Summary -->
+    <div id="cart-summary">
+      <h3>Your Order Summary</h3>
+      <!-- Items will appear here dynamically -->
+    </div>
+
+    <form>
       <h3>Contact</h3>
       <label>Email</label>
       <input type="email" placeholder="you@example.com" required>
@@ -175,17 +202,15 @@
       <input type="tel" placeholder="+92 300 1234567" required>
 
       <h3>Payment Method</h3>
-      <select id="payment-method" required>
+      <select required>
         <option value="">Choose a payment method</option>
         <option value="western">Western Union</option>
-        <option value="ria">RIA</option>
+        <option value="ria">Ria Money Transfer</option>
         <option value="paypal">PayPal</option>
         <option value="payoneer">Payoneer</option>
         <option value="stripe">Stripe</option>
-        <option value="bank">Bank Transfer</option>
+        <option value="bank">Bank Deposit</option>
       </select>
-
-      <div id="payment-details"></div>
 
       <button type="submit" class="submit-btn">Submit Order</button>
     </form>
@@ -195,70 +220,10 @@
     © <span id="year"></span> Gemmines2. All rights reserved.
   </footer>
 
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const paymentMethod = document.getElementById("payment-method");
-    const paymentDetails = document.getElementById("payment-details");
-
-    paymentMethod.addEventListener("change", function() {
-      const method = this.value;
-      if (!method) {
-        paymentDetails.style.display = "none";
-        paymentDetails.innerHTML = "";
-        return;
-      }
-
-      let fields = "";
-      switch (method) {
-        case "western":
-        case "ria":
-          fields = `
-            <h3>${method === "western" ? "Western Union" : "RIA"} Details</h3>
-            <label>Sender Name</label>
-            <input type="text" placeholder="Enter your name" required>
-            <label>Transaction Number (MTCN / PIN)</label>
-            <input type="text" placeholder="Enter transaction number" required>
-            <label>Amount Sent (USD)</label>
-            <input type="number" placeholder="Enter amount" required>
-          `;
-          break;
-
-        case "paypal":
-        case "payoneer":
-        case "stripe":
-          fields = `
-            <h3>${method.charAt(0).toUpperCase() + method.slice(1)} Payment</h3>
-            <label>Email / Account ID</label>
-            <input type="text" placeholder="Enter your account email" required>
-            <label>Amount</label>
-            <input type="number" placeholder="Enter amount" required>
-          `;
-          break;
-
-        case "bank":
-          fields = `
-            <h3>Bank Transfer Details</h3>
-            <label>Bank Name</label>
-            <input type="text" placeholder="Enter bank name" required>
-            <label>Account Holder Name</label>
-            <input type="text" placeholder="Enter account name" required>
-            <label>Account Number / IBAN</label>
-            <input type="text" placeholder="Enter account number or IBAN" required>
-            <label>Amount</label>
-            <input type="number" placeholder="Enter amount" required>
-          `;
-          break;
-      }
-
-      paymentDetails.innerHTML = fields;
-      paymentDetails.style.display = "block";
-    });
-
-    document.getElementById("checkout-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("✅ Thank you! Your order has been submitted successfully.");
-    });
   </script>
 </body>
 </html>
