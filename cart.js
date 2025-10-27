@@ -148,6 +148,8 @@ function placeOrder(contact) {
   renderCartPanel();
   renderCartCount();
   renderCheckout();
+  alert('✅ Thank you! Your order has been placed successfully.');
+  window.location.href = 'index.html';
 }
 
 /* wire up global UI from pages */
@@ -161,6 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'checkout.html';
     }
   });
+
+  // handle checkout form submission
+  const checkoutForm = document.querySelector('form');
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      placeOrder({
+        email: checkoutForm.querySelector('input[type="email"]').value,
+        name: checkoutForm.querySelector('input[type="text"]').value,
+        phone: checkoutForm.querySelector('input[type="tel"]').value
+      });
+    });
+  }
 
   // render cart panel if exists
   renderCartPanel();
