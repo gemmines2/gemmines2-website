@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html" class="btn">Home</a>
+      <a href="products.html" class="btn">Products</a>
+      <a href="cart.html" class="btn">Cart (<span id="cart-count">0</span>)</a>
+      <a href="contact.html" class="btn">Contact</a>
+    </nav>
+  </header>
+
+  <main class="products-grid" id="product-list">
+    <!-- Products loaded from products.js -->
+  </main>
+
+  <footer>
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
