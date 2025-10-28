@@ -121,7 +121,139 @@
       </div>
     </section>
   </main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemmines2 | Natural Gemstones & Custom Jewelry</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
+    .about-section {
+      background: linear-gradient(180deg, #0a1430 0%, #050a1a 100%);
+      color: #e0e4f4;
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ffd0;
+      letter-spacing: 1px;
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 850px;
+      margin: 0 auto 25px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 15px rgba(0, 255, 208, 0.3);
+    }
+
+    .about-card h3 {
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">GM</div>
+      <div>
+        <h1>Gemmines2</h1>
+        <small>Natural gemstones — cut, polished & tumbled</small>
+      </div>
+    </div>
+    <nav>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="products.html">Products</a>
+      <a class="btn" href="#about">About</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Discover the Beauty of Nature</h2>
+      <p>Authentic gemstones sourced from Pakistan and worldwide — crafted into elegance.</p>
+      <a href="products.html" class="btn glow">Shop Now</a>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>About Gemmines2</h2>
+      <p>
+        <strong>Gemmines2</strong> is a Pakistan-based gemstone house dealing in
+        <em>authentic unheated natural gemstones</em> — including cut and polished stones, rough crystals,
+        river tumble stones, and personalized birthstones. Our collection is sourced both from
+        Pakistan’s rich mineral reserves and from trusted suppliers worldwide.
+      </p>
+      <p>
+        We design customized <strong>rings, pendants, bracelets, and earrings</strong> in
+        <em>silver, gold, or rhodium-plated finishes</em> — tailored to your personal style and preferences.
+        Whether for a special occasion or everyday elegance, each piece reflects natural beauty and craftsmanship.
+      </p>
+      <p>
+        Make your loved ones feel cherished with <strong>wedding gifts, anniversary surprises,
+        or birthday treasures</strong> that truly last a lifetime. Every gem tells a story — yours can start here.
+        <br /><br />
+        🌍 <strong>Worldwide shipping available.</strong>
+      </p>
+
+      <div class="about-highlights">
+        <div class="about-card">
+          <h3>💎 Authentic Gemstones</h3>
+          <p>Every gemstone is 100% genuine — ethically sourced, expertly cut, and beautifully polished.</p>
+        </div>
+        <div class="about-card">
+          <h3>⚒️ Custom Jewelry</h3>
+          <p>Crafted with precision in silver, gold, or rhodium — made to your taste and personality.</p>
+        </div>
+        <div class="about-card">
+          <h3>🌍 Worldwide Shipping</h3>
+          <p>We safely deliver your gemstones and jewelry to your doorstep — wherever you are.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
   <footer>
     © <span id="year"></span> Gemmines2. All rights reserved.
   </footer>
