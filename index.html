@@ -1,55 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gemmines2 — Natural Gemstones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">GM</div>
-        <div>
-          <h1>Gemmines2</h1>
-          <small>Natural gemstones — cut, polished & tumbled</small>
-        </div>
+  <header>
+    <div class="brand">
+      <div class="logo">GM</div>
+      <div>
+        <h1>Gemmines2</h1>
+        <small>Natural gemstones — cut, polished & tumbled</small>
       </div>
-      <nav>
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="products.html">Products</a>
-        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="about.html">About</a>
-      </nav>
-    </header>
+    </div>
+    <nav>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="products.html">Products</a>
+      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <main class="hero">
-      <div class="hero-card hero-inner">
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
         <h2>Natural Gemstones — Cut & Polished</h2>
         <p>Hand-picked gemstones and tumbled stones for jewellery. Worldwide shipping available.</p>
         <div class="cta">
-          <a class="btn" href="products.html">Shop Now</a>
+          <a class="btn primary" href="products.html">Shop Now</a>
         </div>
       </div>
-      <aside class="hero-card">
+      <aside class="hero-right">
         <h3>Featured Gem</h3>
-        <img src="images/aquamarine.jpg" alt="Featured Gem">
-        <p>Aquamarine — Eye-catching blue, polished, $50</p>
+        <img src="images/aquamarine.jpg" alt="Featured Gem" class="hero-feature" />
+        <p class="muted">Aquamarine — Eye-catching blue, polished — $50</p>
       </aside>
-    </main>
+    </section>
+  </main>
 
-    <footer>
-      © <span id="year"></span> Gemmines2. All rights reserved.
-    </footer>
-  </div>
+  <footer>
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
 
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // ensure cart count is updated on load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderCartCount === 'function') renderCartCount();
+    });
+  </script>
+</body>
+</html>
+2) products.html
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products | Gemmines2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">GM</div>
+      <div>
+        <h1>Gemmines2</h1>
+        <small>Natural gemstones — cut, polished & tumbled</small>
+      </div>
+    </div>
+    <nav>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="products.html">Products</a>
+      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Our Gemstone Collection</h2>
+
+    <!-- quick debug test (remove after confirming images): -->
+    <!-- <img src="images/aquamarine.jpg" alt="test" width="200" /> -->
+
+    <div class="products-grid" id="product-list">
+      <!-- Products populated by products.js -->
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderCartCount === 'function') renderCartCount();
+    });
   </script>
 </body>
 </html>
