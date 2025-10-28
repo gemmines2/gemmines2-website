@@ -3,61 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemmines2 | Natural Gemstones & Custom Jewelry</title>
+  <title>Gemmines2 | Authentic Natural Gemstones</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .about-section {
-      background: linear-gradient(180deg, #0a1430 0%, #050a1a 100%);
-      color: #e0e4f4;
-      padding: 60px 20px;
+    /* === Minor homepage-specific styling === */
+    .about {
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s ease;
     }
-
-    .about-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00ffd0;
-      letter-spacing: 1px;
-    }
-
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.8;
-      max-width: 850px;
-      margin: 0 auto 25px;
-    }
-
-    .about-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .about-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      border-radius: 16px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 15px rgba(0, 255, 208, 0.3);
-    }
-
-    .about-card h3 {
-      color: #ffd700;
+    .about h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--accent2);
+      font-size: 1.6rem;
       margin-bottom: 10px;
     }
+    .about p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .featured {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 1.2s ease;
+    }
+    .featured h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--accent2);
+      margin-bottom: 20px;
+    }
+    .home-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .home-products .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .home-products .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 208, 0.25);
+    }
+    .home-products img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .home-products h3 {
+      color: var(--accent2);
+      font-size: 1rem;
+      margin: 0;
+    }
 
-    footer {
-      margin-top: 40px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .about h2 { font-size: 1.3rem; }
+      .about p { font-size: 0.9rem; }
+      .home-products img { width: 160px; height: 160px; }
     }
   </style>
 </head>
@@ -73,187 +87,51 @@
     <nav>
       <a class="btn" href="index.html">Home</a>
       <a class="btn" href="products.html">Products</a>
-      <a class="btn" href="#about">About</a>
+      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
       <a class="btn" href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h2>Discover the Beauty of Nature</h2>
-      <p>Authentic gemstones sourced from Pakistan and worldwide — crafted into elegance.</p>
-      <a href="products.html" class="btn glow">Shop Now</a>
-    </section>
-
-    <section id="about" class="about-section">
+    <!-- About Section -->
+    <section class="about">
       <h2>About Gemmines2</h2>
       <p>
-        <strong>Gemmines2</strong> is a Pakistan-based gemstone house dealing in
-        <em>authentic unheated natural gemstones</em> — including cut and polished stones, rough crystals,
-        river tumble stones, and personalized birthstones. Our collection is sourced both from
-        Pakistan’s rich mineral reserves and from trusted suppliers worldwide.
+        <strong>Gemmines2</strong>, based in Pakistan, is your trusted source for
+        <strong>authentic, unheated, and natural gemstones</strong> — carefully
+        cut, polished, or in their raw and river-tumbled forms. Our collection
+        includes birthstones, rare gems, and minerals sourced from
+        <strong>Pakistan and around the world</strong>.
       </p>
       <p>
-        We design customized <strong>rings, pendants, bracelets, and earrings</strong> in
-        <em>silver, gold, or rhodium-plated finishes</em> — tailored to your personal style and preferences.
-        Whether for a special occasion or everyday elegance, each piece reflects natural beauty and craftsmanship.
+        We also specialize in crafting <strong>custom-designed jewelry</strong> —
+        from elegant rings and pendants to bracelets and earrings — in silver,
+        gold, or rhodium-plated finishes, designed to reflect your unique taste.
       </p>
       <p>
-        Make your loved ones feel cherished with <strong>wedding gifts, anniversary surprises,
-        or birthday treasures</strong> that truly last a lifetime. Every gem tells a story — yours can start here.
-        <br /><br />
-        🌍 <strong>Worldwide shipping available.</strong>
+        Whether you're looking for a <strong>wedding gift</strong>, a meaningful
+        <strong>anniversary keepsake</strong>, or a personal <strong>birthday
+        gemstone</strong>, Gemmines2 helps you give something truly precious.
+        <br /><strong>Worldwide shipping available.</strong>
       </p>
-
-      <div class="about-highlights">
-        <div class="about-card">
-          <h3>💎 Authentic Gemstones</h3>
-          <p>Every gemstone is 100% genuine — ethically sourced, expertly cut, and beautifully polished.</p>
-        </div>
-        <div class="about-card">
-          <h3>⚒️ Custom Jewelry</h3>
-          <p>Crafted with precision in silver, gold, or rhodium — made to your taste and personality.</p>
-        </div>
-        <div class="about-card">
-          <h3>🌍 Worldwide Shipping</h3>
-          <p>We safely deliver your gemstones and jewelry to your doorstep — wherever you are.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemmines2 | Natural Gemstones & Custom Jewelry</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .about-section {
-      background: linear-gradient(180deg, #0a1430 0%, #050a1a 100%);
-      color: #e0e4f4;
-      padding: 60px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .about-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00ffd0;
-      letter-spacing: 1px;
-    }
-
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.8;
-      max-width: 850px;
-      margin: 0 auto 25px;
-    }
-
-    .about-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .about-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      border-radius: 16px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 15px rgba(0, 255, 208, 0.3);
-    }
-
-    .about-card h3 {
-      color: #ffd700;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
-    </div>
-    <nav>
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
-      <a class="btn" href="#about">About</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h2>Discover the Beauty of Nature</h2>
-      <p>Authentic gemstones sourced from Pakistan and worldwide — crafted into elegance.</p>
-      <a href="products.html" class="btn glow">Shop Now</a>
     </section>
 
-    <section id="about" class="about-section">
-      <h2>About Gemmines2</h2>
-      <p>
-        <strong>Gemmines2</strong> is a Pakistan-based gemstone house dealing in
-        <em>authentic unheated natural gemstones</em> — including cut and polished stones, rough crystals,
-        river tumble stones, and personalized birthstones. Our collection is sourced both from
-        Pakistan’s rich mineral reserves and from trusted suppliers worldwide.
-      </p>
-      <p>
-        We design customized <strong>rings, pendants, bracelets, and earrings</strong> in
-        <em>silver, gold, or rhodium-plated finishes</em> — tailored to your personal style and preferences.
-        Whether for a special occasion or everyday elegance, each piece reflects natural beauty and craftsmanship.
-      </p>
-      <p>
-        Make your loved ones feel cherished with <strong>wedding gifts, anniversary surprises,
-        or birthday treasures</strong> that truly last a lifetime. Every gem tells a story — yours can start here.
-        <br /><br />
-        🌍 <strong>Worldwide shipping available.</strong>
-      </p>
-
-      <div class="about-highlights">
-        <div class="about-card">
-          <h3>💎 Authentic Gemstones</h3>
-          <p>Every gemstone is 100% genuine — ethically sourced, expertly cut, and beautifully polished.</p>
+    <!-- Featured Gems Section -->
+    <section class="featured">
+      <h2>Featured Gemstones</h2>
+      <div class="home-products">
+        <div class="card">
+          <img src="images/umbalite.jpg" alt="Umbalite Garnet" />
+          <h3>Umbalite Garnet</h3>
         </div>
-        <div class="about-card">
-          <h3>⚒️ Custom Jewelry</h3>
-          <p>Crafted with precision in silver, gold, or rhodium — made to your taste and personality.</p>
-        </div>
-        <div class="about-card">
-          <h3>🌍 Worldwide Shipping</h3>
-          <p>We safely deliver your gemstones and jewelry to your doorstep — wherever you are.</p>
+        <div class="card">
+          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz Topaz" />
+          <h3>Lemon Quartz Topaz</h3>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> Gemmines2. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
   <footer>
     © <span id="year"></span> Gemmines2. All rights reserved.
   </footer>
