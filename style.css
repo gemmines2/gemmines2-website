@@ -244,7 +244,57 @@ footer {
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 900px) {/* --- Product grid --- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* --- Product cards --- */
+.product-card {
+  background: var(--card);
+  color: var(--text);
+  padding: 15px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Product images --- */
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* make all images square */
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+}
+
+/* --- Buy button (already unified with btn-primary) --- */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--turquoise), var(--gold));
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  transform: scale(1.05);
+}
   main.hero {
     grid-template-columns: 1fr;
   }
