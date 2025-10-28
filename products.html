@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | Gemmines2</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Gemmines2</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Gemmines2</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <h2>Our Gemstone Collection</h2>
-    <div id="product-list" class="products-grid"></div>
-  </main>
+<main>
+  <h2>Our Gemstone Collection</h2>
+  <div id="product-list" class="products-grid"></div>
+</main>
 
-  <footer>
-    © <span id="year"></span> Gemmines2. All rights reserved.
-  </footer>
+<footer>
+  © <span id="year"></span> Gemmines2. All rights reserved.
+</footer>
 
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+// Product data (for now, define here so everything works)
+const PRODUCTS = [
+  { id: "aquamarine", name: "Aquamarine", desc: "Clean aquamarine — approx 2.5 carats — polished", price: 50, img: "images/aquamarine.jpg" },
+  { id: "rhodolite", name: "Rhodolite Garnet", desc: "Rhodolite — polished, high lustre", price: 45, img: "images/rhodolite.jpg" },
+  { id: "emerald", name: "Emerald", desc: "Natural green emerald, polished", price: 70, img: "images/emerald.jpg" }
+];
+
+// Cart functions
+const CART_KEY = 'gemmines2_cart_v1';
+function loadCart(){return JSON.parse(localStorage.getItem(CART_KEY))||{};}
+function saveCart(cart){localStorage.setItem(CART_KEY,JSON.stringify(cart));renderCartCount();}
+function addToCart(id){const cart=loadCart();cart[id]=(cart[id]||0)+1;saveCart(cart);alert('Added to cart!');}
+
+// Render products
+function renderProducts(){
+  const container=document.getElementById('product-list');
+  container.innerHTML = PRODUCTS.map(p=>`
+    <div class="product">
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="meta">
+        <span class="price">$${p.price}</span>
+        <button class="buy" data-id="${p.id}">Buy Now</button>
+      </div>
+    </div>
+  `).join('');
+  
+  // Attach click events to buttons
+  document.querySelectorAll('.buy').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      addToCart(btn.dataset.id);
+      renderCartCount();
+    });
+  });
+}
+
+// Render cart count
+function renderCartCount(){
+  const el=document.getElementById('cart-count');
+  if(el){
+    const total=Object.values(loadCart()).reduce((a,b)=>a+b,0);
+    el.innerText=total;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderProducts();
+  renderCartCount();
+  document.getElementById("year").textContent=new Date().getFullYear();
+});
+</script>
 </body>
 </html>
