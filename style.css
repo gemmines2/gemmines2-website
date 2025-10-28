@@ -99,3 +99,21 @@ footer{margin-top:36px;padding:18px;text-align:center;color:var(--muted);backgro
   .hero-right{width:100%}
   .products-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
 }
+/* ===== PRODUCT IMAGE SIZE (safe override) ===== */
+.products-grid img,
+.product-card img {
+  width: 220px !important;
+  height: 220px !important;
+  max-width: 100%;
+  object-fit: cover !important;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .products-grid img,
+  .product-card img {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}
