@@ -1,0 +1,51 @@
+const CART_KEY = 'gemmines2_cart_v1';
+let PRODUCTS = [
+  { id: 'aquamarine', name: 'Aquamarine', price: 50, img: 'images/aquamarine.jpg' },
+  { id: 'garnet', name: 'Rhodolite Garnet', price: 45, img: 'images/garnet.jpg' }
+];
+
+function loadCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY)) || {};
+}
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  renderCartCount();
+}
+function addToCart(id) {
+  const cart = loadCart();
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart(cart);
+  alert('Added to cart');
+}
+function renderCartCount() {
+  const el = document.getElementById('cart-count');
+  if (!el) return;
+  const cart = loadCart();
+  const total = Object.values(cart).reduce((a,b)=>a+b,0);
+  el.innerText = total;
+}
+
+// Populate products page
+document.addEventListener('DOMContentLoaded', ()=>{
+  const container = document.getElementById('product-list');
+  if(!container) return;
+  PRODUCTS.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>$${p.price}</p>
+      <button class="buy" data-id="${p.id}">Buy</button>
+    `;
+    container.appendChild(card);
+  });
+
+  document.body.addEventListener('click', e=>{
+    if(e.target.matches('.buy')){
+      addToCart(e.target.dataset.id);
+    }
+  });
+
+  renderCartCount();
+});
