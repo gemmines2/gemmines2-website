@@ -126,6 +126,19 @@
       font-weight: 700;
       margin-top: 10px;
     }
+
+    /* Order confirmation message */
+    #order-confirm {
+      display: none;
+      background: linear-gradient(90deg, #00e0ff, #00bfff);
+      color: #071022;
+      text-align: center;
+      font-weight: 700;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(0,224,255,0.4);
+    }
   </style>
 </head>
 <body>
@@ -147,7 +160,7 @@
       <!-- Items will appear here dynamically -->
     </div>
 
-    <form>
+    <form id="checkout-form">
       <h3>Contact</h3>
       <label>Email</label>
       <input type="email" placeholder="you@example.com" required>
@@ -212,20 +225,52 @@
         <option value="bank">Bank Deposit</option>
       </select>
 
-      <button type="submit" class="submit-btn">Submit Order</button>
+      <button type="submit" class="submit-btn">Place Order</button>
     </form>
+
+    <div id="order-confirm">✅ Your order has been received! Thank you for shopping with Gemmines2.</div>
   </section>
-<footer>
-  <p>
-    &copy; 2025 Gemmines2. All Rights Reserved. |
-    <a href="return.html">Return Policy</a>
-  </p>
-</footer>
-  
+
+  <footer>
+    <p>
+      &copy; 2025 Gemmines2. All Rights Reserved. |
+      <a href="return.html">Return Policy</a>
+    </p>
+  </footer>
+
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
+    // Display current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Checkout form submit demo
+    const form = document.getElementById('checkout-form');
+    const confirmMsg = document.getElementById('order-confirm');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault(); // Prevent actual reload
+      confirmMsg.style.display = 'block'; // Show confirmation
+      form.style.display = 'none'; // Hide form
+      setTimeout(() => {
+        window.location.href = 'index.html'; // Redirect after 4 seconds
+      }, 4000);
+    });
   </script>
 </body>
 </html>
+✅ **What
+
+
+
+
+
+
+
+
+
+
+
+
+
+ChatGPT can make mistakes. Check important info.
