@@ -7,39 +7,46 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     :root {
-      --turquoise: #00ffe0;
-      --muted: #b7c7d3;
-      --accent2: #c9a646;
+      --turquoise: #5fffd7;
+      --accent1: #00ffd0;
+      --accent2: #ffd700;
+      --muted: #a9b3c1;
+      --card: #0b1630;
     }
 
-    /* === Homepage Styling === */
     .featured {
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 50px 20px 30px;
       animation: fadeIn 1.2s ease;
     }
+
     .featured h2 {
       font-family: "Playfair Display", serif;
       color: var(--accent2);
       font-size: 1.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
+
     .home-products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 22px;
       justify-content: center;
     }
+
     .home-products .card {
       background: var(--card);
-      border-radius: var(--radius);
-      padding: 14px;
+      border-radius: 12px;
+      padding: 16px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
+
     .home-products .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 18px rgba(0, 255, 208, 0.25);
     }
+
     .home-products img {
       width: 200px;
       height: 200px;
@@ -47,26 +54,28 @@
       border-radius: 10px;
       margin-bottom: 10px;
     }
+
     .home-products h3 {
       color: var(--turquoise);
       font-size: 0.95rem;
       margin: 0;
     }
 
-    /* === About Section Below Images === */
     .about {
       text-align: center;
-      padding: 40px 20px;
+      padding: 40px 20px 50px;
       max-width: 900px;
       margin: 0 auto;
       animation: fadeIn 1.4s ease;
     }
+
     .about h2 {
       font-family: "Playfair Display", serif;
       color: var(--accent2);
       font-size: 1.4rem;
       margin-bottom: 10px;
     }
+
     .about p {
       color: var(--turquoise);
       font-size: 0.9rem;
@@ -85,6 +94,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="brand">
@@ -103,7 +113,6 @@
   </header>
 
   <main class="container">
-    <!-- Featured Gems Section -->
     <section class="featured">
       <h2>Featured Gemstones</h2>
       <div class="home-products">
@@ -118,7 +127,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section class="about">
       <h2>About Gemmines2</h2>
       <p>
@@ -129,15 +137,15 @@
         <strong>Pakistan and around the world</strong>.
       </p>
       <p>
-        We also specialize in crafting <strong>custom-designed jewelry</strong> —
-        from elegant rings and pendants to bracelets and earrings — in silver,
-        gold, or rhodium-plated finishes, designed to reflect your unique taste.
+        We also specialize in <strong>custom-designed jewelry</strong> —
+        including rings, pendants, bracelets, and earrings — in silver, gold, or
+        rhodium-plated finishes designed to reflect your unique taste.
       </p>
       <p>
         Whether you're looking for a <strong>wedding gift</strong>, a meaningful
-        <strong>anniversary keepsake</strong>, or a personal <strong>birthday
-        gemstone</strong>, Gemmines2 helps you give something truly precious.
-        <br><strong>Worldwide shipping available.</strong>
+        <strong>anniversary keepsake</strong>, or a <strong>birthday gemstone</strong>,
+        Gemmines2 helps you give something truly precious.
+        <br /><strong>Worldwide shipping available.</strong>
       </p>
     </section>
   </main>
@@ -150,8 +158,30 @@
   </footer>
 
   <script>
-    // Auto-update year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+✅ Instructions:
+
+Copy the full code above.
+
+Replace your current index.html with this one.
+
+Keep your existing style.css — it matches perfectly.
+
+This version will look exactly like your original dark, glowing, premium homepage, and it will stay fully compatible with your other pages (cart, products, checkout, etc.).
+
+Would you like me to restore the checkout page next to match this dark glowing theme too?
+
+
+
+
+
+
+
+
+
+
+
+
