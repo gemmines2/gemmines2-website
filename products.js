@@ -46,3 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+// wire Buy buttons (works with cart.js)
+document.querySelectorAll('.buy').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const id = btn.dataset.id;
+    if (typeof addToCart === 'function') {
+      addToCart(id, 1);
+      if (typeof renderCartCount === 'function') renderCartCount();
+
+      // ✅ Small delay to ensure localStorage is saved before redirect
+      setTimeout(() => {
+        window.location.href = 'checkout.html';
+      }, 200);
+
+    } else {
+      alert('Cart not ready yet');
+    }
+  });
+});
