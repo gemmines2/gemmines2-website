@@ -1,337 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    :root{
-      --bg:#0d1117;
-      --panel:#0b1623;
-      --card:#0f1b26;
-      --turquoise:#00e0ff;
-      --muted:#9fb7d6;
-      --accent1:#00e0ff;
-      --accent2:#00bfff;
+    body {
+      background-color: #0d1117;
+      color: #e8f0f2;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    html,body{height:100%;margin:0;background:var(--bg);color:#e8f4fb;font-family: 'Poppins', sans-serif;}
-    .container{max-width:920px;margin:20px auto;padding:18px;}
-    header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#071022;font-weight:800}
-    header h1{margin:0;font-size:1rem;color:var(--turquoise)}
-    nav .btn{color:var(--muted);text-decoration:none;font-size:.85rem;margin-left:12px}
-
-    .checkout-panel{background:var(--panel);border:1px solid rgba(0,224,255,0.06);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:14px}
-    @media (max-width:880px){
-      .grid{grid-template-columns:1fr; }
+    header {
+      background-color: #0f172a;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Cart summary (left column on desktop) */
-    .cart-summary{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    .cart-summary h3{margin:0 0 10px;color:var(--turquoise);font-size:1rem}
-    .cart-item{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
-    .cart-item:last-child{border-bottom:0}
-    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:#07111d;}
-    .cart-item .meta{flex:1}
-    .cart-item .meta h4{margin:0;font-size:.92rem;color:var(--turquoise)}
-    .cart-item .meta p{margin:4px 0 0;font-size:.78rem;color:var(--muted)}
-    .qty-row{display:flex;gap:8px;align-items:center;margin-top:6px}
-    .qty-row button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:4px 7px;border-radius:6px;color:var(--muted);font-size:.85rem;cursor:pointer}
-    .remove-btn{background:transparent;border:none;color:#ff7b7b;font-weight:700;cursor:pointer;font-size:.82rem}
+    header h1 {
+      color: var(--turquoise, #00ffd0);
+      margin: 0;
+      font-size: 1.4rem;
+    }
 
-    .summary-total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.03);font-weight:700}
+    nav a {
+      color: #e8f0f2;
+      margin-left: 14px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
 
-    /* Form column */
-    .checkout-form{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    .checkout-form h3{margin:0 0 8px;color:var(--turquoise);font-size:1rem}
-    label{display:block;font-size:.8rem;color:var(--muted);margin-top:10px}
-    input,select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,224,255,0.06);background:#07111d;color:inherit;font-size:.88rem}
-    .small{font-size:.82rem;color:var(--muted);margin-top:6px}
+    nav a:hover {
+      color: var(--turquoise, #00ffd0);
+    }
 
-    .place-btn{margin-top:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:9px;font-weight:800;border-radius:8px;cursor:pointer;color:#071022;width:100%;font-size:.92rem}
-    .place-btn:active{transform:scale(.998)}
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
 
-    #order-confirm{display:none;margin-top:12px;padding:10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#071022;font-weight:700;text-align:center}
+    h2 {
+      text-align: center;
+      color: var(--turquoise, #00ffd0);
+      font-family: "Playfair Display", serif;
+    }
 
-    /* compact typography */
-    h1,h2,h3,h4,p{margin:0}
-    .muted{color:var(--muted);font-size:.85rem}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      color: var(--turquoise, #00ffd0);
+    }
+
+    .total {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    .checkout-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent1, #00ffd0), var(--accent2, #00aaff));
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .checkout-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,255,208,0.25);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 12px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">GM</div>
-        <div>
-          <h1>Gemmines2</h1>
-          <div class="muted" style="font-size:.78rem">Natural gemstones — compact checkout</div>
-        </div>
-      </div>
-      <nav>
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="products.html">Products</a>
-        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      </nav>
-    </header>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <main style="margin-top:14px" class="checkout-panel">
-      <div class="grid">
-        <!-- Left: Cart summary -->
-        <div>
-          <div class="cart-summary">
-            <h3>Your Order</h3>
-            <div id="cart-items">
-              <!-- items injected here -->
-              <div class="muted">Your cart is empty.</div>
-            </div>
+  <main>
+    <h2>Your Order</h2>
+    <table id="checkout-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="checkout-body"></tbody>
+    </table>
+    <div class="total" id="checkout-total">Total: $0</div>
+    <button class="checkout-btn" id="place-order">Place Order</button>
+  </main>
 
-            <div class="summary-total" id="summary-total" style="display:none">
-              <div>Total</div>
-              <div id="total-amount">$0.00</div>
-            </div>
-          </div>
-        </div>
+  <footer>
+    &copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
+    <a href="return.html">Return Policy</a>
+  </footer>
 
-        <!-- Right: Checkout form -->
-        <aside>
-          <form id="checkout-form" class="checkout-form" autocomplete="on">
-            <h3>Delivery & Contact</h3>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-
-            <label for="fname">First Name</label>
-            <input id="fname" name="firstName" type="text" placeholder="First name" required>
-
-            <label for="lname">Last Name</label>
-            <input id="lname" name="lastName" type="text" placeholder="Last name" required>
-
-            <label for="address">Address</label>
-            <input id="address" name="address" type="text" placeholder="Street address" required>
-
-            <label for="city">City</label>
-            <input id="city" name="city" type="text" placeholder="City" required>
-
-            <label for="country">Country</label>
-            <input id="country" name="country" list="countries" placeholder="Start typing or select" required>
-            <datalist id="countries">
-              <option value="Pakistan"><option value="United States"><option value="United Kingdom"><option value="Canada"><option value="Australia">
-              <option value="United Arab Emirates"><option value="Saudi Arabia"><option value="Qatar"><option value="India"><option value="Germany">
-            </datalist>
-
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="+92 300 1234567" required>
-
-            <div style="margin-top:8px">
-              <label for="payment">Payment Method</label>
-              <select id="payment" name="payment" required>
-                <option value="">Choose a payment method</option>
-                <option value="western">Western Union</option>
-                <option value="ria">Ria</option>
-                <option value="paypal">PayPal</option>
-                <option value="payoneer">Payoneer</option>
-                <option value="bank">Bank Deposit</option>
-              </select>
-            </div>
-
-            <button type="submit" class="place-btn">Place Order</button>
-            <div id="order-confirm">✅ Your order has been received — thank you!</div>
-            <div class="small muted" style="margin-top:8px">&copy; <span id="year"></span> Gemmines2</div>
-          </form>
-        </aside>
-      </div>
-    </main>
-  </div>
-
-  <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
-    // ---- Helper: robust cart loader (tries multiple expected patterns) ----
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ✅ Read cart correctly using the same key as cart.js
     function readCartFromLocalStorage() {
       try {
-        const raw = localStorage.getItem('cart') || localStorage.getItem('CART') || localStorage.getItem('myCart');
-        if (!raw) return [];
-        const parsed = JSON.parse(raw);
-        // If object with id->qty map, convert to array
-        if (!Array.isArray(parsed) && typeof parsed === 'object') {
-          return Object.entries(parsed).map(([id, qty]) => ({ id, qty }));
-        }
-        return Array.isArray(parsed) ? parsed : [];
+        const raw = localStorage.getItem('gemmines2_cart_v1');
+        return raw ? JSON.parse(raw) : [];
       } catch (e) {
+        console.error("Cart parse error:", e);
         return [];
       }
     }
 
-    // Try to obtain cart using common exported functions (if cart.js provides them)
-    function getCartItems() {
-      // Prefer cart.js helper if available
-      if (typeof window.getCart === 'function') {
-        try { return window.getCart(); } catch(e) {}
-      }
-      // Some cart implementations store a function named cartItems or CART
-      if (typeof window.cartItems !== 'undefined') return window.cartItems;
-      // Fallback to localStorage
-      return readCartFromLocalStorage();
-    }
+    // ✅ Display items on checkout page
+    function renderCheckout() {
+      const tbody = document.getElementById('checkout-body');
+      const totalElem = document.getElementById('checkout-total');
+      const cart = readCartFromLocalStorage();
 
-    // Find product meta via PRODUCTS array from products.js (if exists)
-    function findProductMeta(id) {
-      if (typeof window.PRODUCTS !== 'undefined' && Array.isArray(window.PRODUCTS)) {
-        return window.PRODUCTS.find(p => p.id === id || p.id === String(id));
-      }
-      return null;
-    }
+      tbody.innerHTML = "";
+      let total = 0;
 
-    // Format money
-    function fmt(n) {
-      return '$' + (Number(n) || 0).toFixed(2);
-    }
-
-    // Render cart
-    function renderCart() {
-      const container = document.getElementById('cart-items');
-      const items = getCartItems(); // expected array of {id, qty} or {id, quantity}
-      container.innerHTML = '';
-      if (!items || items.length === 0) {
-        container.innerHTML = '<div class="muted">Your cart is empty.</div>';
-        document.getElementById('summary-total').style.display = 'none';
-        updateCartCount(0);
+      if (cart.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="2">Your cart is empty.</td></tr>';
+        totalElem.textContent = "Total: $0";
         return;
       }
 
-      let total = 0;
-      items.forEach(entry => {
-        const id = entry.id || entry.productId;
-        const qty = Number(entry.qty ?? entry.quantity ?? 1);
-        const meta = findProductMeta(id) || {};
-        const price = Number(meta.price ?? entry.price ?? 0);
-        const name = meta.name || entry.name || id;
-        const img = meta.img || entry.img || ('images/' + id + '.jpg');
-
-        total += price * qty;
-
-        const itemEl = document.createElement('div');
-        itemEl.className = 'cart-item';
-        itemEl.innerHTML = `
-          <img src="${img}" alt="${name}" onerror="this.src='images/placeholder.jpg'">
-          <div class="meta">
-            <h4>${name}</h4>
-            <p class="muted">${fmt(price)} × ${qty} = <strong>${fmt(price * qty)}</strong></p>
-            <div class="qty-row">
-              <button class="dec" data-id="${id}">−</button>
-              <div class="muted" style="min-width:22px;text-align:center">${qty}</div>
-              <button class="inc" data-id="${id}">+</button>
-              <button class="remove-btn" data-id="${id}">Remove</button>
-            </div>
-          </div>
+      cart.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price}</td>
         `;
-        container.appendChild(itemEl);
+        tbody.appendChild(row);
+        total += item.price;
       });
 
-      document.getElementById('summary-total').style.display = 'flex';
-      document.getElementById('total-amount').textContent = fmt(total);
-      updateCartCount(items.reduce((s, it) => s + (Number(it.qty ?? it.quantity ?? 1)), 0));
-
-      // wire up buttons (inc/dec/remove)
-      container.querySelectorAll('.inc').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, 1)));
-      container.querySelectorAll('.dec').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, -1)));
-      container.querySelectorAll('.remove-btn').forEach(b => b.addEventListener('click', () => removeItem(b.dataset.id)));
+      totalElem.textContent = "Total: $" + total.toFixed(2);
+      document.getElementById("cart-count").textContent = cart.length;
     }
 
-    // Update cart count in header (try to call cart.js helper or fallback)
-    function updateCartCount(n) {
-      const el = document.getElementById('cart-count');
-      if (!el) return;
-      el.textContent = n;
-      // if cart.js exports updateCartUI or setCartCount, call them
-      if (typeof window.setCartCount === 'function') {
-        try { window.setCartCount(n); } catch(e) {}
-      }
-    }
-
-    // Change quantity (attempt to use cart.js API if available, else update localStorage)
-    function changeQty(id, delta) {
-      // Prefer cart.js API: addToCart(id, delta) or updateQuantity
-      if (typeof window.updateCartItem === 'function') {
-        try { window.updateCartItem(id, delta); renderCart(); return; } catch(e) {}
-      }
-      if (typeof window.addToCart === 'function' && delta > 0) {
-        try { window.addToCart(id, delta); renderCart(); return; } catch(e) {}
-      }
-
-      // Fallback: manipulate localStorage cart
-      const arr = readCartFromLocalStorage();
-      let changed = false;
-      const next = arr.map(it => {
-        if ((it.id || it.productId) == id) {
-          const q = Math.max(0, (Number(it.qty ?? it.quantity ?? 1) + delta));
-          changed = true;
-          if (q <= 0) return null;
-          return { ...it, qty: q };
-        }
-        return it;
-      }).filter(Boolean);
-      if (!changed && delta > 0) {
-        next.push({ id, qty: delta });
-      }
-      localStorage.setItem('cart', JSON.stringify(next));
-      renderCart();
-    }
-
-    function removeItem(id) {
-      // prefer cart.js remove
-      if (typeof window.removeFromCart === 'function') {
-        try { window.removeFromCart(id); renderCart(); return; } catch(e) {}
-      }
-      // fallback to localStorage
-      const arr = readCartFromLocalStorage().filter(it => (it.id || it.productId) != id);
-      localStorage.setItem('cart', JSON.stringify(arr));
-      renderCart();
-    }
-
-    // Clear cart (on successful order)
-    function clearCart() {
-      if (typeof window.clearCart === 'function') {
-        try { window.clearCart(); } catch(e) {}
-      }
-      localStorage.removeItem('cart');
-      // some carts use other keys
-      localStorage.removeItem('CART');
-      localStorage.removeItem('myCart');
-      renderCart();
-    }
-
-    // ---- Form submit handling ----
-    document.getElementById('checkout-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      // Simple validation already provided by required fields
-      const items = getCartItems();
-      if (!items || items.length === 0) {
-        alert('Your cart is empty. Please add items before placing an order.');
-        return;
-      }
-
-      // Here you would normally send order data to server
-      // For demo: show confirmation, clear cart, redirect after short delay
-      const confirmEl = document.getElementById('order-confirm');
-      confirmEl.style.display = 'block';
-      clearCart();
-
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 3000);
+    // ✅ Handle order placement
+    document.getElementById("place-order").addEventListener("click", () => {
+      alert("Thank you for your order! We will contact you shortly.");
+      localStorage.removeItem("gemmines2_cart_v1");
+      window.location.href = "index.html";
     });
 
-    // init
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // render after short timeout to ensure products.js/cart.js have loaded
-    window.addEventListener('load', function(){ setTimeout(renderCart, 120); });
-
+    renderCheckout();
   </script>
 </body>
 </html>
