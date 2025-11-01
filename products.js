@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 // wire Buy buttons (works with cart.js)
 document.querySelectorAll('.buy').forEach(btn => {
   btn.addEventListener('click', e => {
