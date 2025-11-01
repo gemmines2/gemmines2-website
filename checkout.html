@@ -1,258 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Checkout | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background-color: #0d1117;
-      color: #e8f4fb;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0d1117;
+      --panel:#0b1623;
+      --card:#0f1b26;
+      --turquoise:#00e0ff;
+      --muted:#9fb7d6;
+      --accent1:#00e0ff;
+      --accent2:#00bfff;
     }
-    header {
-      text-align: center;
-      padding: 20px 0;
+
+    html,body{height:100%;margin:0;background:var(--bg);color:#e8f4fb;font-family: 'Poppins', sans-serif;}
+    .container{max-width:920px;margin:20px auto;padding:18px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#071022;font-weight:800}
+    header h1{margin:0;font-size:1rem;color:var(--turquoise)}
+    nav .btn{color:var(--muted);text-decoration:none;font-size:.85rem;margin-left:12px}
+
+    .checkout-panel{background:var(--panel);border:1px solid rgba(0,224,255,0.06);padding:16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:14px}
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr; }
     }
-    header h1 {
-      margin: 0;
-      color: #00e0ff;
-      text-shadow: 0 0 6px #00e0ff;
-    }
-    nav a {
-      color: #e8f4fb;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #00e0ff;
-    }
-    .checkout-container {
-      max-width: 820px;
-      margin: 40px auto;
-      background: #0b1623;
-      padding: 32px;
-      border-radius: 14px;
-      border: 1px solid rgba(0, 224, 255, 0.4);
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.15);
-    }
-    h2, h3 {
-      color: #00e0ff;
-      text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
-      margin-bottom: 10px;
-    }
-    form {
-      display: grid;
-      gap: 16px;
-    }
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 5px;
-      color: #a8cbee;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(0, 224, 255, 0.5);
-      border-radius: 8px;
-      background: #0d1a26;
-      color: #e8f4fb;
-      font-size: 15px;
-      box-shadow: inset 0 0 10px rgba(0, 224, 255, 0.1);
-      transition: 0.3s;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border-color: #00e0ff;
-      box-shadow: 0 0 8px #00e0ff, inset 0 0 10px rgba(0, 224, 255, 0.3);
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .submit-btn {
-      margin-top: 25px;
-      background: linear-gradient(90deg, #00e0ff, #00bfff);
-      color: #071022;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: 10px;
-      padding: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 12px rgba(0, 224, 255, 0.4);
-    }
-    .submit-btn:hover {
-      background: linear-gradient(90deg, #00bfff, #00e0ff);
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.7);
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #07111d;
-      border-top: 1px solid rgba(0, 224, 255, 0.3);
-      color: #9fb7d6;
-    }
-    #cart-summary {
-      background: rgba(0, 224, 255, 0.05);
-      border: 1px solid rgba(0, 224, 255, 0.3);
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-bottom: 30px;
-    }
-    #cart-summary h3 {
-      margin-top: 0;
-      color: #00e0ff;
-    }
-    #cart-summary .item {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px dashed rgba(255,255,255,0.1);
-      padding: 5px 0;
-    }
-    #cart-summary .total {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 700;
-      margin-top: 10px;
-    }
-    #order-confirm {
-      display: none;
-      background: linear-gradient(90deg, #00e0ff, #00bfff);
-      color: #071022;
-      text-align: center;
-      font-weight: 700;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 0 15px rgba(0,224,255,0.4);
-    }
+
+    /* Cart summary (left column on desktop) */
+    .cart-summary{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .cart-summary h3{margin:0 0 10px;color:var(--turquoise);font-size:1rem}
+    .cart-item{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .cart-item:last-child{border-bottom:0}
+    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:6px;background:#07111d;}
+    .cart-item .meta{flex:1}
+    .cart-item .meta h4{margin:0;font-size:.92rem;color:var(--turquoise)}
+    .cart-item .meta p{margin:4px 0 0;font-size:.78rem;color:var(--muted)}
+    .qty-row{display:flex;gap:8px;align-items:center;margin-top:6px}
+    .qty-row button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:4px 7px;border-radius:6px;color:var(--muted);font-size:.85rem;cursor:pointer}
+    .remove-btn{background:transparent;border:none;color:#ff7b7b;font-weight:700;cursor:pointer;font-size:.82rem}
+
+    .summary-total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.03);font-weight:700}
+
+    /* Form column */
+    .checkout-form{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .checkout-form h3{margin:0 0 8px;color:var(--turquoise);font-size:1rem}
+    label{display:block;font-size:.8rem;color:var(--muted);margin-top:10px}
+    input,select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,224,255,0.06);background:#07111d;color:inherit;font-size:.88rem}
+    .small{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+    .place-btn{margin-top:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;padding:9px;font-weight:800;border-radius:8px;cursor:pointer;color:#071022;width:100%;font-size:.92rem}
+    .place-btn:active{transform:scale(.998)}
+
+    #order-confirm{display:none;margin-top:12px;padding:10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#071022;font-weight:700;text-align:center}
+
+    /* compact typography */
+    h1,h2,h3,h4,p{margin:0}
+    .muted{color:var(--muted);font-size:.85rem}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Gemmines2</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Products</a> |
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="checkout-container">
-    <h2>Checkout</h2>
-
-    <div id="cart-summary">
-      <h3>Your Order Summary</h3>
-      <!-- Items will appear here dynamically -->
-    </div>
-
-    <form id="checkout-form">
-      <h3>Contact</h3>
-      <label>Email</label>
-      <input type="email" placeholder="you@example.com" required>
-
-      <h3>Delivery</h3>
-      <div class="grid-2">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">GM</div>
         <div>
-          <label>First Name</label>
-          <input type="text" required>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <input type="text" required>
+          <h1>Gemmines2</h1>
+          <div class="muted" style="font-size:.78rem">Natural gemstones — compact checkout</div>
         </div>
       </div>
+      <nav>
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="products.html">Products</a>
+        <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      </nav>
+    </header>
 
-      <label>Address</label>
-      <input type="text" placeholder="Street address" required>
-
-      <label>Apartment, suite, etc. (optional)</label>
-      <input type="text">
-
-      <div class="grid-2">
+    <main style="margin-top:14px" class="checkout-panel">
+      <div class="grid">
+        <!-- Left: Cart summary -->
         <div>
-          <label>City</label>
-          <input type="text" required>
+          <div class="cart-summary">
+            <h3>Your Order</h3>
+            <div id="cart-items">
+              <!-- items injected here -->
+              <div class="muted">Your cart is empty.</div>
+            </div>
+
+            <div class="summary-total" id="summary-total" style="display:none">
+              <div>Total</div>
+              <div id="total-amount">$0.00</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Postal Code</label>
-          <input type="text">
-        </div>
+
+        <!-- Right: Checkout form -->
+        <aside>
+          <form id="checkout-form" class="checkout-form" autocomplete="on">
+            <h3>Delivery & Contact</h3>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+            <label for="fname">First Name</label>
+            <input id="fname" name="firstName" type="text" placeholder="First name" required>
+
+            <label for="lname">Last Name</label>
+            <input id="lname" name="lastName" type="text" placeholder="Last name" required>
+
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text" placeholder="Street address" required>
+
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" placeholder="City" required>
+
+            <label for="country">Country</label>
+            <input id="country" name="country" list="countries" placeholder="Start typing or select" required>
+            <datalist id="countries">
+              <option value="Pakistan"><option value="United States"><option value="United Kingdom"><option value="Canada"><option value="Australia">
+              <option value="United Arab Emirates"><option value="Saudi Arabia"><option value="Qatar"><option value="India"><option value="Germany">
+            </datalist>
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+92 300 1234567" required>
+
+            <div style="margin-top:8px">
+              <label for="payment">Payment Method</label>
+              <select id="payment" name="payment" required>
+                <option value="">Choose a payment method</option>
+                <option value="western">Western Union</option>
+                <option value="ria">Ria</option>
+                <option value="paypal">PayPal</option>
+                <option value="payoneer">Payoneer</option>
+                <option value="bank">Bank Deposit</option>
+              </select>
+            </div>
+
+            <button type="submit" class="place-btn">Place Order</button>
+            <div id="order-confirm">✅ Your order has been received — thank you!</div>
+            <div class="small muted" style="margin-top:8px">&copy; <span id="year"></span> Gemmines2</div>
+          </form>
+        </aside>
       </div>
-
-      <label>Country</label>
-      <input list="countries" placeholder="Start typing or select a country">
-      <datalist id="countries">
-        <option value="Pakistan">
-        <option value="United States">
-        <option value="United Kingdom">
-        <option value="Canada">
-        <option value="Australia">
-        <option value="United Arab Emirates">
-        <option value="Saudi Arabia">
-        <option value="Qatar">
-        <option value="India">
-        <option value="Germany">
-        <option value="France">
-        <option value="Italy">
-        <option value="Sri Lanka">
-      </datalist>
-
-      <label>Phone</label>
-      <input type="tel" placeholder="+92 300 1234567" required>
-
-      <h3>Payment Method</h3>
-      <select required>
-        <option value="">Choose a payment method</option>
-        <option value="western">Western Union</option>
-        <option value="ria">Ria Money Transfer</option>
-        <option value="paypal">PayPal</option>
-        <option value="payoneer">Payoneer</option>
-        <option value="stripe">Stripe</option>
-        <option value="bank">Bank Deposit</option>
-      </select>
-
-      <button type="submit" class="submit-btn">Place Order</button>
-    </form>
-
-    <div id="order-confirm">✅ Your order has been received! Thank you for shopping with Gemmines2.</div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> Gemmines2. All Rights Reserved. |
-      <a href="refund.html">Return Policy</a>
-    </p>
-  </footer>
+    </main>
+  </div>
 
   <script src="products.js"></script>
   <script src="cart.js"></script>
-  <script src="checkout.js"></script>
-
   <script>
-    // Display current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // ---- Helper: robust cart loader (tries multiple expected patterns) ----
+    function readCartFromLocalStorage() {
+      try {
+        const raw = localStorage.getItem('cart') || localStorage.getItem('CART') || localStorage.getItem('myCart');
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        // If object with id->qty map, convert to array
+        if (!Array.isArray(parsed) && typeof parsed === 'object') {
+          return Object.entries(parsed).map(([id, qty]) => ({ id, qty }));
+        }
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        return [];
+      }
+    }
 
-    // Checkout form submit demo
-    const form = document.getElementById('checkout-form');
-    const confirmMsg = document.getElementById('order-confirm');
-    form.addEventListener('submit', function(e) {
+    // Try to obtain cart using common exported functions (if cart.js provides them)
+    function getCartItems() {
+      // Prefer cart.js helper if available
+      if (typeof window.getCart === 'function') {
+        try { return window.getCart(); } catch(e) {}
+      }
+      // Some cart implementations store a function named cartItems or CART
+      if (typeof window.cartItems !== 'undefined') return window.cartItems;
+      // Fallback to localStorage
+      return readCartFromLocalStorage();
+    }
+
+    // Find product meta via PRODUCTS array from products.js (if exists)
+    function findProductMeta(id) {
+      if (typeof window.PRODUCTS !== 'undefined' && Array.isArray(window.PRODUCTS)) {
+        return window.PRODUCTS.find(p => p.id === id || p.id === String(id));
+      }
+      return null;
+    }
+
+    // Format money
+    function fmt(n) {
+      return '$' + (Number(n) || 0).toFixed(2);
+    }
+
+    // Render cart
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      const items = getCartItems(); // expected array of {id, qty} or {id, quantity}
+      container.innerHTML = '';
+      if (!items || items.length === 0) {
+        container.innerHTML = '<div class="muted">Your cart is empty.</div>';
+        document.getElementById('summary-total').style.display = 'none';
+        updateCartCount(0);
+        return;
+      }
+
+      let total = 0;
+      items.forEach(entry => {
+        const id = entry.id || entry.productId;
+        const qty = Number(entry.qty ?? entry.quantity ?? 1);
+        const meta = findProductMeta(id) || {};
+        const price = Number(meta.price ?? entry.price ?? 0);
+        const name = meta.name || entry.name || id;
+        const img = meta.img || entry.img || ('images/' + id + '.jpg');
+
+        total += price * qty;
+
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+          <img src="${img}" alt="${name}" onerror="this.src='images/placeholder.jpg'">
+          <div class="meta">
+            <h4>${name}</h4>
+            <p class="muted">${fmt(price)} × ${qty} = <strong>${fmt(price * qty)}</strong></p>
+            <div class="qty-row">
+              <button class="dec" data-id="${id}">−</button>
+              <div class="muted" style="min-width:22px;text-align:center">${qty}</div>
+              <button class="inc" data-id="${id}">+</button>
+              <button class="remove-btn" data-id="${id}">Remove</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(itemEl);
+      });
+
+      document.getElementById('summary-total').style.display = 'flex';
+      document.getElementById('total-amount').textContent = fmt(total);
+      updateCartCount(items.reduce((s, it) => s + (Number(it.qty ?? it.quantity ?? 1)), 0));
+
+      // wire up buttons (inc/dec/remove)
+      container.querySelectorAll('.inc').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, 1)));
+      container.querySelectorAll('.dec').forEach(b => b.addEventListener('click', () => changeQty(b.dataset.id, -1)));
+      container.querySelectorAll('.remove-btn').forEach(b => b.addEventListener('click', () => removeItem(b.dataset.id)));
+    }
+
+    // Update cart count in header (try to call cart.js helper or fallback)
+    function updateCartCount(n) {
+      const el = document.getElementById('cart-count');
+      if (!el) return;
+      el.textContent = n;
+      // if cart.js exports updateCartUI or setCartCount, call them
+      if (typeof window.setCartCount === 'function') {
+        try { window.setCartCount(n); } catch(e) {}
+      }
+    }
+
+    // Change quantity (attempt to use cart.js API if available, else update localStorage)
+    function changeQty(id, delta) {
+      // Prefer cart.js API: addToCart(id, delta) or updateQuantity
+      if (typeof window.updateCartItem === 'function') {
+        try { window.updateCartItem(id, delta); renderCart(); return; } catch(e) {}
+      }
+      if (typeof window.addToCart === 'function' && delta > 0) {
+        try { window.addToCart(id, delta); renderCart(); return; } catch(e) {}
+      }
+
+      // Fallback: manipulate localStorage cart
+      const arr = readCartFromLocalStorage();
+      let changed = false;
+      const next = arr.map(it => {
+        if ((it.id || it.productId) == id) {
+          const q = Math.max(0, (Number(it.qty ?? it.quantity ?? 1) + delta));
+          changed = true;
+          if (q <= 0) return null;
+          return { ...it, qty: q };
+        }
+        return it;
+      }).filter(Boolean);
+      if (!changed && delta > 0) {
+        next.push({ id, qty: delta });
+      }
+      localStorage.setItem('cart', JSON.stringify(next));
+      renderCart();
+    }
+
+    function removeItem(id) {
+      // prefer cart.js remove
+      if (typeof window.removeFromCart === 'function') {
+        try { window.removeFromCart(id); renderCart(); return; } catch(e) {}
+      }
+      // fallback to localStorage
+      const arr = readCartFromLocalStorage().filter(it => (it.id || it.productId) != id);
+      localStorage.setItem('cart', JSON.stringify(arr));
+      renderCart();
+    }
+
+    // Clear cart (on successful order)
+    function clearCart() {
+      if (typeof window.clearCart === 'function') {
+        try { window.clearCart(); } catch(e) {}
+      }
+      localStorage.removeItem('cart');
+      // some carts use other keys
+      localStorage.removeItem('CART');
+      localStorage.removeItem('myCart');
+      renderCart();
+    }
+
+    // ---- Form submit handling ----
+    document.getElementById('checkout-form').addEventListener('submit', function(e){
       e.preventDefault();
-      confirmMsg.style.display = 'block';
-      form.style.display = 'none';
+      // Simple validation already provided by required fields
+      const items = getCartItems();
+      if (!items || items.length === 0) {
+        alert('Your cart is empty. Please add items before placing an order.');
+        return;
+      }
+
+      // Here you would normally send order data to server
+      // For demo: show confirmation, clear cart, redirect after short delay
+      const confirmEl = document.getElementById('order-confirm');
+      confirmEl.style.display = 'block';
+      clearCart();
+
       setTimeout(() => {
         window.location.href = 'index.html';
-      }, 4000);
+      }, 3000);
     });
+
+    // init
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // render after short timeout to ensure products.js/cart.js have loaded
+    window.addEventListener('load', function(){ setTimeout(renderCart, 120); });
+
   </script>
 </body>
 </html>
