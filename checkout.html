@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: #0d1117;
@@ -20,75 +20,105 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     header h1 {
-      color: var(--turquoise, #00ffd0);
-      margin: 0;
+      color: #00ffd0;
       font-size: 1.4rem;
     }
 
     nav a {
       color: #e8f0f2;
-      margin-left: 14px;
+      margin-left: 12px;
       text-decoration: none;
       font-size: 0.9rem;
-      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: var(--turquoise, #00ffd0);
+      color: #00ffd0;
     }
 
     main {
-      max-width: 800px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      max-width: 1000px;
+      margin: 40px auto;
       padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 800px) {
+      main {
+        grid-template-columns: 1fr;
+      }
     }
 
     h2 {
-      text-align: center;
-      color: var(--turquoise, #00ffd0);
+      color: #00ffd0;
       font-family: "Playfair Display", serif;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
+      font-size: 0.9rem;
     }
 
     th, td {
       padding: 10px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       text-align: left;
-      font-size: 0.9rem;
     }
 
     th {
-      color: var(--turquoise, #00ffd0);
+      color: #00ffd0;
     }
 
     .total {
       text-align: right;
       font-weight: bold;
-      margin-top: 15px;
-      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #b0c7c7;
+    }
+
+    input, textarea {
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 70px;
     }
 
     .checkout-btn {
-      display: block;
-      margin: 20px auto 0;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, var(--accent1, #00ffd0), var(--accent2, #00aaff));
+      margin-top: 15px;
+      padding: 10px;
+      background: linear-gradient(135deg, #00ffd0, #00aaff);
       border: none;
-      border-radius: 8px;
-      font-weight: 700;
       color: #000;
+      font-weight: 700;
+      border-radius: 8px;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
@@ -119,18 +149,38 @@
   </header>
 
   <main>
-    <h2>Your Order</h2>
-    <table id="checkout-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody id="checkout-body"></tbody>
-    </table>
-    <div class="total" id="checkout-total">Total: $0</div>
-    <button class="checkout-btn" id="place-order">Place Order</button>
+    <!-- Left: Your Order -->
+    <section>
+      <h2>Your Order</h2>
+      <table id="checkout-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="checkout-body"></tbody>
+      </table>
+      <div class="total" id="checkout-total">Total: $0</div>
+    </section>
+
+    <!-- Right: Delivery Details -->
+    <section class="form-section">
+      <h2>Delivery & Contact Details</h2>
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your name" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Address</label>
+      <textarea placeholder="Enter delivery address"></textarea>
+
+      <label>Phone</label>
+      <input type="text" placeholder="Enter your phone number" required>
+
+      <button class="checkout-btn" id="place-order">Place Order</button>
+    </section>
   </main>
 
   <footer>
@@ -142,7 +192,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ✅ Read cart correctly using the same key as cart.js
     function readCartFromLocalStorage() {
       try {
         const raw = localStorage.getItem('gemmines2_cart_v1');
@@ -153,7 +202,6 @@
       }
     }
 
-    // ✅ Display items on checkout page
     function renderCheckout() {
       const tbody = document.getElementById('checkout-body');
       const totalElem = document.getElementById('checkout-total');
@@ -170,10 +218,7 @@
 
       cart.forEach(item => {
         const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${item.name}</td>
-          <td>$${item.price}</td>
-        `;
+        row.innerHTML = `<td>${item.name}</td><td>$${item.price}</td>`;
         tbody.appendChild(row);
         total += item.price;
       });
@@ -182,9 +227,8 @@
       document.getElementById("cart-count").textContent = cart.length;
     }
 
-    // ✅ Handle order placement
     document.getElementById("place-order").addEventListener("click", () => {
-      alert("Thank you for your order! We will contact you shortly.");
+      alert("✅ Thank you for your order! We'll contact you soon.");
       localStorage.removeItem("gemmines2_cart_v1");
       window.location.href = "index.html";
     });
