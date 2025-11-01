@@ -242,23 +242,27 @@
   <script src="checkout.js"></script>
 </body>
 </html>
-  
-    // Display current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <footer>
+  <p>© <span id="year"></span> Gemmines2. All Rights Reserved. | <a href="refund.html">Return Policy</a></p>
+</footer>
 
-    // Checkout form submit demo
-    const form = document.getElementById('checkout-form');
-    const confirmMsg = document.getElementById('order-confirm');
+<script>
+  // Display current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault(); // Prevent actual reload
-      confirmMsg.style.display = 'block'; // Show confirmation
-      form.style.display = 'none'; // Hide form
-      setTimeout(() => {
-        window.location.href = 'index.html'; // Redirect after 4 seconds
-      }, 4000);
-    });
-  </script>
+  // Checkout form submit demo
+  const form = document.getElementById('checkout-form');
+  const confirmMsg = document.getElementById('order-confirm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent actual reload
+    confirmMsg.style.display = 'block'; // Show confirmation
+    form.style.display = 'none'; // Hide form
+    setTimeout(() => {
+      window.location.href = 'index.html'; // Redirect after 4 seconds
+    }, 4000);
+  });
+</script>
+  /script>
 </body>
 </html>
 ✅ **What
