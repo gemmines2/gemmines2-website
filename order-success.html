@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Success | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h2>Thank you for your order!</h2>
+    <p>Your order has been placed successfully. Details:</p>
+    <pre id="order-summary"></pre>
+    <a href="index.html">Back to Home</a>
+  </main>
+  <script>
+    const order = JSON.parse(localStorage.getItem("latestOrder"));
+    document.getElementById("order-summary").textContent = JSON.stringify(order, null, 2);
+  </script>
+</body>
+</html>
