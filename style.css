@@ -1,8 +1,8 @@
-/* === GEMMINES2 — Final Polished Unified Style === */
+/* === GEMMINES2 — FINAL MOBILE OPTIMIZED THEME === */
 
 /* === Color System === */
 :root {
-  --bg: radial-gradient(circle at top left, #0a1a36, #050d20);
+  --bg: radial-gradient(circle at top left, #071224, #050a1a);
   --card: #0b1630;
   --text: #e0e4f4;
   --muted: #a9b3c1;
@@ -26,6 +26,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* === Header === */
@@ -75,7 +76,6 @@ nav a.btn {
   margin-left: 8px;
   transition: all 0.18s ease;
 }
-
 nav a.btn:hover {
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   color: #000;
@@ -88,6 +88,7 @@ nav a.btn:hover {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 20px;
+  padding: 10px;
 }
 
 .product-card {
@@ -127,11 +128,13 @@ nav a.btn:hover {
   margin-bottom: 10px;
 }
 
-.buy {
+/* === Buy Buttons === */
+.buy,
+button.buy {
   margin-top: 10px;
-  background: linear-gradient(135deg, var(--accent1), var(--accent2));
-  border: none;
-  color: #000;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2)) !important;
+  border: none !important;
+  color: #000 !important;
   font-weight: 800;
   padding: 10px;
   border-radius: 10px;
@@ -140,7 +143,8 @@ nav a.btn:hover {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.buy:hover {
+.buy:hover,
+button.buy:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 18px rgba(0, 255, 208, 0.25);
 }
@@ -237,9 +241,9 @@ textarea {
 }
 
 button.place-order {
-  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  background: linear-gradient(135deg, var(--accent1), var(--accent2)) !important;
   border: none;
-  color: #000;
+  color: #000 !important;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 10px;
@@ -273,37 +277,47 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* === Responsive === */
+/* === Responsive (Mobile Optimized) === */
 @media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+    padding-bottom: 60px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   form {
     grid-template-columns: 1fr;
   }
+
   h2 {
     font-size: 1.2rem;
   }
-  input,
-  select,
-  textarea {
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .buy {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  button.place-order {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  footer {
     font-size: 0.85rem;
   }
-}
-
-/* === Force gradient for all Buy buttons (safety override) === */
-.buy,
-button.buy {
-  background: linear-gradient(135deg, var(--accent1), var(--accent2)) !important;
-  color: #000 !important;
-  font-weight: 800;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 10px 12px;
-  width: 100%;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.buy:hover,
-button.buy:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 255, 208, 0.25);
 }
