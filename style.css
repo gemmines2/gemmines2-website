@@ -107,26 +107,29 @@ nav a.btn:hover {
   font-size: 0.88rem;
 }
 
-/* === Buy Button (Force Gradient) === */
+/* === Force gradient Buy button fix (for all devices) === */
 .buy,
 button.buy,
-button.place-order {
-  background: linear-gradient(135deg, var(--accent1), var(--accent2)) !important;
-  border: none !important;
+.product-card button,
+.product-card .buy {
+  background: linear-gradient(135deg, #00ffd0, #ffd700) !important;
   color: #000 !important;
   font-weight: 800;
-  padding: 10px 12px;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
+  padding: 10px 12px;
   width: 100%;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .buy:hover,
 button.buy:hover,
-button.place-order:hover {
+.product-card button:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 18px rgba(0, 255, 208, 0.25);
 }
+
 
 /* === Checkout Page === */
 main {
