@@ -1,51 +1,45 @@
-// checkout.js — handles checkout form + payment options
+// checkout.js
+document.getElementById("year").textContent = new Date().getFullYear();
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderCheckout(); // from cart.js — shows cart summary
+document.addEventListener("DOMContentLoaded", () => {
 
-  const form = document.getElementById('checkout-form');
-  if (!form) return;
+  renderCartCount();
+  renderCheckout();
 
-  const paymentSelect = document.getElementById('payment-method');
-  const creditDetails = document.getElementById('credit-details');
-  const bankDetails = document.getElementById('bank-details');
+  const paymentRadios = document.querySelectorAll("input[name='payment']");
+  const paymentDetails = document.getElementById("payment-details");
 
-  // Toggle fields depending on payment method
-  paymentSelect.addEventListener('change', e => {
-    const value = e.target.value;
-    creditDetails.style.display = (value === 'credit') ? 'block' : 'none';
-    bankDetails.style.display = (value === 'bank') ? 'block' : 'none';
+  // Show/hide payment details based on selection
+  paymentRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      const val = radio.value;
+      if(val === 'credit' || val === 'stripe' || val === 'bank') {
+        paymentDetails.style.display = 'grid';
+      } else {
+        paymentDetails.style.display = 'none';
+      }
+    });
   });
 
-  form.addEventListener('submit', e => {
+  document.getElementById("checkout-form").addEventListener("submit", e => {
     e.preventDefault();
+    const paymentMethod = document.querySelector("input[name='payment']:checked").value;
+    const contact = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      address: e.target.address.value,
+      country: e.target.country.value,
+      payment: paymentMethod,
+      card: e.target['card-number']?.value || '',
+      expiry: e.target.expiry?.value || '',
+      cvv: e.target.cvv?.value || '',
+      bank: e.target['bank-account']?.value || ''
+    };
 
-    const name = form.querySelector('[name="name"]').value.trim();
-    const email = form.querySelector('[name="email"]').value.trim();
-    const address = form.querySelector('[name="address"]').value.trim();
-    const payment = paymentSelect.value;
-
-    if (!name || !email || !address) {
-      alert('Please fill in all required contact details.');
-      return;
-    }
-
-    const contact = { name, email, address, payment };
-
-    if (payment === 'credit') {
-      contact.cardNumber = form.querySelector('[name="card-number"]').value.trim();
-      contact.expiry = form.querySelector('[name="expiry"]').value.trim();
-      contact.cvv = form.querySelector('[name="cvv"]').value.trim();
-    }
-
-    if (payment === 'bank') {
-      contact.bankName = form.querySelector('[name="bank-name"]').value.trim();
-      contact.accountNumber = form.querySelector('[name="account-number"]').value.trim();
-      contact.iban = form.querySelector('[name="iban"]').value.trim();
-    }
-
-    placeOrder(contact); // from cart.js
-    alert('✅ Thank you! Your order has been placed successfully.');
-    window.location.href = 'thank-you.html';
+    // Simulate order
+    placeOrder(contact);
+    alert("✅ Thank you! Your order has been placed successfully.");
+    window.location.href = "thank-you.html";
   });
+
 });
