@@ -1,239 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout | Gemmines2</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      background-color: #0d1117;
-      color: #e8f0f2;
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #0f172a;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    header h1 {
-      color: #00ffd0;
-      font-size: 1.4rem;
-    }
-
-    nav a {
-      color: #e8f0f2;
-      margin-left: 12px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    nav a:hover {
-      color: #00ffd0;
-    }
-
     main {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      max-width: 1000px;
-      margin: 40px auto;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-    }
-
-    @media (max-width: 800px) {
-      main {
-        grid-template-columns: 1fr;
-      }
+      color: #e8f0ff;
     }
 
     h2 {
-      color: #00ffd0;
+      color: var(--turquoise);
       font-family: "Playfair Display", serif;
       margin-bottom: 10px;
-      text-align: center;
+      font-size: 1.3rem;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .checkout-box {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    /* Order Summary */
+    #cart-summary {
       font-size: 0.9rem;
     }
 
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      text-align: left;
+    #cart-summary div {
+      margin-bottom: 6px;
     }
 
-    th {
-      color: #00ffd0;
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 12px 0;
     }
 
-    .total {
-      text-align: right;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .form-section {
+    /* Form styling */
+    form {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
     label {
+      font-weight: 600;
       font-size: 0.9rem;
-      color: #b0c7c7;
+      color: var(--turquoise);
     }
 
     input, textarea {
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: #e8f0ff;
       padding: 8px;
-      border: none;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      width: 100%;
+      font-size: 0.9rem;
+      resize: none;
     }
 
-    textarea {
-      resize: vertical;
-      height: 70px;
-    }
-
-    .checkout-btn {
-      margin-top: 15px;
-      padding: 10px;
-      background: linear-gradient(135deg, #00ffd0, #00aaff);
+    button.place-order {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
       border: none;
       color: #000;
       font-weight: 700;
-      border-radius: 8px;
+      font-size: 0.9rem;
+      padding: 10px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-top: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .checkout-btn:hover {
+    button.place-order:hover {
       transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0,255,208,0.25);
+      box-shadow: 0 4px 12px rgba(0,255,208,0.2);
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      padding: 12px;
-      margin-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Gemmines2</h1>
+    <div class="brand">
+      <div class="logo">GM</div>
+      <div>
+        <h1>Gemmines2</h1>
+        <small>Natural gemstones — cut, polished & tumbled</small>
+      </div>
+    </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a href="contact.html">Contact</a>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="products.html">Products</a>
+      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a class="btn active" href="checkout.html">Checkout</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Left: Your Order -->
-    <section>
+  <main class="container">
+    <!-- Left: Order Summary -->
+    <div class="checkout-box">
       <h2>Your Order</h2>
-      <table id="checkout-table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody id="checkout-body"></tbody>
-      </table>
-      <div class="total" id="checkout-total">Total: $0</div>
-    </section>
+      <div id="cart-summary">Loading your order...</div>
+    </div>
 
-    <!-- Right: Delivery Details -->
-    <section class="form-section">
-      <h2>Delivery & Contact Details</h2>
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your name" required>
+    <!-- Right: Contact + Delivery Form -->
+    <div class="checkout-box">
+      <h2>Delivery Details</h2>
+      <form id="checkout-form">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required>
 
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
 
-      <label>Address</label>
-      <textarea placeholder="Enter delivery address"></textarea>
+        <label for="address">Shipping Address</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
 
-      <label>Phone</label>
-      <input type="text" placeholder="Enter your phone number" required>
+        <label for="country">Country</label>
+        <input id="country" name="country" type="text" required>
 
-      <button class="checkout-btn" id="place-order">Place Order</button>
-    </section>
+        <button type="submit" class="place-order">Place Order</button>
+      </form>
+    </div>
   </main>
 
   <footer>
-    &copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
-    <a href="return.html">Return Policy</a>
+    <p>&copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
+      <a href="return.html">Return Policy</a></p>
   </footer>
 
+  <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function readCartFromLocalStorage() {
-      try {
-        const raw = localStorage.getItem('gemmines2_cart_v1');
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) {
-        console.error("Cart parse error:", e);
-        return [];
-      }
-    }
+    // Populate summary and handle checkout
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartCount();
+      renderCheckout();
 
-    function renderCheckout() {
-      const tbody = document.getElementById('checkout-body');
-      const totalElem = document.getElementById('checkout-total');
-      const cart = readCartFromLocalStorage();
-
-      tbody.innerHTML = "";
-      let total = 0;
-
-      if (cart.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="2">Your cart is empty.</td></tr>';
-        totalElem.textContent = "Total: $0";
-        return;
-      }
-
-      cart.forEach(item => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${item.name}</td><td>$${item.price}</td>`;
-        tbody.appendChild(row);
-        total += item.price;
+      document.getElementById("checkout-form").addEventListener("submit", e => {
+        e.preventDefault();
+        const contact = {
+          name: e.target.name.value,
+          email: e.target.email.value,
+          address: e.target.address.value,
+          country: e.target.country.value
+        };
+        placeOrder(contact);
+        alert("Thank you! Your order has been placed successfully.");
+        window.location.href = "thank-you.html";
       });
-
-      totalElem.textContent = "Total: $" + total.toFixed(2);
-      document.getElementById("cart-count").textContent = cart.length;
-    }
-
-    document.getElementById("place-order").addEventListener("click", () => {
-      alert("✅ Thank you for your order! We'll contact you soon.");
-      localStorage.removeItem("gemmines2_cart_v1");
-      window.location.href = "index.html";
     });
-
-    renderCheckout();
   </script>
 </body>
 </html>
