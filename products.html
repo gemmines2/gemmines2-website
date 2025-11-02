@@ -106,7 +106,7 @@
     </div>
     <nav>
       <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
+      <a class="btn active" href="products.html">Products</a>
       <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
       <a class="btn" href="contact.html">Contact</a>
     </nav>
@@ -114,23 +114,7 @@
 
   <main class="container">
     <h2 class="section-title">Our Gemstone Collection</h2>
-    <div class="products-grid" id="product-list">
-      <!-- Example Product Cards -->
-      <div class="product-card">
-        <img src="images/umbalite.jpg" alt="Umbalite Garnet">
-        <h3>Umbalite Garnet</h3>
-        <p>$120</p>
-        <button class="buy" data-id="umbalite">Buy Now</button>
-      </div>
-
-      <div class="product-card">
-        <img src="images/lemon-quartz.jpg" alt="Lemon Quartz Topaz">
-        <h3>Lemon Quartz Topaz</h3>
-        <p>$85</p>
-        <button class="buy" data-id="lemon-quartz">Buy Now</button>
-      </div>
-      <!-- Add more product cards or let products.js handle dynamic loading -->
-    </div>
+    <div class="products-grid" id="product-list"></div>
   </main>
 
   <footer>
@@ -138,37 +122,28 @@
       &copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
       <a href="return.html">Return Policy</a>
     </p>
-  </footer><script src="products.js"></script>
+  </footer>
+
+  <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
-    // Update year dynamically
+    // Display current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Add to cart and redirect to checkout
-     <script src="products.js"></script>
-  <script src="cart.js"></script>
-  <script>
-    // Update year dynamically
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Add to cart and redirect to checkout
-    document.querySelectorAll('.buy').forEach(button => {
-      button.addEventListener('click', function() {
-        const productId = this.dataset.id;
-        addToCart(productId); // Uses function from cart.js
-
-        // Small delay ensures cart saves before redirect
-        setTimeout(() => {
-          window.location.href = 'checkout.html';
-        }, 300);
-      });
+    // Wait until products are rendered
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.querySelectorAll(".buy").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            addToCart(id, 1);
+            renderCartCount();
+            // Redirect to checkout page
+            window.location.href = "checkout.html";
+          });
+        });
+      }, 300);
     });
   </script>
-</body>
-</html>
-
-  </script>
-
-  
 </body>
 </html>
