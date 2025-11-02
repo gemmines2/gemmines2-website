@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
+  const form = document.getElementById("checkout-form");
 
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Update payment input fields
   function updatePaymentFields() {
     const selected = document.querySelector('input[name="payment"]:checked').value;
     let html = "";
@@ -41,12 +45,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     paymentDetails.innerHTML = html;
-    paymentDetails.style.display = selected === "credit" || selected === "bank" ? "block" : "block";
+    paymentDetails.style.display = "block";
   }
 
-  // Initialize on page load
   updatePaymentFields();
-
-  // Update when a payment option is selected
   paymentOptions.forEach(option => option.addEventListener("change", updatePaymentFields));
+
+  // Handle checkout form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    const order = {
+      customer: {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        address: form.address.value,
+        city: form.city.value,
+        postal: form.postal.value,
+        country: form.country.value,
+        shipping: form.shipping.value,
+        payment: document.querySelector('input[name="payment"]:checked').value
+      },
+      items: cart,
+      date: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("latestOrder", JSON.stringify(order));
+    localStorage.removeItem("cart"); // clear cart
+    alert("Order placed successfully!");
+
+    window.location.href = "order-success.html";
+  });
 });
