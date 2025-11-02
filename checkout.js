@@ -1,68 +1,52 @@
-document.getElementById("year").textContent = new Date().getFullYear();
-
 document.addEventListener("DOMContentLoaded", () => {
-  renderCartCount();
-
-  const paymentRadios = document.querySelectorAll("input[name='payment']");
+  const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
 
-  function updatePaymentFields(method){
-    let html = '';
-    switch(method){
+  function updatePaymentFields() {
+    const selected = document.querySelector('input[name="payment"]:checked').value;
+    let html = "";
+
+    switch (selected) {
       case "credit":
         html = `
-          <label>Card Number</label><input type="text" name="card-number" placeholder="1234 5678 9012 3456" required>
-          <label>Expiry Date</label><input type="text" name="expiry" placeholder="MM/YY" required>
-          <label>CVV</label><input type="text" name="cvv" placeholder="123" required>
-        `;
-        break;
-      case "bank":
-        html = `
-          <label>Bank Name</label><input type="text" name="bank-name" placeholder="Bank Name" required>
-          <label>Account Number</label><input type="text" name="account-number" placeholder="123456789" required>
-          <label>IBAN / SWIFT</label><input type="text" name="iban" placeholder="IBAN / SWIFT" required>
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" name="card-number" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+          <label for="card-expiry">Expiry Date</label>
+          <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY" required>
+          <label for="card-cvc">CVC</label>
+          <input type="text" id="card-cvc" name="card-cvc" placeholder="123" required>
         `;
         break;
       case "paypal":
-      case "stripe":
-      case "payoneer":
-      case "western":
-        html = `<label>Transaction / Account ID</label><input type="text" name="txn-id" placeholder="Enter your account or txn ID" required>`;
+        html = `<p>You'll be redirected to PayPal after placing the order.</p>`;
         break;
-      default: html = ''; break;
+      case "stripe":
+        html = `<p>Stripe payment will be processed after placing the order.</p>`;
+        break;
+      case "payoneer":
+        html = `<p>Pay via Payoneer details will be sent to your email.</p>`;
+        break;
+      case "western":
+        html = `<p>Western Union instructions will be provided after order submission.</p>`;
+        break;
+      case "bank":
+        html = `
+          <p>Bank Transfer details:</p>
+          <label for="bank-name">Bank Name</label>
+          <input type="text" id="bank-name" name="bank-name" placeholder="Bank Name" required>
+          <label for="account-number">Account Number</label>
+          <input type="text" id="account-number" name="account-number" placeholder="Account Number" required>
+        `;
+        break;
     }
+
     paymentDetails.innerHTML = html;
-    paymentDetails.style.display = html ? 'block' : 'none';
+    paymentDetails.style.display = selected === "credit" || selected === "bank" ? "block" : "block";
   }
 
-  paymentRadios.forEach(radio => {
-    radio.addEventListener("change", () => updatePaymentFields(radio.value));
-    if(radio.checked) updatePaymentFields(radio.value);
-  });
+  // Initialize on page load
+  updatePaymentFields();
 
-  document.getElementById("checkout-form").addEventListener("submit", e => {
-    e.preventDefault();
-    const paymentMethod = document.querySelector("input[name='payment']:checked").value;
-
-    const contact = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      address: e.target.address.value,
-      city: e.target.city.value,
-      postal: e.target.postal.value,
-      country: e.target.country.value,
-      shipping: e.target.shipping.value,
-      payment: paymentMethod,
-      paymentDetails: {}
-    };
-
-    // collect dynamic payment fields
-    const inputs = paymentDetails.querySelectorAll('input');
-    inputs.forEach(i => { contact.paymentDetails[i.name] = i.value; });
-
-    placeOrder(contact);
-    alert("✅ Thank you! Your order has been placed successfully.");
-    window.location.href = "thank-you.html";
-  });
+  // Update when a payment option is selected
+  paymentOptions.forEach(option => option.addEventListener("change", updatePaymentFields));
 });
