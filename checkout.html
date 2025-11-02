@@ -28,7 +28,6 @@
       padding: 16px;
     }
 
-    /* Order Summary */
     #cart-summary {
       font-size: 0.9rem;
     }
@@ -43,7 +42,6 @@
       margin: 12px 0;
     }
 
-    /* Form styling */
     form {
       display: flex;
       flex-direction: column;
@@ -56,7 +54,7 @@
       color: var(--turquoise);
     }
 
-    input, textarea {
+    input, textarea, select {
       background: #0d1117;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 8px;
@@ -64,6 +62,25 @@
       padding: 8px;
       font-size: 0.9rem;
       resize: none;
+    }
+
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 5px;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .payment-option input {
+      transform: scale(1.1);
+      accent-color: var(--accent1);
     }
 
     button.place-order {
@@ -115,9 +132,9 @@
       <div id="cart-summary">Loading your order...</div>
     </div>
 
-    <!-- Right: Contact + Delivery Form -->
+    <!-- Right: Contact + Delivery + Payment -->
     <div class="checkout-box">
-      <h2>Delivery Details</h2>
+      <h2>Delivery & Payment</h2>
       <form id="checkout-form">
         <label for="name">Full Name</label>
         <input id="name" name="name" type="text" required>
@@ -130,6 +147,31 @@
 
         <label for="country">Country</label>
         <input id="country" name="country" type="text" required>
+
+        <hr>
+        <label>Payment Method</label>
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="payment" value="credit" checked> Credit / Debit Card 💳
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="cod"> Cash on Delivery 💵
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="bank"> Bank Transfer 🏦
+          </label>
+        </div>
+
+        <div id="card-details" style="margin-top:10px; display:block;">
+          <label for="card-number">Card Number</label>
+          <input id="card-number" name="card-number" type="text" placeholder="1234 5678 9012 3456">
+
+          <label for="expiry">Expiry Date</label>
+          <input id="expiry" name="expiry" type="text" placeholder="MM/YY">
+
+          <label for="cvv">CVV</label>
+          <input id="cvv" name="cvv" type="text" placeholder="123">
+        </div>
 
         <button type="submit" class="place-order">Place Order</button>
       </form>
@@ -146,21 +188,31 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Populate summary and handle checkout
     document.addEventListener("DOMContentLoaded", () => {
       renderCartCount();
       renderCheckout();
 
+      const paymentRadios = document.querySelectorAll("input[name='payment']");
+      const cardDetails = document.getElementById("card-details");
+
+      paymentRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+          cardDetails.style.display = radio.value === "credit" ? "block" : "none";
+        });
+      });
+
       document.getElementById("checkout-form").addEventListener("submit", e => {
         e.preventDefault();
+        const paymentMethod = document.querySelector("input[name='payment']:checked").value;
         const contact = {
           name: e.target.name.value,
           email: e.target.email.value,
           address: e.target.address.value,
-          country: e.target.country.value
+          country: e.target.country.value,
+          payment: paymentMethod
         };
         placeOrder(contact);
-        alert("Thank you! Your order has been placed successfully.");
+        alert("✅ Thank you! Your order has been placed successfully.");
         window.location.href = "thank-you.html";
       });
     });
