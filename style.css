@@ -237,3 +237,22 @@ footer a:hover {
   h2 { font-size: 1.2rem; }
   input, select, textarea { font-size: 0.85rem; }
 }
+/* === Force gradient for all Buy buttons === */
+.buy,
+button.buy {
+  background: linear-gradient(135deg, var(--accent1), var(--accent2)) !important;
+  color: #000 !important;
+  font-weight: 800;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 12px;
+  width: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.buy:hover,
+button.buy:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 255, 208, 0.25);
+}
