@@ -15,6 +15,7 @@ function renderProducts() {
   if (!container) return;
 
   container.innerHTML = '';
+
   PRODUCTS.forEach(p => {
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -27,17 +28,21 @@ function renderProducts() {
       <div class="meta">
         <div class="price">$${p.price.toFixed(2)}</div>
       </div>
-      <button class="buy" data-id="${p.id}">Buy Now</button>
+      <button class="buy-btn" data-id="${p.id}">Buy Now</button>
     `;
     container.appendChild(card);
   });
 
-  document.querySelectorAll('.buy').forEach(btn => {
-    btn.addEventListener('click', () => {
-      addToCart(btn.dataset.id, 1);
-      renderCartCount();
-      // redirect to cart page
-      window.location.href = 'cart.html';
+  // Add event listeners for Buy Now buttons
+  document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const productId = e.target.dataset.id;
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (product) {
+        addToCart(product, 1); // ensure only one item is added
+        renderCartCount(); // update cart badge
+        window.location.href = 'cart.html'; // redirect to cart (not checkout)
+      }
     });
   });
 }
