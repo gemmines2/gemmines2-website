@@ -173,24 +173,23 @@ nav a.btn:hover {
   color: var(--turquoise);
 }
 
-/* Buy Now button */
-.buy {
-  margin-top: 10px;
+/* Buttons — Buy Now */
+.buy-btn {
   background: linear-gradient(135deg, var(--accent1), var(--accent2));
   border: none;
   color: #000;
-  font-weight: 800;
-  padding: 10px;
-  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  width: 100%;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.buy:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 255, 208, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.buy-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 255, 208, 0.3);
+}
 /* === Featured & homepage cards === */
 .home-products img,
 .featured img {
