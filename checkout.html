@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     main {
       display: grid;
@@ -108,6 +108,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="brand">
@@ -137,40 +138,43 @@
       <h2>Delivery & Payment</h2>
       <form id="checkout-form">
         <label for="name">Full Name</label>
-        <input id="name" name="name" type="text" required>
+        <input id="name" name="name" type="text" required />
 
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
+        <input id="email" name="email" type="email" required />
 
         <label for="address">Shipping Address</label>
         <textarea id="address" name="address" rows="3" required></textarea>
 
         <label for="country">Country</label>
-        <input id="country" name="country" type="text" required>
+        <input id="country" name="country" type="text" required />
 
-        <hr>
+        <hr />
         <label>Payment Method</label>
         <div class="payment-options">
           <label class="payment-option">
-            <input type="radio" name="payment" value="credit" checked> Credit / Debit Card 💳
+            <input type="radio" name="payment" value="credit" checked />
+            Credit / Debit Card 💳
           </label>
           <label class="payment-option">
-            <input type="radio" name="payment" value="cod"> Cash on Delivery 💵
+            <input type="radio" name="payment" value="cod" />
+            Cash on Delivery 💵
           </label>
           <label class="payment-option">
-            <input type="radio" name="payment" value="bank"> Bank Transfer 🏦
+            <input type="radio" name="payment" value="bank" />
+            Bank Transfer 🏦
           </label>
         </div>
 
         <div id="card-details" style="margin-top:10px; display:block;">
           <label for="card-number">Card Number</label>
-          <input id="card-number" name="card-number" type="text" placeholder="1234 5678 9012 3456">
+          <input id="card-number" name="card-number" type="text" placeholder="1234 5678 9012 3456" />
 
           <label for="expiry">Expiry Date</label>
-          <input id="expiry" name="expiry" type="text" placeholder="MM/YY">
+          <input id="expiry" name="expiry" type="text" placeholder="MM/YY" />
 
           <label for="cvv">CVV</label>
-          <input id="cvv" name="cvv" type="text" placeholder="123">
+          <input id="cvv" name="cvv" type="text" placeholder="123" />
         </div>
 
         <button type="submit" class="place-order">Place Order</button>
@@ -180,46 +184,13 @@
 
   <footer>
     <p>&copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
-      <a href="return.html">Return Policy</a></p>
+      <a href="return.html">Return Policy</a>
+    </p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS scripts -->
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script src="checkout.js"></script>
 </body>
 </html>
-Then make sure your checkout.js file (in the same folder) contains only this:
-
-js
-Copy code
-document.getElementById("year").textContent = new Date().getFullYear();
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderCartCount();
-  renderCheckout();
-
-  const paymentRadios = document.querySelectorAll("input[name='payment']");
-  const cardDetails = document.getElementById("card-details");
-
-  paymentRadios.forEach(radio => {
-    radio.addEventListener("change", () => {
-      cardDetails.style.display = radio.value === "credit" ? "block" : "none";
-    });
-  });
-
-  document.getElementById("checkout-form").addEventListener("submit", e => {
-    e.preventDefault();
-    const paymentMethod = document.querySelector("input[name='payment']:checked").value;
-    const contact = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      address: e.target.address.value,
-      country: e.target.country.value,
-      payment: paymentMethod
-    };
-    placeOrder(contact);
-    alert("✅ Thank you! Your order has been placed successfully.");
-    window.location.href = "thank-you.html";
-  });
-});
