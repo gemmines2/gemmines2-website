@@ -99,19 +99,18 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderCartPanel();
-  renderCartCount();
+  updateCartCount();
 
   document.getElementById("proceed-checkout").addEventListener("click", () => {
-    // Check if cart has items
-    const items = Object.keys(JSON.parse(localStorage.getItem('gemmines2_cart_v1')||'{}'));
-    if(items.length === 0){
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
       alert("🛒 Your cart is empty. Add items before checkout!");
       return;
     }
     window.location.href = "checkout.html";
   });
 });
+</script>
 </script>
 </body>
 </html>
