@@ -186,13 +186,46 @@
       <label for="country">Country</label>
       <input id="country" name="country" type="text" required>
 
-      <!-- Shipping Methods -->
-      <div class="shipping-methods">
-        <div class="section-title">Shipping Method</div>
-        <label class="shipping-option"><input type="radio" name="shipping" value="free" checked> Free Shipping (5–10 business days)</label>
-        <label class="shipping-option"><input type="radio" name="shipping" value="standard"> Standard (3–5 business days)</label>
-        <label class="shipping-option"><input type="radio" name="shipping" value="express"> Express (1–2 business days)</label>
-      </div>
+      <!-- Shipping Method -->
+<div class="shipping-methods">
+  <div class="section-title">Shipping Method</div>
+
+  <!-- Free Shipping -->
+  <label class="shipping-option">
+    <input type="radio" name="shipping" value="free" checked>
+    <span class="option-label">
+      Free Shipping (5–10 business days)
+      <span class="shipping-price">FREE</span>
+    </span>
+  </label>
+
+  <!-- Standard Shipping with courier list -->
+  <div class="shipping-group">
+    <label class="shipping-option">
+      <input type="radio" name="shipping" value="dhl">
+      <span class="option-label">DHL Express</span>
+      <span class="shipping-price">$25</span>
+    </label>
+
+    <label class="shipping-option">
+      <input type="radio" name="shipping" value="fedex">
+      <span class="option-label">FedEx</span>
+      <span class="shipping-price">$22</span>
+    </label>
+
+    <label class="shipping-option">
+      <input type="radio" name="shipping" value="leopard">
+      <span class="option-label">Leopards Courier</span>
+      <span class="shipping-price">$18</span>
+    </label>
+
+    <label class="shipping-option">
+      <input type="radio" name="shipping" value="aramex">
+      <span class="option-label">Aramex</span>
+      <span class="shipping-price">$20</span>
+    </label>
+  </div>
+</div>
 
       <!-- Payment Methods -->
       <div class="payment-methods">
