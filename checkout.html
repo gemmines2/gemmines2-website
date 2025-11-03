@@ -15,20 +15,22 @@
   h2 {
     color: var(--turquoise);
     font-family: "Playfair Display", serif;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-align: center;
   }
   .checkout-box {
     background: var(--card);
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 12px;
-    padding: 16px;
+    padding: 22px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 18px;
   }
   label {
     font-weight: 600;
@@ -45,11 +47,38 @@
     width: 100%;
     resize: none;
   }
+  textarea { min-height: 70px; }
   .full-width { grid-column: 1 / -1; }
-  .payment-details { display: none; margin-top: 10px; grid-column: 1 / -1; }
-  .payment-methods { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; }
-  .payment-option { display: flex; align-items: center; gap: 8px; }
-  .payment-option input { transform: scale(1.1); accent-color: var(--accent1); }
+
+  .payment-methods, .shipping-methods {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .section-title {
+    color: var(--accent2);
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+  }
+
+  .payment-option, .shipping-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+  .payment-option input, .shipping-option input {
+    transform: scale(1.1);
+    accent-color: var(--accent1);
+  }
+
   button.place-order {
     background: linear-gradient(135deg, var(--accent1), var(--accent2));
     border: none;
@@ -67,8 +96,11 @@
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0,255,208,0.2);
   }
+
   @media(max-width:900px){
     form { grid-template-columns: 1fr; }
+    h2 { font-size: 1.2rem; }
+    .checkout-box { padding: 18px; }
   }
 </style>
 </head>
@@ -114,14 +146,17 @@
       <label for="country">Country</label>
       <input id="country" name="country" type="text" required>
 
-      <label for="shipping">Shipping Method</label>
-      <select id="shipping" name="shipping" required>
-        <option value="standard">Standard</option>
-        <option value="express">Express</option>
-      </select>
+      <!-- Shipping Methods -->
+      <div class="shipping-methods">
+        <div class="section-title">Shipping Method</div>
+        <label class="shipping-option"><input type="radio" name="shipping" value="free" checked> Free Shipping (5–10 business days)</label>
+        <label class="shipping-option"><input type="radio" name="shipping" value="standard"> Standard (3–5 business days)</label>
+        <label class="shipping-option"><input type="radio" name="shipping" value="express"> Express (1–2 business days)</label>
+      </div>
 
-      <label>Payment Method</label>
+      <!-- Payment Methods -->
       <div class="payment-methods">
+        <div class="section-title">Payment Method</div>
         <label class="payment-option"><input type="radio" name="payment" value="credit" checked> Credit / Debit Card 💳</label>
         <label class="payment-option"><input type="radio" name="payment" value="paypal"> PayPal</label>
         <label class="payment-option"><input type="radio" name="payment" value="stripe"> Stripe</label>
@@ -130,9 +165,7 @@
         <label class="payment-option"><input type="radio" name="payment" value="bank"> Bank Transfer</label>
       </div>
 
-      <div class="payment-details" id="payment-details">
-        <!-- Dynamic payment input fields will appear here -->
-      </div>
+      <div class="payment-details" id="payment-details"></div>
 
       <button type="submit" class="place-order">Place Order</button>
     </form>
