@@ -85,22 +85,38 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
+<body><header>
+  <div class="brand">
+    <div class="logo">GM</div>
+    <div>
+      <h1>Gemmines2</h1>
+      <small>Natural gemstones — cut, polished & tumbled</small>
     </div>
-    <nav>
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
-      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </header>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+
+  <!-- Hamburger icon for mobile -->
+  <div class="hamburger" id="hamburger">
+    &#9776;
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart (<span id="cart-count-mobile">0</span>)</a>
+    <a href="checkout.html">Checkout</a>
+    <button id="close-menu">&times;</button>
+  </div>
+</header>
+
+  
 
   <main class="container">
     <!-- Featured Gems Section -->
