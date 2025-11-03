@@ -1,285 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout | Gemmines2</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 10px;
-    color: #e8f0ff;
-  }
-  h2 {
-    color: var(--turquoise);
-    font-family: "Playfair Display", serif;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-    text-align: center;
-  }
-  .checkout-box {
-    background: var(--card);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
-  label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--turquoise);
-  }
-  input, select, textarea {
-    background: #0d1117;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    color: #e8f0ff;
-    padding: 8px;
-    font-size: 0.9rem;
-    width: 100%;
-    resize: none;
-  }
-  textarea { min-height: 70px; }
-  .full-width { grid-column: 1 / -1; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Gemmines2</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0d1117;
+      color: #e8f0f2;
+      margin: 0;
+      padding: 0;
+    }
 
-  
-<!-- Payment Methods -->
-<div class="payment-methods">
-  <div class="section-title">Payment Method</div>
+    .checkout-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #111827;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="credit" checked>
-    <span>Credit / Debit Card 💳</span>
-  </label>
+    h2 {
+      color: #00ffff;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #00ffff33;
+      padding-bottom: 5px;
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="paypal">
-    <span>PayPal</span>
-  </label>
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-weight: 500;
+      color: #d1d5db;
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="stripe">
-    <span>Stripe</span>
-  </label>
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #1f2937;
+      color: #e8f0f2;
+      font-size: 15px;
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="payoneer">
-    <span>Payoneer</span>
-  </label>
+    .section {
+      margin-bottom: 30px;
+      background-color: #0f172a;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="western">
-    <span>Western Union</span>
-  </label>
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-  <label class="payment-option">
-    <input type="radio" name="payment" value="bank">
-    <span>Bank Transfer</span>
-  </label>
+    .radio-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 12px 15px;
+      transition: 0.2s;
+    }
 
-  <!-- Dynamic Payment Details -->
-  <div id="payment-details" class="payment-details"></div>
-</div>
+    .radio-item:hover {
+      background: #0ea5e9;
+      color: white;
+    }
 
-  .section-title {
-    color: var(--accent2);
-    font-weight: 700;
-    margin-bottom: 4px;
-    font-size: 0.95rem;
-  }
+    .order-summary {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+    }
 
-  .payment-option, .shipping-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-  }
-  .payment-option input, .shipping-option input {
-    transform: scale(1.1);
-    accent-color: var(--accent1);
-  }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #00ffff, #0077ff);
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-  button.place-order {
-    background: linear-gradient(135deg, var(--accent1), var(--accent2));
-    border: none;
-    color: #000;
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    grid-column: 1 / -1;
-    margin-top: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  button.place-order:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(0,255,208,0.2);
-  }
+    .btn:hover {
+      background: linear-gradient(90deg, #0077ff, #00ffff);
+      transform: scale(1.03);
+    }
 
-  @media(max-width:900px){
-    form { grid-template-columns: 1fr; }
-    h2 { font-size: 1.2rem; }
-    .checkout-box { padding: 18px; }
-  }
-  /* Fix alignment for shipping and payment method sections */
-.shipping-methods,
-.payment-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.shipping-methods label,
-.payment-methods label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #0f1620;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #1e2a38;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.shipping-methods label:hover,
-.payment-methods label:hover {
-  background: #16212f;
-  transform: scale(1.02);
-}
-
-.shipping-methods input[type="radio"],
-.payment-methods input[type="radio"] {
-  margin-right: 10px;
-  accent-color: #00fff2;
-}
-
-.shipping-methods span,
-.payment-methods span {
-  flex: 1;
-  text-align: left;
-  color: #00fff2;
-  font-weight: 500;
-}
-</style>
+    @media (max-width: 600px) {
+      .checkout-container {
+        margin: 15px;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="brand">
-    <div class="logo">GM</div>
-    <div>
-      <h1>Gemmines2</h1>
-      <small>Natural gemstones — cut, polished & tumbled</small>
-    </div>
-  </div>
-  <nav>
-    <a class="btn" href="index.html">Home</a>
-    <a class="btn" href="products.html">Products</a>
-    <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-    <a class="btn active" href="checkout.html">Checkout</a>
-  </nav>
-</header>
+  <div class="checkout-container">
+    <h2>Shipping Method</h2>
+    <div class="section">
+      <div class="radio-group">
+        <label class="radio-item">
+          <span>Free Shipping (5–10 business days)</span>
+          <input type="radio" name="shipping" checked>
+        </label>
 
-<main class="container">
-  <div class="checkout-box">
-    <h2>Checkout</h2>
-    <form id="checkout-form">
-      <label for="name">Full Name</label>
-      <input id="name" name="name" type="text" required>
+        <label class="radio-item">
+          <span>Standard Shipping (3–5 business days)</span>
+          <input type="radio" name="shipping">
+        </label>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required>
+        <div style="margin-top:10px;">
+          <label for="courier">Choose Courier:</label>
+          <select id="courier">
+            <option>DHL</option>
+            <option>FedEx</option>
+            <option>Leopard Courier</option>
+            <option>Aramex</option>
+          </select>
 
-      <label for="phone">Phone / Contact Number</label>
-      <input id="phone" name="phone" type="text" required>
+          <label for="charge">Shipping Charge (USD):</label>
+          <input type="number" id="charge" placeholder="e.g. 10">
+        </div>
 
-      <label for="address">Shipping Address</label>
-      <textarea id="address" name="address" rows="2" required></textarea>
-
-      <label for="city">Region / City</label>
-      <input id="city" name="city" type="text" required>
-
-      <label for="postal">Postal / ZIP Code</label>
-      <input id="postal" name="postal" type="text" required>
-
-      <label for="country">Country</label>
-      <input id="country" name="country" type="text" required>
-
-      <!-- Shipping Method -->
-<div class="shipping-methods">
-  <div class="section-title">Shipping Method</div>
-
-  <!-- Free Shipping -->
-  <label class="shipping-option">
-    <input type="radio" name="shipping" value="free" checked>
-    <span class="option-label">
-      Free Shipping (5–10 business days)
-      <span class="shipping-price">FREE</span>
-    </span>
-  </label>
-
-  <!-- Standard Shipping with courier list -->
-  <div class="shipping-group">
-    <label class="shipping-option">
-      <input type="radio" name="shipping" value="dhl">
-      <span class="option-label">DHL Express</span>
-      <span class="shipping-price">$25</span>
-    </label>
-
-    <label class="shipping-option">
-      <input type="radio" name="shipping" value="fedex">
-      <span class="option-label">FedEx</span>
-      <span class="shipping-price">$22</span>
-    </label>
-
-    <label class="shipping-option">
-      <input type="radio" name="shipping" value="leopard">
-      <span class="option-label">Leopards Courier</span>
-      <span class="shipping-price">$18</span>
-    </label>
-
-    <label class="shipping-option">
-      <input type="radio" name="shipping" value="aramex">
-      <span class="option-label">Aramex</span>
-      <span class="shipping-price">$20</span>
-    </label>
-  </div>
-</div>
-
-      <!-- Payment Methods -->
-      <div class="payment-methods">
-        <div class="section-title">Payment Method</div>
-        <label class="payment-option"><input type="radio" name="payment" value="credit" checked> Credit / Debit Card 💳</label>
-        <label class="payment-option"><input type="radio" name="payment" value="paypal"> PayPal</label>
-        <label class="payment-option"><input type="radio" name="payment" value="stripe"> Stripe</label>
-        <label class="payment-option"><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-        <label class="payment-option"><input type="radio" name="payment" value="western"> Western Union</label>
-        <label class="payment-option"><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+        <label class="radio-item">
+          <span>Express (1–2 business days)</span>
+          <input type="radio" name="shipping">
+        </label>
       </div>
+    </div>
 
-      <div class="payment-details" id="payment-details"></div>
+    <h2>Payment Method</h2>
+    <div class="section">
+      <label for="payment">Select Payment Method:</label>
+      <select id="payment">
+        <option>Bank Transfer</option>
+        <option>PayPal</option>
+        <option>Cash on Delivery</option>
+      </select>
 
-      <button type="submit" class="place-order">Place Order</button>
-    </form>
+      <label for="iban">Account / IBAN:</label>
+      <input type="text" id="iban" placeholder="Enter account or IBAN">
+
+      <label for="paypal">PayPal Email (if applicable):</label>
+      <input type="email" id="paypal" placeholder="example@email.com">
+    </div>
+
+    <h2>Order Summary</h2>
+    <div class="order-summary">
+      <p>Subtotal: <strong>$120</strong></p>
+      <p>Shipping: <strong>$10</strong></p>
+      <hr>
+      <p><strong>Total: $130</strong></p>
+    </div>
+
+    <button class="btn">Place Order</button>
   </div>
-</main>
-
-<footer>
-  <p>&copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
-    <a href="return.html">Return Policy</a></p>
-</footer>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script src="checkout.js"></script>
 </body>
 </html>
