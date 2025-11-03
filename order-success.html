@@ -5,106 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Success | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #e8f4fb;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-
-    .container {
-      background-color: #111827;
-      padding: 30px 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.3);
-      max-width: 500px;
-      width: 90%;
-    }
-
-    h1 {
-      color: #00e0ff;
-      text-shadow: 0 0 10px #00e0ff;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-
-    .order-item {
-      text-align: left;
-      background-color: #0d1117;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 8px;
-    }
-
-    .order-item span {
-      font-weight: bold;
-      color: #00ffff;
-    }
-
-    a.btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: linear-gradient(90deg, #00ffff, #0077ff);
-      border-radius: 8px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    a.btn:hover {
-      background: linear-gradient(90deg, #0077ff, #00ffff);
-      transform: scale(1.05);
-    }
-  </style>
 </head>
 <body>
   <div class="container">
     <h1>✅ Thank You for Your Order!</h1>
-    <p>Your order has been successfully placed. Here’s what you ordered:</p>
+    <p>Your order has been successfully placed.</p>
     <div id="order-summary"></div>
-    <a href="index.html" class="btn">← Back to Home</a>
+    <a href="index.html">Back to Home</a>
   </div>
 
   <script>
-    // Get latest order from localStorage
-    const order = JSON.parse(localStorage.getItem("latestOrder"));
     const summaryDiv = document.getElementById("order-summary");
+    const order = JSON.parse(localStorage.getItem("latestOrder"));
 
-    if (order && order.items && order.items.length > 0) {
+    if (order && order.items && order.items.length) {
       order.items.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'order-item';
-        div.innerHTML = `
-          <p><span>Product:</span> ${item.name}</p>
-          <p><span>Quantity:</span> ${item.quantity}</p>
-          <p><span>Price:</span> $${item.price}</p>
-        `;
+        div.textContent = `${item.name} — Quantity: ${item.quantity} — Price: $${item.price}`;
         summaryDiv.appendChild(div);
       });
-
+      const total = order.total || order.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
       const totalDiv = document.createElement('div');
-      totalDiv.style.fontWeight = 'bold';
-      totalDiv.style.marginTop = '10px';
-      totalDiv.innerHTML = `Total: $${order.total || order.items.reduce((sum, i) => sum + i.price*i.quantity, 0)}`;
+      totalDiv.textContent = `Total: $${total}`;
       summaryDiv.appendChild(totalDiv);
-
     } else {
-      summaryDiv.innerHTML = "<p>No order found. Please check out first.</p>";
+      summaryDiv.textContent = "No order found. Please check out first.";
     }
   </script>
 </body>
 </html>
+✅ This is minimal and safe — nothing fancy, just shows your order.
+
+3️⃣ Checkout page — “Place Order” button
+Make sure your checkout page has a button like:
+
+html
+Copy code
+<button id="place-order-btn">Place Order</button>
+And add this script:
+
+javascript
+Copy code
+document.getElementById('place-order-btn').addEventListener('click', () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  localStorage.setItem('latestOrder', JSON.stringify({ items: cart, total }));
+  window.location.href = "ordersuccess.html"; // Redirect to your single page
+});
