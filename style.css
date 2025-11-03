@@ -346,3 +346,50 @@ footer a:hover {.shipping-methods {
   color: #e8f0ff;
   font-size: 0.9rem;
 }
+Add or replace this section inside your <style> block or style.css:
+
+/* --- Payment Method Section --- */
+.payment-section {
+  margin-top: 30px;
+}
+
+.payment-section h2 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111827;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border: 1px solid #1f2937;
+  transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+  border-color: #00ffff;
+  background-color: #0f172a;
+}
+
+.payment-option input[type="radio"] {
+  accent-color: #00ffff;
+  transform: scale(1.2);
+}
+
+.payment-option label {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: right;
+  flex: 1;
+}
+
+/* Ensure equal height for all options */
+.payment-option {
+  min-height: 60px;
+}
