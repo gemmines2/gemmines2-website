@@ -1,226 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: "Poppins", sans-serif;
       background-color: #0d1117;
-      color: #e8f0f2;
+      color: #e8f4fb;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
     }
 
     .checkout-container {
-      max-width: 600px;
-      margin: 40px auto;
+      max-width: 700px;
+      margin: 80px auto;
       background: #111827;
-      border-radius: 20px;
       padding: 25px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
     }
 
     h2 {
-      color: #00ffff;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #00ffff33;
-      padding-bottom: 5px;
+      text-align: center;
+      color: #00e0ff;
+      text-shadow: 0 0 8px #00e0ff;
+      margin-bottom: 25px;
     }
 
     label {
       display: block;
-      margin: 12px 0 5px;
-      font-weight: 500;
-      color: #d1d5db;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
-    input, select {
+    input, select, textarea {
       width: 100%;
       padding: 10px;
+      margin-bottom: 15px;
       border-radius: 8px;
-      border: none;
-      background-color: #1f2937;
-      color: #e8f0f2;
-      font-size: 15px;
-    }
-
-    select option {
-      background-color: #111827;
-      color: #e8f0f2;
+      border: 1px solid #00e0ff;
+      background: #0d1117;
+      color: #e8f4fb;
     }
 
     .section {
       margin-bottom: 30px;
-      background-color: #0f172a;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
     }
 
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .radio-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #1e293b;
+    .payment-option {
+      background: #1a2234;
+      padding: 12px;
       border-radius: 10px;
-      padding: 12px 15px;
-      transition: 0.2s;
+      margin-bottom: 10px;
     }
 
-    .radio-item:hover {
-      background: #0ea5e9;
-      color: white;
+    .payment-option input {
+      margin-right: 10px;
     }
 
-    .order-summary {
-      background-color: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
+    .bank-details {
+      background: #0d1117;
+      border-left: 3px solid #00e0ff;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
     }
 
-    .btn {
+    button {
+      background: #00e0ff;
+      color: #0d1117;
+      border: none;
       width: 100%;
       padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #00ffff, #0077ff);
-      color: #fff;
-      font-weight: 600;
       font-size: 16px;
-      margin-top: 15px;
+      font-weight: bold;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background: linear-gradient(90deg, #0077ff, #00ffff);
-      transform: scale(1.03);
-    }
-
-    /* Hide bank fields until selected */
-    #bank-details {
-      display: none;
-      margin-top: 15px;
+    button:hover {
+      background: #00bcd4;
+      box-shadow: 0 0 10px #00e0ff;
     }
 
     @media (max-width: 600px) {
       .checkout-container {
-        margin: 15px;
-        padding: 15px;
+        margin: 30px 15px;
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
   <div class="checkout-container">
-    <h2>Shipping Method</h2>
+    <h2>Checkout</h2>
+
+    <!-- Customer Information -->
     <div class="section">
-      <div class="radio-group">
-        <label class="radio-item">
-          <span>Free Shipping (5–10 business days)</span>
-          <input type="radio" name="shipping" checked>
-        </label>
+      <h3>Customer Details</h3>
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name">
 
-        <label class="radio-item">
-          <span>Standard Shipping (3–5 business days)</span>
-          <input type="radio" name="shipping">
-        </label>
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email">
 
-        <div style="margin-top:10px;">
-          <label for="courier">Choose Courier:</label>
-          <select id="courier">
-            <option>DHL</option>
-            <option>FedEx</option>
-            <option>Leopard Courier</option>
-            <option>Aramex</option>
-          </select>
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your contact number">
 
-          <label for="charge">Shipping Charge (USD):</label>
-          <input type="number" id="charge" placeholder="e.g. 10">
-        </div>
+      <label>Address Line 1</label>
+      <input type="text" id="address1" placeholder="Street address, P.O. box, etc.">
 
-        <label class="radio-item">
-          <span>Express Shipping (1–2 business days)</span>
-          <input type="radio" name="shipping">
-        </label>
-      </div>
+      <label>Address Line 2</label>
+      <input type="text" id="address2" placeholder="Apartment, suite, unit, building, etc.">
+
+      <label>Country</label>
+      <input type="text" id="country" placeholder="Enter your country">
+
+      <label>Postal Code</label>
+      <input type="text" id="postal" placeholder="Enter your postal code">
     </div>
 
-    <h2>Payment Method</h2>
+    <!-- Shipping -->
     <div class="section">
-      <label for="payment">Select Payment Method:</label>
-      <select id="payment">
-        <option>Bank Transfer</option>
-        <option>PayPal</option>
-        <option>Stripe</option>
-        <option>Payoneer</option>
-        <option>Ria Money Transfer</option>
-        <option>Western Union</option>
-        <option>Cash on Delivery</option>
+      <h3>Shipping Options</h3>
+      <select id="shipping">
+        <option value="free">Free Shipping (7–10 Days)</option>
+        <option value="standard">Standard Courier (3–5 Days)</option>
+        <option value="express">Express DHL/FedEx (1–2 Days)</option>
       </select>
-      
-      <!-- Bank Transfer Fields -->
-      <div id="bank-details">
-        <label for="holder">Account Holder Name:</label>
-        <input type="text" id="holder" placeholder="e.g. Gemmines2">
+    </div>
 
-        <label for="bank">Bank Name:</label>
-        <input type="text" id="bank" placeholder="e.g. HBL, Meezan Bank">
+    <!-- Payment -->
+    <div class="section">
+      <h3>Payment Method</h3>
 
-        <label for="iban">Account / IBAN:</label>
-        <input type="text" id="iban" placeholder="e.g. PK00HBL0000000000">
-
-        <label for="branch">Branch:</label>
-        <input type="text" id="branch" placeholder="e.g. Clifton Karachi">
-
-        <label for="swift">Branch Code / SWIFT:</label>
-        <input type="text" id="swift" placeholder="e.g. HABBPKKA">
-
-        <label for="reference">Payment Reference:</label>
-        <input type="text" id="reference" placeholder="e.g. Your Order ID or Name">
+      <div class="payment-option">
+        <input type="radio" name="payment" value="bank" id="bank"> Bank Transfer
+        <div id="bankDetails" class="bank-details" style="display:none;">
+          <p><strong>Bank Name:</strong> Meezan Bank</p>
+          <p><strong>Branch:</strong> Karachi Main</p>
+          <p><strong>Branch Code:</strong> 0115</p>
+          <p><strong>Account Title:</strong> Gemmines2 Exports</p>
+          <p><strong>IBAN:</strong> PK12MEZN000000123456789</p>
+        </div>
       </div>
 
-      <!-- PayPal Email -->
-      <label for="paypal">PayPal Email (if applicable):</label>
-      <input type="email" id="paypal" placeholder="example@email.com">
+      <div class="payment-option">
+        <input type="radio" name="payment" value="paypal"> PayPal
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" name="payment" value="stripe"> Stripe / Credit Card
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" name="payment" value="western"> Western Union / Ria
+      </div>
+
+      <div class="payment-option">
+        <input type="radio" name="payment" value="cod"> Cash on Delivery (COD)
+      </div>
     </div>
 
-    <h2>Order Summary</h2>
-    <div class="order-summary">
-      <p>Subtotal: <strong>$120</strong></p>
-      <p>Shipping: <strong>$10</strong></p>
-      <hr>
-      <p><strong>Total: $130</strong></p>
-    </div>
-
-    <button class="btn" id="placeOrder">Place Order</button>
+    <!-- Submit -->
+    <button id="placeOrder">Place Order</button>
   </div>
 
   <script>
-    const paymentSelect = document.getElementById('payment');
-    const bankDetails = document.getElementById('bank-details');
-
     // Toggle bank details visibility
-    paymentSelect.addEventListener('change', function() {
-      if (this.value === 'Bank Transfer') {
-        bankDetails.style.display = 'block';
-      } else {
-        bankDetails.style.display = 'none';
-      }
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    const bankDetails = document.getElementById('bankDetails');
+
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        bankDetails.style.display = (radio.value === 'bank' && radio.checked) ? 'block' : 'none';
+      });
     });
 
-    // Redirect to thank you page
-    document.getElementById('placeOrder').addEventListener('click', function(e) {
-      e.preventDefault();
+    // Order placement redirect
+    document.getElementById('placeOrder').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const address = document.getElementById('address1').value.trim();
+      const payment = document.querySelector('input[name="payment"]:checked');
+
+      if (!name || !address || !payment) {
+        alert("Please fill in your name, address, and select a payment method.");
+        return;
+      }
+
+      // Redirect to thank you page
       window.location.href = "thankyou.html";
     });
   </script>
