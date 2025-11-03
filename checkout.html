@@ -50,16 +50,44 @@
   textarea { min-height: 70px; }
   .full-width { grid-column: 1 / -1; }
 
-  .payment-methods, .shipping-methods {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    padding: 10px;
-  }
+  
+<!-- Payment Methods -->
+<div class="payment-methods">
+  <div class="section-title">Payment Method</div>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="credit" checked>
+    <span>Credit / Debit Card 💳</span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="paypal">
+    <span>PayPal</span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="stripe">
+    <span>Stripe</span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="payoneer">
+    <span>Payoneer</span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="western">
+    <span>Western Union</span>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="bank">
+    <span>Bank Transfer</span>
+  </label>
+
+  <!-- Dynamic Payment Details -->
+  <div id="payment-details" class="payment-details"></div>
+</div>
 
   .section-title {
     color: var(--accent2);
