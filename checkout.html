@@ -106,6 +106,12 @@
       transform: scale(1.03);
     }
 
+    /* Hide bank fields until selected */
+    #bank-details {
+      display: none;
+      margin-top: 15px;
+    }
+
     @media (max-width: 600px) {
       .checkout-container {
         margin: 15px;
@@ -162,9 +168,28 @@
         <option>Cash on Delivery</option>
       </select>
       
-      <label for="iban">Account / IBAN:</label>
-      <input type="text" id="iban" placeholder="Enter account or IBAN">
+      <!-- Bank Transfer Fields -->
+      <div id="bank-details">
+        <label for="holder">Account Holder Name:</label>
+        <input type="text" id="holder" placeholder="e.g. Gemmines2">
 
+        <label for="bank">Bank Name:</label>
+        <input type="text" id="bank" placeholder="e.g. HBL, Meezan Bank">
+
+        <label for="iban">Account / IBAN:</label>
+        <input type="text" id="iban" placeholder="e.g. PK00HBL0000000000">
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" placeholder="e.g. Clifton Karachi">
+
+        <label for="swift">Branch Code / SWIFT:</label>
+        <input type="text" id="swift" placeholder="e.g. HABBPKKA">
+
+        <label for="reference">Payment Reference:</label>
+        <input type="text" id="reference" placeholder="e.g. Your Order ID or Name">
+      </div>
+
+      <!-- PayPal Email -->
       <label for="paypal">PayPal Email (if applicable):</label>
       <input type="email" id="paypal" placeholder="example@email.com">
     </div>
@@ -177,17 +202,27 @@
       <p><strong>Total: $130</strong></p>
     </div>
 
-    <button class="btn">Place Order</button>
+    <button class="btn" id="placeOrder">Place Order</button>
   </div>
+
   <script>
-document.querySelector('.btn').addEventListener('click', function (e) {
-  e.preventDefault();
-  // Confirmation popup
-  alert('✅ Thank you for your order!\nYour order has been successfully placed.');
-  
-  // Optional redirect (uncomment if you have a thank-you page)
-  // window.location.href = "thankyou.html";
-});
-</script>
+    const paymentSelect = document.getElementById('payment');
+    const bankDetails = document.getElementById('bank-details');
+
+    // Toggle bank details visibility
+    paymentSelect.addEventListener('change', function() {
+      if (this.value === 'Bank Transfer') {
+        bankDetails.style.display = 'block';
+      } else {
+        bankDetails.style.display = 'none';
+      }
+    });
+
+    // Redirect to thank you page
+    document.getElementById('placeOrder').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = "thankyou.html";
+    });
+  </script>
 </body>
 </html>
