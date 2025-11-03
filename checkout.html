@@ -180,21 +180,17 @@
         bankDetails.style.display = (radio.value === 'bank' && radio.checked) ? 'block' : 'none';
       });
     });
+// When order is placed
+document.getElementById('place-order-btn').addEventListener('click', function() {
+  // Save cart/order to localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  localStorage.setItem('latestOrder', JSON.stringify({ items: cart, total }));
 
-    // Order placement redirect
-    document.getElementById('placeOrder').addEventListener('click', () => {
-      const name = document.getElementById('name').value.trim();
-      const address = document.getElementById('address1').value.trim();
-      const payment = document.querySelector('input[name="payment"]:checked');
-
-      if (!name || !address || !payment) {
-        alert("Please fill in your name, address, and select a payment method.");
-        return;
-      }
-
-      // Redirect to thank you page
-      window.location.href = "thankyou.html";
-    });
+  // Redirect to the single Order Success page
+  window.location.href = "ordersuccess.html";
+});
+    
   </script>
 </body>
 </html>
