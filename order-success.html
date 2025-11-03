@@ -2,19 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order Success | Gemmines2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #e8f4fb;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #111827;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 224, 255, 0.3);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #00e0ff;
+      text-shadow: 0 0 10px #00e0ff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .order-item {
+      text-align: left;
+      background-color: #0d1117;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+
+    .order-item span {
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #00ffff, #0077ff);
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a.btn:hover {
+      background: linear-gradient(90deg, #0077ff, #00ffff);
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <h2>Thank you for your order!</h2>
-    <p>Your order has been placed successfully. Details:</p>
-    <pre id="order-summary"></pre>
-    <a href="index.html">Back to Home</a>
-  </main>
+  <div class="container">
+    <h1>✅ Thank You for Your Order!</h1>
+    <p>Your order has been successfully placed. Here’s what you ordered:</p>
+    <div id="order-summary"></div>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+
   <script>
+    // Get latest order from localStorage
     const order = JSON.parse(localStorage.getItem("latestOrder"));
-    document.getElementById("order-summary").textContent = JSON.stringify(order, null, 2);
+    const summaryDiv = document.getElementById("order-summary");
+
+    if (order && order.items && order.items.length > 0) {
+      order.items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'order-item';
+        div.innerHTML = `
+          <p><span>Product:</span> ${item.name}</p>
+          <p><span>Quantity:</span> ${item.quantity}</p>
+          <p><span>Price:</span> $${item.price}</p>
+        `;
+        summaryDiv.appendChild(div);
+      });
+
+      const totalDiv = document.createElement('div');
+      totalDiv.style.fontWeight = 'bold';
+      totalDiv.style.marginTop = '10px';
+      totalDiv.innerHTML = `Total: $${order.total || order.items.reduce((sum, i) => sum + i.price*i.quantity, 0)}`;
+      summaryDiv.appendChild(totalDiv);
+
+    } else {
+      summaryDiv.innerHTML = "<p>No order found. Please check out first.</p>";
+    }
   </script>
 </body>
 </html>
