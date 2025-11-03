@@ -102,6 +102,46 @@
     h2 { font-size: 1.2rem; }
     .checkout-box { padding: 18px; }
   }
+  /* Fix alignment for shipping and payment method sections */
+.shipping-methods,
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.shipping-methods label,
+.payment-methods label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f1620;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #1e2a38;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.shipping-methods label:hover,
+.payment-methods label:hover {
+  background: #16212f;
+  transform: scale(1.02);
+}
+
+.shipping-methods input[type="radio"],
+.payment-methods input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #00fff2;
+}
+
+.shipping-methods span,
+.payment-methods span {
+  flex: 1;
+  text-align: left;
+  color: #00fff2;
+  font-weight: 500;
+}
 </style>
 </head>
 <body>
