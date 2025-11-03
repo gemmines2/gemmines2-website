@@ -124,3 +124,44 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "order-success.html";
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const paymentRadios = document.querySelectorAll('input[name="payment"]');
+  const detailsBox = document.getElementById("payment-details");
+
+  const paymentFields = {
+    paypal: `
+      <label>Email (PayPal Account)</label>
+      <input type="email" placeholder="yourname@paypal.com" required>
+    `,
+    stripe: `
+      <label>Stripe Email</label>
+      <input type="email" placeholder="yourname@stripe.com" required>
+    `,
+    payoneer: `
+      <label>Payoneer Email</label>
+      <input type="email" placeholder="yourname@payoneer.com" required>
+    `,
+    western: `
+      <label>Receiver Name</label>
+      <input type="text" placeholder="Full name of receiver" required>
+      <label>Country</label>
+      <input type="text" placeholder="Country of receiver" required>
+    `,
+    bank: `
+      <label>Account Holder Name</label>
+      <input type="text" placeholder="Name on account" required>
+      <label>IBAN Number</label>
+      <input type="text" placeholder="Enter IBAN" required>
+      <label>Bank Name</label>
+      <input type="text" placeholder="e.g. HBL, Meezan Bank" required>
+    `
+  };
+
+  paymentRadios.forEach(radio => {
+    radio.addEventListener("change", e => {
+      const val = e.target.value;
+      detailsBox.innerHTML = paymentFields[val] || "";
+      detailsBox.classList.toggle("active", !!paymentFields[val]);
+    });
+  });
+});
