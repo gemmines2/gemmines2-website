@@ -9,29 +9,86 @@
     body {
       background-color: #0d1117;
       color: #e8f4fb;
-      text-align: center;
       font-family: 'Poppins', sans-serif;
-      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .confirmation-box {
+      background-color: #161b22;
+      border: 1px solid #00e0ff40;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00e0ff33;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 450px;
+      animation: fadeIn 1s ease-in-out;
     }
     h1 {
       color: #00e0ff;
       text-shadow: 0 0 8px #00e0ff;
+      margin-bottom: 10px;
     }
-    a {
-      display: inline-block;
-      margin-top: 30px;
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    .order-summary {
+      background-color: #0d1117;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: left;
+      margin-bottom: 25px;
+      border: 1px solid #00e0ff20;
+    }
+    .order-summary h2 {
+      font-size: 18px;
       color: #00e0ff;
+      margin-bottom: 10px;
+    }
+    .order-summary p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+    .btn {
+      background: linear-gradient(90deg, #00e0ff, #0066ff);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
     }
-    a:hover {
-      text-shadow: 0 0 10px #00e0ff;
+    .btn:hover {
+      box-shadow: 0 0 10px #00e0ff;
+      transform: translateY(-2px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>✅ Thank you for your order!</h1>
-  <p>Your order has been placed successfully and is being processed.</p>
-  <a href="index.html">← Back to Home</a>
+  <div class="confirmation-box">
+    <h1>✅ Thank you for your order!</h1>
+    <p>Your order has been placed successfully and is being processed.</p>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <p><strong>Subtotal:</strong> $120</p>
+      <p><strong>Shipping:</strong> $10</p>
+      <hr style="border: none; border-top: 1px solid #00e0ff20; margin: 10px 0;">
+      <p><strong>Total:</strong> $130</p>
+      <p><strong>Payment Method:</strong> Bank Transfer</p>
+    </div>
+
+    <a href="index.html" class="btn">← Continue Shopping</a>
+  </div>
 </body>
 </html>
