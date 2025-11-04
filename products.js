@@ -1,13 +1,13 @@
 // products.js
 const PRODUCTS = [
   { id: 'aquamarine', name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 800, img: 'images/aquamarine.jpg' },
-  { id: 'rhodolite', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 700, img: 'images/rhodolite.jpg' },
-  { id: 'peridot', name: 'Peridot', desc: 'Natural green peridot — tumbled', price: 900, img: 'images/peridot.jpg' },
+  { id: 'rhodolite', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 800, img: 'images/rhodolite.jpg' },
+  { id: 'peridot', name: 'Peridot', desc: 'Natural green peridot — tumbled', price: 800, img: 'images/peridot.jpg' },
   { id: 'lemon-quartz', name: 'Lemon Quartz', desc: 'Bright lemon quartz — polished crystal', price: 40, img: 'images/lemon-quartz.jpg' },
-  { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 100, img: 'images/green-jasper.jpg' },
-  { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 55, img: 'images/hessonite.jpg' },
+  { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 150, img: 'images/green-jasper.jpg' },
+  { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 800, img: 'images/hessonite.jpg' },
   { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 1300, img: 'images/umbalite.jpg' },
-  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 120, img: 'images/emerald.jpg' }
+  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800, img: 'images/emerald.jpg' }
 ];
 
 function renderProducts() {
