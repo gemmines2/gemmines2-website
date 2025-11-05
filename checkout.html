@@ -70,7 +70,29 @@ button:hover {
   .card-row, .address-row {
     flex-direction: column;
   }
+}* Force dark theme on all input fields */
+input, select, textarea {
+  background-color: #1a1f40 !important; /* dark background */
+  color: #fff !important;               /* white text */
+  border: 1px solid #555 !important;    /* visible border */
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
+
+/* Placeholder text */
+input::placeholder, textarea::placeholder {
+  color: #bbb !important;               /* light placeholder */
+}
+
+/* When input is focused */
+input:focus, select:focus, textarea:focus {
+  background-color: #1a1f40 !important;
+  color: #fff !important;
+  outline: 2px solid #0077ff !important; /* blue outline for visibility */
+}
+  
 </style>
 </head>
 <body>
