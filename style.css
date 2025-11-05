@@ -393,3 +393,16 @@ Add or replace this section inside your <style> block or style.css:
 .payment-option {
   min-height: 60px;
 }
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  box-sizing: border-box;
+  background-color: #0b0f25; /* dark background inside fields */
+  color: #fff; /* white text */
+}
+input::placeholder, textarea::placeholder {
+  color: #bbb; /* light placeholder text */
+}
