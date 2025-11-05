@@ -6,10 +6,11 @@
 <title>Checkout | Gemmines2</title>
 <style>
   body { background: #0d1117; color: #e8f0ff; font-family: Arial, sans-serif; padding: 20px; }
-  h2 { color: #00ffd0; }
+  h2 { color: #00ffd0; margin-bottom: 10px; }
   input, textarea, select, button { display: block; width: 100%; margin: 8px 0; padding: 8px; border-radius: 6px; border: 1px solid #444; background: #111; color: #e8f0ff; }
   button { cursor: pointer; background: #00ffd0; color: #000; font-weight: bold; border: none; }
   #cart-summary div { margin-bottom: 6px; }
+  .payment-fields { display: none; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -17,22 +18,46 @@
 <h2>Your Order</h2>
 <div id="cart-summary">Loading your order...</div>
 
-<h2>Delivery & Payment</h2>
+<h2>Delivery Details</h2>
 <form id="checkout-form">
   <input name="name" type="text" placeholder="Full Name" required>
   <input name="email" type="email" placeholder="Email" required>
   <textarea name="address" rows="3" placeholder="Shipping Address" required></textarea>
   <input name="country" type="text" placeholder="Country" required>
-  <select name="payment" required>
+
+  <h2>Payment Method</h2>
+  <select id="payment-method" name="payment" required>
     <option value="credit">Credit / Debit Card</option>
     <option value="paypal">PayPal</option>
+    <option value="payoneer">Payoneer</option>
     <option value="bank">Bank Transfer</option>
   </select>
+
+  <!-- Payment Fields -->
+  <div id="credit-fields" class="payment-fields">
+    <input name="card-number" type="text" placeholder="Card Number">
+    <input name="expiry" type="text" placeholder="Expiry MM/YY">
+    <input name="cvv" type="text" placeholder="CVV">
+  </div>
+
+  <div id="paypal-fields" class="payment-fields">
+    <input name="paypal-email" type="email" placeholder="PayPal Email">
+  </div>
+
+  <div id="payoneer-fields" class="payment-fields">
+    <input name="payoneer-email" type="email" placeholder="Payoneer Email">
+  </div>
+
+  <div id="bank-fields" class="payment-fields">
+    <input name="bank-name" type="text" placeholder="Bank Name">
+    <input name="iban" type="text" placeholder="IBAN / Account Number">
+  </div>
+
   <button type="submit">Place Order</button>
 </form>
 
 <script>
-  // Simple cart display
+  // Display cart
   const cartSummary = document.getElementById("cart-summary");
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
   if (!cart.length) {
@@ -41,7 +66,31 @@
     cartSummary.innerHTML = cart.map(item => `${item.name} x ${item.qty} — $${item.price * item.qty}`).join('<br>');
   }
 
-  // Simple checkout
+  // Payment fields toggle
+  const paymentMethod = document.getElementById("payment-method");
+  const creditFields = document.getElementById("credit-fields");
+  const paypalFields = document.getElementById("paypal-fields");
+  const payoneerFields = document.getElementById("payoneer-fields");
+  const bankFields = document.getElementById("bank-fields");
+
+  function updatePaymentFields() {
+    creditFields.style.display = "none";
+    paypalFields.style.display = "none";
+    payoneerFields.style.display = "none";
+    bankFields.style.display = "none";
+
+    switch(paymentMethod.value) {
+      case "credit": creditFields.style.display = "block"; break;
+      case "paypal": paypalFields.style.display = "block"; break;
+      case "payoneer": payoneerFields.style.display = "block"; break;
+      case "bank": bankFields.style.display = "block"; break;
+    }
+  }
+
+  paymentMethod.addEventListener("change", updatePaymentFields);
+  updatePaymentFields(); // initial call
+
+  // Checkout submit
   document.getElementById("checkout-form").addEventListener("submit", function(e){
     e.preventDefault();
     localStorage.removeItem("cart"); // clear cart
