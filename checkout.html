@@ -3,260 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout | Gemmines2</title>
-<link rel="stylesheet" href="style.css">
+<title>Gemmines2 Checkout</title>
 <style>
 body {
-  background-color: #0d1117;
-  color: #e8f4fb;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #0b0f25;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
-
-.checkout-container {
-  max-width: 700px;
-  margin: 80px auto;
-  background: #111827;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #1a1f40;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
-
-h2, h3 {
-  color: #00e0ff;
-  text-shadow: 0 0 8px #00e0ff;
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
-
-h2 { text-align: center; margin-bottom: 25px; }
-h3 { margin-bottom: 15px; }
-
-label {
+form label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
+  margin-bottom: 5px;
+  font-weight: 500;
 }
-
-input, select, textarea {
+form input, form select, form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #00e0ff;
-  background: #0d1117;
-  color: #e8f4fb;
-}
-
-.section {
-  margin-bottom: 30px;
-}
-
-.payment-option {
-  background: #1a2234;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.payment-option input {
-  margin-right: 10px;
-}
-
-.payment-fields {
-  background: #0d1117;
-  border-left: 3px solid #00e0ff;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 8px;
-}
-
-button {
-  background: #00e0ff;
-  color: #0d1117;
+  border-radius: 6px;
   border: none;
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 10px;
+  box-sizing: border-box;
+}
+.payment-options label {
+  display: block;
+  margin-bottom: 10px;
   cursor: pointer;
-  transition: 0.3s;
 }
-
+.payment-fields {
+  margin-top: 15px;
+}
+.card-row, .address-row {
+  display: flex;
+  gap: 10px;
+}
+.card-row input, .address-row input {
+  flex: 1;
+}
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #0077ff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 button:hover {
-  background: #00bcd4;
-  box-shadow: 0 0 10px #00e0ff;
+  background-color: #005fcc;
 }
-
-@media (max-width: 600px) {
-  .checkout-container {
-    margin: 30px 15px;
-    padding: 20px;
+/* Responsive */
+@media(max-width:600px){
+  .card-row, .address-row {
+    flex-direction: column;
   }
 }
 </style>
 </head>
 <body>
-<div class="checkout-container">
-  <h2>Checkout</h2>
 
-  <!-- Customer Information -->
-  <div class="section">
-    <h3>Customer Details</h3>
-    <label>Full Name</label>
-    <input type="text" id="name" placeholder="Enter your full name">
+<div class="container">
+  <h1>Checkout</h1>
 
-    <label>Email Address</label>
-    <input type="email" id="email" placeholder="Enter your email">
+  <form id="checkout-form">
+    <!-- Shipping Details -->
+    <h2>Shipping Details</h2>
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" placeholder="John Doe" required>
 
-    <label>Phone Number</label>
-    <input type="tel" id="phone" placeholder="Enter your contact number">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="example@email.com" required>
 
-    <label>Address Line 1</label>
-    <input type="text" id="address1" placeholder="Street address, P.O. box, etc.">
+    <label for="contact">Contact Number</label>
+    <input type="text" id="contact" placeholder="+92 300 1234567" required>
 
-    <label>Address Line 2</label>
-    <input type="text" id="address2" placeholder="Apartment, suite, unit, building, etc.">
+    <label for="address1">Address Line 1</label>
+    <input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
 
-    <label>Country</label>
-    <input type="text" id="country" placeholder="Enter your country">
+    <label for="address2">Address Line 2</label>
+    <input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
 
-    <label>Postal Code</label>
-    <input type="text" id="postal" placeholder="Enter your postal code">
-  </div>
-
-  <!-- Shipping -->
-  <div class="section">
-    <h3>Shipping Options</h3>
-    <select id="shipping">
-      <option value="free">Free Shipping (7–10 Days)</option>
-      <option value="standard">Standard Courier (3–5 Days)</option>
-      <option value="express">Express DHL/FedEx (1–2 Days)</option>
-    </select>
-  </div>
-<!-- Payment Section -->
-<div class="checkout-section" id="payment-section">
-  <h2>Payment Method</h2>
-
-  <!-- Payment Options -->
-  <div class="payment-options">
-    <label>
-      <input type="radio" name="payment" value="card" checked> Credit/Debit Card
-    </label>
-    <label>
-      <input type="radio" name="payment" value="paypal"> PayPal
-    </label>
-    <label>
-      <input type="radio" name="payment" value="payoneer"> Payoneer
-    </label>
-    <label>
-      <input type="radio" name="payment" value="bank"> Bank Transfer
-    </label>
-  </div>
-
-  <!-- Card Details -->
-  <div class="payment-fields" id="card-fields">
-    <input type="text" placeholder="Cardholder Name">
-    <input type="text" placeholder="Card Number">
-    <div class="card-row">
-      <input type="text" placeholder="Expiry (MM/YY)">
-      <input type="text" placeholder="CVV">
+    <div class="address-row">
+      <input type="text" id="city" placeholder="City" required>
+      <input type="text" id="state" placeholder="State/Province" required>
     </div>
-  </div>
 
-  <!-- PayPal Email -->
-  <div class="payment-fields" id="paypal-fields" style="display:none;">
-    <input type="email" placeholder="PayPal Email">
-  </div>
+    <div class="address-row">
+      <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
+      <input type="text" id="country" placeholder="Country" required>
+    </div>
 
-  <!-- Payoneer Email -->
-  <div class="payment-fields" id="payoneer-fields" style="display:none;">
-    <input type="email" placeholder="Payoneer Email">
-  </div>
+    <!-- Payment Method -->
+    <h2>Payment Method</h2>
+    <div class="payment-options">
+      <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+      <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+      <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+      <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+    </div>
 
-  <!-- Bank Transfer Details -->
-  <div class="payment-fields" id="bank-fields" style="display:none;">
-    <input type="text" placeholder="Bank Name">
-    <input type="text" placeholder="Account Number">
-    <input type="text" placeholder="SWIFT / IBAN">
-  </div>
+    <!-- Card Fields -->
+    <div class="payment-fields" id="card-fields">
+      <input type="text" placeholder="Cardholder Name">
+      <input type="text" placeholder="Card Number">
+      <div class="card-row">
+        <input type="text" placeholder="Expiry MM/YY">
+        <input type="text" placeholder="CVV">
+      </div>
+    </div>
+
+    <!-- PayPal -->
+    <div class="payment-fields" id="paypal-fields" style="display:none;">
+      <input type="email" placeholder="PayPal Email">
+    </div>
+
+    <!-- Payoneer -->
+    <div class="payment-fields" id="payoneer-fields" style="display:none;">
+      <input type="email" placeholder="Payoneer Email">
+    </div>
+
+    <!-- Bank Transfer -->
+    <div class="payment-fields" id="bank-fields" style="display:none;">
+      <input type="text" placeholder="Bank Name">
+      <input type="text" placeholder="Account Number">
+      <input type="text" placeholder="SWIFT / IBAN">
+    </div>
+
+    <button type="submit">Place Order</button>
+  </form>
 </div>
 
-<!-- Styles -->
-<style>
-.checkout-section {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #f8f8f8;
-}
-
-.checkout-section h2 {
-  margin-bottom: 15px;
-}
-
-.payment-options label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.payment-fields {
-  margin-top: 15px;
-}
-
-.payment-fields input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.card-row {
-  display: flex;
-  gap: 10px;
-}
-
-.card-row input {
-  flex: 1;
-}
-
-/* Responsive */
-@media(max-width:600px) {
-  .card-row {
-    flex-direction: column;
-  }
-}
-</style>
-
-<!-- Script to toggle payment fields -->
 <script>
-const paymentRadios = document.querySelectorAll('input[name="payment"]');
+// Toggle payment fields
+const radios = document.querySelectorAll('input[name="payment"]');
 const cardFields = document.getElementById('card-fields');
 const paypalFields = document.getElementById('paypal-fields');
 const payoneerFields = document.getElementById('payoneer-fields');
 const bankFields = document.getElementById('bank-fields');
 
-paymentRadios.forEach(radio => {
+radios.forEach(radio => {
   radio.addEventListener('change', () => {
     cardFields.style.display = 'none';
     paypalFields.style.display = 'none';
     payoneerFields.style.display = 'none';
     bankFields.style.display = 'none';
-
-    if(radio.value === 'card') cardFields.style.display = 'block';
-    else if(radio.value === 'paypal') paypalFields.style.display = 'block';
-    else if(radio.value === 'payoneer') payoneerFields.style.display = 'block';
-    else if(radio.value === 'bank') bankFields.style.display = 'block';
+    if(radio.value==='card') cardFields.style.display='block';
+    if(radio.value==='paypal') paypalFields.style.display='block';
+    if(radio.value==='payoneer') payoneerFields.style.display='block';
+    if(radio.value==='bank') bankFields.style.display='block';
   });
+});
+
+// Place Order redirect
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  // You can add cart validation or payment processing here
+  window.location.href = "thankyou.html";
 });
 </script>
 
- 
-</script>
 </body>
 </html>
