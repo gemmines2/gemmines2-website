@@ -134,104 +134,129 @@ button:hover {
       <option value="express">Express DHL/FedEx (1–2 Days)</option>
     </select>
   </div>
+<!-- Payment Section -->
+<div class="checkout-section" id="payment-section">
+  <h2>Payment Method</h2>
 
-  <!-- Payment -->
-  <div class="section">
-    <h3>Payment Method</h3>
-
-    <!-- Bank Transfer -->
-    <div class="payment-option">
-      <input type="radio" name="payment" value="bank"> Bank Transfer
-      <div class="payment-fields" id="bankFields" style="display:none;">
-        <p><strong>Bank Name:</strong> Meezan Bank</p>
-        <p><strong>Branch:</strong> Karachi Main</p>
-        <p><strong>Branch Code:</strong> 0115</p>
-        <p><strong>Account Title:</strong> Gemmines2 Exports</p>
-        <p><strong>IBAN:</strong> PK12MEZN000000123456789</p>
-        <label>Your Reference / Transaction ID</label>
-        <input type="text" placeholder="Enter transaction ID or note">
-      </div>
-    </div>
-
-    <!-- PayPal -->
-    <div class="payment-option">
+  <!-- Payment Options -->
+  <div class="payment-options">
+    <label>
+      <input type="radio" name="payment" value="card" checked> Credit/Debit Card
+    </label>
+    <label>
       <input type="radio" name="payment" value="paypal"> PayPal
-      <div class="payment-fields" id="paypalFields" style="display:none;">
-        <label>PayPal Email</label>
-        <input type="email" placeholder="Enter your PayPal email">
-      </div>
-    </div>
-
-    <!-- Stripe / Credit Card -->
-    <div class="payment-option">
-      <input type="radio" name="payment" value="stripe"> Credit / Debit Card
-      <div class="payment-fields" id="cardFields" style="display:none;">
-        <label>Cardholder Name</label>
-        <input type="text" placeholder="Name on card">
-        <label>Card Number</label>
-        <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx">
-        <label>Expiry Date</label>
-        <input type="text" placeholder="MM/YY">
-        <label>CVV</label>
-        <input type="text" placeholder="3-digit code">
-      </div>
-    </div>
-
-    <!-- Payoneer -->
-    <div class="payment-option">
+    </label>
+    <label>
       <input type="radio" name="payment" value="payoneer"> Payoneer
-      <div class="payment-fields" id="payoneerFields" style="display:none;">
-        <label>Payoneer Email / Account ID</label>
-        <input type="text" placeholder="Enter your Payoneer email or ID">
-        <label>Reference / Transaction ID</label>
-        <input type="text" placeholder="Enter transaction ID or note">
-      </div>
-    </div>
+    </label>
+    <label>
+      <input type="radio" name="payment" value="bank"> Bank Transfer
+    </label>
+  </div>
 
-    <!-- Western Union / Ria -->
-    <div class="payment-option">
-      <input type="radio" name="payment" value="western"> Western Union / Ria
-      <div class="payment-fields" id="westernFields" style="display:none;">
-        <label>Sender Name</label>
-        <input type="text" placeholder="Enter sender full name">
-        <label>Reference / MTCN</label>
-        <input type="text" placeholder="Enter reference number">
-      </div>
-    </div>
-
-    <!-- COD -->
-    <div class="payment-option">
-      <input type="radio" name="payment" value="cod"> Cash on Delivery (COD)
+  <!-- Card Details -->
+  <div class="payment-fields" id="card-fields">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Card Number">
+    <div class="card-row">
+      <input type="text" placeholder="Expiry (MM/YY)">
+      <input type="text" placeholder="CVV">
     </div>
   </div>
 
-  <!-- Place Order -->
-  <button id="placeOrder">Place Order</button>
+  <!-- PayPal Email -->
+  <div class="payment-fields" id="paypal-fields" style="display:none;">
+    <input type="email" placeholder="PayPal Email">
+  </div>
+
+  <!-- Payoneer Email -->
+  <div class="payment-fields" id="payoneer-fields" style="display:none;">
+    <input type="email" placeholder="Payoneer Email">
+  </div>
+
+  <!-- Bank Transfer Details -->
+  <div class="payment-fields" id="bank-fields" style="display:none;">
+    <input type="text" placeholder="Bank Name">
+    <input type="text" placeholder="Account Number">
+    <input type="text" placeholder="SWIFT / IBAN">
+  </div>
 </div>
 
+<!-- Styles -->
+<style>
+.checkout-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f8f8f8;
+}
+
+.checkout-section h2 {
+  margin-bottom: 15px;
+}
+
+.payment-options label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.payment-fields {
+  margin-top: 15px;
+}
+
+.payment-fields input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.card-row {
+  display: flex;
+  gap: 10px;
+}
+
+.card-row input {
+  flex: 1;
+}
+
+/* Responsive */
+@media(max-width:600px) {
+  .card-row {
+    flex-direction: column;
+  }
+}
+</style>
+
+<!-- Script to toggle payment fields -->
 <script>
-// Toggle payment fields
 const paymentRadios = document.querySelectorAll('input[name="payment"]');
+const cardFields = document.getElementById('card-fields');
+const paypalFields = document.getElementById('paypal-fields');
+const payoneerFields = document.getElementById('payoneer-fields');
+const bankFields = document.getElementById('bank-fields');
 
 paymentRadios.forEach(radio => {
   radio.addEventListener('change', () => {
-    document.querySelectorAll('.payment-fields').forEach(div => div.style.display = 'none');
-    if(radio.checked){
-      const fields = radio.parentElement.querySelector('.payment-fields');
-      if(fields) fields.style.display = 'block';
-    }
+    cardFields.style.display = 'none';
+    paypalFields.style.display = 'none';
+    payoneerFields.style.display = 'none';
+    bankFields.style.display = 'none';
+
+    if(radio.value === 'card') cardFields.style.display = 'block';
+    else if(radio.value === 'paypal') paypalFields.style.display = 'block';
+    else if(radio.value === 'payoneer') payoneerFields.style.display = 'block';
+    else if(radio.value === 'bank') bankFields.style.display = 'block';
   });
 });
+</script>
 
-// Place order action
-document.getElementById('placeOrder').addEventListener('click', function() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  localStorage.setItem('latestOrder', JSON.stringify({ items: cart, total }));
-
-  // Redirect to thank you page
-  window.location.href = "ordersuccess.html";
-});
+ 
 </script>
 </body>
 </html>
