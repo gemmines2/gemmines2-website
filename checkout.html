@@ -4,193 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout | Gemmines2</title>
-<link rel="stylesheet" href="style.css">
 <style>
-  main {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    color: #e8f0ff;
-  }
-  h2 {
-    color: var(--turquoise);
-    font-family: "Playfair Display", serif;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-  }
-  .checkout-box {
-    background: var(--card);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  #cart-summary div { margin-bottom: 6px; font-size: 0.9rem; }
-  hr {
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin: 12px 0;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--turquoise);
-  }
-  input, textarea, select {
-    background: #0d1117;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    color: #e8f0ff;
-    padding: 8px;
-    font-size: 0.9rem;
-    resize: none;
-  }
-  .payment-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 12px;
-    margin-top: 8px;
-  }
-  .payment-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-  }
-  .payment-option input {
-    transform: scale(1.1);
-    accent-color: var(--accent1);
-  }
-  button.place-order {
-    background: linear-gradient(135deg, var(--accent1), var(--accent2));
-    border: none;
-    color: #000;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  button.place-order:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(0,255,208,0.2);
-  }
-  .payment-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 8px;
-  }
-  @media (max-width: 900px) {
-    main { grid-template-columns: 1fr; }
-    .payment-options { grid-template-columns: 1fr; }
-    .payment-grid { grid-template-columns: 1fr; }
-  }
+  body { background: #0d1117; color: #e8f0ff; font-family: Arial, sans-serif; padding: 20px; }
+  h2 { color: #00ffd0; }
+  input, textarea, select, button { display: block; width: 100%; margin: 8px 0; padding: 8px; border-radius: 6px; border: 1px solid #444; background: #111; color: #e8f0ff; }
+  button { cursor: pointer; background: #00ffd0; color: #000; font-weight: bold; border: none; }
+  #cart-summary div { margin-bottom: 6px; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="brand">
-    <div class="logo">GM</div>
-    <div>
-      <h1>Gemmines2</h1>
-      <small>Natural gemstones — cut, polished & tumbled</small>
-    </div>
-  </div>
-  <nav>
-    <a class="btn" href="index.html">Home</a>
-    <a class="btn" href="products.html">Products</a>
-    <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-    <a class="btn active" href="checkout.html">Checkout</a>
-  </nav>
-</header>
+<h2>Your Order</h2>
+<div id="cart-summary">Loading your order...</div>
 
-<main class="container">
+<h2>Delivery & Payment</h2>
+<form id="checkout-form">
+  <input name="name" type="text" placeholder="Full Name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <textarea name="address" rows="3" placeholder="Shipping Address" required></textarea>
+  <input name="country" type="text" placeholder="Country" required>
+  <select name="payment" required>
+    <option value="credit">Credit / Debit Card</option>
+    <option value="paypal">PayPal</option>
+    <option value="bank">Bank Transfer</option>
+  </select>
+  <button type="submit">Place Order</button>
+</form>
 
-  <!-- Left: Order Summary -->
-  <div class="checkout-box">
-    <h2>Your Order</h2>
-    <div id="cart-summary">Loading your order...</div>
-  </div>
-
-  <!-- Right: Delivery & Payment -->
-  <div class="checkout-box">
-    <h2>Delivery & Payment</h2>
-    <form id="checkout-form">
-      <label for="name">Full Name</label>
-      <input id="name" name="name" type="text" required>
-
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required>
-
-      <label for="address">Shipping Address</label>
-      <textarea id="address" name="address" rows="3" required></textarea>
-
-      <label for="country">Country</label>
-      <input id="country" name="country" type="text" required>
-
-      <hr>
-      <label>Payment Method</label>
-      <div class="payment-options">
-        <label class="payment-option"><input type="radio" name="payment" value="credit" checked> Credit / Debit Card 💳</label>
-        <label class="payment-option"><input type="radio" name="payment" value="stripe"> Stripe</label>
-        <label class="payment-option"><input type="radio" name="payment" value="paypal"> PayPal</label>
-        <label class="payment-option"><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-        <label class="payment-option"><input type="radio" name="payment" value="western"> Western Union</label>
-        <label class="payment-option"><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-      </div>
-
-      <!-- Payment Details Grid -->
-      <div id="payment-details" class="payment-grid">
-        <div>
-          <label for="card-number">Card Number</label>
-          <input id="card-number" name="card-number" type="text" placeholder="1234 5678 9012 3456">
-        </div>
-        <div>
-          <label for="expiry">Expiry</label>
-          <input id="expiry" name="expiry" type="text" placeholder="MM/YY">
-        </div>
-        <div>
-          <label for="cvv">CVV</label>
-          <input id="cvv" name="cvv" type="text" placeholder="123">
-        </div>
-        <div>
-          <label for="bank-account">Bank / IBAN</label>
-          <input id="bank-account" name="bank-account" type="text" placeholder="Your bank/IBAN">
-        </div>
-      </div>
-
-      <button type="submit" class="place-order">Place Order</button>
-    </form>
-  </div>
-
-</main>
-
-<footer>
-  <p>&copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
-    <a href="return.html">Return Policy</a></p>
-</footer>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
 <script>
-// Auto update year
-document.getElementById("year").textContent = new Date().getFullYear();
+  // Simple cart display
+  const cartSummary = document.getElementById("cart-summary");
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  if (!cart.length) {
+    cartSummary.innerHTML = "Your cart is empty.";
+  } else {
+    cartSummary.innerHTML = cart.map(item => `${item.name} x ${item.qty} — $${item.price * item.qty}`).join('<br>');
+  }
 
-// Redirect to thank you page
-document.getElementById("checkout-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  localStorage.removeItem("cart"); // clear cart storage
-  window.location.href = "thankyou.html";
-});
+  // Simple checkout
+  document.getElementById("checkout-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    localStorage.removeItem("cart"); // clear cart
+    window.location.href = "thankyou.html";
+  });
 </script>
 
 </body>
