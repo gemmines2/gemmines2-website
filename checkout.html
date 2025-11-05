@@ -1,196 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #e8f4fb;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Gemmines2</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  background-color: #0d1117;
+  color: #e8f4fb;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-    .checkout-container {
-      max-width: 700px;
-      margin: 80px auto;
-      background: #111827;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
-    }
+.checkout-container {
+  max-width: 700px;
+  margin: 80px auto;
+  background: #111827;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
+}
 
-    h2 {
-      text-align: center;
-      color: #00e0ff;
-      text-shadow: 0 0 8px #00e0ff;
-      margin-bottom: 25px;
-    }
+h2, h3 {
+  color: #00e0ff;
+  text-shadow: 0 0 8px #00e0ff;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
+h2 { text-align: center; margin-bottom: 25px; }
+h3 { margin-bottom: 15px; }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #00e0ff;
-      background: #0d1117;
-      color: #e8f4fb;
-    }
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
 
-    .section {
-      margin-bottom: 30px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #00e0ff;
+  background: #0d1117;
+  color: #e8f4fb;
+}
 
-    .payment-option {
-      background: #1a2234;
-      padding: 12px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
+.section {
+  margin-bottom: 30px;
+}
 
-    .payment-option input {
-      margin-right: 10px;
-    }
+.payment-option {
+  background: #1a2234;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-    .bank-details {
-      background: #0d1117;
-      border-left: 3px solid #00e0ff;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-    }
+.payment-option input {
+  margin-right: 10px;
+}
 
-    button {
-      background: #00e0ff;
-      color: #0d1117;
-      border: none;
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.payment-fields {
+  background: #0d1117;
+  border-left: 3px solid #00e0ff;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
 
-    button:hover {
-      background: #00bcd4;
-      box-shadow: 0 0 10px #00e0ff;
-    }
+button {
+  background: #00e0ff;
+  color: #0d1117;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    @media (max-width: 600px) {
-      .checkout-container {
-        margin: 30px 15px;
-        padding: 20px;
-      }
-    }
-  </style>
+button:hover {
+  background: #00bcd4;
+  box-shadow: 0 0 10px #00e0ff;
+}
+
+@media (max-width: 600px) {
+  .checkout-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="checkout-container">
-    <h2>Checkout</h2>
+<div class="checkout-container">
+  <h2>Checkout</h2>
 
-    <!-- Customer Information -->
-    <div class="section">
-      <h3>Customer Details</h3>
-      <label>Full Name</label>
-      <input type="text" id="name" placeholder="Enter your full name">
+  <!-- Customer Information -->
+  <div class="section">
+    <h3>Customer Details</h3>
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name">
 
-      <label>Email Address</label>
-      <input type="email" id="email" placeholder="Enter your email">
+    <label>Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email">
 
-      <label>Phone Number</label>
-      <input type="tel" id="phone" placeholder="Enter your contact number">
+    <label>Phone Number</label>
+    <input type="tel" id="phone" placeholder="Enter your contact number">
 
-      <label>Address Line 1</label>
-      <input type="text" id="address1" placeholder="Street address, P.O. box, etc.">
+    <label>Address Line 1</label>
+    <input type="text" id="address1" placeholder="Street address, P.O. box, etc.">
 
-      <label>Address Line 2</label>
-      <input type="text" id="address2" placeholder="Apartment, suite, unit, building, etc.">
+    <label>Address Line 2</label>
+    <input type="text" id="address2" placeholder="Apartment, suite, unit, building, etc.">
 
-      <label>Country</label>
-      <input type="text" id="country" placeholder="Enter your country">
+    <label>Country</label>
+    <input type="text" id="country" placeholder="Enter your country">
 
-      <label>Postal Code</label>
-      <input type="text" id="postal" placeholder="Enter your postal code">
-    </div>
-
-    <!-- Shipping -->
-    <div class="section">
-      <h3>Shipping Options</h3>
-      <select id="shipping">
-        <option value="free">Free Shipping (7–10 Days)</option>
-        <option value="standard">Standard Courier (3–5 Days)</option>
-        <option value="express">Express DHL/FedEx (1–2 Days)</option>
-      </select>
-    </div>
-
-    <!-- Payment -->
-    <div class="section">
-      <h3>Payment Method</h3>
-
-      <div class="payment-option">
-        <input type="radio" name="payment" value="bank" id="bank"> Bank Transfer
-        <div id="bankDetails" class="bank-details" style="display:none;">
-          <p><strong>Bank Name:</strong> Meezan Bank</p>
-          <p><strong>Branch:</strong> Karachi Main</p>
-          <p><strong>Branch Code:</strong> 0115</p>
-          <p><strong>Account Title:</strong> Gemmines2 Exports</p>
-          <p><strong>IBAN:</strong> PK12MEZN000000123456789</p>
-        </div>
-      </div>
-
-      <div class="payment-option">
-        <input type="radio" name="payment" value="paypal"> PayPal
-      </div>
-
-      <div class="payment-option">
-        <input type="radio" name="payment" value="stripe"> Stripe / Credit Card
-      </div>
-
-      <div class="payment-option">
-        <input type="radio" name="payment" value="western"> Western Union / Ria
-      </div>
-
-      <div class="payment-option">
-        <input type="radio" name="payment" value="cod"> Cash on Delivery (COD)
-      </div>
-    </div>
-
-    <!-- Submit -->
-    <button id="placeOrder">Place Order</button>
+    <label>Postal Code</label>
+    <input type="text" id="postal" placeholder="Enter your postal code">
   </div>
 
-  <script>
-    // Toggle bank details visibility
-    const paymentRadios = document.querySelectorAll('input[name="payment"]');
-    const bankDetails = document.getElementById('bankDetails');
+  <!-- Shipping -->
+  <div class="section">
+    <h3>Shipping Options</h3>
+    <select id="shipping">
+      <option value="free">Free Shipping (7–10 Days)</option>
+      <option value="standard">Standard Courier (3–5 Days)</option>
+      <option value="express">Express DHL/FedEx (1–2 Days)</option>
+    </select>
+  </div>
 
-    paymentRadios.forEach(radio => {
-      radio.addEventListener('change', () => {
-        bankDetails.style.display = (radio.value === 'bank' && radio.checked) ? 'block' : 'none';
-      });
-    });
-// When order is placed
-document.getElementById('place-order-btn').addEventListener('click', function() {
-  // Save cart/order to localStorage
+  <!-- Payment -->
+  <div class="section">
+    <h3>Payment Method</h3>
+
+    <!-- Bank Transfer -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="bank"> Bank Transfer
+      <div class="payment-fields" id="bankFields" style="display:none;">
+        <p><strong>Bank Name:</strong> Meezan Bank</p>
+        <p><strong>Branch:</strong> Karachi Main</p>
+        <p><strong>Branch Code:</strong> 0115</p>
+        <p><strong>Account Title:</strong> Gemmines2 Exports</p>
+        <p><strong>IBAN:</strong> PK12MEZN000000123456789</p>
+        <label>Your Reference / Transaction ID</label>
+        <input type="text" placeholder="Enter transaction ID or note">
+      </div>
+    </div>
+
+    <!-- PayPal -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="paypal"> PayPal
+      <div class="payment-fields" id="paypalFields" style="display:none;">
+        <label>PayPal Email</label>
+        <input type="email" placeholder="Enter your PayPal email">
+      </div>
+    </div>
+
+    <!-- Stripe / Credit Card -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="stripe"> Credit / Debit Card
+      <div class="payment-fields" id="cardFields" style="display:none;">
+        <label>Cardholder Name</label>
+        <input type="text" placeholder="Name on card">
+        <label>Card Number</label>
+        <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx">
+        <label>Expiry Date</label>
+        <input type="text" placeholder="MM/YY">
+        <label>CVV</label>
+        <input type="text" placeholder="3-digit code">
+      </div>
+    </div>
+
+    <!-- Payoneer -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="payoneer"> Payoneer
+      <div class="payment-fields" id="payoneerFields" style="display:none;">
+        <label>Payoneer Email / Account ID</label>
+        <input type="text" placeholder="Enter your Payoneer email or ID">
+        <label>Reference / Transaction ID</label>
+        <input type="text" placeholder="Enter transaction ID or note">
+      </div>
+    </div>
+
+    <!-- Western Union / Ria -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="western"> Western Union / Ria
+      <div class="payment-fields" id="westernFields" style="display:none;">
+        <label>Sender Name</label>
+        <input type="text" placeholder="Enter sender full name">
+        <label>Reference / MTCN</label>
+        <input type="text" placeholder="Enter reference number">
+      </div>
+    </div>
+
+    <!-- COD -->
+    <div class="payment-option">
+      <input type="radio" name="payment" value="cod"> Cash on Delivery (COD)
+    </div>
+  </div>
+
+  <!-- Place Order -->
+  <button id="placeOrder">Place Order</button>
+</div>
+
+<script>
+// Toggle payment fields
+const paymentRadios = document.querySelectorAll('input[name="payment"]');
+
+paymentRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.payment-fields').forEach(div => div.style.display = 'none');
+    if(radio.checked){
+      const fields = radio.parentElement.querySelector('.payment-fields');
+      if(fields) fields.style.display = 'block';
+    }
+  });
+});
+
+// Place order action
+document.getElementById('placeOrder').addEventListener('click', function() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   localStorage.setItem('latestOrder', JSON.stringify({ items: cart, total }));
 
-  // Redirect to the single Order Success page
+  // Redirect to thank you page
   window.location.href = "ordersuccess.html";
 });
-    
-  </script>
+</script>
 </body>
 </html>
