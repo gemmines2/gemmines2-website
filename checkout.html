@@ -195,6 +195,13 @@ document.getElementById('checkout-form').addEventListener('submit', function(e){
   // You can add cart validation or payment processing here
   window.location.href = "thankyou.html";
 });
+  <script>
+  document.getElementById('place-order').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Redirect to thankyou page
+    window.location.href = "thankyou.html";
+  });
+</script>
 </script>
 
 </body>
