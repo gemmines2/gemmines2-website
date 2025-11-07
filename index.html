@@ -153,5 +153,49 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923362149415"
+   target="_blank"
+   class="whatsapp-float"
+   aria-label="Chat on WhatsApp">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- WhatsApp Button Style -->
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
+</style>
+
+<!-- Font Awesome for WhatsApp icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
