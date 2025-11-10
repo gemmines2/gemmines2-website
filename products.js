@@ -1,5 +1,7 @@
 // products.js
-const PRODUCTS = [
+
+  },
+  {const PRODUCTS = [
   { id: 'aquamarine', name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 300.00, img: 'images/aquamarine.jpg' },
   { id: 'rhodolite', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 350.00, img: 'images/rhodolite.jpg' },
   { id: 'peridot', name: 'Peridot', desc: 'Natural green peridot — tumbled', price: 350.00, img: 'images/peridot.jpg' },
@@ -7,31 +9,13 @@ const PRODUCTS = [
   { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 150.00, img: 'images/green-jasper.jpg' },
   { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 300.00, img: 'images/hessonite.jpg' },
   { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 600.00, img: 'images/umbalite.jpg' },
-  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800, img: 'images/emerald.jpg' }
+  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800, img: 'images/emerald.jpg' },
+
+  // ✅ New gemstones you added
+  { id: 'opal', name: 'Natural Opal Gemstone', desc: 'Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.', price: 59.99, img: 'images/opal.jpg' },
+  { id: 'amethyst', name: 'Natural Amethyst Gemstone', desc: 'Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.', price: 45.99, img: 'images/amethyst.jpg' },
+  { id: 'garnet', name: 'Natural Garnet Gemstone', desc: 'Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.', price: 49.99, img: 'images/garnet.jpg' }
 ];
-const products = [
-  {
-    id: "opal",
-    name: "Natural Opal Gemstone",
-    description: "Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.",
-    price: 59.99,
-    image: "images/opal.jpg"
-  },
-  {
-    id: "amethyst",
-    name: "Natural Amethyst Gemstone",
-    description: "Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.",
-    price: 45.99,
-    image: "images/amethyst.jpg"
-  },
-  {
-    id: "emerald",
-    name: "Natural Emerald Gemstone",
-    description: "Rich green emerald, ethically sourced and expertly polished. Worldwide shipping available.",
-    price: 79.99,
-    image: "images/emerald.jpg"
-  },
-  {
     id: "garnet",
     name: "Natural Garnet Gemstone",
     description: "Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.",
