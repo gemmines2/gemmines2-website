@@ -9,7 +9,51 @@ const PRODUCTS = [
   { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 600.00, img: 'images/umbalite.jpg' },
   { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800, img: 'images/emerald.jpg' }
 ];
+const products = [
+  {
+    id: "opal",
+    name: "Natural Opal Gemstone",
+    description: "Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.",
+    price: 59.99,
+    image: "images/opal.jpg"
+  },
+  {
+    id: "amethyst",
+    name: "Natural Amethyst Gemstone",
+    description: "Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.",
+    price: 45.99,
+    image: "images/amethyst.jpg"
+  },
+  {
+    id: "emerald",
+    name: "Natural Emerald Gemstone",
+    description: "Rich green emerald, ethically sourced and expertly polished. Worldwide shipping available.",
+    price: 79.99,
+    image: "images/emerald.jpg"
+  },
+  {
+    id: "garnet",
+    name: "Natural Garnet Gemstone",
+    description: "Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.",
+    price: 49.99,
+    image: "images/garnet.jpg"
+  }
+];
 
+// Render products into the page
+const productList = document.getElementById("product-list");
+
+products.forEach(product => {
+  const card = document.createElement("div");
+  card.classList.add("product-card");
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <h3>${product.name}</h3>
+    <p>${product.description}</p>
+    <button class="buy" data-id="${product.id}">Buy Now - $${product.price}</button>
+  `;
+  productList.appendChild(card);
+});
 function renderProducts() {
   const container = document.getElementById('product-list');
   if (!container) return;
