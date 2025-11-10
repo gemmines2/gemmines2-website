@@ -8,7 +8,7 @@ const PRODUCTS = [
   { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 150.00, img: 'images/green-jasper.jpg' },
   { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 300.00, img: 'images/hessonite.jpg' },
   { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 600.00, img: 'images/umbalite.jpg' },
-  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800.00, img: 'images/emerald.jpg' },
+  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800.00, img: 'images/emeralds.jpg' },
 
   // Newly added gemstones
   { id: 'opal', name: 'Natural Opal Gemstone', desc: 'Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.', price: 59.99, img: 'images/opal.jpg' },
