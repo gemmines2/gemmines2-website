@@ -1,56 +1,176 @@
-// products.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Section title */
+    .section-title {
+      text-align: center;
+      color: var(--turquoise);
+      font-family: "Playfair Display", serif;
+      margin: 16px 0;
+      font-size: 1.3rem;
+    }
 
-const PRODUCTS = [
-  { id: 'aquamarine', name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 300.00, img: 'images/aquamarine.jpg' },
-  { id: 'rhodolite', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 350.00, img: 'images/rhodolite.jpg' },
-  { id: 'peridot', name: 'Peridot', desc: 'Natural green peridot — tumbled', price: 350.00, img: 'images/peridot.jpg' },
-  { id: 'lemon-quartz', name: 'Lemon Quartz', desc: 'Bright lemon quartz — polished crystal', price: 40.00, img: 'images/lemon-quartz.jpg' },
-  { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 150.00, img: 'images/green-jasper.jpg' },
-  { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 300.00, img: 'images/hessonite.jpg' },
-  { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 600.00, img: 'images/umbalitegarnet.jpg' },
- 
+    /* Product grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 6px;
+    }
 
-  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800.00, img: 'images/emeralds.jpg' },
+    /* Product card styling */
+    .product-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-  // Newly added gemstones
-  { id: 'opal', name: 'Natural Opal Gemstone', desc: 'Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.', price: 1500.00, img: 'images/opal.jpg' },
-  { id: 'amethyst', name: 'Natural Amethyst Gemstone', desc: 'Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.', price: 300.00, img: 'images/amethyst.jpg' },
-  { id: 'garnet', name: 'Natural Garnet Gemstone', desc: 'Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.', price: 49.99, img: 'images/garnet.jpg' }
-];
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
 
-function renderProducts() {
-  const container = document.getElementById('product-list');
-  if (!container) return;
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 0 auto 10px auto;
+      display: block;
+      background: #0a0f18;
+    }
 
-  container.innerHTML = '';
+    .product-card h3 {
+      margin: 4px 0;
+      color: var(--turquoise);
+      font-size: 0.9rem;
+    }
 
-  PRODUCTS.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <img src="${p.img}" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <div class="meta">
-        <div class="price">$${p.price.toFixed(2)}</div>
-      </div>
-      <button class="buy-btn" data-id="${p.id}">Buy Now</button>
-    `;
-    container.appendChild(card);
-  });
+    .product-card p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      min-height: 36px;
+    }
 
-  // Event listeners for Buy buttons
-  document.querySelectorAll('.buy-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const productId = e.target.dataset.id;
-      const product = PRODUCTS.find(p => p.id === productId);
-      if (product) {
-        addToCart(product, 1);
-        renderCartCount();
-        window.location.href = 'cart.html';
+    .product-card .price {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent1);
+    }
+
+    /* Buy button */
+    .buy-btn {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      border: none;
+      color: #000;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,255,208,0.18);
+    }
+
+    @media (max-width:900px){
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
       }
-    });
-  });
-}
+      .product-card img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">GM</div>
+      <div>
+        <h1>Gemmines2</h1>
+        <small>Natural gemstones — cut, polished & tumbled</small>
+      </div>
+    </div>
+    <nav>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn active" href="products.html">Products</a>
+      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-document.addEventListener('DOMContentLoaded', renderProducts);
+  <main class="container">
+    <h2 class="section-title">Our Gemstone Collection</h2>
+    <div class="products-grid" id="product-list"></div>
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
+      <a href="return.html">Return Policy</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // Display current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Render products dynamically
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      if (!container) return;
+      container.innerHTML = '';
+
+      PRODUCTS.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.desc}</p>
+          <div class="price">$${product.price.toFixed(2)}</div>
+          <button class="buy-btn" data-id="${product.id}">Buy Now</button>
+        `;
+        container.appendChild(card);
+      });
+
+      // Buy buttons
+      document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const id = e.target.dataset.id;
+          const product = PRODUCTS.find(p => p.id === id);
+          if (product) {
+            addToCart(product, 1);
+            renderCartCount();
+            window.location.href = 'cart.html';
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderProducts);
+  </script>
+</body>
+</html>
