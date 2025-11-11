@@ -65,14 +65,8 @@
       min-height: 36px;
     }
 
-    .product-card .price {
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--accent1);
-    }
-
     /* Buy button */
-    .buy-btn {
+    .buy {
       background: linear-gradient(135deg, var(--accent1), var(--accent2));
       border: none;
       color: #000;
@@ -85,7 +79,7 @@
       transition: transform .15s ease, box-shadow .15s ease;
     }
 
-    .buy-btn:hover {
+    .buy:hover {
       transform: scale(1.03);
       box-shadow: 0 4px 12px rgba(0,255,208,0.18);
     }
@@ -130,47 +124,26 @@
     </p>
   </footer>
 
-  <!-- Scripts -->
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
     // Display current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Render products dynamically
-    function renderProducts() {
-      const container = document.getElementById('product-list');
-      if (!container) return;
-      container.innerHTML = '';
-
-      PRODUCTS.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${product.img}" alt="${product.name}">
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <div class="price">$${product.price.toFixed(2)}</div>
-          <button class="buy-btn" data-id="${product.id}">Buy Now</button>
-        `;
-        container.appendChild(card);
-      });
-
-      // Buy buttons
-      document.querySelectorAll('.buy-btn').forEach(btn => {
-        btn.addEventListener('click', e => {
-          const id = e.target.dataset.id;
-          const product = PRODUCTS.find(p => p.id === id);
-          if (product) {
-            addToCart(product, 1);
+    // Wait until products are rendered
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.querySelectorAll(".buy").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            addToCart(id, 1);
             renderCartCount();
-            window.location.href = 'cart.html';
-          }
+            // Redirect to checkout page
+            window.location.href = "checkout.html";
+          });
         });
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', renderProducts);
+      }, 300);
+    });
   </script>
 </body>
 </html>
