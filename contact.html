@@ -137,16 +137,20 @@
     </form>
   </section>
 
-  <footer>
+  <footer style="background-color:#050a1a; color:#1de9b6; text-align:center; padding:20px 10px; font-family:Arial, sans-serif; font-size:14px;">
+  <p>
     © <span id="year"></span> Gemmines2. All rights reserved.
-    
-  <p style="text-align:center; padding:30px 10px; background-color:#050a1a; color:#1de9b6; font-family:Arial, sans-serif; font-size:14px;">
-    <a href="return.html" style="color: #1de9b6;">Return Policy</a> | 
-    <a href="shipping.html" style="color: #1de9b6;">Shipping Policy</a> | 
-    <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
   </p>
+  <p>
+    <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
+    <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
+    <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
+  </p>
+</footer>
 
-  </footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
