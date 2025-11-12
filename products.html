@@ -123,12 +123,20 @@
     <div class="products-grid" id="product-list"></div>
   </main>
 
-  <footer>
-    <p>
-      &copy; <span id="year"></span> Gemmines2. All Rights Reserved. |
-      <a href="return.html">Return Policy</a>
-    </p>
-  </footer>
+  <footer style="background-color:#050a1a; color:#1de9b6; text-align:center; padding:20px 10px; font-family:Arial, sans-serif; font-size:14px;">
+  <p>
+    © <span id="year"></span> Gemmines2. All rights reserved.
+  </p>
+  <p>
+    <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
+    <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
+    <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <!-- Scripts -->
   <script src="products.js"></script>
@@ -174,13 +182,7 @@
   </script>
 </body>
 </html>
-You can just copy all of this into products.html in your project.
 
-After that, we need to make sure products.js is intact, otherwise the product list won’t show.
-
-If you want, I can recreate products.js for you with all your Gemmines products so the page works perfectly again.
-
-Do you want me to do that next?
 
 
 
