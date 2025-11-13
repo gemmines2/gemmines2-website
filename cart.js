@@ -1,4 +1,4 @@
-// cart.js — Final Clean Version
+// cart.js — Final Clean Working Version
 
 // Load cart from localStorage or initialize as empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -7,11 +7,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 function addToCart(product, quantity = 1) {
   if (!product) return;
 
-  // Find if the product already exists in the cart
   const existing = cart.find(item => item.id === product.id);
-
   if (existing) {
-    existing.qty += quantity; // increase only once per click
+    existing.qty += quantity;
   } else {
     cart.push({ ...product, qty: quantity });
   }
