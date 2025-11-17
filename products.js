@@ -21,13 +21,21 @@ function renderProducts() {
   PRODUCTS.forEach(p => {
     const card = document.createElement('div');
     card.className = 'product-card';
+
     card.innerHTML = `
-      <img src="${p.img}" alt="${p.name}">
-      <h3>${p.name}</h3>
+      <a href="product.html?id=${p.id}">
+        <img src="${p.img}" alt="${p.name}">
+      </a>
+      <h3>
+        <a href="product.html?id=${p.id}" style="color: var(--turquoise); text-decoration:none;">
+          ${p.name}
+        </a>
+      </h3>
       <p>${p.desc}</p>
       <div class="price">$${p.price.toFixed(2)}</div>
       <button class="buy-btn" data-id="${p.id}">Buy Now</button>
     `;
+
     container.appendChild(card);
   });
 
