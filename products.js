@@ -13,7 +13,7 @@ const PRODUCTS = [
 
   { id: 'citrine', name: 'Natural Citrine', desc: 'Golden yellow natural citrine — polished gemstone.', price: 120.00, img: 'images/citrine.jpg' },
   { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 900.00, img: 'images/bluesapphire.jpg' }
-
+];
 function renderProducts() {
   const container = document.getElementById('product-list');
   if (!container) return;
