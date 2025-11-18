@@ -12,5 +12,45 @@ const PRODUCTS = [
   { id: 'garnet', name: 'Natural Garnet Gemstone', desc: 'Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.', price: 49.99, img: 'images/garnet.jpg' },
 
   { id: 'citrine', name: 'Natural Citrine', desc: 'Golden yellow natural citrine — polished gemstone.', price: 120.00, img: 'images/citrine.jpg' },
-  { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 300.00, img: 'images/bluesapphire.jpg' }
+  { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 900.00, img: 'images/bluesapphire.jpg' },
 ];
+function renderProducts() {
+  const container = document.getElementById('product-list');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  PRODUCTS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    card.innerHTML = `
+      <a href="product.html?id=${p.id}">
+        <img src="${p.img}" alt="${p.name}">
+      </a>
+      <h3>
+        <a href="product.html?id=${p.id}" style="color: var(--turquoise); text-decoration:none;">
+          ${p.name}
+        </a>
+      </h3>
+      <p>${p.desc}</p>
+      <div class="price">$${p.price.toFixed(2)}</div>
+      <button class="buy-btn" data-id="${p.id}">Buy Now</button>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Event listeners for Buy buttons
+  document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const productId = e.target.dataset.id;
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (product) {
+        addToCart(product, 1);
+        renderCartCount();
+        window.location.href = 'cart.html';
+      }
+    });
+  });
+}
