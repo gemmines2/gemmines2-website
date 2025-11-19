@@ -11,7 +11,7 @@ const PRODUCTS = [
   { id: 'amethyst', name: 'Natural Amethyst Gemstone', desc: 'Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.', price: 300.00, img: 'images/amethyst.jpg' },
   { id: 'garnet', name: 'Natural Garnet Gemstone', desc: 'Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.', price: 100.00, img: 'images/garnet.jpg' },
   { id: 'citrine', name: 'Natural Citrine', desc: 'Golden yellow natural citrine — polished gemstone.', price: 120.00, img: 'images/citrine.jpg' },
-  { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 900.00, img: 'images/bluesapphire.jpg' }
+  { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 300.00, img: 'images/bluesapphire.jpg' }
 ];
 
 function renderProducts() {
