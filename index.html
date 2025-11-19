@@ -1,165 +1,288 @@
-<!DOCTYPE html>
+Indexs  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gemmines2 | Authentic Natural Gemstones</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome -->
+  <!-- ✅ Font Awesome added correctly -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papNM6mV5ZB+o5nDscfYJgV3pXzR3F8cxqzFv8p7GZfVcmnHVEH1kW8cTk0lgnQ+8mNBr66B/2yyU7QL+AtS3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+   
+
   <style>
-    /* --- Existing header/nav styles kept intact --- */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      background: #0b1630;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    :root {
+      --turquoise: #00ffe0;
+      --muted: #b7c7d3;
+      --accent2: #c9a646;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+
+    /* === Homepage Styling === */
+    .featured {
+      text-align: center;
+      padding: 40px 20px 20px;
+      animation: fadeIn 1.2s ease;
     }
-    .logo {
-      background: linear-gradient(135deg, #00ffd0, #ffd700);
-      color: #000;
-      padding: 8px 12px;
-      border-radius: 12px;
-      font-weight: 800;
-    }
-    header h1 {
-      color: #ffd700;
+    .featured h2 {
       font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
+      color: var(--accent2);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
-    header small {
-      display: block;
-      color: #a9b3c1;
-      font-size: 0.85rem;
+    .home-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      justify-content: center;
     }
-    nav a.btn {
-      text-decoration: none;
-      color: #e0e4f4;
-      padding: 8px 12px;
+    .home-products .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .home-products .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 18px rgba(0, 255, 208, 0.25);
+    }
+    .home-products img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
       border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      margin-left: 8px;
-      transition: all 0.18s ease;
+      margin-bottom: 10px;
     }
-    nav a.btn:hover {
-      background: linear-gradient(90deg, #00ffd0, #ffd700);
-      color: #000;
-      transform: scale(1.03);
+    .home-products h3 {
+      color: var(--turquoise);
+      font-size: 0.95rem;
+      margin: 0;
     }
 
-    /* --- Mobile Hamburger Addition --- */
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #00ffe0;
+    /* === About Section === */
+    .about {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 1.4s ease;
+    }
+    .about h2 {
+      font-family: "Playfair Display", serif;
+      color: var(--accent2);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .about p {
+      color: var(--turquoise);
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    @media(max-width: 768px){
-      nav {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        background-color: #060b1a;
-        padding: 10px;
-        text-align: center;
-      }
-      nav.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Keep all your homepage styling --- */
-    .featured { text-align:center; padding:40px 20px 20px; animation: fadeIn 1.2s ease;}
-    .home-products { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; justify-content:center; }
-    .home-products .card { background:#0b1630; border-radius:12px; padding:14px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .home-products .card:hover { transform:translateY(-5px); box-shadow:0 0 18px rgba(0,255,208,0.25); }
-    .home-products img { width:200px; height:200px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
-    .home-products h3 { color:#5fffd7; font-size:0.95rem; margin:0; }
-
-    .about { text-align:center; padding:40px 20px; max-width:900px; margin:0 auto; animation: fadeIn 1.4s ease; }
-    .about h2 { font-family:"Playfair Display", serif; color:#ffd700; font-size:1.4rem; margin-bottom:10px; }
-    .about p { color:#00e0ff; font-size:0.9rem; line-height:1.6; }
-
-    @keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
-    @media(max-width:768px){
-      .featured h2, .about h2 { font-size:1.2rem; }
-      .about p { font-size:0.85rem; }
-      .home-products img { width:160px; height:160px; }
+    @media (max-width: 768px) {
+      .featured h2, .about h2 { font-size: 1.2rem; }
+      .about p { font-size: 0.85rem; }
+      .home-products img { width: 160px; height: 160px; }
     }
   </style>
 </head>
-<body>
+<body><header>
+  <div class="brand">
+    <span class="logo">Gemmines2</span>
+    <h1>Authentic Gems & Branded Fashion</h1>
+  </div>
 
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
-    </div>
+  <nav id="nav-menu">
+    <a href="index.html" class="btn">Home</a>
+    <a href="products.html" class="btn">Products</a>
+    <a href="cart.html" class="btn">Cart</a>
+    <a href="contact.html" class="btn">Contact</a>
+  </nav>
 
-    <!-- Mobile Hamburger -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <!-- Navigation -->
-    <nav id="nav-menu">
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
-      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </header>
-
+  <!-- Mobile button -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+</header>
+ 
   <main class="container">
+    <!-- Featured Gems Section -->
     <section class="featured">
       <h2>Featured Gemstones</h2>
       <div class="home-products">
         <div class="card">
-          <img src="images/umbalitegarnet.jpg" alt="Umbalite Garnet">
+          <img src="images/umbalitegarnet.jpg" alt="Umbalite Garnet" />
           <h3>Umbalite Garnet</h3>
         </div>
         <div class="card">
-          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz Topaz">
+          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz Topaz" />
           <h3>Lemon Quartz Topaz</h3>
         </div>
       </div>
     </section>
 
-    <section class="about">
-      <h2 style="color:#00e0ff; text-shadow:0 0 6px #00e0ff;">About Gemmines2</h2>
-      <p style="color:#00e0ff;">Gemmines2, based in Pakistan, is your trusted source for authentic, unheated, and natural gemstones — carefully cut, polished, or in their raw and river-tumbled forms.</p>
-    </section>
+    <!-- About Section -->
+<section class="about">
+  <h2 style="color:#00e0ff; text-shadow: 0 0 6px #00e0ff;">About Gemmines2</h2>
+  <p style="color:#00e0ff; line-height:1.6;">
+    <strong>Gemmines2</strong>, based in Pakistan, is your trusted source for
+    <strong>authentic, unheated, and natural gemstones</strong> — carefully
+    cut, polished, or in their raw and river-tumbled forms. Our collection
+    includes birthstones, rare gems, and minerals sourced from
+    <strong>Pakistan and around the world</strong>.
+  </p>
+  <p style="color:#00e0ff; line-height:1.6;">
+    We also specialize in crafting <strong>custom-designed jewelry</strong> —
+    from elegant rings and pendants to bracelets and earrings — in silver,
+    gold, or rhodium-plated finishes, designed to reflect your unique taste.
+  </p>
+  <p style="color:#00e0ff; line-height:1.6;">
+    Whether you're looking for a <strong>wedding gift</strong>, a meaningful
+    <strong>anniversary keepsake</strong>, or a personal <strong>birthday
+    gemstone</strong>, Gemmines2 helps you give something truly precious.
+    <br /><strong>Worldwide shipping available.</strong>
+  </p>
+</section>
   </main>
 
-  <!-- Footer kept intact -->
   <footer>
-    <p>© 2025 Gemmines2. All Rights Reserved.</p>
+    
+<footer style="background-color:#060b1a; color:#b7c7d3; padding:40px 20px; font-family:Arial, sans-serif;">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:30px; max-width:1100px; margin:0 auto;">
+
+    <!-- Information -->
+    <div>
+      <h3 style="color:#00ffe0; margin-bottom:10px;">Information</h3>
+      <ul style="list-style:none; padding:0; line-height:1.8;">
+        <li><a href="faqs.html" style="color:#b7c7d3; text-decoration:none;">FAQs</a></li>
+        <li><a href="privacy.html" style="color:#b7c7d3; text-decoration:none;">Privacy Policy</a></li>
+        <li><a href="exchange.html" style="color:#b7c7d3; text-decoration:none;">Exchange Policy</a></li>
+        <li><a href="shipping.html" style="color:#b7c7d3; text-decoration:none;">Shipping Policy</a></li>
+        <li><a href="international.html" style="color:#b7c7d3; text-decoration:none;">International Policy</a></li>
+        <li><a href="store-locator.html" style="color:#b7c7d3; text-decoration:none;">Store Locator</a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h3 style="color:#00ffe0; margin-bottom:10px;">Company</h3>
+      <ul style="list-style:none; padding:0; line-height:1.8;">
+        <li><a href="about.html" style="color:#b7c7d3; text-decoration:none;">About Us</a></li>
+        <li><a href="contact.html" style="color:#b7c7d3; text-decoration:none;">Contact Us</a></li>
+        <li><a href="lookbook.html" style="color:#b7c7d3; text-decoration:none;">Look Book</a></li>
+        <li><a href="help.html" style="color:#b7c7d3; text-decoration:none;">Help</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 style="color:#00ffe0; margin-bottom:10px;">Contact</h3>
+      <p style="margin:6px 0;">📞 <a href="tel:+923345955892" style="color:#b7c7d3; text-decoration:none;">+92 3345955892</a></p>
+      <p style="margin:6px 0;">📞 <a href="tel:+923362149415" style="color:#b7c7d3; text-decoration:none;">+92 336 2149415</a></p>
+      <p style="margin:6px 0;">📧 <a href="mailto:customercare@gemmines2.com" style="color:#b7c7d3; text-decoration:none;">gemmines2@gmail.com</a></p>
+      <p style="margin:6px 0;">🕓 Mon–Sat, 9:00 AM – 10:00 PM (PKT)</p>
+    </div>
+
+    <!-- Connect -->
+    <div>
+      <h3 style="color:#00ffe0; margin-bottom:10px;">Connect</h3>
+      <p style="display:flex; gap:10px;">
+        <a href="https://facebook.com/gemmines2" target="_blank" style="color:#00ffe0; font-size:20px;"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/gemmines2" target="_blank" style="color:#00ffe0; font-size:20px;"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923362149415" target="_blank" style="color:#00ffe0; font-size:20px;"><i class="fab fa-whatsapp"></i></a>
+      </p>
+    </div>
+  </div>
+
+  <hr style="border-color:#1a223d; margin:30px 0;">
+  <p style="text-align:center; font-size:0.9rem;">© 2025 Gemmines2. All Rights Reserved.</p>
+</footer>
   </footer>
 
-  <!-- Hamburger Toggle JS -->
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/923362149415"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-    menuToggle.addEventListener("click", () => {
+  <!-- WhatsApp Button Style -->
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform 0.2s ease-in-out;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+    }
+  </style>
+  <footer>
+  
+  <p>
+    <a href="return.html" style="color: #1de9b6;">Return Policy</a> | 
+    <a href="shipping.html" style="color: #1de9b6;">Shipping Policy</a> | 
+    <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
+  </p>
+</footer>
+
+<style>
+footer {
+  background-color: #050a1a;
+  color: #e0e4f4;
+  text-align: center;
+  padding: 20px 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+footer a {
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  footer p {
+    line-height: 2;
+  }
+}
+</style>
+  <script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
       navMenu.classList.toggle("active");
     });
-  </script>
-
+  }
+</script>
 </body>
 </html>
