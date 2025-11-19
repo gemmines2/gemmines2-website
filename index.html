@@ -281,5 +281,56 @@ footer a:hover {
   }
 }
 </style>
+  <script>
+// Mobile Hamburger Menu Toggle
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
+</script>
+
+<style>
+/* Mobile Menu Fix */
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+/* Hide menu on mobile by default */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #060b1a;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Show menu when active */
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #00ffe0;
+  }
+}
+
+/* Show menu normally on desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  nav {
+    display: flex !important;
+  }
+}
+</style>
 </body>
 </html>
