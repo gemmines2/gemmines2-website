@@ -446,4 +446,42 @@ input::placeholder, textarea::placeholder {
     justify-content: space-between;
     align-items: center;
   }
+}/* === Mobile Navigation === */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--accent2);
+}
+
+/* Show full menu on desktop */
+nav#nav-menu {
+  display: flex;
+  gap: 12px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav#nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 15px;
+    top: 70px;
+    background: var(--card);
+    padding: 15px;
+    border-radius: var(--radius);
+    width: 200px;
+    text-align: right;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  nav#nav-menu.active {
+    display: flex;
+  }
 }
