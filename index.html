@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gemmines2 | Authentic Natural Gemstones</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-papNM6mV5ZB+o5nDscfYJgV3pXzR3F8cxqzFv8p7GZfVcmnHVEH1kW8cTk0lgnQ+8mNBr66B/2yyU7QL+AtS3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+        integrity="sha512-papNM6mV5ZB+o5nDscfYJgV3pXzR3F8cxqzFv8p7GZfVcmnHVEH1kW8cTk0lgnQ+8mNBr66B/2yyU7QL+AtS3g==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --turquoise: #00ffe0;
       --muted: #b7c7d3;
       --accent2: #c9a646;
-      --card: #0b1126;
-      --radius: 10px;
     }
 
     /* === Homepage Styling === */
@@ -85,135 +83,4 @@
 
     @media (max-width: 768px) {
       .featured h2, .about h2 { font-size: 1.2rem; }
-      .about p { font-size: 0.85rem; }
-      .home-products img { width: 160px; height: 160px; }
-    }
-
-    /* Mobile Hamburger Menu */
-    nav {
-      display: flex;
-      gap: 10px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #060b1a;
-        padding: 15px 0;
-        text-align: center;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        z-index: 999;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #00ffe0;
-      }
-    }
-
-    @media (min-width: 769px) {
-      .menu-toggle { display: none; }
-      nav { display: flex !important; position: static; }
-    }
-
-    /* Footer */
-    footer {
-      background-color: #050a1a;
-      color: #e0e4f4;
-      text-align: center;
-      padding: 20px 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-    }
-    footer a {
-      text-decoration: none;
-      margin: 0 8px;
-      color: #1de9b6;
-    }
-    footer a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
-    </div>
-
-    <!-- Hamburger Icon -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <!-- Navigation -->
-    <nav id="nav-menu">
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
-      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <!-- Featured Gems -->
-    <section class="featured">
-      <h2>Featured Gemstones</h2>
-      <div class="home-products">
-        <div class="card">
-          <img src="images/umbalitegarnet.jpg" alt="Umbalite Garnet" />
-          <h3>Umbalite Garnet</h3>
-        </div>
-        <div class="card">
-          <img src="images/lemon-quartz.jpg" alt="Lemon Quartz Topaz" />
-          <h3>Lemon Quartz Topaz</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="about">
-      <h2 style="color:#00e0ff; text-shadow: 0 0 6px #00e0ff;">About Gemmines2</h2>
-      <p><strong>Gemmines2</strong>, based in Pakistan, is your trusted source for <strong>authentic, unheated, and natural gemstones</strong> — cut, polished, or raw. Worldwide shipping available.</p>
-      <p>We specialize in <strong>custom-designed jewelry</strong> in silver, gold, or rhodium-plated finishes, designed to reflect your unique taste.</p>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>
-      <a href="return.html">Return Policy</a> |
-      <a href="shipping.html">Shipping Policy</a> |
-      <a href="contact.html">Contact Us</a>
-    </p>
-    <p>© 2025 Gemmines2. All Rights Reserved.</p>
-  </footer>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-    });
-  </script>
-</body>
-</html>
+      .about p
