@@ -4,77 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #0a0a0a;
-    color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #111;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #000;
-  }
-  h1 {
-    text-align: center;
-    color: #00bfff;
-  }
-  label {
-    display: block;
-    margin-bottom: 5px;
-    margin-top: 15px;
-    color: #f0f0f0;
-  }
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-  }
-  textarea {
-    resize: vertical;
-  }
-  button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #00bfff;
-    color: #0a0a0a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-  }
-  button:hover {
-    background-color: #009acd;
-  }
-  .success-message {
-    margin-top: 20px;
-    color: #00ff00;
-    text-align: center;
-  }
-  .error-message {
-    margin-top: 20px;
-    color: #ff3333;
-    text-align: center;
-  }
+  body { font-family: Arial, sans-serif; background-color: #0a0a0a; color: #f0f0f0; margin: 0; padding: 0; }
+  .container { max-width: 600px; margin: 50px auto; padding: 30px; background-color: #111; border-radius: 10px; box-shadow: 0 0 20px #000; }
+  h1 { text-align: center; color: #00bfff; }
+  label { display: block; margin-bottom: 5px; margin-top: 15px; color: #f0f0f0; }
+  input[type="text"], input[type="email"], textarea { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #333; background-color: #1a1a1a; color: #f0f0f0; }
+  textarea { resize: vertical; }
+  button { margin-top: 20px; padding: 12px 20px; background-color: #00bfff; color: #0a0a0a; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+  button:hover { background-color: #009acd; }
+  .success-message { margin-top: 20px; color: #00ff00; text-align: center; }
+  .error-message { margin-top: 20px; color: #ff3333; text-align: center; }
 </style>
 </head>
 <body>
 
 <div class="container">
   <h1>Contact Us</h1>
-  <form id="contact-form">
+  <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST">
     <label for="name">Full Name *</label>
     <input type="text" id="name" name="name" required>
 
@@ -97,25 +44,30 @@
 </div>
 
 <script>
-  (function(){
-    emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS User ID
-  })();
-
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(function() {
-        document.getElementById('success-message').innerText = "Message sent successfully!";
-        document.getElementById('error-message').innerText = "";
-        form.reset();
-      }, function(error) {
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById('success-message').innerText = "Message sent successfully!";
+            document.getElementById('error-message').innerText = "";
+            form.reset();
+        } else {
+            response.json().then(data => {
+                document.getElementById('error-message').innerText = "Oops! Something went wrong.";
+                document.getElementById('success-message').innerText = "";
+            })
+        }
+    }).catch(error => {
         document.getElementById('error-message').innerText = "Oops! Something went wrong.";
         document.getElementById('success-message').innerText = "";
-        console.log('FAILED...', error);
-      });
-  });
+    });
+});
 </script>
 
 </body>
