@@ -3,157 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Gemmines2</title>
+  <title>Contact Us | Gemmines2</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background: linear-gradient(180deg, #071428, #02060a);
-      color: #e8f4fb;
-      font-family: 'Inter', sans-serif;
+      background-color: #050a1a;
+      color: #e0e4f4;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
     }
-    header {
-      text-align: center;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(0,224,255,0.4);
-    }
-    header h1 {
-      color: #00e0ff;
-      font-family: 'Playfair Display', serif;
-      text-shadow: 0 0 6px #00e0ff;
-    }
-    nav a {
-      color: #e8f4fb;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #00e0ff;
-      text-shadow: 0 0 6px #00e0ff;
-    }
     .contact-container {
-      max-width: 850px;
-      margin: 60px auto;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(0,224,255,0.4);
-      border-radius: 12px;
+      max-width: 600px;
+      margin: 50px auto;
       padding: 30px;
-      box-shadow: 0 0 24px rgba(0,224,255,0.1);
-    }
-    .contact-container h2 {
-      text-align: center;
-      color: #00e0ff;
-      margin-bottom: 25px;
-      font-family: 'Playfair Display', serif;
-    }
-    .contact-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .contact-form textarea {
-      grid-column: span 2;
-      min-height: 130px;
-      resize: none;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      background: transparent;
-      border: 1px solid rgba(0,224,255,0.4);
+      background-color: #0a1430;
       border-radius: 10px;
-      padding: 12px;
-      color: #fff;
-      font-size: 0.95rem;
-      transition: border 0.3s;
+      box-shadow: 0 0 25px rgba(0,255,255,0.1);
     }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #00e0ff;
-      box-shadow: 0 0 8px rgba(0,224,255,0.5);
+    h2 {
+      text-align: center;
+      color: #1de9b6;
     }
-    .contact-form button {
-      grid-column: span 2;
-      background: linear-gradient(90deg, #00e0ff, #00bfff);
-      color: #071428;
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #10182b;
+      color: white;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #1de9b6;
       border: none;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: 0.3s;
+      border-radius: 5px;
     }
-    .contact-form button:hover {
-      box-shadow: 0 0 16px rgba(0,224,255,0.6);
-      transform: translateY(-2px);
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 1px solid rgba(0,224,255,0.4);
-      color: #9fb7d6;
-    }
-    @media (max-width: 600px) {
-      .contact-form {
-        grid-template-columns: 1fr;
-      }
-      .contact-form button {
-        grid-column: span 1;
-      }
+    button:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Gemmines2</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Products</a> |
-      <a href="checkout.html">Checkout</a> |
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
-  </header>
 
-  <section class="contact-container">
+  <div class="contact-container">
     <h2>Contact Us</h2>
-<div style="text-align:center; margin-bottom:25px; color:#9fb7d6;">
-  <p>📞 <strong>Phone:</strong> <a href="tel:+923362149415" style="color:#00e0ff; text-decoration:none;">+92 336 2149415</a></p>
-  <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/923362149415" target="_blank" style="color:#00e0ff; text-decoration:none;">Chat with us on WhatsApp</a></p>
-  <p>✉️ <strong>Email:</strong> <span style="color:#999;">(to be updated)</span></p>
-  <p>📍 <strong>Location:</strong> Islambad, Pakistan (Online Store Only)</p>
-</div>
-    <form class="contact-form">
-      <input type="text" name="firstName" placeholder="First Name" required>
-      <input type="text" name="lastName" placeholder="Last Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="tel" name="phone" placeholder="Phone (Optional)">
-      <textarea name="message" placeholder="Your Message" required></textarea>
+    <p style="text-align: center;">Have questions? Send us a message and we’ll reply shortly.</p>
+
+    <form action="https://formspree.io/f/mnnjzvgo" method="POST">
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Your Email</label>
+      <input type="email" name="email" required>
+
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+
       <button type="submit">Send Message</button>
     </form>
-  </section>
+  </div>
 
-  <footer style="background-color:#050a1a; color:#1de9b6; text-align:center; padding:20px 10px; font-family:Arial, sans-serif; font-size:14px;">
-  <p>
-    © <span id="year"></span> Gemmines2. All rights reserved.
-  </p>
-  <p>
-    <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
-    <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
-    <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
-  </p>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
