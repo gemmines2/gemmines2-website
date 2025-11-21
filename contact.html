@@ -1,115 +1,123 @@
-<!-- Font Awesome Icons (Add only once in <head> of your HTML) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<div class="contact-section">
-  <h2>Contact Us</h2>
-  <p>We’re here to assist you with orders, gemstone authenticity, shipping, or any questions.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Gemmines2</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #050a1a;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Contact Info with Animated Icons -->
-  <div class="contact-info">
-    <p>
-      <i class="fas fa-envelope email-icon"></i>
-      <a href="mailto:yousefzubair@gmail.com">yousefzubair@gmail.com</a>
-    </p>
-    
-    <p>
-      <i class="fab fa-whatsapp whatsapp-icon"></i>
-      <a href="https://wa.me/9233621419415" target="_blank">+92 336 21419415</a>
-    </p>
-    
-    <p>
-      <i class="fab fa-whatsapp whatsapp-icon"></i>
-      <a href="https://wa.me/923345955892" target="_blank">+92 334 5955892</a>
-    </p>
+    .contact-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 25px;
+      background-color: #0a1430;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,255,255,0.1);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      color: #1de9b6;
+      margin-bottom: 15px;
+    }
+
+    .contact-section p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-info a {
+      color: #00d1ff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .email-icon, .whatsapp-icon {
+      font-size: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      background: #1e2a3a;
+      color: white;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      background: linear-gradient(90deg, #1de9b6, #f9d423);
+      color: black;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .contact-form button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>We’re here to assist you with orders, gemstone authenticity, shipping, or any questions.</p>
+
+    <!-- Contact Info with Animated Icons -->
+    <div class="contact-info">
+      <p><i class="fas fa-envelope email-icon"></i><a href="mailto:yousefzubair03@gmail.com">yousefzubair03@gmail.com</a></p>
+      <p><i class="fab fa-whatsapp whatsapp-icon"></i><a href="https://wa.me/9233621419415" target="_blank">+92 336 21419415</a></p>
+      <p><i class="fab fa-whatsapp whatsapp-icon"></i><a href="https://wa.me/923345955892" target="_blank">+92 334 5955892</a></p>
+    </div>
+
+    <!-- Working Contact Form with Formspree -->
+    <form action="https://formspree.io/f/mgebjvdo" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone Number (Optional)">
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
 
-  <!-- Working Contact Form with Formspree -->
-  <form action="https://formspree.io/f/xyzabc123" method="POST" class="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="tel" name="phone" placeholder="Your Phone Number (Optional)">
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</div>
-
-
-<style>
-.contact-section {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-}
-
-.contact-section h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #1de9b6;
-}
-
-.contact-info {
-  margin-bottom: 15px;
-  background: #0a1430;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-}
-
-.contact-info p {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-.contact-info a {
-  color: #00d1ff;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-.email-icon, .whatsapp-icon {
-  margin-right: 10px;
-  font-size: 20px;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
-}
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 5px;
-  background: #1e2a3a;
-  color: white;
-}
-
-.contact-form textarea {
-  min-height: 120px;
-}
-
-.contact-form button {
-  background: linear-gradient(90deg, #1de9b6, #f9d423);
-  color: black;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.contact-form button:hover {
-  opacity: 0.9;
-}
-</style>
+</body>
+</html>
