@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -57,13 +58,23 @@
   button:hover {
     background-color: #009acd;
   }
+  .success-message {
+    margin-top: 20px;
+    color: #00ff00;
+    text-align: center;
+  }
+  .error-message {
+    margin-top: 20px;
+    color: #ff3333;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
   <h1>Contact Us</h1>
-  <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+  <form id="contact-form">
     <label for="name">Full Name *</label>
     <input type="text" id="name" name="name" required>
 
@@ -80,8 +91,32 @@
     <textarea id="message" name="message" rows="4"></textarea>
 
     <button type="submit">Send</button>
+    <div class="success-message" id="success-message"></div>
+    <div class="error-message" id="error-message"></div>
   </form>
 </div>
+
+<script>
+  (function(){
+    emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS User ID
+  })();
+
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function() {
+        document.getElementById('success-message').innerText = "Message sent successfully!";
+        document.getElementById('error-message').innerText = "";
+        form.reset();
+      }, function(error) {
+        document.getElementById('error-message').innerText = "Oops! Something went wrong.";
+        document.getElementById('success-message').innerText = "";
+        console.log('FAILED...', error);
+      });
+  });
+</script>
 
 </body>
 </html>
