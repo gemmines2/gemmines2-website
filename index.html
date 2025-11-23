@@ -44,12 +44,14 @@
       color: var(--accent1);
     }
     nav a {
-      color: var(--turquoise);
+      color: var(--turquoise); /* All header links turquoise now */
       text-decoration: none;
       margin-left: 20px;
       font-weight: bold;
     }
-    nav a:hover, nav a.active { color: var(--accent2); }
+    nav a:hover, nav a.active {
+      color: var(--accent2);
+    }
 
     /* Hero Section */
     .hero {
@@ -129,6 +131,7 @@
     .about h2 { font-family: "Playfair Display", serif; color: var(--accent2); font-size: 1.4rem; margin-bottom: 10px; }
     .about p { color: var(--turquoise); font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
 
+    /* Footer */
     footer {
       background-color: #050a1a;
       color: #e0e4f4;
@@ -137,7 +140,11 @@
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
     }
-    footer a { text-decoration: none; margin: 0 8px; color: var(--turquoise); }
+    footer a {
+      text-decoration: none;
+      margin: 0 8px;
+      color: var(--turquoise); /* Footer links turquoise */
+    }
     footer a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
@@ -153,7 +160,7 @@
   <div class="brand">
     <span class="logo">Gemmines2</span>
     <h1>Natural Gemstones from Pakistan — Worldwide Shipping</h1>
-    <p style="color:#00ffe0; font-size:1rem; margin-top:5px;">Custom-designed jewelry: rings, bracelets, earrings & necklaces</p>
+    <p style="color:var(--turquoise); font-size:1rem; margin-top:5px;">Custom-designed jewelry: rings, bracelets, earrings & necklaces</p>
   </div>
 
   <nav id="nav-menu">
