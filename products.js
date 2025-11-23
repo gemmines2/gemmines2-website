@@ -1,59 +1,104 @@
-const PRODUCTS = [
-  { id: 'aquamarine', name: 'Aquamarine', desc: 'Clean aquamarine — approx 2.5 carats — polished', price: 300.00, img: 'images/aquamarine.jpg' },
-  { id: 'rhodolite', name: 'Rhodolite Garnet', desc: 'Rhodolite — polished, high lustre', price: 350.00, img: 'images/rhodolite.jpg' },
-  { id: 'peridot', name: 'Peridot', desc: 'Natural green peridot — tumbled', price: 350.00, img: 'images/peridot.jpg' },
-  { id: 'lemon-quartz', name: 'Lemon Quartz', desc: 'Bright lemon quartz — polished crystal', price: 40.00, img: 'images/lemon-quartz.jpg' },
-  { id: 'green-jasper', name: 'Green Jasper', desc: 'Earthy green jasper — natural pattern', price: 150.00, img: 'images/green-jasper.jpg' },
-  { id: 'hessonite', name: 'Hessonite Garnet', desc: 'Golden orange hessonite — glossy finish', price: 300.00, img: 'images/hessonite.jpg' },
-  { id: 'umbalite', name: 'Umbalite Garnet', desc: 'Rare umbalite — vivid pink-purple hue', price: 600.00, img: 'images/umbalitegarnet.jpg' },
-  { id: 'emerald', name: 'Emerald', desc: 'Gorgeous green emerald — premium quality', price: 800.00, img: 'images/emeralds.jpg' },
-  { id: 'opal', name: 'Natural Opal Gemstone', desc: 'Beautiful multi-color opal gemstone, cut and polished. Worldwide shipping available.', price: 1500.00, img: 'images/opal.jpg' },
-  { id: 'amethyst', name: 'Natural Amethyst Gemstone', desc: 'Vibrant purple natural amethyst, cut and polished to perfection. Worldwide shipping available.', price: 300.00, img: 'images/amethyst.jpg' },
-  { id: 'garnet', name: 'Natural Garnet Gemstone', desc: 'Brilliant red natural garnet, cut and polished with exceptional clarity. Worldwide shipping available.', price: 100.00, img: 'images/garnet.jpg' },
-  { id: 'citrine', name: 'Natural Citrine', desc: 'Golden yellow natural citrine — polished gemstone.', price: 125.00, img: 'images/citrine.jpg' },
-  { id: 'blue-sapphire', name: 'Blue Sapphire', desc: 'Brilliant natural blue sapphire — high clarity polished stone.', price: 300.00, img: 'images/bluesapphire.jpg' }
+const products = [
+  {
+    id: 1,
+    name: "Amethyst",
+    image: "images/amethyst.jpg",
+    price: "$35",
+    description: "Natural polished Amethyst gemstone - Healing and spiritual calm."
+  },
+  {
+    id: 2,
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: "$45",
+    description: "Ocean-blue Aquamarine - Polished, calming, and elegant."
+  },
+  {
+    id: 3,
+    name: "Emerald",
+    image: "images/emeralds.jpg",
+    price: "$60",
+    description: "Natural green emerald - Symbol of love and prosperity."
+  },
+  {
+    id: 4,
+    name: "Garnet",
+    image: "images/garnet.jpg",
+    price: "$30",
+    description: "Deep red Garnet - Stone of passion, love, and energy."
+  },
+  {
+    id: 5,
+    name: "Green Jasper",
+    image: "images/green-jasper.jpg",
+    price: "$25",
+    description: "Polished Green Jasper gemstone - Grounding and stability."
+  },
+  {
+    id: 6,
+    name: "Green Tourmaline",
+    image: "images/green-tourmaline.jpg",
+    price: "$75",
+    description: "Premium natural Green Tourmaline - Rare and powerful."
+  },
+  {
+    id: 7,
+    name: "Mixed Gemstones",
+    image: "images/mixed-gemstones.jpg",
+    price: "$50",
+    description: "Colorful assorted polished gemstones - Perfect for display or healing."
+  },
+  {
+    id: 8,
+    name: "Opal",
+    image: "images/opal.jpg",
+    price: "$85",
+    description: "Ethiopian Opal - Fire play, mystical and mesmerizing."
+  },
+  {
+    id: 9,
+    name: "Peridot",
+    image: "images/peridot.jpg",
+    price: "$40",
+    description: "Light-green Peridot - Stone of renewal and positivity."
+  },
+  {
+    id: 10,
+    name: "Rhodolite",
+    image: "images/rhodolite.jpg",
+    price: "$55",
+    description: "Elegant Rhodolite Garnet - Polished, deep rose color."
+  },
+  {
+    id: 11,
+    name: "Lemon Quartz",
+    image: "images/lemon-quartz.jpg",
+    price: "$38",
+    description: "Bright Lemon Quartz - Polished, excellent clarity."
+  },
+  {
+    id: 12,
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: "$95",
+    description: "Stunning polished Blue Sapphire - Royal elegance."
+  }
 ];
 
+// Render products into HTML
 function renderProducts() {
-  const container = document.getElementById('product-list');
-  if (!container) return;
-
-  container.innerHTML = '';
-
-  PRODUCTS.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-
-    card.innerHTML = `
-      <a href="product.html?id=${p.id}">
-        <img src="${p.img}" alt="${p.name}">
-      </a>
-      <h3>
-        <a href="product.html?id=${p.id}" style="color: var(--turquoise); text-decoration:none;">
-          ${p.name}
-        </a>
-      </h3>
-      <p>${p.desc}</p>
-      <div class="price">$${p.price.toFixed(2)}</div>
-      <button class="buy-btn" data-id="${p.id}">Buy Now</button>
-    `;
-
-    container.appendChild(card);
-  });
-
-  // Event listeners for Buy buttons
-  document.querySelectorAll('.buy-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const productId = e.target.dataset.id;
-      const product = PRODUCTS.find(p => p.id === productId);
-      if (product) {
-        addToCart(product, 1);
-        renderCartCount();
-        window.location.href = 'cart.html';
-      }
-    });
-  });
+  const productList = document.getElementById("product-list");
+  productList.innerHTML = products
+    .map(
+      (product) => `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <div class="price">${product.price}</div>
+        <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
+      </div>
+      `
+    )
+    .join("");
 }
-
-// Ensure products render when DOM is ready
-document.addEventListener('DOMContentLoaded', renderProducts);
