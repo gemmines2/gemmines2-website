@@ -1,94 +1,69 @@
-// cart.js — Final Clean Working Version
+// CART.JS - Fully Compatible with Your Product.js
 
-// Load cart from localStorage or initialize as empty
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Add product to cart
+function addToCart(id) {
+    // Find product by id from product.js
+    const product = products.find(p => p.id === id);
+    if (!product) return;
 
-// Add product to cart (product object + quantity)
-function addToCart(product, quantity = 1) {
-  if (!product) return;
+    // Get existing cart from localStorage or create new array
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const existing = cart.find(item => item.id === product.id);
-  if (existing) {
-    existing.qty += quantity;
-  } else {
-    cart.push({ ...product, qty: quantity });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-// Update cart count in header
-function updateCartCount() {
-  const countEl = document.getElementById("cart-count");
-  if (!countEl) return;
-  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
-}
-
-// Render cart items (for cart.html)
-function renderCart() {
-  const container = document.getElementById("cart-items");
-  const totalEl = document.getElementById("cart-total");
-  if (!container || !totalEl) return;
-
-  container.innerHTML = "";
-
-  if (cart.length === 0) {
-    container.innerHTML = "<p>Your cart is empty.</p>";
-    totalEl.textContent = "$0.00";
-    return;
-  }
-
-  let total = 0;
-  cart.forEach(item => {
-    total += item.price * item.qty;
-    const div = document.createElement("div");
-    div.className = "cart-item";
-    div.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
-      <div class="details">
-        <h4>${item.name}</h4>
-        <p>${item.desc}</p>
-        <p>Price: $${item.price.toFixed(2)}</p>
-        <div class="quantity">
-          Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
-        </div>
-      </div>
-      <button class="remove" data-id="${item.id}">Remove</button>
-    `;
-    container.appendChild(div);
-  });
-
-  totalEl.textContent = `$${total.toFixed(2)}`;
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-// Event: Update quantity
-document.addEventListener("input", e => {
-  if (e.target.matches(".quantity input")) {
-    const id = e.target.dataset.id;
-    const item = cart.find(i => i.id === id);
-    if (item) {
-      item.qty = parseInt(e.target.value) || 1;
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
+    // Check if product is already in cart
+    const existing = cart.find(item => item.id === id);
+    if (existing) {
+        existing.quantity += 1; // Increment quantity
+    } else {
+        cart.push({...product, quantity: 1});
     }
-  }
-});
 
-// Event: Remove item
-document.addEventListener("click", e => {
-  if (e.target.classList.contains("remove")) {
-    const id = e.target.dataset.id;
-    cart = cart.filter(i => i.id !== id);
+    // Save updated cart
     localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-  }
-});
+    alert(product.name + " added to cart!");
+}
 
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();
-  renderCart();
-});
+// Display cart items on cart.html
+function displayCart() {
+    const cartContainer = document.getElementById("cart-items");
+    const totalContainer = document.getElementById("cart-total");
+
+    if (!cartContainer || !totalContainer) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cartContainer.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(item => {
+        const itemTotal = parseFloat(item.price.replace("$","")) * item.quantity;
+        total += itemTotal;
+
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+            <p><strong>${item.name}</strong> x ${item.quantity}</p>
+            <p>Price: ${item.price}</p>
+            <p>Subtotal: $${itemTotal.toFixed(2)}</p>
+        `;
+        cartContainer.appendChild(div);
+    });
+
+    totalContainer.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+}
+
+// Remove item from cart
+function removeFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+}
+
+// Clear entire cart
+function clearCart() {
+    localStorage.removeItem("cart");
+    displayCart();
+}
+
+// Call displayCart automatically on cart page load
+document.addEventListener("DOMContentLoaded", displayCart);
