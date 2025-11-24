@@ -39,14 +39,16 @@ const products = [
     name: "Green Tourmaline",
     image: "images/green-tourmaline.jpg",
     price: "$180.00",
-    description: "Premium natural Green Tourmaline - Rare and powerful."
+    description: "Premium natural Green Tourmaline - Rare and powerful.",
+    availability: "in_stock"
   },
   {
     id: 7,
     name: "Mixed Gemstones",
     image: "images/mixed-gemstones.jpg",
     price: "$600.00",
-    description: "Colorful assorted polished gemstones - Perfect for display or healing."
+    description: "Colorful assorted polished gemstones - Perfect for display or healing.",
+    availability: "in_stock"
   },
   {
     id: 8,
@@ -81,7 +83,8 @@ const products = [
     name: "Blue Sapphire",
     image: "images/bluesapphire.jpg",
     price: "$300.00",
-    description: "Stunning polished Blue Sapphire - Royal elegance."
+    description: "Stunning polished Blue Sapphire - Royal elegance.",
+    availability: "in_stock"
   }
 ];
 
