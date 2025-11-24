@@ -1,9 +1,9 @@
-// cart.js — Clean & Working Version
+// cart.js — Final Clean Working Version
 
 // Load cart from localStorage or initialize as empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Add product to cart by ID
+// Add product to cart (product object + quantity)
 function addToCart(productId, quantity = 1) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -15,25 +15,18 @@ function addToCart(productId, quantity = 1) {
     cart.push({ ...product, qty: quantity });
   }
 
-  saveCart();
-  alert(`${product.name} added to cart!`);
-  updateCartCount();
-}
-
-// Save cart to localStorage
-function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
 }
 
 // Update cart count in header
 function updateCartCount() {
   const countEl = document.getElementById("cart-count");
   if (!countEl) return;
-  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-  countEl.textContent = totalQty;
+  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-// Render cart items on cart page
+// Render cart items (for cart.html)
 function renderCart() {
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -48,7 +41,6 @@ function renderCart() {
   }
 
   let total = 0;
-
   cart.forEach(item => {
     total += item.price * item.qty;
     const div = document.createElement("div");
@@ -69,6 +61,8 @@ function renderCart() {
   });
 
   totalEl.textContent = `$${total.toFixed(2)}`;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
 }
 
 // Event: Update quantity
@@ -78,9 +72,8 @@ document.addEventListener("input", e => {
     const item = cart.find(i => i.id === id);
     if (item) {
       item.qty = parseInt(e.target.value) || 1;
-      saveCart();
+      localStorage.setItem("cart", JSON.stringify(cart));
       renderCart();
-      updateCartCount();
     }
   }
 });
@@ -90,14 +83,13 @@ document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
     cart = cart.filter(i => i.id !== id);
-    saveCart();
+    localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
-    updateCartCount();
   }
 });
 
-// Initialize cart page
+// Initialize
 document.addEventListener("DOMContentLoaded", () => {
-  renderCart();
   updateCartCount();
+  renderCart();
 });
