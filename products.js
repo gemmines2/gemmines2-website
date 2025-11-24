@@ -10,7 +10,7 @@ const products = [
   {
     id: 2,
     name: "Almandine Garnet",
-    image: "images/almandine-garnet.jpg",
+    image: "images/garnet.jpg",
     price: 150.00,
     currency: "USD",
     description: "Rich deep-red Almandine Garnet - stone of love and strength."
@@ -26,7 +26,7 @@ const products = [
   {
     id: 4,
     name: "Tourmaline",
-    image: "images/tourmaline.jpg",
+    image: "images/green-tourmaline.jpg",
     price: 180.00,
     currency: "USD",
     description: "Natural Tourmaline - stunning clarity and vivid color."
@@ -58,7 +58,7 @@ const products = [
   {
     id: 8,
     name: "Umbalite",
-    image: "images/umbalite.jpg",
+    image: "images/umbalitegarnet.jpg",
     price: 600.00,
     currency: "USD",
     description: "High-quality rare Umbalite Garnet - luxury and beauty."
@@ -82,27 +82,9 @@ const products = [
   {
     id: 11,
     name: "Citrine",
-    image: "images/citrine.jpg",
+    image: "images/Green-citrine.jpg",
     price: 125.00,
     currency: "USD",
     description: "Natural Citrine - symbol of wealth and happiness."
   }
 ];
-
-// Render Products into HTML
-function renderProducts() {
-  const productList = document.getElementById("product-list");
-  productList.innerHTML = products
-    .map(
-      (product) => `
-      <div class="product-card">
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <div class="price">$${product.price.toFixed(2)}</div>
-        <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
-      </div>
-      `
-    )
-    .join("");
-}
