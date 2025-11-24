@@ -1,36 +1,39 @@
+// cart.js — Clean & Working Version
+
+// Load cart from localStorage or initialize as empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Add product to cart by ID
-function addToCart(id, quantity = 1) {
-  const product = products.find(p => p.id === id);
+function addToCart(productId, quantity = 1) {
+  const product = products.find(p => p.id === productId);
   if (!product) return;
 
-  const existing = cart.find(item => item.id === id);
+  const existing = cart.find(item => item.id === productId);
   if (existing) {
     existing.qty += quantity;
   } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      desc: product.description,
-      img: product.image,
-      price: parseFloat(product.price.replace("$", "")), // <-- converts string to number
-      qty: quantity
-    });
+    cart.push({ ...product, qty: quantity });
   }
 
+  saveCart();
+  alert(`${product.name} added to cart!`);
+  updateCartCount();
+}
+
+// Save cart to localStorage
+function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
 }
 
 // Update cart count in header
 function updateCartCount() {
   const countEl = document.getElementById("cart-count");
   if (!countEl) return;
-  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+  countEl.textContent = totalQty;
 }
 
-// Render cart items on cart.html
+// Render cart items on cart page
 function renderCart() {
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -41,7 +44,6 @@ function renderCart() {
   if (cart.length === 0) {
     container.innerHTML = "<p>Your cart is empty.</p>";
     totalEl.textContent = "$0.00";
-    updateCartCount();
     return;
   }
 
@@ -52,10 +54,10 @@ function renderCart() {
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
+      <img src="${item.image}" alt="${item.name}">
       <div class="details">
         <h4>${item.name}</h4>
-        <p>${item.desc}</p>
+        <p>${item.description}</p>
         <p>Price: $${item.price.toFixed(2)}</p>
         <div class="quantity">
           Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
@@ -67,8 +69,6 @@ function renderCart() {
   });
 
   totalEl.textContent = `$${total.toFixed(2)}`;
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
 }
 
 // Event: Update quantity
@@ -78,8 +78,9 @@ document.addEventListener("input", e => {
     const item = cart.find(i => i.id === id);
     if (item) {
       item.qty = parseInt(e.target.value) || 1;
-      localStorage.setItem("cart", JSON.stringify(cart));
+      saveCart();
       renderCart();
+      updateCartCount();
     }
   }
 });
@@ -89,10 +90,14 @@ document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
     cart = cart.filter(i => i.id !== id);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    saveCart();
     renderCart();
+    updateCartCount();
   }
 });
 
-// Initialize cart
-document.addEventListener("DOMContentLoaded", renderCart);
+// Initialize cart page
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart();
+  updateCartCount();
+});
