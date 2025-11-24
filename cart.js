@@ -1,21 +1,31 @@
-// cart.js — Final Clean Working Version
+// ====== CART.JS — FINAL WORKING VERSION ======
 
-// Load cart from localStorage or initialize as empty
+// Load cart from localStorage or initialize empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Add product to cart (product object + quantity)
-function addToCart(product, quantity = 1) {
+// Add product to cart by ID
+function addToCart(id, quantity = 1) {
+  // Find the product in products array
+  const product = products.find(p => p.id === id);
   if (!product) return;
 
-  const existing = cart.find(item => item.id === product.id);
+  // Check if product already in cart
+  const existing = cart.find(item => item.id === id);
   if (existing) {
     existing.qty += quantity;
   } else {
-    cart.push({ ...product, qty: quantity });
+    cart.push({
+      id: product.id,
+      name: product.name,
+      desc: product.description,
+      img: product.image,
+      price: parseFloat(product.price.replace("$", "")),
+      qty: quantity
+    });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
+  renderCart();
 }
 
 // Update cart count in header
@@ -25,7 +35,7 @@ function updateCartCount() {
   countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-// Render cart items (for cart.html)
+// Render cart items on cart.html
 function renderCart() {
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -36,12 +46,16 @@ function renderCart() {
   if (cart.length === 0) {
     container.innerHTML = "<p>Your cart is empty.</p>";
     totalEl.textContent = "$0.00";
+    updateCartCount();
     return;
   }
 
   let total = 0;
+
   cart.forEach(item => {
-    total += item.price * item.qty;
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
@@ -67,7 +81,7 @@ function renderCart() {
 // Event: Update quantity
 document.addEventListener("input", e => {
   if (e.target.matches(".quantity input")) {
-    const id = e.target.dataset.id;
+    const id = parseInt(e.target.dataset.id);
     const item = cart.find(i => i.id === id);
     if (item) {
       item.qty = parseInt(e.target.value) || 1;
@@ -80,15 +94,12 @@ document.addEventListener("input", e => {
 // Event: Remove item
 document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
-    const id = e.target.dataset.id;
+    const id = parseInt(e.target.dataset.id);
     cart = cart.filter(i => i.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
   }
 });
 
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();
-  renderCart();
-});
+// Initialize cart on page load
+document.addEventListener("DOMContentLoaded", renderCart);
