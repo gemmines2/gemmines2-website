@@ -1,47 +1,94 @@
-// CART.JS - Fully working version
-function addToCart(id) {
-    const product = products.find(p => p.id === id);
-    if (!product) return;
+// cart.js — Final Clean Working Version
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Load cart from localStorage or initialize as empty
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const existing = cart.find(item => item.id === id);
-    if (existing) {
-        existing.quantity += 1;
-    } else {
-        cart.push({ ...product, quantity: 1 });
+// Add product to cart (product object + quantity)
+function addToCart(product, quantity = 1) {
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === product.id);
+  if (existing) {
+    existing.qty += quantity;
+  } else {
+    cart.push({ ...product, qty: quantity });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+// Update cart count in header
+function updateCartCount() {
+  const countEl = document.getElementById("cart-count");
+  if (!countEl) return;
+  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+}
+
+// Render cart items (for cart.html)
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+  if (!container || !totalEl) return;
+
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Your cart is empty.</p>";
+    totalEl.textContent = "$0.00";
+    return;
+  }
+
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.qty;
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="details">
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <p>Price: $${item.price.toFixed(2)}</p>
+        <div class="quantity">
+          Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
+        </div>
+      </div>
+      <button class="remove" data-id="${item.id}">Remove</button>
+    `;
+    container.appendChild(div);
+  });
+
+  totalEl.textContent = `$${total.toFixed(2)}`;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+// Event: Update quantity
+document.addEventListener("input", e => {
+  if (e.target.matches(".quantity input")) {
+    const id = e.target.dataset.id;
+    const item = cart.find(i => i.id === id);
+    if (item) {
+      item.qty = parseInt(e.target.value) || 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
     }
+  }
+});
 
+// Event: Remove item
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("remove")) {
+    const id = e.target.dataset.id;
+    cart = cart.filter(i => i.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(product.name + " added to cart!");
-}
+    renderCart();
+  }
+});
 
-function displayCart() {
-    const cartContainer = document.getElementById("cart-items");
-    const totalContainer = document.getElementById("cart-total");
-    if (!cartContainer || !totalContainer) return;
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cartContainer.innerHTML = "";
-
-    let total = 0;
-
-    cart.forEach(item => {
-        const priceNum = parseFloat(item.price.replace("$", ""));
-        const subtotal = priceNum * item.quantity;
-        total += subtotal;
-
-        const div = document.createElement("div");
-        div.classList.add("cart-item");
-        div.innerHTML = `
-            <p><strong>${item.name}</strong> x ${item.quantity}</p>
-            <p>Price: ${item.price}</p>
-            <p>Subtotal: $${subtotal.toFixed(2)}</p>
-        `;
-        cartContainer.appendChild(div);
-    });
-
-    totalContainer.textContent = `$${total.toFixed(2)}`;
-}
-
-document.addEventListener("DOMContentLoaded", displayCart)
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
+});
