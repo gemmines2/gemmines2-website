@@ -1,91 +1,95 @@
 const products = [
   {
     id: 1,
-    name: "Amethyst",
-    image: "images/amethyst.jpg",
-    price: "$35",
-    description: "Natural polished Amethyst gemstone - Healing and spiritual calm."
+    name: "Zircon",
+    image: "images/zircon.jpg",
+    price: 90.00,
+    currency: "USD",
+    description: "Natural Zircon gemstone - brilliant sparkle and elegance."
   },
   {
     id: 2,
-    name: "Aquamarine",
-    image: "images/aquamarine.jpg",
-    price: "$45",
-    description: "Ocean-blue Aquamarine - Polished, calming, and elegant."
+    name: "Almandine Garnet",
+    image: "images/almandine-garnet.jpg",
+    price: 150.00,
+    currency: "USD",
+    description: "Rich deep-red Almandine Garnet - stone of love and strength."
   },
   {
     id: 3,
-    name: "Emerald",
-    image: "images/emeralds.jpg",
-    price: "$60",
-    description: "Natural green emerald - Symbol of love and prosperity."
+    name: "Hessonite Garnet",
+    image: "images/hessonite.jpg",
+    price: 400.00,
+    currency: "USD",
+    description: "Premium Hessonite Garnet - rare and astrologically significant."
   },
   {
     id: 4,
-    name: "Garnet",
-    image: "images/garnet.jpg",
-    price: "$30",
-    description: "Deep red Garnet - Stone of passion, love, and energy."
+    name: "Tourmaline",
+    image: "images/tourmaline.jpg",
+    price: 180.00,
+    currency: "USD",
+    description: "Natural Tourmaline - stunning clarity and vivid color."
   },
   {
     id: 5,
-    name: "Green Jasper",
-    image: "images/green-jasper.jpg",
-    price: "$25",
-    description: "Polished Green Jasper gemstone - Grounding and stability."
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: 300.00,
+    currency: "USD",
+    description: "Elegant Aquamarine - calming ocean-blue elegance."
   },
   {
     id: 6,
-    name: "Green Tourmaline",
-    image: "images/green-tourmaline.jpg",
-    price: "$75",
-    description: "Premium natural Green Tourmaline - Rare and powerful."
+    name: "Mixed Gemstones",
+    image: "images/mixed-gemstones.jpg",
+    price: 600.00,
+    currency: "USD",
+    description: "Collection of premium natural mixed gemstones."
   },
   {
     id: 7,
-    name: "Mixed Gemstones",
-    image: "images/mixed-gemstones.jpg",
-    price: "$50",
-    description: "Colorful assorted polished gemstones - Perfect for display or healing."
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: 90.00,
+    currency: "USD",
+    description: "Royal Blue Sapphire - ethically sourced polished gem."
   },
   {
     id: 8,
-    name: "Opal",
-    image: "images/opal.jpg",
-    price: "$85",
-    description: "Ethiopian Opal - Fire play, mystical and mesmerizing."
+    name: "Umbalite",
+    image: "images/umbalite.jpg",
+    price: 600.00,
+    currency: "USD",
+    description: "High-quality rare Umbalite Garnet - luxury and beauty."
   },
   {
     id: 9,
-    name: "Peridot",
-    image: "images/peridot.jpg",
-    price: "$40",
-    description: "Light-green Peridot - Stone of renewal and positivity."
+    name: "Rhodolite",
+    image: "images/rhodolite.jpg",
+    price: 350.00,
+    currency: "USD",
+    description: "Stunning Rhodolite Garnet - deep rose, premium polished."
   },
   {
     id: 10,
-    name: "Rhodolite",
-    image: "images/rhodolite.jpg",
-    price: "$55",
-    description: "Elegant Rhodolite Garnet - Polished, deep rose color."
+    name: "Peridot",
+    image: "images/peridot.jpg",
+    price: 350.00,
+    currency: "USD",
+    description: "Lime-green Peridot - stone of positivity and renewal."
   },
   {
     id: 11,
-    name: "Lemon Quartz",
-    image: "images/lemon-quartz.jpg",
-    price: "$38",
-    description: "Bright Lemon Quartz - Polished, excellent clarity."
-  },
-  {
-    id: 12,
-    name: "Blue Sapphire",
-    image: "images/bluesapphire.jpg",
-    price: "$95",
-    description: "Stunning polished Blue Sapphire - Royal elegance."
+    name: "Citrine",
+    image: "images/citrine.jpg",
+    price: 125.00,
+    currency: "USD",
+    description: "Natural Citrine - symbol of wealth and happiness."
   }
 ];
 
-// Render products into HTML
+// Render Products into HTML
 function renderProducts() {
   const productList = document.getElementById("product-list");
   productList.innerHTML = products
@@ -95,7 +99,7 @@ function renderProducts() {
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <div class="price">${product.price}</div>
+        <div class="price">$${product.price.toFixed(2)}</div>
         <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
       </div>
       `
