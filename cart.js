@@ -1,15 +1,10 @@
-// ====== CART.JS — FINAL WORKING VERSION ======
-
-// Load cart from localStorage or initialize empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Add product to cart by ID
 function addToCart(id, quantity = 1) {
-  // Find the product in products array
   const product = products.find(p => p.id === id);
   if (!product) return;
 
-  // Check if product already in cart
   const existing = cart.find(item => item.id === id);
   if (existing) {
     existing.qty += quantity;
@@ -19,7 +14,7 @@ function addToCart(id, quantity = 1) {
       name: product.name,
       desc: product.description,
       img: product.image,
-      price: parseFloat(product.price.replace("$", "")),
+      price: parseFloat(product.price.replace("$", "")), // <-- converts string to number
       qty: quantity
     });
   }
@@ -53,9 +48,7 @@ function renderCart() {
   let total = 0;
 
   cart.forEach(item => {
-    const subtotal = item.price * item.qty;
-    total += subtotal;
-
+    total += item.price * item.qty;
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
@@ -101,5 +94,5 @@ document.addEventListener("click", e => {
   }
 });
 
-// Initialize cart on page load
+// Initialize cart
 document.addEventListener("DOMContentLoaded", renderCart);
