@@ -3,7 +3,7 @@ const products = [
     id: 1,
     name: "Amethyst",
     image: "images/amethyst.jpg",
-    price: "$35",
+    price: "$180.00",
     description: "Natural polished Amethyst gemstone - Healing and spiritual calm."
   },
   {
@@ -17,7 +17,7 @@ const products = [
     id: 3,
     name: "Emerald",
     image: "images/emeralds.jpg",
-    price: "$60",
+    price: "$300.00",
     description: "Natural green emerald - Symbol of love and prosperity."
   },
   {
@@ -31,7 +31,7 @@ const products = [
     id: 5,
     name: "Green Jasper",
     image: "images/green-jasper.jpg",
-    price: "$100.00",
+    price: "$150.00",
     description: "Polished Green Jasper gemstone - Grounding and stability."
   },
   {
@@ -59,7 +59,7 @@ const products = [
     id: 9,
     name: "Peridot",
     image: "images/peridot.jpg",
-    price: "$40",
+    price: "$300.00",
     description: "Light-green Peridot - Stone of renewal and positivity."
   },
   {
@@ -80,7 +80,7 @@ const products = [
     id: 12,
     name: "Blue Sapphire",
     image: "images/bluesapphire.jpg",
-    price: "$90.00",
+    price: "$300.00",
     description: "Stunning polished Blue Sapphire - Royal elegance."
   }
 ];
