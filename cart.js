@@ -1,4 +1,4 @@
-// TEMP: clear old cart (remove after first test)
+
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
