@@ -48,14 +48,23 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  document.getElementById("checkout-btn").addEventListener("click", () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if(cart.length === 0){
-      alert("🛒 Your cart is empty!");
-      return;
-    }
-    window.location.href = "checkout.html";
-  });
+  
+document.getElementById("checkout-btn").addEventListener("click", () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if(cart.length === 0){
+    alert("🛒 Your cart is empty!");
+    return;
+  }
+
+  // ✅ Clear cart before redirect
+  localStorage.removeItem("cart");
+
+  // ✅ Update header count immediately
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = "0";
+
+  window.location.href = "checkout.html";
+});
 
   // Render products page if on products.html
  
