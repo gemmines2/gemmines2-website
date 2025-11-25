@@ -1,39 +1,52 @@
-// cart.js
 
-// load existing cart or start empty
+
+// Load cart from localStorage or initialize
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// display how many items in header cart count
+// Add product to cart
+function addToCart(productId, quantity = 1) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.qty += quantity;
+  } else {
+    cart.push({ ...product, qty: quantity });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  updateCartCount();
+}
+
+// Update cart count in header
 function updateCartCount() {
   const countEl = document.getElementById("cart-count");
   if (!countEl) return;
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
-  countEl.textContent = `Cart (${totalQty})`;
+  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-// calculate and display total cost
-function updateTotal() {
-  const totalEl = document.getElementById("cart-total");
-  if (!totalEl) return;
-  const total = cart.reduce((sum, item) => sum + (item.price * (item.qty || 0)), 0);
-  totalEl.textContent = `$${total.toFixed(2)}`;
-}
-
-// render cart page items
+// Render cart items (for cart.html)
 function renderCart() {
   const container = document.getElementById("cart-items");
-  if (!container) return;
+  const totalEl = document.getElementById("cart-total");
+  if (!container || !totalEl) return;
 
   container.innerHTML = "";
 
   if (cart.length === 0) {
     container.innerHTML = "<p>Your cart is empty.</p>";
-    updateTotal();
-    updateCartCount();
+    totalEl.textContent = "$0.00";
     return;
   }
 
+  let total = 0;
   cart.forEach(item => {
+    // Convert string price "$180.00" to number
+    const priceNum = parseFloat(item.price.replace('$','').replace(',','')) || 0;
+    total += priceNum * item.qty;
+
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
@@ -41,9 +54,9 @@ function renderCart() {
       <div class="details">
         <h4>${item.name}</h4>
         <p>${item.description}</p>
-        <p>Price: $${item.price.toFixed(2)}</p>
-        <div class="quantity">Qty: 
-          <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
+        <p>Price: ${item.price}</p>
+        <div class="quantity">
+          Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
         </div>
       </div>
       <button class="remove" data-id="${item.id}">Remove</button>
@@ -51,70 +64,36 @@ function renderCart() {
     container.appendChild(div);
   });
 
-  updateTotal();
+  totalEl.textContent = `$${total.toFixed(2)}`;
+  localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 }
 
-// change quantity from input
-function handleQuantityChange(id, newQty) {
-  const item = cart.find(i => i.id === id);
-  if (!item) return;
-  const qtyNumber = parseInt(newQty) || 1;
-  item.qty = qtyNumber;
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-// remove single item
-function removeItem(id) {
-  cart = cart.filter(i => i.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-// clear entire cart
-function clearCart() {
-  cart = [];
-  localStorage.removeItem("cart");
-  renderCart();
-}
-
-// event listeners
-document.addEventListener("DOMContentLoaded", () => {
-  // render cart on load
-  renderCart();
-
-  // wire Clear Cart button
-  const clearBtn = document.getElementById("clear-cart-btn");
-  if (clearBtn) clearBtn.addEventListener("click", clearCart);
-
-  // wire Checkout button if exists
-  const checkoutBtn = document.getElementById("checkout-btn");
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", () => {
-      if (cart.length === 0) {
-        alert("🛒 Your cart is empty. Add items before checkout!");
-        return;
-      }
-      // could proceed to checkout page
-      window.location.href = "checkout.html";
-    });
-  }
-});
-
-// handle quantity input changes via event delegation
+// Event: Update quantity
 document.addEventListener("input", e => {
   if (e.target.matches(".quantity input")) {
     const id = parseInt(e.target.dataset.id);
-    const value = e.target.value;
-    handleQuantityChange(id, value);
+    const item = cart.find(i => i.id === id);
+    if (item) {
+      item.qty = parseInt(e.target.value) || 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
   }
 });
 
-// handle remove button clicks via event delegation
+// Event: Remove item
 document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
-    removeItem(id);
+    cart = cart.filter(i => i.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
   }
+});
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  renderCart();
 });
