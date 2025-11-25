@@ -1,5 +1,3 @@
-
-
 // Load cart from localStorage or initialize
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -27,7 +25,7 @@ function updateCartCount() {
   countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-// Render cart items (for cart.html)
+// Render cart items
 function renderCart() {
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -43,7 +41,6 @@ function renderCart() {
 
   let total = 0;
   cart.forEach(item => {
-    // Convert string price "$180.00" to number
     const priceNum = parseFloat(item.price.replace('$','').replace(',','')) || 0;
     total += priceNum * item.qty;
 
@@ -69,7 +66,7 @@ function renderCart() {
   updateCartCount();
 }
 
-// Event: Update quantity
+// Update quantity
 document.addEventListener("input", e => {
   if (e.target.matches(".quantity input")) {
     const id = parseInt(e.target.dataset.id);
@@ -82,7 +79,7 @@ document.addEventListener("input", e => {
   }
 });
 
-// Event: Remove item
+// Remove item
 document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
@@ -92,7 +89,7 @@ document.addEventListener("click", e => {
   }
 });
 
-// Initialize on page load
+// Init
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   renderCart();
