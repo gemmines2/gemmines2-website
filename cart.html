@@ -1,188 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cart | Gemmines2</title>
-
-  <!-- you can keep your existing style.css if you want -->
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* light, safe overrides to ensure cart looks right */
-    body {
-      background: #010514;
-      color: #e8f0ff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #020822;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-
-    .logo {
-      background: linear-gradient(135deg, #00ffd0, #00aaff);
-      color: #000;
-      border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    nav a.btn {
-      color: #1de9b6;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-
-    nav a.btn:hover, nav a.active {
-      background: rgba(29, 233, 182, 0.2);
-    }
-
-    main {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 10px;
-    }
-
-    h2 {
-      color: #1de9b6;
-      font-family: "Playfair Display", serif;
-      margin-bottom: 10px;
-      font-size: 1.4rem;
-      text-align: center;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #0c142b;
-      border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-
-    .cart-item img {
-      width: 64px;
-      height: 64px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    .cart-item div.details {
-      flex: 1;
-    }
-
-    .cart-summary {
-      background: #0c142b;
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 20px;
-      text-align: right;
-    }
-
-    .cart-summary button {
-      margin-top: 12px;
-      background: linear-gradient(135deg, #00ffd0, #00aaff);
-      border: none;
-      color: #000;
-      font-weight: 700;
-      padding: 10px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .cart-summary button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0,255,208,0.2);
-    }
-
-    input[type="number"] {
-      width: 60px;
-      border-radius: 6px;
-      padding: 6px;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.05);
-      color: inherit;
-    }
-
-    footer {
-      background-color: #050a1a;
-      color: #1de9b6;
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #1de9b6;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | Gemmines2</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+  --accent1: #00ffd0;
+  --accent2: #00aaff;
+  --turquoise: #1de9b6;
+  --card: #0c142b;
+}
+body { background-color: #010514; color: #e8f0ff; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+header { background: #020822; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { background: linear-gradient(135deg, var(--accent1), var(--accent2)); color: #000; border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; }
+nav { display: flex; gap: 10px; }
+nav a.btn { color: #1de9b6; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: background 0.2s; }
+nav a.btn:hover, nav a.active { background: rgba(29, 233, 182, 0.2); }
+.hamburger { display: none; font-size: 28px; color: #1de9b6; cursor: pointer; }
+@media (max-width: 768px) { nav { display: none; flex-direction: column; background: #010b1c; width: 100%; position: absolute; top: 60px; left: 0; z-index: 999; text-align: center; } nav.active { display: flex; } .hamburger { display: block; } }
+main { max-width: 900px; margin: 20px auto; padding: 0 10px; }
+h2 { color: var(--turquoise); font-family: "Playfair Display", serif; margin-bottom: 10px; font-size: 1.4rem; text-align: center; }
+.cart-item { display: flex; align-items: center; gap: 12px; background: var(--card); border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+.cart-item img { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; }
+.cart-item div { flex: 1; }
+.cart-summary { background: var(--card); border-radius: 12px; padding: 16px; margin-top: 20px; text-align: right; }
+.cart-summary button { margin-top: 12px; background: linear-gradient(135deg, var(--accent1), var(--accent2)); border: none; color: #000; font-weight: 700; padding: 10px 16px; border-radius: 10px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.cart-summary button:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,255,208,0.2); }
+input[type="number"] { width: 60px; border-radius: 6px; padding: 6px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: inherit; }
+footer { background-color:#050a1a; color:#1de9b6; text-align:center; padding:20px 10px; font-size:14px; }
+footer a { color:#1de9b6; text-decoration:none; } footer a:hover { text-decoration:underline; }
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
+<header>
+  <div class="brand">
+    <div class="logo">GM</div>
+    <div>
+      <h1>Gemmines2</h1>
+      <small>Natural gemstones — cut, polished & tumbled</small>
     </div>
-    <nav>
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="products.html">Products</a>
-      <a class="btn active" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a class="btn" href="checkout.html">Checkout</a>
-    </nav>
-  </header>
+  </div>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <nav id="nav-menu">
+    <a class="btn" href="index.html">Home</a>
+    <a class="btn" href="products.html">Products</a>
+    <a class="btn active" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    <a class="btn" href="checkout.html">Checkout</a>
+  </nav>
+</header>
 
-  <main>
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
+<main>
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <div class="cart-summary">
+    <div>Total: <span id="cart-total">$0.00</span></div>
+    <button id="checkout-btn">Proceed to Checkout</button>
+  </div>
+</main>
 
-    <div class="cart-summary">
-      <div>Total: <span id="cart-total">$0.00</span></div>
-      <div style="margin-top:12px;">
-        <button id="clear-cart-btn" style="margin-right:10px;">Clear Cart</button>
-        <button id="checkout-btn">Proceed to Checkout</button>
-      </div>
-    </div>
-  </main>
+<footer>
+  <p>© <span id="year"></span> Gemmines2. All rights reserved.</p>
+  <p>
+    <a href="return.html">Return Policy</a> |
+    <a href="shipping.html">Shipping Policy</a> |
+    <a href="contact.html">Contact Us</a>
+  </p>
+</footer>
 
-  <footer>
-    <p>© <span id="year"></span> Gemmines2. All rights reserved.</p>
-    <p>
-      <a href="return.html">Return Policy</a> |
-      <a href="shipping.html">Shipping Policy</a> |
-      <a href="contact.html">Contact Us</a>
-    </p>
-  </footer>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  <!-- correct script names -->
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+  hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
 
-  <script>
-    // set year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  const checkoutBtn = document.getElementById("checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert("🛒 Your cart is empty. Add items before checkout!");
+        return;
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "checkout.html";
+    });
+  }
+
+  updateCartCount();
+});
+</script>
 </body>
 </html>
