@@ -74,5 +74,13 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
     displayCart();
   });
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+});
+</script>
+
 </body>
 </html>
