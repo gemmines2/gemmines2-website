@@ -1,95 +1,58 @@
-// cart.js — Final Clean Working Version
-
-// Load cart from localStorage or initialize as empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Add product to cart (product object + quantity)
-function addToCart(productId, quantity = 1) {
-  const product = products.find(p => p.id === productId);
-  if (!product) return;
-
-  const existing = cart.find(item => item.id === productId);
-  if (existing) {
-    existing.qty += quantity;
-  } else {
-    cart.push({ ...product, qty: quantity });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-// Update cart count in header
-function updateCartCount() {
-  const countEl = document.getElementById("cart-count");
-  if (!countEl) return;
-  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
-}
-
-// Render cart items (for cart.html)
 function renderCart() {
-  const container = document.getElementById("cart-items");
-  const totalEl = document.getElementById("cart-total");
-  if (!container || !totalEl) return;
-
-  container.innerHTML = "";
+  const cartItems = document.getElementById("cart-items");
 
   if (cart.length === 0) {
-    container.innerHTML = "<p>Your cart is empty.</p>";
-    totalEl.textContent = "$0.00";
+    cartItems.innerHTML = "<p>Your cart is empty.</p>";
+    document.getElementById("cart-total").textContent = "$0.00";
     return;
   }
 
-  let total = 0;
-  cart.forEach(item => {
-    total += item.price * item.qty;
-    const div = document.createElement("div");
-    div.className = "cart-item";
-    div.innerHTML = `
+  cartItems.innerHTML = cart.map(item => `
+    <div class="cart-item">
       <img src="${item.image}" alt="${item.name}">
-      <div class="details">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <p>Price: $${item.price.toFixed(2)}</p>
-        <div class="quantity">
-          Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
-        </div>
-      </div>
-      <button class="remove" data-id="${item.id}">Remove</button>
-    `;
-    container.appendChild(div);
-  });
+      <h3>${item.name}</h3>
+      <p>Price: $${item.price}</p>
+      <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
+      <button onclick="removeFromCart(${item.id})">Remove</button>
+    </div>
+  `).join("");
 
-  totalEl.textContent = `$${total.toFixed(2)}`;
-  localStorage.setItem("cart", JSON.stringify(cart));
+  updateTotal();
   updateCartCount();
 }
 
-// Event: Update quantity
-document.addEventListener("input", e => {
-  if (e.target.matches(".quantity input")) {
-    const id = parseInt(e.target.dataset.id);
-    const item = cart.find(i => i.id === id);
-    if (item) {
-      item.qty = parseInt(e.target.value) || 1;
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCart();
-    }
-  }
-});
-
-// Event: Remove item
-document.addEventListener("click", e => {
-  if (e.target.classList.contains("remove")) {
-    const id = parseInt(e.target.dataset.id);
-    cart = cart.filter(i => i.id !== id);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-  }
-});
-
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
+function updateQuantity(id, newQty) {
+  const item = cart.find(item => item.id === id);
+  item.quantity = parseInt(newQty);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateTotal();
   updateCartCount();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
-});
+}
+
+function clearCart() {
+  cart = [];
+  localStorage.removeItem("cart");
+  renderCart();
+  updateCartCount();
+}
+
+function updateTotal() {
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").textContent = `Cart (${count})`;
+}
+
+document.addEventListener("DOMContentLoaded", renderCart);
+document.getElementById("clear-cart-btn")?.addEventListener("click", clearCart);
