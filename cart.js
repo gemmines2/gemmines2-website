@@ -1,4 +1,6 @@
-// Load cart from localStorage or initialize
+// TEMP: clear old cart (remove after first test)
+localStorage.removeItem('cart');
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Add product to cart
@@ -14,8 +16,8 @@ function addToCart(productId, quantity = 1) {
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
   updateCartCount();
+  window.location.href = "cart.html"; // redirect to cart page
 }
 
 // Update cart count in header
@@ -32,33 +34,26 @@ function renderCart() {
   if (!container || !totalEl) return;
 
   container.innerHTML = "";
-
   if (cart.length === 0) {
-    container.innerHTML = "<p>Your cart is empty.</p>";
     totalEl.textContent = "$0.00";
-    return;
+    return container.innerHTML = "<p>Your cart is empty.</p>";
   }
 
   let total = 0;
   cart.forEach(item => {
-    const priceNum = parseFloat(item.price.replace('$','').replace(',','')) || 0;
-    total += priceNum * item.qty;
-
-    const div = document.createElement("div");
-    div.className = "cart-item";
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="details">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <p>Price: ${item.price}</p>
-        <div class="quantity">
-          Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}">
+    total += item.price * item.qty;
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div>
+          <h4>${item.name}</h4>
+          <p>${item.description}</p>
+          <p>Price: $${item.price.toFixed(2)}</p>
+          <div class="quantity">Qty: <input type="number" min="1" value="${item.qty}" data-id="${item.id}"></div>
         </div>
+        <button class="remove" data-id="${item.id}">Remove</button>
       </div>
-      <button class="remove" data-id="${item.id}">Remove</button>
     `;
-    container.appendChild(div);
   });
 
   totalEl.textContent = `$${total.toFixed(2)}`;
@@ -66,7 +61,7 @@ function renderCart() {
   updateCartCount();
 }
 
-// Update quantity
+// Handle quantity change
 document.addEventListener("input", e => {
   if (e.target.matches(".quantity input")) {
     const id = parseInt(e.target.dataset.id);
@@ -79,7 +74,7 @@ document.addEventListener("input", e => {
   }
 });
 
-// Remove item
+// Handle remove button
 document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
@@ -89,8 +84,15 @@ document.addEventListener("click", e => {
   }
 });
 
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCount();
+// Clear Cart button
+document.getElementById("clear-cart")?.addEventListener("click", () => {
+  cart = [];
+  localStorage.removeItem('cart');
   renderCart();
+});
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart();
+  updateCartCount();
 });
