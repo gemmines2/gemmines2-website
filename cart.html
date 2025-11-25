@@ -1,58 +1,32 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-function renderCart() {
-  const cartItems = document.getElementById("cart-items");
+  <!-- Header -->
+  <header>
+    <h1>Shopping Cart</h1>
+    <a href="products.html">Continue Shopping</a>
+    <div id="cart-count"></div>
+  </header>
 
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Your cart is empty.</p>";
-    document.getElementById("cart-total").textContent = "$0.00";
-    return;
-  }
-
-  cartItems.innerHTML = cart.map(item => `
-    <div class="cart-item">
-      <img src="${item.image}" alt="${item.name}">
-      <h3>${item.name}</h3>
-      <p>Price: $${item.price}</p>
-      <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
-      <button onclick="removeFromCart(${item.id})">Remove</button>
+  <!-- Cart Main -->
+  <main id="cart-container">
+    <div id="cart-items"></div>
+    <div class="cart-summary">
+      <div>Total: <span id="cart-total">$0.00</span></div>
+      <div>
+        <button id="clear-cart-btn">Clear Cart</button>
+        <button id="checkout-btn">Proceed to Checkout</button>
+      </div>
     </div>
-  `).join("");
+  </main>
 
-  updateTotal();
-  updateCartCount();
-}
-
-function updateQuantity(id, newQty) {
-  const item = cart.find(item => item.id === id);
-  item.quantity = parseInt(newQty);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateTotal();
-  updateCartCount();
-}
-
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
-
-function clearCart() {
-  cart = [];
-  localStorage.removeItem("cart");
-  renderCart();
-  updateCartCount();
-}
-
-function updateTotal() {
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
-}
-
-function updateCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById("cart-count").textContent = `Cart (${count})`;
-}
-
-document.addEventListener("DOMContentLoaded", renderCart);
-document.getElementById("clear-cart-btn")?.addEventListener("click", clearCart);
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>
