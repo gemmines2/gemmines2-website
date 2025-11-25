@@ -100,3 +100,21 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "checkout.html";
     });
   }
+});
+
+// handle quantity input changes via event delegation
+document.addEventListener("input", e => {
+  if (e.target.matches(".quantity input")) {
+    const id = parseInt(e.target.dataset.id);
+    const value = e.target.value;
+    handleQuantityChange(id, value);
+  }
+});
+
+// handle remove button clicks via event delegation
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("remove")) {
+    const id = parseInt(e.target.dataset.id);
+    removeItem(id);
+  }
+});
