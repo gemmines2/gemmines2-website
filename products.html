@@ -115,15 +115,15 @@
 
   <script src="product.js"></script>
   <script src="cart.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  
+ <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    document.addEventListener('DOMContentLoaded', () => {
-      if(typeof renderProducts === 'function') renderProducts();
-      if(typeof renderCartCount === 'function') renderCartCount();
-    });
-  </script>
- 
+  document.addEventListener('DOMContentLoaded', () => {
+    renderProducts();
+    if (typeof renderCartCount === 'function') renderCartCount();
+  });
+</script>
 
 </body>
 </html>
