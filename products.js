@@ -1,3 +1,6 @@
+// products.js
+
+// 1) product list
 const products = [
   { id: 1, name: "Amethyst", image: "images/amethyst.jpg", price: 180, description: "Natural polished Amethyst gemstone - Healing and spiritual calm." },
   { id: 2, name: "Aquamarine", image: "images/aquamarine.jpg", price: 300, description: "Ocean-blue Aquamarine - Polished, calming, and elegant." },
@@ -13,8 +16,11 @@ const products = [
   { id: 12, name: "Blue Sapphire", image: "images/bluesapphire.jpg", price: 300, description: "Stunning polished Blue Sapphire - Royal elegance." }
 ];
 
+// 2) render products list on products.html
 function renderProducts() {
   const productList = document.getElementById("product-list");
+  if (!productList) return;
+
   productList.innerHTML = products.map(product => `
     <div class="product-card">
       <img src="${product.image}" alt="${product.name}">
@@ -26,17 +32,25 @@ function renderProducts() {
   `).join("");
 }
 
-function addToCart(productId) {
+// 3) add to cart
+// Uses 'qty' to match cart.js below
+function addToCart(productId, quantity = 1) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const product = products.find(p => p.id === productId);
+  if (!product) return;
 
-  const existingItem = cart.find(item => item.id === productId);
-  if (existingItem) {
-    existingItem.quantity += 1;
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.qty += quantity;
   } else {
-    cart.push({ ...product, quantity: 1 });
+    // save only needed fields + qty
+    cart.push({ id: product.id, name: product.name, image: product.image, price: product.price, description: product.description, qty: quantity });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
+  // immediately go to cart page
   window.location.href = "cart.html";
 }
+
+// run render after DOM loads
+document.addEventListener("DOMContentLoaded", renderProducts);
