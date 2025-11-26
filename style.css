@@ -217,6 +217,32 @@
   </p>
   <p>© 2025 Gemmines2. All Rights Reserved.</p>
 </footer>
+/* --- Cart Page Quick Fix --- */
+#cart-items img {
+  width: 80px;       /* small thumbnails */
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+#cart-items div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#cart-items input {
+  width: 60px;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f8ff; /* matches your blue theme */
+}
 
 </body>
 </html>
