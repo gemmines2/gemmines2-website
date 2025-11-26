@@ -296,5 +296,55 @@
 .cart-summary button:hover {
   background-color: #003366;
 }
+/* Clean Shopify-style cart fix */
+.cart-header, .cart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* product | price | qty | total */
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-header {
+  background-color: #f7f7f7; /* subtle neutral header */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cart-row {
+  background-color: #fff; /* clean white rows */
+}
+
+.cart-row:nth-child(even) {
+  background-color: #fafafa; /* light alternate shading */
+}
+
+.cart-row img {
+  max-width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.cart-row div {
+  text-align: center;
+  padding: 8px;
+}
+
+.cart-footer {
+  text-align: right;
+  padding: 15px;
+  font-size: 1.1em;
+  border-top: 2px solid #ddd;
+}
+
+.cart-footer button {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 </html>
