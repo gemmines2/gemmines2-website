@@ -3,7 +3,14 @@ const products = [
   { id: 2, name: "Aquamarine", image: "images/aquamarine.jpg", price: 300, description: "Ocean-blue Aquamarine - Polished, calming, and elegant." },
   { id: 3, name: "Emerald", image: "images/emeralds.jpg", price: 800, description: "Natural green emerald - Symbol of love and prosperity." },
   { id: 4, name: "Garnet", image: "images/garnet.jpg", price: 150, description: "Deep red Garnet - Stone of passion, love, and energy." },
-  { id: 5, name: "Green Jasper", image: "images/green-jasper.jpg", price: 150, description: "Polished Green Jasper gemstone - Grounding and stability." },
+  {
+  id: "greenjasper_005",
+  name: "Green Jasper",
+  image: "images/green-jasper.jpg",
+  price: 150.00,
+  description: "Polished Natural Green Jasper opaque quality— genuine, unheated, approx. 20 carats. Ideal for jewelry or collectors."
+},
+
   { id: 6, name: "Green Tourmaline", image: "images/green-tourmaline.jpg", price: 180, description: "Premium natural Green Tourmaline - Rare and powerful." },
   { id: 7, name: "Mixed Gemstones", image: "images/mixed-gemstones.jpg", price: 600, description: "Colorful assorted polished gemstones - Perfect for display or healing." },
   { id: 8, name: "Opal", image: "images/opal.jpg", price: 800, description: "Ethiopian Opal - Fire play, mystical and mesmerizing." },
