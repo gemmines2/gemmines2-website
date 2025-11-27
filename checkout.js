@@ -2,14 +2,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkout-form");
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
-// Handle Google Merchant checkout URL with ?id={id}
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("id");
 
-if (productId && productId.includes("{")) {
-  console.warn("Google test ID detected. Continuing without redirect.");
-  // Do NOTHING (Continue checkout normally)
-}
+  // Handle Google Merchant checkout URL with ?id={id}
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+
+  if (productId && productId.includes("{")) {
+    console.warn("Google test ID detected. Continuing without redirect.");
+    // Do NOTHING (continue checkout normally)
+  } else if (productId) {
+    // If a real productId is provided, add it to cart automatically
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      const exists = cart.find(item => item.id === productId);
+      if (exists) {
+        exists.qty += 1;
+      } else {
+        cart.push({...product, qty: 1});
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      console.warn("Product not found:", productId);
+    }
+  }
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -18,10 +34,8 @@ if (productId && productId.includes("{")) {
     const selected = document.querySelector('input[name="payment"]:checked');
     if (!selected) return;
 
-    const value = selected.value;
     let html = "";
-
-    switch (value) {
+    switch (selected.value) {
       case "credit":
         html = `
           <label>Card Number</label>
@@ -55,7 +69,6 @@ if (productId && productId.includes("{")) {
         `;
         break;
     }
-
     paymentDetails.innerHTML = html;
     paymentDetails.style.display = "block";
   }
@@ -90,6 +103,6 @@ if (productId && productId.includes("{")) {
     localStorage.setItem("latestOrder", JSON.stringify(order));
     localStorage.removeItem("cart"); // Clear the cart
     alert("✅ Order placed successfully!");
-    window.location.href = "thankyou.html"; // Go to your thank you page
+    window.location.href = "order-success.html"; // Go to your order success page
   });
 });
