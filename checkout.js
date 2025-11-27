@@ -3,19 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
 
-  // Handle Google Merchant checkout URL with ?id={id}
+  // Get product ID from URL
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
-  if (productId && productId.includes("{")) {
-    console.warn("Google test ID detected. Continuing without redirect.");
-    // Do NOTHING (continue checkout normally)
-  } else if (productId) {
-    // If a real productId is provided, add it to cart automatically
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // Load cart from localStorage
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Try to add product from URL (if exists)
+  if (productId && !productId.includes("{")) {
+    const products = JSON.parse(localStorage.getItem("products")) || []; // Assuming products.js saves to localStorage
     const product = products.find(p => p.id === productId);
+
     if (product) {
-      const exists = cart.find(item => item.id === productId);
+      const exists = cart.find(item => item.id === product.id);
       if (exists) {
         exists.qty += 1;
       } else {
@@ -23,19 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
-      console.warn("Product not found:", productId);
+      console.warn("Product not found in local storage:", productId);
+      // Do NOT redirect to 404 — continue with checkout normally
     }
   }
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // Update payment input fields
+  // Update payment input fields dynamically
   function updatePaymentFields() {
     const selected = document.querySelector('input[name="payment"]:checked');
     if (!selected) return;
 
+    const value = selected.value;
     let html = "";
-    switch (selected.value) {
+
+    switch (value) {
       case "credit":
         html = `
           <label>Card Number</label>
@@ -62,47 +64,4 @@ document.addEventListener("DOMContentLoaded", () => {
         html = `
           <label>Account Holder Name</label>
           <input type="text" placeholder="Name on account" required>
-          <label>IBAN Number</label>
-          <input type="text" placeholder="Enter IBAN" required>
-          <label>Bank Name</label>
-          <input type="text" placeholder="e.g. HBL, Meezan Bank" required>
-        `;
-        break;
-    }
-    paymentDetails.innerHTML = html;
-    paymentDetails.style.display = "block";
-  }
-
-  paymentOptions.forEach(option => option.addEventListener("change", updatePaymentFields));
-
-  // Handle checkout form submission
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
-
-    const order = {
-      customer: {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        address: form.address.value,
-        city: form.city.value,
-        postal: form.postal.value,
-        country: form.country.value,
-        shipping: form.shipping.value,
-        payment: document.querySelector('input[name="payment"]:checked')?.value
-      },
-      items: cart,
-      date: new Date().toLocaleString()
-    };
-
-    localStorage.setItem("latestOrder", JSON.stringify(order));
-    localStorage.removeItem("cart"); // Clear the cart
-    alert("✅ Order placed successfully!");
-    window.location.href = "order-success.html"; // Go to your order success page
-  });
-});
+          <label>IBA
