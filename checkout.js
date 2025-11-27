@@ -2,6 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkout-form");
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
+ // Handle Google Merchant test ID
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+if (productId && productId.includes("{")) {
+    console.warn("Google test ID detected. Skipping product load.");
+    // Load cart as empty so checkout page still works
+    localStorage.setItem("cart", JSON.stringify([]));
+}
+ 
 
   // Get product ID from URL
   const urlParams = new URLSearchParams(window.location.search);
