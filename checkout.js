@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkout-form");
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
   const paymentDetails = document.getElementById("payment-details");
+// Handle Google Merchant checkout URL with ?id={id}
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+if (productId && productId.includes("{")) {
+  console.warn("Google test ID detected. Continuing without redirect.");
+  // Do NOTHING (Continue checkout normally)
+}
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
