@@ -204,5 +204,30 @@ document.getElementById('checkout-form').addEventListener('submit', function(e) 
     <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
   </p>
 </footer>
+  <script>
+// Function to get product ID from URL (?id=2)
+function getProductIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id'); // Returns '1', '2', etc.
+}
+
+const productId = getProductIdFromURL();
+
+if (productId) {
+    // Load products from products.js (make sure products.js is included)
+    const product = products.find(p => p.id == productId);
+    
+    if (product) {
+        // Store product to cart in localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Optionally redirect to cart.html or refresh page to show item
+        window.location.href = "cart.html";
+    }
+}
+</script>
+
 </body>
 </html>
