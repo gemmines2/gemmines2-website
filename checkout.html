@@ -169,8 +169,32 @@ input:focus, select:focus, textarea:focus {
   </form>
 </div>
 
+<script src="products.js"></script>
+<script src="cart.js"></script>
+
 <script>
-// Toggle payment fields
+// Function to get product ID from URL (?id=2)
+function getProductIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+}
+
+const productId = getProductIdFromURL();
+
+if (productId) {
+    const product = products.find(p => p.id == productId);
+
+    if (product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Redirect to cart
+        window.location.href = "cart.html";
+    }
+}
+
+// Payment option toggling
 const radios = document.querySelectorAll('input[name="payment"]');
 const cardFields = document.getElementById('card-fields');
 const paypalFields = document.getElementById('paypal-fields');
@@ -191,65 +215,13 @@ radios.forEach(radio => {
   });
 });
 
-// Place Order redirect
+// Place order redirect
 document.getElementById('checkout-form').addEventListener('submit', function(e) {
   e.preventDefault();
   window.location.href = "thankyou.html";
 });
 </script>
-<footer>
-  <p style="text-align:center; padding:30px 10px; background-color:#050a1a; color:#1de9b6; font-family:Arial, sans-serif; font-size:14px;">
-    <a href="return.html" style="color: #1de9b6;">Return Policy</a> | 
-    <a href="shipping.html" style="color: #1de9b6;">Shipping Policy</a> | 
-    <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
-  </p>
-</footer>
-  <script>
-// Function to get product ID from URL (?id=2)
-function getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id'); // Returns '1', '2', etc.
-}
 
-const productId = getProductIdFromURL();
-
-if (productId) {
-    // Load products from products.js (make sure products.js is included)
-    const product = products.find(p => p.id == productId);
-    
-    if (product) {
-        // Store product to cart in localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        // Optionally redirect to cart.html or refresh page to show item
-        window.location.href = "cart.html";
-    }
-}
-</script>
-<script src="products.js"></script>
-<script src="cart.js"></script>
-  <script>
-function getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
-}
-
-const productId = getProductIdFromURL();
-
-if (productId) {
-    const product = products.find(p => p.id == productId);
-
-    if (product) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        window.location.href = "cart.html";
-    }
-}
-</script>
 
 </body>
 </html>
