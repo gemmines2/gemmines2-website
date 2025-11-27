@@ -19,12 +19,13 @@ function addToCart(productId, quantity = 1) {
   window.location.href = "cart.html"; // redirect to cart page
 }
 
-// Update cart count in header
 function updateCartCount() {
   const countEl = document.getElementById("cart-count");
   if (!countEl) return;
-  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  const cartCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  countEl.textContent = cartCount;
 }
+
 
 // Render cart items
 function renderCart() {
