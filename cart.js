@@ -1,8 +1,7 @@
-
-
+// Load cart from localStorage or initialize
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Add product to cart
+// Add product to cart (from products.js or ?id=X link)
 function addToCart(productId, quantity = 1) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
@@ -16,18 +15,17 @@ function addToCart(productId, quantity = 1) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  window.location.href = "cart.html"; // redirect to cart page
+  window.location.href = "cart.html"; // redirect after adding
 }
 
+// Update cart count in header
 function updateCartCount() {
   const countEl = document.getElementById("cart-count");
   if (!countEl) return;
-  const cartCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  countEl.textContent = cartCount;
+  countEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-
-// Render cart items
+// Render cart items on cart.html
 function renderCart() {
   const container = document.getElementById("cart-items");
   const totalEl = document.getElementById("cart-total");
@@ -61,7 +59,7 @@ function renderCart() {
   updateCartCount();
 }
 
-// Handle quantity change
+// Quantity change handler
 document.addEventListener("input", e => {
   if (e.target.matches(".quantity input")) {
     const id = parseInt(e.target.dataset.id);
@@ -74,7 +72,7 @@ document.addEventListener("input", e => {
   }
 });
 
-// Handle remove button
+// Remove item handler
 document.addEventListener("click", e => {
   if (e.target.classList.contains("remove")) {
     const id = parseInt(e.target.dataset.id);
@@ -84,15 +82,32 @@ document.addEventListener("click", e => {
   }
 });
 
-// Clear Cart button
+// Clear cart button
 document.getElementById("clear-cart")?.addEventListener("click", () => {
   cart = [];
   localStorage.removeItem('cart');
   renderCart();
 });
 
-// Initialize on page load
+// On page load
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
   updateCartCount();
+
+  // Check URL for ?id=X
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+  if (productId) {
+    const product = products.find(p => p.id == productId);
+    if (product) {
+      const exists = cart.find(i => i.id == product.id);
+      if (!exists) {
+        product.qty = 1;
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+      }
+      window.location.href = "cart.html"; // redirect to cart after adding
+    }
+  }
 });
