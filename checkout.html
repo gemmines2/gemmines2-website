@@ -230,5 +230,26 @@ if (productId) {
 </script>
 <script src="products.js"></script>
 <script src="cart.js"></script>
+  <script>
+function getProductIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('id');
+}
+
+const productId = getProductIdFromURL();
+
+if (productId) {
+    const product = products.find(p => p.id == productId);
+
+    if (product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        window.location.href = "cart.html";
+    }
+}
+</script>
+
 </body>
 </html>
