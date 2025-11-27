@@ -172,11 +172,12 @@ input:focus, select:focus, textarea:focus {
 <script src="products.js"></script>
 <script src="cart.js"></script>
 
+
 <script>
 // Function to get product ID from URL (?id=2)
 function getProductIdFromURL() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('id');
+    return params.get('id'); 
 }
 
 const productId = getProductIdFromURL();
@@ -186,42 +187,20 @@ if (productId) {
 
     if (product) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
 
-        // Redirect to cart
+        // Check if already exists
+        const exists = cart.find(item => item.id == product.id);
+
+        if (!exists) {  
+            product.qty = 1;
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
         window.location.href = "cart.html";
     }
 }
-
-// Payment option toggling
-const radios = document.querySelectorAll('input[name="payment"]');
-const cardFields = document.getElementById('card-fields');
-const paypalFields = document.getElementById('paypal-fields');
-const payoneerFields = document.getElementById('payoneer-fields');
-const bankFields = document.getElementById('bank-fields');
-
-radios.forEach(radio => {
-  radio.addEventListener('change', () => {
-    cardFields.style.display = 'none';
-    paypalFields.style.display = 'none';
-    payoneerFields.style.display = 'none';
-    bankFields.style.display = 'none';
-
-    if (radio.value === 'card') cardFields.style.display = 'block';
-    if (radio.value === 'paypal') paypalFields.style.display = 'block';
-    if (radio.value === 'payoneer') payoneerFields.style.display = 'block';
-    if (radio.value === 'bank') bankFields.style.display = 'block';
-  });
-});
-
-// Place order redirect
-document.getElementById('checkout-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  window.location.href = "thankyou.html";
-});
 </script>
-
 
 </body>
 </html>
