@@ -20,15 +20,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
-h1, h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-}
+h1, h2 { text-align: center; margin-bottom: 20px; }
+form label { display: block; margin-bottom: 5px; font-weight: 500; }
 form input, form select, form textarea {
   width: 100%;
   padding: 10px;
@@ -37,21 +30,10 @@ form input, form select, form textarea {
   border: none;
   box-sizing: border-box;
 }
-.payment-options label {
-  display: block;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-.payment-fields {
-  margin-top: 15px;
-}
-.card-row, .address-row {
-  display: flex;
-  gap: 10px;
-}
-.card-row input, .address-row input {
-  flex: 1;
-}
+.payment-options label { display: block; margin-bottom: 10px; cursor: pointer; }
+.payment-fields { margin-top: 15px; display: none; }
+.card-row, .address-row { display: flex; gap: 10px; }
+.card-row input, .address-row input { flex: 1; }
 button {
   width: 100%;
   padding: 15px;
@@ -62,144 +44,161 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
-button:hover {
-  background-color: #005fcc;
-}
-/* Responsive */
-@media(max-width:600px){
-  .card-row, .address-row {
-    flex-direction: column;
-  }
-}
+button:hover { background-color: #005fcc; }
+@media(max-width:600px){ .card-row, .address-row { flex-direction: column; } }
 
-/* Force dark theme on all input fields */
-input, select, textarea {
-  background-color: #1a1f40 !important;
-  color: #fff !important;
-  border: 1px solid #555 !important;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-/* Placeholder text */
-input::placeholder, textarea::placeholder {
-  color: #bbb !important;
-}
-
-/* When input is focused */
-input:focus, select:focus, textarea:focus {
-  background-color: #1a1f40 !important;
-  color: #fff !important;
-  outline: 2px solid #0077ff !important;
-}
+/* Force dark theme */
+input, select, textarea { background-color: #1a1f40 !important; color: #fff !important; border: 1px solid #555 !important; border-radius: 6px; padding: 10px; box-sizing: border-box; }
+input::placeholder, textarea::placeholder { color: #bbb !important; }
+input:focus, select:focus, textarea:focus { outline: 2px solid #0077ff !important; }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Checkout</h1>
+<h1>Checkout</h1>
 
-  <form id="checkout-form">
-    <!-- Shipping Details -->
-    <h2>Shipping Details</h2>
-    <label for="fullname">Full Name</label>
-    <input type="text" id="fullname" placeholder="John Doe" required>
+<form id="checkout-form">
+  <!-- Shipping Details -->
+  <h2>Shipping Details</h2>
+  <label for="fullname">Full Name</label>
+  <input type="text" id="fullname" placeholder="John Doe" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="example@email.com" required>
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="example@email.com" required>
 
-    <label for="contact">Contact Number</label>
-    <input type="text" id="contact" placeholder="+92 300 1234567" required>
+  <label for="contact">Contact Number</label>
+  <input type="text" id="contact" placeholder="+92 300 1234567" required>
 
-    <label for="address1">Address Line 1</label>
-    <input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
+  <label for="address1">Address Line 1</label>
+  <input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
 
-    <label for="address2">Address Line 2</label>
-    <input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
+  <label for="address2">Address Line 2</label>
+  <input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
 
-    <div class="address-row">
-      <input type="text" id="city" placeholder="City" required>
-      <input type="text" id="state" placeholder="State/Province" required>
+  <div class="address-row">
+    <input type="text" id="city" placeholder="City" required>
+    <input type="text" id="state" placeholder="State/Province" required>
+  </div>
+
+  <div class="address-row">
+    <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
+    <input type="text" id="country" placeholder="Country" required>
+  </div>
+
+  <!-- Payment Method -->
+  <h2>Payment Method</h2>
+  <div class="payment-options">
+    <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+    <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+    <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+    <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+    <label><input type="radio" name="payment" value="ria"> Ria</label>
+    <label><input type="radio" name="payment" value="stripe"> Stripe</label>
+  </div>
+
+  <!-- Payment Fields -->
+  <div class="payment-fields" id="card-fields">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Card Number">
+    <div class="card-row">
+      <input type="text" placeholder="Expiry MM/YY">
+      <input type="text" placeholder="CVV">
     </div>
+  </div>
 
-    <div class="address-row">
-      <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
-      <input type="text" id="country" placeholder="Country" required>
-    </div>
+  <div class="payment-fields" id="paypal-fields">
+    <input type="email" placeholder="PayPal Email">
+  </div>
 
-    <!-- Payment Method -->
-    <h2>Payment Method</h2>
-    <div class="payment-options">
-      <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
-      <label><input type="radio" name="payment" value="paypal"> PayPal</label>
-      <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-      <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-    </div>
+  <div class="payment-fields" id="payoneer-fields">
+    <input type="email" placeholder="Payoneer Email">
+  </div>
 
-    <!-- Card Fields -->
-    <div class="payment-fields" id="card-fields">
-      <input type="text" placeholder="Cardholder Name">
-      <input type="text" placeholder="Card Number">
-      <div class="card-row">
-        <input type="text" placeholder="Expiry MM/YY">
-        <input type="text" placeholder="CVV">
-      </div>
-    </div>
+  <div class="payment-fields" id="bank-fields">
+    <input type="text" placeholder="Bank Name">
+    <input type="text" placeholder="Account Number">
+    <input type="text" placeholder="SWIFT / IBAN">
+  </div>
 
-    <!-- PayPal -->
-    <div class="payment-fields" id="paypal-fields" style="display:none;">
-      <input type="email" placeholder="PayPal Email">
-    </div>
+  <div class="payment-fields" id="ria-fields">
+    <input type="text" placeholder="Ria Name">
+    <input type="text" placeholder="Ria Account Number">
+  </div>
 
-    <!-- Payoneer -->
-    <div class="payment-fields" id="payoneer-fields" style="display:none;">
-      <input type="email" placeholder="Payoneer Email">
-    </div>
+  <div class="payment-fields" id="stripe-fields">
+    <input type="text" placeholder="Stripe Account / Email">
+  </div>
 
-    <!-- Bank Transfer -->
-    <div class="payment-fields" id="bank-fields" style="display:none;">
-      <input type="text" placeholder="Bank Name">
-      <input type="text" placeholder="Account Number">
-      <input type="text" placeholder="SWIFT / IBAN">
-    </div>
-
-    <button type="submit" id="place-order">Place Order</button>
-  </form>
+  <button type="submit" id="place-order">Place Order</button>
+</form>
 </div>
 
+<footer>
+  <p style="text-align:center; padding:30px 10px; background-color:#050a1a; color:#1de9b6; font-size:14px;">
+    <a href="return.html" style="color: #1de9b6;">Return Policy</a> | 
+    <a href="shipping.html" style="color: #1de9b6;">Shipping Policy</a> | 
+    <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
+  </p>
+</footer>
 
-
+<script src="products.js"></script>
+<script src="cart.js"></script>
 <script>
-// Function to get product ID from URL (?id=2)
+// Toggle payment fields
+const paymentRadios = document.querySelectorAll('input[name="payment"]');
+const paymentFields = {
+  card: document.getElementById('card-fields'),
+  paypal: document.getElementById('paypal-fields'),
+  payoneer: document.getElementById('payoneer-fields'),
+  bank: document.getElementById('bank-fields'),
+  ria: document.getElementById('ria-fields'),
+  stripe: document.getElementById('stripe-fields')
+};
+
+function hideAllPaymentFields() {
+  for (const key in paymentFields) paymentFields[key].style.display = 'none';
+}
+
+// Initialize default
+hideAllPaymentFields();
+paymentFields['card'].style.display = 'block';
+
+// Radio change
+paymentRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    hideAllPaymentFields();
+    const selected = radio.value;
+    if(paymentFields[selected]) paymentFields[selected].style.display = 'block';
+  });
+});
+
+// Checkout ?id=X flow
 function getProductIdFromURL() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('id'); 
+    return params.get('id');
 }
 
 const productId = getProductIdFromURL();
-
-if (productId) {
+if(productId){
     const product = products.find(p => p.id == productId);
-
-    if (product) {
+    if(product){
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        // Check if already exists
         const exists = cart.find(item => item.id == product.id);
-
-        if (!exists) {  
+        if(!exists){
             product.qty = 1;
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
         }
-
-        window.location.href = "cart.html";
+        window.location.href = "cart.new.html";
     }
 }
+
+// Place Order redirect
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  window.location.href = "thankyou.html";
+});
 </script>
-<script src="products.js"></script>
-<script src="cart.js"></script>
 </body>
 </html>
