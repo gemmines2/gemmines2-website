@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle payment fields
+
+  /* -------------------------------
+     🔹 1. PAYMENT METHOD TOGGLING
+  --------------------------------*/
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
   const paymentFields = {
     card: document.getElementById('card-fields'),
@@ -25,33 +28,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle ?id=PRODUCT_ID from GMC
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');
-  if(productId){
-    const product = products.find(p => p.id === productId);
-    if(product){
+  /* ---------------------------------------
+     🔹 2. HANDLE DIRECT ?id= PRODUCT ADD
+  ----------------------------------------*/
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  if (productId) {
+    const product = products.find(p => p.id == productId);
+    if (product) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const exists = cart.find(item => item.id === product.id);
-      if(!exists){
-        cart.push({...product, qty: 1});
+
+      const exists = cart.find(item => item.id == product.id);
+      if (!exists) {
+        cart.push({ ...product, qty: 1 });
         localStorage.setItem('cart', JSON.stringify(cart));
       }
-    } else {
-      console.warn('Product ID not found in products.js:', productId);
+
+      // 🔹 Show order summary in checkout
+      const summaryDiv = document.getElementById('product-summary');
+      if (summaryDiv) {
+        summaryDiv.innerHTML = `
+          <h2>🛍 Order Summary</h2>
+          <img src="${product.image}" alt="${product.name}" style="width:120px;border-radius:6px;">
+          <p><strong>${product.name}</strong></p>
+          <p>Price: ${product.price}</p>
+          <p>Quantity: 1</p>
+        `;
+      }
     }
   }
 
-  // Handle form submission
+  /* ---------------------------------------
+     🔹 3. FORM SUBMISSION (FINAL ORDER SAVE)
+  ----------------------------------------*/
   const form = document.getElementById('checkout-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if(cart.length === 0){
+    if (cart.length === 0) {
       alert("Your cart is empty!");
       return;
     }
-    // Save latest order
+
     const order = {
       customer: {
         fullname: form.fullname.value,
@@ -63,14 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
         state: form.state.value,
         postal: form.postal.value,
         country: form.country.value,
-        payment: document.querySelector('input[name="payment"]:checked')?.value
+        payment: document.querySelector('input[name="payment"]:checked')?.value,
       },
       items: cart,
       date: new Date().toLocaleString()
     };
+
     localStorage.setItem('latestOrder', JSON.stringify(order));
     localStorage.removeItem('cart');
-    alert("✅ Order placed successfully!");
     window.location.href = "thankyou.html";
   });
+
 });
