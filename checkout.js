@@ -1,3 +1,21 @@
+// Handle Google Merchant checkout URL with ?id={productId}
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+if (productId && !productId.includes("{")) {
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const product = products.find(item => item.id == productId);
+
+    if (product) {
+        const alreadyInCart = existingCart.some(item => item.id == product.id);
+        if (!alreadyInCart) {
+            existingCart.push({ ...product, qty: 1 });
+            localStorage.setItem("cart", JSON.stringify(existingCart));
+        }
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("checkout-form");
   const paymentOptions = document.querySelectorAll('input[name="payment"]');
