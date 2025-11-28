@@ -1,37 +1,58 @@
 const products = [
-  { id: 1, name: "Amethyst", image: "images/amethyst.jpg", price: 180, description: "Natural polished Amethyst gemstone - Healing and spiritual calm." },
-  { id: 2, name: "Aquamarine", image: "images/aquamarine.jpg", price: 300, description: "Ocean-blue Aquamarine - Polished, calming, and elegant." },
-  { id: 3, name: "Emerald", image: "images/emeralds.jpg", price: 800, description: "Natural green emerald - Symbol of love and prosperity." },
-  { id: 4, name: "Garnet", image: "images/garnet.jpg", price: 150, description: "Deep red Garnet - Stone of passion, love, and energy." },
   {
-  id: "greenjasper_005",
-  name: "Green Jasper",
-  image: "images/green-jasper.jpg",
-  price: 150.00,
-  description: "Polished Natural Green Jasper opaque quality— genuine, unheated, approx. 20 carats. Ideal for jewelry or collectors."
-},
-
-  { id: 6, name: "Green Tourmaline", image: "images/green-tourmaline.jpg", price: 180, description: "Premium natural Green Tourmaline - Rare and powerful." },
-  { id: 7, name: "Mixed Gemstones", image: "images/mixed-gemstones.jpg", price: 600, description: "Colorful assorted polished gemstones - Perfect for display or healing." },
-  { id: 8, name: "Opal", image: "images/opal.jpg", price: 800, description: "Ethiopian Opal - Fire play, mystical and mesmerizing." },
-  { id: 9, name: "Peridot", image: "images/peridot.jpg", price: 300, description: "Light-green Peridot - Stone of renewal and positivity." },
-  { id: 10, name: "Rhodolite", image: "images/rhodolite.jpg", price: 350, description: "Elegant Rhodolite Garnet - Polished, deep rose color." },
-  { id: 11, name: "Lemon Quartz", image: "images/lemon-quartz.jpg", price: 90, description: "Bright Lemon Quartz - Polished, excellent clarity." },
-  { id: 12, name: "Blue Sapphire", image: "images/bluesapphire.jpg", price: 300, description: "Stunning polished Blue Sapphire - Royal elegance." }
+    id: "umbalitegarnet_001",
+    name: "Umbalite Garnet",
+    image: "images/umbalite.jpg",
+    price: 400.00,
+    description: "Rare Umbalite Garnet – Deep pinkish-red, symbolizing love, energy & passion."
+  },
+  {
+    id: "almandinegarnet_002",
+    name: "Almandine Garnet",
+    image: "images/almandine.jpg",
+    price: 150.00,
+    description: "Deep red Almandine Garnet – Stone of strength, energy, and balance."
+  },
+  {
+    id: "tourmaline_003",
+    name: "Tourmaline",
+    image: "images/tourmaline.jpg",
+    price: 180.00,
+    description: "Natural Tourmaline gemstone – Protection, positivity & emotional healing."
+  },
+  {
+    id: "mxdgem_004",
+    name: "Mixed Gemstones",
+    image: "images/mixedgemstones.jpg",
+    price: 600.00,
+    description: "Premium Mixed Natural Gemstones Collection – Perfect for collectors."
+  },
+  {
+    id: "greenjasper_005",
+    name: "Green Jasper",
+    image: "images/greenjasper.jpg",
+    price: 90.00,
+    description: "Green Jasper – Stone of harmony, balance, and natural protection."
+  },
+  {
+    id: "citrine_006",
+    name: "Citrine",
+    image: "images/citrine.jpg",
+    price: 120.00,
+    description: "Bright yellow Citrine – Stone of wealth, success & happiness."
+  },
+  {
+    id: "bluesapphire_007",
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: 800.00,
+    description: "Natural Blue Sapphire – Stone of wisdom, royalty, and spiritual clarity."
+  },
+  {
+    id: "aquamarine_008",
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: 200.00,
+    description: "Soothing Aquamarine – Stone of tranquility, clarity & courage."
+  }
 ];
-
-// Render products on products page
-function renderProducts() {
-  const productList = document.getElementById("product-list");
-  if (!productList) return;
-
-  productList.innerHTML = products.map(product => `
-    <div class="product-card">
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>${product.description}</p>
-      <div class="price">$${product.price.toFixed(2)}</div>
-      <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
-    </div>
-  `).join("");
-}
