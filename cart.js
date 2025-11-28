@@ -1,3 +1,27 @@
+// --- Handle Direct Add to Cart from Google Merchant ---
+window.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("add_to_cart");
+    const qty = parseInt(params.get("qty")) || 1;
+
+    if (productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const product = products.find(p => p.id == productId);
+
+        if (product) {
+            // Check if already in cart
+            const existing = cart.find(item => item.id == productId);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ ...product, qty });
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+    }
+});
+
+
 // Load cart from localStorage or initialize
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
