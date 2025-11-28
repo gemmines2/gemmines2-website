@@ -4,89 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gemmines2 Checkout</title>
+<link rel="stylesheet" href="style.css">
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0b0f25;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-}
-.container {
-  max-width: 800px;
-  margin: 30px auto;
-  background-color: #1a1f40;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-h1, h2 { text-align: center; margin-bottom: 20px; }
-form label { display: block; margin-bottom: 5px; font-weight: 500; }
-form input, form select, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: none;
-  box-sizing: border-box;
-}
-.payment-options label { display: block; margin-bottom: 10px; cursor: pointer; }
-.payment-fields { margin-top: 15px; display: none; }
-.card-row, .address-row { display: flex; gap: 10px; }
-.card-row input, .address-row input { flex: 1; }
-button {
-  width: 100%;
-  padding: 15px;
-  background-color: #0077ff;
-  color: #fff;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-button:hover { background-color: #005fcc; }
-@media(max-width:600px){ .card-row, .address-row { flex-direction: column; } }
-
-/* Force dark theme */
-input, select, textarea { background-color: #1a1f40 !important; color: #fff !important; border: 1px solid #555 !important; border-radius: 6px; padding: 10px; box-sizing: border-box; }
-input::placeholder, textarea::placeholder { color: #bbb !important; }
-input:focus, select:focus, textarea:focus { outline: 2px solid #0077ff !important; }
+body { font-family: Arial,sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
+.container { max-width:800px; margin:30px auto; background:#1a1f40; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
+h1,h2 { text-align:center; margin-bottom:20px; }
+form label { display:block; margin-bottom:5px; font-weight:500; }
+form input, form select, form textarea { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:none; box-sizing:border-box; background:#1a1f40; color:#fff; border:1px solid #555; }
+input::placeholder, textarea::placeholder { color:#bbb; }
+input:focus, select:focus, textarea:focus { outline:2px solid #0077ff; }
+.payment-options label { display:block; margin-bottom:10px; cursor:pointer; }
+.payment-fields { margin-top:15px; display:none; }
+.card-row, .address-row { display:flex; gap:10px; }
+.card-row input, .address-row input { flex:1; }
+button { width:100%; padding:15px; background:#0077ff; color:#fff; font-size:18px; border:none; border-radius:8px; cursor:pointer; }
+button:hover { background:#005fcc; }
+@media(max-width:600px){ .card-row,.address-row{ flex-direction:column; } }
 </style>
 </head>
 <body>
 
 <div class="container">
 <h1>Checkout</h1>
-
 <form id="checkout-form">
-  <!-- Shipping Details -->
   <h2>Shipping Details</h2>
-  <label for="fullname">Full Name</label>
-  <input type="text" id="fullname" placeholder="John Doe" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" placeholder="example@email.com" required>
-
-  <label for="contact">Contact Number</label>
-  <input type="text" id="contact" placeholder="+92 300 1234567" required>
-
-  <label for="address1">Address Line 1</label>
-  <input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
-
-  <label for="address2">Address Line 2</label>
-  <input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
-
+  <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
+  <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
+  <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
+  <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
+  <label>Address Line 2</label><input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
   <div class="address-row">
     <input type="text" id="city" placeholder="City" required>
     <input type="text" id="state" placeholder="State/Province" required>
   </div>
-
   <div class="address-row">
     <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
     <input type="text" id="country" placeholder="Country" required>
   </div>
 
-  <!-- Payment Method -->
   <h2>Payment Method</h2>
   <div class="payment-options">
     <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
@@ -97,7 +52,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid #0077ff !importan
     <label><input type="radio" name="payment" value="stripe"> Stripe</label>
   </div>
 
-  <!-- Payment Fields -->
   <div class="payment-fields" id="card-fields">
     <input type="text" placeholder="Cardholder Name">
     <input type="text" placeholder="Card Number">
@@ -107,100 +61,32 @@ input:focus, select:focus, textarea:focus { outline: 2px solid #0077ff !importan
     </div>
   </div>
 
-  <div class="payment-fields" id="paypal-fields">
-    <input type="email" placeholder="PayPal Email">
-  </div>
-
-  <div class="payment-fields" id="payoneer-fields">
-    <input type="email" placeholder="Payoneer Email">
-  </div>
-
+  <div class="payment-fields" id="paypal-fields"><input type="email" placeholder="PayPal Email"></div>
+  <div class="payment-fields" id="payoneer-fields"><input type="email" placeholder="Payoneer Email"></div>
   <div class="payment-fields" id="bank-fields">
     <input type="text" placeholder="Bank Name">
     <input type="text" placeholder="Account Number">
     <input type="text" placeholder="SWIFT / IBAN">
   </div>
-
   <div class="payment-fields" id="ria-fields">
     <input type="text" placeholder="Ria Name">
     <input type="text" placeholder="Ria Account Number">
   </div>
+  <div class="payment-fields" id="stripe-fields"><input type="text" placeholder="Stripe Account / Email"></div>
 
-  <div class="payment-fields" id="stripe-fields">
-    <input type="text" placeholder="Stripe Account / Email">
-  </div>
-
-  <button type="submit" id="place-order">Place Order</button>
+  <button type="submit">Place Order</button>
 </form>
 </div>
 
-<footer>
-  <p style="text-align:center; padding:30px 10px; background-color:#050a1a; color:#1de9b6; font-size:14px;">
-    <a href="return.html" style="color: #1de9b6;">Return Policy</a> | 
-    <a href="shipping.html" style="color: #1de9b6;">Shipping Policy</a> | 
-    <a href="contact.html" style="color: #1de9b6;">Contact Us</a>
-  </p>
+<footer style="text-align:center; padding:30px; background:#050a1a; color:#1de9b6;">
+  <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
+  <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
+  <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
 </footer>
 
 <script src="products.js"></script>
 <script src="cart.js"></script>
-<script>
-// Toggle payment fields
-const paymentRadios = document.querySelectorAll('input[name="payment"]');
-const paymentFields = {
-  card: document.getElementById('card-fields'),
-  paypal: document.getElementById('paypal-fields'),
-  payoneer: document.getElementById('payoneer-fields'),
-  bank: document.getElementById('bank-fields'),
-  ria: document.getElementById('ria-fields'),
-  stripe: document.getElementById('stripe-fields')
-};
-
-function hideAllPaymentFields() {
-  for (const key in paymentFields) paymentFields[key].style.display = 'none';
-}
-
-// Initialize default
-hideAllPaymentFields();
-paymentFields['card'].style.display = 'block';
-
-// Radio change
-paymentRadios.forEach(radio => {
-  radio.addEventListener('change', () => {
-    hideAllPaymentFields();
-    const selected = radio.value;
-    if(paymentFields[selected]) paymentFields[selected].style.display = 'block';
-  });
-});
-
-// Checkout ?id=X flow
-function getProductIdFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
-}
-
-const productId = getProductIdFromURL();
-if(productId){
-    const product = products.find(p => p.id == productId);
-    if(product){
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const exists = cart.find(item => item.id == product.id);
-        if(!exists){
-            product.qty = 1;
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-        window.location.href = "cart.new.html";
-    }
-}
-
-// Place Order redirect
-document.getElementById('checkout-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  window.location.href = "thankyou.html";
-});
-</script>
-  <script src="checkout.js"></script>
+<script src="checkout.js"></script>
 
 </body>
 </html>
