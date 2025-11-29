@@ -33,5 +33,26 @@ const products = [
     image: "images/green-jasper.jpg",
     price: 90.00,
     description: "Green Jasper – Stone of harmony, balance, and natural protection."
+  },
+  {
+    id: "citrine_006",
+    name: "Citrine",
+    image: "images/Green-citrine.jpg",
+    price: 120.00,
+    description: "Bright yellow Citrine – Stone of wealth, success & happiness."
+  },
+  {
+    id: "bluesapphire_007",
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: 800.00,
+    description: "Natural Blue Sapphire – Stone of wisdom, royalty, and spiritual clarity."
+  },
+  {
+    id: "aquamarine_008",
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: 200.00,
+    description: "Soothing Aquamarine – Stone of tranquility, clarity & courage."
   }
 ];
