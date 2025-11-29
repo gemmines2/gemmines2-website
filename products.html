@@ -1,129 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root {
-      --turquoise: #00ffe0;
-      --muted: #b7c7d3;
-      --accent1: #00e0ff;
-      --accent2: #c9a646;
-      --card: #1a1f40;
-    }
-    .section-title {
-      text-align: center;
-      color: var(--turquoise);
-      font-family: "Playfair Display", serif;
-      margin: 16px 0;
-      font-size: 1.3rem;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin-top: 6px;
-    }
-    .product-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    }
-    .product-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 0 auto 10px auto;
-      display: block;
-      background: #0a0f18;
-    }
-    .product-card h3 { margin: 4px 0; color: var(--turquoise); font-size: 0.9rem; }
-    .product-card p { margin: 0 0 8px; color: var(--muted); font-size: 0.8rem; min-height: 36px; }
-    .product-card .price { font-weight: 700; margin-bottom: 8px; color: var(--accent1); }
-    .buy-btn {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      border: none;
-      color: #000;
-      font-weight: 700;
-      font-size: 0.8rem;
-      padding: 7px;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .buy-btn:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,255,208,0.18); }
-    @media (max-width:900px){
-      .products-grid { grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); }
-      .product-card img { width: 160px; height: 160px; }
-    }
-    footer {
-      background-color:#050a1a;
-      color:#1de9b6;
-      text-align:center;
-      padding:20px 10px;
-      font-family:Arial, sans-serif;
-      font-size:14px;
-    }
-    footer a { color:#1de9b6; text-decoration:none; margin:0 5px; }
-    footer a:hover { text-decoration:underline; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">
-      <div class="logo">GM</div>
-      <div>
-        <h1>Gemmines2</h1>
-        <small>Natural gemstones — cut, polished & tumbled</small>
-      </div>
-    </div>
-    <nav>
-      <a class="btn" href="index.html">Home</a>
-      <a class="btn active" href="products.html">Products</a>
-      <a class="btn" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <h2 class="section-title">Our Gemstone Collection</h2>
-    <div class="products-grid" id="product-list"></div>
-  </main>
-
-  <footer>
-    <p>© <span id="year"></span> Gemmines2. All rights reserved.</p>
-    <p>
-      <a href="return.html">Return Policy</a> | 
-      <a href="shipping.html">Shipping Policy</a> | 
-      <a href="contact.html">Contact Us</a>
-    </p>
-  </footer>
-
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
-  
- <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
+<script>
   document.addEventListener('DOMContentLoaded', () => {
-    renderProducts();
+    const productList = document.getElementById('product-list');
+    if (!productList) return;
+
+    productList.innerHTML = products.map(p => `
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${p.description}</p>
+        <div class="price">$${p.price.toFixed(2)}</div>
+        <button class="buy-btn" onclick="addToCart('${p.id}')">Buy Now</button>
+      </div>
+    `).join("");
+
     if (typeof renderCartCount === 'function') renderCartCount();
   });
-</script>
 
-</body>
-</html>
+  // Simple cart function
+  function addToCart(id) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const product = products.find(p => p.id === id);
+    if (!product) return;
+
+    const exists = cart.find(item => item.id === id);
+    if (exists) {
+      exists.qty += 1;
+    } else {
+      cart.push({...product, qty: 1});
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${product.name} added to cart!`);
+    if (typeof renderCartCount === 'function') renderCartCount();
+  }
+</script>
