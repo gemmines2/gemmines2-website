@@ -1,134 +1,58 @@
 const products = [
-  { id: 1, name: "Amethyst", image: "images/amethyst.jpg", price: 180, description: "Natural polished Amethyst gemstone - Healing and spiritual calm." },
-  { id: 2, name: "Aquamarine", image: "images/aquamarine.jpg", price: 300, description: "Ocean-blue Aquamarine - Polished, calming, and elegant." },
-  { id: 3, name: "Emerald", image: "images/emeralds.jpg", price: 800, description: "Natural green emerald - Symbol of love and prosperity." },
-  { id: 4, name: "Garnet", image: "images/garnet.jpg", price: 150, description: "Deep red Garnet - Stone of passion, love, and energy." },
   {
-  id: "greenjasper_005",
-  name: "Green Jasper",
-  image: "images/green-jasper.jpg",
-  price: 150.00,
-  description: "Polished Natural Green Jasper opaque quality— genuine, unheated, approx. 20 carats. Ideal for jewelry or collectors."
-},
-
-  { id: 6, name: "Green Tourmaline", image: "images/green-tourmaline.jpg", price: 180, description: "Premium natural Green Tourmaline - Rare and powerful." },
-  { id: 7, name: "Mixed Gemstones", image: "images/mixed-gemstones.jpg", price: 600, description: "Colorful assorted polished gemstones - Perfect for display or healing." },
-  { id: 8, name: "Opal", image: "images/opal.jpg", price: 800, description: "Ethiopian Opal - Fire play, mystical and mesmerizing." },
-  { id: 9, name: "Peridot", image: "images/peridot.jpg", price: 300, description: "Light-green Peridot - Stone of renewal and positivity." },
-  { id: 10, name: "Rhodolite", image: "images/rhodolite.jpg", price: 350, description: "Elegant Rhodolite Garnet - Polished, deep rose color." },
-  { id: 11, name: "Lemon Quartz", image: "images/lemon-quartz.jpg", price: 90, description: "Bright Lemon Quartz - Polished, excellent clarity." },
-  { id: 12, name: "Blue Sapphire", image: "images/bluesapphire.jpg", price: 300, description: "Stunning polished Blue Sapphire - Royal elegance." }
+    id: "umbalitegarnet_001",
+    name: "Umbalite Garnet",
+    image: "images/umbalitegarnet.jpg",
+    price: 400.00,
+    description: "Rare Umbalite Garnet – Deep pinkish-red, symbolizing love, energy & passion."
+  },
+  {
+    id: "almandinegarnet_002",
+    name: "Almandine Garnet",
+    image: "images/Almandine-ring.jpg",
+    price: 150.00,
+    description: "Deep red Almandine Garnet – Stone of strength, energy, and balance."
+  },
+  {
+    id: "tourmaline_003",
+    name: "Tourmaline",
+    image: "images/green-tourmaline.jpg",   // Fixed
+    price: 180.00,
+    description: "Natural Tourmaline gemstone – Protection, positivity & emotional healing."
+  },
+  {
+    id: "mxdgem_004",
+    name: "Mixed Gemstones",
+    image: "images/mixed-gemstones.jpg",   // Fixed
+    price: 600.00,
+    description: "Premium Mixed Natural Gemstones Collection – Perfect for collectors."
+  },
+  {
+    id: "greenjasper_005",
+    name: "Green Jasper",
+    image: "images/green-jasper.jpg",   // Fixed
+    price: 90.00,
+    description: "Green Jasper – Stone of harmony, balance, and natural protection."
+  },
+  {
+    id: "citrine_006",
+    name: "Citrine",
+    image: "images/Green-citrine.jpg",  // Matches your actual file
+    price: 120.00,
+    description: "Bright yellow Citrine – Stone of wealth, success & happiness."
+  },
+  {
+    id: "bluesapphire_007",
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: 800.00,
+    description: "Natural Blue Sapphire – Stone of wisdom, royalty, and spiritual clarity."
+  },
+  {
+    id: "aquamarine_008",
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: 200.00,
+    description: "Soothing Aquamarine – Stone of tranquility, clarity & courage."
+  }
 ];
-
-// Render products on products page
-function renderProducts() {
-  const productList = document.getElementById("product-list");
-  if (!productList) return;
-
-  productList.innerHTML = products.map(product => `
-    <div class="product-card">
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>${product.description}</p>
-      <div class="price">$${product.price.toFixed(2)}</div>
-      <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
-    </div>
-  `).join("");
-}
-
-Check out
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gemmines2 Checkout</title>
-<link rel="stylesheet" href="style.css">
-<style>
-body { font-family: Arial,sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
-.container { max-width:800px; margin:30px auto; background:#1a1f40; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
-h1,h2 { text-align:center; margin-bottom:20px; }
-form label { display:block; margin-bottom:5px; font-weight:500; }
-form input, form select, form textarea { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:none; box-sizing:border-box; background:#1a1f40; color:#fff; border:1px solid #555; }
-input::placeholder, textarea::placeholder { color:#bbb; }
-input:focus, select:focus, textarea:focus { outline:2px solid #0077ff; }
-.payment-options label { display:block; margin-bottom:10px; cursor:pointer; }
-.payment-fields { margin-top:15px; display:none; }
-.card-row, .address-row { display:flex; gap:10px; }
-.card-row input, .address-row input { flex:1; }
-button { width:100%; padding:15px; background:#0077ff; color:#fff; font-size:18px; border:none; border-radius:8px; cursor:pointer; }
-button:hover { background:#005fcc; }
-@media(max-width:600px){ .card-row,.address-row{ flex-direction:column; } }
-</style>
-</head>
-<body>
-
-<div class="container">
-<h1>Checkout</h1>
-<form id="checkout-form">
-  <h2>Shipping Details</h2>
-  <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
-  <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
-  <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
-  <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
-  <label>Address Line 2</label><input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
-  <div class="address-row">
-    <input type="text" id="city" placeholder="City" required>
-    <input type="text" id="state" placeholder="State/Province" required>
-  </div>
-  <div class="address-row">
-    <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
-    <input type="text" id="country" placeholder="Country" required>
-  </div>
-
-  <h2>Payment Method</h2>
-  <div class="payment-options">
-    <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
-    <label><input type="radio" name="payment" value="paypal"> PayPal</label>
-    <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-    <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-    <label><input type="radio" name="payment" value="ria"> Ria</label>
-    <label><input type="radio" name="payment" value="stripe"> Stripe</label>
-  </div>
-
-  <div class="payment-fields" id="card-fields">
-    <input type="text" placeholder="Cardholder Name">
-    <input type="text" placeholder="Card Number">
-    <div class="card-row">
-      <input type="text" placeholder="Expiry MM/YY">
-      <input type="text" placeholder="CVV">
-    </div>
-  </div>
-
-  <div class="payment-fields" id="paypal-fields"><input type="email" placeholder="PayPal Email"></div>
-  <div class="payment-fields" id="payoneer-fields"><input type="email" placeholder="Payoneer Email"></div>
-  <div class="payment-fields" id="bank-fields">
-    <input type="text" placeholder="Bank Name">
-    <input type="text" placeholder="Account Number">
-    <input type="text" placeholder="SWIFT / IBAN">
-  </div>
-  <div class="payment-fields" id="ria-fields">
-    <input type="text" placeholder="Ria Name">
-    <input type="text" placeholder="Ria Account Number">
-  </div>
-  <div class="payment-fields" id="stripe-fields"><input type="text" placeholder="Stripe Account / Email"></div>
-
-  <button type="submit">Place Order</button>
-</form>
-</div>
-
-<footer style="text-align:center; padding:30px; background:#050a1a; color:#1de9b6;">
-  <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
-  <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
-  <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
-</footer>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script src="checkout.js"></script>
-
-</body>
-</html>
-
-
