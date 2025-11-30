@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: "green-citrine_006",
-    name: "Citrine",
+    name: "green-Citrine",
     image: "images/green-citrine2.jpg",
     price: 120.00,
     description: "Yellow Citrine – Stone of wealth, success & happiness."
