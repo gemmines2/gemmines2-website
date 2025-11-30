@@ -1,4 +1,4 @@
-// products.js - GMC-approved product list
+
 const products = [
   {
     id: "umbalitegarnet_001",
@@ -31,13 +31,13 @@ const products = [
   {
     id: "greenjasper_005",
     name: "Green Jasper",
-    image: "images/greenjasper.jpg",
+    image: "images/green-jasper.jpg",
     price: 150.00,
     description: "Green Jasper – Tumbled natural stones, symbol of balance & protection."
   },
   {
     id: "citrine_006",
-    name: "Citrine (Gold Colour)",
+    name: "Citrine",
     image: "images/green-citrine.jpg",
     price: 125.00,
     description: "Citrine – Natural gold-colour gemstone in silver setting, symbol of success & wealth."
@@ -83,5 +83,19 @@ const products = [
     image: "images/hessonite-garnet.jpg",
     price: 400.00,
     description: "Hessonite Garnet – Premium gemstone for spiritual growth, clarity & protection."
+  },
+  {
+    id: "lemonquartz_013",
+    name: "Lemon Quartz",
+    image: "images/lemon-quartz.jpg",
+    price: 140.00,
+    description: "Lemon Quartz – Stone of clarity & positive energy."
+  },
+  {
+    id: "pinktourmaline_014",
+    name: "Pink Tourmaline",
+    image: "images/pink-tourmaline.jpg",
+    price: 220.00,
+    description: "Pink Tourmaline – Vibrant gemstone symbolizing love and creativity."
   }
 ];
