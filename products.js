@@ -35,7 +35,7 @@ const products = [
     description: "Green Jasper – Stone of harmony, balance, and protection."
   },
   {
-    id: "citrine_006",
+    id: "green-citrine_006",
     name: "Citrine",
     image: "images/green-citrine2.jpg",
     price: 120.00,
