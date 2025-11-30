@@ -91,7 +91,7 @@ const products = [
     description: "Natural Zircon – Stone of balance & spiritual protection."
   }
   {
-  id: "hessonitegarnet_014",
+  id: "hessonite-garnet_014",
   name: "Hessonite Garnet",
   image: "images/hessonite-garnet.jpg",
   price: 350.00,
