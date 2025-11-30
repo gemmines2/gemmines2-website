@@ -1,101 +1,87 @@
+// products.js - GMC-approved product list
 const products = [
   {
     id: "umbalitegarnet_001",
     name: "Umbalite Garnet",
     image: "images/umbalitegarnet.jpg",
-    price: 400.00,
-    description: "Rare Umbalite Garnet – Symbol of love, energy & passion."
-  },
-  {
-    id: "almandinegarnet_002",
-    name: "Almandine Garnet",
-    image: "images/Almandine-ring.jpg",
-    price: 150.00,
-    description: "Deep red Almandine Garnet – Stone of strength, courage & protection."
-  },
-  {
-    id: "tourmaline_003",
-    name: "Tourmaline",
-    image: "images/green-tourmaline.jpg",
-    price: 180.00,
-    description: "Natural Tourmaline – Protection, positivity & emotional healing."
-  },
-  {
-    id: "mixedgem_004",
-    name: "Mixed Gemstones",
-    image: "images/mixed-gemstones.jpg",
     price: 600.00,
-    description: "Premium Mixed Natural Gemstones Collection – Ideal for collectors."
+    description: "Umbalite Garnet – Natural uncut gemstone symbolizing love, energy & passion."
+  },
+  {
+    id: "rhodolite_002",
+    name: "Rhodolite Garnet",
+    image: "images/rhodolite.jpg",
+    price: 350.00,
+    description: "Rhodolite Garnet – Polished gemstone of inspiration, love & joy."
+  },
+  {
+    id: "aquamarine_003",
+    name: "Aquamarine",
+    image: "images/aquamarine.jpg",
+    price: 300.00,
+    description: "Aquamarine – Natural polished stone for tranquility, clarity & courage."
+  },
+  {
+    id: "peridot_004",
+    name: "Peridot",
+    image: "images/peridot.jpg",
+    price: 350.00,
+    description: "Peridot – Stone of compassion, harmony, and renewal."
   },
   {
     id: "greenjasper_005",
     name: "Green Jasper",
-    image: "images/green-jasper.jpg",
-    price: 90.00,
-    description: "Green Jasper – Stone of harmony, balance, and protection."
+    image: "images/greenjasper.jpg",
+    price: 150.00,
+    description: "Green Jasper – Tumbled natural stones, symbol of balance & protection."
   },
   {
-    id: "green-citrine_006",
-    name: "green-Citrine",
-    image: "images/green-citrine2.jpg",
-    price: 120.00,
-    description: "Yellow Citrine – Stone of wealth, success & happiness."
+    id: "citrine_006",
+    name: "Citrine (Gold Colour)",
+    image: "images/green-citrine.jpg",
+    price: 125.00,
+    description: "Citrine – Natural gold-colour gemstone in silver setting, symbol of success & wealth."
   },
   {
-    id: "bluesapphire_007",
+    id: "almandine_007",
+    name: "Almandine Garnet",
+    image: "images/almandine-ring.jpg",
+    price: 150.00,
+    description: "Almandine Garnet – Deep red polished gemstone, stone of strength & courage."
+  },
+  {
+    id: "mixedgemstones_008",
+    name: "Mixed Gemstones",
+    image: "images/mixed-gemstones.jpg",
+    price: 600.00,
+    description: "Mixed Lot Gemstones – Peridot, Garnet & Smoky Quartz, perfect for collectors."
+  },
+  {
+    id: "greentourmaline_009",
+    name: "Green Tourmaline",
+    image: "images/green-tourmaline.jpg",
+    price: 180.00,
+    description: "Green Tourmaline – Natural unheated gemstone, rare Afghan Verdelite Elbaite."
+  },
+  {
+    id: "bluesapphire_010",
     name: "Blue Sapphire",
     image: "images/bluesapphire.jpg",
-    price: 800.00,
-    description: "Natural Blue Sapphire – Wisdom, royalty, and spiritual clarity."
+    price: 300.00,
+    description: "Blue Sapphire – Natural Ceylon sapphire, heated, cornflower blue, eye-clean."
   },
   {
-    id: "aquamarine_008",
-    name: "Aquamarine",
-    image: "images/aquamarine.jpg",
-    price: 200.00,
-    description: "Aquamarine – Stone of tranquility, clarity & courage."
-  },
-  {
-    id: "peridot_009",
-    name: "Peridot",
-    image: "images/peridot.jpg",
-    price: 130.00,
-    description: "Fresh Peridot – Stone of compassion, harmony, and renewal."
-  },
-  {
-    id: "opal_010",
-    name: "Opal",
-    image: "images/opal.jpg",
-    price: 220.00,
-    description: "Natural Opal – Symbol of purity, hope & emotional healing."
-  },
-  {
-    id: "rhodolite_011",
-    name: "Rhodolite Garnet",
-    image: "images/rhodolite.jpg",
-    price: 260.00,
-    description: "Elegant Rhodolite – Stone of inspiration, love & joy."
-  },
-  {
-    id: "lemonquartz_012",
-    name: "Lemon Quartz",
-    image: "images/lemon-quartz.jpg",
-    price: 140.00,
-    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
-  },
-  {
-    id: "zircon_013",
+    id: "zircon_011",
     name: "Zircon",
     image: "images/zircon.jpg",
     price: 90.00,
-    description: "Natural Zircon – Stone of balance & spiritual protection."
-  }
+    description: "Zircon – Natural green zircon, untreated, stone of balance & protection."
+  },
   {
-  id: "hessonitegarnet_014",
-  name: "Hessonite Garnet",
-  image: "images/hessonite-garnet.jpg",
-  price: 350.00,
-  description: "Premium Hessonite Garnet – Stone of spiritual growth, clarity & protection."
-},
-
+    id: "hessonitegarnet_012",
+    name: "Hessonite Garnet",
+    image: "images/hessonite-garnet.jpg",
+    price: 400.00,
+    description: "Hessonite Garnet – Premium gemstone for spiritual growth, clarity & protection."
+  }
 ];
