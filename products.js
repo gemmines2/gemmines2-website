@@ -89,21 +89,5 @@ const products = [
     image: "images/zircon.jpg",
     price: 90.00,
     description: "Natural Zircon – Stone of balance & spiritual protection."
-  }{
-    id: "lemonquartz_012",
-    name: "Lemon Quartz",
-    image: "images/lemon-quartz.jpg",
-    price: 140.00,
-    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
-  },
-  {
-    id: "zircon_013",
-    name: "Zircon",
-    image: "images/zircon.jpg",
-    price: 90.00,
-    description: "Natural Zircon – Stone of balance & spiritual protection."
   }
 ];
-
-  
-
