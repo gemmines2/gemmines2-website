@@ -55,4 +55,33 @@ const products = [
     price: 200.00,
     description: "Soothing Aquamarine – Stone of tranquility, clarity & courage."
   }
+  {
+  id: "peridot_006",
+  name: "Peridot",
+  image: "images/peridot.jpg",
+  price: 120.00,
+  description: "Natural Peridot – Stone of compassion, harmony, and healing."
+},
+{
+  id: "opal_007",
+  name: "Opal",
+  image: "images/opal.jpg",
+  price: 250.00,
+  description: "Genuine Australian Opal – Enhances creativity and emotional balance."
+},
+{
+  id: "rhodolite_008",
+  name: "Rhodolite Garnet",
+  image: "images/rhodolite.jpg",
+  price: 200.00,
+  description: "Premium Rhodolite Garnet – Stone of love, energy, and elegance."
+},
+{
+  id: "lemonquartz_009",
+  name: "Lemon Quartz",
+  image: "images/lemon-quartz.jpg",
+  price: 95.00,
+  description: "Natural Lemon Quartz – Clarity, positivity & inner strength."
+}
+
 ];
