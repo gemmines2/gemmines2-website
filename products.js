@@ -96,5 +96,5 @@ const products = [
     image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
     price: 140.00,
     description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
-  },
+  }
 ];
