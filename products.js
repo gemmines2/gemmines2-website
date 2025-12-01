@@ -1,5 +1,4 @@
-const products = [
-  {
+ {
     id: "amethyst_001",
     name: "Amethyst",
     image: "images/amethyst.jpg",
@@ -109,4 +108,20 @@ const products = [
     name: "Mixed Gemstones",
     image: "images/mixed-gemstones.jpg",
     price: 600.00,
-    description: "Natural Mixed Lot Gemstones – Peridot, Garnet &
+    description: "Natural Mixed Lot Gemstones – Peridot, Garnet & Smoky Quartz, faceted loose gems."
+  },
+  {
+    id: "umbalite_017",
+    name: "Umbalite Garnet",
+    image: "images/umbalitegarnet.jpg",
+    price: 600.00,
+    description: "Rare Umbalite Garnet – Symbol of love, energy & passion."
+  },
+  {
+    id: "emerald_018",
+    name: "Emerald",
+    image: "images/emeralds.jpg",
+    price: 450.00,
+    description: "Natural Emerald – Vibrant green, eye-clean, untreated."
+  }
+];
