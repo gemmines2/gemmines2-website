@@ -77,7 +77,7 @@ const products = [
     description: "Pink Tourmaline – Stone of love, emotional healing & inner peace."
   },
   {
-    id: "lemonquartz2_012",
+    id: "lemonquartz_012",
     name: "Lemon Quartz",
     image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
     price: 140.00,
@@ -89,5 +89,12 @@ const products = [
     image: "images/zircon.jpg", // 👈 THIS IMAGE DOES NOT EXIST IN YOUR LIST
     price: 90.00,
     description: "Natural Zircon – Stone of balance & spiritual protection."
-  }
+  },
+  {
+    id: "lemonquartz2_014",
+    name: "Lemon Quartz",
+    image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
+    price: 140.00,
+    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
+  },
 ];
