@@ -77,7 +77,7 @@ const products = [
     description: "Pink Tourmaline – Stone of love, emotional healing & inner peace."
   },
   {
-    id: "lemonquartz_012",
+    id: "lemonquartz2_012",
     name: "Lemon Quartz",
     image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
     price: 140.00,
