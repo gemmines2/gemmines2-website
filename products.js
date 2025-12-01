@@ -1,100 +1,100 @@
 const products = [
   {
-    id: "umbalitegarnet_001",
-    name: "Umbalite Garnet",
-    image: "images/umbalitegarnet.jpg",
-    price: 600.00,
-    description: "Rare Umbalite Garnet – Symbol of love, energy & passion."
+    id: 1,
+    name: "Amethyst",
+    image: "images/amethyst.jpg",
+    price: "$180.00",
+    description: "Natural polished Amethyst gemstone - Healing and spiritual calm."
   },
   {
-    id: "almandinegarnet_002",
+    id: 2,
+    name: "Fluorite",
+    image: "images/fluorite.jpg",
+    price: "$300.00",
+    description: "65 Carat Natural Raw Fluorite Crystal | Uncut Rough Rainbow Fluorite Gemstone 100% natural, rough fluorite specimen weighing 65 carats (13 grams)."
+  },
+  {
+    id: 3,
+    name: "Green Zircon",
+    image: "images/zircon.jpg",
+    price: "$90.00",
+    description: "Natural Green Zircon 1.10ct Oval Cut Loose Gemstone - Untreated Vivid Green Zircon"
+  },
+  {
+    id: 4,
+    name: "Citrine Ring",
+    image: "images/citrine-ring.jpg",
+    price: "$125.00",
+    description: "4ct Natural Golden Citrine Oval Ring 925 Italian Sterling Silver with Zircon Sides"
+  },
+  {
+    id: 5,
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: "$300.00",
+    description: "Natural Ceylon Blue Sapphire 1.10 ct - Heated, Cornflower Blue, Eye-Clean, Sri Lanka Origin"
+  },
+  {
+    id: 6,
     name: "Almandine Garnet",
-    image: "images/Almandine-ring.jpg", // ✔ Exact match
-    price: 150.00,
-    description: "Deep red Almandine Garnet – Stone of strength, courage & protection."
+    image: "images/almandine.jpg",
+    price: "$150.00",
+    description: "60ct Natural Almandine-Pyrope Garnet Loose Gemstone Oval Cut Deep Vivid Red Brilliant Luster Eye Clean Untreated Rare Large Stone"
   },
   {
-    id: "aquamarine_003",
-    name: "Aquamarine",
-    image: "images/aquamarine.jpg",
-    price: 300.00,
-    description: "Aquamarine – Stone of tranquility, clarity & courage."
+    id: 7,
+    name: "Hessonite Garnet",
+    image: "images/hessonite-garnet.jpg",
+    price: "$400.00",
+    description: "Natural Uncut Hessonite Garnet Rough 68.00 ct - Premium Gomed Raw Stone"
   },
   {
-    id: "peridot_004",
-    name: "Peridot",
-    image: "images/peridot.jpg",
-    price: 350.00,
-    description: "Fresh Peridot – Stone of compassion, harmony, and renewal."
-  },
-  {
-    id: "greenjasper_005",
-    name: "Green Jasper",
-    image: "images/green-jasper.jpg",
-    price: 150.00,
-    description: "Green Jasper – Stone of harmony, balance, and protection."
-  },
-  {
-    id: "tourmaline_006",
-    name: "Green Tourmaline",
-    image: "images/green-tourmaline.jpg",
-    price: 180.00,
-    description: "Natural Tourmaline – Protection, positivity & emotional healing."
-  },
-  {
-    id: "rhodolite_007",
+    id: 8,
     name: "Rhodolite Garnet",
     image: "images/rhodolite.jpg",
-    price: 350.00,
-    description: "Elegant Rhodolite – Stone of inspiration, love & joy."
+    price: "$350.00",
+    description: "Rhodolite Garnet - Natural Polished Gemstone (60 carats)"
   },
   {
-    id: "opal_008",
-    name: "Opal",
-    image: "images/opal.jpg",
-    price: 220.00,
-    description: "Natural Opal – Symbol of purity, hope & emotional healing."
+    id: 9,
+    name: "Umbalite Garnet",
+    image: "images/umbalitegarnet.jpg",
+    price: "$600.00",
+    description: "Umbalite Garnet - Natural Uncut Gemstone (12 carats)"
   },
   {
-    id: "citrine_009",
-    name: "Natural Citrine",
-    image: "images/Green-citrine.jpg", // ✔ EXACT NAME
-    price: 125.00,
-    description: "Natural Citrine in Italian silver with zircon accents."
+    id: 10,
+    name: "Peridot",
+    image: "images/peridot.jpg",
+    price: "$350.00",
+    description: "Peridot - Natural Polished Gemstone (1400 carats)"
   },
   {
-    id: "hessonitegarnet_010",
-    name: "Hessonite Garnet",
-    image: "images/hessonite-garnet.jpg", // ✔ Newly added image
-    price: 400.00,
-    description: "Premium Hessonite Garnet – Stone of spiritual growth, clarity & protection."
+    id: 11,
+    name: "Lemon Quartz Single",
+    image: "images/lemon-quartz.jpg",
+    price: "$300.00",
+    description: "Natural Eye-Clean Lemon Quartz Cut & Polished Gemstone – AAA Grade Faceted Lemon Quartz Loose Stone"
   },
   {
-    id: "pinktourmaline_011",
-    name: "Pink Tourmaline",
-    image: "images/pink-tourmaline.jpg", // ✔ Confirmed uploaded
-    price: 280.00,
-    description: "Pink Tourmaline – Stone of love, emotional healing & inner peace."
+    id: 12,
+    name: "Lemon Quartz 2",
+    image: "images/lemonquartz2.jpg",
+    price: "$300.00",
+    description: "65 Carat Raw Lemon Quartz Crystal - Uncut Gemstone"
   },
   {
-    id: "lemonquartz_012",
-    name: "Lemon Quartz",
-    image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
-    price: 140.00,
-    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
+    id: 13,
+    name: "Green Jasper",
+    image: "images/green-jasper.jpg",
+    price: "$150.00",
+    description: "Tumbled Natural Green River Stones from Pakistan - 4 Pieces (5 Carats Each, Total 20 ct)"
   },
   {
-    id: "zircon_013",
-    name: "Green Zircon",
-    image: "images/zircon.jpg", // 👈 THIS IMAGE DOES NOT EXIST IN YOUR LIST
-    price: 90.00,
-    description: "Natural Zircon – Stone of balance & spiritual protection."
-  },
-  {
-    id: "lemonquartz2_014",
-    name: "Lemon Quartz",
-    image: "images/lemon-quartz.jpg", // ✔ You don't have lemon-quartz2 — using correct name
-    price: 140.00,
-    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy."
+    id: 14,
+    name: "Mixed Gemstones",
+    image: "images/mixed-gemstones.jpg",
+    price: "$600.00",
+    description: "Natural Mixed Lot Gemstones – Peridot, Garnet & Smoky Quartz (All Stones 1+ Carat, Faceted Loose Gems)"
   }
 ];
