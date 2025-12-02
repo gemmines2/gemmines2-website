@@ -16,7 +16,7 @@ const products = [
   {
     id: "aquamarine_003",
     name: "Aquamarine",
-    image: "images/aquamarine.jpg",
+    image: "images/aquamarine1.jpg",
     price: 300.00,
     description: "Aquamarine – Stone of tranquility, clarity & courage."
   },
