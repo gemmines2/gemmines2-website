@@ -130,7 +130,7 @@ const products = [
     id: "sapphire_020",
     name: "Sapphire",
     image: "images/sapphire.jpg",
-    price: 500.00,
+    price: 300.00,
     description: "Natural Sapphire – Deep blue gemstone of wisdom and nobility."
   },
   {
