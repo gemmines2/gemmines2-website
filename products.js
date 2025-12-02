@@ -104,7 +104,13 @@ const products = [
     price: 150.00,
     description: "Elegant Citrine Ring – Sparkling yellow quartz in silver setting."
   },
-  
+  {
+    id: "bluesapphire_016",
+    name: "Blue Sapphire",
+    image: "images/bluesapphire.jpg",
+    price: 500.00,
+    description: "Natural Blue Sapphire – Symbol of wisdom, virtue & good fortune."
+  },
   {
     id: "emeralds_017",
     name: "Emerald",
