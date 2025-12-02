@@ -132,13 +132,7 @@ const products = [
     price: 600.00,
     description: "Collection of rare mixed gemstones – Perfect for collectors."
   },
-  {
-    id: "sapphire_020",
-    name: "Sapphire",
-    image: "images/sapphire.jpg",
-    price: 300.00,
-    description: "Natural Sapphire – Deep blue gemstone of wisdom and nobility."
-  },
+  
   {
     id: "garnet_021",
     name: "Garnet",
