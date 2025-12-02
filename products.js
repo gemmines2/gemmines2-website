@@ -108,7 +108,7 @@ const products = [
     id: "bluesapphire_016",
     name: "Blue Sapphire",
     image: "images/bluesapphire.jpg",
-    price: 300.00,
+    price: 320.00,
     description: "Natural Blue Sapphire – Symbol of wisdom, virtue & good fortune."
   },
   {
