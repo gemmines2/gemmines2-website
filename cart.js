@@ -1,19 +1,33 @@
-// Get cart from localStorage or empty array
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+/* -------------------------
+   LOAD CART
+-------------------------- */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+/* -------------------------
+   RENDER CART COUNT (HEADER)
+-------------------------- */
+function renderCartCount() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const el = document.getElementById("cart-count");
+    if (el) el.textContent = count;
+}
 
-// Render cart items and checkout button
+/* -------------------------
+   RENDER CART PAGE ITEMS
+-------------------------- */
 function renderCart() {
-    const cartItemsDiv = document.getElementById('cart-items');
-    const checkoutBtn = document.getElementById('checkout-btn');
+    const itemsDiv = document.getElementById("cart-items");
+    const checkoutBtn = document.getElementById("checkout-btn");
 
-    cartItemsDiv.innerHTML = ""; // Clear
+    if (!itemsDiv) return;
+
+    itemsDiv.innerHTML = "";
 
     if (cart.length === 0) {
-        cartItemsDiv.innerHTML = `
+        itemsDiv.innerHTML = `
             <p style="color:#fff; padding:20px;">Your cart is empty.</p>
         `;
-        checkoutBtn.style.display = "none";
+        if (checkoutBtn) checkoutBtn.style.display = "none";
         renderCartCount();
         return;
     }
@@ -32,30 +46,26 @@ function renderCart() {
             <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
         `;
 
-        cartItemsDiv.appendChild(div);
+        itemsDiv.appendChild(div);
     });
 
-    checkoutBtn.style.display = "block";
+    if (checkoutBtn) checkoutBtn.style.display = "block";
+
     renderCartCount();
 }
 
-
-// Remove item
+/* -------------------------
+   REMOVE ITEM FROM CART
+-------------------------- */
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
 }
 
-
-// Update cart count in header
-function renderCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.qty, 0);
-    document.getElementById("cart-count").textContent = count;
-}
-
-
-// Checkout button → go to checkout page
+/* -------------------------
+   CHECKOUT BUTTON
+-------------------------- */
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
@@ -64,8 +74,10 @@ function checkout() {
     window.location.href = "checkout.html";
 }
 
-
-// On page load
+/* -------------------------
+   ON PAGE LOAD
+-------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
+    renderCartCount();
     renderCart();
 });
