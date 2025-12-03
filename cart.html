@@ -1,90 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart | Gemmines2</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  body { font-family: Arial, sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
-  header, nav, footer { width:100%; }
-  nav { display:flex; justify-content:center; gap:20px; background:#1a1f40; padding:10px; }
-  nav a { color:#1de9b6; text-decoration:none; font-weight:600; }
-  nav a.active { text-decoration:underline; }
-  .container { max-width:900px; margin:20px auto; padding:20px; background:#1a1f40; border-radius:10px; }
-  h1 { text-align:center; color:#00ffe0; margin-bottom:20px; }
-  .cart-item { display:flex; gap:15px; background:#0f1230; padding:12px; border-radius:10px; align-items:center; margin-bottom:12px; }
-  .cart-item img { width:100px; height:100px; object-fit:cover; border-radius:8px; }
-  .cart-item div { flex:1; }
-  .cart-item h4 { margin:0 0 6px 0; color:#00ffe0; font-size:1rem; }
-  .cart-item p { margin:2px 0; color:#bbb; font-size:0.85rem; }
-  .cart-item .quantity input { width:60px; padding:5px; border-radius:6px; border:none; }
-  .btn-gradient { background: linear-gradient(135deg, #00e0ff, #c9a646); color:#000; font-weight:700; padding:8px 12px; border:none; border-radius:8px; cursor:pointer; transition:0.2s; }
-  .btn-gradient:hover { transform:scale(1.05); box-shadow:0 4px 12px rgba(0,255,208,0.3); }
-  #cart-total { text-align:right; font-size:1.1rem; font-weight:600; margin-top:10px; }
-  .clear-btn { margin-top:12px; text-align:right; }
-  footer { background:#050a1a; color:#1de9b6; text-align:center; padding:20px 10px; margin-top:30px; }
-  footer a { color:#1de9b6; text-decoration:none; margin:0 5px; }
-  footer a:hover { text-decoration:underline; }
-  .contact-info p { margin:4px 0; font-size:0.9rem; }
-  /* Floating WhatsApp Button */
-  .wa-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 14px; border-radius: 50%; font-size: 24px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 1000; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-item { display:flex; gap:10px; align-items:center; margin-bottom:15px; background:#1a1f40; padding:10px; border-radius:10px; }
+    .cart-item img { width:80px; height:80px; object-fit:cover; border-radius:6px; }
+    .cart-details { flex:1; }
+    .cart-details h4 { color:#00ffe0; margin:0 0 5px 0; }
+    .cart-details p { color:#b7c7d3; margin:0; }
+    .price { color:#00e0ff; font-weight:700; }
+    .remove-btn { background:#c90000; color:#fff; border:none; padding:5px 8px; border-radius:5px; cursor:pointer; }
+    #checkout-btn { margin-top:20px; padding:10px 15px; border:none; border-radius:8px; background:linear-gradient(135deg,#00e0ff,#c9a646); color:#000; font-weight:700; cursor:pointer; }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a class="active" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-    <a href="products.html">Products</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-<div id="cart-actions" style="margin-top: 20px; text-align: center;">
-  <button id="checkout-btn" style="
-    display: none;
-    background: linear-gradient(135deg,#00e0ff,#c9a646);
-    color: #000;
-    padding: 10px 20px;
-    font-weight: 700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  ">Checkout</button>
-</div>
+  <main class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <button id="checkout-btn" onclick="checkout()" style="display:none;">Proceed to Checkout</button>
+  </main>
 
-<main class="container">
-  <h1>Your Shopping Cart</h1>
-  <div id="cart-items"></div>
-  <div id="cart-total">Total: $0.00</div>
-  <div class="clear-btn">
-    <button id="clear-cart" class="btn-gradient">Clear Cart</button>
-  </div>
-</main>
+  <footer>
+    <p>© <span id="year"></span> Gemmines2. All rights reserved.</p>
+  </footer>
 
-<footer>
-  <p>
-    <a href="return.html">Return Policy</a> | 
-    <a href="shipping.html">Shipping Policy</a> | 
-    <a href="contact.html">Contact Us</a>
-  </p>
-  <p>© <span id="year"></span> Gemmines2. All Rights Reserved.</p>
-  <div class="contact-info">
-    <p>📞 WhatsApp & Call: +92 3362149415</p>
-    <p>📸 Instagram: <a href="https://www.instagram.com/gemmines2/" target="_blank">@gemmines2</a></p>
-    <p>🎵 TikTok: <a href="https://www.tiktok.com/@gemmines2" target="_blank">@gemmines2</a></p>
-    <p>📧 Email: gemmines2@gmail.com</p>
-  </div>
-</footer>
-
-<a href="https://wa.me/923486903684" target="_blank" class="wa-btn">💬</a>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
