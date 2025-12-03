@@ -8,7 +8,7 @@ function renderCart() {
 
   cartItemsDiv.innerHTML = ''; // Clear existing items
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
     cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
     checkoutBtn.style.display = 'none';
     renderCartCount();
