@@ -1,63 +1,71 @@
-
 // Get cart from localStorage or empty array
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+
 // Render cart items and checkout button
 function renderCart() {
-  const cartItemsDiv = document.getElementById('cart-items');
-  const checkoutBtn = document.getElementById('checkout-btn');
+    const cartItemsDiv = document.getElementById('cart-items');
+    const checkoutBtn = document.getElementById('checkout-btn');
 
-  cartItemsDiv.innerHTML = ''; // Clear existing items
+    cartItemsDiv.innerHTML = ""; // Clear
 
-  if (cart.length === 0) {
-    cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
-    checkoutBtn.style.display = 'none';
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `
+            <p style="color:#fff; padding:20px;">Your cart is empty.</p>
+        `;
+        checkoutBtn.style.display = "none";
+        renderCartCount();
+        return;
+    }
+
+    cart.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+
+        div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-details">
+                <h4>${item.name}</h4>
+                <p>${item.description}</p>
+                <p class="price">$${item.price.toFixed(2)} × ${item.qty}</p>
+            </div>
+            <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
+        `;
+
+        cartItemsDiv.appendChild(div);
+    });
+
+    checkoutBtn.style.display = "block";
     renderCartCount();
-    return;
-  }
-
-  cart.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-details">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <p class="price">$${item.price.toFixed(2)} x ${item.qty}</p>
-      </div>
-      <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
-    `;
-    cartItemsDiv.appendChild(div);
-  });
-
-  checkoutBtn.style.display = 'block';
-  renderCartCount();
 }
 
-// Remove item from cart
-function removeFromCart(id){
-  cart = cart.filter(item => item.id !== id);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  renderCart();
+
+// Remove item
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
 }
 
-// Render header cart count
+
+// Update cart count in header
 function renderCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.qty, 0);
-  document.getElementById('cart-count').textContent = count;
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById("cart-count").textContent = count;
 }
 
-// Checkout button click
+
+// Checkout button → go to checkout page
 function checkout() {
-  if(cart.length === 0){
-    alert('Your cart is empty!');
-    return;
-  }
-  window.location.href = 'checkout.html';
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    window.location.href = "checkout.html";
 }
 
-// Run on page load
-document.addEventListener('DOMContentLoaded', () => {
-  renderCart();
+
+// On page load
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
 });
