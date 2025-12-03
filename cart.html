@@ -1,62 +1,27 @@
-// Get cart from localStorage or empty array
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Render cart items and checkout button
-function renderCart() {
-  const cartItemsDiv = document.getElementById('cart-items');
-  const checkoutBtn = document.getElementById('checkout-btn');
+<header>
+  <h2>Shopping Cart</h2>
+  <div class="cart-icon">
+    🛒 <span id="cart-count">0</span>
+  </div>
+</header>
 
-  cartItemsDiv.innerHTML = ''; // Clear existing items
+<section id="cart-items"></section>
 
-  if (cart.length === 0) {
-    cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
-    checkoutBtn.style.display = 'none';
-    renderCartCount();
-    return;
-  }
+<button id="checkout-btn" onclick="checkout()" style="display:none;">
+  Proceed to Checkout
+</button>
 
-  cart.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-details">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <p class="price">$${item.price.toFixed(2)} x ${item.qty}</p>
-      </div>
-      <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
-    `;
-    cartItemsDiv.appendChild(div);
-  });
+<script src="cart.js"></script>
 
-  checkoutBtn.style.display = 'block';
-  renderCartCount();
-}
-
-// Remove item from cart
-function removeFromCart(id){
-  cart = cart.filter(item => item.id !== id);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  renderCart();
-}
-
-// Render header cart count
-function renderCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.qty, 0);
-  document.getElementById('cart-count').textContent = count;
-}
-
-// Checkout button click
-function checkout() {
-  if(cart.length === 0){
-    alert('Your cart is empty!');
-    return;
-  }
-  window.location.href = 'checkout.html';
-}
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', () => {
-  renderCart();
-});
+</body>
+</html>
