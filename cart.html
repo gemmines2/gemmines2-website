@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Cart - Gemmines</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h2 style="color:white;">Your Shopping Cart</h2>
+<!-- HEADER / NAVBAR -->
+<header class="header">
+    <a href="index.html" class="logo">GEMMINES</a>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+    </nav>
+
     <div class="cart-icon">
-        🛒 <span id="cart-count">0</span>
+        <a href="cart.html">🛒 <span id="cart-count">0</span></a>
     </div>
 </header>
 
-<!-- CART ITEMS LIST -->
-<div id="cart-items" style="padding:20px;"></div>
+<!-- PAGE TITLE -->
+<h2 style="text-align:center; color:white; margin-top:40px;">Your Shopping Cart</h2>
+
+<!-- CART ITEMS -->
+<div id="cart-items" class="cart-container"></div>
 
 <!-- CHECKOUT BUTTON -->
-<button id="checkout-btn" style="
-    display:none;
-    margin:20px;
-    padding:15px 30px;
-    background:#ff9800;
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:18px;">
-    Proceed to Checkout
-</button>
+<div style="text-align:center; margin:30px;">
+    <button id="checkout-btn" onclick="checkout()" 
+        style="display:none; padding:15px 30px; font-size:18px; 
+               background:#ff9800; color:white; border:none; border-radius:8px;">
+        Proceed to Checkout
+    </button>
+</div>
 
+<!-- FOOTER -->
+<footer class="footer">
+    <a href="shipping.html">Shipping Policy</a>
+    <a href="refund.html">Return & Refund</a>
+    <a href="contact.html">Contact Us</a>
+</footer>
+
+<!-- CART JS -->
 <script src="cart.js"></script>
 
 </body>
