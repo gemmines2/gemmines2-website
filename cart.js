@@ -1,3 +1,4 @@
+
 // Get cart from localStorage or empty array
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
