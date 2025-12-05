@@ -1,0 +1,15 @@
+HTML<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    window.location.href = "products.html" + (id ? "#product-" + id : "");
+  </script>
+</head>
+<body>
+  <p>Redirecting to product... <a href="products.html">Click here if not redirected</a></p>
+</body>
+</html>
