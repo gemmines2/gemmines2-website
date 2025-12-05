@@ -1,208 +1,46 @@
-/* ========================================================================= */
-/* --- 1. GLOBAL COLOR PALETTE (The Unified Turquoise/Dark Theme) --- */
-/* ========================================================================= */
-:root {
-    /* Primary Color Palette (Based on Product Page) */
-    --color-bg-primary: #050a1a;     /* Deep Navy Blue (Main background) */
-    --color-bg-card: #1a1f40;        /* Product Card/Container/Footer Background */
-    --color-text-main: #e0e4f4;      /* Off-White/Light Grey (Main body text) */
-    --color-text-secondary: #b7c7d3; /* Faded Light Blue (Description text) */
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:Segoe UI,Arial,sans-serif;background:#0b0b1a;color:#e0e0ff;line-height:1.6;}
+a {text-decoration:none;color:inherit;}
 
-    /* Accent Color Palette */
-    --color-accent-text: #00ffe0;    /* Bright Turquoise/Mint (Titles, Price text, Links) */
-    --color-accent-start: #00e0ff;   /* Cyan/Blue (Gradient Start) */
-    --color-accent-end: #c9a646;     /* Gold/Yellow (Gradient End) */
-    
-    /* UI/Field Colors */
-    --color-border-neutral: #34495e; 
-    --color-border-focus: #00ffe0;   /* Bright Turquoise for focused fields */
-    --radius: 12px;
+.hero {
+  min-height:100vh;
+  background:linear-gradient(rgba(0,0,30,0.9),rgba(0,0,50,0.95)),url('images/aquamarine.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;color:white;
 }
+.hero h1 {font-size:5.5rem;margin-bottom:15px;color:#00ffe0;}
+.hero p {font-size:1.9rem;margin-bottom:40px;}
+.btn-gradient {
+  padding:16px 40px;
+  background:linear-gradient(135deg,#00e0ff,#c9a646);
+  color:#000;font-weight:700;border-radius:12px;
+  box-shadow:0 6px 20px rgba(0,224,255,0.4);transition:0.3s;
+}
+.btn-gradient:hover {transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,224,255,0.6);}
 
-/* ========================================================================= */
-/* --- 2. BASE STYLES (Applies to ALL Pages) --- */
-/* ========================================================================= */
-body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-main);
-    font-family: 'Poppins', sans-serif, Arial;
-    margin: 0;
-    padding: 0;
+.trust {
+  background:#1a1f40;padding:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
 }
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-h1, h2 { font-family: "Playfair Display", serif; }
-a { text-decoration: none; color: var(--color-accent-text); }
-a:hover { text-decoration: underline; color: var(--color-accent-end); }
-
-/* --- Header & Navigation --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: var(--color-bg-primary); 
-    border-bottom: 1px solid var(--color-bg-card);
-}
-.brand img { height: 50px; margin-bottom: 5px; }
-.brand .tagline {
-    font-size: 1rem;
-    color: var(--color-accent-text);
-}
-nav a {
-    color: var(--color-accent-text) !important; /* Overriding default 'a' color */
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-nav a:hover, nav a.active { color: var(--color-accent-end) !important; }
-
-/* --- Footer --- */
-footer {
-    background-color: var(--color-bg-card); /* Unified background */
-    color: var(--color-text-main);
-    text-align: center;
-    padding: 20px 10px;
-    font-size: 14px;
-    margin-top: 40px; /* Space above footer */
-}
-footer a {
-    color: var(--color-accent-text) !important;
+.trust-item {
+  background:rgba(0,255,224,0.1);padding:12px 28px;border-radius:50px;
+  border:1px solid rgba(0,255,224,0.3);font-weight:bold;color:#00ffe0;
 }
 
-/* ========================================================================= */
-/* --- 3. UI COMPONENTS (Input Fields & Buttons) --- */
-/* ========================================================================= */
+.categories {padding:90px 5%;text-align:center;}
+h2 {font-size:3rem;margin-bottom:60px;color:#00ffe0;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+.cat-card {
+  background:#1a1f40;border-radius:16px;overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);transition:0.3s;
+}
+.cat-card img {width:100%;height:250px;object-fit:cover;}
+.cat-card h3 {padding:20px;color:#00ffe0;font-size:1.6rem;}
+.cat-card:hover {transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,224,255,0.3);}
 
-/* --- Input Fields (Fixes the white field issue on ALL pages) --- */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-textarea {
-    width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 20px;
-    box-sizing: border-box; 
-    
-    background-color: var(--color-bg-card);      /* Dark card background */
-    color: var(--color-text-main);              /* Light text color */
-    border: 1px solid var(--color-border-neutral); /* Subtle border */
-    border-radius: 5px;
-    transition: border-color 0.3s;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-    outline: none; 
-    border-color: var(--color-border-focus); /* Bright Turquoise focus border */
-    box-shadow: 0 0 5px rgba(0, 255, 224, 0.5); 
-}
+footer {background:#000;padding:50px;text-align:center;color:#888;}
+footer a {color:#00e0ff;text-decoration:underline;}
 
-/* --- Hero Button --- */
-.btn-hero {
-    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-    color: #000;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: transform .2s ease;
-}
-.btn-hero:hover { transform: scale(1.05); }
-
-
-/* ========================================================================= */
-/* --- 4. PRODUCT CARD STYLES (Used on products.html & index.html) --- */
-/* ========================================================================= */
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    margin: 20px 0;
-}
-.product-card, .home-products .card {
-    background: var(--color-bg-card); 
-    border-radius: var(--radius);
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-.product-card:hover, .home-products .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 18px rgba(0, 255, 208, 0.25);
-}
-.product-card img, .home-products img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-.product-card h3, .home-products h3 { 
-    color: var(--color-accent-text); 
-    font-size: 0.95rem; 
-    margin: 0; 
-}
-.product-card p { 
-    color: var(--color-text-secondary); 
-    font-size: 0.85rem; 
-    min-height: 40px; 
-}
-.price { 
-    color: var(--color-accent-start); 
-    font-weight: 700; 
-    margin-bottom: 8px; 
-}
-.buy-btn {
-    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-    border: none;
-    color: #000; 
-    font-weight: 700;
-    padding: 7px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-}
-/* --- Home Page Specific Styles --- */
-.hero { text-align: center; padding: 60px 20px; }
-.hero h1 { color: var(--color-accent-start); font-size: 2rem; margin-bottom: 10px; }
-.hero h2 { color: var(--color-accent-text); font-size: 1.2rem; margin-bottom: 15px; }
-.featured { text-align: center; padding: 40px 20px 20px; }
-.featured h2 { color: var(--color-accent-end); font-size: 1.5rem; margin-bottom: 20px; }
-.about { padding: 40px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-.about h2 { color: var(--color-accent-end); font-size: 1.4rem; margin-bottom: 10px; }
-.about p { color: var(--color-accent-text); font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
-
-/* ========================================================================= */
-/* --- CART PAGE STYLING FIXES --- */
-/* ========================================================================= */
-
-/* Ensure cart images are small thumbnails */
-.cart-item img {
-    width: 80px !important;     /* Set a professional thumbnail size */
-    height: 80px !important;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 15px;
-}
-
-/* Base cart item styling */
-.cart-item {
-    display: flex;
-    background: var(--color-bg-card); /* Consistent dark card background */
-    padding: 15px;
-    border-radius: 8px;
-    align-items: center;
-    color: var(--color-text-main);
-    margin-bottom: 15px;
+@media (max-width:768px){
+  .hero h1 {font-size:3.5rem;}
+  .hero p {font-size:1.5rem;}
+  .grid {grid-template-columns:1fr;}
 }
