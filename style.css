@@ -1,14 +1,14 @@
 * {margin:0;padding:0;box-sizing:border-box;}
-body {font-family:Segoe UI,Arial,sans-serif;background:#0b0b1a;color:#e0e0ff;line-height:1.6;}
+body {font-family:Segoe UI,Arial,sans-serif;background:#0b0b1a;color:#00ffe0;line-height:1.6;}
 a {text-decoration:none;color:inherit;}
 
 .hero {
   min-height:100vh;
   background:linear-gradient(rgba(0,0,30,0.9),rgba(0,0,50,0.95)),url('images/aquamarine.jpg') center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;text-align:center;color:white;
+  display:flex;align-items:center;justify-content:center;text-align:center;color:#00ffe0;
 }
 .hero h1 {font-size:5.5rem;margin-bottom:15px;color:#00ffe0;}
-.hero p {font-size:1.9rem;margin-bottom:40px;}
+.hero p {font-size:1.9rem;margin-bottom:40px;color:#b7c7d3;}
 .btn-gradient {
   padding:16px 40px;
   background:linear-gradient(135deg,#00e0ff,#c9a646);
@@ -36,6 +36,26 @@ h2 {font-size:3rem;margin-bottom:60px;color:#00ffe0;}
 .cat-card h3 {padding:20px;color:#00ffe0;font-size:1.6rem;}
 .cat-card:hover {transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,224,255,0.3);}
 
+.about {
+  padding:90px 5%;text-align:center;background:#111128;color:#b7c7d3;
+}
+.about h2 {color:#00ffe0;margin-bottom:30px;}
+.about p {font-size:1.2rem;max-width:900px;margin:0 auto 20px;line-height:1.8;}
+
+.footer-links a {color:#00e0ff;margin:0 10px;}
+.contact-info {margin-top:30px;font-size:1.1rem;color:#b7c7d3;}
+.contact-info a {color:#00ffe0;text-decoration:underline;}
+
+.whatsapp-float {
+  position:fixed;bottom:30px;right:30px;width:60px;height:60px;
+  background:#25d366;color:white;border-radius:50px;
+  font-size:30px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.4);z-index:1000;
+  animation:pulse 2s infinite;
+}
+.whatsapp-float:hover {background:#128C7E;}
+@keyframes pulse {0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
 footer {background:#000;padding:50px;text-align:center;color:#888;}
 footer a {color:#00e0ff;text-decoration:underline;}
 
@@ -44,32 +64,3 @@ footer a {color:#00e0ff;text-decoration:underline;}
   .hero p {font-size:1.5rem;}
   .grid {grid-template-columns:1fr;}
 }
-.about {
-  padding: 90px 5%;
-  text-align: center;
-  background: #111128;
-  color: #e0e0ff;
-}
-.about h2 {font-size: 3rem; color: #00ffe0; margin-bottom: 30px;}
-.about p {font-size: 1.2rem; max-width: 900px; margin: 0 auto 20px; line-height: 1.8;}
-
-.footer-links a {color: #00e0ff; margin: 0 10px;}
-.contact-info {margin-top: 30px; font-size: 1.1rem;}
-.contact-info a {color: #00ffe0; text-decoration: underline;}
-
-.whatsapp-float {
-  position: fixed;
-  width: 60px; height: 60px;
-  bottom: 30px; right: 30px;
-  background: #25d366;
-  color: white;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
-  animation: pulse 2s infinite;
-}
-.whatsapp-float:hover {background: #128C7E;}
-@keyframes pulse {0% {box-shadow: 0 0 0 0 rgba(37,211,102,0.7);} 70% {box-shadow: 0 0 0 15px rgba(37,211,102,0);} 100% {box-shadow: 0 0 0 0 rgba(37,211,102,0);}}
