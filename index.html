@@ -8,15 +8,34 @@
   <link rel="stylesheet" href="style.css?v=1.0">  <!-- Forces fresh load -->
 </head>
 <body>
+<header class="site-header">
+  <!-- Logo (replace with your real logo.png later) -->
+  <div class="logo">
+    <a href="index.html">
+      <strong>Gemmines2</strong>
+    </a>
+  </div>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Gemmines2</h1>
-      <p>Rare • Natural • Unheated • Direct from Pakistan & Worldwide</p>
-      <a href="products.html" class="btn-gradient">Shop All Gemstones</a>
-    </div>
-  </header>
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
+  <!-- Hamburger Icon (mobile only) -->
+  <div class="hamburger" onclick="toggleMenu()">Menu</div>
+
+  <!-- Mobile Dropdown Menu -->
+  <nav class="mobile-nav" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="products.html" onclick="toggleMenu()">Products</a>
+    <a href="cart.html" onclick="toggleMenu()">Cart (<span id="cart-count">0</span>)</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </nav>
+</header>
+ 
   <section class="trust">
     <div class="trust-item">100% Natural & Untreated</div>
     <div class="trust-item">Worldwide Insured Shipping</div>
