@@ -98,7 +98,13 @@
   // Keep cart count updated
   if (typeof renderCartCount === 'function') renderCartCount();
   </script>
-
+<script>
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
+}
+updateCartCount(); // Run on load
+</script>
 </body>
 </html>
 </body>
