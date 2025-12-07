@@ -141,7 +141,29 @@ function showToast(msg) {
   }
   if (typeof renderCartCount === 'function') renderCartCount();
   </script>
-
+<script>
+// Live cart count update on add to cart
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const exists = cart.find(item => item.id === id);
+  if (exists) {
+    exists.qty += 1;
+  } else {
+    cart.push({...product, qty: 1});
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+  // Update count on all pages
+  updateCartCount();
+  
+  // Show toast
+  showToast(product.name + " added to cart!");
+  
+  if (typeof renderCartCount === 'function') renderCartCount();
+}
+</script>
 </body>
 </html>
 </body>
