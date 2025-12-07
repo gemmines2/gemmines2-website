@@ -162,8 +162,15 @@ function addToCart(id) {
   showToast(product.name + " added to cart!");
   
   if (typeof renderCartCount === 'function') renderCartCount();
+}<script>
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
 }
+updateCartCount(); // Run on load
 </script>
+</script>
+  
 </body>
 </html>
 </body>
