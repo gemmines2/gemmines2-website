@@ -2,90 +2,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemmines2 Checkout</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemmines2 Checkout</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: Arial,sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
+.container { max-width:800px; margin:30px auto; background:#1a1f40; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
+h1,h2 { text-align:center; margin-bottom:20px; }
+form label { display:block; margin-bottom:5px; font-weight:500; }
+form input, form select, form textarea { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:none; box-sizing:border-box; background:#1a1f40; color:#fff; border:1px solid #555; }
+input::placeholder, textarea::placeholder { color:#bbb; }
+input:focus, select:focus, textarea:focus { outline:2px solid #0077ff; }
+.payment-options label { display:block; margin-bottom:10px; cursor:pointer; }
+.payment-fields { margin-top:15px; display:none; }
+.card-row, .address-row { display:flex; gap:10px; }
+.card-row input, .address-row input { flex:1; }
+button { width:100%; padding:15px; background:#0077ff; color:#fff; font-size:18px; border:none; border-radius:8px; cursor:pointer; }
+button:hover { background:#005fcc; }
+@media(max-width:600px){ .card-row,.address-row{ flex-direction:column; } }
+</style>
 </head>
 <body>
 
-<!-- SAME HEADER AS HOMEPAGE -->
-<header class="site-header">
-  <div class="logo"><a href="index.html"><strong>Gemmines2</strong></a></div>
-  <nav class="desktop-nav">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="hamburger" onclick="toggleMenu()">Menu</div>
-  <nav class="mobile-nav" id="mobileMenu">
-    <a href="index.html" onclick="toggleMenu()">Home</a>
-    <a href="products.html" onclick="toggleMenu()">Products</a>
-    <a href="cart.html" onclick="toggleMenu()">Cart (<span class="cart-count">0</span>)</a>
-    <a href="contact.html" onclick="toggleMenu()">Contact</a>
-  </nav>
-</header>
-
-<div style="margin-top:100px; padding:20px;">
-  <div style="max-width:800px; margin:0 auto; background:#1a1f40; padding:30px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.6);">
-    <h1 style="text-align:center; color:#20B2AA; margin-bottom:30px; font-size:2.2rem;">Checkout</h1>
-
-    <form id="checkout-form">
-      <h2 style="color:#20B2AA; text-align:left; margin:25px 0 15px;">Shipping Details</h2>
-      <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
-      <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
-      <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
-      <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
-      <label>Address Line 2 (Optional)</label><input type="text" id="address2">
-      <div style="display:flex; gap:15px; flex-wrap:wrap;">
-        <div style="flex:1; min-width:200px;"><input type="text" id="city" placeholder="City" required></div>
-        <div style="flex:1; min-width:200px;"><input type="text" id="state" placeholder="State/Province" required></div>
-      </div>
-      <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:10px;">
-        <div style="flex:1; min-width:200px;"><input type="text" id="postal" placeholder="Postal / ZIP Code" required></div>
-        <div style="flex:1; min-width:200px;"><input type="text" id="country" placeholder="Country" required></div>
-      </div>
-
-      <h2 style="color:#20B2AA; margin:30px 0 15px;">Payment Method</h2>
-      <div style="margin-bottom:20px;">
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="paypal"> PayPal</label>
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="payoneer"> Payoneer</label>
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="ria"> Ria Money Transfer</label>
-        <label style="display:block; margin:10px 0;"><input type="radio" name="payment" value="stripe"> Stripe</label>
-      </div>
-
-      <button type="submit" style="width:100%; padding:16px; background:#20B2AA; color:#000; font-size:1.3rem; font-weight:bold; border:none; border-radius:50px; cursor:pointer; margin-top:20px;">
-        Place Order & Pay
-      </button>
-    </form>
+<div class="container">
+<h1>Checkout</h1>
+<form id="checkout-form">
+  <h2>Shipping Details</h2>
+  <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
+  <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
+  <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
+  <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
+  <label>Address Line 2</label><input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
+  <div class="address-row">
+    <input type="text" id="city" placeholder="City" required>
+    <input type="text" id="state" placeholder="State/Province" required>
   </div>
+  <div class="address-row">
+    <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
+    <input type="text" id="country" placeholder="Country" required>
+  </div>
+
+  <h2>Payment Method</h2>
+  <div class="payment-options">
+    <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+    <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+    <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+    <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+    <label><input type="radio" name="payment" value="ria"> Ria</label>
+    <label><input type="radio" name="payment" value="stripe"> Stripe</label>
+  </div>
+
+  <div class="payment-fields" id="card-fields">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Card Number">
+    <div class="card-row">
+      <input type="text" placeholder="Expiry MM/YY">
+      <input type="text" placeholder="CVV">
+    </div>
+  </div>
+
+  <div class="payment-fields" id="paypal-fields"><input type="email" placeholder="PayPal Email"></div>
+  <div class="payment-fields" id="payoneer-fields"><input type="email" placeholder="Payoneer Email"></div>
+  <div class="payment-fields" id="bank-fields">
+    <input type="text" placeholder="Bank Name">
+    <input type="text" placeholder="Account Number">
+    <input type="text" placeholder="SWIFT / IBAN">
+  </div>
+  <div class="payment-fields" id="ria-fields">
+    <input type="text" placeholder="Ria Name">
+    <input type="text" placeholder="Ria Account Number">
+  </div>
+  <div class="payment-fields" id="stripe-fields"><input type="text" placeholder="Stripe Account / Email"></div>
+
+  <button type="submit">Place Order</button>
+</form>
 </div>
 
-<!-- FOOTER -->
-<footer style="background:#000; color:#20B2AA; text-align:center; padding:50px 20px; margin-top:80px;">
-  <div class="footer-links">
-    <a href="return.html" style="color:#00e0ff; margin:0 15px;">Return Policy</a> |
-    <a href="shipping.html" style="color:#00e0ff; margin:0 15px;">Shipping Policy</a> |
-    <a href="contact.html" style="color:#00e0ff; margin:0 15px;">Contact Us</a>
-  </div>
-  <p style="margin-top:25px;">© 2025 Gemmines2 – All Rights Reserved</p>
+<footer style="text-align:center; padding:30px; background:#050a1a; color:#1de9b6;">
+  <a href="return.html" style="color:#1de9b6;">Return Policy</a> | 
+  <a href="shipping.html" style="color:#1de9b6;">Shipping Policy</a> | 
+  <a href="contact.html" style="color:#1de9b6;">Contact Us</a>
 </footer>
-
-<a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float">WhatsApp</a>
-
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
-}
-updateCartCount();
-</script>
 
 <script src="products.js"></script>
 <script src="cart.js"></script>
@@ -93,3 +91,4 @@ updateCartCount();
 
 </body>
 </html>
+
