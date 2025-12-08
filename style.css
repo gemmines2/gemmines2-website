@@ -72,3 +72,8 @@ footer{background:#000;color:#20B2AA;text-align:center;padding:60px 20px;}
 @media (min-width:769px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
+/* SMALLER CLEAN FONTS – FINAL */
+body, input, textarea, select {font-size:15px !important;}
+h1 {font-size:2.2rem !important;}
+h2 {font-size:1.8rem !important;}
+h3 {font-size:1.4rem !important;}
