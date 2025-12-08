@@ -20,6 +20,28 @@
 </head>
 <body>
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Gemmines2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-container {padding:40px 5%; max-width:1000px; margin:0 auto;}
+    .cart-item {display:flex; align-items:center; background:#1a1f40; padding:15px; margin:15px 0; border-radius:12px; gap:20px; flex-wrap:wrap;}
+    .cart-item img {width:90px; height:90px; object-fit:cover; border-radius:8px;}
+    .cart-item-info {flex:1; color:#b7c7d3;}
+    .cart-item-info h3 {color:#00ffe0; margin:0 0 5px;}
+    .remove-btn {background:#ff4444; color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer;}
+    .cart-total {text-align:right; font-size:1.6rem; color:#00ffe0; margin:30px 0; padding:15px; background:#1a1f40; border-radius:12px;}
+    .checkout-btn {display:block; width:100%; padding:18px; margin-top:20px; background:linear-gradient(135deg,#00e0ff,#c9a646); color:#000; font-weight:700; font-size:1.3rem; text-align:center; border-radius:12px; text-decoration:none;}
+    .empty-cart {text-align:center; color:#888; font-size:1.3rem; padding:80px;}
+    @media (max-width:600px) {.cart-item {flex-direction:column; text-align:center;} .cart-item img {width:120px; height:120px;}}
+  </style>
+</head>
+<body>
+
   <header class="site-header">
     <div class="logo"><a href="index.html"><strong>Gemmines2</strong></a></div>
     <nav class="desktop-nav">
@@ -36,6 +58,67 @@
       <a href="contact.html" onclick="toggleMenu()">Contact</a>
     </nav>
   </header>
+
+  <div class="cart-container">
+    <h2 style="text-align:center;color:#00ffe0;margin:30px 0;">Your Cart</h2>
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+      <strong>Grand Total: $<span id="grand-total">0.00</span> USD</strong>
+    </div>
+
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+  </div>
+
+  <a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float">WhatsApp</a>
+
+  <script src="cart.js"></script>
+  <script>
+    function toggleMenu() { document.getElementById("mobileMenu").classList.toggle("active"); }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const itemsDiv = document.getElementById('cart-items');
+      itemsDiv.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        itemsDiv.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+      } else {
+        cart.forEach((item, i) => {
+          total += item.price * item.qty;
+          itemsDiv.innerHTML += `
+            <div class="cart-item">
+              <img src="${item.image}" alt="${item.name}">
+              <div class="cart-item-info">
+                <h3>${item.name}</h3>
+                <p>$${item.price.toFixed(2)} × ${item.qty}</p>
+              </div>
+              <button class="remove-btn" onclick="removeItem(${i})">Remove</button>
+            </div>`;
+        });
+      }
+      document.getElementById('grand-total').textContent = total.toFixed(2);
+      updateCartCount();
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
+
 
   <div class="cart-container">
     <h2 style="text-align:center;color:#00ffe0;margin:30px 0;">Your Cart</h2>
