@@ -76,4 +76,17 @@ footer{background:#000;color:#20B2AA;text-align:center;padding:60px 20px;}
 body, input, textarea, select {font-size:15px !important;}
 h1 {font-size:2.2rem !important;}
 h2 {font-size:1.8rem !important;}
-h3 {font-size:1.4rem !important;}
+h3 {font-size:1.4rem !important;}/* BRIGHT TURQUOISE HEADER – WORKS ON EVERY PAGE */
+header, header a, header nav a, header h1 { color:#20B2AA !important; }
+header {
+  background:#0b0b1a !important;
+  border-bottom:3px solid #20B2AA !important;
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+  padding:15px 5% !important;
+  position:fixed !important;
+  top:0 !important;
+  width:100% !important;
+  z-index:1000 !important;
+}
