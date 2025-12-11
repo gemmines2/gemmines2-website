@@ -49,7 +49,7 @@ const products = [
     name: "Green Tourmaline",
     description: "Natural Tourmaline – Protection, positivity & emotional healing.",
     image: "https://gemmines2.github.io/gemmines2-website/images/green-tourmaline.jpg",
-    price: 180.00,
+    price: 300.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
