@@ -179,14 +179,6 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   }
-  {
-  id: "pinkkunzite_022",
-  name: "Natural Pink Kunzite – 4 Carats Loose Gemstone",
-  description: "Natural 4-carat Pink Kunzite gemstone with soft lilac-pink tones. Precision cut, eye-clean, and expertly polished to enhance brilliance and clarity. Displays subtle pink-to-violet pleochroism. Suitable for custom jewelry or gemstone collectors.",
-  image: "https://gemmines2.github.io/gemmines2-website/images/pinkkunzite.jpg",
-  price: 380.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-}
+  
 
 ];
