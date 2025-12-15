@@ -178,8 +178,5 @@ const products = [
     price: 150.00,
     availability: "in stock",
     brand: "Gemmines2"
-  },
-
- 
-
+  }
 ];
