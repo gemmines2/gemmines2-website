@@ -190,7 +190,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "peridot_023",
+    id: "peridots_023",
     name: "Rutile Peridot",
     description: "Natural unheated Rutile Peridot weighing 6.00 carats from Pakistan. Green gemstone with natural inclusions, cut and polished.",
     image: "https://gemmines2.github.io/gemmines2-website/images/peridots.jpg",
@@ -203,7 +203,7 @@ const products = [
     name: "Pink Topaz",
     description: "Natural unheated Pink Topaz weighing 14.00 carats from Katlang, Pakistan. Cut and polished gemstone.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz-14ct.jpg",
-    price: 280.00,
+    price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
   }
