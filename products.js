@@ -194,7 +194,7 @@ const products = [
     name: "Rutile Peridot",
     description: "Natural unheated Rutile Peridot weighing 6.00 carats from Pakistan. Green gemstone with natural inclusions, cut and polished.",
     image: "https://gemmines2.github.io/gemmines2-website/images/peridots.jpg",
-    price: 300.00,
+    price: 140.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
