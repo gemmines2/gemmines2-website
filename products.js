@@ -216,8 +216,7 @@ const products = [
   price: 250.00,
   availability: "in stock",
   brand: "Gemmines2"
-}
-
+},
 
 {
   id: "star_sapphire_027",
@@ -228,6 +227,5 @@ const products = [
   availability: "in stock",
   brand: "Gemmines2"
 }
-
 
 ];
