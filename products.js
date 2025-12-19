@@ -198,8 +198,34 @@ const products = [
     price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
-  }
-
+  },
+{
+  id: "blue_topaz_025",
+  name: "Blue Topaz",
+  description: "Natural Blue Topaz – Brilliant clarity and vibrant blue color.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/gemmines2-blue-topaz.jpg",
+  price: 180.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+},
+{
+  id: "chrysoberyl_catseye_026",
+  name: "Chrysoberyl Cat’s Eye",
+  description: "Natural Chrysoberyl Cat’s Eye – Strong chatoyancy and rare gemstone.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
+  price: 750.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+},
+{
+  id: "star_sapphire_027",
+  name: "Star Sapphire",
+  description: "Natural Star Sapphire – Distinct star effect under light.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/star-sapphire.jpg",
+  price: 950.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+}
 
 
 ];
