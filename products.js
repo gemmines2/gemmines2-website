@@ -180,15 +180,7 @@ const products = [
     brand: "Gemmines2"
   },
   
-  {
-    id: "umbalite_022",
-    name: "Natural Umbalite Garnet",
-    description: "Natural unheated Umbalite Garnet weighing 13.00 carats. Eye-clean purplish-pink gemstone, expertly cut and polished.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/umbalite.jpg",
-    price: 600.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
   {
     id: "peridots_023",
     name: "Rutile Peridot",
