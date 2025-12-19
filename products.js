@@ -199,18 +199,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-{
-  id: "blue_topaz_025",
-  name: "Blue Topaz",
-  image: "https://gemmines2.github.io/gemmines2-website/images/gemmines2-blue-topaz.jpg",
-  ...
-},
-{
-  id: "chrysoberyl_catseye_026",
-  name: "Chrysoberyl Cat’s Eye",
-  image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
-  ...
-}
+
 
 {
   id: "star_sapphire_027",
