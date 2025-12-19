@@ -199,6 +199,24 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
+{
+  id: "blue_topaz_025",
+  name: "Blue Topaz",
+  description: "Natural Blue Topaz – Brilliant clarity and vibrant blue color.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz.jpg",
+  price: 120.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+},
+{
+  id: "chrysoberyl_catseye_026",
+  name: "Chrysoberyl Cat's Eye",
+  description: "Rare Chrysoberyl Cat’s Eye – Strong chatoyancy and exceptional quality.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
+  price: 250.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+}
 
 
 {
