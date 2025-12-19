@@ -194,7 +194,7 @@ const products = [
     id: "pink-topaz_024",
     name: "Pink Topaz",
     description: "Natural unheated Pink Topaz weighing 14.00 carats from Katlang, Pakistan. Cut and polished gemstone.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz-14ct.jpg",
+    image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
     price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
