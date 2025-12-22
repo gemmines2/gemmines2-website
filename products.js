@@ -231,7 +231,7 @@ const products = [
   id: "almandine_028",
   name: "Almandine Garnets",
   description: "Alamdine garnets natural unheated .",
-  image: "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/almadine.jpg",
   price: 150.00,
   availability: "in stock",
   brand: "Gemmines2"
