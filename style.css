@@ -52,7 +52,9 @@ h2{font-size:2.6rem;color:#20B2AA;margin-bottom:50px;}
 
 /* Footer & WhatsApp */
 footer{background:#000;color:#20B2AA;text-align:center;padding:60px 20px;}
-.footer-links a{color:#00e0ff;margin:0 15px;}
+footer a{
+  color:#20B2AA !important;
+  margin:0 15px;
 .whatsapp-float{
   position:fixed;bottom:25px;right:25px;width:60px;height:60px;
   background:#25d366;color:#fff;border-radius:50%;font-size:32px;
