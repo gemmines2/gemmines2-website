@@ -5,81 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
 <style>
-  body { font-family: Arial, sans-serif; background-color: #0a0a0a; color: #f0f0f0; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 50px auto; padding: 30px; background-color: #111; border-radius: 10px; box-shadow: 0 0 20px #000; }
-  h1 { text-align: center; color: #00bfff; }
-  label { display: block; margin-bottom: 5px; margin-top: 15px; color: #f0f0f0; }
-  input[type="text"], input[type="email"], textarea { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #333; background-color: #1a1a1a; color: #f0f0f0; }
+  /* ====== BASE STYLES ====== */
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0b0b1a;
+    color: #b7c7d3;
+    margin: 0;
+    padding: 0;
+  }
+
+  a { color: #20B2AA; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ====== HEADER ====== */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #0b0b1a;
+    border-bottom: 3px solid #20B2AA;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .site-header .logo strong {
+    font-size: 2rem;
+    color: #20B2AA;
+  }
+
+  .desktop-nav a {
+    margin: 0 15px;
+    font-weight: 600;
+    color: #20B2AA;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 120px auto 50px; /* margin-top adjusted for fixed header */
+    padding: 30px;
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #20B2AA;
+    margin-bottom: 25px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #b7c7d3;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #20B2AA;
+    background: transparent;
+    color: #b7c7d3;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #8fa9b5;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(32,178,170,0.4);
+  }
+
   textarea { resize: vertical; }
-  button { margin-top: 20px; padding: 12px 20px; background-color: #00bfff; color: #0a0a0a; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
-  button:hover { background-color: #009acd; }
-  .success-message { margin-top: 20px; color: #00ff00; text-align: center; }
-  .error-message { margin-top: 20px; color: #ff3333; text-align: center; }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #20B2AA;
+    color: #0b0b1a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #1f8c7a;
+  }
+
+  .success-message, .error-message {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .success-message { color: #00ff00; }
+  .error-message { color: #ff3333; }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: #000;
+    color: #b7c7d3;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  footer a { color: #20B2AA; margin: 0 10px; }
+  footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
+<!-- ====== HEADER ====== -->
+<header class="site-header">
+  <div class="logo"><strong>Gemmines2</strong></div>
+  <nav class="desktop-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<!-- ====== CONTACT FORM ====== -->
 <div class="container">
   <h1>Contact Us</h1>
   <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
     <label for="name">Full Name *</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" placeholder="Your full name" required>
 
     <label for="email">Email *</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="question">Question *</label>
-    <textarea id="question" name="question" rows="4" required></textarea>
-
-    <label for="whatsapp">WhatsApp Number (optional)</label>
-    <input type="text" id="whatsapp" name="whatsapp">
-
-    <button type="submit">Send</button>
-    <div class="success-message" id="success-message"></div>
-    <div class="error-message" id="error-message"></div>
-  </form>
-</div>
-
-<script>
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            document.getElementById('success-message').innerText = "Message sent successfully!";
-            document.getElementById('error-message').innerText = "";
-            form.reset();
-        } else {
-            document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-            document.getElementById('success-message').innerText = "";
-        }
-    }).catch(error => {
-        document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-        document.getElementById('success-message').innerText = "";
-    });
-});
-</script>
-/* === FORCE FORM COLORS EVERYWHERE === */
-input,
-textarea,
-select{
-  border:1px solid #20B2AA !important;
-  background:transparent !important;
-  color:#b7c7d3 !important;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  outline:none !important;
-  box-shadow:0 0 8px rgba(32,178,170,0.5) !important;
-}
-
-</body>
-</html>
-Force footer and form colors to teal
+    <input type="email" id="email" name="email" placeholder="Your email address" required>
