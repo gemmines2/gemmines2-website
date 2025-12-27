@@ -64,6 +64,21 @@ form.addEventListener('submit', function(e) {
     });
 });
 </script>
+/* === FORCE FORM COLORS EVERYWHERE === */
+input,
+textarea,
+select{
+  border:1px solid #20B2AA !important;
+  background:transparent !important;
+  color:#b7c7d3 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none !important;
+  box-shadow:0 0 8px rgba(32,178,170,0.5) !important;
+}
 
 </body>
 </html>
