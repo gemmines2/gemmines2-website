@@ -74,11 +74,13 @@ footer a{
 @media (min-width:769px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
+/* CLEAN FONT SIZES – SAFE */
+body {font-size:15px;}
+input, textarea, select {font-size:15px;}
+h1 {font-size:3rem;}
+h2 {font-size:2.2rem;}
+h3 {font-size:1.5rem;}
 /* SMALLER CLEAN FONTS – FINAL */
-body, input, textarea, select {font-size:15px !important;}
-h1 {font-size:2.2rem !important;}
-h2 {font-size:1.8rem !important;}
-h3 {font-size:1.4rem !important;}/* BRIGHT TURQUOISE HEADER – WORKS ON EVERY PAGE */
 header, header a, header nav a, header h1 { color:#20B2AA !important; }
 header {
   background:#0b0b1a !important;
