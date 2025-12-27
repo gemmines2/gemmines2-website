@@ -52,9 +52,7 @@ h2{font-size:2.6rem;color:#20B2AA;margin-bottom:50px;}
 
 /* Footer & WhatsApp */
 footer{background:#000;color:#20B2AA;text-align:center;padding:60px 20px;}
-footer a{
-  color:#20B2AA !important;
-  margin:0 15px;
+.footer-links a{color:#00e0ff;margin:0 15px;}
 .whatsapp-float{
   position:fixed;bottom:25px;right:25px;width:60px;height:60px;
   background:#25d366;color:#fff;border-radius:50%;font-size:32px;
@@ -74,13 +72,11 @@ footer a{
 @media (min-width:769px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
-/* CLEAN FONT SIZES – SAFE */
-body {font-size:15px;}
-input, textarea, select {font-size:15px;}
-h1 {font-size:3rem;}
-h2 {font-size:2.2rem;}
-h3 {font-size:1.5rem;}
 /* SMALLER CLEAN FONTS – FINAL */
+body, input, textarea, select {font-size:15px !important;}
+h1 {font-size:2.2rem !important;}
+h2 {font-size:1.8rem !important;}
+h3 {font-size:1.4rem !important;}/* BRIGHT TURQUOISE HEADER – WORKS ON EVERY PAGE */
 header, header a, header nav a, header h1 { color:#20B2AA !important; }
 header {
   background:#0b0b1a !important;
@@ -93,57 +89,4 @@ header {
   top:0 !important;
   width:100% !important;
   z-index:1000 !important;
-}/* ===============================
-   GEMMINES2 – SAFE FORM COLOR FIX
-   (Added without touching HTML)
-   =============================== */
-
-:root{
-  --teal:#20B2AA;
-  --text-main:#b7c7d3;
 }
-
-/* Force ALL inputs to brand teal */
-input,
-textarea,
-select{
-  background:transparent;
-  border:1px solid var(--teal);
-  color:var(--text-main);
-  padding:10px 12px;
-  border-radius:6px;
-}
-
-/* Placeholder text */
-input::placeholder,
-textarea::placeholder{
-  color:#8fa9b5;
-}
-
-/* Focus state */
-input:focus,
-textarea:focus,
-select:focus{
-  outline:none;
-  border-color:var(--teal);
-  box-shadow:0 0 6px rgba(32,178,170,0.4);
-}
-
-/* Footer safety override */
-footer input,
-footer textarea{
-  border-color:var(--teal) !important;
-}
-
-/* Footer links color fix */
-.footer-links a{
-  color:var(--teal) !important;
-}
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
-Fix form and footer color consistency
-
