@@ -25,20 +25,33 @@
     border-bottom: 1px solid #20B2AA;
     padding: 20px 0;
   }
-  .header-content {
+
+  .header-flex {
     max-width: 600px;
     margin: 0 auto;
-    text-align: right; /* RIGHT-ALIGNED HEADER */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  header h1 {
+
+  .brand h1 {
     color: #20B2AA;
-    margin: 0 0 5px 0;
+    margin: 0;
+    text-align: center;
+    flex: 1;
   }
-  header nav a {
+
+  .nav-right {
+    flex: 1;
+    text-align: right;
+  }
+
+  .nav-right a {
     color: #20B2AA;
     margin: 0 5px;
   }
-  header nav a:hover {
+
+  .nav-right a:hover {
     color: #1f8c7a;
   }
 
@@ -89,124 +102,4 @@
     margin-top: 20px;
     padding: 12px 20px;
     background-color: #20B2AA;
-    color: #0a0a0a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-  }
-
-  button:hover {
-    background-color: #1f8c7a;
-  }
-
-  .success-message, .error-message {
-    margin-top: 20px;
-    text-align: center;
-  }
-  .success-message {
-    color: #00ff00;
-  }
-  .error-message {
-    color: #ff3333;
-  }
-
-  /* FOOTER */
-  footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid #20B2AA;
-    padding: 20px 0;
-    margin-top: 50px;
-  }
-  .footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    color: #20B2AA;
-    font-size: 14px;
-  }
-  .footer-content a {
-    color: #20B2AA;
-    margin: 0 5px;
-  }
-  .footer-content a:hover {
-    color: #1f8c7a;
-  }
-</style>
-</head>
-<body>
-
-<!-- HEADER -->
-<header>
-  <div class="header-content">
-    <h1>Gemmines2</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Products</a> |
-      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- CONTACT FORM -->
-<div class="container">
-  <h1>Contact Us</h1>
-  <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
-    <label for="name">Full Name *</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email *</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="question">Question *</label>
-    <textarea id="question" name="question" rows="4" required></textarea>
-
-    <label for="whatsapp">WhatsApp Number (optional)</label>
-    <input type="text" id="whatsapp" name="whatsapp">
-
-    <button type="submit">Send</button>
-    <div class="success-message" id="success-message"></div>
-    <div class="error-message" id="error-message"></div>
-  </form>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-content">
-    &copy; 2025 Gemmines2 | 
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="refund.html">Refund Policy</a> |
-    <a href="shipping.html">Shipping Policy</a>
-  </div>
-</footer>
-
-<!-- FORM SCRIPT -->
-<script>
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            document.getElementById('success-message').innerText = "Message sent successfully!";
-            document.getElementById('error-message').innerText = "";
-            form.reset();
-        } else {
-            document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-            document.getElementById('success-message').innerText = "";
-        }
-    }).catch(error => {
-        document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-        document.getElementById('success-message').innerText = "";
-    });
-});
-</script>
-
-</body>
-</html>
+    col
