@@ -89,4 +89,22 @@ header {
   top:0 !important;
   width:100% !important;
   z-index:1000 !important;
+}/* Gemmines2 – contact page color alignment */
+label {
+  color: #20B2AA;
 }
+
+input,
+textarea {
+  border: 1px solid #20B2AA;
+  color: #b7c7d3;
+}
+
+button {
+  background-color: #20B2AA;
+}
+
+button:hover {
+  background-color: #1f8c7a;
+}
+
