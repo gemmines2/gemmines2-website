@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
- 
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -14,6 +13,35 @@
     padding: 0;
   }
 
+  /* HEADER */
+  header {
+    width: 100%;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid #20B2AA;
+    padding: 20px 0;
+  }
+  .header-content {
+    max-width: 600px;   /* same as container */
+    margin: 0 auto;
+    text-align: center;  /* center the header text */
+  }
+  header h1 {
+    color: #20B2AA;
+    margin: 0;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  header nav a {
+    color: #20B2AA;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  header nav a:hover {
+    color: #1f8c7a;
+  }
+
+  /* CONTACT FORM CONTAINER */
   .container {
     max-width: 600px;
     margin: 50px auto;
@@ -25,7 +53,7 @@
 
   h1 {
     text-align: center;
-    color: #20B2AA; /* Gemmines2 teal */
+    color: #20B2AA;
   }
 
   label {
@@ -41,7 +69,7 @@
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #20B2AA;   /* teal border */
+    border: 1px solid #20B2AA;
     background-color: #1a1a1a;
     color: #b7c7d3;
   }
@@ -59,7 +87,7 @@
   button {
     margin-top: 20px;
     padding: 12px 20px;
-    background-color: #20B2AA;   /* teal button */
+    background-color: #20B2AA;
     color: #0a0a0a;
     border: none;
     border-radius: 5px;
@@ -72,51 +100,31 @@
     background-color: #1f8c7a;
   }
 
+  .success-message, .error-message {
+    margin-top: 20px;
+    text-align: center;
+  }
   .success-message {
-    margin-top: 20px;
     color: #00ff00;
-    text-align: center;
   }
-
   .error-message {
-    margin-top: 20px;
     color: #ff3333;
-    text-align: center;
   }
-  /* FORCE header colors to match Gemmines2 teal */
-header {
-  background-color: #0a0a0a;
-  border-bottom: 1px solid #20B2AA;
-}
-
-header h1 {
-  color: #20B2AA;
-}
-
-header nav a {
-  color: #20B2AA;
-}
-
-header nav a:hover {
-  color: #1f8c7a;
-}
-
 </style>
-
 </head>
 <body>
 
 <header>
-  <h1>Gemmines2</h1>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="products.html">Products</a> |
-    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="header-content">
+    <h1>Gemmines2</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
-
-
 
 <div class="container">
   <h1>Contact Us</h1>
@@ -166,4 +174,3 @@ form.addEventListener('submit', function(e) {
 
 </body>
 </html>
-
