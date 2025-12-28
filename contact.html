@@ -5,12 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
 <style>
+  /* BODY & GENERAL */
   body {
     font-family: Arial, sans-serif;
     background-color: #0a0a0a;
     color: #f0f0f0;
     margin: 0;
     padding: 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   /* HEADER */
@@ -21,20 +26,16 @@
     padding: 20px 0;
   }
   .header-content {
-    max-width: 600px;   /* same as container */
+    max-width: 600px;
     margin: 0 auto;
-    text-align: center;  /* center the header text */
+    text-align: right; /* RIGHT-ALIGNED HEADER */
   }
   header h1 {
     color: #20B2AA;
-    margin: 0;
-  }
-  header nav {
-    margin-top: 10px;
+    margin: 0 0 5px 0;
   }
   header nav a {
     color: #20B2AA;
-    text-decoration: none;
     margin: 0 5px;
   }
   header nav a:hover {
@@ -51,7 +52,7 @@
     box-shadow: 0 0 20px #000;
   }
 
-  h1 {
+  .container h1 {
     text-align: center;
     color: #20B2AA;
   }
@@ -110,10 +111,33 @@
   .error-message {
     color: #ff3333;
   }
+
+  /* FOOTER */
+  footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #20B2AA;
+    padding: 20px 0;
+    margin-top: 50px;
+  }
+  .footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: #20B2AA;
+    font-size: 14px;
+  }
+  .footer-content a {
+    color: #20B2AA;
+    margin: 0 5px;
+  }
+  .footer-content a:hover {
+    color: #1f8c7a;
+  }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-content">
     <h1>Gemmines2</h1>
@@ -126,6 +150,7 @@
   </div>
 </header>
 
+<!-- CONTACT FORM -->
 <div class="container">
   <h1>Contact Us</h1>
   <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
@@ -147,6 +172,17 @@
   </form>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    &copy; 2025 Gemmines2 | 
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="refund.html">Refund Policy</a> |
+    <a href="shipping.html">Shipping Policy</a>
+  </div>
+</footer>
+
+<!-- FORM SCRIPT -->
 <script>
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', function(e) {
