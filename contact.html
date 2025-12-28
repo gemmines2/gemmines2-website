@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Gemmines2</title>
 <style>
-  /* BODY & GENERAL */
   body {
     font-family: Arial, sans-serif;
     background-color: #0a0a0a;
@@ -37,12 +36,9 @@
   .brand h1 {
     color: #20B2AA;
     margin: 0;
-    text-align: center;
-    flex: 1;
   }
 
   .nav-right {
-    flex: 1;
     text-align: right;
   }
 
@@ -55,7 +51,7 @@
     color: #1f8c7a;
   }
 
-  /* CONTACT FORM CONTAINER */
+  /* CONTACT FORM */
   .container {
     max-width: 600px;
     margin: 50px auto;
@@ -77,9 +73,7 @@
     color: #f0f0f0;
   }
 
-  input[type="text"],
-  input[type="email"],
-  textarea {
+  input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -92,14 +86,82 @@
     resize: vertical;
   }
 
-  input:focus,
-  textarea:focus {
+  input:focus, textarea:focus {
     outline: none;
-    box-shadow: 0 0 6px rgba(32, 178, 170, 0.4);
+    box-shadow: 0 0 6px rgba(32,178,170,0.4);
   }
 
   button {
     margin-top: 20px;
     padding: 12px 20px;
     background-color: #20B2AA;
-    col
+    color: #0a0a0a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #1f8c7a;
+  }
+
+  .success-message, .error-message {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .success-message { color: #00ff00; }
+  .error-message { color: #ff3333; }
+
+  /* FOOTER */
+  footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #20B2AA;
+    padding: 20px 0;
+    margin-top: 50px;
+  }
+
+  .footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: #20B2AA;
+    font-size: 14px;
+  }
+
+  .footer-content a {
+    color: #20B2AA;
+    margin: 0 5px;
+  }
+
+  .footer-content a:hover {
+    color: #1f8c7a;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-flex">
+    <div class="brand"><h1>Gemmines2</h1></div>
+    <div class="nav-right">
+      <a href="index.html">Home</a> |
+      <a href="products.html">Products</a> |
+      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- CONTACT FORM -->
+<div class="container">
+  <h1>Contact Us</h1>
+  <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email *</label>
+    <i
