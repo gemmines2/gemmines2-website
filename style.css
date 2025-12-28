@@ -108,3 +108,15 @@ button:hover {
   background-color: #1f8c7a;
 }
 
+/* Gemmines2 – Footer link color fix (safe) */
+footer a,
+footer a:link,
+footer a:visited {
+  color: #20B2AA !important;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #1f8c7a !important;
+  text-decoration: underline;
+}
