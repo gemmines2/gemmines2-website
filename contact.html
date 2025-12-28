@@ -13,10 +13,6 @@
     padding: 0;
   }
 
-  a {
-    text-decoration: none;
-  }
-
   /* HEADER */
   header {
     width: 100%;
@@ -24,34 +20,28 @@
     border-bottom: 1px solid #20B2AA;
     padding: 20px 0;
   }
-
-  .header-flex {
-    max-width: 600px;
+  .header-content {
+    max-width: 600px;   /* same as container */
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;  /* center the header text */
   }
-
-  .brand h1 {
+  header h1 {
     color: #20B2AA;
     margin: 0;
   }
-
-  .nav-right {
-    text-align: right;
+  header nav {
+    margin-top: 10px;
   }
-
-  .nav-right a {
+  header nav a {
     color: #20B2AA;
+    text-decoration: none;
     margin: 0 5px;
   }
-
-  .nav-right a:hover {
+  header nav a:hover {
     color: #1f8c7a;
   }
 
-  /* CONTACT FORM */
+  /* CONTACT FORM CONTAINER */
   .container {
     max-width: 600px;
     margin: 50px auto;
@@ -61,7 +51,7 @@
     box-shadow: 0 0 20px #000;
   }
 
-  .container h1 {
+  h1 {
     text-align: center;
     color: #20B2AA;
   }
@@ -73,7 +63,9 @@
     color: #f0f0f0;
   }
 
-  input[type="text"], input[type="email"], textarea {
+  input[type="text"],
+  input[type="email"],
+  textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -86,9 +78,10 @@
     resize: vertical;
   }
 
-  input:focus, textarea:focus {
+  input:focus,
+  textarea:focus {
     outline: none;
-    box-shadow: 0 0 6px rgba(32,178,170,0.4);
+    box-shadow: 0 0 6px rgba(32, 178, 170, 0.4);
   }
 
   button {
@@ -111,52 +104,28 @@
     margin-top: 20px;
     text-align: center;
   }
-
-  .success-message { color: #00ff00; }
-  .error-message { color: #ff3333; }
-
-  /* FOOTER */
-  footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid #20B2AA;
-    padding: 20px 0;
-    margin-top: 50px;
+  .success-message {
+    color: #00ff00;
   }
-
-  .footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    color: #20B2AA;
-    font-size: 14px;
-  }
-
-  .footer-content a {
-    color: #20B2AA;
-    margin: 0 5px;
-  }
-
-  .footer-content a:hover {
-    color: #1f8c7a;
+  .error-message {
+    color: #ff3333;
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="header-flex">
-    <div class="brand"><h1>Gemmines2</h1></div>
-    <div class="nav-right">
+  <div class="header-content">
+    <h1>Gemmines2</h1>
+    <nav>
       <a href="index.html">Home</a> |
       <a href="products.html">Products</a> |
       <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
       <a href="contact.html">Contact</a>
-    </div>
+    </nav>
   </div>
 </header>
 
-<!-- CONTACT FORM -->
 <div class="container">
   <h1>Contact Us</h1>
   <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
@@ -164,4 +133,44 @@
     <input type="text" id="name" name="name" required>
 
     <label for="email">Email *</label>
-    
+    <input type="email" id="email" name="email" required>
+
+    <label for="question">Question *</label>
+    <textarea id="question" name="question" rows="4" required></textarea>
+
+    <label for="whatsapp">WhatsApp Number (optional)</label>
+    <input type="text" id="whatsapp" name="whatsapp">
+
+    <button type="submit">Send</button>
+    <div class="success-message" id="success-message"></div>
+    <div class="error-message" id="error-message"></div>
+  </form>
+</div>
+
+<script>
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById('success-message').innerText = "Message sent successfully!";
+            document.getElementById('error-message').innerText = "";
+            form.reset();
+        } else {
+            document.getElementById('error-message').innerText = "Oops! Something went wrong.";
+            document.getElementById('success-message').innerText = "";
+        }
+    }).catch(error => {
+        document.getElementById('error-message').innerText = "Oops! Something went wrong.";
+        document.getElementById('success-message').innerText = "";
+    });
+});
+</script>
+
+</body>
+</html>
