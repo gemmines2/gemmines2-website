@@ -235,7 +235,7 @@ const products = [
   price: 150.00,
   availability: "in stock",
   brand: "Gemmines2"
-}
+},
  {
   id: "029",
   name: "Premium Mixed Sapphire Collection",
