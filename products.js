@@ -180,7 +180,6 @@ const products = [
     brand: "Gemmines2"
   },
   
-  
   {
     id: "peridots_023",
     name: "Rutile Peridot",
@@ -248,23 +247,34 @@ const products = [
 },
 
 {
+  id: "029",
+  name: "Premium Mixed Sapphire Collection",
+  description: "Natural multi-color loose sapphire gemstones in various shapes and sizes. Ideal for fine jewelry and collectors.",
+  price: 400.00,
+  currency: "USD",
+  image: "mixedsapphire.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+},
+
+{
   id: "030",
   name: "Natural Black Chert Tumbled Stone",
-  description: "Smooth natural black chert tumbled stone from Pakistan with deep black color. Ideal for collectors and decor.",
+  description: "Smooth natural black chert tumbled stone from Pakistan with deep black color.",
   price: 80.00,
   currency: "USD",
-  image: "images/chert.jpg",
+  image: "chert.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
 
 {
   id: "031",
-  name: "4.80 Carat Natural Pink-Kunzite Gemstone",
-  description: "Unheated transparent oval-cut natural pink kunzite gemstone.",
+  name: "4.80 Carat Natural Pink Kunzite Gemstone",
+  description: "Unheated transparent oval-cut natural pink kunzite gemstone .",
   price: 100.00,
   currency: "USD",
-  image: "images/pink-kunzite.jpg",
+  image: "pink-kunzite.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
@@ -272,10 +282,10 @@ const products = [
 {
   id: "032",
   name: "2 Pairs Natural Blue Topaz Heart-Shape Gemstones",
-  description: "Unheated heart-shaped natural blue topaz gemstones from Sri Lanka. Ideal for earrings or pendant sets.",
+  description: "Unheated heart-shaped natural blue topaz gemstones from Sri Lanka.",
   price: 140.00,
   currency: "USD",
-  image: "images/blue-topaz-heart.jpg",
+  image: "blue-topaz-heart.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 }
