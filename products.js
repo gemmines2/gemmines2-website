@@ -253,7 +253,7 @@ const products = [
   description: "Smooth natural black chert tumbled stone from Pakistan with deep black color. Ideal for collectors and decor.",
   price: 80.00,
   currency: "USD",
-  image: "images/black-chert.jpg",
+  image: "images/chert.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
