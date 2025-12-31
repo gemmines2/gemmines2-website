@@ -235,17 +235,7 @@ const products = [
   availability: "in stock",
   brand: "Gemmines2"
 },
- {
-  id: "029",
-  name: "Premium Mixed Sapphire Collection",
-  description: "Natural multi-color loose sapphire gemstones in various shapes and sizes. Ideal for fine jewelry and collectors.",
-  price: 400.00,
-  currency: "USD",
-  image: "images/mixedsapphire.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-
+ 
 {
   id: "029",
   name: "Premium Mixed Sapphire Collection",
