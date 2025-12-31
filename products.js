@@ -236,13 +236,13 @@ const products = [
   brand: "Gemmines2"
 },
  
-{
+   {
   id: "029",
   name: "Premium Mixed Sapphire Collection",
   description: "Natural multi-color loose sapphire gemstones in various shapes and sizes. Ideal for fine jewelry and collectors.",
   price: 400.00,
   currency: "USD",
-  image: "mixedsapphire.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
@@ -253,7 +253,7 @@ const products = [
   description: "Smooth natural black chert tumbled stone from Pakistan with deep black color.",
   price: 80.00,
   currency: "USD",
-  image: "chert.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/chert.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
@@ -261,10 +261,10 @@ const products = [
 {
   id: "031",
   name: "4.80 Carat Natural Pink Kunzite Gemstone",
-  description: "Unheated transparent oval-cut natural pink kunzite gemstone .",
+  description: "Unheated transparent oval-cut natural pink kunzite gemstone.",
   price: 100.00,
   currency: "USD",
-  image: "pink-kunzite.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
@@ -275,9 +275,8 @@ const products = [
   description: "Unheated heart-shaped natural blue topaz gemstones from Sri Lanka.",
   price: 140.00,
   currency: "USD",
-  image: "blue-topaz-heart.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 }
-   
 ];
