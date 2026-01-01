@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +25,8 @@
     header {
       background: var(--card);
       text-align: center;
-      padding: 1.5rem;
-      font-size: 1.8rem;
+      padding: 1rem; /* Reduced padding */
+      font-size: 1.5rem; /* Reduced font size from 1.8rem */
       font-weight: 600;
       background-image: var(--accent);
       -webkit-background-clip: text;
@@ -35,40 +34,41 @@
     }
 
     .policy-container {
-      max-width: 900px;
-      margin: 2rem auto;
+      max-width: 850px;
+      margin: 1.5rem auto;
       background-color: var(--card);
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
-      padding: 2rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+      padding: 2rem;
     }
 
     h2 {
       color: #1de9b6;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
     }
 
-    p {
-      line-height: 1.7;
-      margin-bottom: 1rem;
+    p, li {
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
       color: var(--text);
+      font-size: 0.95rem;
     }
 
     ul {
-      margin: 1rem 0 1rem 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
+      margin: 0.5rem 0 1rem 1.2rem;
     }
 
     footer {
       text-align: center;
       color: #aaa;
-      font-size: 0.9rem;
-      margin: 3rem 0 1rem;
-      padding-bottom: 2rem;
+      font-size: 0.85rem;
+      margin: 2rem 0 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .footer-nav {
+      margin-bottom: 10px;
     }
 
     a {
@@ -87,21 +87,21 @@
 
   <div class="policy-container">
     <p>
-      At <strong>Gemmines2</strong>, customer satisfaction is our top priority. We offer a transparent return process for our natural gemstones to ensure you are confident in your purchase.
+      At <strong>Gemmines2</strong>, customer satisfaction is our top priority. However, due to the nature of gemstones, we only accept returns for items that are <strong>defected or damaged upon arrival</strong>.
     </p>
 
     <h2>Eligibility for Returns</h2>
     <ul>
-      <li>Returns are accepted for <strong>damaged items</strong> or if the item significantly differs from the description.</li>
-      <li>Return requests must be made within <strong>10 days</strong> of receiving your order.</li>
-      <li>Items must be returned in their <strong>original packaging</strong>, unused, and with all original gemstone certifications (if applicable).</li>
-      <li>Natural variations in color or minor internal inclusions are characteristic of natural stones and are not considered defects.</li>
+      <li>Only <strong>defected or damaged items</strong> are eligible for return.</li>
+      <li>Returns must be requested within <strong>10 days of purchase</strong>.</li>
+      <li>Items must be returned in their <strong>original packaging</strong> and unused condition.</li>
+      <li>Natural variations in gemstone color, inclusions, or size are <strong>not considered defects</strong>.</li>
     </ul>
 
     <h2>Return Shipping</h2>
     <ul>
-      <li>The customer is responsible for <strong>return shipping costs</strong> and ensuring the item is insured during transit.</li>
-      <li>Original shipping fees are <strong>non-refundable</strong>.</li>
+      <li>The customer is responsible for the <strong>return shipping cost</strong>.</li>
+      <li>Shipping fees are <strong>non-refundable</strong>.</li>
     </ul>
 
     <h2>Refund Process</h2>
@@ -112,19 +112,21 @@
 
     <h2>Contact Us</h2>
     <p>
-      For return requests or any questions regarding our gemstones, please contact us at:<br><br>
-      <strong>Email:</strong> <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a><br>
-      <strong>WhatsApp:</strong> +92 336 214 9415<br>
-      <strong>Business Address:</strong> House # 602, Gali # 6, Street G11/1, Islamabad, Pakistan
+      For return requests or questions, please email us at: 
+      <a href="mailto:gemmines2@gmail.com">gemmines2@gmail.com</a>
     </p>
-
-    <p style="margin-top: 2rem; font-style: italic; border-top: 1px solid #333; padding-top: 1rem;">
-      Thank you for choosing <strong>Gemmines2</strong> — Your trusted source for rare and precious gemstones.
+    <p>
+      <strong>Business Address:</strong> House # 602, Gali # 6, Street G11/1, Islamabad, Pakistan
     </p>
   </div>
 
   <footer>
-    &copy; 2026 Gemmines2. All Rights Reserved. | <a href="index.html">Back to Home</a>
+    <div class="footer-nav">
+      <a href="index.html">Home</a> | 
+      <a href="shipping.html">Shipping Policy</a> | 
+      <a href="contact.html">Contact Us</a>
+    </div>
+    &copy; 2026 Gemmines2. All Rights Reserved.
   </footer>
 </body>
 </html>
