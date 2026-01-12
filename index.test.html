@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemmines2 | Rare & Precious Treasures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #050a1a;        
+            --card-bg: #0a1430;   
+            --gold: #d4af37;      
+            --teal: #20B2AA;      
+            --text-white: #ffffff;
+            --text-dim: #cccccc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--bg);
+            border-bottom: 2px solid var(--gold); /* Switched to gold for consistency */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 26px; 
+            font-weight: bold; 
+            color: var(--gold); 
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 52px);
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+        }
+
+        /* --- GRID --- */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            color: var(--gold);
+            margin: 60px 0 40px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        .gem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .gem-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 25px;
+            text-align: center;
+            transition: 0.4s ease;
+        }
+
+        .gem-card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .img-box {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .img-box img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .gem-card:hover .img-box img { transform: scale(1.1); }
+
+        .gem-name { font-size: 18px; color: var(--text-white); margin-bottom: 10px; font-family: 'Cinzel'; }
+        
+        .buy-btn {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 12px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .buy-btn:hover { 
+            background: var(--gold); 
+            color: #000; 
+        }
+
+        /* --- FOOTER SECTION --- */
+        footer {
+            background: #02050a;
+            padding: 80px 5% 40px;
+            border-top: 3px solid var(--gold);
+            text-align: center;
+            color: var(--text-white);
+        }
+
+        /* Colorful Brand Icons */
+        .social-icons { margin-bottom: 30px; }
+        .social-icons a { font-size: 30px; margin: 0 15px; transition: 0.3s; }
+        
+        .fa-instagram { color: #E4405F; } /* Official IG Pink/Red */
+        .fa-tiktok { color: #ff0050; }    /* Official TikTok Red */
+        .fa-whatsapp { color: #25D366; }  /* Official WA Green */
+        .fa-envelope { color: var(--gold); }
+
+        .social-icons a:hover { transform: scale(1.2); filter: brightness(1.2); }
+
+        /* Payment Icons */
+        .payment-methods {
+            margin: 25px 0;
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .fa-cc-visa { color: #1A1F71; }
+        .fa-cc-paypal { color: #003087; }
+        .fa-cc-mastercard { color: #EB001B; }
+        .fa-university { color: #ffffff; }
+
+        /* Footer Links (Policies) */
+        .footer-links { margin: 30px 0; }
+        .footer-links a { 
+            color: var(--text-white) !important; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 14px; 
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+        }
+        .footer-links a:hover { border-bottom: 1px solid var(--gold); color: var(--gold) !important; }
+
+        .business-info {
+            color: var(--text-dim);
+            font-size: 13px;
+            line-height: 2;
+            margin-top: 20px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">GEMMINES2</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="productsupdate.html">Collections</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>GEMMINES2</h1>
+    <p style="letter-spacing: 3px; color: var(--text-dim); text-transform: uppercase; font-size: 12px;">Rare & Precious Treasures from Pakistan</p>
+</section>
+
+<div class="container">
+    <h2 class="section-title">Specialized Collections</h2>
+    
+    <div class="gem-grid">
+        <div class="gem-card">
+            <div class="img-box">
+                <img src="multirings.jpg" alt="Custom Jewelry" onerror="this.src='https://gemmines2.github.io/gemmines2-website/images/Almandine-ring.jpg'">
+            </div>
+            <div class="gem-name">Custom Jewelry</div>
+            <p style="color: var(--teal); font-size: 14px;">Handcrafted 925 Silver</p>
+            <button class="buy-btn" onclick="location.href='productsupdate.html'">Discover</button>
+        </div>
+
+        <div class="gem-card">
+            <div class="img-box">
+                <img src="https://gemmines2.github.io/gemmines2-website/images/umbalitegarnet.jpg" alt="Cut Stones">
+            </div>
+            <div class="gem-name">Cut & Polished</div>
+            <p style="color: var(--teal); font-size: 14px;">Faceted Umbalite Garnets</p>
+            <button class="buy-btn" onclick="location.href='productsupdate.html'">Shop Now</button>
+        </div>
+
+        <div class="gem-card">
+            <div class="img-box">
+                <img src="https://gemmines2.github.io/gemmines2-website/images/fluorite.jpg" alt="Rough Stones">
+            </div>
+            <div class="gem-name">Rough & Loose</div>
+            <p style="color: var(--teal); font-size: 14px;">Natural River Crystals</p>
+            <button class="buy-btn" onclick="location.href='productsupdate.html'">View All</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo" style="color: var(--gold); font-family: 'Cinzel'; font-size: 32px; margin-bottom: 5px;">GEMMINES2</div>
+    <p style="color: var(--teal); letter-spacing: 4px; font-size: 11px; margin-bottom: 40px; font-weight: bold;">RARE & PRECIOUS TREASURES</p>
+
+    <div class="social-icons">
+        <a href="https://instagram.com/gemmines2" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@gemmines2" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/923362149415"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:gemmines2@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="footer-links">
+        <a href="return.html">RETURN POLICY</a>
+        <a href="shipping.html">SHIPPING POLICY</a>
+        <a href="contact.html">CONTACT US</a>
+        <a href="privacy.html">PRIVACY POLICY</a>
+    </div>
+
+    <div class="payment-methods">
+        <i class="fab fa-cc-visa"></i>
+        <i class="fab fa-cc-paypal"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fa fa-university"></i>
+    </div>
+
+    <div class="business-info">
+        <strong>Address:</strong> House # 602, Gali # 6, Street G11/1, Islamabad, Pakistan<br>
+        <strong>Phone/WhatsApp:</strong> +92 336 214 9415<br>
+        <span style="font-size: 10px; opacity: 0.6; margin-top: 20px; display: block;">© 2026 GEMMINES2 — SECURE GLOBAL CHECKOUT</span>
+    </div>
+</footer>
+
+<a href="https://wa.me/923362149415" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
