@@ -1,149 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shipping Policy | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root {
-      --bg: #050a1a;
-      --card: #0a1430;
-      --text: #e0e4f4;
-      --accent: linear-gradient(90deg, #1de9b6, #f9d423);
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Policy | Gemmines2</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+  <style>
+    :root {
+      --bg: #050a1a;        /* Midnight Navy */
+      --card-bg: #0a1430;   /* Section Navy */
+      --gold: #d4af37;      /* Luxury Gold */
+      --accent: #1de9b6;    /* Gemstone Teal */
+      --text: #ffffff;
+    }
 
-    header {
-      background: var(--card);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 1.8rem;
-      font-weight: 600;
-      background-image: var(--accent);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      line-height: 1.8;
+    }
 
-    .policy-container {
-      max-width: 900px;
-      margin: 2rem auto;
-      background-color: var(--card);
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
-      padding: 2rem 3rem;
-    }
+    /* --- Consistent Header --- */
+    .site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: rgba(5, 10, 26, 0.98);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
 
-    h2 {
-      color: #1de9b6;
-      margin-bottom: 1rem;
-    }
+    .brand-logo {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      color: #fff;
+      text-decoration: none;
+    }
 
-    p {
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
+    /* --- Policy Content --- */
+    .policy-hero {
+      padding: 60px 5% 20px;
+      text-align: center;
+    }
 
-    ul {
-      margin: 1rem 0 1rem 1.5rem;
-    }
+    .policy-hero h1 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      letter-spacing: 4px;
+      font-size: 2.5rem;
+    }
 
-    li {
-      margin-bottom: 0.5rem;
-    }
+    .policy-container {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 40px;
+      background: var(--card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      text-align: left;
+    }
 
-    footer {
-      text-align: center;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin: 3rem 0 1rem;
-    }
+    h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--accent);
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(29, 233, 182, 0.2);
+      padding-bottom: 10px;
+      margin-top: 40px;
+      letter-spacing: 2px;
+    }
 
-    a {
-      color: #1de9b6;
-      text-decoration: none;
-    }
+    .free-shipping-badge {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      padding: 10px 20px;
+      color: var(--accent);
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin: 20px 0;
+    }
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 15px; position: relative; padding-left: 25px; }
+    li::before {
+      content: "✦";
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+    }
+
+    /* --- Footer (Matches Homepage) --- */
+    footer {
+      background: #030610;
+      padding: 80px 8% 30px;
+      border-top: 1px solid var(--gold);
+      text-align: center;
+    }
+
+    .footer-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.5rem; color: #fff; }
+    .footer-tagline { color: var(--accent); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 40px; }
+    .social-icons a { color: var(--gold); font-size: 24px; margin: 0 15px; text-decoration: none; }
+    .footer-links { margin-bottom: 30px; }
+    .footer-links a { color: #fff; text-decoration: none; font-size: 12px; margin: 0 12px; opacity: 0.8; }
+    .footer-contact { font-size: 13px; color: #888; margin-bottom: 40px; }
+
+    @media (max-width: 768px) {
+      .policy-container { padding: 20px; margin: 0 5% 60px; }
+    }
+  </style>
 </head>
-
 <body>
-  <header>Shipping Policy</header>
 
-  <div class="policy-container">
-    <p>
-      At <strong>Gemmines2</strong>, we take great care in delivering your gemstones safely and on time. We partner with trusted international and local couriers to ensure secure and timely delivery.
-    </p>
+  <nav class="site-nav">
+    <a href="index.html" class="brand-logo">Gemmines2</a>
+  </nav>
 
-    <h2>Shipping and Delivery</h2>
+  <div class="policy-hero">
+    <h1>Shipping Policy</h1>
+  </div>
 
-    <p>
-      We are pleased to offer <span style="font-size: 1.2em; font-weight: 700; color: #1de9b6;">FREE WORLDWIDE SHIPPING</span> on all gemstone orders. All shipping and handling costs are already included in the final price you see on the product page.
-    </p>
+  <div class="policy-container">
+    <p>At <strong>Gemmines2</strong>, we take great care in delivering your gemstones safely and on time. We partner with trusted international and local couriers to ensure secure and timely delivery.</p>
 
-    <ul>
-      <li>
-        <strong>Shipping Cost:</strong> FREE on all orders.
-      </li>
-      <li>
-        <strong>Processing Time:</strong> All orders require 1–2 business days for processing before shipment.
-      </li>
-      <li>
-        <strong>Estimated Delivery Time:</strong>
-        <ul>
-            <li>Domestic Orders (Pakistan): 2–5 business days.</li>
-            <li>International Orders: 7–14 business days, depending on destination and customs clearance.</li>
-        </ul>
-      </li>
-    </ul>
+    <div class="free-shipping-badge">FREE WORLDWIDE SHIPPING</div>
 
-    <h2>Shipping Methods</h2>
-    <p>
-      We ship worldwide through reputable courier companies, including:
-    </p>
-    <ul>
-      <li>UPS</li>
-      <li>FedEx</li>
-      <li>Leopard Courier (for domestic Pakistan orders)</li>
-      <li>DHL Express</li>
-    </ul>
+    <p>We are pleased to offer complimentary shipping on all gemstone orders. All shipping and handling costs are already included in the final price you see on the product page.</p>
 
-    <h2>Order Tracking</h2>
-    <p>
-      Once your order has been shipped, you will receive an email with your tracking number and courier details to monitor your delivery status.
-    </p>
+    <h2>DELIVERY TIMELINES</h2>
+    <ul>
+      <li><strong>Processing Time:</strong> All orders require 1–2 business days for quality inspection and processing before shipment.</li>
+      <li><strong>Domestic (Pakistan):</strong> 2–5 business days via Leopard Courier.</li>
+      <li><strong>International:</strong> 7–14 business days via UPS, FedEx, or DHL Express, depending on destination.</li>
+    </ul>
 
-    <h2>Customs and Duties</h2>
-    <p>
-      For international shipments, customs duties or import taxes may apply according to your country’s regulations. These charges are the customer’s responsibility.
-    </p>
+    <h2>SHIPPING METHODS</h2>
+    <p>We ship worldwide through reputable courier companies to ensure your precious cargo is insured and trackable:</p>
+    <ul>
+      <li>UPS & FedEx International Priority</li>
+      <li>DHL Express</li>
+      <li>Leopard Courier (Domestic Pakistan)</li>
+    </ul>
 
-    <h2>Contact Us</h2>
-    <p>
-      For shipping inquiries or special delivery requests, please email us at
-      <a href="mailto:info@gemmines2.com">info@gemmines2.com</a>.
-    </p>
+    <h2>ORDER TRACKING</h2>
+    <p>Once your order has been dispatched, you will receive a confirmation email containing your tracking number and a direct link to monitor your delivery status in real-time.</p>
 
-    <p>
-      Thank you for choosing <strong>Gemmines2</strong> — Rare & Precious Gemstones with Worldwide Shipping.
-    </p>
-  </div>
+    <h2>CUSTOMS, DUTIES & TAXES</h2>
+    <p>For international shipments, customs duties or import taxes may apply according to your country’s regulations. Please note that these charges are the recipient's responsibility. We recommend checking with your local customs office for details.</p>
 
-  <footer>
-    &copy; 2025 Gemmines2. All Rights Reserved. |
-    <a href="return.html">Return Policy</a> |
-    <a href="shipping.html">Shipping Policy</a>
-  </footer>
+    <h2>CONTACT SUPPORT</h2>
+    <p>For specific shipping inquiries or expedited delivery requests, please reach out to our logistics team:</p>
+    <p><strong>Email:</strong> <a href="mailto:info@gemmines2.com" style="color: var(--accent);">info@gemmines2.com</a></p>
+  </div>
+
+  <footer>
+    <div class="footer-logo">Gemmines2</div>
+    <div class="footer-tagline">RARE & PRECIOUS TREASURES</div>
+
+    <div class="social-icons">
+      <a href="https://instagram.com/gemmines2" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@gemmines2" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="mailto:gemmines2@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/923362149415"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="footer-links">
+      <a href="return.html">Return Policy</a> |
+      <a href="shipping.html">Shipping Policy</a> |
+      <a href="contact.html">Contact Us</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+
+    <div class="footer-contact">
+      <p><strong>Business Address:</strong> House # 602, Gali # 6, Street G11/1, Islamabad, Pakistan</p>
+      <p><strong>WhatsApp & Call:</strong> +92 336 214 9415</p>
+    </div>
+
+    <p style="font-size: 10px; color: #444; margin-top: 40px;">© 2026 GEMMINES2 — ALL RIGHTS RESERVED</p>
+  </footer>
+
 </body>
 </html>
