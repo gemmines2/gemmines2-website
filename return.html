@@ -7,182 +7,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root {
-      --bg: #050a1a;
-      --card-bg: #0a1430;
-      --gold: #d4af37;
-      --accent: #1de9b6;
-      --text: #ffffff;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      line-height: 1.8;
-    }
-
-    /* --- Navigation --- */
-    .site-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 8%;
-      background: rgba(5, 10, 26, 0.98);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .brand-logo {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.8rem;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    /* --- Hero Section --- */
-    .policy-hero {
-      padding: 80px 5% 40px;
-      text-align: center;
-    }
-
-    .policy-hero h1 {
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      letter-spacing: 4px;
-      font-size: 2.5rem;
-      margin: 0;
-      text-transform: uppercase;
-    }
-
-    .policy-hero p {
-      color: var(--accent);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      margin-top: 10px;
-    }
-
-    /* --- Content Box --- */
-    .policy-container {
-      max-width: 900px;
-      margin: 0 auto 100px;
-      padding: 50px;
-      background: var(--card-bg);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
-    .intro-text {
-      font-size: 1.1rem;
-      border-left: 3px solid var(--gold);
-      padding-left: 20px;
-      margin-bottom: 40px;
-      color: #e0e0e0;
-    }
-
-    h2 {
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      font-size: 1.1rem;
-      margin-top: 40px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      padding-bottom: 10px;
-    }
-
+    :root { --bg: #050a1a; --card-bg: #0a1430; --gold: #d4af37; --accent: #1de9b6; --text: #ffffff; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.8; }
+    .site-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(5, 10, 26, 0.98); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .brand-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: #fff; text-decoration: none; }
+    .policy-hero { padding: 80px 5% 40px; text-align: center; }
+    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; font-size: 2.5rem; margin: 0; text-transform: uppercase; }
+    .policy-container { max-width: 900px; margin: 0 auto 100px; padding: 50px; background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.1); }
+    h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.1rem; margin-top: 40px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 10px; }
     ul { list-style: none; padding: 0; }
     li { margin-bottom: 15px; position: relative; padding-left: 30px; color: #ccc; }
-    li::before {
-      content: "✦";
-      color: var(--gold);
-      position: absolute;
-      left: 0;
-      font-size: 0.8rem;
-    }
-
+    li::before { content: "✦"; color: var(--gold); position: absolute; left: 0; }
     .highlight { color: var(--text); font-weight: 700; }
-
-    /* --- Professional Footer --- */
-    footer {
-      background: #030610;
-      padding: 60px 8% 30px;
-      border-top: 1px solid var(--gold);
-      text-align: center;
-    }
-
-    .footer-logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; color: #fff; }
-    .footer-links { margin: 30px 0; }
-    .footer-links a { color: #fff; text-decoration: none; font-size: 13px; margin: 0 15px; opacity: 0.7; transition: 0.3s; }
-    .footer-links a:hover { opacity: 1; color: var(--gold); }
-    .copyright { font-size: 12px; color: #555; margin-top: 20px; }
-
-    @media (max-width: 768px) {
-      .policy-container { padding: 30px; margin: 0 5% 60px; }
-      .policy-hero h1 { font-size: 1.8rem; }
-    }
+    footer { background: #030610; padding: 60px 8% 30px; border-top: 1px solid var(--gold); text-align: center; }
+    .footer-links { margin: 20px 0; }
+    .footer-links a { color: #fff; text-decoration: none; font-size: 13px; margin: 0 10px; opacity: 0.7; }
   </style>
 </head>
 <body>
 
   <nav class="site-nav">
-    <a href="/" class="brand-logo">Gemmines2</a>
+    <a href="index.html" class="brand-logo">Gemmines2</a>
   </nav>
 
   <div class="policy-hero">
     <h1>Return & Refund Policy</h1>
-    <p>RARE & PRECIOUS TREASURES</p>
+    <p style="color: var(--accent); letter-spacing: 2px;">RARE & PRECIOUS TREASURES</p>
   </div>
 
   <div class="policy-container">
-    <p class="intro-text">
-      At <strong>Gemmines2</strong>, we take pride in the authenticity and quality of our natural gemstones. To ensure a secure and transparent shopping experience for our global clientele, we adhere to the following strict return guidelines.
-    </p>
-
     <h2>1. Return Window</h2>
     <ul>
-      <li>Return requests must be initiated within <span class="highlight">10 days</span> of the confirmed delivery date.</li>
-      <li>Due to the high-value nature of our rare gemstones, requests made after this period will not be eligible for return or exchange.</li>
+      <li>Return requests must be initiated within <span class="highlight">14 days</span> of the confirmed delivery date.</li>
+      <li>This aligns with international consumer protection standards for our global clientele.</li>
     </ul>
 
-    <h2>2. Eligibility & Condition</h2>
+    <h2>2. Eligibility</h2>
     <ul>
-      <li><span class="highlight">Condition:</span> Items must be returned in their original, unused condition, including all original packaging.</li>
-      <li><span class="highlight">Documentation:</span> All original laboratory certificates and grading reports must be returned. Returns missing original certifications cannot be processed.</li>
-      <li><span class="highlight">Natural Variations:</span> Natural inclusions, internal veining, and slight color variations are inherent characteristics of unheated stones and are not considered defects.</li>
-      <li><span class="highlight">Security:</span> Any gemstone that has been set into jewelry, recut, or altered in any way is ineligible for return.</li>
+      <li><span class="highlight">Condition:</span> Items must be returned in their original, unused condition with all packaging.</li>
+      <li><span class="highlight">Certifications:</span> All original laboratory certificates must be included.</li>
     </ul>
 
-    <h2>3. Return Shipping & Fees</h2>
+    <h2>3. Fees</h2>
     <ul>
-      <li><span class="highlight">Shipping Costs:</span> The customer is responsible for all return shipping charges and any applicable customs duties.</li>
-      <li><span class="highlight">Insurance:</span> For your protection, all returns must be shipped via a trackable service and insured for the full purchase value.</li>
-      <li><span class="highlight">Restocking Fees:</span> Gemmines2 does <span class="highlight">not</span> charge a restocking fee for valid returns.</li>
+      <li><span class="highlight">Restocking Fee:</span> Gemmines2 charges <span class="highlight">$0 restocking fees</span>.</li>
+      <li><span class="highlight">Return Shipping:</span> Shipping costs are the responsibility of the customer.</li>
     </ul>
-
-    <h2>4. Refund Process</h2>
-    <ul>
-      <li>Once received, our gemologists will inspect the item to verify it matches our original high-resolution records and laboratory data.</li>
-      <li>Upon successful inspection, refunds are processed within <span class="highlight">5–7 business days</span> to the original payment method.</li>
-    </ul>
-
-    <p style="margin-top:40px; text-align:center; font-style:italic; color: var(--gold);">
-      Thank you for choosing Gemmines2 — Your trusted partner in rare gemstone acquisition.
-    </p>
   </div>
 
   <footer>
-    <div class="footer-logo">Gemmines2</div>
+    <div class="brand-logo">Gemmines2</div>
     <div class="footer-links">
-      <a href="/returns">Return Policy</a>
-      <a href="/shipping">Shipping Policy</a>
-      <a href="/contact">Contact Us</a>
-      <a href="/privacy">Privacy Policy</a>
+      <a href="return.html">Return Policy</a>
+      <a href="shipping.html">Shipping Policy</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
     </div>
-    <div class="copyright">
-      © 2026 GEMMINES2. House # 602, Gali # 6, G11/1,Islamabad, Pakistan.
-    </div>
+    <p style="font-size: 12px; color: #555;">© 2026 GEMMINES2. House # 602, Gali # 6, G11/1, Islamabad, Pakistan.</p>
   </footer>
 
 </body>
