@@ -13,7 +13,7 @@ const products = [
     name: "Almandine Garnet",
     description: "Deep red Almandine Garnet – Stone of strength, courage & protection.",
     image: "https://gemmines2.github.io/gemmines2-website/images/Almandine-ring.jpg",
-    price: 150.00,
+    price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
