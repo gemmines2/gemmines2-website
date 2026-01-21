@@ -4,7 +4,7 @@ const products = [
     name: "Umbalite Garnet",
     description: "Rare Umbalite Garnet – Symbol of love, energy & passion.",
     image: "https://gemmines2.github.io/gemmines2-website/images/umbalitegarnet.jpg",
-    price: 600.00,
+    price: 400.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
