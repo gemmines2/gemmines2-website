@@ -10,6 +10,7 @@
     :root { --bg: #050a1a; --card-bg: #0a1430; --gold: #d4af37; --accent: #1de9b6; --text: #ffffff; }
     body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.8; }
     
+    /* Header & Logo */
     .site-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(5, 10, 26, 0.98); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
     .brand-logo img { height: 50px; width: auto; }
     
@@ -17,12 +18,17 @@
     .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; font-size: 2.5rem; margin: 0; }
     
     .policy-container { max-width: 900px; margin: 0 auto 100px; padding: 40px; background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.1); text-align: left; }
-    h2 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 1.2rem; border-bottom: 1px solid rgba(29, 233, 182, 0.2); padding-bottom: 10px; margin-top: 40px; letter-spacing: 2px; text-transform: uppercase; }
     
+    /* GMC Summary Box Style */
+    .gmc-summary { border: 1px solid var(--gold); padding: 20px; margin-bottom: 30px; background: rgba(212, 175, 55, 0.05); border-radius: 4px; }
+    .highlight { color: var(--gold); font-weight: 700; }
+
+    h2 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 1.2rem; border-bottom: 1px solid rgba(29, 233, 182, 0.2); padding-bottom: 10px; margin-top: 40px; letter-spacing: 2px; text-transform: uppercase; }
     ul { list-style: none; padding: 0; }
     li { margin-bottom: 15px; position: relative; padding-left: 25px; }
     li::before { content: "✦"; color: var(--gold); position: absolute; left: 0; }
     
+    /* Footer */
     footer { background: #030610; padding: 80px 8% 30px; border-top: 1px solid var(--gold); text-align: center; }
     .footer-logo img { height: 45px; width: auto; margin-bottom: 10px; }
     .footer-links a { color: #fff; text-decoration: none; font-size: 12px; margin: 0 12px; opacity: 0.8; }
@@ -44,25 +50,30 @@
   </div>
 
   <div class="policy-container">
-    <p>At <strong>Gemmines2</strong>, customer satisfaction is our top priority. We offer a transparent return process for our natural gemstones to ensure you are confident in your purchase.</p>
+    <div class="gmc-summary">
+        <p style="margin: 0; color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Policy Snapshot</p>
+        <p style="margin: 5px 0 0; font-size: 0.9rem;">Return Window: <span class="highlight">14 Days</span> | Return Cost: <span class="highlight">Free</span> | Restocking Fee: <span class="highlight">$0</span></p>
+    </div>
+
+    <p>At <strong>Gemmines2</strong>, customer satisfaction is our top priority. We offer a transparent return process for our natural gemstones.</p>
 
     <h2>14-DAY RETURN WINDOW</h2>
     <ul>
-      <li>We offer a <strong>14-day return policy</strong>.</li>
-      <li>Return requests must be initiated within <strong>14 days</strong> of receiving your order.</li>
+      <li>We offer a <span class="highlight">14-day return policy</span>.</li>
+      <li>Return requests must be initiated within <span class="highlight">14 days</span> of the confirmed delivery date.</li>
       <li>Items must be returned in their original packaging, unused, and with all original certifications.</li>
     </ul>
 
     <h2>FEES & SHIPPING</h2>
     <ul>
-      <li>Gemmines2 charges <strong>$0 restocking fees</strong>.</li>
-      <li>The customer is responsible for return shipping costs and ensuring the item is insured during transit.</li>
-      <li>Original shipping fees are non-refundable.</li>
+      <li>Gemmines2 charges <span class="highlight">$0 restocking fees</span>.</li>
+      <li>Return shipping for items that are defective or incorrect is <span class="highlight">Free</span>.</li>
+      <li>For standard returns, the customer is responsible for safe, insured return shipping.</li>
     </ul>
 
     <h2>REFUND PROCESS</h2>
     <ul>
-      <li>Once the returned item is received and inspected, a refund will be processed within 5–7 business days.</li>
+      <li>Once the returned item is received and inspected, a refund will be processed within <span class="highlight">7 days</span>.</li>
       <li>Refunds are issued to the original payment method only.</li>
     </ul>
 
