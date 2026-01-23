@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Return & Refund Policy | Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Return Policy | Gemmines2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root { --bg: #050a1a; --card-bg: #0a1430; --gold: #d4af37; --accent: #1de9b6; --text: #ffffff; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.8; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; line-height: 1.8; }
     
-    /* Header & Logo */
-    .site-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(5, 10, 26, 0.98); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-    .brand-logo img { height: 50px; width: auto; }
+    .site-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: #050a1a; border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: sticky; top: 0; z-index: 1000; }
+    .brand-logo img { height: 50px; width: auto; display: block; }
     
+    .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: #fff; font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+
     .policy-hero { padding: 60px 5% 20px; text-align: center; }
     .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; font-size: 2.5rem; margin: 0; }
     
     .policy-container { max-width: 900px; margin: 0 auto 100px; padding: 40px; background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.1); text-align: left; }
     
-    /* GMC Summary Box Style */
     .gmc-summary { border: 1px solid var(--gold); padding: 20px; margin-bottom: 30px; background: rgba(212, 175, 55, 0.05); border-radius: 4px; }
     .highlight { color: var(--gold); font-weight: 700; }
 
@@ -28,13 +30,13 @@
     li { margin-bottom: 15px; position: relative; padding-left: 25px; }
     li::before { content: "✦"; color: var(--gold); position: absolute; left: 0; }
     
-    /* Footer */
     footer { background: #030610; padding: 80px 8% 30px; border-top: 1px solid var(--gold); text-align: center; }
-    .footer-logo img { height: 45px; width: auto; margin-bottom: 10px; }
+    .footer-logo img { height: 45px; width: auto; margin-bottom: 20px; }
+    .footer-links { margin-bottom: 20px; }
     .footer-links a { color: #fff; text-decoration: none; font-size: 12px; margin: 0 12px; opacity: 0.8; }
-    .footer-contact { font-size: 13px; color: #888; margin-top: 20px; }
+    .footer-contact { font-size: 13px; color: #888; }
     
-    @media (max-width: 768px) { .policy-container { padding: 25px; margin: 0 5% 60px; } .policy-hero h1 { font-size: 1.8rem; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .policy-container { padding: 25px; margin: 0 15px 60px; } }
   </style>
 </head>
 <body>
@@ -43,6 +45,12 @@
     <a href="index.html" class="brand-logo">
       <img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2 Logo">
     </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#inventory">Shop Gems</a></li>
+      <li><a href="shipping.html">Shipping</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
 
   <div class="policy-hero">
@@ -51,44 +59,29 @@
 
   <div class="policy-container">
     <div class="gmc-summary">
-        <p style="margin: 0; color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Policy Snapshot</p>
-        <p style="margin: 5px 0 0; font-size: 0.9rem;">Return Window: <span class="highlight">14 Days</span> | Return Cost: <span class="highlight">Free</span> | Restocking Fee: <span class="highlight">$0</span></p>
+        <p style="margin: 0; color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Return Snapshot</p>
+        <p style="margin: 5px 0 0; font-size: 0.9rem;">Return Window: <span class="highlight">14 Days</span> | Restocking Fee: <span class="highlight">$0</span> | Refund Type: <span class="highlight">Full</span></p>
     </div>
 
-    <p>At <strong>Gemmines2</strong>, customer satisfaction is our top priority. We offer a transparent return process for our natural gemstones.</p>
+    <p>At <strong>Gemmines2</strong>, we offer a straightforward return process to ensure you are 100% satisfied with your gemstone purchase.</p>
 
     <h2>14-DAY RETURN WINDOW</h2>
     <ul>
-      <li>We offer a <span class="highlight">14-day return policy</span>.</li>
-      <li>Return requests must be initiated within <span class="highlight">14 days</span> of the confirmed delivery date.</li>
-      <li>Items must be returned in their original packaging, unused, and with all original certifications.</li>
+      <li>We provide a <strong>14-day return policy</strong>.</li>
+      <li>Return requests must be initiated within <strong>14 days</strong> of the date your order was delivered.</li>
+      <li>Items must be in original condition with all certifications included.</li>
     </ul>
 
-    <h2>FEES & SHIPPING</h2>
+    <h2>REFUND DETAILS</h2>
     <ul>
-      <li>Gemmines2 charges <span class="highlight">$0 restocking fees</span>.</li>
-      <li>Return shipping for items that are defective or incorrect is <span class="highlight">Free</span>.</li>
-      <li>For standard returns, the customer is responsible for safe, insured return shipping.</li>
+      <li><strong>Restocking Fees:</strong> We charge <strong>$0</strong> in restocking fees.</li>
+      <li><strong>Process Time:</strong> Approved refunds are processed within 5-7 business days.</li>
     </ul>
-
-    <h2>REFUND PROCESS</h2>
-    <ul>
-      <li>Once the returned item is received and inspected, a refund will be processed within <span class="highlight">7 days</span>.</li>
-      <li>Refunds are issued to the original payment method only.</li>
-    </ul>
-
-    <p style="margin-top:30px; font-style: italic; color: var(--gold);">
-      Thank you for choosing Gemmines2 — Your trusted source for rare and precious gemstones.
-    </p>
   </div>
 
   <footer>
     <div class="footer-logo">
       <img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2 Logo">
-    </div>
-    <div class="social-icons">
-      <a href="https://instagram.com/gemmines2" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/923362149415"><i class="fab fa-whatsapp"></i></a>
     </div>
     <div class="footer-links">
       <a href="return.html">Return Policy</a> |
