@@ -9,9 +9,9 @@
   <style>
     :root {
       --bg: #050a1a;
+      --header-bg: #0a0a0a;
       --card-bg: #0a1430;
-      --teal: #20B2AA; /* Your brand Teal */
-      --gold: #d4af37;
+      --teal: #20B2AA;
       --text: #ffffff;
     }
     body {
@@ -19,76 +19,100 @@
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       margin: 0;
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
-    /* --- Header matching Homepage --- */
+    /* --- Fixed Header: High Visibility --- */
     .site-header {
-      background: #0a0a0a;
-      padding: 15px 8%;
+      background: var(--header-bg);
+      padding: 10px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--teal);
+      border-bottom: 2px solid var(--teal);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .logo-img { height: 45px; width: auto; }
-    .nav-links a {
-      color: var(--teal);
+    .logo-img { height: 35px; width: auto; }
+    nav a {
+      color: var(--teal) !important; /* Force Teal visibility */
       text-decoration: none;
-      margin-left: 25px;
-      font-weight: bold;
-      font-size: 0.9rem;
+      margin-left: 15px;
+      font-weight: 700;
+      font-size: 0.8rem;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* --- Policy Layout --- */
-    .policy-hero { padding: 60px 5% 20px; text-align: center; }
-    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--teal); letter-spacing: 4px; font-size: 2.5rem; }
+    /* --- Responsive Policy Container --- */
+    .policy-hero { padding: 40px 5% 10px; text-align: center; }
+    .policy-hero h1 { 
+      font-family: 'Cinzel', serif; 
+      color: var(--teal); 
+      font-size: 1.8rem; 
+      letter-spacing: 2px;
+    }
     
     .policy-container {
-      max-width: 900px;
-      margin: 0 auto 100px;
-      padding: 40px;
+      max-width: 700px; /* Reduced width for better proportion */
+      margin: 0 auto 60px;
+      padding: 25px;
       background: var(--card-bg);
-      border: 1px solid rgba(32, 178, 170, 0.2);
+      border: 1px solid rgba(32, 178, 170, 0.3);
       border-radius: 8px;
     }
+    
     h2 {
       font-family: 'Cinzel', serif;
       color: var(--teal);
-      font-size: 1.2rem;
+      font-size: 1rem;
       border-bottom: 1px solid rgba(32, 178, 170, 0.2);
-      padding-bottom: 10px;
-      margin-top: 40px;
-      letter-spacing: 2px;
+      padding-bottom: 8px;
+      margin-top: 30px;
     }
+
     .badge {
       display: inline-block;
       border: 1px solid var(--teal);
-      padding: 8px 16px;
+      padding: 5px 12px;
       color: var(--teal);
+      font-size: 0.7rem;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
+
+    p, li { font-size: 0.9rem; color: #e0e0e0; }
     ul { list-style: none; padding: 0; }
-    li { margin-bottom: 12px; position: relative; padding-left: 25px; }
+    li { margin-bottom: 10px; position: relative; padding-left: 20px; }
     li::before { content: "✦"; color: var(--teal); position: absolute; left: 0; }
 
-    /* --- Footer --- */
+    /* --- Footer: Teal Links --- */
     footer {
       background: #030610;
-      padding: 60px 8% 30px;
-      border-top: 1px solid var(--teal);
+      padding: 40px 5% 30px;
+      border-top: 2px solid var(--teal);
       text-align: center;
     }
-    .footer-links { margin-bottom: 25px; }
-    .footer-links a { color: #fff; text-decoration: none; margin: 0 12px; font-size: 14px; }
-    .footer-contact { font-size: 13px; color: #888; margin-top: 20px; }
-    .social-icons { margin-bottom: 20px; }
-    .social-icons a { color: var(--teal); font-size: 20px; margin: 0 10px; }
+    .footer-links { margin-bottom: 20px; }
+    .footer-links a { 
+      color: var(--teal) !important; /* Link color fixed to Teal */
+      text-decoration: none; 
+      margin: 0 8px; 
+      font-size: 13px; 
+      font-weight: 600;
+    }
+    .footer-contact { font-size: 12px; color: #888; margin-top: 15px; }
+    .social-icons { margin-bottom: 15px; }
+    .social-icons a { color: var(--teal); font-size: 18px; margin: 0 10px; }
+
+    /* Mobile Adjustments */
+    @media (max-width: 600px) {
+      .policy-container { margin: 0 15px 40px; padding: 20px; }
+      .policy-hero h1 { font-size: 1.5rem; }
+      nav a { margin-left: 10px; font-size: 0.7rem; }
+      .logo-img { height: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -99,8 +123,7 @@
     </a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
+      <a href="products.html">Shop</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
@@ -111,47 +134,38 @@
 
   <div class="policy-container">
     <div class="badge">FREE WORLDWIDE SHIPPING</div>
-    <p>At <strong>Gemmines2</strong>, we offer complimentary, fully insured shipping on all gemstone orders worldwide. We partner with the world's most reliable couriers to ensure your treasures arrive safely.</p>
+    <p>At <strong>Gemmines2</strong>, we provide fully insured, complimentary shipping on all gemstone orders globally. We use world-class couriers to ensure safety and transparency.</p>
 
     <h2>DELIVERY TIMELINES</h2>
     <ul>
-      <li><strong>Handling Time:</strong> 1–2 business days (Monday – Friday).</li>
-      <li><strong>Transit Time:</strong> 7–14 business days (Monday – Saturday).</li>
-      <li><strong>Total Delivery:</strong> Typically arrives within  7–14 days.</li>
-    </ul>
-
-    <h2>SHIPPING COURIERS</h2>
-    <p>We use premium express services to guarantee security and speed:</p>
-    <ul>
-      <li><strong>DHL Express & FedEx:</strong> For most international destinations.</li>
-      <li><strong>UPS International:</strong> For North America and Europe.</li>
-      <li><strong>Leopard Courier:</strong> For domestic orders within Pakistan.</li>
+      <li><strong>Handling Time:</strong> 1–2 business days (Mon – Fri).</li>
+      <li><strong>Transit Time:</strong> 7–14 business days (Mon – Sat).</li>
+      <li><strong>Couriers:</strong> DHL Express, FedEx, and UPS International.</li>
     </ul>
 
     <h2>TRACKING & SECURITY</h2>
-    <p>Every shipment is 100% insured until it is signed for. Once your order is dispatched, you will receive a tracking number via email to monitor your gemstone's journey in real-time.</p>
+    <p>Every order is 100% insured. You will receive a tracking number via email as soon as your gemstone is dispatched.</p>
 
-    <h2>CUSTOMS & DUTIES</h2>
-    <p>Please note that international orders may be subject to customs duties or import taxes set by your local government. These charges are the responsibility of the customer.</p>
+    <h2>IMPORT DUTIES</h2>
+    <p>Please note that local customs duties or taxes are the responsibility of the recipient based on your country's regulations.</p>
   </div>
 
   <footer>
     <div class="social-icons">
       <a href="https://instagram.com/gemmines2" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/923362149415" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:gemmines2@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
     <div class="footer-links">
-      <a href="index.html">Home</a> |
-      <a href="return.html">Return Policy</a> |
-      <a href="shipping.html">Shipping Policy</a> |
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="contact.html">Contact Us</a>
+      <a href="index.html">Home</a>
+      <a href="return.html">Returns</a>
+      <a href="shipping.html">Shipping</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-contact">
-      <p><strong>Business Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-      <p><strong>WhatsApp & Call:</strong> +92 336 214 9415 | <strong>Email:</strong> gemmines2@gmail.com</p>
-      <p style="margin-top: 20px; opacity: 0.5;">© 2026 Gemmines2 – All Rights Reserved</p>
+      <p><strong>Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+      <p><strong>WhatsApp:</strong> +92 336 214 9415</p>
+      <p style="margin-top: 15px; opacity: 0.5;">© 2026 Gemmines2 – Precious Treasures</p>
     </div>
   </footer>
 
