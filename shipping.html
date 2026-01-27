@@ -4,96 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shipping Policy | Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root { --bg: #050a1a; --card-bg: #0a1430; --gold: #d4af37; --accent: #1de9b6; --text: #ffffff; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; line-height: 1.8; }
-    
-    .site-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: #050a1a; border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: sticky; top: 0; z-index: 1000; }
-    .brand-logo img { height: 50px; width: auto; display: block; }
-    
-    .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { text-decoration: none; color: #fff; font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s; }
-    .nav-links a:hover { color: var(--gold); }
-
-    .policy-hero { padding: 60px 5% 20px; text-align: center; }
-    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 4px; font-size: 2.5rem; margin: 0; }
-    
-    .policy-container { max-width: 900px; margin: 0 auto 100px; padding: 40px; background: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.1); text-align: left; }
-    
-    .gmc-summary { border: 1px solid var(--accent); padding: 20px; margin-bottom: 30px; background: rgba(29, 233, 182, 0.05); border-radius: 4px; }
-    .highlight { color: var(--accent); font-weight: 700; }
-
-    h2 { font-family: 'Cinzel', serif; color: var(--accent); font-size: 1.2rem; border-bottom: 1px solid rgba(29, 233, 182, 0.2); padding-bottom: 10px; margin-top: 40px; letter-spacing: 2px; text-transform: uppercase; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 15px; position: relative; padding-left: 25px; }
-    li::before { content: "✦"; color: var(--gold); position: absolute; left: 0; }
-    
-    footer { background: #030610; padding: 80px 8% 30px; border-top: 1px solid var(--gold); text-align: center; }
-    .footer-logo img { height: 45px; width: auto; margin-bottom: 20px; }
-    .footer-links { margin-bottom: 20px; }
-    .footer-links a { color: #fff; text-decoration: none; font-size: 12px; margin: 0 12px; opacity: 0.8; }
-    .footer-contact { font-size: 13px; color: #888; }
-    
-    @media (max-width: 768px) { .nav-links { display: none; } .policy-container { padding: 25px; margin: 0 15px 60px; } }
+    body { background-color: #050a1a; color: #ffffff; font-family: sans-serif; margin: 0; line-height: 1.6; }
+    .site-header { background: #0a0a0a; padding: 20px; border-bottom: 1px solid #20B2AA; text-align: center; }
+    .site-header a { color: #20B2AA; text-decoration: none; margin: 0 15px; font-weight: bold; }
+    .policy-container { max-width: 800px; margin: 40px auto; padding: 30px; background: #111; border: 1px solid #20B2AA; border-radius: 10px; }
+    .gmc-box { border: 1px solid #20B2AA; padding: 15px; background: rgba(32, 178, 170, 0.1); margin-bottom: 25px; border-radius: 5px; }
+    h1, h2 { color: #20B2AA; }
+    footer { background: #030610; padding: 40px 20px; border-top: 1px solid #20B2AA; text-align: center; font-size: 14px; }
   </style>
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="index.html" class="brand-logo">
-      <img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2 Logo">
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#inventory">Shop Gems</a></li>
-      <li><a href="shipping.html">Shipping</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<header class="site-header">
+  <img src="images/logo.png" alt="Gemmines2" style="height: 40px; margin-bottom: 10px;"><br>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="cart.html">Cart</a>
+  <a href="contact.html">Contact</a>
+</header>
 
-  <div class="policy-hero">
-    <h1>Shipping Policy</h1>
+<div class="policy-container">
+  <h1>Shipping Policy</h1>
+  <div class="gmc-box">
+    <strong>GMC Summary:</strong> International Delivery: 7-14 Days | Handling: 1-2 Days | Cost: Free
   </div>
+  <h2>Delivery Timelines</h2>
+  <ul>
+    <li><strong>Order Handling:</strong> 1-2 business days (Mon-Fri).</li>
+    <li><strong>Transit Time:</strong> 7-14 business days (Mon-Sat).</li>
+    <li><strong>Shipping Cost:</strong> Free Worldwide Shipping.</li>
+  </ul>
+  <h2>Tracking & Insurance</h2>
+  <p>All gemstones are 100% insured. Tracking numbers are provided immediately upon dispatch.</p>
+</div>
 
-  <div class="policy-container">
-    <div class="gmc-summary">
-        <p style="margin: 0; color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Shipping Snapshot</p>
-        <p style="margin: 5px 0 0; font-size: 0.9rem;">International Delivery: <span class="highlight">7-14 Days</span> | Cost: <span class="highlight">Free</span></p>
-    </div>
-
-    <p>Gemmines2 provides complimentary, fully insured worldwide shipping on every purchase.</p>
-
-    <h2>DELIVERY TIMELINES</h2>
-    <ul>
-      <li><strong>Processing:</strong> 1–2 business days for quality inspection.</li>
-      <li><strong>International:</strong> 7–14 business days via DHL or FedEx.</li>
-      <li><strong>Domestic (Pakistan):</strong> 2–5 business days.</li>
-    </ul>
-
-    <h2>TRACKING & SECURITY</h2>
-    <ul>
-      <li>Every gemstone is 100% insured until it reaches your door.</li>
-      <li>Tracking numbers are provided immediately upon dispatch.</li>
-    </ul>
-  </div>
-
-  <footer>
-    <div class="footer-logo">
-      <img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2 Logo">
-    </div>
-    <div class="footer-links">
-      <a href="return.html">Return Policy</a> |
-      <a href="shipping.html">Shipping Policy</a> |
-      <a href="contact.html">Contact Us</a> |
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
-    <div class="footer-contact">
-      <p>House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-      <p>WhatsApp: +92 336 214 9415</p>
-    </div>
-  </footer>
+<footer>
+  <p>Return Policy | Shipping Policy | Contact Us | Privacy Policy</p>
+  <p><strong>Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+  <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Payments:</strong> PayPal, Visa, Mastercard</p>
+</footer>
 
 </body>
 </html>
