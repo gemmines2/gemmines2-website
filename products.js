@@ -281,7 +281,7 @@ const products = [
 },
  {
   id: "033",
-  name: "2 Pairs Natural Blue Topaz Heart-Shape Gemstones",
+  name: "2 Unheated Naturl Sri Lankan mixed sapphire.",
   description: "Unheated natural Sri Lankan mixed Sapphire.",
   price: 140.00,
   currency: "USD",
