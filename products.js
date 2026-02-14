@@ -278,5 +278,15 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
   brand: "Gemmines2",
   availability: "in stock"
-}
+},
+ {
+  id: "033",
+  name: "2 Pairs Natural Blue Topaz Heart-Shape Gemstones",
+  description: "Unheated heart-shaped natural blue topaz gemstones from Sri Lanka.",
+  price: 140.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/sapphire.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+} 
 ];
