@@ -306,5 +306,5 @@ const products = [
   ],
   brand: "Gemmines2",
   availability: "in stock"
-}
+};
 
