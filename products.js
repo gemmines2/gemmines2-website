@@ -280,24 +280,27 @@ const products = [
   availability: "in stock"
 },
  {
+ {
   id: "033",
   name: "Natural Green Sapphire",
   description: "Natural unheated Green Sapphire gemstone.",
   price: 150000,
   currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
   images: [
     "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
     "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg"
   ],
   brand: "Gemmines2",
   availability: "in stock"
-}
+},
 {
   id: "034",
   name: "Ferruginous Sapphire",
   description: "Natural Ferruginous Sapphire gemstone.",
   price: 80000,
   currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
   images: [
     "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
     "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg"
