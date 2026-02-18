@@ -279,7 +279,6 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 },
- 
  {
   id: "033",
   name: "Natural Green Sapphire",
@@ -290,7 +289,7 @@ const products = [
   images: [
     "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
     "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg"
-  
+  ],
   brand: "Gemmines2",
   availability: "in stock"
 },
@@ -304,9 +303,8 @@ const products = [
   images: [
     "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
     "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg"
-
+  ],
   brand: "Gemmines2",
   availability: "in stock"
 }
 
-];
