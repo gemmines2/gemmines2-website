@@ -291,8 +291,8 @@ const products = [
 },
 {
   id: "034",
-  name: "4.80 Carat Natural Pink Kunzite Gemstone",
-  description: "Unheated transparent oval-cut natural pink kunzite gemstone.",
+  name: "Green Sappire Sri Lankan Origin ",
+  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
   price: 180.00,
   currency: "USD",
   image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
