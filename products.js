@@ -290,7 +290,16 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 }
- 
+ {
+  id: "034",
+  name: "River Tumbled Ferruginous Quartz ",
+  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
+  price: 180.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+}
 ];
 
 
