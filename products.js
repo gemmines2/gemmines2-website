@@ -288,7 +288,21 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/sapphire.jpg",
   brand: "Gemmines2",
   availability: "in stock"
-} 
+},
+{
+  id: "034",
+  name: "4.80 Carat Natural Pink Kunzite Gemstone",
+  description: "Unheated transparent oval-cut natural pink kunzite gemstone.",
+  price: 180.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+},
+
+
+
+  
 ];
 
 
