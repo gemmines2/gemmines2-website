@@ -306,7 +306,7 @@ const products = [
   description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
   price: 90.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/moonstone.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/blackmoonstone.jpg",
   brand: "Gemmines2",
   availability: "in stock"
 },
