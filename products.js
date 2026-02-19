@@ -291,7 +291,7 @@ const products = [
 },
 {
   id: "034",
-  name: "Green Sappire Sri Lankan Origin ",
+  name: "Green Sapphire Sri Lankan Origin ",
   description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
   price: 180.00,
   currency: "USD",
