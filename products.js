@@ -300,6 +300,16 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 },
+  {
+  id: "035",
+  name: "Natural Unheated Black Moonstone ",
+  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
+  price: 90.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/moonstone.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+},
 ];
 
 
