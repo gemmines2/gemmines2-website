@@ -279,18 +279,9 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 },
- {
-  id: "033",
-  name: "2 Unheated Naturl Sri Lankan mixed sapphire.",
-  description: "Unheated natural Sri Lankan mixed Sapphire.",
-  price: 140.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/sapphire.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
+ 
 {
-  id: "034",
+  id: "033",
   name: "Green Sapphire Sri Lankan Origin ",
   description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
   price: 180.00,
@@ -298,11 +289,8 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
   brand: "Gemmines2",
   availability: "in stock"
-},
-
-
-
-  
+}
+ 
 ];
 
 
