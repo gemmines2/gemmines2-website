@@ -289,7 +289,7 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
   brand: "Gemmines2",
   availability: "in stock"
-}
+},
  {
   id: "034",
   name: "River Tumbled Stones Ferruginous Quartz ",
