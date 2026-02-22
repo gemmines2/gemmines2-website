@@ -115,6 +115,15 @@ const products = [
     price: 90.00,
     availability: "in stock",
     brand: "Gemmines2"
+  }, 
+   {
+    id: "citrine_ring_015",
+    name: "Citrine Ring",
+    description: "Elegant Citrine Ring – Sparkling yellow quartz in silver setting.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/citrine-ring.jpg",
+    price: 150.00,
+    availability: "in stock",
+    brand: "Gemmines2"
   },
   {
     id: "lemonquartz2_014",
@@ -125,15 +134,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "citrine_ring_015",
-    name: "Citrine Ring",
-    description: "Elegant Citrine Ring – Sparkling yellow quartz in silver setting.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/citrine-ring.jpg",
-    price: 150.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "bluesapphire_016",
     name: "Blue Sapphire",
