@@ -321,7 +321,7 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 },
-    
+  {  
   id: "037",
   name: "Natural Unheated Sri Lankan Zircon  ",
   description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
