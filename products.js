@@ -335,7 +335,7 @@ const products = [
   id: "038",
   name: "Natural Unheated Sri Lankan Mixed Loose gemstones  ",
   description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 130.00,
+  price: 200.00,
   currency: "USD",
   image: "https://gemmines2.github.io/gemmines2-website/images/sapphirem24.jpg",
   brand: "Gemmines2",
