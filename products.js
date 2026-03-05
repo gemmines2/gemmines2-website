@@ -350,6 +350,7 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/bio-color-darksapphire.jpg",
   brand: "Gemmines2",
   availability: "in stock"
+  },  
   {
   id: "040",
   name: "Natural heated Sri Lankan Cut & Polished Gemstones  ",
