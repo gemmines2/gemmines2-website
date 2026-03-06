@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+
+<title>Gemmines2</title>
+<link>https://gemmines2.github.io/gemmines2-website/</link>
+<description>Natural Gemstones Collection</description>
+
+<item>
+<g:id>039</g:id>
+<title>Natural Unheated Sri Lankan Bi-Color Sapphire</title>
+<description>Unheated natural bi-color sapphire gemstone</description>
+<link>https://gemmines2.github.io/gemmines2-website/</link>
+<g:image_link>https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg</g:image_link>
+<g:price>95 USD</g:price>
+<g:availability>in stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Gemmines2</g:brand>
+<g:google_product_category>Jewelry &amp; Watches &gt; Loose Gemstones</g:google_product_category>
+</item>
+
+<item>
+<g:id>040</g:id>
+<title>Natural Heated Sri Lankan Cut & Polished Gemstones</title>
+<description>Natural heated Sri Lankan cut and polished sapphire gemstones</description>
+<link>https://gemmines2.github.io/gemmines2-website/</link>
+<g:image_link>https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg</g:image_link>
+<g:price>120 USD</g:price>
+<g:availability>in stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Gemmines2</g:brand>
+<g:google_product_category>Jewelry &amp; Watches &gt; Loose Gemstones</g:google_product_category>
+</item>
+
+</channel>
+</rss>
