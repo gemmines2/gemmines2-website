@@ -371,7 +371,8 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 
-},   {
+},  
+  {
   id: "042",
   name: "Natural River Tumble Sunstone  ",
   description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
