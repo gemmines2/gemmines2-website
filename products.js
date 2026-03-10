@@ -371,7 +371,18 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 
+},   {
+  id: "042",
+  name: "Natural River Tumble Sunstone  ",
+  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
+  price: 230.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/sunstone.jpeg",
+  brand: "Gemmines2",
+  availability: "in stock"
+
 },       
+  
 ];
 
 
