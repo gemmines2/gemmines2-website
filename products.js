@@ -360,8 +360,18 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg",
   brand: "Gemmines2",
   availability: "in stock"
+},
+ {
+  id: "041",
+  name: "Natural heated Sri Lankan Cut & Polished Gemstones  ",
+  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
+  price: 120.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg",
+  brand: "Gemmines2",
+  availability: "in stock"
 
-},  
+},       
 ];
 
 
