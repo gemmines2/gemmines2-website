@@ -353,7 +353,7 @@ const products = [
 },
   {
   id: "040",
-  name: "Natural heated Sri Lankan Cut & Polished Gemstones  ",
+  name: "Natural Unheated Cut and Polished Mixed Sri Lanan Sapphire  ",
   description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
   price: 120.00,
   currency: "USD",
