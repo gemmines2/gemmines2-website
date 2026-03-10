@@ -374,7 +374,7 @@ const products = [
 },   {
   id: "042",
   name: "Natural River Tumble Sunstone  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
+  description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
   price: 90.00,
   currency: "USD",
   image: "https://gemmines2.github.io/gemmines2-website/images/sunstone.jpeg",
