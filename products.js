@@ -383,7 +383,17 @@ const products = [
   availability: "in stock"
 
 },       
-  
+  {
+  id: "043",
+  name: "Natural Heated Padparadscha-sapphire  ",
+  description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
+  price: 90.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg.",
+  brand: "Gemmines2",
+  availability: "in stock"
+
+},       
 ];
 
 
