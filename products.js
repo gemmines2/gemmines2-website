@@ -392,7 +392,16 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg.",
   brand: "Gemmines2",
   availability: "in stock" 
-},       
+},  
+  {
+  id: "044",
+  name: "Natural Unheated Ruby  ",
+  description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
+  price: 200.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg.",
+  brand: "Gemmines2",
+  availability: "in stock" 
 ];
 
 
