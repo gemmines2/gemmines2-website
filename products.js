@@ -402,6 +402,7 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg.",
   brand: "Gemmines2",
   availability: "in stock" 
+ },   
 ];
 
 
