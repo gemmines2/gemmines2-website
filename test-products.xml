@@ -1,34 +1,36 @@
-<?xml version="1.0"?>
-<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
 <channel>
+
 <title>Gemmines2 Test Feed</title>
 <link>https://gemmines2.github.io/gemmines2-website/</link>
-<description>Gemmines2 gemstone products</description>
+<description>Natural Gemstones from Gemmines2</description>
 
 <item>
 <g:id>042</g:id>
-<title>Natural Sunstone Tumbled Gemstone</title>
-<description>Natural river tumbled sunstone gemstone from Pakistan.</description>
+<title>Natural Sunstone Tumbled Gemstone – Pakistan</title>
+<description>Natural river tumbled sunstone gemstone from Pakistan origin.</description>
 <link>https://gemmines2.github.io/gemmines2-website/</link>
 <g:image_link>https://gemmines2.github.io/gemmines2-website/images/sunstone.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:price>90 USD</g:price>
 <g:condition>new</g:condition>
 <g:brand>Gemmines2</g:brand>
-<g:google_product_category>Jewelry &amp; Watches > Loose Stones &amp; Gemstones</g:google_product_category>
+<g:google_product_category>Jewelry &amp; Watches &gt; Loose Stones &amp; Gemstones</g:google_product_category>
 </item>
 
 <item>
 <g:id>043</g:id>
-<title>Padparadscha Sapphire Gemstone</title>
-<description>Natural heated Padparadscha sapphire gemstone.</description>
+<title>Padparadscha Sapphire 2.39 Carat – Sri Lanka</title>
+<description>Natural heated Padparadscha sapphire gemstone 2.39 carats Sri Lankan origin.</description>
 <link>https://gemmines2.github.io/gemmines2-website/</link>
 <g:image_link>https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg</g:image_link>
 <g:availability>in stock</g:availability>
-<g:price>90 USD</g:price>
+<g:price>190 USD</g:price>
 <g:condition>new</g:condition>
 <g:brand>Gemmines2</g:brand>
-<g:google_product_category>Jewelry &amp; Watches > Loose Stones &amp; Gemstones</g:google_product_category>
+<g:google_product_category>Jewelry &amp; Watches &gt; Loose Stones &amp; Gemstones</g:google_product_category>
 </item>
 
 </channel>
