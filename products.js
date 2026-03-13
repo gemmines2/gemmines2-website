@@ -389,7 +389,7 @@ const products = [
   description: "Natural Heated Padparadscha sapphire Sri Lankan Origin gemstone.",
   price: 190.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg",
   brand: "Gemmines2",
   availability: "in stock"
 },
