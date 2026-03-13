@@ -374,35 +374,36 @@ const products = [
 },  
   {
   id: "042",
-  name: "Natural River Tumble Sunstone  ",
+  name: "Natural River Tumble Sunstone",
   description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
   price: 90.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/sunstone.jpg.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/sunstone.jpg",
   brand: "Gemmines2",
   availability: "in stock"
+},
 
-},       
-  {
+{
   id: "043",
-  name: "Natural Heated Padparadscha-sapphire  ",
+  name: "Natural Heated Padparadscha-sapphire",
   description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
   price: 90.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg",
   brand: "Gemmines2",
-  availability: "in stock" 
-},  
-  {
+  availability: "in stock"
+},
+
+{
   id: "044",
-  name: "Natural Unheated Ruby  ",
+  name: "Natural Unheated Ruby",
   description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
   price: 200.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
   brand: "Gemmines2",
-  availability: "in stock" 
- },   
+  availability: "in stock"
+}
 ];
 
 
