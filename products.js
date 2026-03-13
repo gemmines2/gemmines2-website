@@ -397,7 +397,7 @@ const products = [
 {
   id: "044",
   name: "Natural Unheated Ruby 1.06 Sri Lankan Origin.",
-  description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
+  description: "Natural Unheated Sri Lankan Origin Ruby gemstone.",
   price: 200.00,
   currency: "USD",
   image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
