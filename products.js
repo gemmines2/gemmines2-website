@@ -391,8 +391,7 @@ const products = [
   currency: "USD",
   image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg.",
   brand: "Gemmines2",
-  availability: "in stock"
-},  
+  availability: "in stock" 
 },       
 ];
 
