@@ -403,6 +403,18 @@ const products = [
   image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
   brand: "Gemmines2",
   availability: "in stock"
+{
+  id: "045",
+  name: "Natural Unheated Green Nephrite Pakistani Origin 2 Carats",
+  description: "Natural Heated Padparadscha sapphire Sri Lankan Origin gemstone 2.39 carats.",
+  price: 70.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-greennephrite.jpeg",
+  brand: "Gemmines2",
+  availability: "in stock"
+},
+
+  
 }
 ];
 
