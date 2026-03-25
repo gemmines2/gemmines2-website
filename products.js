@@ -420,7 +420,7 @@ const products = [
   description: "Natural Green Nephrite Pakistani origin gemstone.",
   price: 160.00,
   currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/spinel9.jpg",
+  image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
   brand: "Gemmines2",
   availability: "in stock"
   
