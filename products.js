@@ -414,7 +414,16 @@ const products = [
   brand: "Gemmines2",
   availability: "in stock"
 },
-
+{
+  id: "046",
+  name: " Natural Sri Lankan Spinal Beautiful Colours 12 Carats",
+  description: "Natural Green Nephrite Pakistani origin gemstone.",
+  price: 160.00,
+  currency: "USD",
+  image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
+  brand: "Gemmines2",
+  availability: "in stock"
+},
   
 }
 ];
