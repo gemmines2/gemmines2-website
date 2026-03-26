@@ -31,7 +31,7 @@ const products = [
     name: "Peridot",
     description: "Fresh Peridot – Stone of compassion, harmony, and renewal.",
     image: "https://gemmines2.github.io/gemmines2-website/images/peridot.jpg",
-    price: 90.00,
+    price: 100.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
