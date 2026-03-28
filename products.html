@@ -45,7 +45,8 @@ Product html
   <script src="products.js"></script>
   <script src="cart.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+   const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     document.addEventListener('DOMContentLoaded', () => {
       const productList = document.getElementById('product-list');
