@@ -13,105 +13,69 @@
     padding: 0;
   }
 
-  /* HEADER */
   header {
     width: 100%;
     background-color: #0a0a0a;
     border-bottom: 1px solid #20B2AA;
     padding: 20px 0;
   }
+
   .header-content {
-    max-width: 600px;   /* same as container */
+    max-width: 600px;
     margin: 0 auto;
-    text-align: center;  /* center the header text */
+    text-align: center;
   }
-  header h1 {
-    color: #20B2AA;
-    margin: 0;
-  }
-  header nav {
-    margin-top: 10px;
-  }
+
+  header h1 { color: #20B2AA; margin: 0; }
+
+  header nav { margin-top: 10px; }
+
   header nav a {
     color: #20B2AA;
     text-decoration: none;
     margin: 0 5px;
   }
-  header nav a:hover {
-    color: #1f8c7a;
-  }
 
-  /* CONTACT FORM CONTAINER */
   .container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 30px;
     background-color: #111;
     border-radius: 10px;
-    box-shadow: 0 0 20px #000;
   }
 
-  h1 {
-    text-align: center;
-    color: #20B2AA;
+  h1 { text-align: center; color: #20B2AA; }
+
+  .info-box {
+    background:#1a1a1a;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
   }
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    margin-top: 15px;
-    color: #f0f0f0;
-  }
+  label { display:block; margin-top:15px; }
 
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #20B2AA;
-    background-color: #1a1a1a;
-    color: #b7c7d3;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    box-shadow: 0 0 6px rgba(32, 178, 170, 0.4);
+  input, textarea {
+    width:100%;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #20B2AA;
+    background:#1a1a1a;
+    color:#fff;
   }
 
   button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #20B2AA;
-    color: #0a0a0a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-  }
-
-  button:hover {
-    background-color: #1f8c7a;
-  }
-
-  .success-message, .error-message {
-    margin-top: 20px;
-    text-align: center;
-  }
-  .success-message {
-    color: #00ff00;
-  }
-  .error-message {
-    color: #ff3333;
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    background:#20B2AA;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
   }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -120,7 +84,7 @@
     <nav>
       <a href="index.html">Home</a> |
       <a href="products.html">Products</a> |
-      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
+      <a href="cart.html">Cart</a> |
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -128,49 +92,31 @@
 
 <div class="container">
   <h1>Contact Us</h1>
-  <form id="contact-form" action="https://formspree.io/f/xblboydr" method="POST">
-    <label for="name">Full Name *</label>
-    <input type="text" id="name" name="name" required>
 
-    <label for="email">Email *</label>
-    <input type="email" id="email" name="email" required>
+  <!-- BUSINESS DETAILS (IMPORTANT) -->
+  <div class="info-box">
+    <p><strong>Business Name:</strong> Gemmines2</p>
+    <p><strong>Owner:</strong> Yousef Zubair</p>
+    <p><strong>Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+    <p><strong>WhatsApp:</strong> +92 336 214 9415</p>
+    <p><strong>Email:</strong> yousefzubair03@gmail.com</p>
+    <p><strong>Response Time:</strong> Within 24 hours</p>
+  </div>
 
-    <label for="question">Question *</label>
-    <textarea id="question" name="question" rows="4" required></textarea>
+  <!-- FORM -->
+  <form action="https://formspree.io/f/xblboydr" method="POST">
+    <label>Full Name *</label>
+    <input type="text" name="name" required>
 
-    <label for="whatsapp">WhatsApp Number (optional)</label>
-    <input type="text" id="whatsapp" name="whatsapp">
+    <label>Email *</label>
+    <input type="email" name="email" required>
 
-    <button type="submit">Send</button>
-    <div class="success-message" id="success-message"></div>
-    <div class="error-message" id="error-message"></div>
+    <label>Message *</label>
+    <textarea name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
   </form>
 </div>
-
-<script>
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            document.getElementById('success-message').innerText = "Message sent successfully!";
-            document.getElementById('error-message').innerText = "";
-            form.reset();
-        } else {
-            document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-            document.getElementById('success-message').innerText = "";
-        }
-    }).catch(error => {
-        document.getElementById('error-message').innerText = "Oops! Something went wrong.";
-        document.getElementById('success-message').innerText = "";
-    });
-});
-</script>
 
 </body>
 </html>
