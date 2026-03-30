@@ -9,22 +9,23 @@
   <style>
     :root { --bg: #050a1a; --header-bg: #0a0a0a; --card-bg: #0a1430; --teal: #20B2AA; --text: #ffffff; }
     body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
-    .site-header { background: var(--header-bg); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
-    .logo-img { height: 35px; width: auto; }
-    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 15px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
-    .policy-hero { padding: 40px 5% 10px; text-align: center; }
-    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.8rem; letter-spacing: 2px; }
-    .policy-container { max-width: 700px; margin: 0 auto 60px; padding: 25px; background: var(--card-bg); border: 1px solid rgba(32, 178, 170, 0.3); border-radius: 8px; }
-    h2 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1rem; border-bottom: 1px solid rgba(32, 178, 170, 0.2); padding-bottom: 8px; margin-top: 30px; }
-    .badge { display: inline-block; border: 1px solid var(--teal); padding: 5px 12px; color: var(--teal); font-size: 0.7rem; font-weight: bold; margin-bottom: 15px; }
+    .site-header { background: var(--header-bg); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
+    .logo-img { height: 40px; width: auto; }
+    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 15px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
+    .policy-hero { padding: 50px 5% 20px; text-align: center; }
+    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 2rem; letter-spacing: 2px; }
+    .policy-container { max-width: 800px; margin: 0 auto 60px; padding: 35px; background: var(--card-bg); border: 1px solid rgba(32, 178, 170, 0.3); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    h2 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.1rem; border-bottom: 1px solid rgba(32, 178, 170, 0.2); padding-bottom: 10px; margin-top: 35px; }
+    .badge { display: inline-block; border: 1px solid var(--teal); padding: 6px 15px; color: var(--teal); font-size: 0.75rem; font-weight: bold; margin-bottom: 20px; }
     ul { list-style: none; padding: 0; }
-    li { margin-bottom: 10px; position: relative; padding-left: 20px; font-size: 0.9rem; }
+    li { margin-bottom: 12px; position: relative; padding-left: 25px; font-size: 0.95rem; }
     li::before { content: "✦"; color: var(--teal); position: absolute; left: 0; }
-    footer { background: #030610; padding: 40px 5% 30px; border-top: 2px solid var(--teal); text-align: center; }
-    .footer-links { margin-bottom: 25px; }
-    .footer-links a { color: #20B2AA !important; text-decoration: none; margin: 0 10px; font-size: 13px; font-weight: 600; }
-    .footer-contact p { font-size: 12px; color: #888; margin: 5px 0; }
-    .social-icons a { color: #20B2AA !important; font-size: 18px; margin: 0 12px; }
+    footer { background: #030610; padding: 50px 5% 40px; border-top: 2px solid var(--teal); text-align: center; }
+    .footer-links { margin-bottom: 30px; }
+    .footer-links a { color: #ffffff !important; text-decoration: none; margin: 0 12px; font-size: 14px; font-weight: 500; }
+    .footer-contact p { font-size: 14px; color: #ffffff; margin: 8px 0; }
+    .social-icons { margin-bottom: 20px; }
+    .social-icons a { color: #20B2AA !important; font-size: 22px; margin: 0 15px; }
   </style>
 </head>
 <body>
@@ -41,8 +42,8 @@
 
     <h2>DELIVERY TIMELINES</h2>
     <ul>
-      <li><strong>Handling Time:</strong> 0–1 Business Day (Mon–Fri).</li>
-      <li><strong>Transit Time:</strong> 7–10 Business Days (Mon–Sat).</li>
+      <li><strong>Handling Time:</strong> 0–1 Business Day (Monday–Friday). Orders are processed promptly from Islamabad.</li>
+      <li><strong>Transit Time:</strong> 7–10 Business Days (Monday–Saturday).</li>
       <li><strong>Total Estimated Delivery:</strong> 7–11 Business Days worldwide.</li>
     </ul>
 
@@ -50,7 +51,7 @@
     <p>We utilize a network of reliable global carriers: <strong>DHL Express, FedEx, and UPS.</strong> Local deliveries in Pakistan are handled via <strong>Leopards Courier.</strong></p>
 
     <h2>TRACKING & SECURITY</h2>
-    <p>Every order is 100% insured. A tracking number will be sent to <strong>yousefzubair03@gmail.com</strong> immediately after dispatch.</p>
+    <p>Every order is 100% insured for its full value. A tracking number will be sent to <strong>yousefzubair03@gmail.com</strong> immediately after your gemstone is dispatched.</p>
   </div>
 
   <footer>
@@ -59,17 +60,20 @@
       <a href="https://wa.me/923362149415" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="return.html">Returns</a>
-      <a href="shipping.html">Shipping</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="return.html">Returns</a> |
+      <a href="shipping.html">Shipping</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="terms.html">Terms</a>
     </div>
     <div class="footer-contact">
-      <p style="color: #20B2AA; font-weight: 700;">yousefzubair03@gmail.com</p>
+      <p style="color: #20B2AA; font-weight: 700; font-size: 16px;">yousefzubair03@gmail.com</p>
       <p>Address: House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-      <p style="margin-top: 15px; opacity: 0.8;">© 2026 Gemmines2 | Owned & Operated by <strong>Mohamed Yousef Zubair</strong></p>
+      <p style="margin-top: 25px; color: #ffffff; font-weight: bold; border-top: 1px solid #222; padding-top: 20px;">
+        © 2026 Gemmines2 | Owned & Operated by Mohamed Yousef Zubair
+      </p>
     </div>
   </footer>
 </body>
