@@ -1,122 +1,136 @@
-Product html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products | Gemmines2</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    .products-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(200px,1fr));gap: 16px;margin: 20px 0;}
-    .product-card {background: #1a1f40;border-radius: 12px;padding: 12px;text-align: center;border: 1px solid rgba(255,255,255,0.05);transition: transform .18s ease, box-shadow .18s ease;}
-    .product-card:hover {transform: translateY(-5px);box-shadow: 0 6px 18px rgba(0,0,0,0.5);}
-    .product-card img {width: 180px;height: 180px;object-fit: cover;border-radius: 8px;margin-bottom: 10px;}
-    .product-card h3 {color: #00ffe0;font-size: 1rem;margin: 6px 0;}
-    .product-card p {color: #b7c7d3;font-size: 0.85rem;min-height: 40px;}
-    .price {color: #00e0ff;font-weight: 700;margin-bottom: 8px;}
-    .buy-btn {background: linear-gradient(135deg,#00e0ff,#c9a646);border: none;color: #000;font-weight: 700;padding: 7px;border-radius: 8px;cursor: pointer;width: 100%;}
+    :root { --teal: #20B2AA; --bg: #050a1a; --card: #1a1f40; }
+    body { font-family: 'Montserrat', Arial, sans-serif; background-color: var(--bg); color: #f0f0f0; margin: 0; padding: 0; }
+    
+    header { width: 100%; background-color: #0a0a0a; border-bottom: 2px solid var(--teal); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    header h1 { color: var(--teal); margin: 0; font-size: 1.5rem; }
+    header nav { margin-top: 10px; }
+    header nav a { color: var(--teal); text-decoration: none; margin: 0 10px; font-weight: 700; font-size: 0.9rem; }
+
+    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
+    h2 { text-align: center; color: var(--teal); margin-bottom: 30px; }
+
+    /* Grid for all products */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .product-card { background: var(--card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+    .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    
+    /* Dedicated Single Product View */
+    #single-product-view { display: none; background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid var(--teal); max-width: 600px; margin: 0 auto; text-align: center; }
+    #single-product-view img { width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 20px; }
+    #single-product-view h3 { font-size: 1.8rem; color: var(--teal); margin: 10px 0; }
+    #single-product-view .price { font-size: 1.5rem; color: #00e0ff; font-weight: 700; margin: 15px 0; }
+
+    .buy-btn { background: linear-gradient(135deg,#20B2AA,#c9a646); border: none; color: #000; font-weight: 700; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px; }
+    .back-btn { background: none; border: 1px solid var(--teal); color: var(--teal); padding: 8px 15px; margin-bottom: 20px; cursor: pointer; border-radius: 5px; }
+
+    footer { background: #030610; padding: 50px 5% 40px; border-top: 2px solid var(--teal); text-align: center; margin-top: 60px; }
+    .footer-links a { color: var(--teal) !important; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600; }
+    .footer-contact p { color: #fff; font-size: 14px; margin: 8px 0; }
   </style>
 </head>
 <body>
 
-  <!-- Your header (hamburger will be added later) -->
-  <header>
-    <h1>Gemmines2</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="products.html">Products</a> |
-      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> |
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>Gemmines2</h1>
+  <nav>
+    <a href="index.html">Home</a> | <a href="products.html">Shop</a> | <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> | <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main class="container">
+<main class="container">
+  <div id="single-product-view">
+    <button class="back-btn" onclick="window.location.href='products.html'">← Back to All Products</button>
+    <div id="product-details"></div>
+  </div>
+
+  <div id="all-products-view">
     <h2>Our Gemstone Collection</h2>
     <div class="products-grid" id="product-list"></div>
-  </main>
+  </div>
+</main>
 
+<div id="toast" style="position:fixed;top:20px;right:20px;background:var(--teal);color:#000;padding:12px 18px;border-radius:6px;font-weight:700;display:none;z-index:1000;"></div>
 
+<script src="products.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
 
-  <a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float">WhatsApp</a>
-
-  <div id="toast" style="position:fixed;top:20px;right:20px;background:linear-gradient(135deg,#00e0ff,#c9a646);color:#000;padding:12px 18px;border-radius:6px;font-weight:700;display:none;z-index:1000;"></div>
-
-  <script src="products.js"></script>
-  <script src="cart.js"></script>
-  <script>
-   const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const productList = document.getElementById('product-list');
-      products.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'product-card';
-        div.innerHTML = `
-          <div id="product-${p.id}">
-            <img src="${p.image}" alt="${p.name}">
-            <h3>${p.name}</h3>
-            <p>${p.description}</p>
-            <div class="price">$${p.price.toFixed(2)}</div>
-            <button class="buy-btn" onclick="addToCart('${p.id}')">Buy Now</button>
-          </div>
-        `;
-        productList.appendChild(div);
-      });
-      updateCartCount();
-    });
-
-    function addToCart(id) {
-      const product = products.find(p => p.id === id);
-      if (!product) return;
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const exists = cart.find(item => item.id === id);
-      if (exists) {
-        exists.qty += 1;
-      } else {
-        cart.push({...product, qty: 1});
-      }
-      localStorage.setItem('cart', JSON.stringify(cart));
-      showToast(product.name + " added to cart!");
-      updateCartCount();
+    if (productId) {
+      showSingleProduct(productId);
+    } else {
+      showAllProducts();
     }
-
-    function showToast(msg) {
-      const toast = document.getElementById("toast");
-      toast.textContent = msg;
-      toast.style.display = "block";
-      setTimeout(() => toast.style.display = "none", 2000);
-    }
-
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
-    }
-
-    // Run on page load
     updateCartCount();
-  </script>
-  <!-- your product content above -->
+  });
 
- <footer style="background: #030610; padding: 40px 5%; border-top: 1px solid #20B2AA; text-align: center; color: white; font-family: sans-serif;">
-  
-  <div style="margin-bottom: 20px;">
-    <a href="about.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">About</a> |
-    <a href="return.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">Return Policy</a> |
-    <a href="shipping.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">Shipping Policy</a> |
-    <a href="contact.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">Contact Us</a> |
-    <a href="terms.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">Terms</a> |
-    <a href="privacy.html" style="color: #fff; text-decoration: none; margin: 0 10px; font-size: 14px;">Privacy</a>
+  function showAllProducts() {
+    const list = document.getElementById('product-list');
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <button class="buy-btn" onclick="window.location.href='products.html?id=${p.id}'">View Details</button>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  function showSingleProduct(id) {
+    const product = products.find(p => p.id === id);
+    if (!product) {
+      window.location.href = 'products.html';
+      return;
+    }
+    document.getElementById('all-products-view').style.display = 'none';
+    const view = document.getElementById('single-product-view');
+    view.style.display = 'block';
+    
+    document.getElementById('product-details').innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <div class="price">$${product.price.toFixed(2)}</div>
+      <button class="buy-btn" onclick="addToCart('${product.id}')">Add to Cart & Checkout</button>
+    `;
+  }
+
+  function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const exists = cart.find(item => item.id === id);
+    if (exists) { exists.qty += 1; } else { cart.push({...product, qty: 1}); }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html';
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
+  }
+</script>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a> | <a href="return.html">Returns</a> | <a href="shipping.html">Shipping</a> | <a href="contact.html">Contact</a> | <a href="terms.html">Terms</a>
   </div>
-
-  <div style="font-size: 13px; color: #888; margin-bottom: 15px;">
-    <strong>Gemmines2</strong> | Islamabad, Pakistan | yousefzubair03@gmail.com
+  <div class="footer-contact" style="margin-top:20px;">
+    <p style="color:#20B2AA; font-weight:bold;">yousefzubair03@gmail.com</p>
+    <p>House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+    <p style="border-top: 1px solid #222; padding-top:15px;">© 2026 Gemmines2 | Owned & Operated by Mohamed Yousef Zubair</p>
   </div>
-
-  <p style="font-size: 12px; color: #bbbbbb; margin: 0; display: block;">© 2026 Gemmines2 – Registered Gemstone Exporter</p>
 </footer>
 
 </body>
 </html>
-
