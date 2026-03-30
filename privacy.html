@@ -1,4 +1,3 @@
-https://github.com/gemmines2/gemmines2-website
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +7,12 @@ https://github.com/gemmines2/gemmines2-website
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root {
-      --bg: #050a1a;
-      --header-bg: #0a0a0a;
-      --card-bg: #0a1430;
-      --teal: #20B2AA;
-      --text: #ffffff;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      line-height: 1.6;
-    }
+    :root { --bg: #050a1a; --header-bg: #0a0a0a; --card-bg: #0a1430; --teal: #20B2AA; --text: #ffffff; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
 
-    /* --- Fixed Header: Compact & Teal --- */
     .site-header {
       background: var(--header-bg);
-      padding: 10px 5%;
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -35,78 +21,70 @@ https://github.com/gemmines2/gemmines2-website
       top: 0;
       z-index: 1000;
     }
-    .logo-img { height: 35px; width: auto; }
+    .logo-img { height: 40px; width: auto; }
     nav a {
       color: var(--teal) !important;
       text-decoration: none;
       margin-left: 15px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    /* --- Responsive Policy Container --- */
-    .policy-hero { padding: 40px 5% 10px; text-align: center; }
-    .policy-hero h1 { 
-      font-family: 'Cinzel', serif; 
-      color: var(--teal); 
-      font-size: 1.8rem; /* Small size to match other pages */
-      letter-spacing: 2px;
-    }
+    .policy-hero { padding: 50px 5% 20px; text-align: center; }
+    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 2rem; letter-spacing: 2px; }
     
     .policy-container {
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto 60px;
-      padding: 25px;
+      padding: 35px;
       background: var(--card-bg);
       border: 1px solid rgba(32, 178, 170, 0.3);
-      border-radius: 8px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     
     h2 {
       font-family: 'Cinzel', serif;
       color: var(--teal);
-      font-size: 1rem;
+      font-size: 1.1rem;
       border-bottom: 1px solid rgba(32, 178, 170, 0.2);
-      padding-bottom: 8px;
-      margin-top: 30px;
+      padding-bottom: 10px;
+      margin-top: 35px;
       text-transform: uppercase;
     }
 
-    p, li { font-size: 0.9rem; color: #e0e0e0; }
+    p, li { font-size: 0.95rem; color: #e0e0e0; }
     ul { list-style: none; padding: 0; }
-    li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+    li { margin-bottom: 12px; position: relative; padding-left: 25px; }
     li::before { content: "✦"; color: var(--teal); position: absolute; left: 0; }
 
-    /* --- Footer with Branded Icons --- */
     footer {
       background: #030610;
-      padding: 40px 5% 30px;
+      padding: 50px 5% 40px;
       border-top: 2px solid var(--teal);
       text-align: center;
     }
     .social-icons { margin-bottom: 20px; }
-    .social-icons a { font-size: 24px; margin: 0 15px; text-decoration: none; }
-    
+    .social-icons a { font-size: 22px; margin: 0 15px; text-decoration: none; }
     .fa-instagram { color: #E4405F; } 
     .fa-whatsapp { color: #25D366; }  
     .fa-tiktok { color: #ffffff; }    
     .fa-envelope { color: var(--teal); }
 
-    .footer-links { margin-bottom: 20px; }
+    .footer-links { margin-bottom: 30px; }
     .footer-links a { 
-      color: var(--teal) !important; 
+      color: #ffffff !important; 
       text-decoration: none; 
-      margin: 0 8px; 
-      font-size: 13px; 
-      font-weight: 600;
+      margin: 0 12px; 
+      font-size: 14px; 
+      font-weight: 500;
     }
-    .footer-contact { font-size: 12px; color: #888; margin-top: 15px; }
+    .footer-contact p { font-size: 14px; color: #ffffff; margin: 8px 0; }
 
     @media (max-width: 600px) {
-      .policy-container { margin: 0 15px 40px; padding: 20px; }
-      .policy-hero h1 { font-size: 1.5rem; }
+      .policy-container { margin: 0 15px 40px; padding: 25px; }
+      .policy-hero h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -128,29 +106,29 @@ https://github.com/gemmines2/gemmines2-website
   </div>
 
   <div class="policy-container">
-    <p>At <strong>Gemmines2</strong>, we value your privacy and are committed to protecting your personal data. This policy explains how we collect and safeguard your information.</p>
+    <p>At <strong>Gemmines2</strong>, we value your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information in accordance with international standards.</p>
     
     <h2>1. Information We Collect</h2>
     <ul>
       <li><strong>Identity Data:</strong> Full Name.</li>
-      <li><strong>Contact Data:</strong> Email, phone number, and shipping address.</li>
-      <li><strong>Transaction Data:</strong> Details of products purchased and payment confirmation.</li>
+      <li><strong>Contact Data:</strong> Email address, phone number, and physical shipping address.</li>
+      <li><strong>Transaction Data:</strong> Details of the gemstones or jewelry purchased and payment confirmation.</li>
     </ul>
 
     <h2>2. Data Usage</h2>
-    <p>Your data is used strictly to process orders, provide tracking updates, and comply with international shipping regulations.</p>
+    <p>Your personal data is used strictly to process your orders, provide tracking updates from Islamabad, and comply with international export and shipping regulations.</p>
 
     <h2>3. Trusted Partners</h2>
-    <p>We share data only with essential partners:</p>
+    <p>We share data only with essential partners required to fulfill your order:</p>
     <ul>
-      <li><strong>Couriers:</strong> DHL, FedEx, and UPS for global delivery.</li>
-      <li><strong>Payments:</strong> Secure gateways like PayPal (we do not store credit card info).</li>
+      <li><strong>Couriers:</strong> DHL, FedEx, and UPS for global express delivery.</li>
+      <li><strong>Payments:</strong> Secure payment processing via <strong>Stripe</strong> and direct Bank Transfers. We do not store your financial credentials.</li>
     </ul>
 
     <h2>4. Your Rights</h2>
-    <p>You may request access to or deletion of your data at any time by contacting <strong>gemmines2@gmail.com</strong>.</p>
+    <p>You may request access to, correction of, or deletion of your data at any time by contacting us at <strong>yousefzubair03@gmail.com</strong>.</p>
     
-    <p style="margin-top:30px; font-style: italic; color: var(--teal); text-align: center; font-size: 0.8rem;">
+    <p style="margin-top:40px; font-style: italic; color: var(--teal); text-align: center; font-size: 0.9rem;">
       Effective Date: January 2026
     </p>
   </div>
@@ -160,19 +138,23 @@ https://github.com/gemmines2/gemmines2-website
       <a href="https://instagram.com/gemmines2" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://tiktok.com/@gemmines2" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a href="https://wa.me/923362149415" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:gemmines2@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:yousefzubair03@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="return.html">Returns</a>
-      <a href="shipping.html">Shipping</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a> |
+      <a href="products.html">Shop</a> |
+      <a href="return.html">Returns</a> |
+      <a href="shipping.html">Shipping</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="terms.html">Terms</a>
     </div>
     <div class="footer-contact">
-      <p><strong>Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-      <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> gemmines2@gmail.com</p>
-      <p style="margin-top: 15px; opacity: 0.5;">© 2026 Gemmines2 – Registered Gemstone Exporter</p>
+      <p style="color: #20B2AA; font-weight: 700; font-size: 16px;">yousefzubair03@gmail.com</p>
+      <p>Address: House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+      <p style="margin-top: 25px; color: #ffffff; font-weight: bold; border-top: 1px solid #222; padding-top: 20px;">
+        © 2026 Gemmines2 | Owned & Operated by Mohamed Yousef Zubair
+      </p>
     </div>
   </footer>
 
