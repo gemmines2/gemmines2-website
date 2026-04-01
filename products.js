@@ -71,15 +71,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "citrine_009",
-    name: "Natural Citrine",
-    description: "Natural Citrine in Italian silver with zircon accents.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/Green-citrine.jpg",
-    price: 125.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "hessonitegarnet_010",
     name: "Hessonite Garnet",
