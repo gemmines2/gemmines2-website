@@ -40,7 +40,7 @@ const products = [
     name: "Green Jasper",
     description: "Green Jasper – Stone of harmony, balance, and protection.",
     image: "https://gemmines2.github.io/gemmines2-website/images/green-jasper.jpg",
-    price: 150.00,
+    price: 100.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
@@ -113,7 +113,7 @@ const products = [
     name: "Citrine Ring",
     description: "Elegant Citrine Ring – Sparkling yellow quartz in silver setting.",
     image: "https://gemmines2.github.io/gemmines2-website/images/citrine-ring.jpg",
-    price: 150.00,
+    price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
