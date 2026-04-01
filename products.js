@@ -1,8 +1,8 @@
 const products = [
   {
-    id: "umbalitegarnet_001",
-    name: "Umbalite Garnet",
-    description: "Rare Umbalite Garnet – Symbol of love, energy & passion.",
+    id: "umbalite_001",
+    name: "Rare Natural Unheated Reddish-Pink Umbalite Garnet 13ct",
+    description: "Symbol of love, energy & passion. Eye clean loose gemstone from Africa.",
     image: "https://gemmines2.github.io/gemmines2-website/images/umbalitegarnet.jpg",
     price: 200.00,
     availability: "in stock",
@@ -10,7 +10,7 @@ const products = [
   },
   {
     id: "almandinegarnet_002",
-    name: "Almandine Garnet ring set in silver",
+    name: "Almandine Garnet Ring Set in Silver",
     description: "Deep red Almandine Garnet – Stone of strength, courage & protection.",
     image: "https://gemmines2.github.io/gemmines2-website/images/Almandine-ring.jpg",
     price: 125.00,
@@ -18,18 +18,9 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "aquamarine_003",
-    name: "Aquamarine",
-    description: "Aquamarine – Stone of tranquility, clarity & courage.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/aquamarine.jpg",
-    price: 300.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  {
     id: "peridot_004",
-    name: "Peridot",
-    description: "Fresh Peridot – Stone of compassion, harmony, and renewal.",
+    name: "Natural Unheated 5 Carat Olive Green Peridot",
+    description: "Fresh Peridot with Rare Rutile Inclusions from Pakistan.",
     image: "https://gemmines2.github.io/gemmines2-website/images/peridot.jpg",
     price: 100.00,
     availability: "in stock",
@@ -37,26 +28,17 @@ const products = [
   },
   {
     id: "greenjasper_005",
-    name: "Green Jasper",
-    description: "Green Jasper – Stone of harmony, balance, and protection.",
+    name: "Natural Green Jasper Stones - 10+ Carats",
+    description: "Opaque quality from Pakistan with beautiful lustre and color.",
     image: "https://gemmines2.github.io/gemmines2-website/images/green-jasper.jpg",
     price: 100.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
   {
-    id: "tourmaline_006",
-    name: "Green Tourmaline",
-    description: "Natural Tourmaline – Protection, positivity & emotional healing.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/green-tourmaline.jpg",
-    price: 300.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  {
     id: "rhodolite_007",
-    name: "Rhodolite Garnet",
-    description: "Elegant Rhodolite – Stone of inspiration, love & joy.",
+    name: "68 Carat Huge Natural Unheated Rhodolite Garnet Rough",
+    description: "Facet & Cabochon Grade. Stone of inspiration, love & joy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg",
     price: 350.00,
     availability: "in stock",
@@ -64,18 +46,17 @@ const products = [
   },
   {
     id: "opal_008",
-    name: "Opal",
-    description: "Natural Opal – Symbol of purity, hope & emotional healing.",
+    name: "Natural Opal Gemstone Collection – Multi-Color Fire Opals",
+    description: "Symbol of purity, hope & emotional healing.",
     image: "https://gemmines2.github.io/gemmines2-website/images/opal.jpg",
     price: 220.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
- 
   {
-    id: "hessonitegarnet_010",
-    name: "Hessonite Garnet",
-    description: "Premium Hessonite Garnet – Stone of spiritual growth, clarity & protection.",
+    id: "hessonite_010",
+    name: "Natural Uncut Hessonite Garnet Rough 68 carats",
+    description: "Premium Gomed Raw Stone for spiritual growth and clarity.",
     image: "https://gemmines2.github.io/gemmines2-website/images/hessonite-garnet.jpg",
     price: 400.00,
     availability: "in stock",
@@ -83,16 +64,16 @@ const products = [
   },
   {
     id: "pinktourmaline_011",
-    name: "Pink Tourmaline",
-    description: "Pink Tourmaline – Stone of love, emotional healing & inner peace.",
+    name: "20 CT Natural Unheated Pink Tourmaline Rough",
+    description: "Collector Grade Raw Gemstone from Afghanistan.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pink-tourmaline.jpg",
     price: 280.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
   {
-    id: "lemonquartz_012",
-    name: "Lemon Quartz",
+    id: "lemonquartz_rtz_012",
+    name: "Natural Unheated Lemon Quartz 11.15 carats",
     description: "Vibrant Lemon Quartz – Stone of clarity & positive energy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg",
     price: 70.00,
@@ -101,45 +82,44 @@ const products = [
   },
   {
     id: "zircon_013",
-    name: "Green Zircon",
-    description: "Natural Zircon – Stone of balance & spiritual protection.",
+    name: "Natural Green Zircon 4 Carats - Cut & Polished",
+    description: "Stone of balance & spiritual protection.",
     image: "https://gemmines2.github.io/gemmines2-website/images/zircon.jpg",
     price: 90.00,
     availability: "in stock",
     brand: "Gemmines2"
-  }, 
-   {
-    id: "citrine_ring_015",
-    name: "Citrine Ring",
-    description: "Elegant Citrine Ring – Sparkling yellow quartz in silver setting.",
+  },
+  {
+    id: "lemonquartz2_014",
+    name: "Natural Eye-Clean Lemon Quartz Cut & Polished",
+    description: "AAA Grade Faceted Lemon Quartz Loose Stone.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg",
+    price: 140.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "citrine_015",
+    name: "Natural Unheated Golden Citrine 4ct Heart Shape Ring",
+    description: "Set in Italian Silver with Zircons.",
     image: "https://gemmines2.github.io/gemmines2-website/images/citrine-ring.jpg",
     price: 125.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
   {
-    id: "lemonquartz2_014",
-    name: "Lemon Quartz Cut & Polished lot",
-    description: "Vibrant Lemon Quartz – Stone of clarity & positive energy.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg",
-    price: 140.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
- 
-  {
     id: "bluesapphire_016",
-    name: "Blue Sapphire",
-    description: "Natural Blue Sapphire – Symbol of wisdom, virtue & good fortune.",
+    name: "Stunning Sri Lankan Blue Sapphire (Heated) – 1.10 Carats",
+    description: "Symbol of wisdom, virtue & good fortune.",
     image: "https://gemmines2.github.io/gemmines2-website/images/bluesapphire.jpg",
     price: 320.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
   {
-    id: "emeralds_017",
-    name: "Emerald",
-    description: "Premium Zambian Emerald – Eye-clean and vibrant green.",
+    id: "emerald_017",
+    name: "Natural Unheated Cut and Polished Zambian Emeralds",
+    description: "Premium Untreated Loose Gemstones Rich Green Hue.",
     image: "https://gemmines2.github.io/gemmines2-website/images/emeralds.jpg",
     price: 600.00,
     availability: "in stock",
@@ -147,8 +127,8 @@ const products = [
   },
   {
     id: "fluorite_018",
-    name: "Fluorite",
-    description: "Natural Fluorite – Stone of clarity, focus & positive energy.",
+    name: "Natural Unheated Beautiful Blue Fluorite 58 Carats",
+    description: "Rare High Clarity Polished Crystal Healing Stone.",
     image: "https://gemmines2.github.io/gemmines2-website/images/fluorite.jpg",
     price: 100.00,
     availability: "in stock",
@@ -156,7 +136,7 @@ const products = [
   },
   {
     id: "mixedgemstones_019",
-    name: "Mixed Gemstones",
+    name: "Natural Mixed Lot Gemstones – Peridot, Garnet & Smoky Quartz",
     description: "Collection of rare mixed gemstones – Perfect for collectors.",
     image: "https://gemmines2.github.io/gemmines2-website/images/mixed-gemstones.jpg",
     price: 600.00,
@@ -165,262 +145,191 @@ const products = [
   },
   {
     id: "garnet_021",
-    name: "Garnet",
+    name: "Natural Unheated Garnet Ring Set in Silver",
     description: "Deep red Garnet – Stone of passion, love, and energy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/garnet.jpg",
     price: 150.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
-  
   {
-    id: "peridots_023",
-    name: "Rutile Peridot",
-    description: "Natural unheated Rutile Peridot weighing 6.00 carats from Pakistan. Green gemstone with natural inclusions, cut and polished.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/peridots.jpg",
+    id: "24",
+    name: "Natural Unheated Pink Topaz 18ct Katlang Pakistan",
+    description: "Cut and polished gemstone with slight inclusion.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
+    price: 125.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "25",
+    name: "Natural Unheated Blue Topaz Pair - Eye Clean",
+    description: "Faceted Stunning Cut & Polished Sri Lankan Blue Topaz.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz.jpg",
+    price: 120.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "26",
+    name: "Natural Chrysoberyl Cat's Eye Gemstone",
+    description: "Strong Chatoyancy Phenomenal Loose Cabochon.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
+    price: 250.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "27",
+    name: "Natural Chrysoberyl Cat’s Eye set - 5 carats",
+    description: "Multiple pieces with distinct star/eye effect.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/star-sapphire.jpg",
+    price: 200.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "28",
+    name: "Natural Almandine Garnet - 60 Carat Oval Cut",
+    description: "Polished Reddish Purple - Unheated & Untreated.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg",
+    price: 125.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "29",
+    name: "Premium Mixed Sapphire Collection - Multi-Color",
+    description: "Natural multi-color loose sapphire gemstones.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg",
+    price: 400.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "30",
+    name: "Natural Black Chert Tumbled Stone from Pakistan",
+    description: "Smooth river rock specimen with deep black color.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/chert.jpg",
+    price: 80.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "31",
+    name: "4.80 Carat Natural Pink Kunzite Gemstone",
+    description: "Unheated transparent oval-cut natural pink kunzite.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg",
+    price: 100.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "32",
+    name: "1 Pairs Natural Blue Topaz Heart-Shape Gemstones",
+    description: "Unheated heart-shaped gemstones from Sri Lanka.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
     price: 140.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
   {
-    id: "pink-topaz_024",
-    name: "Pink Topaz",
-    description: "Natural unheated Pink Topaz weighing 14.00 carats from Katlang, Pakistan. Cut and polished gemstone.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
-    price: 100.00,
+    id: "34",
+    name: "12 Carat Ferruginous Quartz Gemstone",
+    description: "Vibrant Yellow with White Hues | Natural Loose Stone.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
+    price: 70.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
-{
-  id: "blue_topaz_025",
-  name: "Blue Topaz",
-  description: "Natural Blue Topaz – Brilliant clarity and vibrant blue color.",
-  image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz.jpg",
-  price: 120.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-},
-{
-  id: "chrysoberyl_catseye_026",
-  name: "Chrysoberyl Cat's Eye",
-  description: "Rare Chrysoberyl Cat's Eye – Strong chatoyancy and exceptional quality.",
-  image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
-  price: 250.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-},
-
-{
-  id: "star_sapphire_027",
-  name: "Star Sapphire",
-  description: "Natural Star Sapphire – Distinct star effect under light.",
-  image: "https://gemmines2.github.io/gemmines2-website/images/star-sapphire.jpg",
-  price: 200.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-},
-{
-  id: "almandine_028",
-  name: "Almandine Garnets Cut & Polished 60 carats",
-  description: "Almandine garnets natural unheated .",
-  image: "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg",
-  price: 125.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-},
- 
-   {
-  id: "029",
-  name: "Premium Mixed Sapphire Collection",
-  description: "Natural multi-color loose sapphire gemstones in various shapes and sizes. Ideal for fine jewelry and collectors.",
-  price: 400.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-
-{
-  id: "030",
-  name: "Natural Black Chert Tumbled Stone",
-  description: "Smooth natural black chert tumbled stone from Pakistan with deep black color.",
-  price: 80.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/chert.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-
-{
-  id: "031",
-  name: "4.80 Carat Natural Pink Kunzite Gemstone",
-  description: "Unheated transparent oval-cut natural pink kunzite gemstone.",
-  price: 100.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-
-{
-  id: "032",
-  name: "2 Pairs Natural Blue Topaz Heart-Shape Gemstones",
-  description: "Unheated heart-shaped natural blue topaz gemstones from Sri Lanka.",
-  price: 140.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
- 
-{
-  id: "033",
-  name: "Green Sapphire Sri Lankan Origin ",
-  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
-  price: 180.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/greensapphire.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
- {
-  id: "034",
-  name: "River Tumbled Stones Ferruginous Quartz ",
-  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
-  price: 70.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
   {
-  id: "035",
-  name: "Natural Unheated Black Moonstone ",
-  description: "Unheated Natural Green Sapphire Sri Lankan Origin gemstone.",
-  price: 90.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/blackmoonstone.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-{
-  id: "036",
-  name: "Natural Unheated Sri Lankan Mixed Loose uncut Sapphire  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 130.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/sapphire4.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-  {  
-  id: "037",
-  name: "Natural Unheated Sri Lankan Zircon  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 130.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/zircon94.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-{
-  id: "038",
-  name: "Natural Unheated Sri Lankan Mixed Loose gemstones  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 200.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/sapphirem24.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-{
-  id: "039",
-  name: "Natural Unheated Sri Lankan Bi-Color Sapphire",
-  description: "Unheated Natural bi-color-sapphire gemstone.",
-  price: 95.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
+    id: "35",
+    name: "Unheated Natural Black Moonstone – 18 Carats",
+    description: "River Tumbled & Polished Gems with Stunning Sheen.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/blackmoonstone.jpg",
+    price: 90.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
   {
-  id: "040",
-  name: "Natural Unheated Cut and Polished Mixed Sri Lanan Sapphire  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 120.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
- {
-  id: "041",
-  name: "Natural heated Sri Lankan Cut & Polished Gemstones  ",
-  description: "Unheated Natural Mixed Sapphire Sri Lankan Origin gemstone.",
-  price: 230.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire5.jpeg",
-  brand: "Gemmines2",
-  availability: "in stock"
-
-},  
+    id: "36",
+    name: "Exquisite 27-Carat Natural Unheated Sri Lankan Sapphire Mix",
+    description: "Blue, Yellow & Pink Gems from Ceylon.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/sapphire4.jpg",
+    price: 130.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
   {
-  id: "042",
-  name: "Natural River Tumble Sunstone",
-  description: "Natural River Tumble Sunstone from Pakistan Origin gemstone.",
-  price: 90.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/sunstone.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-
-{
-  id: "43",
-  name: "Natural Heated Padparadscha-sapphire",
-  description: "Natural Heated Padparadscha sapphire Sri Lankan Origin gemstone 2.39 carats.",
-  price: 190.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-{
-  id: "044",
-  name: "Natural Unheated Ruby 1.06 Sri Lankan Origin.",
-  description: "Natural Unheated Sri Lankan Origin Ruby gemstone.",
-  price: 200.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},   // ✅ THIS WAS MISSING
-
-{
-  id: "045",
-  name: "Natural Unheated Green Nephrite Pakistani Origin 2 Carats",
-  description: "Natural Green Nephrite Pakistani origin gemstone.",
-  price: 70.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/greennephrite.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-},
-{
-  id: "046",
-  name: " Natural Sri Lankan Spinal Beautiful Colours 12 Carats",
-  description: "Natural Green Nephrite Pakistani origin gemstone.",
-  price: 160.00,
-  currency: "USD",
-  image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
-  brand: "Gemmines2",
-  availability: "in stock"
-  
-}
+    id: "37",
+    name: "94ct Natural Unheated Zircon - Rare Sri Lanka Origin",
+    description: "Investment Grade Loose Gemstone.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/zircon94.jpg",
+    price: 130.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "38",
+    name: "Natural Unheated Mixed Sapphire Lot from Sri Lanka",
+    description: "Cut & Polished Ceylon Gemstones.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/sapphirem24.jpg",
+    price: 130.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "39",
+    name: "2.15ct Natural Unheated Bi-Color Sapphire",
+    description: "Rare Sri Lankan Origin – Pear Cut.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg",
+    price: 95.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "40",
+    name: "5.80ct Royal Blue Sapphire – Sri Lankan Origin",
+    description: "Heated – Oval Brilliant Cut.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg",
+    price: 120.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "Papardscha_43",
+    name: "Heated Padparadscha Sapphire 2.93 Ct",
+    description: "Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg",
+    price: 190.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "Ruby_44",
+    name: "Natural Unheated Sri Lankan Ruby 1.06 Ct",
+    description: "Vivid Red Ceylon Gemstone with Stunning Luster.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
+    price: 200.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "45",
+    name: "Natural Translucent Green Nephrite Jade - 2 Carats",
+    description: "Pakistan Origin Gemstone.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/greennephrite.jpg",
+    price: 70.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  },
+  {
+    id: "46",
+    name: "Natural Unheated Sri Lankan Origin Spinal",
+    description: "Multi-color 11.45 carats Sri Lankan origin.",
+    image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
+    price: 160.00,
+    availability: "in stock",
+    brand: "Gemmines2"
+  }
 ];
-
-
-
-
-
-
