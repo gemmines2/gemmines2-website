@@ -119,7 +119,7 @@ const products = [
   },
   {
     id: "lemonquartz2_014",
-    name: "Lemon Quartz 2",
+    name: "Lemon Quartz Cut & Polished lot",
     description: "Vibrant Lemon Quartz – Stone of clarity & positive energy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg",
     price: 140.00,
