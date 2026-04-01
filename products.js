@@ -95,7 +95,7 @@ const products = [
     name: "Lemon Quartz",
     description: "Vibrant Lemon Quartz – Stone of clarity & positive energy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg",
-    price: 140.00,
+    price: 70.00,
     availability: "in stock",
     brand: "Gemmines2"
   },
