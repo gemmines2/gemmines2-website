@@ -376,7 +376,7 @@ const products = [
 },
 
 {
-  id: "043",
+  id: "43",
   name: "Natural Heated Padparadscha-sapphire",
   description: "Natural Heated Padparadscha sapphire Sri Lankan Origin gemstone 2.39 carats.",
   price: 190.00,
