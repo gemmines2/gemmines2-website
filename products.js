@@ -81,14 +81,14 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "zircon_013",
-    name: "Natural Green Zircon 4 Carats - Cut & Polished",
-    description: "Stone of balance & spiritual protection.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/zircon.jpg",
-    price: 90.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  id: "citrine_009", // We use the GMC ID even if it says 'citrine'
+  name: "Natural Unheated Green Zircon - Eye Clean Precision Cut",
+  description: "Rare Forest Green Earth-Mined Gemstone - Untreated & Polished.",
+  image: "https://gemmines2.github.io/gemmines2-website/images/zircon.jpg",
+  price: 90.00,
+  availability: "in stock",
+  brand: "Gemmines2"
+},
   {
     id: "lemonquartz2_014",
     name: "Natural Eye-Clean Lemon Quartz Cut & Polished",
