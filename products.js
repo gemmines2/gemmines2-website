@@ -221,7 +221,7 @@ const products = [
 },
 {
   id: "almandine_028",
-  name: "Almandine Garnets Cut & Polished",
+  name: "Almandine Garnets Cut & Polished 60 carats",
   description: "Almandine garnets natural unheated .",
   image: "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg",
   price: 125.00,
