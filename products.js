@@ -80,15 +80,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-  id: "citrine_009", // We use the GMC ID even if it says 'citrine'
-  name: "Natural Unheated Green Zircon - Eye Clean Precision Cut",
-  description: "Rare Forest Green Earth-Mined Gemstone - Untreated & Polished.",
-  image: "https://gemmines2.github.io/gemmines2-website/images/zircon.jpg",
-  price: 90.00,
-  availability: "in stock",
-  brand: "Gemmines2"
-},
+  
   {
     id: "lemonquartz2_014",
     name: "Natural Eye-Clean Lemon Quartz Cut & Polished",
@@ -98,15 +90,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "citrine_015",
-    name: "Natural Unheated Golden Citrine 4ct Heart Shape Ring",
-    description: "Set in Italian Silver with Zircons.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/citrine-ring.jpg",
-    price: 125.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "bluesapphire_016",
     name: "Stunning Sri Lankan Blue Sapphire (Heated) – 1.10 Carats",
@@ -153,7 +137,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "24",
+    id: " Natural Pink Topaz 24",
     name: "Natural Unheated Pink Topaz 18ct Katlang Pakistan",
     description: "Cut and polished gemstone with slight inclusion.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
@@ -260,15 +244,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "13 Natural Zircon ",
-    name: "94ct Natural Unheated Zircon - Rare Sri Lanka Origin",
-    description: "Investment Grade Loose Gemstone.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/zircon94.jpg",
-    price: 130.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+
   {
     id: "38",
     name: "Natural Unheated Mixed Sapphire Lot from Sri Lanka",
