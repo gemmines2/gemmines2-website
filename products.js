@@ -261,7 +261,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "13",
+    id: "13 Natural Zircon ",
     name: "94ct Natural Unheated Zircon - Rare Sri Lanka Origin",
     description: "Investment Grade Loose Gemstone.",
     image: "https://gemmines2.github.io/gemmines2-website/images/zircon94.jpg",
