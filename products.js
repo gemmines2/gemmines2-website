@@ -1,6 +1,6 @@
 const products = [
   {
-    id: "umbalite_001",
+    id: "umbalitegarnet_001",
     name: "Rare Natural Unheated Reddish-Pink Umbalite Garnet 13ct",
     description: "Symbol of love, energy & passion. Eye clean loose gemstone from Africa.",
     image: "https://gemmines2.github.io/gemmines2-website/images/umbalitegarnet.jpg",
@@ -54,7 +54,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "hessonite_010",
+    id: "hessonitegarnet_010",
     name: "Natural Uncut Hessonite Garnet Rough 68 carats",
     description: "Premium Gomed Raw Stone for spiritual growth and clarity.",
     image: "https://gemmines2.github.io/gemmines2-website/images/hessonite-garnet.jpg",
@@ -72,7 +72,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "lemonquartz_rtz_012",
+    id: "lemonquartz_012",
     name: "Natural Unheated Lemon Quartz 11.15 carats",
     description: "Vibrant Lemon Quartz – Stone of clarity & positive energy.",
     image: "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg",
@@ -80,7 +80,6 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  
   {
     id: "lemonquartz2_014",
     name: "Natural Eye-Clean Lemon Quartz Cut & Polished",
@@ -90,7 +89,6 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
- 
   {
     id: "bluesapphire_016",
     name: "Stunning Sri Lankan Blue Sapphire (Heated) – 1.10 Carats",
@@ -101,7 +99,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "emerald_017",
+    id: "emeralds_017",
     name: "Natural Unheated Cut and Polished Zambian Emeralds",
     description: "Premium Untreated Loose Gemstones Rich Green Hue.",
     image: "https://gemmines2.github.io/gemmines2-website/images/emeralds.jpg",
@@ -137,7 +135,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: " Natural Pink Topaz 24",
+    id: "pink-topaz_024",
     name: "Natural Unheated Pink Topaz 18ct Katlang Pakistan",
     description: "Cut and polished gemstone with slight inclusion.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
@@ -146,7 +144,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "25",
+    id: "blue_topaz_025",
     name: "Natural Unheated Blue Topaz Pair - Eye Clean",
     description: "Faceted Stunning Cut & Polished Sri Lankan Blue Topaz.",
     image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz.jpg",
@@ -155,7 +153,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "26",
+    id: "chrysoberyl_catseye_026",
     name: "Natural Chrysoberyl Cat's Eye Gemstone",
     description: "Strong Chatoyancy Phenomenal Loose Cabochon.",
     image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
@@ -164,7 +162,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "27",
+    id: "star_sapphire_027",
     name: "Natural Chrysoberyl Cat’s Eye set - 5 carats",
     description: "Multiple pieces with distinct star/eye effect.",
     image: "https://gemmines2.github.io/gemmines2-website/images/star-sapphire.jpg",
@@ -173,7 +171,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "28",
+    id: "almandine_028",
     name: "Natural Almandine Garnet - 60 Carat Oval Cut",
     description: "Polished Reddish Purple - Unheated & Untreated.",
     image: "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg",
@@ -182,7 +180,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "29",
+    id: "029",
     name: "Premium Mixed Sapphire Collection - Multi-Color",
     description: "Natural multi-color loose sapphire gemstones.",
     image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg",
@@ -191,7 +189,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "30",
+    id: "030",
     name: "Natural Black Chert Tumbled Stone from Pakistan",
     description: "Smooth river rock specimen with deep black color.",
     image: "https://gemmines2.github.io/gemmines2-website/images/chert.jpg",
@@ -200,7 +198,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "31",
+    id: "031",
     name: "4.80 Carat Natural Pink Kunzite Gemstone",
     description: "Unheated transparent oval-cut natural pink kunzite.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg",
@@ -209,7 +207,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "32",
+    id: "032",
     name: "1 Pairs Natural Blue Topaz Heart-Shape Gemstones",
     description: "Unheated heart-shaped gemstones from Sri Lanka.",
     image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
@@ -218,7 +216,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "34",
+    id: "034",
     name: "12 Carat Ferruginous Quartz Gemstone",
     description: "Vibrant Yellow with White Hues | Natural Loose Stone.",
     image: "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg",
@@ -227,7 +225,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "35",
+    id: "035",
     name: "Unheated Natural Black Moonstone – 18 Carats",
     description: "River Tumbled & Polished Gems with Stunning Sheen.",
     image: "https://gemmines2.github.io/gemmines2-website/images/blackmoonstone.jpg",
@@ -236,7 +234,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "36",
+    id: "036",
     name: "Exquisite 27-Carat Natural Unheated Sri Lankan Sapphire Mix",
     description: "Blue, Yellow & Pink Gems from Ceylon.",
     image: "https://gemmines2.github.io/gemmines2-website/images/sapphire4.jpg",
@@ -244,9 +242,8 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-
   {
-    id: "38",
+    id: "038",
     name: "Natural Unheated Mixed Sapphire Lot from Sri Lanka",
     description: "Cut & Polished Ceylon Gemstones.",
     image: "https://gemmines2.github.io/gemmines2-website/images/sapphirem24.jpg",
@@ -255,7 +252,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "39",
+    id: "039",
     name: "2.15ct Natural Unheated Bi-Color Sapphire",
     description: "Rare Sri Lankan Origin – Pear Cut.",
     image: "https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg",
@@ -264,7 +261,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "40",
+    id: "040",
     name: "5.80ct Royal Blue Sapphire – Sri Lankan Origin",
     description: "Heated – Oval Brilliant Cut.",
     image: "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg",
@@ -273,7 +270,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "Papardscha_43",
+    id: "043",
     name: "Heated Padparadscha Sapphire 2.93 Ct",
     description: "Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster.",
     image: "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg",
@@ -282,7 +279,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "Ruby_44",
+    id: "044",
     name: "Natural Unheated Sri Lankan Ruby 1.06 Ct",
     description: "Vivid Red Ceylon Gemstone with Stunning Luster.",
     image: "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg",
@@ -291,7 +288,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "45",
+    id: "045",
     name: "Natural Translucent Green Nephrite Jade - 2 Carats",
     description: "Pakistan Origin Gemstone.",
     image: "https://gemmines2.github.io/gemmines2-website/images/greennephrite.jpg",
@@ -300,7 +297,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "46",
+    id: "046",
     name: "Natural Unheated Sri Lankan Origin Spinal",
     description: "Multi-color 11.45 carats Sri Lankan origin.",
     image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
