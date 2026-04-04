@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms & Conditions | Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root { --bg: #050a1a; --header-bg: #0a0a0a; --card-bg: #0a1430; --teal: #20B2AA; --text: #ffffff; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
-    .site-header { background: var(--header-bg); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
-    .logo-img { height: 40px; width: auto; }
-    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 15px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; }
-    .policy-container { max-width: 800px; margin: 40px auto 60px; padding: 35px; background: var(--card-bg); border-radius: 12px; }
-    h2 { color: var(--teal); font-family: 'Cinzel', serif; font-size: 1.1rem; margin-top: 25px; }
-    footer { background: #030610; padding: 40px; border-top: 2px solid var(--teal); text-align: center; }
-    .footer-links a { color: #20B2AA !important; text-decoration: none; margin: 0 10px; font-size: 14px; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    
+    .site-header { background: var(--header-bg); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
+    .logo-img { height: 35px; width: auto; }
+    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 18px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-family: 'Cinzel', serif; }
+
+    .policy-hero { padding: 35px 5% 15px; text-align: center; }
+    .policy-hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.8rem; letter-spacing: 2px; margin: 0; }
+    
+    .policy-container { max-width: 800px; margin: 0 auto 40px; padding: 25px 35px; background: var(--card-bg); border: 1px solid rgba(32, 178, 170, 0.15); border-radius: 10px; }
+    
+    h2 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.1rem; margin-top: 25px; border-bottom: 1px solid rgba(32, 178, 170, 0.1); padding-bottom: 5px; text-transform: uppercase; }
+    p { font-size: 0.92rem; color: #ced4da; margin-bottom: 15px; }
+    strong { color: #fff; }
+
+    footer { background: #030610; padding: 30px 5%; border-top: 1.5px solid var(--teal); text-align: center; }
+    .footer-links a { color: var(--teal) !important; text-decoration: none; margin: 0 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .footer-copy { font-size: 11px; color: #6c757d; margin-top: 15px; }
+
+    @media (max-width: 600px) {
+      .policy-hero h1 { font-size: 1.5rem; }
+      .policy-container { padding: 20px; margin: 0 15px 40px; }
+      .site-header { flex-direction: column; padding: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -21,20 +38,30 @@
     <a href="index.html"><img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2" class="logo-img"></a>
     <nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="contact.html">Contact</a></nav>
   </header>
+
+  <div class="policy-hero"><h1>Terms & Conditions</h1></div>
+
   <div class="policy-container">
-    <h1 style="font-family: 'Cinzel', serif; color: var(--teal);">Terms & Conditions</h1>
-    <p>By using Gemmines2, you agree to these professional terms of service.</p>
-    <h2>1. Authenticity</h2>
-    <p>Gemmines2 guarantees all stones are 100% earth-mined. We provide detailed disclosures on any heat treatments.</p>
-    <h2>2. Shipping Policy</h2>
-    <p>We ship worldwide from Islamabad, Pakistan. Delivery typically takes 7-11 business days via DHL or FedEx.</p>
-    <h2>3. Return Rights</h2>
-    <p>Customers have a 14-day window to request a return. Please see our full Return Policy for details on restocking fees and conditions.</p>
+    <p>Welcome to <strong>Gemmines2</strong>. By accessing this website, you agree to these professional terms of service. Our operations are conducted from Islamabad, Pakistan.</p>
+    
+    <h2>1. Ownership & Authenticity</h2>
+    <p>Gemmines2 is owned by <strong>Mohamed Yousef Zubair</strong>. We guarantee that all stones sold are 100% natural and earth-mined. We provide full disclosure regarding any heat treatments or certifications.</p>
+    
+    <h2>2. Pricing & Payments</h2>
+    <p>All prices are listed in <strong>USD</strong>. We accept secure payments via Stripe and direct Bank Transfers. Gemmines2 reserves the right to adjust pricing based on market fluctuations in the gemstone industry.</p>
+    
+    <h2>3. Shipping & Insurance</h2>
+    <p>We offer worldwide shipping via <strong>DHL, FedEx, and UPS</strong>. Every shipment is 100% insured for its full value until it reaches your door.</p>
+    
+    <h2>4. Limitation of Liability</h2>
+    <p>Gemmines2 shall not be liable for any indirect or consequential damages arising from the use of our products. Our total liability is limited to the purchase price of the specific item sold.</p>
   </div>
+
   <footer>
     <div class="footer-links">
-      <a href="index.html">Home</a> | <a href="products.html">Products</a> | <a href="return.html">Returns</a> | <a href="shipping.html">Shipping</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a>
+      <a href="index.html">Home</a> | <a href="products.html">Products</a> | <a href="return.html">Returns</a> | <a href="shipping.html">Shipping</a> | <a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="terms.html">Terms</a>
     </div>
+    <div class="footer-copy">© 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan</div>
   </footer>
 </body>
 </html>
