@@ -4,156 +4,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemmines2 | 100% Natural Unheated Gemstones from Pakistan & Worldwide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Gemmines2 | Certified Natural, Heated & Tumbled Gemstones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #050a1a; --header-bg: #0a0a0a; --teal: #20B2AA; --text: #ffffff; --card-bg: #0a1430; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; }
+    :root { --bg: #050a1a; --header-bg: #0a0a0a; --teal: #20B2AA; --text: #ffffff; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.4; -webkit-font-smoothing: antialiased; }
 
-    /* HEADER - 4 BUTTONS */
-    .site-header { background: var(--header-bg); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
-    .logo-img { height: 50px; width: auto; }
-    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 18px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; font-family: 'Cinzel', serif; letter-spacing: 1px; }
+    /* HEADER */
+    .site-header { background: var(--header-bg); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
+    .logo-img { height: 35px; width: auto; display: block; }
+    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 15px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-family: 'Cinzel', serif; }
 
     /* HERO SECTION */
     .hero { 
-      height: 70vh; 
+      height: 50vh; 
       display: flex; 
       flex-direction: column; 
       justify-content: center; 
       align-items: center; 
       text-align: center; 
-      background: linear-gradient(rgba(5,10,26,0.8), rgba(5,10,26,0.8)), url('images/hero-bg.jpg') center/cover;
+      background: linear-gradient(rgba(11,11,26,0.85), rgba(11,11,26,0.85));
       padding: 0 20px;
     }
-    .hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 3.6rem; margin-bottom: 10px; text-shadow: 0 0 30px rgba(32,178,170,0.4); }
-    .hero p { font-size: 1.4rem; max-width: 800px; color: #b0ffff; margin-bottom: 30px; }
-    .cta-btn { display: inline-block; padding: 16px 40px; background: var(--teal); color: #000; font-weight: bold; border-radius: 50px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 8px 25px rgba(32,178,170,0.5); }
+    .hero h1 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.8rem; margin-bottom: 8px; letter-spacing: 2px; }
+    .hero p { font-size: 0.9rem; max-width: 500px; margin-bottom: 20px; color: #b0ffff; font-weight: 300; }
+    .cta-btn { background: var(--teal); color: #000; padding: 10px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; text-transform: uppercase; font-size: 0.8rem; }
 
-    /* ABOUT SECTION (Identical to your original text) */
-    .about-section { max-width: 900px; margin: 60px auto; padding: 0 20px; text-align: center; }
-    .about-section h2 { font-family: 'Cinzel', serif; color: var(--teal); margin-bottom: 20px; }
-    .about-section p { color: #ced4da; font-size: 1.05rem; margin-bottom: 15px; }
-    .check-list { display: inline-block; text-align: left; color: var(--teal); font-weight: 500; margin: 20px 0; }
+    /* CATEGORY SECTION - THE TRUTH IN DISCLOSURE */
+    .stone-types { padding: 40px 10%; background: #0a0e20; text-align: center; }
+    .stone-types h2 { font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.2rem; margin-bottom: 25px; text-transform: uppercase; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .card { padding: 20px; border: 1px solid rgba(32, 178, 170, 0.2); border-radius: 8px; background: #050a1a; }
+    .card h3 { font-size: 0.9rem; color: var(--teal); margin-bottom: 10px; font-family: 'Cinzel', serif; }
+    .card p { font-size: 0.8rem; color: #ced4da; line-height: 1.5; }
 
-    /* CATEGORIES */
-    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .cat-card { background: var(--card-bg); border: 1px solid rgba(32, 178, 170, 0.2); border-radius: 12px; padding: 15px; text-align: center; text-decoration: none; transition: 0.3s; }
-    .cat-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-    .cat-card h3 { color: var(--teal); font-family: 'Cinzel', serif; font-size: 1rem; margin: 10px 0; }
+    /* FOOTER */
+    footer { background: #030610; padding: 35px 5% 20px; border-top: 1.5px solid var(--teal); text-align: center; }
+    .footer-links { margin-bottom: 20px; }
+    .footer-links a { color: var(--teal) !important; text-decoration: none; margin: 0 8px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+    .contact-info { font-size: 11px; color: #888; margin-bottom: 15px; }
+    .footer-copy { font-size: 10px; color: #555; margin-top: 20px; border-top: 1px solid #1a1a1a; padding-top: 15px; }
 
-    /* WHATSAPP FLOAT */
-    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-
-    /* FOOTER - 7 LINKS & TEAL FONTS */
-    footer { background: #030610; padding: 50px 5%; border-top: 2px solid var(--teal); text-align: center; }
-    .footer-links { margin-bottom: 25px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .footer-links a { color: var(--teal) !important; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; }
-    .footer-info { color: #ffffff; font-size: 14px; margin-top: 20px; }
-    .footer-copy { font-size: 11px; color: #6c757d; margin-top: 20px; }
+    .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 1000; }
+    .wa-float img { width: 25px; height: 25px; }
 
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1.1rem; }
-      .site-header { flex-direction: column; padding: 15px; }
-      nav { margin-top: 15px; }
+      .site-header { flex-direction: column; padding: 12px; gap: 10px; }
+      nav a { margin: 0 6px; font-size: 0.7rem; }
+      .hero h1 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float">WhatsApp Chat</a>
-
   <header class="site-header">
     <a href="index.html">
-      <img src="images/logo.png" alt="Gemmines2 Logo" class="logo-img">
+      <img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2" class="logo-img">
     </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
+      <a href="cart.html">Cart</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Gemmines2</h1>
-    <p>Pakistan’s trusted source for 100% natural, unheated gemstones & custom silver jewelry</p>
-    <a href="products.html" class="cta-btn">Shop Collection →</a>
+    <h1>Gemmines2 Natural Collection</h1>
+    <p>Authentic gemstones from Pakistan and Sri Lanka. We prioritize full disclosure on all stone treatments and certifications.</p>
+    <a href="products.html" class="cta-btn">View All Stones</a>
   </section>
 
-  <section class="about-section">
-    <h2>Gemmines2 – Natural Certified Gemstones</h2>
-    <p><strong>Gemmines2</strong>, based in Pakistan, is your trusted source for <strong>authentic, natural gemstones</strong> sourced from Sri Lanka, Pakistan, and worldwide.</p>
-    
-    <div class="check-list">
-      ✔ 100% Natural Stones<br>
-      ✔ Transparent Treatment Disclosure<br>
-      ✔ Ethically Sourced from Sri Lanka & Pakistan<br>
-      ✔ Worldwide Shipping Available<br>
-      ✔ 14 Day Return Policy<br>
-      ✔ Secure Checkout
+  <section class="stone-types">
+    <h2>Our Stone Classifications</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Unheated & Natural</h3>
+        <p>Pure, earth-mined stones with zero thermal enhancement. Rare specimens for serious collectors.</p>
+      </div>
+      <div class="card">
+        <h3>Heated Specimens</h3>
+        <div ></div>
+        <p>Natural stones enhanced with traditional heat treatment to improve color and clarity.</p>
+      </div>
+      <div class="card">
+        <h3>River Tumbled</h3>
+        <p>Natural rough stones shaped and smoothed by river currents. Ideal for healing and raw collections.</p>
+      </div>
     </div>
-
-    <p>We specialize in cut, polished, and rough gemstones, along with custom-designed jewelry in 925 silver, gold, and rhodium finishes.</p>
-    <p>Every gemstone is carefully selected and clearly described to ensure honesty, quality, and customer satisfaction.</p>
   </section>
-
-  <div class="container">
-    <h2 style="text-align:center; font-family:'Cinzel'; color:var(--teal); margin-bottom:30px;">Shop by Category</h2>
-    <div class="cat-grid">
-      <a href="products.html#rough" class="cat-card">
-        <img src="images/opal.jpg" alt="Mixed Colour Opal">
-        <h3>Mixed Colour Opal Natural Collection 200 Carats</h3>
-      </a>
-      <a href="products.html#cut" class="cat-card">
-        <img src="images/umbalitegarnet.jpg" alt="Umbalite Garnet">
-        <h3>Rare Umbalite Garnets 13 carats</h3>
-      </a>
-      <a href="products.html#jewelry" class="cat-card">
-        <img src="images/garnet.jpg" alt="Garnet Jewelry">
-        <h3>925 Silver Jewelry</h3>
-      </a>
-    </div>
-  </div>
 
   <footer>
     <div class="footer-links">
-      <a href="index.html">Home</a> | 
-      <a href="products.html">Products</a> | 
-      <a href="return.html">Return Policy</a> | 
-      <a href="shipping.html">Shipping Policy</a> | 
-      <a href="privacy.html">Privacy Policy</a> | 
-      <a href="contact.html">Contact Us</a> | 
-      <a href="terms.html">Terms & Conditions</a>
+      <a href="index.html">Home</a> | <a href="products.html">Products</a> | <a href="return.html">Returns</a> | <a href="shipping.html">Shipping</a> | <a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="terms.html">Terms</a>
     </div>
-
-    <div class="footer-info">
-      <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-      <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
+    <div class="contact-info">
+      <p>House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+      <p>WhatsApp: +92 336 214 9415 | yousefzubair03@gmail.com</p>
     </div>
-
-    <div style="margin: 25px 0;">
-      <p style="font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Secure Global Payments</p>
-      <div style="display: flex; justify-content: center; gap: 20px; align-items: center; filter: grayscale(0.5);">
-         <span style="font-size: 12px; border: 1px solid #20B2AA; color: #20B2AA; padding: 4px 8px; border-radius: 3px; font-weight: bold;">VISA</span>
-         <span style="font-size: 12px; border: 1px solid #20B2AA; color: #20B2AA; padding: 4px 8px; border-radius: 3px; font-weight: bold;">MASTERCARD</span>
-         <span style="font-size: 12px; border: 1px solid #20B2AA; color: #20B2AA; padding: 4px 8px; border-radius: 3px; font-weight: bold;">STRIPE</span>
-         <span style="font-size: 12px; border: 1px solid #20B2AA; color: #20B2AA; padding: 4px 8px; border-radius: 3px; font-weight: bold;">BANK TRANSFER</span>
-      </div>
-    </div>
-
-    <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
+    <div class="footer-copy">© 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan</div>
   </footer>
 
-  <script>
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
-    }
-    updateCartCount();
-  </script>
+  <a href="https://wa.me/923362149415" class="wa-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
 
 </body>
 </html>
