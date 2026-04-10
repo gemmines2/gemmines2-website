@@ -2,110 +2,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gemmines2 Checkout</title>
-<link rel="stylesheet" href="style.css">
-  <!-- CLEAN TURQUOISE HEADER – ONLY FOR CHECKOUT -->
-<header style="position:fixed;top:0;left:0;right:0;background:#0b0b1a;border-bottom:3px solid #20B2AA;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;">
-  <div style="font-size:1.9rem;font-weight:bold;color:#20B2AA;">Gemmines2</div>
-  <div style="color:#20B2AA;font-weight:600;">
-    <a href="index.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Home</a>
-    <a href="products.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Products</a>
-    <a href="cart.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Cart</a>
-    <a href="contact.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Contact</a>
-  </div>
-</header>
-<div style="margin-top:90px;"></div>
-<style>
-body { font-family: Arial,sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
-.container { max-width:800px; margin:30px auto; background:#1a1f40; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
-h1,h2 { text-align:center; margin-bottom:20px; }
-form label { display:block; margin-bottom:5px; font-weight:500; }
-form input, form select, form textarea { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:none; box-sizing:border-box; background:#1a1f40; color:#fff; border:1px solid #555; }
-input::placeholder, textarea::placeholder { color:#bbb; }
-input:focus, select:focus, textarea:focus { outline:2px solid #0077ff; }
-.payment-options label { display:block; margin-bottom:10px; cursor:pointer; }
-.payment-fields { margin-top:15px; display:none; }
-.card-row, .address-row { display:flex; gap:10px; }
-.card-row input, .address-row input { flex:1; }
-button { width:100%; padding:15px; background:#0077ff; color:#fff; font-size:18px; border:none; border-radius:8px; cursor:pointer; }
-button:hover { background:#005fcc; }
-@media(max-width:600px){ .card-row,.address-row{ flex-direction:column; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Gemmines2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #050a1a; --header-bg: #0a0a0a; --card-bg: #0a1430; --teal: #20B2AA; --text: #ffffff; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.5; }
+
+        /* UNIFIED HEADER */
+        .site-header { background: var(--header-bg); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
+        .logo-img { height: 35px; width: auto; }
+        nav a { color: var(--teal) !important; text-decoration: none; margin-left: 18px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; font-family: 'Cinzel', serif; }
+
+        .container { max-width: 800px; margin: 40px auto; background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid rgba(32, 178, 170, 0.2); }
+        h1, h2 { font-family: 'Cinzel', serif; color: var(--teal); text-align: center; }
+        
+        form label { display: block; margin-bottom: 5px; font-weight: 500; color: var(--teal); font-size: 0.8rem; text-transform: uppercase; }
+        form input, form select { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; background: #050a1a; color: #fff; }
+        
+        .address-row { display: flex; gap: 15px; }
+        .payment-options { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        
+        button { width: 100%; padding: 15px; background: var(--teal); color: #000; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; font-family: 'Cinzel', serif; letter-spacing: 1px; }
+        button:hover { background: #17968f; }
+
+        /* UNIFIED FOOTER */
+        footer { background: #030610; padding: 30px 5%; border-top: 1.5px solid var(--teal); text-align: center; margin-top: 50px; }
+        .footer-links a { color: var(--teal) !important; text-decoration: none; margin: 0 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .footer-info { margin-top: 20px; font-size: 12px; color: #6c757d; }
+
+        @media(max-width:600px){ .address-row { flex-direction: column; gap: 0; } }
+    </style>
 </head>
 <body>
 
+<header class="site-header">
+    <a href="index.html"><img src="https://gemmines2.github.io/gemmines2-website/images/logo.png" alt="Gemmines2" class="logo-img"></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
 <div class="container">
-<h1>Checkout</h1>
-<form id="checkout-form">
-  <h2>Shipping Details</h2>
-  <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
-  <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
-  <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
-  <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
-  <label>Address Line 2</label><input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
-  <div class="address-row">
-    <input type="text" id="city" placeholder="City" required>
-    <input type="text" id="state" placeholder="State/Province" required>
-  </div>
-  <div class="address-row">
-    <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
-    <input type="text" id="country" placeholder="Country" required>
-  </div>
+    <h1>Checkout</h1>
+    <form id="checkout-form">
+        <h2>Shipping Information</h2>
+        <label>Full Name</label>
+        <input type="text" placeholder="Your Full Name" required>
+        
+        <div class="address-row">
+            <div style="flex:1;"><label>Email</label><input type="email" required></div>
+            <div style="flex:1;"><label>WhatsApp/Phone</label><input type="text" placeholder="+92" required></div>
+        </div>
 
-  <h2>Payment Method</h2>
-  <div class="payment-options">
-    <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
-    <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-    <label><input type="radio" name="payment" value="stripe"> Stripe</label>
-  </div>
+        <label>Shipping Address</label>
+        <input type="text" placeholder="Street Address" required>
+        
+        <div class="address-row">
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="Postal Code" required>
+            <input type="text" placeholder="Country" required>
+        </div>
 
-  <div class="payment-fields" id="card-fields">
-    <input type="text" placeholder="Cardholder Name">
-    <input type="text" placeholder="Card Number">
-    <div class="card-row">
-      <input type="text" placeholder="Expiry MM/YY">
-      <input type="text" placeholder="CVV">
-    </div>
-  </div>
+        <h2>Payment Selection</h2>
+        <div class="payment-options">
+            <label><input type="radio" name="pay" checked> International Credit Card</label><br>
+            <label><input type="radio" name="pay"> Bank Wire (SWIFT)</label>
+        </div>
 
-  <div class="payment-fields" id="paypal-fields"><input type="email" placeholder="PayPal Email"></div>
-  <div class="payment-fields" id="payoneer-fields"><input type="email" placeholder="Payoneer Email"></div>
-  <div class="payment-fields" id="bank-fields">
-    <input type="text" placeholder="Bank Name">
-    <input type="text" placeholder="Account Number">
-    <input type="text" placeholder="SWIFT / IBAN">
-  </div>
-  <div class="payment-fields" id="ria-fields">
-    <input type="text" placeholder="Ria Name">
-    <input type="text" placeholder="Ria Account Number">
-  </div>
-  <div class="payment-fields" id="stripe-fields"><input type="text" placeholder="Stripe Account / Email"></div>
-
-  <button type="submit">Place Order</button>
-</form>
+        <button type="submit">COMPLETE PURCHASE</button>
+    </form>
 </div>
 
 <footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a> | 
-    <a href="products.html">Products</a> | 
-    <a href="return.html">Returns</a> | 
-    <a href="shipping.html">Shipping</a> | 
-    <a href="privacy.html">Privacy</a> | 
-    <a href="contact.html">Contact</a> | 
-    <a href="terms.html">Terms</a>
-  </div>
-  <div class="footer-copy">
-    © 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan
-  </div>
+    <div class="footer-links">
+        <a href="index.html">Home</a> | 
+        <a href="products.html">Products</a> | 
+        <a href="return.html">Returns</a> | 
+        <a href="shipping.html">Shipping</a> | 
+        <a href="privacy.html">Privacy</a> | 
+        <a href="contact.html">Contact</a> | 
+        <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-info">
+        <p><strong>Gemmines2 Official Store</strong><br>
+        Address: G-13/1, Islamabad, Pakistan<br>
+        WhatsApp: +92 313 5163141 | Email: yousefzubair03@gmail.com</p>
+        <p style="font-size: 10px; margin-top: 10px;">© 2026 Gemmines2 | Mohamed Yousef Zubair</p>
+    </div>
 </footer>
-
-<script src="products.js"></script>
-<script src="cart.js"></script>
-<script src="checkout.js"></script>
 
 </body>
 </html>
-
