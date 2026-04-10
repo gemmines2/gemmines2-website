@@ -3,38 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products | Gemmines2</title>
+  <title>Gemstone Collection | Gemmines2</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root { --teal: #20B2AA; --bg: #050a1a; --card: #1a1f40; --header-bg: #0a0a0a; }
-    body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: #f0f0f0; margin: 0; padding: 0; line-height: 1.6; }
+    :root { 
+      --teal: #20B2AA; 
+      --bg: #050a1a; 
+      --card: #1a1f40; 
+      --header-bg: #0a0a0a; 
+      --text: #ffffff;
+    }
     
-    /* HEADER STYLES */
-    .site-header { background: var(--header-bg); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 1000; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: var(--bg); 
+      color: var(--text); 
+      margin: 0; 
+      padding: 0; 
+      line-height: 1.6; 
+    }
+
+    /* HEADER - MATCHES INDEX.HTML */
+    .site-header { 
+      background: var(--header-bg); 
+      padding: 12px 5%; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      border-bottom: 2px solid var(--teal); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+    }
     .logo-img { height: 45px; width: auto; }
-    nav a { color: var(--teal) !important; text-decoration: none; margin-left: 18px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; font-family: 'Cinzel', serif; letter-spacing: 1px; }
+    nav a { 
+      color: var(--teal) !important; 
+      text-decoration: none; 
+      margin-left: 18px; 
+      font-weight: 700; 
+      font-size: 0.8rem; 
+      text-transform: uppercase; 
+      font-family: 'Cinzel', serif; 
+      letter-spacing: 1px; 
+    }
 
-    /* PRODUCT GRID STYLES */
-    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 20px 0; }
-    .product-card { background: var(--card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid rgba(32, 178, 170, 0.2); transition: 0.3s; }
-    .product-card:hover { border-color: var(--teal); }
-    .product-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-    .product-card h3 { color: var(--teal); font-family: 'Cinzel', serif; font-size: 1rem; margin: 10px 0; }
-    .price { color: #00e0ff; font-weight: 700; margin-bottom: 12px; font-size: 1.1rem; }
+    /* THE RESTORED PERFECT GRID */
+    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
     
-    /* SINGLE VIEW STYLES */
-    #single-product-view { display: none; text-align: center; background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid var(--teal); max-width: 700px; margin: 0 auto; }
-    #single-product-view img { width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 20px; }
-    .buy-btn { background: var(--teal); border: none; color: #000; font-weight: bold; padding: 12px 25px; border-radius: 50px; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; }
-    .buy-btn:hover { opacity: 0.9; }
+    .products-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 25px; 
+      margin: 30px 0; 
+    }
 
-    /* WHATSAPP FLOAT - FIXED SIZE */
+    .product-card { 
+      background: var(--card); 
+      border-radius: 12px; 
+      padding: 20px; 
+      text-align: center; 
+      border: 1px solid rgba(32, 178, 170, 0.2); 
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover { 
+      transform: translateY(-5px);
+      border-color: var(--teal); 
+    }
+
+    .product-card img { 
+      width: 100%; 
+      height: 250px; 
+      object-fit: cover; 
+      border-radius: 8px; 
+      margin-bottom: 15px; 
+    }
+
+    .product-card h3 { 
+      color: var(--teal); 
+      font-family: 'Cinzel', serif; 
+      font-size: 1.1rem; 
+      margin: 10px 0; 
+      min-height: 2.4em; 
+    }
+
+    .price { 
+      color: #00e0ff; 
+      font-weight: 700; 
+      margin-bottom: 15px; 
+      font-size: 1.2rem; 
+    }
+
+    .buy-btn { 
+      background: var(--teal); 
+      border: none; 
+      color: #000; 
+      font-weight: bold; 
+      padding: 12px 25px; 
+      border-radius: 50px; 
+      cursor: pointer; 
+      text-transform: uppercase; 
+      font-size: 0.8rem; 
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* SINGLE VIEW PAGE */
+    #single-product-view { display: none; text-align: center; background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid var(--teal); max-width: 800px; margin: 20px auto; }
+    #single-product-view img { width: 100%; max-width: 400px; border-radius: 10px; margin-bottom: 20px; }
+
+    /* WHATSAPP FLOAT */
     .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2000; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
     .whatsapp-float img { width: 25px; height: 25px; }
 
-    /* FOOTER STYLES - FIXED ALIGNMENT & COLOUR */
-    footer { background: #030610; padding: 40px 5%; border-top: 2px solid var(--teal); text-align: center; margin-top: 50px; }
+    /* FOOTER - MATCHES INDEX.HTML EXACTLY */
+    footer { background: #030610; padding: 40px 5%; border-top: 2px solid var(--teal); text-align: center; margin-top: 60px; }
     .footer-links { margin-bottom: 20px; line-height: 2; }
     .footer-links a { color: var(--teal) !important; text-decoration: none; font-size: 11px; font-weight: 600; text-transform: uppercase; margin: 0 8px; }
     .footer-info { color: #ffffff; font-size: 12px; margin-top: 20px; }
@@ -44,6 +129,8 @@
       .site-header { flex-direction: column; padding: 12px; }
       nav { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; }
       nav a { margin: 5px 10px; font-size: 0.75rem; }
+      .products-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+      .product-card img { height: 160px; }
     }
   </style>
 </head>
@@ -68,11 +155,11 @@
   <div class="container">
     <div id="single-product-view">
       <div id="product-details"></div>
-      <button class="buy-btn" style="margin-top:20px; background:#444; color:#fff;" onclick="window.location.href='products.html'">Back to Shop</button>
+      <button class="buy-btn" style="margin-top:20px; background:#444; color:#fff;" onclick="window.location.href='products.html'">← Back to Collection</button>
     </div>
 
     <div id="all-products-view">
-      <h2 style="text-align:center; font-family:'Cinzel'; color:var(--teal); margin-bottom:30px;">Our Gemstone Collection</h2>
+      <h2 style="text-align:center; font-family:'Cinzel'; color:var(--teal); margin-bottom:30px; font-size: 1.8rem;">Natural Unheated Collection</h2>
       <div class="products-grid" id="product-list"></div>
     </div>
   </div>
@@ -111,7 +198,7 @@
       updateCartCount();
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id');
-      if (id && products.find(p => p.id === id)) {
+      if (id && typeof products !== 'undefined' && products.find(p => p.id === id)) {
         showSingle(id);
       } else {
         showAll();
@@ -125,6 +212,7 @@
 
     function showAll() {
       const list = document.getElementById('product-list');
+      if(!list) return;
       list.innerHTML = ''; 
       products.forEach(p => {
         const div = document.createElement('div');
@@ -148,7 +236,7 @@
       document.getElementById('product-details').innerHTML = `
         <img src="${p.image}">
         <h2 style="color:var(--teal); font-family:'Cinzel'">${p.name}</h2>
-        <p style="color:#b7c7d3">${p.description}</p>
+        <p style="color:#b7c7d3; max-width:600px; margin: 20px auto;">${p.description}</p>
         <div class="price" style="font-size:1.5rem">$${p.price.toFixed(2)}</div>
         <button class="buy-btn" style="width:100%; max-width:300px" onclick="addToCart('${p.id}')">Add to Cart & Buy</button>
       `;
