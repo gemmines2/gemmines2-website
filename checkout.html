@@ -236,9 +236,7 @@ footer {
   <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
 </footer>
 
-<script>
-
-/* ORDER SUMMARY FIXED */
+/* ORDER SUMMARY */
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let summaryContainer = document.getElementById('summary-items');
 let totalContainer = document.getElementById('summary-total');
@@ -262,16 +260,25 @@ document.querySelectorAll('input[name="payment"]').forEach(r => {
   r.addEventListener('change', e => {
     document.getElementById('card-display').style.display = 'none';
     document.getElementById('bank-display').style.display = 'none';
+
     if(e.target.value === 'card') document.getElementById('card-display').style.display = 'block';
     if(e.target.value === 'bank') document.getElementById('bank-display').style.display = 'block';
   });
 });
 
-/* WHATSAPP ORDER + CLEAR CART */
+
+/* EMAILJS INIT */
+(function(){
+  emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+
+/* CHECKOUT SUBMIT */
 document.getElementById('checkout-form').addEventListener('submit', function(e){
   e.preventDefault();
 
   let name = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
   let contact = document.getElementById('contact').value;
 
   let items = "";
@@ -281,20 +288,39 @@ document.getElementById('checkout-form').addEventListener('submit', function(e){
     let qty = item.quantity || 1;
     let itemTotal = item.price * qty;
     total += itemTotal;
-    items += `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}%0A`;
+    items += `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}\n`;
   });
 
-  let message = `New Order Gemmines2%0AName: ${name}%0AContact: ${contact}%0A%0A${items}%0ATotal: Rs ${total}`;
+  let message =
+`New Order Gemmines2
+Name: ${name}
+Contact: ${contact}
 
-  let url = `https://wa.me/923362149415?text=${message}`;
+${items}
+Total: Rs ${total}`;
 
-  /* CLEAR CART AFTER ORDER */
-  localStorage.removeItem('cart');
 
-  window.location.href = url;
+/* 1. SEND EMAIL (NEW) */
+emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+  name: name,
+  email: email,
+  order: items,
+  total: total
 });
 
-</script>
 
+/* 2. WHATSAPP MESSAGE */
+let whatsappMsg = encodeURIComponent(message);
+let url = `https://wa.me/923362149415?text=${whatsappMsg}`;
+
+
+/* 3. CLEAR CART */
+localStorage.removeItem('cart');
+
+
+/* 4. REDIRECT TO WHATSAPP */
+window.location.href = url;
+
+});
 </body>
 </html>
