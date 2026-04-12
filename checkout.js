@@ -1,97 +1,114 @@
-document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemmines2 Checkout</title>
+<link rel="stylesheet" href="style.css">
+  <!-- CLEAN TURQUOISE HEADER – ONLY FOR CHECKOUT -->
+<header style="position:fixed;top:0;left:0;right:0;background:#0b0b1a;border-bottom:3px solid #20B2AA;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;">
+  <div style="font-size:1.9rem;font-weight:bold;color:#20B2AA;">Gemmines2</div>
+  <div style="color:#20B2AA;font-weight:600;">
+    <a href="index.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Home</a>
+    <a href="products.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Products</a>
+    <a href="cart.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Cart</a>
+    <a href="contact.html" style="margin:0 12px;color:#20B2AA;text-decoration:none;">Contact</a>
+  </div>
+</header>
+<div style="margin-top:90px;"></div>
+<style>
+body { font-family: Arial,sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
+.container { max-width:800px; margin:30px auto; background:#1a1f40; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
+h1,h2 { text-align:center; margin-bottom:20px; }
+form label { display:block; margin-bottom:5px; font-weight:500; }
+form input, form select, form textarea { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:none; box-sizing:border-box; background:#1a1f40; color:#fff; border:1px solid #555; }
+input::placeholder, textarea::placeholder { color:#bbb; }
+input:focus, select:focus, textarea:focus { outline:2px solid #0077ff; }
+.payment-options label { display:block; margin-bottom:10px; cursor:pointer; }
+.payment-fields { margin-top:15px; display:none; }
+.card-row, .address-row { display:flex; gap:10px; }
+.card-row input, .address-row input { flex:1; }
+button { width:100%; padding:15px; background:#0077ff; color:#fff; font-size:18px; border:none; border-radius:8px; cursor:pointer; }
+button:hover { background:#005fcc; }
+@media(max-width:600px){ .card-row,.address-row{ flex-direction:column; } }
+</style>
+</head>
+<body>
 
-  /* -------------------------------
-     🔹 1. PAYMENT METHOD TOGGLING
-  --------------------------------*/
-  const paymentRadios = document.querySelectorAll('input[name="payment"]');
-  const paymentFields = {
-    card: document.getElementById('card-fields'),
-    paypal: document.getElementById('paypal-fields'),
-    payoneer: document.getElementById('payoneer-fields'),
-    bank: document.getElementById('bank-fields'),
-    ria: document.getElementById('ria-fields'),
-    stripe: document.getElementById('stripe-fields')
-  };
+<div class="container">
+<h1>Checkout</h1>
+<form id="checkout-form">
+  <h2>Shipping Details</h2>
+  <label>Full Name</label><input type="text" id="fullname" placeholder="John Doe" required>
+  <label>Email</label><input type="email" id="email" placeholder="example@email.com" required>
+  <label>Contact Number</label><input type="text" id="contact" placeholder="+92 300 1234567" required>
+  <label>Address Line 1</label><input type="text" id="address1" placeholder="Street Address, P.O. Box" required>
+  <label>Address Line 2</label><input type="text" id="address2" placeholder="Apartment, Suite, Unit, Building">
+  <div class="address-row">
+    <input type="text" id="city" placeholder="City" required>
+    <input type="text" id="state" placeholder="State/Province" required>
+  </div>
+  <div class="address-row">
+    <input type="text" id="postal" placeholder="Postal / ZIP Code" required>
+    <input type="text" id="country" placeholder="Country" required>
+  </div>
 
-  function hideAllPaymentFields() {
-    for (const key in paymentFields) paymentFields[key].style.display = 'none';
-  }
+  <h2>Payment Method</h2>
+  <div class="payment-options">
+    <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+    <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+    <label><input type="radio" name="payment" value="stripe"> Stripe</label>
+  </div>
 
-  hideAllPaymentFields();
-  paymentFields['card'].style.display = 'block';
+  <div class="payment-fields" id="card-fields">
+    <input type="text" placeholder="Cardholder Name">
+    <input type="text" placeholder="Card Number">
+    <div class="card-row">
+      <input type="text" placeholder="Expiry MM/YY">
+      <input type="text" placeholder="CVV">
+    </div>
+  </div>
 
-  paymentRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      hideAllPaymentFields();
-      const selected = radio.value;
-      if(paymentFields[selected]) paymentFields[selected].style.display = 'block';
-    });
-  });
+  <div class="payment-fields" id="paypal-fields"><input type="email" placeholder="PayPal Email"></div>
+  <div class="payment-fields" id="payoneer-fields"><input type="email" placeholder="Payoneer Email"></div>
+  <div class="payment-fields" id="bank-fields">
+    <input type="text" placeholder="Bank Name">
+    <input type="text" placeholder="Account Number">
+    <input type="text" placeholder="SWIFT / IBAN">
+  </div>
+  <div class="payment-fields" id="ria-fields">
+    <input type="text" placeholder="Ria Name">
+    <input type="text" placeholder="Ria Account Number">
+  </div>
+  <div class="payment-fields" id="stripe-fields"><input type="text" placeholder="Stripe Account / Email"></div>
 
-  /* ---------------------------------------
-     🔹 2. HANDLE DIRECT ?id= PRODUCT ADD
-  ----------------------------------------*/
-  const params = new URLSearchParams(window.location.search);
-  const productId = params.get('id');
+  <button type="submit">Place Order</button>
+</form>
+</div>
 
-  if (productId) {
-    const product = products.find(p => p.id == productId);
-    if (product) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a> | 
+    <a href="products.html">Products</a> | 
+    <a href="return.html">Returns</a> | 
+    <a href="shipping.html">Shipping</a> | 
+    <a href="privacy.html">Privacy</a> | 
+    <a href="contact.html">Contact</a> | 
+    <a href="terms.html">Terms</a>
+  </div>
+  <div class="footer-copy">
+    © 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan
+  </div>
+</footer>
 
-      const exists = cart.find(item => item.id == product.id);
-      if (!exists) {
-        cart.push({ ...product, qty: 1 });
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="checkout.js"></script>
 
-      // 🔹 Show order summary in checkout
-      const summaryDiv = document.getElementById('product-summary');
-      if (summaryDiv) {
-        summaryDiv.innerHTML = `
-          <h2>🛍 Order Summary</h2>
-          <img src="${product.image}" alt="${product.name}" style="width:120px;border-radius:6px;">
-          <p><strong>${product.name}</strong></p>
-          <p>Price: ${product.price}</p>
-          <p>Quantity: 1</p>
-        `;
-      }
-    }
-  }
+</body>
+</html>
 
-  /* ---------------------------------------
-     🔹 3. FORM SUBMISSION (FINAL ORDER SAVE)
-  ----------------------------------------*/
-  const form = document.getElementById('checkout-form');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
 
-    const order = {
-      customer: {
-        fullname: form.fullname.value,
-        email: form.email.value,
-        contact: form.contact.value,
-        address1: form.address1.value,
-        address2: form.address2.value,
-        city: form.city.value,
-        state: form.state.value,
-        postal: form.postal.value,
-        country: form.country.value,
-        payment: document.querySelector('input[name="payment"]:checked')?.value,
-      },
-      items: cart,
-      date: new Date().toLocaleString()
-    };
 
-    localStorage.setItem('latestOrder', JSON.stringify(order));
-    localStorage.removeItem('cart');
-    window.location.href = "thankyou.html";
-  });
 
-});
