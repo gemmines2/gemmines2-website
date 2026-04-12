@@ -7,6 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
+<!-- EMAILJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <style>
 body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
 
@@ -226,15 +229,15 @@ footer {
     <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
   </div>
 
-  <div style="margin:25px 0;">
-    <p style="font-size:10px;color:#aaa;">Secure Global Payments</p>
-    <div style="display:flex;justify-content:center;gap:10px;">
-      <span>VISA</span><span>MASTERCARD</span><span>STRIPE</span><span>BANK</span>
-    </div>
-  </div>
-
   <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
 </footer>
+
+<script>
+
+/* INIT EMAILJS */
+(function(){
+  emailjs.init("YOUR_PUBLIC_KEY");
+})();
 
 /* ORDER SUMMARY */
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -260,20 +263,12 @@ document.querySelectorAll('input[name="payment"]').forEach(r => {
   r.addEventListener('change', e => {
     document.getElementById('card-display').style.display = 'none';
     document.getElementById('bank-display').style.display = 'none';
-
     if(e.target.value === 'card') document.getElementById('card-display').style.display = 'block';
     if(e.target.value === 'bank') document.getElementById('bank-display').style.display = 'block';
   });
 });
 
-
-/* EMAILJS INIT */
-(function(){
-  emailjs.init("YOUR_PUBLIC_KEY");
-})();
-
-
-/* CHECKOUT SUBMIT */
+/* SUBMIT */
 document.getElementById('checkout-form').addEventListener('submit', function(e){
   e.preventDefault();
 
@@ -299,8 +294,7 @@ Contact: ${contact}
 ${items}
 Total: Rs ${total}`;
 
-
-/* 1. SEND EMAIL (NEW) */
+/* SEND EMAIL */
 emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
   name: name,
   email: email,
@@ -308,19 +302,18 @@ emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
   total: total
 });
 
+/* WHATSAPP */
+let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
-/* 2. WHATSAPP MESSAGE */
-let whatsappMsg = encodeURIComponent(message);
-let url = `https://wa.me/923362149415?text=${whatsappMsg}`;
-
-
-/* 3. CLEAR CART */
+/* CLEAR CART */
 localStorage.removeItem('cart');
 
-
-/* 4. REDIRECT TO WHATSAPP */
+/* REDIRECT */
 window.location.href = url;
 
 });
+
+</script>
+
 </body>
 </html>
