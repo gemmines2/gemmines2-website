@@ -8,35 +8,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body { font-family: 'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
+body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
 
 /* HEADER */
 header {
-  position:fixed;
-  top:0; left:0; right:0;
+  position:fixed; top:0; left:0; right:0;
   background:#0a0a0a;
   border-bottom:1.5px solid #20B2AA;
   padding:10px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display:flex; justify-content:space-between; align-items:center;
   z-index:1000;
 }
 
 header .logo {
-  font-family:'Cinzel', serif;
-  font-size:1.5rem;
-  color:#20B2AA;
-  text-decoration:none;
+  font-family:'Cinzel'; font-size:1.5rem;
+  color:#20B2AA; text-decoration:none;
 }
 
 header nav a {
-  margin:0 12px;
-  color:#20B2AA;
-  text-decoration:none;
-  font-family:'Cinzel', serif;
-  font-size:0.8rem;
-  font-weight:bold;
+  margin:0 12px; color:#20B2AA;
+  text-decoration:none; font-family:'Cinzel';
+  font-size:0.8rem; font-weight:bold;
 }
 
 /* CONTAINER */
@@ -49,9 +41,9 @@ header nav a {
   border:1px solid rgba(32,178,170,0.2);
 }
 
-h1, h2 {
+h1,h2 {
   text-align:center;
-  font-family:'Cinzel', serif;
+  font-family:'Cinzel';
   color:#20B2AA;
 }
 
@@ -63,17 +55,12 @@ h1, h2 {
   margin-bottom:25px;
 }
 
-#summary-items div {
-  margin-bottom:10px;
-}
-
 /* FORM */
 form label {
   display:block;
   margin-bottom:5px;
   font-weight:600;
   color:#20B2AA;
-  font-size:0.8rem;
 }
 
 form input {
@@ -87,10 +74,7 @@ form input {
 }
 
 /* ROW */
-.address-row {
-  display:flex;
-  gap:10px;
-}
+.address-row { display:flex; gap:10px; }
 
 /* PAYMENT */
 .payment-options {
@@ -118,7 +102,7 @@ button {
   border:none;
   border-radius:8px;
   cursor:pointer;
-  font-family:'Cinzel', serif;
+  font-family:'Cinzel';
   font-weight:bold;
 }
 
@@ -139,6 +123,12 @@ footer {
   font-size:12px;
   font-weight:600;
   text-transform:uppercase;
+}
+
+.footer-info {
+  margin-top:15px;
+  font-size:12px;
+  color:#ccc;
 }
 
 .footer-copy {
@@ -200,16 +190,12 @@ footer {
 <h2>Payment Method</h2>
 
 <div class="payment-options">
-  <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label><br>
+  <label><input type="radio" name="payment" value="card" checked> Card</label><br>
   <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
 </div>
 
 <div id="card-display" class="payment-fields" style="display:block;">
   <input type="text" placeholder="Card Number">
-  <div class="address-row">
-    <input type="text" placeholder="MM/YY">
-    <input type="text" placeholder="CVV">
-  </div>
 </div>
 
 <div id="bank-display" class="payment-fields">
@@ -223,24 +209,36 @@ footer {
 </form>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="index.html">Home</a> | 
     <a href="products.html">Products</a> | 
-    <a href="return.html">Returns</a> | 
-    <a href="shipping.html">Shipping</a> | 
-    <a href="privacy.html">Privacy</a> | 
-    <a href="contact.html">Contact</a> | 
-    <a href="terms.html">Terms</a>
+    <a href="return.html">Return Policy</a> | 
+    <a href="shipping.html">Shipping Policy</a> | 
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="contact.html">Contact Us</a> | 
+    <a href="terms.html">Terms & Conditions</a>
   </div>
-  <div class="footer-copy">
-    © 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan
+
+  <div class="footer-info">
+    <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+    <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
   </div>
+
+  <div style="margin:25px 0;">
+    <p style="font-size:10px;color:#aaa;">Secure Global Payments</p>
+    <div style="display:flex;justify-content:center;gap:10px;">
+      <span>VISA</span><span>MASTERCARD</span><span>STRIPE</span><span>BANK</span>
+    </div>
+  </div>
+
+  <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
 </footer>
 
 <script>
 
-/* ORDER SUMMARY */
+/* ORDER SUMMARY FIXED */
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let summaryContainer = document.getElementById('summary-items');
 let totalContainer = document.getElementById('summary-total');
@@ -248,67 +246,50 @@ let totalContainer = document.getElementById('summary-total');
 let total = 0;
 
 cart.forEach(item => {
-  let itemTotal = item.price * item.quantity;
+  let qty = item.quantity || 1;
+  let itemTotal = item.price * qty;
   total += itemTotal;
 
   let div = document.createElement('div');
-  div.innerHTML = `${item.name} - Rs ${item.price} x ${item.quantity} = Rs ${itemTotal}`;
+  div.innerHTML = `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}`;
   summaryContainer.appendChild(div);
 });
 
 totalContainer.innerHTML = `Total: Rs ${total}`;
 
 /* PAYMENT TOGGLE */
-const radios = document.querySelectorAll('input[name="payment"]');
-const cardDisplay = document.getElementById('card-display');
-const bankDisplay = document.getElementById('bank-display');
-
-radios.forEach(radio => {
-  radio.addEventListener('change', (e) => {
-    cardDisplay.style.display = 'none';
-    bankDisplay.style.display = 'none';
-
-    if(e.target.value === 'card') cardDisplay.style.display = 'block';
-    if(e.target.value === 'bank') bankDisplay.style.display = 'block';
+document.querySelectorAll('input[name="payment"]').forEach(r => {
+  r.addEventListener('change', e => {
+    document.getElementById('card-display').style.display = 'none';
+    document.getElementById('bank-display').style.display = 'none';
+    if(e.target.value === 'card') document.getElementById('card-display').style.display = 'block';
+    if(e.target.value === 'bank') document.getElementById('bank-display').style.display = 'block';
   });
 });
 
-/* WHATSAPP ORDER */
-document.getElementById('checkout-form').addEventListener('submit', function(e) {
+/* WHATSAPP ORDER + CLEAR CART */
+document.getElementById('checkout-form').addEventListener('submit', function(e){
   e.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const contact = document.getElementById('contact').value;
-  const address = document.getElementById('address').value;
-  const city = document.getElementById('city').value;
-  const country = document.getElementById('country').value;
-
-  const payment = document.querySelector('input[name="payment"]:checked').value;
-
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let name = document.getElementById('name').value;
+  let contact = document.getElementById('contact').value;
 
   let items = "";
   let total = 0;
 
   cart.forEach(item => {
-    let itemTotal = item.price * item.quantity;
+    let qty = item.quantity || 1;
+    let itemTotal = item.price * qty;
     total += itemTotal;
-    items += `${item.name} - Rs ${item.price} x ${item.quantity} = Rs ${itemTotal}%0A`;
+    items += `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}%0A`;
   });
 
-  let message = `*New Order - Gemmines2*%0A%0A`
-    + `Name: ${name}%0A`
-    + `Email: ${email}%0A`
-    + `Contact: ${contact}%0A`
-    + `Address: ${address}, ${city}, ${country}%0A%0A`
-    + `Payment: ${payment}%0A%0A`
-    + `Order:%0A${items}%0A`
-    + `Total: Rs ${total}`;
+  let message = `New Order Gemmines2%0AName: ${name}%0AContact: ${contact}%0A%0A${items}%0ATotal: Rs ${total}`;
 
-  let phone = "923362149415";
+  let url = `https://wa.me/923362149415?text=${message}`;
 
-  let url = `https://wa.me/${phone}?text=${message}`;
+  /* CLEAR CART AFTER ORDER */
+  localStorage.removeItem('cart');
 
   window.location.href = url;
 });
