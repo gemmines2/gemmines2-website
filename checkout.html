@@ -55,6 +55,18 @@ h1, h2 {
   color:#20B2AA;
 }
 
+/* SUMMARY */
+#order-summary {
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:25px;
+}
+
+#summary-items div {
+  margin-bottom:10px;
+}
+
 /* FORM */
 form label {
   display:block;
@@ -154,13 +166,16 @@ footer {
 </header>
 
 <div class="container">
+
 <h1>Checkout</h1>
-  
-<div id="order-summary" style="background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;margin-bottom:25px;">
-  <h2 style="text-align:center;">Order Summary</h2>
+
+<!-- ORDER SUMMARY -->
+<div id="order-summary">
+  <h2>Order Summary</h2>
   <div id="summary-items"></div>
-  <h3 id="summary-total" style="text-align:right;margin-top:15px;"></h3>
+  <h3 id="summary-total" style="text-align:right;"></h3>
 </div>
+
 <form id="checkout-form">
 
 <h2>Shipping Details</h2>
@@ -189,7 +204,6 @@ footer {
   <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
 </div>
 
-<!-- CARD -->
 <div id="card-display" class="payment-fields" style="display:block;">
   <input type="text" placeholder="Card Number">
   <div class="address-row">
@@ -198,7 +212,6 @@ footer {
   </div>
 </div>
 
-<!-- BANK -->
 <div id="bank-display" class="payment-fields">
   <input type="text" placeholder="Bank Name">
   <input type="text" placeholder="Account Number">
@@ -227,6 +240,24 @@ footer {
 
 <script>
 
+/* ORDER SUMMARY */
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let summaryContainer = document.getElementById('summary-items');
+let totalContainer = document.getElementById('summary-total');
+
+let total = 0;
+
+cart.forEach(item => {
+  let itemTotal = item.price * item.quantity;
+  total += itemTotal;
+
+  let div = document.createElement('div');
+  div.innerHTML = `${item.name} - Rs ${item.price} x ${item.quantity} = Rs ${itemTotal}`;
+  summaryContainer.appendChild(div);
+});
+
+totalContainer.innerHTML = `Total: Rs ${total}`;
+
 /* PAYMENT TOGGLE */
 const radios = document.querySelectorAll('input[name="payment"]');
 const cardDisplay = document.getElementById('card-display');
@@ -237,13 +268,8 @@ radios.forEach(radio => {
     cardDisplay.style.display = 'none';
     bankDisplay.style.display = 'none';
 
-    if(e.target.value === 'card'){
-      cardDisplay.style.display = 'block';
-    }
-
-    if(e.target.value === 'bank'){
-      bankDisplay.style.display = 'block';
-    }
+    if(e.target.value === 'card') cardDisplay.style.display = 'block';
+    if(e.target.value === 'bank') bankDisplay.style.display = 'block';
   });
 });
 
@@ -263,8 +289,12 @@ document.getElementById('checkout-form').addEventListener('submit', function(e) 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   let items = "";
+  let total = 0;
+
   cart.forEach(item => {
-    items += `${item.name} - Rs ${item.price} x ${item.quantity}%0A`;
+    let itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    items += `${item.name} - Rs ${item.price} x ${item.quantity} = Rs ${itemTotal}%0A`;
   });
 
   let message = `*New Order - Gemmines2*%0A%0A`
@@ -273,7 +303,8 @@ document.getElementById('checkout-form').addEventListener('submit', function(e) 
     + `Contact: ${contact}%0A`
     + `Address: ${address}, ${city}, ${country}%0A%0A`
     + `Payment: ${payment}%0A%0A`
-    + `Order:%0A${items}`;
+    + `Order:%0A${items}%0A`
+    + `Total: Rs ${total}`;
 
   let phone = "923362149415";
 
