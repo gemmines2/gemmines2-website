@@ -295,7 +295,7 @@ ${items}
 Total: Rs ${total}`;
 
 /* SEND EMAIL */
-emailjs.send("service_6xjn39o","template_abcd123"  {
+emailjs.send("service_6xjn39o","template_abcd123" , {
   name: name,
   email: email,
   order: items,
@@ -316,10 +316,6 @@ window.location.href = url;
 </script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-(function(){
-  emailjs.init("YOUR_PUBLIC_KEY");
-})();
-</script>
+
 </body>
 </html>
