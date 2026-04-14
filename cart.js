@@ -62,3 +62,17 @@ function removeFromCart(id) {
 document.addEventListener("DOMContentLoaded", () => {
     renderCart();
 });
+function sendOrderEmail() {
+  emailjs.send("service_6xjn39o", "template_xxxxx", {
+    name: document.getElementById("name")?.value || "",
+    email: document.getElementById("email")?.value || "",
+    product: "Test Product",
+    price: "Test Price",
+    address: document.getElementById("address")?.value || ""
+  })
+  .then(function() {
+    console.log("Email sent");
+  }, function(error) {
+    console.log("Email failed", error);
+  });
+}
