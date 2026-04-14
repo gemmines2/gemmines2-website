@@ -1,321 +1,117 @@
+Checkout.js before changing
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gemmines2 Checkout</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- EMAILJS -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 <style>
-body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
+    body { font-family: 'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; padding:0; }
+    
+    /* HEADER MATCHING REST OF SITE */
+    header { position:fixed; top:0; left:0; right:0; background:#0a0a0a; border-bottom:1.5px solid #20B2AA; padding:10px 5%; display:flex; justify-content:space-between; align-items:center; z-index:1000; }
+    header .logo { font-family: 'Cinzel', serif; font-size:1.5rem; color:#20B2AA; text-decoration:none; }
+    header nav a { margin:0 12px; color:#20B2AA; text-decoration:none; font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: bold; }
 
-/* HEADER */
-header {
-  position:fixed; top:0; left:0; right:0;
-  background:#0a0a0a;
-  border-bottom:1.5px solid #20B2AA;
-  padding:10px 5%;
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:1000;
-}
+    .container { max-width:800px; margin:110px auto 40px; background:#0a1430; padding:30px; border-radius:10px; border: 1px solid rgba(32, 178, 170, 0.2); }
+    h1, h2 { text-align:center; font-family: 'Cinzel', serif; color: #20B2AA; }
+    
+    form label { display:block; margin-bottom:5px; font-weight:600; color: #20B2AA; font-size: 0.8rem; }
+    form input, form select { width:100%; padding:12px; margin-bottom:15px; border-radius:6px; border:1px solid #333; background:#050a1a; color:#fff; box-sizing:border-box; }
+    
+    .payment-options { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    .payment-fields { display: none; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 15px; }
+    
+    .address-row { display:flex; gap:10px; }
+    button { width:100%; padding:15px; background:#20B2AA; color:#000; font-size:18px; border:none; border-radius:8px; cursor:pointer; font-family: 'Cinzel', serif; font-weight:bold; }
+    button:hover { background:#17968f; }
 
-header .logo {
-  font-family:'Cinzel'; font-size:1.5rem;
-  color:#20B2AA; text-decoration:none;
-}
+    footer { background: #030610; padding: 30px 5%; border-top: 1.5px solid #20B2AA; text-align: center; margin-top: 40px; }
+    .footer-links a { color: #20B2AA !important; text-decoration: none; margin: 0 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .footer-copy { font-size: 11px; color: #6c757d; margin-top: 15px; }
 
-header nav a {
-  margin:0 12px; color:#20B2AA;
-  text-decoration:none; font-family:'Cinzel';
-  font-size:0.8rem; font-weight:bold;
-}
-
-/* CONTAINER */
-.container {
-  max-width:800px;
-  margin:110px auto 40px;
-  background:#0a1430;
-  padding:30px;
-  border-radius:10px;
-  border:1px solid rgba(32,178,170,0.2);
-}
-
-h1,h2 {
-  text-align:center;
-  font-family:'Cinzel';
-  color:#20B2AA;
-}
-
-/* SUMMARY */
-#order-summary {
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:25px;
-}
-
-/* FORM */
-form label {
-  display:block;
-  margin-bottom:5px;
-  font-weight:600;
-  color:#20B2AA;
-}
-
-form input {
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border-radius:6px;
-  border:1px solid #333;
-  background:#050a1a;
-  color:#fff;
-}
-
-/* ROW */
-.address-row { display:flex; gap:10px; }
-
-/* PAYMENT */
-.payment-options {
-  background:rgba(255,255,255,0.05);
-  padding:15px;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-.payment-fields {
-  display:none;
-  padding:15px;
-  background:rgba(0,0,0,0.2);
-  border-radius:6px;
-  margin-bottom:15px;
-}
-
-/* BUTTON */
-button {
-  width:100%;
-  padding:15px;
-  background:#20B2AA;
-  color:#000;
-  font-size:18px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-family:'Cinzel';
-  font-weight:bold;
-}
-
-button:hover { background:#17968f; }
-
-/* FOOTER */
-footer {
-  background:#030610;
-  padding:30px 5%;
-  border-top:1.5px solid #20B2AA;
-  text-align:center;
-}
-
-.footer-links a {
-  color:#20B2AA;
-  text-decoration:none;
-  margin:0 8px;
-  font-size:12px;
-  font-weight:600;
-  text-transform:uppercase;
-}
-
-.footer-info {
-  margin-top:15px;
-  font-size:12px;
-  color:#ccc;
-}
-
-.footer-copy {
-  font-size:11px;
-  color:#6c757d;
-  margin-top:15px;
-}
-
-@media(max-width:600px){
-  .address-row { flex-direction:column; }
-}
+    @media(max-width:600px){ .address-row{ flex-direction:column; gap:0; } }
 </style>
 </head>
-
 <body>
 
 <header>
-  <a href="index.html" class="logo">Gemmines2</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <a href="index.html" class="logo">Gemmines2</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <div class="container">
+    <h1>Checkout</h1>
+    <form id="checkout-form">
+        <h2>Shipping Details</h2>
+        <label>Full Name</label><input type="text" id="fullname" required>
+        <label>Email</label><input type="email" id="email" required>
+        <label>Contact (WhatsApp)</label><input type="text" id="contact" required>
+        
+        <label>Address</label><input type="text" id="address1" required>
+        <div class="address-row">
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="country" placeholder="Country" required>
+        </div>
 
-<h1>Checkout</h1>
+        <h2>Payment Method</h2>
+        <div class="payment-options">
+            <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+        </div>
 
-<!-- ORDER SUMMARY -->
-<div id="order-summary">
-  <h2>Order Summary</h2>
-  <div id="summary-items"></div>
-  <h3 id="summary-total" style="text-align:right;"></h3>
+        <div id="card-display" class="payment-fields" style="display:block;">
+            <input type="text" placeholder="Card Number">
+            <div class="address-row">
+                <input type="text" placeholder="MM/YY">
+                <input type="text" placeholder="CVV">
+            </div>
+        </div>
+
+        <button type="submit">PLACE ORDER</button>
+    </form>
 </div>
 
-<form id="checkout-form">
-
-<h2>Shipping Details</h2>
-
-<label>Full Name</label>
-<input type="text" id="name" required>
-
-<label>Email</label>
-<input type="email" id="email" required>
-
-<label>Contact (WhatsApp)</label>
-<input type="text" id="contact" required>
-
-<label>Address</label>
-<input type="text" id="address" required>
-
-<div class="address-row">
-  <input type="text" id="city" placeholder="City" required>
-  <input type="text" id="country" placeholder="Country" required>
-</div>
-
-<h2>Payment Method</h2>
-
-<div class="payment-options">
-  <label><input type="radio" name="payment" value="card" checked> Card</label><br>
-  <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
-</div>
-
-<div id="card-display" class="payment-fields" style="display:block;">
-  <input type="text" placeholder="Card Number">
-</div>
-
-<div id="bank-display" class="payment-fields">
-  <input type="text" placeholder="Bank Name">
-  <input type="text" placeholder="Account Number">
-  <input type="text" placeholder="IBAN / SWIFT Code">
-</div>
-
-<button type="submit">PLACE ORDER</button>
-
-</form>
-</div>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a> | 
-    <a href="products.html">Products</a> | 
-    <a href="return.html">Return Policy</a> | 
-    <a href="shipping.html">Shipping Policy</a> | 
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="contact.html">Contact Us</a> | 
-    <a href="terms.html">Terms & Conditions</a>
-  </div>
-
-  <div class="footer-info">
-    <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-    <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
-  </div>
-
-  <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
+    <div class="footer-links">
+        <a href="index.html">Home</a> | 
+        <a href="products.html">Products</a> | 
+        <a href="return.html">Returns</a> | 
+        <a href="shipping.html">Shipping</a> | 
+        <a href="privacy.html">Privacy</a> | 
+        <a href="contact.html">Contact</a> | 
+        <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-copy">
+        © 2026 Gemmines2 | Mohamed Yousef Zubair | Islamabad, Pakistan
+    </div>
 </footer>
 
 <script>
+    // Toggle payment fields
+    const cardRadio = document.querySelectorAll('input[name="payment"]');
+    const cardDisplay = document.getElementById('card-display');
 
-/* INIT EMAILJS */
-(function(){
- emailjs.init("a1b2c3d4EXAMPLE"); 
-})();
+    cardRadio.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            cardDisplay.style.display = e.target.value === 'card' ? 'block' : 'none';
+        });
+    });
 
-/* ORDER SUMMARY */
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let summaryContainer = document.getElementById('summary-items');
-let totalContainer = document.getElementById('summary-total');
-
-let total = 0;
-
-cart.forEach(item => {
-  let qty = item.quantity || 1;
-  let itemTotal = item.price * qty;
-  total += itemTotal;
-
-  let div = document.createElement('div');
-  div.innerHTML = `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}`;
-  summaryContainer.appendChild(div);
-});
-
-totalContainer.innerHTML = `Total: Rs ${total}`;
-
-/* PAYMENT TOGGLE */
-document.querySelectorAll('input[name="payment"]').forEach(r => {
-  r.addEventListener('change', e => {
-    document.getElementById('card-display').style.display = 'none';
-    document.getElementById('bank-display').style.display = 'none';
-    if(e.target.value === 'card') document.getElementById('card-display').style.display = 'block';
-    if(e.target.value === 'bank') document.getElementById('bank-display').style.display = 'block';
-  });
-});
-
-/* SUBMIT */
-document.getElementById('checkout-form').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  let name = document.getElementById('name').value;
-  let email = document.getElementById('email').value;
-  let contact = document.getElementById('contact').value;
-
-  let items = "";
-  let total = 0;
-
-  cart.forEach(item => {
-    let qty = item.quantity || 1;
-    let itemTotal = item.price * qty;
-    total += itemTotal;
-    items += `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}\n`;
-  });
-
-  let message =
-`New Order Gemmines2
-Name: ${name}
-Contact: ${contact}
-
-${items}
-Total: Rs ${total}`;
-
-/* SEND EMAIL */
-emailjs.send("service_6xjn39o","template_abcd123" , {
-  name: name,
-  email: email,
-  order: items,
-  total: total
-});
-
-/* WHATSAPP */
-let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
-
-/* CLEAR CART */
-localStorage.removeItem('cart');
-
-/* REDIRECT */
-window.location.href = url;
-
-});
-
+    // Handle Form Submit
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Order Received! We will contact you via WhatsApp to finalize shipping.');
+        window.location.href = 'index.html'; // Takes them back home after order
+    });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
 
 </body>
 </html>
