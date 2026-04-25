@@ -6,60 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You</title>
 
-body {
-  background: #0b0f25;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-h1 {
-  color: #20B2AA;
-  font-family: 'Cinzel', serif;
-  margin-bottom: 10px;
-}
+  <style>
+    body {
+      background: #0b0f25;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
 
-p {
-  color: #ffffff;
-  font-size: 16px;
-}
+    h1 {
+      color: #20B2AA;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 10px;
+    }
 
-.box {
-  background: #0a1430;
-  border: 1px solid rgba(32,178,170,0.3);
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 15px;
-  width: 100%;
-  max-width: 500px;
-}
+    p {
+      color: #ffffff;
+      font-size: 16px;
+    }
 
-a {
-  background: #20B2AA;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 20px;
-}
+    .box {
+      background: #0a1430;
+      border: 1px solid rgba(32,178,170,0.3);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
 
-a:hover {
-  background: #17968f;
-}
+    a {
+      background: #20B2AA;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
 
-.label {
-  color: #20B2AA;
-  font-weight: bold;
-}
+    a:hover {
+      background: #17968f;
+    }
+
+    .label {
+      color: #20B2AA;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -79,7 +84,7 @@ a:hover {
 
   <script>
     const cart = JSON.parse(localStorage.getItem("lastOrder")) || [];
-localStorage.removeItem("lastOrder");
+    localStorage.removeItem("lastOrder");
 
     const orderID = "GM-" + Date.now();
 
