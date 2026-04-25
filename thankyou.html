@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You</title>
+
   <style>
     body {
       background-color: #0b132b;
@@ -14,11 +16,24 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      text-align: center;
+      padding: 20px;
     }
+
     h1 {
       color: #00b4d8;
       margin-bottom: 10px;
     }
+
+    .box {
+      background: #1c2541;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
+
     a {
       color: #fff;
       background-color: #1e3a8a;
@@ -26,19 +41,52 @@
       border-radius: 5px;
       text-decoration: none;
       margin-top: 20px;
+      display: inline-block;
     }
+
     a:hover {
       background-color: #2563eb;
     }
+
+    .label {
+      color: #00b4d8;
+      font-weight: bold;
+    }
   </style>
 </head>
+
 <body>
+
   <h1>Thank You for Your Order!</h1>
-  <p>Your order has been successfully placed. We’ll contact you soon with details.</p>
+
+  <p>Your order has been successfully placed. We will contact you soon.</p>
+
+  <div class="box">
+    <p><span class="label">Order ID:</span> <span id="order-id"></span></p>
+    <p><span class="label">Order Details:</span></p>
+    <p id="order-summary"></p>
+    <p><span class="label">Total:</span> $<span id="order-total"></span></p>
+  </div>
+
   <a href="index.html">Return to Home</a>
-</body>
+
   <script>
-  // Clear the cart when the order is confirmed
-  localStorage.removeItem("cart");
-</script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const orderID = "GM-" + Date.now();
+
+    let summary = cart.map(item =>
+      `${item.name} x ${item.qty}`
+    ).join("<br>");
+
+    let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+    document.getElementById("order-id").innerHTML = orderID;
+    document.getElementById("order-summary").innerHTML = summary;
+    document.getElementById("order-total").innerHTML = total.toFixed(2);
+
+    localStorage.removeItem("cart");
+  </script>
+
+</body>
 </html>
