@@ -71,7 +71,8 @@
   <a href="index.html">Return to Home</a>
 
   <script>
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = JSON.parse(localStorage.getItem("lastOrder")) || [];
+localStorage.removeItem("lastOrder");
 
     const orderID = "GM-" + Date.now();
 
