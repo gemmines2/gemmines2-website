@@ -275,7 +275,8 @@ Total: Rs ${total}`;
     let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
     localStorage.removeItem('cart');
-    window.location.href = url;
+   window.open(url, "_blank");
+window.location.href = "thankyou.html";
   });
 
 });
