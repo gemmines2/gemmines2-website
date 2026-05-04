@@ -175,19 +175,22 @@ footer {
 </div>
 
 <div id="bank-display" class="payment-fields" style="display:block;">
-  <input type="text" placeholder="Bank Name">
-  <input type="text" placeholder="Branch Name">
-  <input type="text" placeholder="Country">
-  <input type="text" placeholder="IBAN Number">
-  <input type="text" placeholder="SWIFT Code">
+  <p>Bank transfer details (Account, IBAN, SWIFT) will be shared after order confirmation.</p>
 </div>
 
 <div id="payoneer-display" class="payment-fields">
-  <input type="text" placeholder="Your Payoneer Email">
+  <p>Payoneer payment request will be sent after order confirmation.</p>
 </div>
 
+<p style="font-size:13px;color:#ccc;text-align:center;line-height:1.6;">
+After placing your order, you will receive payment instructions via WhatsApp or Email.<br><br>
+✔ Bank Transfer details (Account, IBAN, SWIFT)<br>
+✔ Payoneer payment request<br><br>
+Your order will be confirmed once payment is received.
+</p>
+
 <p style="font-size:12px;color:#aaa;text-align:center;">
-Payment instructions will be shared securely after order confirmation.
+We never ask customers to share sensitive banking details.
 </p>
 
 <button type="submit">PLACE ORDER</button>
@@ -197,22 +200,26 @@ Payment instructions will be shared securely after order confirmation.
 
 <footer>
   <div class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="products.html">Products</a> |
-    <a href="return.html">Return Policy</a> |
-    <a href="shipping.html">Shipping Policy</a> |
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a> | 
+    <a href="products.html">Products</a> | 
+    <a href="return.html">Return Policy</a> | 
+    <a href="shipping.html">Shipping Policy</a> | 
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="contact.html">Contact Us</a> | 
+    <a href="terms.html">Terms & Conditions</a>
   </div>
 
   <div class="footer-info">
-    <p>Islamabad, Pakistan</p>
-    <p>WhatsApp: +92 336 214 9415</p>
+    <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+    <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
   </div>
 
-  <div style="margin-top:15px;">
-    <span style="border:1px solid #20B2AA;padding:4px 8px;margin:3px;">Bank Transfer</span>
-    <span style="border:1px solid #20B2AA;padding:4px 8px;margin:3px;">Payoneer</span>
+  <div style="margin: 25px 0;">
+    <p style="font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">Secure Payment Methods</p>
+    <div style="display:flex; justify-content:center; gap:10px;">
+      <span style="border:1px solid #20B2AA;padding:4px 8px;">PAYONEER</span>
+      <span style="border:1px solid #20B2AA;padding:4px 8px;">BANK TRANSFER</span>
+    </div>
   </div>
 
   <p class="footer-copy">© 2026 Gemmines2</p>
@@ -240,7 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   totalContainer.innerHTML = `Total: Rs ${total}`;
 
-  // PAYMENT TOGGLE
   document.querySelectorAll('input[name="payment"]').forEach(r => {
     r.addEventListener('change', e => {
 
