@@ -15,23 +15,37 @@ body {
   color:white;
 }
 
+/* HEADER */
 header {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
   background:#0a0a0a;
-  padding:12px 5%;
+  border-bottom:1.5px solid #20B2AA;
+  padding:10px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:2px solid #20B2AA;
+  z-index:1000;
 }
 
-header a {
+header .logo {
+  font-family:Cinzel;
+  color:#20B2AA;
+  text-decoration:none;
+  font-size:1.2rem;
+}
+
+header nav a {
+  margin:0 10px;
   color:#20B2AA;
   text-decoration:none;
   font-family:Cinzel;
-  margin:0 10px;
-  font-size:0.9rem;
+  font-size:0.85rem;
 }
 
+/* CONTAINER */
 .container {
   max-width:600px;
   margin:120px auto;
@@ -43,8 +57,8 @@ header a {
 }
 
 h1 {
-  color:#20B2AA;
   font-family:Cinzel;
+  color:#20B2AA;
 }
 
 input {
@@ -73,27 +87,63 @@ button {
   background:rgba(255,255,255,0.05);
   border-radius:8px;
   text-align:left;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer {
+  background:#030610;
+  padding:30px 5%;
+  border-top:1.5px solid #20B2AA;
+  text-align:center;
+  margin-top:60px;
+}
+
+.footer-links a {
+  color:#20B2AA;
+  text-decoration:none;
+  margin:0 6px;
+  font-size:12px;
+}
+
+.footer-info, .footer-copy {
+  font-size:12px;
+  color:#ccc;
+}
+
+.payment-tags span {
+  border:1px solid #20B2AA;
+  padding:3px 6px;
+  font-size:10px;
+  margin:0 5px;
+  display:inline-block;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div style="color:#20B2AA;font-family:Cinzel;">Gemmines2</div>
-  <div>
+  <a href="index.html" class="logo">Gemmines2</a>
+  <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-  </div>
+    <a href="cart.html">Cart</a>
+    <a href="track.html">Track</a>
+  </nav>
 </header>
 
+<!-- BODY -->
 <div class="container">
 
 <h1>Track Your Order</h1>
 
-<p>GM-123456789</p>
+<p style="font-size:13px;color:#ccc;">
+Enter your Order ID (example: GM-1777893217391)
+</p>
 
-<input type="text" id="orderId" placeholder="Example: GM-1777893217391">
+<input type="text" id="orderId" placeholder="Enter Order ID">
 
 <button onclick="trackOrder()">Track Order</button>
 
@@ -101,6 +151,34 @@ button {
 
 </div>
 
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="products.html">Products</a> |
+    <a href="return.html">Return Policy</a> |
+    <a href="shipping.html">Shipping</a> |
+    <a href="privacy.html">Privacy</a> |
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="footer-info">
+    <p>Islamabad, Pakistan</p>
+    <p>WhatsApp: +92 336 214 9415</p>
+  </div>
+
+  <div class="payment-tags">
+    <p style="font-size:10px;color:#aaa;">Secure Payments</p>
+    <span>VISA</span>
+    <span>PAYONEER</span>
+    <span>BANK TRANSFER</span>
+  </div>
+
+  <p class="footer-copy">© 2026 Gemmines2</p>
+</footer>
+
+<!-- SCRIPT -->
 <script>
 function trackOrder() {
 
@@ -108,30 +186,28 @@ function trackOrder() {
   let result = document.getElementById("result");
 
   if (!id) {
-    result.innerHTML = "<b style='color:red;'>Please enter your Order ID</b>";
+    result.innerHTML = "<span style='color:red;'>Please enter your Order ID</span>";
     return;
   }
 
   result.innerHTML = "Checking order status...";
 
-  // SIMULATED TRACKING (NO BACKEND YET)
   setTimeout(() => {
 
     result.innerHTML = `
       <b>Order ID:</b> ${id}<br><br>
-      
-      <b>Status:</b> Processing / Pending Payment<br><br>
 
-      <b>What happens next?</b><br>
-      ✔ We will verify your payment<br>
-      ✔ You will receive WhatsApp update<br>
-      ✔ Order will be shipped after confirmation<br><br>
+      <b>Status:</b> Processing / Payment Pending<br><br>
 
-      <small style="color:#aaa;">
-      Real-time tracking will be enabled in next upgrade.
-      </small>
+      <b>Next Step:</b><br>
+      ✔ Payment verification in progress<br>
+      ✔ WhatsApp update will be sent<br>
+      ✔ Shipping after confirmation<br><br>
+
+      <span style="color:#aaa;font-size:12px;">
+        Real tracking system will be connected to database next upgrade.
+      </span>
     `;
-
   }, 800);
 }
 </script>
