@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Track Order | Gemmines2</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -28,6 +29,7 @@ header a {
   text-decoration:none;
   font-family:Cinzel;
   margin:0 10px;
+  font-size:0.9rem;
 }
 
 .container {
@@ -51,6 +53,7 @@ input {
   margin-top:15px;
   border-radius:6px;
   border:none;
+  outline:none;
 }
 
 button {
@@ -61,6 +64,7 @@ button {
   border:none;
   font-weight:bold;
   cursor:pointer;
+  font-family:Cinzel;
 }
 
 #result {
@@ -68,6 +72,7 @@ button {
   padding:15px;
   background:rgba(255,255,255,0.05);
   border-radius:8px;
+  text-align:left;
 }
 </style>
 </head>
@@ -86,9 +91,9 @@ button {
 
 <h1>Track Your Order</h1>
 
-<p>Enter your Order ID (example: GM-123456)</p>
+<p>Enter your Order ID</p>
 
-<input type="text" id="orderId" placeholder="Enter Order ID">
+<input type="text" id="orderId" placeholder="Example: GM-1777893217391">
 
 <button onclick="trackOrder()">Track Order</button>
 
@@ -97,29 +102,37 @@ button {
 </div>
 
 <script>
-async function trackOrder() {
+function trackOrder() {
+
   let id = document.getElementById("orderId").value.trim();
+  let result = document.getElementById("result");
 
   if (!id) {
-    alert("GM-1777894314899 ");
+    result.innerHTML = "<b style='color:red;'>Please enter your Order ID</b>";
     return;
   }
 
-  document.getElementById("result").innerHTML = "Checking order...";
+  result.innerHTML = "Checking order status...";
 
-  // This is simple demo version (manual system)
-  // Later we can connect Google Sheets API
+  // SIMULATED TRACKING (NO BACKEND YET)
+  setTimeout(() => {
 
-  fetch("https://formspree.io/f/xwvylqrk") // dummy endpoint (we will upgrade later)
-    .then(() => {
+    result.innerHTML = `
+      <b>Order ID:</b> ${id}<br><br>
+      
+      <b>Status:</b> Processing / Pending Payment<br><br>
 
-      // TEMP LOGIC (replace later with real API)
-      document.getElementById("result").innerHTML = `
-        <b>Order ID:</b> ${id}<br><br>
-        <b>Status:</b> Processing / Pending<br><br>
-        We will update your order status after payment confirmation.
-      `;
-    });
+      <b>What happens next?</b><br>
+      ✔ We will verify your payment<br>
+      ✔ You will receive WhatsApp update<br>
+      ✔ Order will be shipped after confirmation<br><br>
+
+      <small style="color:#aaa;">
+      Real-time tracking will be enabled in next upgrade.
+      </small>
+    `;
+
+  }, 800);
 }
 </script>
 
