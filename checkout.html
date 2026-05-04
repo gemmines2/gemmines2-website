@@ -264,38 +264,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.getElementById('checkout-form').addEventListener('submit', function(e){
-    e.preventDefault();
+ document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
 
-    let name = document.getElementById('name').value;
-    let contact = document.getElementById('contact').value;
+  let name = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
+  let contact = document.getElementById('contact').value;
 
-    let items = "";
-    let total = 0;
+  let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
-    cart.forEach(item => {
-      let qty = item.quantity || 1;
-      let itemTotal = item.price * qty;
-      total += itemTotal;
-      items += `${item.name} - Rs ${item.price} x ${qty} = Rs ${itemTotal}\n`;
-    });
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    let message =
+  let items = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    let qty = item.quantity || 1;
+    let itemTotal = item.price * qty;
+    total += itemTotal;
+    items += `${item.name} x ${qty} = Rs ${itemTotal}, `;
+  });
+
+  let orderID = "GM-" + Date.now();
+
+  // SEND TO FORMSPREE
+  fetch("YOUR_FORMSPREE_URL_HERE", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      order_id: orderID,
+      name: name,
+      email: email,
+      contact: contact,
+      items: items,
+      total: total,
+      payment: paymentMethod
+    })
+  });
+
+  // WHATSAPP MESSAGE
+  let message =
 `New Order Gemmines2
+Order ID: ${orderID}
 Name: ${name}
 Contact: ${contact}
 
 ${items}
 Total: Rs ${total}`;
 
-    let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
+  let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
-    localStorage.setItem("lastOrder", JSON.stringify(cart));
-    localStorage.removeItem("cart");
+  localStorage.removeItem("cart");
 
-    window.open(url, "_blank");
-    window.location.href = "thankyou.html";
-  });
+  window.open(url, "_blank");
+  window.location.href = "thankyou.html";
+});
 
 });
 </script>
