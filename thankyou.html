@@ -100,6 +100,18 @@
 
     localStorage.removeItem("cart");
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  let data = JSON.parse(localStorage.getItem("lastOrderDetails"));
+
+  if (data) {
+    document.getElementById("order-id").innerText = data.orderID;
+    document.getElementById("order-items").innerText = data.items;
+    document.getElementById("order-total").innerText = "Rs " + data.total;
+  }
+
+});
+</script>
 </body>
 </html>
