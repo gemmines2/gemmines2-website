@@ -170,17 +170,25 @@ footer {
 <h2>Payment Method</h2>
 
 <div class="payment-options">
-  <label><input type="radio" name="payment" value="card" checked> Card</label><br>
-  <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+  <label><input type="radio" name="payment" value="bank" checked> Bank Transfer</label><br>
+  <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
 </div>
 
 <div id="bank-display" class="payment-fields" style="display:block;">
-  <input type="text" placeholder="Bank transfer details will be shared after order">
+  <input type="text" placeholder="Bank Name">
+  <input type="text" placeholder="Branch Name">
+  <input type="text" placeholder="Country">
+  <input type="text" placeholder="IBAN Number">
+  <input type="text" placeholder="SWIFT Code">
 </div>
 
 <div id="payoneer-display" class="payment-fields">
-  <input type="text" placeholder="Payoneer payment details will be shared after order">
+  <input type="text" placeholder="Your Payoneer Email">
 </div>
+
+<p style="font-size:12px;color:#aaa;text-align:center;">
+Payment instructions will be shared securely after order confirmation.
+</p>
 
 <button type="submit">PLACE ORDER</button>
 
@@ -200,6 +208,11 @@ footer {
   <div class="footer-info">
     <p>Islamabad, Pakistan</p>
     <p>WhatsApp: +92 336 214 9415</p>
+  </div>
+
+  <div style="margin-top:15px;">
+    <span style="border:1px solid #20B2AA;padding:4px 8px;margin:3px;">Bank Transfer</span>
+    <span style="border:1px solid #20B2AA;padding:4px 8px;margin:3px;">Payoneer</span>
   </div>
 
   <p class="footer-copy">© 2026 Gemmines2</p>
@@ -227,25 +240,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   totalContainer.innerHTML = `Total: Rs ${total}`;
 
-  // PAYMENT TOGGLE FIXED
+  // PAYMENT TOGGLE
   document.querySelectorAll('input[name="payment"]').forEach(r => {
     r.addEventListener('change', e => {
 
-      document.getElementById('card-display').style.display = "none";
       document.getElementById('bank-display').style.display = "none";
-
-      if (e.target.value === "card") {
-        document.getElementById('card-display').style.display = "block";
-      }
+      document.getElementById('payoneer-display').style.display = "none";
 
       if (e.target.value === "bank") {
         document.getElementById('bank-display').style.display = "block";
       }
 
+      if (e.target.value === "payoneer") {
+        document.getElementById('payoneer-display').style.display = "block";
+      }
+
     });
   });
 
-  // SUBMIT
   document.getElementById('checkout-form').addEventListener('submit', function(e){
     e.preventDefault();
 
@@ -272,12 +284,11 @@ Total: Rs ${total}`;
 
     let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
-   localStorage.setItem("lastOrder", JSON.stringify(cart));
+    localStorage.setItem("lastOrder", JSON.stringify(cart));
+    localStorage.removeItem("cart");
 
-localStorage.removeItem("cart");
-
-window.open(url, "_blank");
-window.location.href = "thankyou.html";
+    window.open(url, "_blank");
+    window.location.href = "thankyou.html";
   });
 
 });
