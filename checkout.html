@@ -288,8 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   let orderID = "GM-" + Date.now();
-
-  // SEND TO FORMSPREE
+ // SEND TO FORMSPREE
   fetch("https://formspree.io/f/xwvylqrk", {
     method: "POST",
     headers: {
@@ -305,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
       payment: paymentMethod
     })
   });
+ 
 
   // WHATSAPP MESSAGE
   let message =
