@@ -101,26 +101,6 @@ button {
 }
 
 button:hover { background:#17968f; }
-
-footer {
-  background:#030610;
-  padding:30px 5%;
-  border-top:1.5px solid #20B2AA;
-  text-align:center;
-}
-
-.footer-links a {
-  color:#20B2AA;
-  text-decoration:none;
-  margin:0 8px;
-  font-size:12px;
-  font-weight:600;
-}
-
-.footer-info, .footer-copy {
-  font-size:12px;
-  color:#ccc;
-}
 </style>
 </head>
 
@@ -175,57 +155,17 @@ footer {
 </div>
 
 <div id="bank-display" class="payment-fields" style="display:block;">
-  <p>Bank transfer details (Account, IBAN, SWIFT) will be shared after order confirmation.</p>
+  <p>Bank transfer details will be shared after order confirmation.</p>
 </div>
 
 <div id="payoneer-display" class="payment-fields">
-  <p>Payoneer payment request will be sent after order confirmation.</p>
+  <p>Payoneer request will be sent after order confirmation.</p>
 </div>
 
-<p style="font-size:13px;color:#ccc;text-align:center;line-height:1.6;">
-After placing your order, you will receive payment instructions via WhatsApp or Email.<br><br>
-✔ Bank Transfer details (Account, IBAN, SWIFT)<br>
-✔ Payoneer payment request<br><br>
-Your order will be confirmed once payment is received.
-</p>
-
-<p style="font-size:12px;color:#aaa;text-align:center;">
-We never ask customers to share sensitive banking details.
-</p>
-
-<button type="submit">PLACE ORDER</button>
+<button type="submit" id="placeOrderBtn">PLACE ORDER</button>
 
 </form>
 </div>
-
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a> | 
-    <a href="products.html">Products</a> | 
-    <a href="return.html">Return Policy</a> | 
-    <a href="shipping.html">Shipping Policy</a> | 
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="contact.html">Contact Us</a> | 
-    <a href="terms.html">Terms & Conditions</a>
-     <a href="track.html">Track Order</a>
-
-  </div>
-
-  <div class="footer-info">
-    <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
-    <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
-  </div>
-
-  <div style="margin: 25px 0;">
-    <p style="font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">Secure Payment Methods</p>
-    <div style="display:flex; justify-content:center; gap:10px;">
-      <span style="border:1px solid #20B2AA;padding:4px 8px;">PAYONEER</span>
-      <span style="border:1px solid #20B2AA;padding:4px 8px;">BANK TRANSFER</span>
-    </div>
-  </div>
-
-  <p class="footer-copy">© 2026 Gemmines2</p>
-</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -251,63 +191,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('input[name="payment"]').forEach(r => {
     r.addEventListener('change', e => {
-
       document.getElementById('bank-display').style.display = "none";
       document.getElementById('payoneer-display').style.display = "none";
 
       if (e.target.value === "bank") {
         document.getElementById('bank-display').style.display = "block";
-      }
-
-      if (e.target.value === "payoneer") {
+      } else {
         document.getElementById('payoneer-display').style.display = "block";
       }
-
     });
   });
 
- document.getElementById('checkout-form').addEventListener('submit', function(e){
-  e.preventDefault();
+  document.getElementById('checkout-form').addEventListener('submit', async function(e){
+    e.preventDefault();
 
-  let name = document.getElementById('name').value;
-  let email = document.getElementById('email').value;
-  let contact = document.getElementById('contact').value;
+    const btn = document.getElementById("placeOrderBtn");
+    btn.disabled = true;
+    btn.innerText = "Processing...";
 
-  let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let contact = document.getElementById('contact').value;
+    let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  let items = "";
-  let total = 0;
+    let items = "";
+    let total = 0;
 
-  cart.forEach(item => {
-    let qty = item.quantity || 1;
-    let itemTotal = item.price * qty;
-    total += itemTotal;
-    items += `${item.name} x ${qty} = Rs ${itemTotal}, `;
-  });
+    cart.forEach(item => {
+      let qty = item.quantity || 1;
+      let itemTotal = item.price * qty;
+      total += itemTotal;
+      items += `${item.name} x ${qty} = Rs ${itemTotal}\n`;
+    });
 
-  let orderID = "GM-" + Date.now();
- // SEND TO FORMSPREE
-  fetch("https://formspree.io/f/xwvylqrk", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      order_id: orderID,
-      name: name,
-      email: email,
-      contact: contact,
-      items: items,
-      total: total,
-      payment: paymentMethod
-    })
-  });
- 
+    let orderID = "GM-" + Date.now();
 
-  // WHATSAPP MESSAGE
-  let message =
+    // 1. SEND EMAIL (WAIT FOR IT)
+    try {
+      await fetch("https://formspree.io/f/xwvylqrk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          order_id: orderID,
+          name: name,
+          email: email,
+          contact: contact,
+          items: items,
+          total: total,
+          payment: paymentMethod
+        })
+      });
+    } catch (err) {
+      console.log("Email failed but continuing...");
+    }
+
+    // 2. WHATSAPP MESSAGE
+    let message =
 `New Order Gemmines2
 Order ID: ${orderID}
 Name: ${name}
@@ -316,19 +259,24 @@ Contact: ${contact}
 ${items}
 Total: Rs ${total}`;
 
-  let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
+    let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
-  localStorage.removeItem("cart");
+    localStorage.removeItem("cart");
 
-  window.open(url, "_blank");
-localStorage.setItem("lastOrderDetails", JSON.stringify({
-  orderID: orderID,
-  items: items,
-  total: total
-}));
+    window.open(url, "_blank");
 
-window.location.href = "thankyou.html";
-});
+    localStorage.setItem("lastOrderDetails", JSON.stringify({
+      orderID,
+      items,
+      total
+    }));
+
+    // 3. REDIRECT AFTER EVERYTHING
+    setTimeout(() => {
+      window.location.href = "thankyou.html";
+    }, 1500);
+
+  });
 
 });
 </script>
