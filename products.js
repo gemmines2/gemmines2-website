@@ -12,14 +12,7 @@ const products = [
     brand: "Gemmines2"
   },
  
-  {
-    id: "opal_008",
-    name: "Natural Opal Gemstone Collection – Multi-Color Fire Opals",
-    description: "Symbol of purity, hope & emotional healing.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/opal.jpg",
-    price: 220.00,
-    availability: "in stock",
-    brand: "Gemmines2"
+ "images/IMG_20260508_143014.jpg"
   },
 
   
@@ -176,7 +169,7 @@ const products = [
   color: "Light Pink",
   availability: "In Stock",
   sku: "GM-PT18",
-  image: image: "images/peridot.gif"
+ image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.gif"
   description: "Natural unheated light pink topaz from Pakistan weighing 18 carats. Emerald shape cut with good luster and eye-clean clarity. Minor natural inclusion visible, confirming authenticity."
 },
  {
@@ -192,7 +185,7 @@ const products = [
   color: "Olive Green",
   availability: "In Stock",
   sku: "GM-PR95",
-  image: image: "images/peridot.gif"
+  image: "https://gemmines2.github.io/gemmines2-website/images/peridot.gif"
   description: "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance."
 },
 {
@@ -208,7 +201,7 @@ const products = [
   clarity: "Transparent",
   availability: "In Stock",
   sku: "GM-RHG-12CT",
-  image: "images/rhodolite.jpg"
+  image: "https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg"
   description: "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster. Total weight approximately 12 carats."
 }
 ];
