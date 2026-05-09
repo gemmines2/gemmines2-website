@@ -176,7 +176,7 @@ const products = [
   color: "Light Pink",
   availability: "In Stock",
   sku: "GM-PT18",
-  image: "images/natural-pink-topaz-18ct-pakistan-emerald-cut.jpg",
+  image: "images/natural-pink-topaz-18ct-pakistan-emerald cut pinktopaz.gif",
   description: "Natural unheated light pink topaz from Pakistan weighing 18 carats. Emerald shape cut with good luster and eye-clean clarity. Minor natural inclusion visible, confirming authenticity."
 },
  {
@@ -192,7 +192,7 @@ const products = [
   color: "Olive Green",
   availability: "In Stock",
   sku: "GM-PR95",
-  image: "images/natural-unheated-peridot-oval-olive-green-pakistan.jpg",
+  image: "images/natural-unheated-peridot-oval-olive-green peridot.gif",
   description: "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance."
 },
 {
