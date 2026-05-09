@@ -136,16 +136,6 @@ const products = [
     brand: "Gemmines2"
   },
   
-  
-  {
-    id: "038",
-    name: "Natural Unheated Mixed Sapphire Lot from Sri Lanka",
-    description: "Cut & Polished Ceylon Gemstones.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/sapphirem24.jpg",
-    price: 130.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
   {
     id: "039",
     name: "2.15ct Natural Unheated Bi-Color Sapphire",
