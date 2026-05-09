@@ -135,15 +135,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "035",
-    name: "Unheated Natural Black Moonstone – 18 Carats",
-    description: "River Tumbled & Polished Gems with Stunning Sheen.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/blackmoonstone.jpg",
-    price: 90.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
   
   {
     id: "038",
