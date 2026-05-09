@@ -237,15 +237,7 @@ const products = [
     price: 200.00,
     availability: "in stock",
     brand: "Gemmines2"
-  },
- 
-  {
-    id: "046",
-    name: "Natural Unheated Sri Lankan Origin Spinal",
-    description: "Multi-color 11.45 carats Sri Lankan origin.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/spinal9.jpg",
-    price: 160.00,
-    availability: "in stock",
-    brand: "Gemmines2"
   }
+ 
+ 
 ];
