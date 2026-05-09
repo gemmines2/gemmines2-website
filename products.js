@@ -1,14 +1,6 @@
 const products = [
   
-  {
-    id: "almandinegarnet_002",
-    name: "Almandine Garnet Ring Set in Silver",
-    description: "Deep red Almandine Garnet – Stone of strength, courage & protection.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/Almandine-ring.jpg",
-    price: 125.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
  
   {
     id: "greenjasper_005",
