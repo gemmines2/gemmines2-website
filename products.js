@@ -125,15 +125,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "032",
-    name: "1 Pairs Natural Blue Topaz Heart-Shape Gemstones",
-    description: "Unheated heart-shaped gemstones from Sri Lanka.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz-heart.jpg",
-    price: 140.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
   {
     id: "034",
     name: "12 Carat Ferruginous Quartz Gemstone",
@@ -152,15 +144,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "036",
-    name: "Exquisite 27-Carat Natural Unheated Sri Lankan Sapphire Mix",
-    description: "Blue, Yellow & Pink Gems from Ceylon.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/sapphire4.jpg",
-    price: 130.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
   {
     id: "038",
     name: "Natural Unheated Mixed Sapphire Lot from Sri Lanka",
