@@ -77,15 +77,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "pink-topaz_024",
-    name: "Natural Unheated Pink Topaz 18ct Katlang Pakistan",
-    description: "Cut and polished gemstone with slight inclusion.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.jpg",
-    price: 125.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "blue_topaz_025",
     name: "Natural Unheated Blue Topaz Pair - Eye Clean",
