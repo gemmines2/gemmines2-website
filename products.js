@@ -78,16 +78,7 @@ const products = [
     brand: "Gemmines2"
   },
  
-  {
-    id: "blue_topaz_025",
-    name: "Natural Unheated Blue Topaz Pair - Eye Clean",
-    description: "Faceted Stunning Cut & Polished Sri Lankan Blue Topaz.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/blue-topaz.jpg",
-    price: 120.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  
+ 
  
   {
     id: "almandine_028",
