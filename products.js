@@ -176,7 +176,7 @@ const products = [
   color: "Light Pink",
   availability: "In Stock",
   sku: "GM-PT18",
-  image: "images/natural-pink-topaz-18ct-pakistan-emerald cut pinktopaz.gif",
+  image: image: "images/peridot.gif"
   description: "Natural unheated light pink topaz from Pakistan weighing 18 carats. Emerald shape cut with good luster and eye-clean clarity. Minor natural inclusion visible, confirming authenticity."
 },
  {
@@ -192,7 +192,7 @@ const products = [
   color: "Olive Green",
   availability: "In Stock",
   sku: "GM-PR95",
-  image: "images/natural-unheated-peridot-oval-olive-green pakistani origin peridot.gif",
+  image: image: "images/peridot.gif"
   description: "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance."
 },
 {
@@ -208,7 +208,7 @@ const products = [
   clarity: "Transparent",
   availability: "In Stock",
   sku: "GM-RHG-12CT",
-  image: "images/natural-rhodolite-garnet-mixed-cuts-12ct-tanzabi origin rhodolite.jpg",
+  image: "images/rhodolite.jpg"
   description: "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster. Total weight approximately 12 carats."
 }
 ];
