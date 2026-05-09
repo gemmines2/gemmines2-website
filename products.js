@@ -87,24 +87,8 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "chrysoberyl_catseye_026",
-    name: "Natural Chrysoberyl Cat's Eye Gemstone",
-    description: "Strong Chatoyancy Phenomenal Loose Cabochon.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/chrysoberyl-catseye.jpg",
-    price: 250.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  {
-    id: "star_sapphire_027",
-    name: "Natural Chrysoberyl Cat’s Eye set - 5 carats",
-    description: "Multiple pieces with distinct star/eye effect.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/star-sapphire.jpg",
-    price: 200.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
+ 
   {
     id: "almandine_028",
     name: "Natural Almandine Garnet - 60 Carat Oval Cut",
