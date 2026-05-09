@@ -11,11 +11,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
- 
- "images/IMG_20260508_143014.jpg"
-  },
-
-  
+   
   {
     id: "lemonquartz_012",
     name: "Natural Unheated Lemon Quartz 11.15 carats",
