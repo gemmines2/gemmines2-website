@@ -1,13 +1,5 @@
 const products = [
-  {
-    id: "umbalitegarnet_001",
-    name: "Rare Natural Unheated Reddish-Pink Umbalite Garnet 13ct",
-    description: "Symbol of love, energy & passion. Eye clean loose gemstone from Africa.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/umbalitegarnet.jpg",
-    price: 200.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+  
   {
     id: "almandinegarnet_002",
     name: "Almandine Garnet Ring Set in Silver",
@@ -17,15 +9,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "peridot_004",
-    name: "Natural Unheated 5 Carat Olive Green Peridot",
-    description: "Fresh Peridot with Rare Rutile Inclusions from Pakistan.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/peridot.jpg",
-    price: 100.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "greenjasper_005",
     name: "Natural Green Jasper Stones - 10+ Carats",
@@ -35,15 +19,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "rhodolite_007",
-    name: "68 Carat Huge Natural Unheated Rhodolite Garnet Rough",
-    description: "Facet & Cabochon Grade. Stone of inspiration, love & joy.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg",
-    price: 350.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "opal_008",
     name: "Natural Opal Gemstone Collection – Multi-Color Fire Opals",
@@ -53,24 +29,8 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "hessonitegarnet_010",
-    name: "Natural Uncut Hessonite Garnet Rough 68 carats",
-    description: "Premium Gomed Raw Stone for spiritual growth and clarity.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/hessonite-garnet.jpg",
-    price: 400.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  {
-    id: "pinktourmaline_011",
-    name: "20 CT Natural Unheated Pink Tourmaline Rough",
-    description: "Collector Grade Raw Gemstone from Afghanistan.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/pink-tourmaline.jpg",
-    price: 280.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+
+  
   {
     id: "lemonquartz_012",
     name: "Natural Unheated Lemon Quartz 11.15 carats",
@@ -125,16 +85,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "garnet_021",
-    name: "Natural Unheated Garnet Ring Set in Silver",
-    description: "Deep red Garnet – Stone of passion, love, and energy.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/garnet.jpg",
-    price: 150.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
-  {
+ 
     id: "pink-topaz_024",
     name: "Natural Unheated Pink Topaz 18ct Katlang Pakistan",
     description: "Cut and polished gemstone with slight inclusion.",
@@ -287,15 +238,7 @@ const products = [
     availability: "in stock",
     brand: "Gemmines2"
   },
-  {
-    id: "045",
-    name: "Natural Translucent Green Nephrite Jade - 2 Carats",
-    description: "Pakistan Origin Gemstone.",
-    image: "https://gemmines2.github.io/gemmines2-website/images/greennephrite.jpg",
-    price: 70.00,
-    availability: "in stock",
-    brand: "Gemmines2"
-  },
+ 
   {
     id: "046",
     name: "Natural Unheated Sri Lankan Origin Spinal",
