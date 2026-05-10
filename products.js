@@ -1,7 +1,5 @@
 const products = [
-  
- 
- 
+   
   {
     id: "greenjasper_005",
     name: "Natural Green Jasper Stones - 10+ Carats",
@@ -67,8 +65,6 @@ const products = [
     brand: "Gemmines2"
   },
  
- 
- 
   {
     id: "almandine_028",
     name: "Natural Almandine Garnet - 60 Carat Oval Cut",
@@ -79,7 +75,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "029",
+    id: "mixed sapphire_029",
     name: "Premium Mixed Sapphire Collection - Multi-Color",
     description: "Natural multi-color loose sapphire gemstones.",
     image: "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg",
@@ -88,7 +84,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "030",
+    id: "Natural Black Chert_030",
     name: "Natural Black Chert Tumbled Stone from Pakistan",
     description: "Smooth river rock specimen with deep black color.",
     image: "https://gemmines2.github.io/gemmines2-website/images/chert.jpg",
@@ -97,7 +93,7 @@ const products = [
     brand: "Gemmines2"
   },
   {
-    id: "031",
+    id: "Kunzite_031",
     name: "4.80 Carat Natural Pink Kunzite Gemstone",
     description: "Unheated transparent oval-cut natural pink kunzite.",
     image: "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg",
@@ -153,7 +149,7 @@ const products = [
     brand: "Gemmines2"
   },
  {
-  id: 101,
+  id:"pinktopaz_101",
   name: "Natural Unheated Pink Topaz 18 Carats",
   price: 120,
   currency: "USD",
@@ -169,7 +165,7 @@ const products = [
   description: "Natural unheated light pink topaz from Pakistan weighing 18 carats. Emerald shape cut with good luster and eye-clean clarity. Minor natural inclusion visible, confirming authenticity."
 },
  {
-  id: 102,
+  id: "Greenperidot_102",
   name: "Natural Unheated Olive Green Peridot",
   price: 95,
   currency: "USD",
@@ -185,7 +181,7 @@ const products = [
   description: "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance."
 },
 {
-  id: 103,
+  id:"rhodolitegarnets_103",
   name: "Natural Unheated Rhodolite Garnets 12 Carats",
   price: 140,
   currency: "USD",
