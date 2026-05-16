@@ -281,6 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let orderID = "GM-" + Date.now();
 
+    // FIXED: Corrected full shipping layout capture for Formspree mapping
     try {
       await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
@@ -290,14 +291,16 @@ document.addEventListener("DOMContentLoaded", function () {
           name: name,
           email: email,
           contact: contact,
-          shipping_address: `${address}, ${city}, ${country}`,
+          address: address,
+          city: city,
+          country: country,
           items: items,
           total: `$${total} USD`,
           payment_preference: paymentMethod
         })
       });
     } catch (err) {
-      console.log("Telemetry transmission logged offline.");
+      console.log("Formspree sub-routing error caught safely.");
     }
 
     let message = `New Order - Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\nShipping: ${address}, ${city}, ${country}\n\n${items}\nTotal: $${total} USD\nPayment Mode: ${paymentMethod}`;
