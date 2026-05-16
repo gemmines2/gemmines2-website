@@ -163,7 +163,24 @@
       <div class="products-grid" id="product-list"></div>
     </div>
   </div>
- <footer>
+
+  <script src="products.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      if (id && typeof products !== 'undefined' && products.find(p => p.id === id)) {
+        showSingle(id);
+      } else {
+        showAll();
+      }
+    });
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
+    } <footer>
     <div class="footer-links">
       <a href="index.html">Home</a> | 
       <a href="products.html">Products</a> | 
@@ -192,24 +209,6 @@
 
     <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
   </footer>
- 
-  <script src="products.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCartCount();
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get('id');
-      if (id && typeof products !== 'undefined' && products.find(p => p.id === id)) {
-        showSingle(id);
-      } else {
-        showAll();
-      }
-    });
-
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.querySelectorAll('.cart-count').forEach(el => el.textContent = cart.length);
-    }
 
     function showAll() {
       const list = document.getElementById('product-list'); 
