@@ -4,222 +4,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Shopping Cart | Gemmines2</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <title>Cart | Gemmines2</title>
+ 
+  <link rel="stylesheet" href="style.css">
+ 
   <style>
-    :root { --teal: #20B2AA; --bg: #050a1a; --card: #1a1f40; --header-bg: #0a0a0a; }
-    body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: #f0f0f0; margin: 0; padding: 0; line-height: 1.8; }
-
-    header {
-      position: fixed; top: 0; left: 0; right: 0;
-      background: var(--header-bg);
-      border-bottom: 2px solid var(--teal);
-      padding: 12px 5%;
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000;
-    }
-
-    header .logo {
-      font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.3rem;
-      color: var(--teal); text-decoration: none; letter-spacing: 1px;
-    }
-
-    header nav a {
-      margin-left: 18px; color: var(--teal) !important;
-      text-decoration: none;
-      font-family: 'Cinzel', serif; font-weight: 700;
-      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-    }
-
     .cart-container {
-      max-width: 850px;
-      margin: 110px auto 60px;
-      background: var(--card);
-      padding: 40px;
-      border-radius: 15px;
-      border: 1px solid rgba(32, 178, 170, 0.3);
+      padding: 120px 5% 40px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-
-    h2 { text-align: center; font-family: 'Cinzel', serif; color: var(--teal); font-size: 1.6rem; margin-bottom: 30px; border-bottom: 1px solid var(--teal); padding-bottom: 15px;}
-
+ 
     .cart-item {
       display: flex;
       align-items: center;
-      background: rgba(5, 10, 26, 0.6);
-      padding: 20px;
+      background: #1a1f40;
+      padding: 15px;
       margin: 15px 0;
-      border-radius: 10px;
+      border-radius: 12px;
       gap: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      flex-wrap: wrap;
     }
-
+ 
     .cart-item img {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid rgba(32, 178, 170, 0.3);
+      border-radius: 8px;
     }
-
-    .cart-item-info { flex: 1; }
-    .cart-item-info h3 { color: #fff; margin: 0 0 5px; font-family: 'Cinzel', serif; font-size: 1rem; }
-    .cart-item-info p { color: #aaa; margin: 0; font-size: 0.88rem; }
-
+ 
+    .cart-item-info {
+      flex: 1;
+      color: #b7c7d3;
+    }
+ 
+    .cart-item-info h3 {
+      color: #00ffe0;
+      margin: 0 0 5px;
+    }
+ 
     .remove-btn {
-      background: #d9534f;
+      background: #ff4444;
       color: white;
       border: none;
-      padding: 8px 14px;
+      padding: 8px 12px;
       border-radius: 6px;
       cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
     }
-    .remove-btn:hover { background: #c9302c; }
-
+ 
     .cart-total {
       text-align: right;
-      font-size: 1.3rem;
-      color: var(--teal);
-      margin: 25px 0;
-      padding: 15px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      font-family: 'Cinzel', serif;
-      font-weight: bold;
-      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 1.6rem;
+      color: #00ffe0;
+      margin: 30px 0;
+      padding: 15px;
+      background: #1a1f40;
+      border-radius: 12px;
     }
-
+ 
     .checkout-btn {
       display: block;
       width: 100%;
-      padding: 15px;
-      box-sizing: border-box;
-      background: var(--teal);
+      padding: 18px;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #00e0ff, #c9a646);
       color: #000;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       text-align: center;
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 1px;
-      transition: background 0.3s ease;
     }
-    .checkout-btn:hover { background: #17968f; }
-
-    .empty-cart { text-align: center; color: #888; padding: 50px 0; font-size: 1.1rem; }
-
-    footer { background: #030610; padding: 40px 5%; border-top: 2px solid var(--teal); text-align: center; margin-top: 50px; }
-    .footer-links a { color: var(--teal) !important; text-decoration: none; font-size: 11px; margin: 0 8px; text-transform: uppercase; font-weight: 600; }
-    .footer-info { margin-top: 25px; color: #ced4da; font-size: 13px; }
-    .footer-copy { color: #6c757d; font-size: 11px; margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+ 
+    .empty-cart {
+      text-align: center;
+      color: #888;
+      font-size: 1.3rem;
+      padding: 80px;
+    }
+ 
+    @media (max-width: 600px) {
+      .cart-item {
+        flex-direction: column;
+        text-align: center;
+      }
+ 
+      .cart-item img {
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
 </head>
-
+ 
 <body>
-
-  <header>
-    <a href="index.html" class="logo">Gemmines2</a>
-    <nav>
+ 
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html"><strong>Gemmines2</strong></a>
+    </div>
+ 
+    <nav class="desktop-nav">
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
+      <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
       <a href="contact.html">Contact</a>
     </nav>
+ 
+    <div class="hamburger" onclick="toggleMenu()">Menu</div>
+ 
+    <nav class="mobile-nav" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="products.html" onclick="toggleMenu()">Products</a>
+      <a href="cart.html" onclick="toggleMenu()">Cart (<span class="cart-count">0</span>)</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </nav>
   </header>
-
+ 
   <div class="cart-container">
-    <h2>Your Cart</h2>
-
+    <h2 style="text-align:center;color:#00ffe0;margin-bottom:30px;">Your Cart</h2>
+ 
     <div id="cart-items"></div>
-
+ 
     <div class="cart-total">
-      Grand Total: $<span id="grand-total">0.00</span> USD
+      <strong>Grand Total: $<span id="grand-total">0.00</span> USD</strong>
     </div>
 
     <p style="font-size: 0.8rem; color: #aaa; text-align: center; margin-bottom: 20px; max-width: 90%; margin-left: auto; margin-right: auto;">
-      Note: Our platform coordinates billing allocations manually post-checkout via standard verified networks (Payoneer / Wire Transfer) to uphold absolute gemstone batch authenticity and asset security.
+      Notice: Payment configurations are finalized manually post-checkout via standard encrypted infrastructure platforms (Payoneer Global Wire or Bank Swift Transfers) to guarantee absolute certified gemstone provenance and transaction shielding.
     </p>
-
+ 
     <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
   </div>
+ 
+  <a href="https://wa.me/923362149415" target="_blank" class="whatsapp-float">WhatsApp</a>
+ 
+  <script src="cart.js"></script>
 
-  <script>
-    // Localized safety backup if main cart script handles layout rendering
-    document.addEventListener("DOMContentLoaded", function() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let container = document.getElementById('cart-items');
-      let totalSpan = document.getElementById('grand-total');
-      
-      if(cart.length === 0) {
-        container.innerHTML = '<div class="empty-cart">Your shopping cart is currently empty.</div>';
-        totalSpan.innerText = "0.00";
-        return;
-      }
-      
-      let total = 0;
-      container.innerHTML = "";
-      
-      cart.forEach((item, index) => {
-        let qty = item.quantity || 1;
-        let itemTotal = item.price * qty;
-        total += itemTotal;
-        
-        let itemDiv = document.createElement('div');
-        itemDiv.className = 'cart-item';
-        itemDiv.innerHTML = `
-          <img src="${item.image || 'images/logo.png'}" alt="${item.name}">
-          <div class="cart-item-info">
-            <h3>${item.name}</h3>
-            <p>Unit Price: $${item.price} USD</p>
-            <p>Quantity: ${qty}</p>
-          </div>
-          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-        `;
-        container.appendChild(itemDiv);
-      });
-      
-      totalSpan.innerText = total.toFixed(2);
-    });
-
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      window.location.reload();
-    }
-  </script>
-
-  <footer>
-    <div class="footer-links">
-      <a href="index.html">Home</a> | 
-      <a href="products.html">Products</a> | 
-      <a href="return.html">Returns & Refund Policy</a> | 
-      <a href="shipping.html">Shipping Policy</a> | 
-      <a href="privacy.html">Privacy Policy</a> | 
-      <a href="contact.html">Contact Us</a> | 
-      <a href="terms.html">Terms & Conditions</a>
-    </div>
-
-    <div class="footer-info">
-      <p><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Federal, Islamabad, Pakistan 44000</p>
-      <p><strong>WhatsApp:</strong> +92 336 214 9415 | <strong>Email:</strong> yousefzubair03@gmail.com</p>
-    </div>
-
-    <div style="margin: 25px 0;">
-      <p style="font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Secure Global Payments</p>
-      <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap;">
-         <span style="font-size: 10px; border: 1px solid #20B2AA; color: #20B2AA; padding: 3px 6px; border-radius: 3px; font-weight: bold;">PAYONEER</span>
-         <span style="font-size: 10px; border: 1px solid #20B2AA; color: #20B2AA; padding: 3px 6px; border-radius: 3px; font-weight: bold;">BANK TRANSFER</span>
-      </div>
-    </div>
-
-    <p class="footer-copy">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
-  </footer>
-
+<footer style="background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; text-align: center; margin-top: 50px;">
+  <div style="margin-bottom: 20px;">
+    <a href="index.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Home</a> | 
+    <a href="products.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Products</a> | 
+    <a href="return.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Returns & Refund Policy</a> | 
+    <a href="shipping.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Shipping Policy</a> | 
+    <a href="privacy.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Privacy Policy</a> | 
+    <a href="contact.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Contact Us</a> | 
+    <a href="terms.html" style="color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600;">Terms & Conditions</a>
+  </div>
+  <p style="color:#fff; font-size: 14px;"><strong>Official Address:</strong> House # 602, Gali # 6, Sector G11/1, Federal, Islamabad, Pakistan 44000</p>
+  <p style="color:#fff; font-size: 14px;">© 2026 Gemmines2 | Registered Gemstone Exporter | Islamabad, Pakistan</p>
+</footer>
 </body>
 </html>
