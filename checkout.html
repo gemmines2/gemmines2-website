@@ -159,10 +159,10 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 <input type="text" id="contact" name="contact" required>
 
 <label>Street Address</label>
-<input type="text" id="address" name="address" placeholder="Street name and house/apartment number" required>
+<input type="text" id="address" name="address" placeholder="Street name and house or apartment number" required>
 
 <label>Apartment, Suite, P.O. Box (Optional)</label>
-<input type="text" id="address2" name="address2" placeholder="P.O. Box, unit number, etc.">
+<input type="text" id="address2" name="address2" placeholder="P.O. Box, building details, unit, etc.">
 
 <div class="address-row">
   <input type="text" id="city" name="city" placeholder="City" required>
@@ -178,15 +178,15 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 
 <div class="payment-options">
   <label><input type="radio" name="payment" value="bank" checked> Bank Transfer</label><br>
-  <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+  <label><input type="radio" name="payment" value="payoneer"> Payoneer Payment Request</label>
 </div>
 
 <div id="bank-display" class="payment-fields" style="display:block;">
-  <p>Secure international bank transfer wire instructions will be emailed to you after order submission confirmation.</p>
+  <p>Secure international bank transfer wire details will be shared directly via email following order verification.</p>
 </div>
 
 <div id="payoneer-display" class="payment-fields">
-  <p>An official electronic Payoneer invoice request will be delivered to your registered email address post-confirmation.</p>
+  <p>An official network request for payment via Payoneer will be generated to your email address post-confirmation.</p>
 </div>
 
 <div class="merchant-compliance-notice">
@@ -210,17 +210,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cart.forEach(item => {
     let qty = item.qty || item.quantity || 1;
-    let itemTotal = item.price * qty;
+    let price = Number(item.price) || 0;
+    let itemTotal = price * qty;
     total += itemTotal;
 
     let div = document.createElement('div');
-    div.innerHTML = `${item.name} - $${item.price.toFixed(2)} x ${qty} = $${itemTotal.toFixed(2)}`;
+    div.innerHTML = `${item.name} - $${price.toFixed(2)} x ${qty} = $${itemTotal.toFixed(2)}`;
     summaryContainer.appendChild(div);
   });
 
   totalContainer.innerHTML = `Total: $${total.toFixed(2)} USD`;
 
-  // Update navbar count
   document.querySelectorAll('.cart-count').forEach(el => { el.textContent = cart.length; });
 
   document.querySelectorAll('input[name="payment"]').forEach(r => {
@@ -259,14 +259,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cart.forEach(item => {
       let qty = item.qty || item.quantity || 1;
-      let itemTotal = item.price * qty;
+      let price = Number(item.price) || 0;
+      let itemTotal = price * qty;
       finalTotal += itemTotal;
       items += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
     });
 
     let orderID = "GM-" + Date.now();
 
-    // 1. SEND EMAIL VIA FORMSPREE
+    // 1. SEND DATA TO FORMSPREE
     try {
       await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
@@ -279,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
           email: email,
           contact: contact,
           street_address: address,
-          apartment_box: address2,
+          apartment_or_po_box: address2,
           city: city,
           state_region: state,
           zip_postal_code: zip,
@@ -290,10 +291,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
       });
     } catch (err) {
-      console.log("Email failed but continuing transaction details flow...");
+      console.log("Email pipeline bypassed but handling fallback allocations...");
     }
 
-    // 2. WHATSAPP MESSAGE (UPDATED TO USD)
+    // 2. WHATSAPP FORWARDING STRING
     let message = 
 `New Order Gemmines2
 Order ID: ${orderID}
@@ -308,7 +309,6 @@ Payment Method: ${paymentMethod}`;
     let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
     localStorage.removeItem("cart");
-
     window.open(url, "_blank");
 
     localStorage.setItem("lastOrderDetails", JSON.stringify({
@@ -317,7 +317,6 @@ Payment Method: ${paymentMethod}`;
       total: `$${finalTotal.toFixed(2)}`
     }));
 
-    // 3. REDIRECT
     setTimeout(() => {
       window.location.href = "thankyou.html";
     }, 1500);
@@ -332,7 +331,7 @@ Payment Method: ${paymentMethod}`;
   <div class="footer-links">
     <a href="index.html">Home</a> | 
     <a href="products.html">Products</a> | 
-    <a href="return.html">Returns & Refund Policy</a> | 
+    <a href="return.html">Standard Return Policy</a> | 
     <a href="shipping.html">Shipping Policy</a> | 
     <a href="privacy.html">Privacy Policy</a> | 
     <a href="contact.html">Contact Us</a> | 
