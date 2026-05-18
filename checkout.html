@@ -4,65 +4,123 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gemmines2 Checkout</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  :root { --teal: #20B2AA; --bg: #050a1a; --card: #1a1f40; --header-bg: #0a0a0a; }
-  body { font-family:'Montserrat', sans-serif; background:var(--bg); color:#fff; margin:0; line-height: 1.6; }
+body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
 
-  header {
-    position:fixed; top:0; left:0; right:0;
-    background:var(--header-bg);
-    border-bottom:1.5px solid var(--teal);
-    padding:10px 5%;
-    display:flex; justify-content:space-between; align-items:center;
-    z-index:1000;
-  }
-  header .logo { font-family:'Cinzel'; font-size:1.5rem; color:var(--teal); text-decoration:none; }
-  header nav a { margin:0 12px; color:var(--teal); text-decoration:none; font-family:'Cinzel'; font-size:0.8rem; text-transform: uppercase; font-weight: 700; }
+header {
+  position:fixed; top:0; left:0; right:0;
+  background:#0a0a0a;
+  border-bottom:1.5px solid #20B2AA;
+  padding:10px 5%;
+  display:flex; justify-content:space-between; align-items:center;
+  z-index:1000;
+}
 
-  .container {
-    max-width:800px;
-    margin:110px auto 40px;
-    background:var(--card);
-    padding:30px;
-    border-radius:10px;
-    border:1px solid rgba(32,178,170,0.2);
-  }
+header .logo {
+  font-family:'Cinzel'; font-size:1.5rem;
+  color:#20B2AA; text-decoration:none;
+}
 
-  h1,h2 { text-align:center; font-family:'Cinzel'; color:var(--teal); }
+header nav a {
+  margin:0 12px; color:#20B2AA;
+  text-decoration:none;
+  font-family:'Cinzel';
+  font-size:0.8rem;
+}
 
-  #order-summary { background:rgba(255,255,255,0.05); padding:20px; border-radius:10px; margin-bottom:25px; border: 1px solid rgba(32,178,170,0.1); }
-  #summary-items div { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: #ced4da; font-size: 0.95rem; }
+.container {
+  max-width:800px;
+  margin:110px auto 40px;
+  background:#0a1430;
+  padding:30px;
+  border-radius:10px;
+  border:1px solid rgba(32,178,170,0.2);
+}
 
-  form label { display:block; margin-bottom:5px; font-weight:600; color:var(--teal); margin-top: 15px; }
-  form input { width:100%; padding:12px; margin-bottom:5px; border-radius:6px; border:1px solid #333; background:#050a1a; color:#fff; box-sizing: border-box; }
-  .address-row { display:flex; gap:10px; margin-top: 10px; }
+h1,h2 {
+  text-align:center;
+  font-family:'Cinzel';
+  color:#20B2AA;
+}
 
-  .payment-options { background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; margin-bottom:15px; border: 1px solid rgba(32,178,170,0.1); }
-  .payment-options label { color: #fff; cursor: pointer; display: inline-block; margin: 5px 0; }
-  .payment-fields { display:none; padding:15px; background:rgba(0,0,0,0.3); border-radius:6px; margin-bottom:15px; border-left: 3px solid var(--teal); color: #ced4da; font-size: 0.9rem; }
+#order-summary {
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:25px;
+}
 
-  .merchant-compliance-notice {
-    background: rgba(32, 178, 170, 0.1);
-    border: 1px solid var(--teal);
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    font-size: 0.88rem;
-    color: #e0f2f1;
-    line-height: 1.6;
-  }
+form label {
+  display:block;
+  margin-bottom:5px;
+  font-weight:600;
+  color:#20B2AA;
+  margin-top: 15px;
+}
 
-  button { width:100%; padding:15px; background:var(--teal); color:#000; font-size:18px; border:none; border-radius:8px; cursor:pointer; font-family:'Cinzel'; font-weight:bold; text-transform: uppercase; margin-top: 10px; }
-  button:hover { background:#17968f; }
+form input {
+  width:100%;
+  padding:12px;
+  margin-bottom:5px;
+  border-radius:6px;
+  border:1px solid #333;
+  background:#050a1a;
+  color:#fff;
+  box-sizing: border-box;
+}
 
-  footer { background: #030610; padding: 40px 5%; border-top: 2px solid var(--teal); text-align: center; margin-top: 60px; }
-  .footer-links { margin-bottom: 20px; line-height: 2; }
-  .footer-links a { color: var(--teal) !important; text-decoration: none; font-size: 11px; font-weight: 600; text-transform: uppercase; margin: 0 8px; }
-  .footer-info { color: #ffffff; font-size: 12px; margin-top: 20px; }
-  .footer-copy { font-size: 10px; color: #6c757d; margin-top: 20px; }
+.address-row { display:flex; gap:10px; margin-top: 10px; }
+
+.payment-options {
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+.payment-fields {
+  display:none;
+  padding:15px;
+  background:rgba(0,0,0,0.2);
+  border-radius:6px;
+  margin-bottom:15px;
+}
+
+.merchant-compliance-notice {
+  background: rgba(32, 178, 170, 0.1);
+  border: 1px solid #20B2AA;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 0.88rem;
+  color: #e0f2f1;
+  line-height: 1.6;
+}
+
+button {
+  width:100%;
+  padding:15px;
+  background:#20B2AA;
+  color:#000;
+  font-size:18px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-family:'Cinzel';
+  font-weight:bold;
+}
+
+button:hover { background:#17968f; }
+
+footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; text-align: center; margin-top: 50px; }
+.footer-links a { color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600; }
+.footer-info p { color:#fff; font-size: 14px; margin: 5px 0; }
 </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -78,58 +136,71 @@
 </header>
 
 <div class="container">
-  <h1>Checkout</h1>
 
-  <div id="order-summary">
-    <h2>Order Summary</h2>
-    <div id="summary-items"></div>
-    <h3 id="summary-total" style="text-align:right; color: #00e0ff; font-family: 'Cinzel'; margin-top: 15px;"></h3>
-  </div>
+<h1>Checkout</h1>
 
-  <form id="checkout-form">
-    <h2>Shipping Details</h2>
+<div id="order-summary">
+  <h2>Order Summary</h2>
+  <div id="summary-items"></div>
+  <h3 id="summary-total" style="text-align:right;"></h3>
+</div>
 
-    <label>Full Name</label>
-    <input type="text" id="name" name="name" required>
+<form id="checkout-form">
 
-    <label>Email</label>
-    <input type="email" id="email" name="email" required>
+<h2>Shipping Details</h2>
 
-    <label>Contact (WhatsApp)</label>
-    <input type="text" id="contact" name="contact" required>
+<label>Full Name</label>
+<input type="text" id="name" name="name" required>
 
-    <label>Shipping Address</label>
-    <input type="text" id="address" name="address" required>
+<label>Email</label>
+<input type="email" id="email" name="email" required>
 
-    <div class="address-row">
-      <input type="text" id="city" name="city" placeholder="City" required>
-      <input type="text" id="country" name="country" placeholder="Country" required>
-    </div>
+<label>Contact (WhatsApp)</label>
+<input type="text" id="contact" name="contact" required>
 
-    <h2>Payment Method</h2>
-    <div class="payment-options">
-      <label><input type="radio" name="payment" value="bank" checked> Bank Transfer</label><br>
-      <label><input type="radio" name="payment" value="payoneer"> Payoneer Payment Request</label>
-    </div>
+<label>Street Address</label>
+<input type="text" id="address" name="address" placeholder="Street name and house/apartment number" required>
 
-    <div id="bank-display" class="payment-fields" style="display:block;">
-      <p>Secure international bank wire transfer details will be generated and cleared directly to your inbox after inventory review.</p>
-    </div>
+<label>Apartment, Suite, P.O. Box (Optional)</label>
+<input type="text" id="address2" name="address2" placeholder="P.O. Box, unit number, etc.">
 
-    <div id="payoneer-display" class="payment-fields">
-      <p>An official network request for payment via Payoneer will be sent to your registered email address post-confirmation.</p>
-    </div>
+<div class="address-row">
+  <input type="text" id="city" name="city" placeholder="City" required>
+  <input type="text" id="state" name="state" placeholder="State / Region" required>
+</div>
 
-    <div class="merchant-compliance-notice">
-      <strong>Payment Processing Notice:</strong> To ensure premium transaction security for natural unheated gemstones, order settlement processing occurs post-checkout via standard offline settlement channels. By selecting "Place Order", your batch inventory allocations are securely reserved while an official electronic statement containing secure processing credentials will clear directly to your verified inbox or linked WhatsApp profile.
-    </div>
+<div class="address-row">
+  <input type="text" id="zip" name="zip" placeholder="ZIP / Postal Code" required>
+  <input type="text" id="country" name="country" placeholder="Country" required>
+</div>
 
-    <button type="submit" id="placeOrderBtn">PLACE ORDER</button>
-  </form>
+<h2>Payment Method</h2>
+
+<div class="payment-options">
+  <label><input type="radio" name="payment" value="bank" checked> Bank Transfer</label><br>
+  <label><input type="radio" name="payment" value="payoneer"> Payoneer</label>
+</div>
+
+<div id="bank-display" class="payment-fields" style="display:block;">
+  <p>Secure international bank transfer wire instructions will be emailed to you after order submission confirmation.</p>
+</div>
+
+<div id="payoneer-display" class="payment-fields">
+  <p>An official electronic Payoneer invoice request will be delivered to your registered email address post-confirmation.</p>
+</div>
+
+<div class="merchant-compliance-notice">
+  <strong>Payment Processing Notice:</strong> To ensure premium transaction security for natural unheated gemstones, order settlement processing occurs post-checkout via standard offline settlement channels. By selecting "Place Order", your batch inventory allocations are securely reserved while an official electronic statement containing secure processing credentials will clear directly to your verified inbox or linked WhatsApp profile.
+</div>
+
+<button type="submit" id="placeOrderBtn">PLACE ORDER</button>
+
+</form>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   let summaryContainer = document.getElementById('summary-items');
   let totalContainer = document.getElementById('summary-total');
@@ -139,24 +210,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cart.forEach(item => {
     let qty = item.qty || item.quantity || 1;
-    let price = Number(item.price) || 0;
-    let itemTotal = price * qty;
+    let itemTotal = item.price * qty;
     total += itemTotal;
 
     let div = document.createElement('div');
-    div.innerHTML = `${item.name} — $${price.toFixed(2)} x ${qty} = <strong>$${itemTotal.toFixed(2)}</strong>`;
+    div.innerHTML = `${item.name} - $${item.price.toFixed(2)} x ${qty} = $${itemTotal.toFixed(2)}`;
     summaryContainer.appendChild(div);
   });
 
-  totalContainer.innerHTML = `Total Amount: $${total.toFixed(2)} USD`;
+  totalContainer.innerHTML = `Total: $${total.toFixed(2)} USD`;
 
-  // Update navbar cart count
+  // Update navbar count
   document.querySelectorAll('.cart-count').forEach(el => { el.textContent = cart.length; });
 
   document.querySelectorAll('input[name="payment"]').forEach(r => {
     r.addEventListener('change', e => {
       document.getElementById('bank-display').style.display = "none";
       document.getElementById('payoneer-display').style.display = "none";
+
       if (e.target.value === "bank") {
         document.getElementById('bank-display').style.display = "block";
       } else {
@@ -167,15 +238,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById('checkout-form').addEventListener('submit', async function(e){
     e.preventDefault();
+
     const btn = document.getElementById("placeOrderBtn");
     btn.disabled = true;
-    btn.innerText = "Processing Allocation...";
+    btn.innerText = "Processing...";
 
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
     let contact = document.getElementById('contact').value;
     let address = document.getElementById('address').value;
+    let address2 = document.getElementById('address2').value || "N/A";
     let city = document.getElementById('city').value;
+    let state = document.getElementById('state').value;
+    let zip = document.getElementById('zip').value;
     let country = document.getElementById('country').value;
     let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
@@ -184,39 +259,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cart.forEach(item => {
       let qty = item.qty || item.quantity || 1;
-      let price = Number(item.price) || 0;
-      let itemTotal = price * qty;
+      let itemTotal = item.price * qty;
       finalTotal += itemTotal;
-      items += `${item.name} (x${qty}) - $${itemTotal.toFixed(2)}\n`;
+      items += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
     });
 
     let orderID = "GM-" + Date.now();
 
-    // 1. Formspree Email Endpoint Integration
+    // 1. SEND EMAIL VIA FORMSPREE
     try {
       await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           order_id: orderID,
           name: name,
           email: email,
           contact: contact,
-          shipping_address: `${address}, ${city}, ${country}`,
+          street_address: address,
+          apartment_box: address2,
+          city: city,
+          state_region: state,
+          zip_postal_code: zip,
+          country: country,
           items: items,
           total_usd: `$${finalTotal.toFixed(2)}`,
-          payment_method: paymentMethod
+          payment: paymentMethod
         })
       });
     } catch (err) {
-      console.log("Transmission bypassed but processing order flow...");
+      console.log("Email failed but continuing transaction details flow...");
     }
 
-    // 2. WhatsApp Data Compilation String
-    let message = `New Order: Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\nAddress: ${address}, ${city}, ${country}\n\n${items}\nTotal: $${finalTotal.toFixed(2)} USD\nPayment Choice: ${paymentMethod}`;
+    // 2. WHATSAPP MESSAGE (UPDATED TO USD)
+    let message = 
+`New Order Gemmines2
+Order ID: ${orderID}
+Name: ${name}
+Contact: ${contact}
+Address: ${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}
+
+${items}
+Total: $${finalTotal.toFixed(2)} USD
+Payment Method: ${paymentMethod}`;
+
     let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
 
     localStorage.removeItem("cart");
+
     window.open(url, "_blank");
 
     localStorage.setItem("lastOrderDetails", JSON.stringify({
@@ -225,18 +317,22 @@ document.addEventListener("DOMContentLoaded", function () {
       total: `$${finalTotal.toFixed(2)}`
     }));
 
+    // 3. REDIRECT
     setTimeout(() => {
       window.location.href = "thankyou.html";
     }, 1500);
+
   });
+
 });
 </script>
+<script src="cart.js"></script>
 
 <footer>
   <div class="footer-links">
     <a href="index.html">Home</a> | 
     <a href="products.html">Products</a> | 
-    <a href="return.html">Standard Return Policy</a> | 
+    <a href="return.html">Returns & Refund Policy</a> | 
     <a href="shipping.html">Shipping Policy</a> | 
     <a href="privacy.html">Privacy Policy</a> | 
     <a href="contact.html">Contact Us</a> | 
