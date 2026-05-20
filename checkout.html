@@ -238,7 +238,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById('checkout-form').addEventListener('submit', async function(e){
     e.preventDefault();
-
+    
+// SAFETY GUARD: Block submission if the cart is completely empty
+  if (cart.length === 0) {
+    alert("Your shopping cart is empty! Please add a gemstone to your cart before placing an order.");
+    const btn = document.getElementById("placeOrderBtn");
+    btn.disabled = false;
+    btn.innerText = "PLACE ORDER";
+    return; // Stops the script here so Formspree doesn't fail
+  }
     const btn = document.getElementById("placeOrderBtn");
     btn.disabled = true;
     btn.innerText = "Processing...";
