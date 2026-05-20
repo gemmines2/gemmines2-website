@@ -147,55 +147,59 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 
 <form id="checkout-form" action="https://formspree.io/f/xwvylqrk" method="POST">
 
-<h2>Shipping Details</h2>
+  <h2>Shipping Details</h2>
 
-<label>Full Name</label>
-<input type="text" id="name" name="name" required>
+  <label>Full Name</label>
+  <input type="text" id="name" name="Customer_Name" required>
 
-<label>Email</label>
-<input type="email" id="email" name="_replyto" required>
+  <label>Email Address</label>
+  <input type="email" id="email" name="email" required>
 
-<label>Contact (WhatsApp)</label>
-<input type="text" id="contact" name="contact" required>
+  <label>Contact (WhatsApp)</label>
+  <input type="text" id="contact" name="WhatsApp_Profile" required>
 
-<label>Street Address</label>
-<input type="text" id="address" name="address" placeholder="Street name and house or apartment number" required>
+  <label>Street Address</label>
+  <input type="text" id="address" name="Shipping_Street" placeholder="Street name and house or apartment number" required>
 
-<label>Apartment, Suite, P.O. Box (Optional)</label>
-<input type="text" id="address2" name="address2" placeholder="P.O. Box, building details, unit, etc.">
+  <label>Apartment, Suite, P.O. Box (Optional)</label>
+  <input type="text" id="address2" name="Shipping_Unit" placeholder="P.O. Box, building details, unit, etc.">
 
-<div class="address-row">
-  <input type="text" id="city" name="city" placeholder="City" required>
-  <input type="text" id="state" name="state" placeholder="State / Region" required>
-</div>
+  <div class="address-row">
+    <input type="text" id="city" name="City" placeholder="City" required>
+    <input type="text" id="state" name="State_Region" placeholder="State / Region" required>
+  </div>
 
-<div class="address-row">
-  <input type="text" id="zip" name="zip" placeholder="ZIP / Postal Code" required>
-  <input type="text" id="country" name="country" placeholder="Country" required>
-</div>
+  <div class="address-row">
+    <input type="text" id="zip" name="Postal_ZIP_Code" placeholder="ZIP / Postal Code" required>
+    <input type="text" id="country" name="Country" placeholder="Country" required>
+  </div>
 
-<h2>Payment Method</h2>
+  <h2>Payment Method</h2>
 
-<div class="payment-options">
-  <label><input type="radio" name="payment" value="bank" checked> Bank Transfer</label><br>
-  <label><input type="radio" name="payment" value="payoneer"> Payoneer Payment Request</label>
-</div>
+  <div class="payment-options">
+    <label><input type="radio" name="Selected_Payment" value="Bank Transfer" checked> Bank Transfer</label><br>
+    <label><input type="radio" name="Selected_Payment" value="Payoneer Payment Request"> Payoneer Payment Request</label>
+  </div>
 
-<div id="bank-display" class="payment-fields" style="display:block;">
-  <p>Secure international bank transfer wire details will be shared directly via email following order verification.</p>
-</div>
+  <div id="bank-display" class="payment-fields" style="display:block;">
+    <p>Secure international bank transfer wire details will be shared directly via email following order verification.</p>
+  </div>
 
-<div id="payoneer-display" class="payment-fields">
-  <p>An official network request for payment via Payoneer will be generated to your email address post-confirmation.</p>
-</div>
+  <div id="payoneer-display" class="payment-fields">
+    <p>An official network request for payment via Payoneer will be generated to your email address post-confirmation.</p>
+  </div>
 
-<div class="merchant-compliance-notice">
-  <strong>Payment Processing Notice:</strong> To ensure premium transaction security for natural unheated gemstones, order settlement processing occurs post-checkout via standard offline settlement channels. By selecting "Place Order", your batch inventory allocations are securely reserved while an official electronic statement containing secure processing credentials will clear directly to your verified inbox or linked WhatsApp profile.
-</div>
+  <div class="merchant-compliance-notice">
+    <strong>Payment Processing Notice:</strong> To ensure premium transaction security for natural unheated gemstones, order settlement processing occurs post-checkout via standard offline settlement channels. By selecting "Place Order", your batch inventory allocations are securely reserved while an official electronic statement containing secure processing credentials will clear directly to your verified inbox or linked WhatsApp profile.
+  </div>
 
-<input type="hidden" name="_next" value="https://gemmines2.github.io/thankyou.html">
+  <input type="hidden" id="hidden-order-id" name="Order_Reference_ID">
+  <input type="hidden" id="hidden-items" name="Allocated_Gemstones">
+  <input type="hidden" id="hidden-total" name="Total_Settlement_USD">
+  
+  <input type="hidden" name="_next" value="https://gemmines2.github.io/thankyou.html">
 
-<button type="submit" id="placeOrderBtn">PLACE ORDER</button>
+  <button type="submit" id="placeOrderBtn">PLACE ORDER</button>
 
 </form>
 </div>
@@ -225,12 +229,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('.cart-count').forEach(el => { el.textContent = cart.length; });
 
-  document.querySelectorAll('input[name="payment"]').forEach(r => {
+  document.querySelectorAll('input[name="Selected_Payment"]').forEach(r => {
     r.addEventListener('change', e => {
       document.getElementById('bank-display').style.display = "none";
       document.getElementById('payoneer-display').style.display = "none";
 
-      if (e.target.value === "bank") {
+      if (e.target.value === "Bank Transfer") {
         document.getElementById('bank-display').style.display = "block";
       } else {
         document.getElementById('payoneer-display').style.display = "block";
@@ -238,10 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // CHANGE 3: SIMPLIFIED NON-BLOCKING SUBMISSION METHOD
+  // SUBMISSION FORMSPREE RE-ALIGNMENT
   document.getElementById('checkout-form').addEventListener('submit', function(e){
     
-    // Safety check first
     if (cart.length === 0) {
       e.preventDefault();
       alert("Your shopping cart is empty! Please add a gemstone to your cart before placing an order.");
@@ -260,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let state = document.getElementById('state').value;
     let zip = document.getElementById('zip').value;
     let country = document.getElementById('country').value;
-    let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+    let paymentMethod = document.querySelector('input[name="Selected_Payment"]:checked').value;
 
     let itemsText = "";
     let finalTotal = 0;
@@ -275,38 +278,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let orderID = "GM-" + Date.now();
 
-    // Create hidden fields instantly right inside the HTML form so Formspree captures the cart text clearly
-    let inputItems = document.createElement('input');
-    inputItems.type = 'hidden';
-    inputItems.name = 'Ordered_Gemstones';
-    inputItems.value = itemsText;
-    this.appendChild(inputItems);
+    // Fill out the hidden fields just before browser sends the POST event
+    document.getElementById('hidden-order-id').value = orderID;
+    document.getElementById('hidden-items').value = itemsText;
+    document.getElementById('hidden-total').value = `$${finalTotal.toFixed(2)} USD`;
 
-    let inputTotal = document.createElement('input');
-    inputTotal.type = 'hidden';
-    inputTotal.name = 'Total_Order_Value';
-    inputTotal.value = `$${finalTotal.toFixed(2)} USD`;
-    this.appendChild(inputTotal);
-
-    let inputID = document.createElement('input');
-    inputID.type = 'hidden';
-    inputID.name = 'Order_Reference_ID';
-    inputID.value = orderID;
-    this.appendChild(inputID);
-
-    // Save items to storage for the upcoming thankyou page to display
+    // Store order details safely for the thank-you screen view
     localStorage.setItem("lastOrderDetails", JSON.stringify({
       orderID,
       items: itemsText,
       total: `$${finalTotal.toFixed(2)}`
     }));
 
-    // Trigger WhatsApp in the background window tab
+    // Generate background window for WhatsApp log forwarding
     let message = `New Order Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\nAddress: ${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}\n\n${itemsText}\nTotal: $${finalTotal.toFixed(2)} USD\nPayment Method: ${paymentMethod}`;
     let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
 
-    // Clear cart storage safely right before direct post execution
+    // Wipe cart memory cache cleanly before Formspree switches page views
     localStorage.removeItem("cart");
   });
 
