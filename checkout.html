@@ -145,7 +145,7 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
   <h3 id="summary-total" style="text-align:right;"></h3>
 </div>
 
-<form id="checkout-form">
+<form id="checkout-form" action="https://formspree.io/f/xwvylqrk" method="POST">
 
 <h2>Shipping Details</h2>
 
@@ -153,7 +153,7 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 <input type="text" id="name" name="name" required>
 
 <label>Email</label>
-<input type="email" id="email" name="email" required>
+<input type="email" id="email" name="_replyto" required>
 
 <label>Contact (WhatsApp)</label>
 <input type="text" id="contact" name="contact" required>
@@ -192,6 +192,8 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 <div class="merchant-compliance-notice">
   <strong>Payment Processing Notice:</strong> To ensure premium transaction security for natural unheated gemstones, order settlement processing occurs post-checkout via standard offline settlement channels. By selecting "Place Order", your batch inventory allocations are securely reserved while an official electronic statement containing secure processing credentials will clear directly to your verified inbox or linked WhatsApp profile.
 </div>
+
+<input type="hidden" name="_next" value="https://gemmines2.github.io/thankyou.html">
 
 <button type="submit" id="placeOrderBtn">PLACE ORDER</button>
 
@@ -236,23 +238,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.getElementById('checkout-form').addEventListener('submit', async function(e){
-    e.preventDefault();
+  // CHANGE 3: SIMPLIFIED NON-BLOCKING SUBMISSION METHOD
+  document.getElementById('checkout-form').addEventListener('submit', function(e){
     
-// SAFETY GUARD: Block submission if the cart is completely empty
-  if (cart.length === 0) {
-    alert("Your shopping cart is empty! Please add a gemstone to your cart before placing an order.");
-    const btn = document.getElementById("placeOrderBtn");
-    btn.disabled = false;
-    btn.innerText = "PLACE ORDER";
-    return; // Stops the script here so Formspree doesn't fail
-  }
+    // Safety check first
+    if (cart.length === 0) {
+      e.preventDefault();
+      alert("Your shopping cart is empty! Please add a gemstone to your cart before placing an order.");
+      return;
+    }
+
     const btn = document.getElementById("placeOrderBtn");
     btn.disabled = true;
-    btn.innerText = "Processing...";
+    btn.innerText = "Processing Allocation...";
 
     let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
     let contact = document.getElementById('contact').value;
     let address = document.getElementById('address').value;
     let address2 = document.getElementById('address2').value || "N/A";
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let country = document.getElementById('country').value;
     let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
-    let items = "";
+    let itemsText = "";
     let finalTotal = 0;
 
     cart.forEach(item => {
@@ -270,65 +270,44 @@ document.addEventListener("DOMContentLoaded", function () {
       let price = Number(item.price) || 0;
       let itemTotal = price * qty;
       finalTotal += itemTotal;
-      items += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
+      itemsText += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
     });
 
     let orderID = "GM-" + Date.now();
 
-    // 1. SEND DATA TO FORMSPREE
-    try {
-      await fetch("https://formspree.io/f/xwvylqrk", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          order_id: orderID,
-          name: name,
-          email: email,
-          contact: contact,
-          street_address: address,
-          apartment_or_po_box: address2,
-          city: city,
-          state_region: state,
-          zip_postal_code: zip,
-          country: country,
-          items: items,
-          total_usd: `$${finalTotal.toFixed(2)}`,
-          payment: paymentMethod
-        })
-      });
-    } catch (err) {
-      console.log("Email pipeline bypassed but handling fallback allocations...");
-    }
+    // Create hidden fields instantly right inside the HTML form so Formspree captures the cart text clearly
+    let inputItems = document.createElement('input');
+    inputItems.type = 'hidden';
+    inputItems.name = 'Ordered_Gemstones';
+    inputItems.value = itemsText;
+    this.appendChild(inputItems);
 
-    // 2. WHATSAPP FORWARDING STRING
-    let message = 
-`New Order Gemmines2
-Order ID: ${orderID}
-Name: ${name}
-Contact: ${contact}
-Address: ${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}
+    let inputTotal = document.createElement('input');
+    inputTotal.type = 'hidden';
+    inputTotal.name = 'Total_Order_Value';
+    inputTotal.value = `$${finalTotal.toFixed(2)} USD`;
+    this.appendChild(inputTotal);
 
-${items}
-Total: $${finalTotal.toFixed(2)} USD
-Payment Method: ${paymentMethod}`;
+    let inputID = document.createElement('input');
+    inputID.type = 'hidden';
+    inputID.name = 'Order_Reference_ID';
+    inputID.value = orderID;
+    this.appendChild(inputID);
 
-    let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
-
-    localStorage.removeItem("cart");
-    window.open(url, "_blank");
-
+    // Save items to storage for the upcoming thankyou page to display
     localStorage.setItem("lastOrderDetails", JSON.stringify({
       orderID,
-      items,
+      items: itemsText,
       total: `$${finalTotal.toFixed(2)}`
     }));
 
-    setTimeout(() => {
-      window.location.href = "thankyou.html";
-    }, 1500);
+    // Trigger WhatsApp in the background window tab
+    let message = `New Order Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\nAddress: ${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}\n\n${itemsText}\nTotal: $${finalTotal.toFixed(2)} USD\nPayment Method: ${paymentMethod}`;
+    let url = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
 
+    // Clear cart storage safely right before direct post execution
+    localStorage.removeItem("cart");
   });
 
 });
