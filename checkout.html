@@ -273,9 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
        await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
-        },
-
+  "Content-Type": "application/json",
+  "Accept": "application/json"
+},
              body: JSON.stringify({
           order_id: orderID,
           name: name,
