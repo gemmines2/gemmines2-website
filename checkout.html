@@ -270,12 +270,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 1. SEND DATA TO FORMSPREE
     try {
-      await fetch("https://formspree.io/f/xwvylqrk", {
+       await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
+
+             body: JSON.stringify({
           order_id: orderID,
           name: name,
           email: email,
