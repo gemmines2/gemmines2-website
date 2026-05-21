@@ -268,34 +268,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let orderID = "GM-" + Date.now();
 
-    // 1. SEND DATA TO FORMSPREE
-    try {
-       await fetch("https://formspree.io/f/xwvylqrk", {
-        method: "POST",
-        headers: {
-  "Content-Type": "application/json",
-  "Accept": "application/json"
-},
-             body: JSON.stringify({
-          order_id: orderID,
-          name: name,
-          email: email,
-          contact: contact,
-          street_address: address,
-          apartment_or_po_box: address2,
-          city: city,
-          state_region: state,
-          zip_postal_code: zip,
-          country: country,
-          items: items,
-          total_usd: `$${finalTotal.toFixed(2)}`,
-          payment: paymentMethod
-        })
-      });
-    } catch (err) {
-      console.log("Email pipeline bypassed but handling fallback allocations...");
-    }
+  // 1. SEND DATA TO FORMSPREE
+try {
 
+  const response = await fetch("https://formspree.io/f/xwvylqrk", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+
+    body: JSON.stringify({
+
+      order_id: orderID,
+
+      customer_name: name,
+
+      customer_email: email,
+
+      customer_contact: contact,
+
+      full_address:
+        address + ", " +
+        address2 + ", " +
+        city + ", " +
+        state + ", " +
+        zip + ", " +
+        country,
+
+      ordered_items: items,
+
+      total_amount: `$${finalTotal.toFixed(2)} USD`,
+
+      payment_method: paymentMethod
+
+    })
+
+  });
+
+  const result = await response.json();
+
+  console.log("Formspree Success:", result);
+
+} catch (error) {
+
+  console.log("Formspree Error:", error);
+
+}
     // 2. WHATSAPP FORWARDING STRING
     let message = 
 `New Order Gemmines2
