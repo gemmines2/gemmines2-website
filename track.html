@@ -290,29 +290,19 @@ function trackOrder(){
 
   setTimeout(() => {
 
-    result.innerHTML = `
+result.innerHTML = `
+  <b>Order ID:</b> ${id}<br><br>
 
-      <b>Order ID:</b> ${id}<br><br>
+  <b>Order Status:</b> Processing<br><br>
 
-      <b>Status:</b> Processing / Payment Pending<br><br>
+  ✔ Payment verification in progress<br>
+  ✔ Secure order allocation confirmed<br>
+  ✔ Shipping preparation pending<br><br>
 
-      <b>Estimated Delivery:</b> 5–10 Business Days<br><br>
-
-      <b>Next Step:</b><br>
-
-      ✔ Payment verification in progress<br>
-
-      ✔ WhatsApp confirmation will be sent<br>
-
-      ✔ Shipment preparation underway<br><br>
-
-      <span style="color:#aaa;font-size:12px;">
-
-      Real tracking system will be connected to database in future upgrades.
-
-      </span>
-
-    `;
+  <span style="color:#20B2AA;font-size:12px;">
+    For shipment updates please contact us via WhatsApp or Email.
+  </span>
+`;
 
   },800);
 
