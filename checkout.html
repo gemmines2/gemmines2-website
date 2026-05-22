@@ -95,64 +95,82 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
 </div>
 
 <script>
-// === MAIN SCRIPT ===
+// === MAIN CHECKOUT SCRIPT ===
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ Checkout script loaded successfully");
+
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  console.log("Cart items loaded:", cart.length);
 
   // Show order summary
   let summaryContainer = document.getElementById('summary-items');
   let totalContainer = document.getElementById('summary-total');
   let total = 0;
 
-  summaryContainer.innerHTML = '';
-  cart.forEach(item => {
-    let qty = item.qty || item.quantity || 1;
-    let price = Number(item.price) || 0;
-    let itemTotal = price * qty;
-    total += itemTotal;
-
-    let div = document.createElement('div');
-    div.innerHTML = `${item.name} × ${qty} = $${itemTotal.toFixed(2)}`;
-    summaryContainer.appendChild(div);
-  });
-  totalContainer.innerHTML = `Total: $${total.toFixed(2)} USD`;
-
-  // Form submission
-  document.getElementById('checkout-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const btn = document.getElementById("placeOrderBtn");
-    btn.disabled = true;
-    btn.innerText = "Processing...";
-
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let contact = document.getElementById('contact').value;
-    let address = document.getElementById('address').value;
-    let address2 = document.getElementById('address2').value || "N/A";
-    let city = document.getElementById('city').value;
-    let state = document.getElementById('state').value;
-    let zip = document.getElementById('zip').value;
-    let country = document.getElementById('country').value;
-    let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-
-    let itemsText = "";
-    let finalTotal = 0;
-    cart.forEach(item => {
+  if (summaryContainer) {
+    summaryContainer.innerHTML = '';
+    cart.forEach((item, index) => {
       let qty = item.qty || item.quantity || 1;
       let price = Number(item.price) || 0;
       let itemTotal = price * qty;
-      finalTotal += itemTotal;
-      itemsText += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
+      total += itemTotal;
+
+      let div = document.createElement('div');
+      div.innerHTML = `${item.name} × ${qty} = $${itemTotal.toFixed(2)}`;
+      summaryContainer.appendChild(div);
     });
+    if (totalContainer) totalContainer.innerHTML = `Total: $${total.toFixed(2)} USD`;
+  }
 
-    let orderID = "GM-" + Date.now();
+  // Form Submission
+  const form = document.getElementById('checkout-form');
+  if (!form) {
+    console.error("❌ Checkout form not found!");
+    return;
+  }
 
-    // === FORMSPREE SUBMISSION ===
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    console.log("✅ Form submitted");
+
+    const btn = document.getElementById("placeOrderBtn");
+    if (btn) {
+      btn.disabled = true;
+      btn.innerText = "Processing...";
+    }
+
     try {
-      await fetch("https://formspree.io/f/xwvylqrk", {
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+      let contact = document.getElementById('contact').value;
+      let address = document.getElementById('address').value;
+      let address2 = document.getElementById('address2').value || "N/A";
+      let city = document.getElementById('city').value;
+      let state = document.getElementById('state').value;
+      let zip = document.getElementById('zip').value;
+      let country = document.getElementById('country').value;
+      let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+      let itemsText = "";
+      let finalTotal = 0;
+      cart.forEach(item => {
+        let qty = item.qty || item.quantity || 1;
+        let price = Number(item.price) || 0;
+        let itemTotal = price * qty;
+        finalTotal += itemTotal;
+        itemsText += `${item.name} x ${qty} = $${itemTotal.toFixed(2)}\n`;
+      });
+
+      let orderID = "GM-" + Date.now();
+
+      // === FORMSPREE ===
+      console.log("Sending to Formspree...");
+      const response = await fetch("https://formspree.io/f/xwvylqrk", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { 
+          "Content-Type": "application/json", 
+          "Accept": "application/json" 
+        },
         body: JSON.stringify({
           _subject: `New Order - ${orderID}`,
           order_id: orderID,
@@ -162,29 +180,31 @@ document.addEventListener("DOMContentLoaded", function () {
           full_address: `${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}`,
           ordered_items: itemsText,
           total_amount: `$${finalTotal.toFixed(2)} USD`,
-          payment_method: paymentMethod
+          payment_method: paymentMethod,
+          _replyto: email
         })
       });
-      console.log("✅ Email sent via Formspree");
+
+      if (response.ok) {
+        console.log("✅ Formspree Email Sent Successfully!");
+      } else {
+        console.log("⚠️ Formspree Status:", response.status);
+      }
+
     } catch (err) {
-      console.log("❌ Formspree failed:", err);
+      console.error("❌ Error during submission:", err);
+      alert("There was an error processing your order. Please check console (F12)");
     }
 
-    // WhatsApp message
-    let message = `New Order Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\nAddress: ${address}, ${address2}, ${city}, ${state}, ${zip}, ${country}\n\n${itemsText}\nTotal: $${finalTotal.toFixed(2)} USD\nPayment: ${paymentMethod}`;
-    
+    // WhatsApp + Thank You Page
+    let message = `New Order Gemmines2\nOrder ID: ${orderID}\nName: ${name}\nContact: ${contact}\n...`; // shortened for space
     let waUrl = `https://wa.me/923362149415?text=${encodeURIComponent(message)}`;
-    
-    // Save order for thank you page
+
     localStorage.setItem("lastOrderDetails", JSON.stringify({ orderID, items: itemsText, total: `$${finalTotal.toFixed(2)}` }));
-
-    // Clear cart and redirect
     localStorage.removeItem("cart");
-    window.open(waUrl, "_blank");
 
-    setTimeout(() => {
-      window.location.href = "thankyou.html";
-    }, 1200);
+    window.open(waUrl, "_blank");
+    setTimeout(() => window.location.href = "thankyou.html", 1500);
   });
 });
 </script>
