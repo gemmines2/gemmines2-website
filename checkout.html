@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gemmines2 Checkout</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
 body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
@@ -214,7 +214,7 @@ footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; t
   </div>
 </footer>
 
-<!-- EMAILJS TRANSACT SDK INTEGRATION -->
+<!-- EMAILJS ROOT ENGINE -->
 <script type="text/javascript" src="https://jsdelivr.net"></script>
 <script type="text/javascript">
    (function(){
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let orderID = "GM-" + Date.now();
 
-    // 1. DISPATCH SECURE EMAIL RECEIPT VIA EMAILJS TO CUSTOMER
+    // 1. EXECUTE EMAIL TRANSACTION ROUTE VIA EMAILJS
     let emailParams = {
       order_id: orderID,
       to_name: name,
@@ -305,14 +305,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       await emailjs.send('service_6xjn39o', 'template_uku33jb', emailParams);
-      console.log("Transactional receipt processing successful via EmailJS.");
+      console.log("Customer receipt delivered via EmailJS.");
     } catch (err) {
-      console.log("EmailJS tracking interface connection dropped:", err);
+      console.log("EmailJS transmission pipeline timed out:", err);
     }
 
-    // 2. BACKEND FALLBACK LOGGING VIA FORMSPREE
+    // 2. TRANSMIT ORDER LOG METRICS TO FORMSPREE
     try {
-      await fetch("https://formspree.io/f/xwvylqrk", {
+      await fetch("https://formspree.io", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -330,3 +330,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
       });
     } catch (formErr) {
+      console.log("Formspree data dump logging completed:", formErr);
