@@ -1,3 +1,153 @@
+
+/* ═══════════════════════════════════════════
+   GEMMINES2 — Product Catalog
+   Add / edit products here. All pages read from this file.
+   ═══════════════════════════════════════════ */
+
+const PRODUCTS = [
+  {
+    id: 'sapphire-bicolor-215',
+    name: '2.15ct Bi-Color Sapphire',
+    shortName: 'Bi-Color Sapphire',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '2.15 Ct',
+    origin: 'Sri Lanka',
+    price: 95,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/sapphire-bicolor.jpg',
+    description: 'A beautiful natural unheated bi-color sapphire from Sri Lanka. This stone displays a stunning transition between two distinct colors, making it a rare collector\'s piece. No heat treatment applied.',
+    identifier_exists: false
+  },
+  {
+    id: 'sapphire-royalblue-580',
+    name: '5.80ct Royal Blue Sapphire',
+    shortName: 'Royal Blue Sapphire',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '5.80 Ct',
+    origin: 'Sri Lanka',
+    price: 120,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/royal-blue-sapphire.jpg',
+    description: 'A magnificent 5.80ct Royal Blue Sapphire of Sri Lankan origin. Deep royal blue color with excellent transparency. Completely natural, no heat treatment. Certificate available upon request.',
+    identifier_exists: false
+  },
+  {
+    id: 'sapphire-padparadscha-293',
+    name: '2.93ct Padparadscha Sapphire',
+    shortName: 'Padparadscha Sapphire',
+    type: 'cut',
+    treatment: 'heated',
+    treatmentLabel: 'Natural Heated',
+    weight: '2.93 Ct',
+    origin: 'Sri Lanka',
+    price: 190,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/padparadscha.jpg',
+    description: 'A rare and highly sought-after Padparadscha Sapphire displaying the classic pinkish-orange hue. This stone has undergone traditional heat treatment to enhance its color, which is standard practice for this variety.',
+    identifier_exists: false
+  },
+  {
+    id: 'ruby-srilanka-106',
+    name: '1.06ct Sri Lankan Ruby',
+    shortName: 'Sri Lankan Ruby',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '1.06 Ct',
+    origin: 'Sri Lanka',
+    price: 200,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/ruby.jpg',
+    description: 'A natural unheated Sri Lankan Ruby with vivid red color. This is a rare find — unheated rubies command a premium on the market. Certificate available upon request.',
+    identifier_exists: false
+  },
+  {
+    id: 'opal-mixed-200ct',
+    name: '200ct Mixed Colour Opal',
+    shortName: 'Mixed Colour Opal',
+    type: 'rough',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '200 Ct',
+    origin: 'Pakistan',
+    price: 85,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/opal.jpg',
+    description: 'A natural collection of 200 carats of mixed colour Pakistani opals. These rough natural stones display a beautiful range of colours and are perfect for collectors or lapidaries.',
+    identifier_exists: false
+  },
+  {
+    id: 'garnet-rhodolite-122',
+    name: '12.2ct Rhodolite Garnet',
+    shortName: 'Rhodolite Garnet',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '12.2 Ct',
+    origin: 'Pakistan',
+    price: 75,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/rhodolite-garnet.jpg',
+    description: 'A stunning natural Rhodolite Garnet parcel from Pakistan. These rich purplish-red stones are completely natural with no treatment applied. Beautiful for collector sets or jewelry making.',
+    identifier_exists: false
+  },
+  {
+    id: 'garnet-silver-ring',
+    name: 'Garnet 925 Sterling Silver Ring',
+    shortName: 'Garnet Silver Ring',
+    type: 'jewelry',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Stone • 925 Sterling Silver',
+    weight: 'Custom',
+    origin: 'Handcrafted in Pakistan',
+    price: 55,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/jewelry.jpg',
+    description: 'Handcrafted 925 Sterling Silver ring set with a natural garnet gemstone. Custom sizing available. Rhodium finish available. Please note custom jewelry orders are non-returnable.',
+    identifier_exists: false,
+    isJewelry: true,
+    material: '925 Sterling Silver'
+  },
+  {
+    id: 'tourmaline-red-lot',
+    name: 'Red Tourmaline Lot',
+    shortName: 'Red Tourmaline',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: 'Mixed Lot',
+    origin: 'Pakistan',
+    price: 110,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/tourmaline.jpg',
+    description: 'A beautiful mixed lot of natural red tourmalines from Pakistan. Vivid red color, precision faceted. No heat treatment. Perfect for collectors or jewelry setters.',
+    identifier_exists: false
+  }
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Products html by claude
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,135 +159,205 @@
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    .page-hero { padding: 60px 5% 40px; background: #0a1430; border-bottom: 1px solid rgba(32,178,170,0.2); text-align: center; margin-top: 70px; }
-    .page-hero h1 { font-family:'Cinzel', serif; font-size: 2.2rem; color: #20B2AA; margin: 0; }
-    .page-hero p { font-size:14px; color:#ced4da; margin-top:8px; }
+    .page-hero { padding: 60px 5% 40px; background: var(--navy2); border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; }
+    .page-hero h1 em { font-style:italic; color:var(--gold); }
+    .page-hero p { font-size:14px; color:var(--muted); margin-top:8px; }
 
     .shop-layout { display:grid; grid-template-columns:240px 1fr; gap:36px; padding:40px 5%; max-width:1300px; margin:0 auto; }
 
-    /* SIDEBAR FILTERS */
+    /* SIDEBAR */
     .sidebar { position:sticky; top:88px; align-self:start; }
-    .filter-box { background:#0a1430; border:1px solid rgba(32,178,170,0.2); border-radius:8px; padding:22px; margin-bottom:18px; }
-    .filter-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#20B2AA; margin-bottom:16px; font-family:'Cinzel', serif; }
+    .filter-box { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:22px; margin-bottom:18px; }
+    .filter-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text); margin-bottom:16px; }
     .filter-option { display:flex; align-items:center; gap:10px; padding:7px 0; cursor:pointer; }
-    .filter-option input { accent-color:#20B2AA; width:15px; height:15px; cursor:pointer; }
-    .filter-option label { font-size:13px; color:#ced4da; cursor:pointer; transition:color .2s; }
-    .filter-option:hover label { color:#fff; }
-    
-    /* PRODUCTS INVENTORY AREA */
-    .products-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
-    .product-count { font-size:13px; color:#ced4da; }
-    .products-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:24px; }
-    
-    .prod-card { background:#0a1430; border:1px solid rgba(32,178,170,0.15); border-radius:8px; overflow:hidden; transition:transform .3s, border-color .3s; display: flex; flex-direction: column; justify-content: space-between; padding: 15px; }
-    .prod-card:hover { transform:translateY(-4px); border-color:#20B2AA; }
-    .prod-img-box { position: relative; width: 100%; height: 220px; background: #020612; border-radius: 6px; overflow: hidden; }
-    .prod-img { width:100%; height:100%; object-fit:cover; }
-    
-    .prod-info { padding: 15px 0 0; display: flex; flex-direction: column; flex-grow: 1; }
-    .prod-badge { font-size: 10px; color: #20B2AA; border: 1px solid #20B2AA; padding: 2px 6px; border-radius: 3px; align-self: flex-start; margin-bottom: 10px; text-transform: uppercase; font-weight: bold; }
-    .prod-title { font-family:'Cinzel', serif; font-size:1.1rem; color:#fff; margin:0 0 10px; min-height: 45px; }
-    .prod-desc { font-size:13px; color:#ced4da; margin-bottom:15px; flex-grow: 1; }
-    
-    .prod-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; margin-top: auto; }
-    .prod-price { font-size: 1.3rem; font-weight: 700; color: #fff; }
-    .action-btn { background:#20B2AA; color:#000; border:none; padding:10px 20px; border-radius:4px; font-family:'Cinzel', serif; font-weight:bold; cursor:pointer; font-size:0.85rem; }
-    .action-btn:hover { background:#17968f; }
+    .filter-option input { accent-color:var(--teal); width:15px; height:15px; cursor:pointer; }
+    .filter-option label { font-size:13px; color:var(--muted); cursor:pointer; transition:color .2s; }
+    .filter-option:hover label { color:var(--text); }
+    .filter-option input:checked + label { color:var(--teal); font-weight:600; }
+    .clear-filters { display:block; width:100%; background:none; border:1px solid var(--border); color:var(--muted); padding:9px; border-radius:4px; font-size:12px; font-weight:500; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all .2s; margin-top:4px; }
+    .clear-filters:hover { border-color:var(--teal); color:var(--teal); }
 
-    @media (max-width: 768px) {
-      .shop-layout { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
-    }
+    /* PRODUCTS AREA */
+    .products-area { }
+    .products-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+    .product-count { font-size:13px; color:var(--muted); }
+    .sort-select { background:var(--card); border:1px solid var(--border); color:var(--text); padding:9px 14px; border-radius:4px; font-size:13px; cursor:pointer; }
+    .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .prod-card { background:var(--card); border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:transform .3s,border-color .3s; }
+    .prod-card:hover { transform:translateY(-4px); border-color:rgba(32,178,170,.45); }
+    .prod-img-wrap { position:relative; aspect-ratio:1; overflow:hidden; background:var(--navy3); }
+    .prod-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+    .prod-card:hover .prod-img-wrap img { transform:scale(1.07); }
+    .prod-img-wrap .fallback { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3rem; color:var(--muted2); }
+    .prod-badge-row { position:absolute; top:10px; left:10px; display:flex; gap:6px; }
+    .prod-body { padding:16px; }
+    .prod-treatment { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:5px; }
+    .unheated { color:var(--teal); } .heated { color:var(--gold); }
+    .prod-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:500; color:var(--text); line-height:1.3; margin-bottom:3px; }
+    .prod-meta { font-size:11.5px; color:var(--muted); margin-bottom:14px; }
+    .prod-footer { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .prod-price { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:var(--gold); }
+    .prod-btns { display:flex; gap:7px; }
+    .btn-view { background:transparent; border:1px solid var(--border); color:var(--muted); padding:7px 12px; border-radius:3px; font-size:11px; font-weight:500; letter-spacing:.5px; cursor:pointer; transition:all .2s; text-decoration:none; }
+    .btn-view:hover { border-color:var(--border); color:var(--text); }
+    .btn-add { background:transparent; border:1px solid var(--teal); color:var(--teal); padding:7px 12px; border-radius:3px; font-size:11px; font-weight:600; letter-spacing:1px; cursor:pointer; transition:all .2s; }
+    .btn-add:hover { background:var(--teal); color:#000; }
+    .no-results { text-align:center; padding:60px 20px; color:var(--muted); }
+    .no-results h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--text); margin-bottom:8px; }
+
+    @media(max-width:900px){ .shop-layout{grid-template-columns:1fr}; .sidebar{position:static}; .products-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:480px){ .products-grid{grid-template-columns:repeat(2,1fr); gap:12px} }
   </style>
 </head>
 <body>
-
-<header style="position:fixed; top:0; left:0; right:0; background:#0a0a0a; border-bottom:1.5px solid #20B2AA; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; z-index:1000;">
-  <div style="font-family:'Cinzel'; font-size:1.5rem;"><a href="index.html" style="color:#20B2AA; text-decoration:none;"><strong>Gemmines2</strong></a></div>
-  <nav>
-    <a href="index.html" style="margin-left:20px; color:#20B2AA; text-decoration:none; font-family:'Cinzel'; font-size:0.85rem; font-weight:700;">Home</a>
-    <a href="products.html" style="margin-left:20px; color:#20B2AA; text-decoration:none; font-family:'Cinzel'; font-size:0.85rem; font-weight:700;">Products</a>
-    <a href="cart.html" style="margin-left:20px; color:#20B2AA; text-decoration:none; font-family:'Cinzel'; font-size:0.85rem; font-weight:700;">Cart</a>
-    <a href="contact.html" style="margin-left:20px; color:#20B2AA; text-decoration:none; font-family:'Cinzel'; font-size:0.85rem; font-weight:700;">Contact</a>
+<div class="announcement">✦ Free Insured Shipping Over $500 &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<header class="site-header">
+  <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
+  <nav class="main-nav">
+    <a href="index.html">Home</a><a href="products.html" class="active">Collection</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="cart.html" class="nav-cart">Cart <span class="cart-count">(0)</span></a>
   </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="products.html">Collection</a>
+  <a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="cart.html">Cart <span class="cart-count">(0)</span></a>
+</nav>
 
 <div class="page-hero">
-  <h1>Natural Gemstone <em>Collection</em></h1>
-  <p>100% natural, completely unheated and certified gemstone selections.</p>
+  <span class="section-label">Our Collection</span>
+  <h1>Natural <em>Gemstones</em></h1>
+  <p>100% earth-mined • Full treatment disclosure • Pakistan &amp; Sri Lanka</p>
 </div>
 
 <div class="shop-layout">
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="filter-box">
-      <div class="filter-title">Origin</div>
-      <div class="filter-option"><input type="checkbox" id="origin-sl"><label for="origin-sl">Sri Lanka</label></div>
-      <div class="filter-option"><input type="checkbox" id="origin-pk"><label for="origin-pk">Pakistan</label></div>
+      <div class="filter-title">Stone Type</div>
+      <div class="filter-option"><input type="checkbox" id="f-cut" value="cut" onchange="applyFilters()"><label for="f-cut">Cut &amp; Polished</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-rough" value="rough" onchange="applyFilters()"><label for="f-rough">Rough &amp; Natural</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-jewelry" value="jewelry" onchange="applyFilters()"><label for="f-jewelry">Custom Jewelry</label></div>
     </div>
+    <div class="filter-box">
+      <div class="filter-title">Treatment</div>
+      <div class="filter-option"><input type="checkbox" id="f-unheated" value="unheated" onchange="applyFilters()"><label for="f-unheated">Natural Unheated</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-heated" value="heated" onchange="applyFilters()"><label for="f-heated">Natural Heated</label></div>
+    </div>
+    <div class="filter-box">
+      <div class="filter-title">Origin</div>
+      <div class="filter-option"><input type="checkbox" id="f-srilanka" value="Sri Lanka" onchange="applyFilters()"><label for="f-srilanka">Sri Lanka</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-pakistan" value="Pakistan" onchange="applyFilters()"><label for="f-pakistan">Pakistan</label></div>
+    </div>
+    <button class="clear-filters" onclick="clearFilters()">Clear All Filters</button>
   </aside>
 
-  <main class="products-area">
+  <!-- PRODUCTS -->
+  <div class="products-area">
     <div class="products-toolbar">
-      <div class="product-count"><span id="count-num">8</span> items found</div>
+      <div class="product-count" id="productCount">Showing all products</div>
+      <select class="sort-select" onchange="applyFilters()">
+        <option value="default">Sort: Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="unheated">Unheated First</option>
+      </select>
     </div>
-    <div class="products-grid" id="catalog-grid"></div>
-  </main>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
 </div>
 
-<footer style="background:#030610; padding:40px 5%; border-top:2px solid #20B2AA; text-align:center; margin-top:80px;">
-  <div style="margin-bottom: 20px;">
-    <a href="index.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Home</a> | 
-    <a href="products.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Products</a> | 
-    <a href="return.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Returns</a> | 
-    <a href="shipping.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Shipping</a> | 
-    <a href="privacy.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Privacy</a> | 
-    <a href="terms.html" style="color:#20B2AA; text-decoration:none; margin:0 10px; font-size:13px; font-weight:600;">Terms</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2" style="height:34px"><span class="logo-text" style="font-size:1.2rem">Gem<em>mines</em>2</span></a>
+      <p class="footer-brand-desc">Natural certified gemstones from Pakistan and Sri Lanka. Ethically sourced, worldwide delivery.</p>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><a href="products.html?type=cut">Cut Gemstones</a><a href="products.html?type=rough">Rough Stones</a><a href="products.html?type=jewelry">Custom Jewelry</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="track.html">Track Order</a></div>
+    <div class="footer-col"><h4>Policies</h4><a href="return.html">Returns &amp; Refunds</a><a href="shipping.html">Shipping Policy</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
   </div>
-  <p style="color:#fff; font-size:13px;">Address: House # 602, Gali # 6, Sector G11/1, Islamabad, Pakistan</p>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan</div>
+    <div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div>
+  </div>
 </footer>
+<a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script src="products-data.js"></script>
+<script src="main.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const grid = document.getElementById('catalog-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
+function getChecked(name) {
+  return [...document.querySelectorAll(`input[id^="f-${name}"]:checked`)].map(i=>i.value);
+}
+function applyFilters() {
+  const types = getChecked('cut').concat(getChecked('rough')).concat(getChecked('jewelry'));
+  const treatments = getChecked('unheated').concat(getChecked('heated'));
+  const origins = getChecked('srilanka').concat(getChecked('pakistan'));
+  const sort = document.querySelector('.sort-select').value;
 
-  if (typeof PRODUCTS !== 'undefined' && PRODUCTS.length > 0) {
-    PRODUCTS.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'prod-card';
-      card.innerHTML = `
-        <div class="prod-img-box">
-          <img src="${item.image}" alt="${item.name}" class="prod-img" onerror="this.src='images/logo.png'">
-        </div>
-        <div class="prod-info">
-          <span class="prod-badge">${item.treatmentLabel}</span>
-          <h2 class="prod-title">${item.name}</h2>
-          <p class="prod-desc">${item.description}</p>
-          <div class="prod-footer">
-            <span class="prod-price">$${item.price}.00</span>
-            <button class="action-btn" onclick="addToCart('${item.id}', '${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')">BUY NOW</button>
+  // collect all type filters
+  const typeChecks = [...document.querySelectorAll('.filter-box:first-child input:checked')].map(i=>i.value);
+  const treatChecks = [...document.querySelectorAll('#f-unheated:checked, #f-heated:checked')].map(i=>i.value);
+  const originChecks = [...document.querySelectorAll('#f-srilanka:checked, #f-pakistan:checked')].map(i=>i.value);
+
+  let filtered = [...PRODUCTS];
+  if (typeChecks.length) filtered = filtered.filter(p => typeChecks.includes(p.type));
+  if (treatChecks.length) filtered = filtered.filter(p => treatChecks.includes(p.treatment));
+  if (originChecks.length) filtered = filtered.filter(p => originChecks.some(o => p.origin.includes(o)));
+  if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
+  if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
+  if (sort === 'unheated') filtered.sort((a,b) => (a.treatment==='unheated'?-1:1));
+
+  renderProducts(filtered);
+}
+function clearFilters() {
+  document.querySelectorAll('.filter-option input').forEach(i => i.checked = false);
+  document.querySelector('.sort-select').value = 'default';
+  renderProducts(PRODUCTS);
+}
+function renderProducts(list) {
+  const grid = document.getElementById('productsGrid');
+  const count = document.getElementById('productCount');
+  count.textContent = `Showing ${list.length} product${list.length!==1?'s':''}`;
+  if (!list.length) {
+    grid.innerHTML = '<div class="no-results" style="grid-column:1/-1"><h3>No stones match your filters</h3><p>Try clearing filters or browsing all products.</p></div>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback" style="display:none">💎</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'✦ Natural Unheated':'◈ Natural Heated'}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-meta">${p.origin} • ${p.weight}</div>
+        <div class="prod-footer">
+          <div class="prod-price">$${p.price}</div>
+          <div class="prod-btns">
+            <a href="product.html?id=${p.id}" class="btn-view">View</a>
+            <button class="btn-add" onclick="Cart.add(${JSON.stringify(p).replace(/"/g,'&quot;')})">+ Cart</button>
           </div>
         </div>
-      `;
-      grid.appendChild(card);
-    });
-    document.getElementById('count-num').textContent = PRODUCTS.length;
-  }
-});
-
-function addToCart(id, name, price, image) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let existing = cart.find(item => item.id === id);
-  if (existing) {
-    existing.qty = (existing.qty || 1) + 1;
-  } else {
-    cart.push({ id: id, name: name, price: price, image: image, qty: 1 });
-  }
-  localStorage.setItem('cart', JSON.stringify(cart));
-  window.location.href = "cart.html";
+      </div>
+    </div>`).join('');
 }
+
+// On load — check URL param for type filter
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+  if (type) {
+    const cb = document.getElementById(`f-${type}`);
+    if (cb) cb.checked = true;
+  }
+  applyFilters();
+});
 </script>
 </body>
 </html>
