@@ -1,328 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms &amp; Conditions | Gemmines2</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3WG0QN79D"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q3WG0QN79D');</script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Gemmines2</title>
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    .checkout-header{background:rgba(5,10,26,.98);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:68px}
+    .secure-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+    .breadcrumb{background:var(--navy2);border-bottom:1px solid var(--border);padding:14px 5%}
+    .bc{display:flex;align-items:center;gap:8px;max-width:1100px;margin:0 auto;font-size:12px}
+    .bc-step{color:var(--muted2)}.bc-step.active{color:var(--teal);font-weight:600}
+    .bc-step a{color:var(--muted);text-decoration:none}.bc-step a:hover{color:var(--teal)}
+    .bc-sep{color:var(--muted2);font-size:10px}
+    .checkout-wrap{display:grid;grid-template-columns:1fr 380px;gap:36px;max-width:1100px;margin:0 auto;padding:40px 5%}
+    .form-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px;margin-bottom:20px}
+    .form-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .form-card-title span{font-size:11px;color:var(--muted);font-family:'Jost',sans-serif;font-weight:400}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pay-opts{display:flex;flex-direction:column;gap:12px}
+    .pay-opt{border:1px solid var(--border);border-radius:6px;padding:16px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:14px}
+    .pay-opt:has(input:checked){border-color:var(--teal);background:var(--teal-faint)}
+    .pay-opt input{width:15px;height:15px;margin-top:2px;accent-color:var(--teal);flex-shrink:0}
+    .pay-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+    .pay-desc{font-size:12px;color:var(--muted);line-height:1.6}
+    .pay-tag{font-size:10px;background:var(--teal-faint);color:var(--teal);border:1px solid rgba(32,178,170,.3);padding:2px 7px;border-radius:10px;font-weight:700;margin-left:7px;letter-spacing:.5px}
+    .place-btn{width:100%;padding:16px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+    .place-btn:hover{background:var(--teal2)}
+    .place-btn:disabled{opacity:.5;cursor:not-allowed}
+    .place-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.7}
+    .place-note a{color:var(--teal)}
 
-<link href="https://googleapis.com" rel="stylesheet">
+    /* ORDER SUMMARY */
+    .order-sum{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:26px;position:sticky;top:90px;align-self:start}
+    .os-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .os-items{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;min-height:50px}
+    .os-item{display:flex;gap:12px;align-items:center}
+    .os-item-img{width:52px;height:52px;border-radius:4px;object-fit:cover;background:var(--navy3);flex-shrink:0}
+    .os-item-info{flex:1}
+    .os-item-name{font-size:13px;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:2px}
+    .os-item-sub{font-size:11px;color:var(--muted)}
+    .os-item-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-weight:600;white-space:nowrap}
+    .os-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
+    .os-row.total{color:var(--text);font-weight:600;font-size:15px;border-top:1px solid var(--border);padding-top:12px;margin-top:8px}
+    .os-row.total .v{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold)}
+    .os-note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+    .os-trust{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+    .os-trust span{font-size:10px;border:1px solid var(--border);color:var(--muted2);padding:4px 8px;border-radius:3px}
 
-<style>
-body { font-family:'Montserrat', sans-serif; background:#0b0f25; color:#fff; margin:0; }
-
-header {
-  position:fixed; top:0; left:0; right:0;
-  background:#0a0a0a;
-  border-bottom:1.5px solid #20B2AA;
-  padding:10px 5%;
-  display:flex; justify-content:space-between; align-items:center;
-  z-index:1000;
-}
-
-header .logo {
-  font-family:'Cinzel'; font-size:1.5rem;
-  color:#20B2AA; text-decoration:none;
-}
-
-header nav a {
-  margin:0 12px; color:#20B2AA;
-  text-decoration:none;
-  font-family:'Cinzel';
-  font-size:0.8rem;
-}
-
-.container {
-  max-width:800px;
-  margin:110px auto 40px;
-  background:#0a1430;
-  padding:30px;
-  border-radius:10px;
-  border:1px solid rgba(32,178,170,0.2);
-}
-
-h1,h2 {
-  text-align:center;
-  font-family:'Cinzel';
-  color:#20B2AA;
-}
-
-#order-summary {
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:10px;
-  margin-bottom:25px;
-}
-
-form label {
-  display:block;
-  margin-bottom:5px;
-  font-weight:600;
-  color:#20B2AA;
-  margin-top: 15px;
-}
-
-form input, form select {
-  width:100%;
-  padding:12px;
-  margin-bottom:5px;
-  border-radius:6px;
-  border:1px solid #333;
-  background:#050a1a;
-  color:#fff;
-  box-sizing: border-box;
-}
-
-.address-row { display:flex; gap:10px; margin-top: 10px; }
-
-.payment-options {
-  background:rgba(255,255,255,0.05);
-  padding:15px;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-.payment-fields {
-  display:none;
-  padding:15px;
-  background:rgba(0,0,0,0.2);
-  border-radius:6px;
-  margin-bottom:15px;
-}
-
-.merchant-compliance-notice {
-  background: rgba(32, 178, 170, 0.1);
-  border: 1px solid #20B2AA;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  font-size: 0.88rem;
-  color: #e0f2f1;
-  line-height: 1.6;
-}
-
-button {
-  width:100%;
-  padding:15px;
-  background:#20B2AA;
-  color:#000;
-  font-size:18px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-family:'Cinzel';
-  font-weight:bold;
-}
-
-button:hover { background:#17968f; }
-
-footer { background: #030610; padding: 40px 5%; border-top: 2px solid #20B2AA; text-align: center; margin-top: 50px; }
-.footer-links a { color: #20B2AA; text-decoration: none; margin: 0 10px; font-size: 14px; font-weight: 600; }
-.footer-info p { color:#fff; font-size: 14px; margin: 5px 0; }
-</style>
+    @media(max-width:768px){.checkout-wrap{grid-template-columns:1fr}.order-sum{position:static;order:-1}.form-row{grid-template-columns:1fr}}
+  </style>
 </head>
-
 <body>
-
-<header class="site-header">
-  <div class="logo">
-    <a href="index.html" style="color:#20B2AA; text-decoration:none;"><strong>Gemmines2</strong></a>
-  </div>
-  <nav class="desktop-nav">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="cart.html">Cart (<span class="cart-count">0</span>)</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="checkout-header">
+  <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2" style="height:38px"><span class="logo-text">Gem<em>mines</em>2</span></a>
+  <div class="secure-label">🔒 Secure Checkout</div>
 </header>
-
-<div class="container">
-
-<h1>Checkout</h1>
-
-<div id="order-summary">
-  <h2>Order Summary</h2>
-  <div id="summary-items"></div>
-  <h3 id="summary-total" style="text-align:right;"></h3>
-</div>
-
-<form id="checkout-form">
-
-<h2>Shipping Details</h2>
-
-<label>Full Name</label>
-<input type="text" id="name" name="name" required>
-
-<label>Email</label>
-<input type="email" id="email" name="email" required>
-
-<label>Contact (WhatsApp)</label>
-<input type="text" id="contact" name="contact" required>
-
-<label>Street Address</label>
-<input type="text" id="address" name="address" placeholder="Street name and house or apartment number" required>
-
-<label>Apartment, Suite, P.O. Box (Optional)</label>
-<input type="text" id="address2" name="address2" placeholder="P.O. Box, building details, unit, etc.">
-
-<div class="address-row">
-  <input type="text" id="city" name="city" placeholder="City" required>
-  <input type="text" id="state" name="state" placeholder="State / Region" required>
-</div>
-
-<div class="address-row">
-  <input type="text" id="zip" name="zip" placeholder="ZIP / Postal Code" required>
-  <input type="text" id="country" name="country" placeholder="Country" required>
-</div>
-
-<h2>Payment Method</h2>
-
-<div class="payment-options">
-  <label><input type="radio" name="payment" value="card" checked> Credit / Debit Card (Secure Instant Settlement)</label><br>
-  <label><input type="radio" name="payment" value="bank"> Bank Wire Transfer</label><br>
-  <label><input type="radio" name="payment" value="payoneer"> Payoneer Digital Invoice</label>
-</div>
-
-<!-- SECURE CARD VERIFICATION FIELDS FOR GOOGLE BOTS -->
-<div id="card-display" class="payment-fields" style="display:block;">
-  <label>Cardholder Name</label>
-  <input type="text" id="card-name" placeholder="John Doe">
-  
-  <label>Card Number</label>
-  <input type="text" id="card-number" placeholder="4111 2222 3333 4444" maxlength="19">
-  
-  <div class="address-row">
-    <input type="text" id="card-expiry" placeholder="MM / YY" maxlength="5">
-    <input type="password" id="card-cvc" placeholder="CVC" maxlength="4">
+<div class="breadcrumb">
+  <div class="bc">
+    <div class="bc-step"><a href="cart.html">Cart</a></div>
+    <div class="bc-sep">›</div>
+    <div class="bc-step active">Checkout</div>
+    <div class="bc-sep">›</div>
+    <div class="bc-step">Confirmation</div>
   </div>
 </div>
 
-<div id="bank-display" class="payment-fields">
-  <p>Secure international bank transfer wire swift credentials will clear directly to your verified inbox following purchase routing.</p>
-</div>
+<div class="checkout-wrap">
+  <!-- FORM -->
+  <div>
+    <div class="form-card">
+      <div class="form-card-title">Contact Information <span>Step 1 of 3</span></div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name <span class="req">*</span></label><input class="form-input" id="firstName" placeholder="John" required><div class="field-error" id="e-firstName">Required</div></div>
+        <div class="form-group"><label>Last Name <span class="req">*</span></label><input class="form-input" id="lastName" placeholder="Smith" required><div class="field-error" id="e-lastName">Required</div></div>
+      </div>
+      <div class="form-group"><label>Email Address <span class="req">*</span></label><input class="form-input" id="email" type="email" placeholder="john@example.com" required><div class="field-error" id="e-email">Valid email required</div></div>
+      <div class="form-group"><label>WhatsApp / Phone <span class="req">*</span></label><input class="form-input" id="phone" type="tel" placeholder="+1 234 567 8900" required><div class="field-error" id="e-phone">Required</div></div>
+    </div>
 
-<div id="payoneer-display" class="payment-fields">
-  <p>An official electronic payment request link via Payoneer corporate services will issue to your email post-checkout.</p>
-</div>
+    <div class="form-card">
+      <div class="form-card-title">Shipping Address <span>Step 2 of 3</span></div>
+      <div class="form-group"><label>Street Address <span class="req">*</span></label><input class="form-input" id="address" placeholder="123 Main Street" required><div class="field-error" id="e-address">Required</div></div>
+      <div class="form-row">
+        <div class="form-group"><label>City <span class="req">*</span></label><input class="form-input" id="city" placeholder="London" required><div class="field-error" id="e-city">Required</div></div>
+        <div class="form-group"><label>State / Province</label><input class="form-input" id="state" placeholder="England"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Postal Code <span class="req">*</span></label><input class="form-input" id="zip" placeholder="SW1A 1AA" required><div class="field-error" id="e-zip">Required</div></div>
+        <div class="form-group"><label>Country <span class="req">*</span></label>
+          <select class="form-input" id="country" required>
+            <option value="">Select country...</option>
+            <option>United States</option><option>United Kingdom</option><option>Canada</option>
+            <option>Australia</option><option>Germany</option><option>France</option>
+            <option>Japan</option><option>UAE</option><option>Saudi Arabia</option>
+            <option>Singapore</option><option>Netherlands</option><option>Spain</option>
+            <option>Italy</option><option>Switzerland</option><option>New Zealand</option>
+            <option>South Africa</option><option>Other</option>
+          </select>
+          <div class="field-error" id="e-country">Required</div>
+        </div>
+      </div>
+      <div class="form-group"><label>Order Notes (Optional)</label><textarea class="form-input" id="notes" rows="3" placeholder="Certificate requirements, custom requests, questions..."></textarea></div>
+    </div>
 
-<div class="merchant-compliance-notice">
-  <strong>Payment Gateway Verification Notice:</strong> Your transaction is encrypted using 256-bit Secure Socket Layer (SSL) infrastructure. By selecting "PLACE ORDER", your gemstone inventory reservation clears immediately through our primary digital settlement gateway layers.
-</div>
+    <div class="form-card">
+      <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
+      <div class="pay-opts">
+        <label class="pay-opt">
+          <input type="radio" name="payment" value="Payoneer" checked>
+          <div><div class="pay-name">Payoneer Invoice <span class="pay-tag">RECOMMENDED</span></div><div class="pay-desc">We send a secure Payoneer payment request to your email. Safe, fast, and fully trackable international payments.</div></div>
+        </label>
+        <label class="pay-opt">
+          <input type="radio" name="payment" value="Bank Transfer">
+          <div><div class="pay-name">International Bank Transfer (SWIFT / IBAN)</div><div class="pay-desc">Direct wire transfer to our business account. Full bank details sent via WhatsApp and email after confirmation.</div></div>
+        </label>
+      </div>
+    </div>
 
-<button type="submit" id="placeOrderBtn">PLACE ORDER</button>
-
-</form>
-</div>
-
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a> | 
-    <a href="products.html">Products</a> | 
-    <a href="return.html">Returns &amp; Refund Policy</a> | 
-    <a href="shipping.html">Shipping</a> | 
-    <a href="privacy.html">Privacy</a> | 
-    <a href="contact.html">Contact</a> | 
-    <a href="terms.html">Terms</a>
+    <button class="place-btn" id="placeBtn" onclick="placeOrder()">🔒 Place Order Securely</button>
+    <p class="place-note">By ordering you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.<br>You will receive a WhatsApp message and email confirmation within hours.</p>
   </div>
-  <div class="footer-info">
-    <p>Address: House # 602, Gali # 6, Sector G11/1, Islamabad, Federal, 44000 Pakistan</p>
-    <p>© 2026 Gemmines2 | Owned &amp; Operated by Mohamed Yousef Zubair</p>
-  </div>
-</footer>
 
+  <!-- SUMMARY -->
+  <div class="order-sum">
+    <div class="os-title">Order Summary</div>
+    <div class="os-items" id="osSummary"></div>
+    <div class="os-row"><span>Subtotal</span><span id="osSubtotal">$0.00</span></div>
+    <div class="os-row"><span>Shipping</span><span>Confirmed after order</span></div>
+    <div class="os-row"><span>Insurance</span><span>Included</span></div>
+    <div class="os-row total"><span>Total</span><span class="v" id="osTotal">$0.00</span></div>
+    <div class="os-trust">
+      <span>🔒 Secure</span><span>✦ Certified</span><span>↩ 30-Day Returns</span>
+    </div>
+    <div class="os-note">📦 Dispatched from Islamabad, Pakistan via DHL / FedEx / EMS.<br><br>📱 We will contact you on WhatsApp <strong>+92 336 214 9415</strong> to confirm payment details.</div>
+  </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><p style="color:var(--muted);font-size:14px;letter-spacing:1px">Placing your order...</p></div>
+
+<script src="products-data.js"></script>
+<script src="main.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+// Populate order summary
+function renderSummary() {
+  const items = Cart.get();
+  const container = document.getElementById('osSummary');
+  if (!items.length) {
+    container.innerHTML = '<p style="font-size:13px;color:var(--muted)">Your cart is empty. <a href="products.html" style="color:var(--teal)">Browse →</a></p>';
+    return;
+  }
+  let sub = 0;
+  container.innerHTML = items.map(i => {
+    sub += i.price*(i.qty||1);
+    return `<div class="os-item">
+      <img class="os-item-img" src="${i.image||''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
+      <div class="os-item-info"><div class="os-item-name">${i.name}</div><div class="os-item-sub">${i.weight||''} · ${i.origin||''}</div></div>
+      <div class="os-item-price">$${(i.price*(i.qty||1)).toFixed(2)}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('osSubtotal').textContent = '$'+sub.toFixed(2);
+  document.getElementById('osTotal').textContent = '$'+sub.toFixed(2);
+}
 
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let summaryContainer = document.getElementById('summary-items');
-  let totalContainer = document.getElementById('summary-total');
-  let total = 0;
-
-  summaryContainer.innerHTML = '';
-
-  cart.forEach(item => {
-    let qty = item.qty || item.quantity || 1;
-    let price = Number(item.price) || 0;
-    let itemTotal = price * qty;
-    total += itemTotal;
-
-    let div = document.createElement('div');
-    div.innerHTML = `${item.name} - $${price.toFixed(2)} x ${qty} = $${itemTotal.toFixed(2)}`;
-    summaryContainer.appendChild(div);
+function validate() {
+  const fields = [
+    {id:'firstName'},{id:'lastName'},{id:'phone'},{id:'address'},{id:'city'},{id:'zip'},
+    {id:'email', pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/},
+    {id:'country'}
+  ];
+  let ok = true;
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const err = document.getElementById('e-'+f.id);
+    const v = el.value.trim();
+    const fail = !v || (f.pattern && !f.pattern.test(v));
+    el.classList.toggle('error', fail);
+    if (err) err.classList.toggle('show', fail);
+    if (fail) ok = false;
   });
+  return ok;
+}
 
-  totalContainer.innerHTML = `Total: $${total.toFixed(2)} USD`;
+async function placeOrder() {
+  if (!validate()) { window.scrollTo({top:0,behavior:'smooth'}); return; }
+  const items = Cart.get();
+  if (!items.length) { alert('Your cart is empty.'); return; }
 
-  document.querySelectorAll('.cart-count').forEach(el => { el.textContent = cart.length; });
+  const orderId = generateOrderId();
+  const fn = document.getElementById('firstName').value.trim();
+  const ln = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const addr = [document.getElementById('address').value.trim(), document.getElementById('city').value.trim(), document.getElementById('state').value.trim(), document.getElementById('zip').value.trim(), document.getElementById('country').value].filter(Boolean).join(', ');
+  const payment = document.querySelector('input[name="payment"]:checked').value;
+  const notes = document.getElementById('notes').value.trim();
+  const total = Cart.total().toFixed(2);
+  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`).join('\n');
+  const date = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
 
-  // Toggle checkout method fields
-  document.querySelectorAll('input[name="payment"]').forEach(r => {
-    r.addEventListener('change', e => {
-      document.getElementById('card-display').style.display = "none";
-      document.getElementById('bank-display').style.display = "none";
-      document.getElementById('payoneer-display').style.display = "none";
+  document.getElementById('loadingOverlay').classList.add('show');
+  document.getElementById('placeBtn').disabled = true;
 
-      if (e.target.value === "card") {
-        document.getElementById('card-display').style.display = "block";
-      } else if (e.target.value === "bank") {
-        document.getElementById('bank-display').style.display = "block";
-      } else {
-        document.getElementById('payoneer-display').style.display = "block";
-      }
-    });
-  });
+  // EmailJS — sends email notification to you
+  const templateParams = {
+    order_id: orderId,
+    customer_name: fn+' '+ln,
+    customer_email: email,
+    customer_phone: phone,
+    shipping_address: addr,
+    payment_method: payment,
+    order_items: itemLines,
+    order_total: '$'+total,
+    order_notes: notes || 'None',
+    order_date: date,
+    reply_to: email
+  };
 
-  document.getElementById('checkout-form').addEventListener('submit', async function(e){
-    e.preventDefault();
-
-    const btn = document.getElementById("placeOrderBtn");
-    btn.disabled = true;
-    btn.innerText = "Authorizing Security Gateway...";
-
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let contact = document.getElementById('contact').value;
-    let address = document.getElementById('address').value;
-    let address2 = document.getElementById('address2').value || "N/A";
-    let city = document.getElementById('city').value;
-    let state = document.getElementById('state').value;
-    let zip = document.getElementById('zip').value;
-    let country = document.getElementById('country').value;
-    let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-
-    let items = "";
-    cart.forEach(item => {
-      let qty = item.qty || item.quantity || 1;
-      items += `${item.name} x ${qty}\n`;
-    });
-
-    let orderID = "GM-" + Date.now();
-
-    // BACKGROUND DATA POSTING TO FORMSPREE LOGS
-    try {
-      await fetch("https://formspree.io", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          order_id: orderID,
-          name: name,
-          email: email,
-          phone: contact,
-          address: `${address} ${address2}, ${city}, ${state}, ${zip}, ${country}`,
-          items: items,
-          total: `$${total.toFixed(2)} USD`,
-          payment: paymentMethod
-        })
-      });
-    } catch (err) {
-       console.log(err);
+  try {
+    if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ORDER, templateParams);
     }
+  } catch(e) { console.warn('EmailJS error:', e); }
 
-    // OPEN BACKUP WHATSAPP NOTIFICATION DESK FOR YOU
-    let msgText = `✨ *NEW GEMMINES2 ORDER RECEIVED* ✨\n\n` +
-                  `🆔 *Order ID:* ${orderID}\n` +
-                  `👤 *Name:* ${name}\n` +
-                  `📧 *Email:* ${email}\n` +
-                  `💰 *Total:* $${total.toFixed(2)} USD\n` +
+  // Save for confirmation page
+  sessionStorage.setItem('gm2_order', JSON.stringify({orderId,firstName:fn,lastName:ln,email,phone,address:addr,payment,total,items,notes,date}));
+  Cart.clear();
+  window.location.href = 'order-confirmation.html';
+}
+
+document.addEventListener('DOMContentLoaded', renderSummary);
+</script>
+</body>
+</html>
