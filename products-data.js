@@ -99,7 +99,7 @@ const PRODUCTS = [
     weight: 'Custom',
     origin: 'Handcrafted in Pakistan',
     price: 55,
-    image: 'https://gemmines2.github.io/gemmines2-website/images/jewelry.jpg',
+     image: 'https://gemmines2.github.io/gemmines2-website/images/multirings.jpg',
     description: 'Handcrafted 925 Sterling Silver ring set with a natural garnet gemstone. Custom sizing available. Rhodium finish available. Please note custom jewelry orders are non-returnable.',
     identifier_exists: false,
     isJewelry: true,
