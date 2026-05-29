@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,6 @@
   <title>Checkout | Gemmines2</title>
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     .checkout-header{background:rgba(5,10,26,.98);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:68px}
     .secure-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
@@ -34,8 +33,8 @@
     .place-btn:disabled{opacity:.5;cursor:not-allowed}
     .place-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.7}
     .place-note a{color:var(--teal)}
-
-    /* ORDER SUMMARY */
+    #countryOther{display:none;margin-top:8px;width:100%;padding:10px 14px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:4px;font-size:14px;box-sizing:border-box;font-family:'Jost',sans-serif}
+    #countryOther:focus{outline:none;border-color:var(--teal)}
     .order-sum{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:26px;position:sticky;top:90px;align-self:start}
     .os-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
     .os-items{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;min-height:50px}
@@ -51,7 +50,6 @@
     .os-note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
     .os-trust{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
     .os-trust span{font-size:10px;border:1px solid var(--border);color:var(--muted2);padding:4px 8px;border-radius:3px}
-
     @media(max-width:768px){.checkout-wrap{grid-template-columns:1fr}.order-sum{position:static;order:-1}.form-row{grid-template-columns:1fr}}
   </style>
 </head>
@@ -60,6 +58,7 @@
   <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2" style="height:38px"><span class="logo-text">Gem<em>mines</em>2</span></a>
   <div class="secure-label">🔒 Secure Checkout</div>
 </header>
+
 <div class="breadcrumb">
   <div class="bc">
     <div class="bc-step"><a href="cart.html">Cart</a></div>
@@ -71,62 +70,138 @@
 </div>
 
 <div class="checkout-wrap">
-  <!-- FORM -->
+
+  <!-- LEFT: FORM -->
   <div>
+
+    <!-- STEP 1: Contact -->
     <div class="form-card">
       <div class="form-card-title">Contact Information <span>Step 1 of 3</span></div>
       <div class="form-row">
-        <div class="form-group"><label>First Name <span class="req">*</span></label><input class="form-input" id="firstName" placeholder="John" required><div class="field-error" id="e-firstName">Required</div></div>
-        <div class="form-group"><label>Last Name <span class="req">*</span></label><input class="form-input" id="lastName" placeholder="Smith" required><div class="field-error" id="e-lastName">Required</div></div>
-      </div>
-      <div class="form-group"><label>Email Address <span class="req">*</span></label><input class="form-input" id="email" type="email" placeholder="john@example.com" required><div class="field-error" id="e-email">Valid email required</div></div>
-      <div class="form-group"><label>WhatsApp / Phone <span class="req">*</span></label><input class="form-input" id="phone" type="tel" placeholder="+1 234 567 8900" required><div class="field-error" id="e-phone">Required</div></div>
-    </div>
-
-    <div class="form-card">
-      <div class="form-card-title">Shipping Address <span>Step 2 of 3</span></div>
-      <div class="form-group"><label>Street Address <span class="req">*</span></label><input class="form-input" id="address" placeholder="123 Main Street" required><div class="field-error" id="e-address">Required</div></div>
-      <div class="form-row">
-        <div class="form-group"><label>City <span class="req">*</span></label><input class="form-input" id="city" placeholder="London" required><div class="field-error" id="e-city">Required</div></div>
-        <div class="form-group"><label>State / Province</label><input class="form-input" id="state" placeholder="England"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Postal Code <span class="req">*</span></label><input class="form-input" id="zip" placeholder="SW1A 1AA" required><div class="field-error" id="e-zip">Required</div></div>
-        <div class="form-group"><label>Country <span class="req">*</span></label>
-          <select class="form-input" id="country" required>
-            <option value="">Select country...</option>
-            <option>United States</option><option>United Kingdom</option><option>Canada</option>
-            <option>Australia</option><option>Germany</option><option>France</option>
-            <option>Japan</option><option>UAE</option><option>Saudi Arabia</option>
-            <option>Singapore</option><option>Netherlands</option><option>Spain</option>
-            <option>Italy</option><option>Switzerland</option><option>New Zealand</option>
-            <option>South Africa</option><option>Other</option>
-          </select>
-          <div class="field-error" id="e-country">Required</div>
+        <div class="form-group">
+          <label>First Name <span class="req">*</span></label>
+          <input class="form-input" id="firstName" placeholder="John" required>
+          <div class="field-error" id="e-firstName">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Last Name <span class="req">*</span></label>
+          <input class="form-input" id="lastName" placeholder="Smith" required>
+          <div class="field-error" id="e-lastName">Required</div>
         </div>
       </div>
-      <div class="form-group"><label>Order Notes (Optional)</label><textarea class="form-input" id="notes" rows="3" placeholder="Certificate requirements, custom requests, questions..."></textarea></div>
+      <div class="form-group">
+        <label>Email Address <span class="req">*</span></label>
+        <input class="form-input" id="email" type="email" placeholder="john@example.com" required>
+        <div class="field-error" id="e-email">Valid email required</div>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp / Phone <span class="req">*</span></label>
+        <input class="form-input" id="phone" type="tel" placeholder="+1 234 567 8900" required>
+        <div class="field-error" id="e-phone">Required</div>
+      </div>
     </div>
 
+    <!-- STEP 2: Shipping -->
+    <div class="form-card">
+      <div class="form-card-title">Shipping Address <span>Step 2 of 3</span></div>
+      <div class="form-group">
+        <label>Street Address <span class="req">*</span></label>
+        <input class="form-input" id="address" placeholder="123 Main Street" required>
+        <div class="field-error" id="e-address">Required</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>City <span class="req">*</span></label>
+          <input class="form-input" id="city" placeholder="London" required>
+          <div class="field-error" id="e-city">Required</div>
+        </div>
+        <div class="form-group">
+          <label>State / Province</label>
+          <input class="form-input" id="state" placeholder="England">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Postal Code <span class="req">*</span></label>
+          <input class="form-input" id="zip" placeholder="SW1A 1AA" required>
+          <div class="field-error" id="e-zip">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Country <span class="req">*</span></label>
+          <select class="form-input" id="country" required onchange="handleCountryChange(this)">
+            <option value="">Select country...</option>
+            <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
+            <option>Argentina</option><option>Australia</option><option>Austria</option>
+            <option>Azerbaijan</option><option>Bahrain</option><option>Bangladesh</option>
+            <option>Belarus</option><option>Belgium</option><option>Brazil</option>
+            <option>Bulgaria</option><option>Cambodia</option><option>Canada</option>
+            <option>Chile</option><option>China</option><option>Colombia</option>
+            <option>Croatia</option><option>Czech Republic</option><option>Denmark</option>
+            <option>Egypt</option><option>Ethiopia</option><option>Finland</option>
+            <option>France</option><option>Germany</option><option>Ghana</option>
+            <option>Greece</option><option>Hong Kong</option><option>Hungary</option>
+            <option>India</option><option>Indonesia</option><option>Iran</option>
+            <option>Iraq</option><option>Ireland</option><option>Israel</option>
+            <option>Italy</option><option>Japan</option><option>Jordan</option>
+            <option>Kazakhstan</option><option>Kenya</option><option>Kuwait</option>
+            <option>Lebanon</option><option>Libya</option><option>Malaysia</option>
+            <option>Mexico</option><option>Morocco</option><option>Myanmar</option>
+            <option>Nepal</option><option>Netherlands</option><option>New Zealand</option>
+            <option>Nigeria</option><option>Norway</option><option>Oman</option>
+            <option>Pakistan</option><option>Palestine</option><option>Peru</option>
+            <option>Philippines</option><option>Poland</option><option>Portugal</option>
+            <option>Qatar</option><option>Romania</option><option>Russia</option>
+            <option>Saudi Arabia</option><option>Singapore</option>
+            <option>South Africa</option><option>South Korea</option>
+            <option>Spain</option><option>Sri Lanka</option><option>Sudan</option>
+            <option>Sweden</option><option>Switzerland</option><option>Taiwan</option>
+            <option>Tanzania</option><option>Thailand</option><option>Tunisia</option>
+            <option>Turkey</option><option>UAE</option><option>Uganda</option>
+            <option>Ukraine</option><option>United Kingdom</option>
+            <option>United States</option><option>Uzbekistan</option>
+            <option>Vietnam</option><option>Yemen</option>
+            <option>Zambia</option><option>Zimbabwe</option>
+            <option value="other">Other – type below ↓</option>
+          </select>
+          <input type="text" id="countryOther" placeholder="Type your country name..." maxlength="80">
+          <div class="field-error" id="e-country">Please select or type your country</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Order Notes (Optional)</label>
+        <textarea class="form-input" id="notes" rows="3" placeholder="Certificate requirements, custom requests, special instructions..."></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 3: Payment -->
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
       <div class="pay-opts">
         <label class="pay-opt">
           <input type="radio" name="payment" value="Payoneer" checked>
-          <div><div class="pay-name">Payoneer Invoice <span class="pay-tag">RECOMMENDED</span></div><div class="pay-desc">We send a secure Payoneer payment request to your email. Safe, fast, and fully trackable international payments.</div></div>
+          <div>
+            <div class="pay-name">Payoneer Invoice <span class="pay-tag">RECOMMENDED</span></div>
+            <div class="pay-desc">We send a secure Payoneer payment request to your email. Safe, fast, and fully trackable international payments.</div>
+          </div>
         </label>
         <label class="pay-opt">
           <input type="radio" name="payment" value="Bank Transfer">
-          <div><div class="pay-name">International Bank Transfer (SWIFT / IBAN)</div><div class="pay-desc">Direct wire transfer to our business account. Full bank details sent via WhatsApp and email after confirmation.</div></div>
+          <div>
+            <div class="pay-name">International Bank Transfer (SWIFT / IBAN)</div>
+            <div class="pay-desc">Direct wire transfer to our business account. Full bank details sent via WhatsApp and email after confirmation.</div>
+          </div>
         </label>
       </div>
     </div>
 
     <button class="place-btn" id="placeBtn" onclick="placeOrder()">🔒 Place Order Securely</button>
-    <p class="place-note">By ordering you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.<br>You will receive a WhatsApp message and email confirmation within hours.</p>
+    <p class="place-note">
+      By ordering you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.<br>
+      You will receive a WhatsApp message and email confirmation within hours.
+    </p>
   </div>
 
-  <!-- SUMMARY -->
+  <!-- RIGHT: ORDER SUMMARY -->
   <div class="order-sum">
     <div class="os-title">Order Summary</div>
     <div class="os-items" id="osSummary"></div>
@@ -137,16 +212,49 @@
     <div class="os-trust">
       <span>🔒 Secure</span><span>✦ Certified</span><span>↩ 30-Day Returns</span>
     </div>
-    <div class="os-note">📦 Dispatched from Islamabad, Pakistan via DHL / FedEx / EMS.<br><br>📱 We will contact you on WhatsApp <strong>+92 336 214 9415</strong> to confirm payment details.</div>
+    <div class="os-note">
+      📦 Dispatched from Islamabad, Pakistan via DHL / FedEx / EMS.<br><br>
+      📱 We will contact you on WhatsApp <strong>+92 336 214 9415</strong> to confirm payment details.
+    </div>
   </div>
+
 </div>
 
-<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><p style="color:var(--muted);font-size:14px;letter-spacing:1px">Placing your order...</p></div>
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p style="color:var(--muted);font-size:14px;letter-spacing:1px">Placing your order...</p>
+</div>
 
 <script src="products-data.js"></script>
 <script src="main.js"></script>
 <script>
-// Populate order summary
+
+// ═══════════════════════════════════════════════════════════
+//  WEB3FORMS ACCESS KEY — do not change this line
+// ═══════════════════════════════════════════════════════════
+const WEB3FORMS_KEY = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
+
+// ── Country "Other" toggle ──────────────────────────────────
+function handleCountryChange(select) {
+  const other = document.getElementById('countryOther');
+  if (select.value === 'other') {
+    other.style.display = 'block';
+    other.focus();
+  } else {
+    other.style.display = 'none';
+    other.value = '';
+  }
+}
+
+function getCountryValue() {
+  const sel = document.getElementById('country');
+  if (sel.value === 'other') {
+    return document.getElementById('countryOther').value.trim();
+  }
+  return sel.value;
+}
+
+// ── Render Order Summary ────────────────────────────────────
 function renderSummary() {
   const items = Cart.get();
   const container = document.getElementById('osSummary');
@@ -156,79 +264,193 @@ function renderSummary() {
   }
   let sub = 0;
   container.innerHTML = items.map(i => {
-    sub += i.price*(i.qty||1);
+    sub += i.price * (i.qty || 1);
     return `<div class="os-item">
-      <img class="os-item-img" src="${i.image||''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
-      <div class="os-item-info"><div class="os-item-name">${i.name}</div><div class="os-item-sub">${i.weight||''} · ${i.origin||''}</div></div>
-      <div class="os-item-price">$${(i.price*(i.qty||1)).toFixed(2)}</div>
+      <img class="os-item-img" src="${i.image || ''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
+      <div class="os-item-info">
+        <div class="os-item-name">${i.name}</div>
+        <div class="os-item-sub">${i.weight || ''} · ${i.origin || ''}</div>
+      </div>
+      <div class="os-item-price">$${(i.price * (i.qty || 1)).toFixed(2)}</div>
     </div>`;
   }).join('');
-  document.getElementById('osSubtotal').textContent = '$'+sub.toFixed(2);
-  document.getElementById('osTotal').textContent = '$'+sub.toFixed(2);
+  document.getElementById('osSubtotal').textContent = '$' + sub.toFixed(2);
+  document.getElementById('osTotal').textContent = '$' + sub.toFixed(2);
 }
 
+// ── Validate Form ───────────────────────────────────────────
 function validate() {
   const fields = [
-    {id:'firstName'},{id:'lastName'},{id:'phone'},{id:'address'},{id:'city'},{id:'zip'},
-    {id:'email', pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/},
-    {id:'country'}
+    { id: 'firstName' }, { id: 'lastName' }, { id: 'phone' },
+    { id: 'address' },   { id: 'city' },     { id: 'zip' },
+    { id: 'email', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }
   ];
   let ok = true;
   fields.forEach(f => {
-    const el = document.getElementById(f.id);
-    const err = document.getElementById('e-'+f.id);
-    const v = el.value.trim();
+    const el  = document.getElementById(f.id);
+    const err = document.getElementById('e-' + f.id);
+    const v   = el.value.trim();
     const fail = !v || (f.pattern && !f.pattern.test(v));
     el.classList.toggle('error', fail);
     if (err) err.classList.toggle('show', fail);
     if (fail) ok = false;
   });
+  // Country check
+  const countryVal = getCountryValue();
+  const countryEl  = document.getElementById('country');
+  const countryErr = document.getElementById('e-country');
+  if (!countryVal) {
+    countryEl.classList.add('error');
+    if (countryErr) countryErr.classList.add('show');
+    ok = false;
+  } else {
+    countryEl.classList.remove('error');
+    if (countryErr) countryErr.classList.remove('show');
+  }
   return ok;
 }
 
+// ── Place Order ─────────────────────────────────────────────
 async function placeOrder() {
-  if (!validate()) { window.scrollTo({top:0,behavior:'smooth'}); return; }
+  if (!validate()) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
   const items = Cart.get();
   if (!items.length) { alert('Your cart is empty.'); return; }
 
-  const orderId = generateOrderId();
-  const fn = document.getElementById('firstName').value.trim();
-  const ln = document.getElementById('lastName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const addr = [document.getElementById('address').value.trim(), document.getElementById('city').value.trim(), document.getElementById('state').value.trim(), document.getElementById('zip').value.trim(), document.getElementById('country').value].filter(Boolean).join(', ');
-  const payment = document.querySelector('input[name="payment"]:checked').value;
-  const notes = document.getElementById('notes').value.trim();
-  const total = Cart.total().toFixed(2);
-  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`).join('\n');
-  const date = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  // Collect form values
+  const orderId  = generateOrderId();
+  const fn       = document.getElementById('firstName').value.trim();
+  const ln       = document.getElementById('lastName').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const country  = getCountryValue();
+  const addr     = [
+    document.getElementById('address').value.trim(),
+    document.getElementById('city').value.trim(),
+    document.getElementById('state').value.trim(),
+    document.getElementById('zip').value.trim(),
+    country
+  ].filter(Boolean).join(', ');
+  const payment   = document.querySelector('input[name="payment"]:checked').value;
+  const notes     = document.getElementById('notes').value.trim();
+  const total     = Cart.total().toFixed(2);
+  const itemLines = items.map(i =>
+    `${i.name} (${i.weight || ''}) — $${(i.price * (i.qty || 1)).toFixed(2)}`
+  ).join('\n');
+  const date = new Date().toLocaleDateString('en-GB', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  });
 
+  // Show loading
   document.getElementById('loadingOverlay').classList.add('show');
   document.getElementById('placeBtn').disabled = true;
 
-  // EmailJS — sends email notification to you
-  const templateParams = {
-    order_id: orderId,
-    customer_name: fn+' '+ln,
-    customer_email: email,
-    customer_phone: phone,
-    shipping_address: addr,
-    payment_method: payment,
-    order_items: itemLines,
-    order_total: '$'+total,
-    order_notes: notes || 'None',
-    order_date: date,
-    reply_to: email
-  };
+  // ── Email 1: Notify YOU at yousefzubair03@gmail.com ────────
+  const ownerMsg =
+`NEW ORDER — Gemmines2
+═══════════════════════════════
+Order ID:       ${orderId}
+Date:           ${date}
+Total:          $${total}
+═══════════════════════════════
+CUSTOMER
+Name:           ${fn} ${ln}
+Email:          ${email}
+Phone:          ${phone}
+═══════════════════════════════
+SHIPPING ADDRESS
+${addr}
+═══════════════════════════════
+ITEMS ORDERED
+${itemLines}
+═══════════════════════════════
+PAYMENT METHOD
+${payment}
+═══════════════════════════════
+CUSTOMER NOTES
+${notes || 'None'}
+═══════════════════════════════`;
+
+  // ── Email 2: Confirm to CUSTOMER ───────────────────────────
+  const customerMsg =
+`Dear ${fn} ${ln},
+
+Thank you for your order with Gemmines2!
+
+Your order has been received and is being reviewed. We will contact you on WhatsApp and by email within a few hours to confirm payment details.
+
+ORDER DETAILS
+─────────────────────────────
+Order ID:     ${orderId}
+Date:         ${date}
+Total:        $${total}
+Payment:      ${payment}
+
+ITEMS ORDERED
+─────────────────────────────
+${itemLines}
+
+SHIPPING TO
+─────────────────────────────
+${addr}
+
+WHAT HAPPENS NEXT
+─────────────────────────────
+1. We contact you on WhatsApp shortly.
+2. You receive payment instructions (Payoneer or bank transfer).
+3. Once payment is confirmed, your gemstone is carefully packed and dispatched.
+4. Tracking details sent to you via WhatsApp and email.
+
+YOUR NOTES: ${notes || 'None'}
+
+─────────────────────────────
+Questions? We are here to help.
+WhatsApp : +92 336 214 9415
+Email    : yousefzubair03@gmail.com
+Website  : https://gemmines2.github.io/gemmines2-website/
+
+House #602, Gali #6, Sector G-11/1
+Islamabad 44000, Pakistan
+─────────────────────────────
+© 2026 Gemmines2. All rights reserved.`;
 
   try {
-    if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID') {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ORDER, templateParams);
-    }
-  } catch(e) { console.warn('EmailJS error:', e); }
+    // Send to owner
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key:  WEB3FORMS_KEY,
+        subject:     `🔔 New Order ${orderId} — ${fn} ${ln} — $${total}`,
+        from_name:   'Gemmines2 Orders',
+        message:     ownerMsg,
+        replyto:     email
+      })
+    });
 
-  // Save for confirmation page
-  sessionStorage.setItem('gm2_order', JSON.stringify({orderId,firstName:fn,lastName:ln,email,phone,address:addr,payment,total,items,notes,date}));
+    // Send confirmation to customer
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key:  WEB3FORMS_KEY,
+        subject:     `Your Order is Confirmed — ${orderId} | Gemmines2`,
+        from_name:   'Gemmines2',
+        to:          email,
+        message:     customerMsg,
+        replyto:     'yousefzubair03@gmail.com'
+      })
+    });
+
+  } catch (e) {
+    console.warn('Email send error:', e);
+    // Order still goes through even if email fails
+  }
+
+  // Save order data and redirect
+  sessionStorage.setItem('gm2_order', JSON.stringify({
+    orderId, firstName: fn, lastName: ln, email, phone,
+    address: addr, payment, total, items, notes, date
+  }));
   Cart.clear();
   window.location.href = 'order-confirmation.html';
 }
@@ -236,4 +458,4 @@ async function placeOrder() {
 document.addEventListener('DOMContentLoaded', renderSummary);
 </script>
 </body>
-</html>
+</html>   
