@@ -57,7 +57,7 @@ const PRODUCTS = [
     weight: '1.06 Ct',
     origin: 'Sri Lanka',
     price: 200,
-    image: 'https://gemmines2.github.io/gemmines2-website/images/ruby2.jpg',
+    image: 'https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg',
     description: 'A natural unheated Sri Lankan Ruby with vivid red color. This is a rare find — unheated rubies command a premium on the market. Certificate available upon request.',
     identifier_exists: false
   },
