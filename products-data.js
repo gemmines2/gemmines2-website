@@ -105,20 +105,66 @@ const PRODUCTS = [
     isJewelry: true,
     material: '925 Sterling Silver'
   },
+   {
+  id: 'tourmaline-red-lot',
+  name: 'Red Tourmaline Lot',
+  shortName: 'Red Tourmaline',
+  type: 'cut',
+  treatment: 'unheated',
+  treatmentLabel: 'Natural Unheated',
+  weight: 'Mixed Lot',
+  origin: 'Pakistan',
+  price: 110,
+  image: 'https://gemmines2.github.io/gemmines2-website/images/tourmaline.jpg',
+  description: 'A beautiful mixed lot of natural red tourmalines from Pakistan. Vivid red color, precision faceted. No heat treatment. Perfect for collectors or jewelry setters.',
+  identifier_exists: false
+},
+  
+  // 👇 ADD NEW PRODUCTS HERE
   {
-    id: 'tourmaline-red-lot',
-    name: 'Red Tourmaline Lot',
-    shortName: 'Red Tourmaline',
+    id: 'pink-topaz-18ct',
+    name: '18ct Natural Pink Topaz',
+    shortName: 'Pink Topaz',
     type: 'cut',
     treatment: 'unheated',
     treatmentLabel: 'Natural Unheated',
-    weight: 'Mixed Lot',
+    weight: '18 Ct',
     origin: 'Pakistan',
-    price: 110,
-    image: 'https://gemmines2.github.io/gemmines2-website/images/tourmaline.jpg',
-    description: 'A beautiful mixed lot of natural red tourmalines from Pakistan. Vivid red color, precision faceted. No heat treatment. Perfect for collectors or jewelry setters.',
+    price: 120,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/pinktopaz.gif',
+    description: 'Natural unheated pink topaz from Pakistan...',
+    identifier_exists: false
+  },
+  {
+    id: 'peridot-olive-green',
+    name: 'Natural Olive Green Peridot',
+    shortName: 'Peridot',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: 'Natural Stone',
+    origin: 'Pakistan',
+    price: 95,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/peridot.gif',
+    description: 'Natural olive green peridot from Pakistan...',
+    identifier_exists: false
+  },
+  {
+    id: 'lemon-quartz-1115',
+    name: '11.15ct Lemon Quartz',
+    shortName: 'Lemon Quartz',
+    type: 'cut',
+    treatment: 'unheated',
+    treatmentLabel: 'Natural Unheated',
+    weight: '11.15 Ct',
+    origin: 'Pakistan',
+    price: 70,
+    image: 'https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg',
+    description: 'Natural lemon quartz with vibrant yellow color...',
     identifier_exists: false
   }
+
+
 ];
 
 
