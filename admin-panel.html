@@ -8,6 +8,26 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0a0a08;--bg2:#111110;--bg3:#191917;--bg4:#1f1f1d;--border:#2a2a27;--gold:#c9a96e;--gold2:#e8c98a;--text:#e8e4dc;--text2:#9a9488;--green:#3a6b4a;--red:#8b3a3a;--radius:6px}
     body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh}
+
+    /* LOGIN SCREEN */
+    .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+    .login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;width:100%;max-width:440px}
+    .login-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:.25rem}
+    .login-logo em{font-style:italic;color:var(--gold2)}
+    .login-sub{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
+    .login-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:.5rem}
+    .login-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Jost',sans-serif;font-size:.85rem;padding:.7rem 1rem;margin-bottom:1rem}
+    .login-input:focus{outline:none;border-color:var(--gold)}
+    .login-btn{width:100%;padding:.85rem;background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .login-btn:hover{background:var(--gold2)}
+    .login-note{font-size:.72rem;color:var(--text2);margin-top:1rem;line-height:1.6}
+    .login-note a{color:var(--gold)}
+    .login-error{display:none;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;padding:.6rem .85rem;font-size:.78rem;margin-bottom:1rem}
+    .login-error.show{display:block}
+
+    /* MAIN APP */
+    .app{display:none}
+    .app.show{display:block}
     .layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
     .sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:2rem 0;position:sticky;top:0;height:100vh;overflow-y:auto}
     .sidebar-logo{padding:0 1.5rem 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
@@ -17,6 +37,7 @@
     .nav-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1.5rem;cursor:pointer;font-size:.78rem;letter-spacing:.08em;color:var(--text2);transition:all .15s;border-left:3px solid transparent}
     .nav-item:hover,.nav-item.active{background:var(--bg3);color:var(--gold);border-left-color:var(--gold)}
     .nav-item .ic{font-size:1rem;width:20px;text-align:center}
+    .nav-logout{color:var(--red)!important}
     .main{padding:2rem 2.5rem}
     .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
     .page-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400}
@@ -70,20 +91,20 @@
     textarea{resize:vertical;min-height:80px}
     select option{background:var(--bg3)}
     .img-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;margin-bottom:.75rem}
-    .img-zone:hover,.img-zone.drag{border-color:var(--gold);background:rgba(201,169,110,.04)}
+    .img-zone:hover{border-color:var(--gold);background:rgba(201,169,110,.04)}
     .img-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-    .img-zone-text{font-size:.8rem;color:var(--text2)}
+    .img-zone-text{font-size:.8rem;color:var(--text2);pointer-events:none}
     .img-zone-text strong{color:var(--gold)}
-    .img-previews{display:flex;flex-wrap:wrap;gap:.5rem}
+    .img-previews{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
     .img-prev{position:relative;width:76px;height:76px}
     .img-prev img{width:100%;height:100%;object-fit:contain;border:1px solid var(--border);border-radius:3px;background:var(--bg3);padding:4px}
     .img-prev button{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:.6rem;cursor:pointer;line-height:18px;text-align:center}
     .btn-primary{padding:.7rem 1.5rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
     .btn-primary:hover{background:var(--gold2)}
     .btn-primary:disabled{opacity:.5;cursor:not-allowed}
-    .btn-cancel{padding:.7rem 1.2rem;border-radius:var(--radius);background:transparent;color:var(--text2);font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:all .2s}
+    .btn-cancel{padding:.7rem 1.2rem;border-radius:var(--radius);background:transparent;color:var(--text2);font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer}
     .btn-cancel:hover{border-color:var(--text2);color:var(--text)}
-    .btn-add{padding:.6rem 1.2rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+    .btn-add{padding:.6rem 1.2rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer}
     .btn-add:hover{background:var(--gold2)}
     .toggle{position:relative;width:36px;height:20px}
     .toggle input{opacity:0;width:0;height:0}
@@ -107,11 +128,34 @@
     .search-inp{background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Jost',sans-serif;font-size:.78rem;padding:.45rem .85rem;width:200px}
     .search-inp:focus{outline:none;border-color:var(--gold)}
     .filter-sel{background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text2);font-family:'Jost',sans-serif;font-size:.73rem;padding:.45rem .7rem}
-    .filter-sel:focus{outline:none;border-color:var(--gold)}
     @media(max-width:768px){.layout{grid-template-columns:1fr}.sidebar{display:none}.stats{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
+
+<!-- ══ LOGIN SCREEN ══ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">Gem<em>mines</em>2</div>
+    <div class="login-sub">Admin Panel</div>
+    <div class="login-error" id="loginError"></div>
+    <label class="login-label">GitHub Personal Access Token</label>
+    <input class="login-input" type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+    <label class="login-label" style="margin-top:.5rem">
+      <input type="checkbox" id="rememberToken" checked style="width:auto;margin-right:.4rem">
+      Remember on this device
+    </label>
+    <br><br>
+    <button class="login-btn" onclick="doLogin()">Enter Admin Panel</button>
+    <div class="login-note">
+      Your token is stored only in your browser — never in this file or on GitHub.<br><br>
+      Need a token? <a href="https://github.com/settings/tokens?type=classic" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → tick <strong>repo</strong> only.
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN APP ══ -->
+<div class="app" id="app">
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-logo">
@@ -123,6 +167,8 @@
     <div style="height:1px;background:var(--border);margin:1rem 1.5rem"></div>
     <div class="nav-item" onclick="window.open('index.html','_blank')"><span class="ic">🌐</span> View Website</div>
     <div class="nav-item" onclick="window.open('products.html','_blank')"><span class="ic">🛍️</span> View Shop</div>
+    <div style="height:1px;background:var(--border);margin:1rem 1.5rem"></div>
+    <div class="nav-item nav-logout" onclick="logout()"><span class="ic">🚪</span> Log Out</div>
   </aside>
 
   <main class="main">
@@ -135,13 +181,13 @@
       </div>
       <div class="stats">
         <div class="stat"><div class="stat-val" id="s-total">0</div><div class="stat-lbl">Total Products</div></div>
-        <div class="stat"><div class="stat-val" id="s-active">0</div><div class="stat-lbl">Active Listings</div></div>
+        <div class="stat"><div class="stat-val" id="s-active">0</div><div class="stat-lbl">Active</div></div>
         <div class="stat"><div class="stat-val" id="s-sold">0</div><div class="stat-lbl">Sold</div></div>
         <div class="stat"><div class="stat-val" id="s-value" style="font-size:1.4rem">$0</div><div class="stat-lbl">Catalogue Value</div></div>
       </div>
       <div class="notice">
         <span style="font-size:1.1rem;flex-shrink:0">✨</span>
-        <div class="notice-text"><strong>Fully Automatic:</strong> Add a product, upload its image — everything saves to GitHub instantly. Your website updates in about 1 minute. No export, no manual steps needed.</div>
+        <div class="notice-text"><strong>Fully Automatic:</strong> Add product + upload image → saves to GitHub instantly → website updates in ~1 minute. No manual steps.</div>
       </div>
       <div class="tbl-wrap">
         <div class="tbl-top"><span class="tbl-top-title">Recent Products</span><button class="btn-add" onclick="showTab('products');openForm()">+ Add New</button></div>
@@ -170,7 +216,9 @@
     </div>
   </main>
 </div>
+</div>
 
+<!-- ══ ADD/EDIT MODAL ══ -->
 <div class="overlay" id="modal">
   <div class="modal">
     <div class="modal-top">
@@ -187,35 +235,46 @@
         <label>Product Images <span class="req">*</span></label>
         <div class="img-zone" id="drop-zone">
           <input type="file" id="f-images" accept="image/*" multiple onchange="handleImages(event)">
-          <div class="img-zone-text">🖼️<br><strong>Click to upload images</strong> or drag & drop<br><span style="font-size:.72rem">JPG, PNG, WEBP — first image becomes the main image</span></div>
+          <div class="img-zone-text">🖼️<br><strong>Click to upload images</strong> or drag & drop<br><span style="font-size:.72rem">JPG, PNG, WEBP — first image = main image</span></div>
         </div>
         <div class="img-previews" id="img-previews"></div>
       </div>
       <div class="form-grid">
         <div class="fg full"><label>Product Name <span class="req">*</span></label><input id="f-name" placeholder="e.g. Natural Unheated Kashmir Pink Sapphire"></div>
-        <div class="fg"><label>Price (USD) <span class="req">*</span></label><input type="number" id="f-price" placeholder="e.g. 450" step="0.01"></div>
-        <div class="fg"><label>Type <span class="req">*</span></label>
-          <select id="f-type"><option value="">Select…</option><option>Cut Gemstone</option><option>Rough Stone</option><option>Jewelry</option></select>
+        <div class="fg full"><label>Short Name</label><input id="f-shortname" placeholder="e.g. Pink Sapphire"></div>
+        <div class="fg"><label>Price (USD) <span class="req">*</span></label><input type="number" id="f-price" placeholder="450" step="0.01"></div>
+        <div class="fg"><label>Type</label>
+          <select id="f-type"><option value="cut">Cut Gemstone</option><option value="rough">Rough Stone</option><option value="jewelry">Jewelry</option></select>
         </div>
-        <div class="fg"><label>Gem Type</label><input id="f-gemtype" placeholder="e.g. Sapphire, Ruby, Emerald"></div>
+        <div class="fg"><label>Gem Type</label><input id="f-gemtype" placeholder="e.g. Sapphire, Ruby"></div>
         <div class="fg"><label>Origin</label><input id="f-origin" placeholder="e.g. Pakistan, Sri Lanka"></div>
         <div class="fg"><label>Color</label><input id="f-color" placeholder="e.g. Vivid Pink"></div>
         <div class="fg"><label>Treatment</label>
-          <select id="f-treatment"><option value="">Select…</option><option>Unheated Untreated</option><option>Heat Treated</option><option>Beryllium Diffused</option><option>Oiled</option><option>Fracture Filled</option></select>
+          <select id="f-treatment">
+            <option value="unheated">Unheated Untreated</option>
+            <option value="heated">Heat Treated</option>
+            <option value="beryllium">Beryllium Diffused</option>
+            <option value="oiled">Oiled</option>
+            <option value="fracture">Fracture Filled</option>
+          </select>
         </div>
-        <div class="fg"><label>Shape / Cut</label><input id="f-shape" placeholder="e.g. Rectangular, Oval"></div>
-        <div class="fg"><label>Weight (Carats)</label><input type="number" id="f-weight" placeholder="e.g. 1.10" step="0.001"></div>
+        <div class="fg"><label>Shape / Cut</label><input id="f-shape" placeholder="e.g. Oval, Rectangular"></div>
+        <div class="fg"><label>Weight (Carats)</label><input type="number" id="f-weight" placeholder="1.10" step="0.001"></div>
         <div class="fg"><label>Dimensions</label><input id="f-dims" placeholder="e.g. 6.8 × 5.2 × 3.1 mm"></div>
-        <div class="fg"><label>Clarity</label><input id="f-clarity" placeholder="e.g. Eye Clean, VS"></div>
-        <div class="fg"><label>Certificate</label><input id="f-cert" placeholder="e.g. GIA, GRS, Available on Request"></div>
+        <div class="fg"><label>Clarity</label><input id="f-clarity" placeholder="e.g. Eye Clean"></div>
+        <div class="fg"><label>Certificate</label><input id="f-cert" placeholder="e.g. GIA, Available on Request"></div>
         <div class="fg"><label>Status</label>
-          <select id="f-status"><option value="active">Active — Visible in shop</option><option value="sold">Sold</option><option value="draft">Draft — Hidden</option></select>
+          <select id="f-status">
+            <option value="active">Active — Visible in shop</option>
+            <option value="sold">Sold</option>
+            <option value="draft">Draft — Hidden</option>
+          </select>
         </div>
         <div class="fg" style="flex-direction:row;align-items:center;gap:.75rem;padding-top:.75rem">
           <label style="text-transform:none;letter-spacing:0;font-size:.82rem;color:var(--text)">Mark as Rare</label>
           <label class="toggle"><input type="checkbox" id="f-rare"><span class="slider"></span></label>
         </div>
-        <div class="fg full"><label>Description</label><textarea id="f-desc" rows="4" placeholder="Describe the gemstone — its beauty, rarity, unique qualities…"></textarea></div>
+        <div class="fg full"><label>Description</label><textarea id="f-desc" rows="4" placeholder="Describe the gemstone…"></textarea></div>
       </div>
     </div>
     <div class="modal-foot">
@@ -226,241 +285,346 @@
 </div>
 
 <script>
-const GH_TOKEN  = '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';
 const GH_OWNER  = 'gemmines2';
 const GH_REPO   = 'gemmines2-website';
 const GH_BRANCH = 'main';
+const GH_FILE   = 'product-data.js';
+let GH_TOKEN    = '';
 
+// ── LOGIN ─────────────────────────────────────────────────
+function doLogin() {
+  const token = document.getElementById('tokenInput').value.trim();
+  if (!token.startsWith('ghp_') && !token.startsWith('github_pat_')) {
+    const err = document.getElementById('loginError');
+    err.textContent = 'Invalid token format. It should start with ghp_';
+    err.classList.add('show');
+    return;
+  }
+  GH_TOKEN = token;
+  if (document.getElementById('rememberToken').checked) {
+    localStorage.setItem('gm2_admin_token', token);
+  }
+  showApp();
+}
+
+function logout() {
+  localStorage.removeItem('gm2_admin_token');
+  GH_TOKEN = '';
+  document.getElementById('app').classList.remove('show');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('tokenInput').value = '';
+}
+
+function showApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').classList.add('show');
+  showAlert('prod-alert','info','Loading products from GitHub…');
+  loadProducts().then(() => {
+    document.getElementById('prod-alert').className = 'alert';
+  }).catch(e => {
+    showAlert('prod-alert','error','Could not load products: ' + e.message);
+  });
+}
+
+// Auto-login if token saved
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('gm2_admin_token');
+  if (saved) {
+    GH_TOKEN = saved;
+    document.getElementById('tokenInput').value = saved;
+    showApp();
+  }
+  // Enter key on token input
+  document.getElementById('tokenInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+});
+
+// ── GITHUB API ────────────────────────────────────────────
 async function ghGet(path) {
-  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`,{headers:{Authorization:`token ${GH_TOKEN}`,Accept:'application/vnd.github.v3+json'}});
-  if(!r.ok) return null;
-  return r.json();
-}
-async function ghPut(path,content,message,sha) {
-  const body={message,content,branch:GH_BRANCH};
-  if(sha) body.sha=sha;
-  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,{method:'PUT',headers:{Authorization:`token ${GH_TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
+  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`, {
+    headers: { Authorization: `token ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!r.ok) return null;
   return r.json();
 }
 
-let products=[];
-async function loadProducts(){
-  const file=await ghGet('products-data.js');
-  if(!file) return;
-  const raw=atob(file.content.replace(/\n/g,''));
-  const match=raw.match(/const\s+PRODUCTS_DATA\s*=\s*(\[[\s\S]*?\]);/);
-  if(match){try{products=JSON.parse(match[1]);}catch(e){products=[];}}
-  renderDashboard();renderTable();
+async function ghPut(path, content, message, sha) {
+  const body = { message, content, branch: GH_BRANCH };
+  if (sha) body.sha = sha;
+  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: `token ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  return r.json();
 }
-async function saveProductsToGitHub(){
-  const js=`// Gemmines2 Products Data — Auto-generated by Admin Panel\n// Last updated: ${new Date().toLocaleString()}\n// Total products: ${products.length}\n\nconst PRODUCTS_DATA = ${JSON.stringify(products,null,2)};\n\nif(typeof module!=='undefined') module.exports=PRODUCTS_DATA;\n`;
-  const encoded=btoa(unescape(encodeURIComponent(js)));
-  const existing=await ghGet('products-data.js');
-  const sha=existing?existing.sha:undefined;
-  await ghPut('products-data.js',encoded,`Admin: Update products — ${new Date().toLocaleString()}`,sha);
+
+// ── LOAD PRODUCTS ─────────────────────────────────────────
+let products = [];
+
+async function loadProducts() {
+  const file = await ghGet(GH_FILE);
+  if (!file) throw new Error('product-data.js not found');
+  const raw = atob(file.content.replace(/\n/g, ''));
+  const match = raw.match(/const\s+PRODUCTS\s*=\s*(\[[\s\S]*\]);/);
+  if (match) {
+    try { products = JSON.parse(match[1]); } catch(e) { products = []; }
+  }
+  renderDashboard();
+  renderTable();
 }
-async function uploadImageToGitHub(file,filename){
-  return new Promise((resolve,reject)=>{
-    const reader=new FileReader();
-    reader.onload=async(e)=>{
-      const base64=e.target.result.split(',')[1];
-      const path=`images/${filename}`;
-      const existing=await ghGet(path);
-      const sha=existing?existing.sha:undefined;
-      const result=await ghPut(path,base64,`Admin: Upload image ${filename}`,sha);
-      if(result.content) resolve(`images/${filename}`);
+
+// ── SAVE PRODUCTS ─────────────────────────────────────────
+async function saveProductsToGitHub() {
+  const js = `/* ═══════════════════════════════════════════
+   GEMMINES2 — Product Catalog
+   Add / edit products here. All pages read from this file.
+   ═══════════════════════════════════════════ */
+const PRODUCTS = ${JSON.stringify(products, null, 2)};
+`;
+  const encoded = btoa(unescape(encodeURIComponent(js)));
+  const existing = await ghGet(GH_FILE);
+  const sha = existing ? existing.sha : undefined;
+  const result = await ghPut(GH_FILE, encoded, `Admin: Update products — ${new Date().toLocaleString()}`, sha);
+  if (!result.content) throw new Error(JSON.stringify(result));
+}
+
+// ── UPLOAD IMAGE ──────────────────────────────────────────
+async function uploadImageToGitHub(file, filename) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64 = e.target.result.split(',')[1];
+      const path = `images/${filename}`;
+      const existing = await ghGet(path);
+      const sha = existing ? existing.sha : undefined;
+      const result = await ghPut(path, base64, `Admin: Upload ${filename}`, sha);
+      if (result.content) resolve(`images/${filename}`);
       else reject(new Error('Image upload failed'));
     };
     reader.readAsDataURL(file);
   });
 }
 
-let editingId=null,pendingFiles=[],existingImages=[],filterText='',filterStatus='';
+// ── UI ────────────────────────────────────────────────────
+let editingId = null, pendingFiles = [], existingImages = [], filterText = '', filterStatus = '';
 
-function showTab(name){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  const idx=['dashboard','products'].indexOf(name);
-  if(idx>=0) document.querySelectorAll('.nav-item')[idx].classList.add('active');
-  if(name==='dashboard') renderDashboard();
-  if(name==='products') renderTable();
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const idx = ['dashboard','products'].indexOf(name);
+  if (idx >= 0) document.querySelectorAll('.nav-item')[idx].classList.add('active');
+  if (name === 'dashboard') renderDashboard();
+  if (name === 'products') renderTable();
 }
-function renderDashboard(){
-  const active=products.filter(p=>(p.status||'active')==='active');
-  const sold=products.filter(p=>p.status==='sold');
-  const val=active.reduce((s,p)=>s+(Number(p.price)||0),0);
-  document.getElementById('s-total').textContent=products.length;
-  document.getElementById('s-active').textContent=active.length;
-  document.getElementById('s-sold').textContent=sold.length;
-  document.getElementById('s-value').textContent='$'+val.toLocaleString('en-US',{maximumFractionDigits:0});
-  const recent=[...products].reverse().slice(0,5);
-  document.getElementById('dash-recent').innerHTML=recent.length
-    ?`<table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Status</th><th></th></tr></thead><tbody>${recent.map(productRow).join('')}</tbody></table>`
-    :`<div class="empty-state"><div class="ei">💎</div><h3>No products yet</h3><p>Add your first gemstone to get started.</p></div>`;
+
+function renderDashboard() {
+  const active = products.filter(p => (p.status||'active') === 'active');
+  const sold   = products.filter(p => p.status === 'sold');
+  const val    = active.reduce((s,p) => s + (Number(p.price)||0), 0);
+  document.getElementById('s-total').textContent  = products.length;
+  document.getElementById('s-active').textContent = active.length;
+  document.getElementById('s-sold').textContent   = sold.length;
+  document.getElementById('s-value').textContent  = '$' + val.toLocaleString('en-US', {maximumFractionDigits:0});
+  const recent = [...products].reverse().slice(0, 5);
+  document.getElementById('dash-recent').innerHTML = recent.length
+    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Status</th></tr></thead><tbody>${recent.map(productRow).join('')}</tbody></table>`
+    : `<div class="empty-state"><div class="ei">💎</div><h3>No products yet</h3><p>Click "+ Add New" to get started.</p></div>`;
 }
-function renderTable(){
-  let list=products.filter(p=>{
-    const nm=(p.name||'').toLowerCase();
-    const sm=!filterStatus||(p.status||'active')===filterStatus;
-    return nm.includes(filterText.toLowerCase())&&sm;
+
+function renderTable() {
+  let list = products.filter(p => {
+    const nm = (p.name||'').toLowerCase();
+    const sm = !filterStatus || (p.status||'active') === filterStatus;
+    return nm.includes(filterText.toLowerCase()) && sm;
   });
-  document.getElementById('prod-table').innerHTML=list.length
-    ?`<table><thead><tr><th>Image</th><th>Name</th><th>Weight</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(productRow).join('')}</tbody></table>`
-    :`<div class="empty-state"><div class="ei">🔍</div><h3>No products found</h3></div>`;
+  document.getElementById('prod-table').innerHTML = list.length
+    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Weight</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(productRow).join('')}</tbody></table>`
+    : `<div class="empty-state"><div class="ei">🔍</div><h3>No products found</h3></div>`;
 }
-function productRow(p){
-  const img=(p.images&&p.images[0])||p.image||'';
-  const sc={active:'badge-active',sold:'badge-sold',draft:'badge-draft'}[p.status||'active']||'badge-active';
+
+function productRow(p) {
+  const img = (p.images&&p.images[0]) || p.image || '';
+  const sc  = {active:'badge-active',sold:'badge-sold',draft:'badge-draft'}[p.status||'active'] || 'badge-active';
   return `<tr>
-    <td>${img?`<img class="td-img" src="${img}" onerror="this.style.display='none'">`:''}</td>
-    <td style="max-width:200px"><div style="font-size:.82rem">${p.name||'—'}</div><div style="font-size:.72rem;color:var(--text2)">${p.origin||''}</div></td>
-    <td style="color:var(--text2);font-size:.78rem">${p.weight?p.weight+' ct':'—'}</td>
+    <td>${img ? `<img class="td-img" src="${img}" onerror="this.style.display='none'">` : ''}</td>
+    <td style="max-width:200px"><div>${p.name||'—'}</div><div style="font-size:.72rem;color:var(--text2)">${p.origin||''}</div></td>
+    <td style="color:var(--text2);font-size:.78rem">${p.weight ? p.weight+' ct' : '—'}</td>
     <td style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem">$${Number(p.price||0).toLocaleString()}</td>
     <td><span class="badge ${sc}">${p.status||'active'}</span></td>
     <td><div class="act-row">
-      <button class="btn-sm btn-edit" onclick="openForm(${p.id})">Edit</button>
-      <button class="btn-sm btn-del" onclick="deleteProduct(${p.id})">Delete</button>
+      <button class="btn-sm btn-edit" onclick="openForm('${p.id}')">Edit</button>
+      <button class="btn-sm btn-del" onclick="deleteProduct('${p.id}')">Delete</button>
     </div></td></tr>`;
 }
-function openForm(id){
-  editingId=id||null;pendingFiles=[];existingImages=[];
-  document.getElementById('img-previews').innerHTML='';
-  document.getElementById('f-images').value='';
-  ['name','price','type','gemtype','origin','color','treatment','shape','weight','dims','clarity','cert','desc'].forEach(f=>{const el=document.getElementById('f-'+f);if(el)el.value='';});
-  document.getElementById('f-status').value='active';
-  document.getElementById('f-rare').checked=false;
-  document.getElementById('form-alert').className='alert';
+
+function openForm(id) {
+  editingId = id || null; pendingFiles = []; existingImages = [];
+  document.getElementById('img-previews').innerHTML = '';
+  document.getElementById('f-images').value = '';
+  ['name','shortname','price','gemtype','origin','color','shape','weight','dims','clarity','cert','desc'].forEach(f => {
+    const el = document.getElementById('f-'+f); if(el) el.value = '';
+  });
+  document.getElementById('f-type').value      = 'cut';
+  document.getElementById('f-treatment').value = 'unheated';
+  document.getElementById('f-status').value    = 'active';
+  document.getElementById('f-rare').checked    = false;
+  document.getElementById('form-alert').className = 'alert';
   document.getElementById('progress-wrap').classList.remove('show');
-  if(id){
-    const p=products.find(x=>x.id===id);if(!p)return;
-    document.getElementById('modal-title').innerHTML='Edit <em>Product</em>';
-    document.getElementById('f-name').value=p.name||'';
-    document.getElementById('f-price').value=p.price||'';
-    document.getElementById('f-type').value=p.type||'';
-    document.getElementById('f-gemtype').value=p.gemType||'';
-    document.getElementById('f-origin').value=p.origin||'';
-    document.getElementById('f-color').value=p.color||'';
-    document.getElementById('f-treatment').value=p.treatment||'';
-    document.getElementById('f-shape').value=p.shape||'';
-    document.getElementById('f-weight').value=p.weight||'';
-    document.getElementById('f-dims').value=p.dimensions||'';
-    document.getElementById('f-clarity').value=p.clarity||'';
-    document.getElementById('f-cert').value=p.certificate||'';
-    document.getElementById('f-status').value=p.status||'active';
-    document.getElementById('f-rare').checked=!!p.rare;
-    document.getElementById('f-desc').value=p.description||'';
-    existingImages=p.images||(p.image?[p.image]:[]);
-    existingImages.forEach(src=>addPreviewFromUrl(src));
+  document.getElementById('progress-fill').style.width = '0%';
+
+  if (id) {
+    const p = products.find(x => x.id === id); if (!p) return;
+    document.getElementById('modal-title').innerHTML = 'Edit <em>Product</em>';
+    document.getElementById('f-name').value      = p.name||'';
+    document.getElementById('f-shortname').value = p.shortName||'';
+    document.getElementById('f-price').value     = p.price||'';
+    document.getElementById('f-type').value      = p.type||'cut';
+    document.getElementById('f-gemtype').value   = p.gemType||'';
+    document.getElementById('f-origin').value    = p.origin||'';
+    document.getElementById('f-color').value     = p.color||'';
+    document.getElementById('f-treatment').value = p.treatment||'unheated';
+    document.getElementById('f-shape').value     = p.shape||'';
+    document.getElementById('f-weight').value    = p.weight||'';
+    document.getElementById('f-dims').value      = p.dimensions||'';
+    document.getElementById('f-clarity').value   = p.clarity||'';
+    document.getElementById('f-cert').value      = p.certificate||'';
+    document.getElementById('f-status').value    = p.status||'active';
+    document.getElementById('f-rare').checked    = !!p.rare;
+    document.getElementById('f-desc').value      = p.description||'';
+    existingImages = p.images || (p.image ? [p.image] : []);
+    existingImages.forEach(src => addPreviewFromUrl(src));
   } else {
-    document.getElementById('modal-title').innerHTML='Add <em>Product</em>';
+    document.getElementById('modal-title').innerHTML = 'Add <em>Product</em>';
   }
   document.getElementById('modal').classList.add('open');
 }
-function closeForm(){document.getElementById('modal').classList.remove('open');editingId=null;pendingFiles=[];}
-function handleImages(e){
-  Array.from(e.target.files).forEach(f=>{
+
+function closeForm() {
+  document.getElementById('modal').classList.remove('open');
+  editingId = null; pendingFiles = [];
+}
+
+function handleImages(e) {
+  Array.from(e.target.files).forEach(f => {
     pendingFiles.push(f);
-    const reader=new FileReader();
-    reader.onload=ev=>addPreviewImg(ev.target.result,pendingFiles.length-1);
+    const reader = new FileReader();
+    reader.onload = ev => addPreviewImg(ev.target.result, pendingFiles.length - 1);
     reader.readAsDataURL(f);
   });
 }
-function addPreviewImg(src,idx){
-  const c=document.getElementById('img-previews');
-  const d=document.createElement('div');d.className='img-prev';d.dataset.idx=idx;d.dataset.type='new';
-  d.innerHTML=`<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
+function addPreviewImg(src, idx) {
+  const c = document.getElementById('img-previews');
+  const d = document.createElement('div'); d.className='img-prev'; d.dataset.idx=idx; d.dataset.type='new';
+  d.innerHTML = `<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
   c.appendChild(d);
 }
-function addPreviewFromUrl(src){
-  const c=document.getElementById('img-previews');
-  const d=document.createElement('div');d.className='img-prev';d.dataset.src=src;d.dataset.type='existing';
-  d.innerHTML=`<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
+function addPreviewFromUrl(src) {
+  const c = document.getElementById('img-previews');
+  const d = document.createElement('div'); d.className='img-prev'; d.dataset.src=src; d.dataset.type='existing';
+  d.innerHTML = `<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
   c.appendChild(d);
 }
-function removePreview(btn){
-  const item=btn.parentElement;
-  if(item.dataset.type==='existing') existingImages=existingImages.filter(s=>s!==item.dataset.src);
-  else{const idx=parseInt(item.dataset.idx);pendingFiles[idx]=null;}
+function removePreview(btn) {
+  const item = btn.parentElement;
+  if (item.dataset.type === 'existing') existingImages = existingImages.filter(s => s !== item.dataset.src);
+  else { const idx = parseInt(item.dataset.idx); pendingFiles[idx] = null; }
   item.remove();
 }
-async function saveProduct(){
-  const name=document.getElementById('f-name').value.trim();
-  const price=document.getElementById('f-price').value;
-  const type=document.getElementById('f-type').value;
-  if(!name||!price||!type){showAlert('form-alert','error','Please fill in Name, Price, and Type.');return;}
-  const saveBtn=document.getElementById('save-btn');
-  saveBtn.disabled=true;saveBtn.textContent='Publishing…';
-  document.getElementById('form-alert').className='alert';
-  const progress=document.getElementById('progress-wrap');
-  const pFill=document.getElementById('progress-fill');
-  const pLabel=document.getElementById('progress-label');
-  progress.classList.add('show');
-  try{
-    const validFiles=pendingFiles.filter(Boolean);
-    const uploadedPaths=[];
-    for(let i=0;i<validFiles.length;i++){
-      const f=validFiles[i];
-      pLabel.textContent=`Uploading image ${i+1} of ${validFiles.length}…`;
-      pFill.style.width=((i/(validFiles.length+1))*80)+'%';
-      const ext=f.name.split('.').pop().toLowerCase();
-      const safeName=name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,40);
-      const filename=`${safeName}-${Date.now()}-${i}.${ext}`;
-      const path=await uploadImageToGitHub(f,filename);
-      uploadedPaths.push(path);
+
+async function saveProduct() {
+  const name  = document.getElementById('f-name').value.trim();
+  const price = document.getElementById('f-price').value;
+  if (!name || !price) { showAlert('form-alert','error','Please fill in Name and Price.'); return; }
+
+  const saveBtn = document.getElementById('save-btn');
+  saveBtn.disabled = true; saveBtn.textContent = 'Publishing…';
+  document.getElementById('form-alert').className = 'alert';
+  const pWrap  = document.getElementById('progress-wrap');
+  const pFill  = document.getElementById('progress-fill');
+  const pLabel = document.getElementById('progress-label');
+  pWrap.classList.add('show');
+
+  try {
+    const validFiles = pendingFiles.filter(Boolean);
+    const uploadedPaths = [];
+    for (let i = 0; i < validFiles.length; i++) {
+      const f = validFiles[i];
+      pLabel.textContent = `Uploading image ${i+1} of ${validFiles.length}…`;
+      pFill.style.width  = ((i / (validFiles.length + 1)) * 75) + '%';
+      const ext      = f.name.split('.').pop().toLowerCase();
+      const safeName = name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,35);
+      const filename = `${safeName}-${Date.now()}-${i}.${ext}`;
+      uploadedPaths.push(await uploadImageToGitHub(f, filename));
     }
-    const allImages=[...existingImages,...uploadedPaths];
-    pLabel.textContent='Saving product data…';pFill.style.width='85%';
-    const data={
-      id:editingId||Date.now(),name,price:parseFloat(price),type,
-      gemType:document.getElementById('f-gemtype').value.trim(),
-      origin:document.getElementById('f-origin').value.trim(),
-      color:document.getElementById('f-color').value.trim(),
-      treatment:document.getElementById('f-treatment').value,
-      shape:document.getElementById('f-shape').value.trim(),
-      weight:parseFloat(document.getElementById('f-weight').value)||null,
-      dimensions:document.getElementById('f-dims').value.trim(),
-      clarity:document.getElementById('f-clarity').value.trim(),
-      certificate:document.getElementById('f-cert').value.trim(),
-      status:document.getElementById('f-status').value,
-      rare:document.getElementById('f-rare').checked,
-      description:document.getElementById('f-desc').value.trim(),
-      images:allImages,image:allImages[0]||'',
-      updatedAt:new Date().toISOString()
+
+    const allImages = [...existingImages, ...uploadedPaths];
+    pLabel.textContent = 'Saving product list…'; pFill.style.width = '85%';
+
+    const weightVal = parseFloat(document.getElementById('f-weight').value) || null;
+    const priceVal  = parseFloat(price);
+
+    const data = {
+      id:          editingId || (document.getElementById('f-gemtype').value.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'') + '-' + Date.now()),
+      name,
+      shortName:   document.getElementById('f-shortname').value.trim() || name,
+      type:        document.getElementById('f-type').value,
+      treatment:   document.getElementById('f-treatment').value,
+      origin:      document.getElementById('f-origin').value.trim(),
+      color:       document.getElementById('f-color').value.trim(),
+      shape:       document.getElementById('f-shape').value.trim(),
+      weight:      weightVal,
+      dimensions:  document.getElementById('f-dims').value.trim(),
+      clarity:     document.getElementById('f-clarity').value.trim(),
+      certificate: document.getElementById('f-cert').value.trim() || 'Available on Request',
+      price:       priceVal,
+      pricePerCarat: weightVal ? Math.round(priceVal / weightVal) : null,
+      status:      document.getElementById('f-status').value,
+      rare:        document.getElementById('f-rare').checked,
+      description: document.getElementById('f-desc').value.trim(),
+      gemType:     document.getElementById('f-gemtype').value.trim(),
+      images:      allImages,
+      image:       allImages[0] || '',
     };
-    if(!editingId) data.createdAt=data.updatedAt;
-    if(editingId){const idx=products.findIndex(p=>p.id===editingId);products[idx]=data;}
+
+    if (editingId) { const idx = products.findIndex(p => p.id === editingId); products[idx] = data; }
     else products.unshift(data);
-    pLabel.textContent='Updating website…';pFill.style.width='92%';
+
+    pLabel.textContent = 'Updating website…'; pFill.style.width = '93%';
     await saveProductsToGitHub();
-    pFill.style.width='100%';pLabel.textContent='✓ Done! Website will update in ~1 minute.';
-    localStorage.setItem('gemmines_products',JSON.stringify(products));
+    pFill.style.width = '100%';
+    pLabel.textContent = '✓ Done! Website updates in ~1 minute.';
+
     closeForm();
-    showAlert('prod-alert','success','✓ Product published! Your website will update in about 1 minute.');
-    renderTable();renderDashboard();
-  }catch(err){
+    showAlert('prod-alert','success','✓ Published! Your website will update in about 1 minute.');
+    renderTable(); renderDashboard();
+
+  } catch(err) {
     console.error(err);
-    showAlert('form-alert','error','Error: '+err.message);
+    showAlert('form-alert','error','Error: ' + err.message);
   }
-  saveBtn.disabled=false;saveBtn.textContent='Save & Publish to Website';
+  saveBtn.disabled = false; saveBtn.textContent = 'Save & Publish to Website';
 }
-async function deleteProduct(id){
-  if(!confirm('Delete this product? This cannot be undone.')) return;
-  products=products.filter(p=>p.id!==id);
-  try{await saveProductsToGitHub();localStorage.setItem('gemmines_products',JSON.stringify(products));showAlert('prod-alert','success','✓ Product deleted and website updated.');}
-  catch(e){showAlert('prod-alert','error','Deleted locally but GitHub update failed: '+e.message);}
-  renderTable();renderDashboard();
+
+async function deleteProduct(id) {
+  if (!confirm('Delete this product? Cannot be undone.')) return;
+  products = products.filter(p => p.id !== id);
+  try {
+    await saveProductsToGitHub();
+    showAlert('prod-alert','success','✓ Deleted. Website will update in ~1 minute.');
+  } catch(e) {
+    showAlert('prod-alert','error','Delete failed: ' + e.message);
+  }
+  renderTable(); renderDashboard();
 }
-function showAlert(id,type,msg){
-  const el=document.getElementById(id);if(!el)return;
-  el.className='alert '+type;el.textContent=msg;
-  if(type==='success') setTimeout(()=>el.className='alert',6000);
+
+function showAlert(id, type, msg) {
+  const el = document.getElementById(id); if (!el) return;
+  el.className = 'alert ' + type; el.textContent = msg;
+  if (type === 'success') setTimeout(() => el.className = 'alert', 7000);
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  showAlert('prod-alert','info','Loading products from GitHub…');
-  loadProducts().then(()=>{document.getElementById('prod-alert').className='alert';})
-  .catch(e=>showAlert('prod-alert','error','Could not load products: '+e.message));
-});
 </script>
 </body>
 </html>
