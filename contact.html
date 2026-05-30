@@ -8,7 +8,6 @@
   <meta name="description" content="Contact Gemmines2 for gemstone enquiries, custom orders, or certificate requests. WhatsApp, email, and contact form available.">
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     .page-hero{padding:60px 5% 40px;background:var(--navy2);border-bottom:1px solid var(--border);text-align:center}
     .page-hero p{color:var(--muted);font-size:14px;margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto}
@@ -21,6 +20,8 @@
     .send-btn:disabled{opacity:.5;cursor:not-allowed}
     .success-msg{display:none;background:rgba(32,178,170,.08);border:1px solid var(--teal);border-radius:6px;padding:16px;text-align:center;color:var(--teal);font-size:14px;margin-top:16px;line-height:1.7}
     .success-msg.show{display:block}
+    .error-msg{display:none;background:rgba(220,50,50,.08);border:1px solid #dc3232;border-radius:6px;padding:16px;text-align:center;color:#dc3232;font-size:14px;margin-top:16px;line-height:1.7}
+    .error-msg.show{display:block}
     .info-cards{display:flex;flex-direction:column;gap:16px}
     .info-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
     .info-card:hover{border-color:rgba(32,178,170,.35)}
@@ -60,7 +61,6 @@
 </div>
 
 <div class="contact-layout">
-  <!-- FORM -->
   <div class="contact-card">
     <h2>Send Us a <em style="font-style:italic;color:var(--gold)">Message</em></h2>
     <p>Fill in the form below and we'll get back to you promptly. For urgent enquiries, WhatsApp is fastest.</p>
@@ -80,16 +80,20 @@
       </select>
       <div class="field-error" id="e-cSubject">Please select a subject</div>
     </div>
-    <div class="form-group"><label>Message <span class="req">*</span></label><textarea class="form-input" id="cMessage" rows="5" placeholder="Please describe what you are looking for, any specific gemstone details, or your question..." required></textarea><div class="field-error" id="e-cMessage">Please enter your message</div></div>
+    <div class="form-group"><label>Message <span class="req">*</span></label><textarea class="form-input" id="cMessage" rows="5" placeholder="Please describe what you are looking for..." required></textarea><div class="field-error" id="e-cMessage">Please enter your message</div></div>
     <button class="send-btn" id="sendBtn" onclick="sendMessage()">✉ Send Message</button>
     <div class="success-msg" id="successMsg">
       ✓ <strong>Message sent successfully!</strong><br>
       Thank you — we'll reply to your email within 24 hours.<br>
+      A confirmation has been sent to your email address.<br>
       For a faster response, message us on WhatsApp: <strong>+92 336 214 9415</strong>
+    </div>
+    <div class="error-msg" id="errorMsg">
+      ✗ <strong>Something went wrong.</strong><br>
+      Please try again or message us on WhatsApp: <strong>+92 336 214 9415</strong>
     </div>
   </div>
 
-  <!-- INFO -->
   <div class="info-cards">
     <div class="wa-card">
       <h3>💬 WhatsApp (Fastest)</h3>
@@ -127,38 +131,86 @@
   </div>
   <div class="footer-bottom"><div class="footer-copy">© 2026 Gemmines2 · Islamabad, Pakistan</div><div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div></div>
 </footer>
-<a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<a href="https://wa.me/923362149415" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script src="main.js"></script>
 <script>
 async function sendMessage() {
   let ok = true;
-  [['cName','e-cName'],['cEmail','e-cEmail'],['cSubject','e-cSubject'],['cMessage','e-cMessage']].forEach(([id,eid])=>{
-    const el=document.getElementById(id), er=document.getElementById(eid);
-    const v=el.value.trim(), fail=!v||(id==='cEmail'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
-    el.classList.toggle('error',fail); er.classList.toggle('show',fail); if(fail)ok=false;
+  [['cName','e-cName'],['cEmail','e-cEmail'],['cSubject','e-cSubject'],['cMessage','e-cMessage']].forEach(([id,eid]) => {
+    const el = document.getElementById(id);
+    const er = document.getElementById(eid);
+    const v  = el.value.trim();
+    const fail = !v || (id === 'cEmail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    el.classList.toggle('error', fail);
+    er.classList.toggle('show', fail);
+    if (fail) ok = false;
   });
-  if(!ok) return;
-  const btn=document.getElementById('sendBtn');
-  btn.disabled=true; btn.textContent='Sending...';
-  const params={
-    from_name: document.getElementById('cName').value.trim(),
-    from_email: document.getElementById('cEmail').value.trim(),
-    phone: document.getElementById('cPhone').value.trim()||'Not provided',
-    subject: document.getElementById('cSubject').value,
-    message: document.getElementById('cMessage').value.trim(),
-    reply_to: document.getElementById('cEmail').value.trim()
-  };
+  if (!ok) return;
+
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  document.getElementById('successMsg').classList.remove('show');
+  document.getElementById('errorMsg').classList.remove('show');
+
+  const name    = document.getElementById('cName').value.trim();
+  const email   = document.getElementById('cEmail').value.trim();
+  const phone   = document.getElementById('cPhone').value.trim() || 'Not provided';
+  const subject = document.getElementById('cSubject').value;
+  const message = document.getElementById('cMessage').value.trim();
+
   try {
-    if(typeof emailjs!=='undefined'&&EMAILJS_SERVICE_ID!=='YOUR_SERVICE_ID'){
-      await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_CONTACT,params);
-    }
+    // Email 1 — notify YOU
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '2d1f4770-3081-4ea0-b915-6903a7b5198f',
+        subject:    'New Contact: ' + subject + ' — from ' + name,
+        from_name:  name,
+        name:       name,
+        email:      email,
+        phone:      phone,
+        topic:      subject,
+        message:    message,
+        replyto:    email
+      })
+    });
+    const result = await res.json();
+    if (!result.success) throw new Error(result.message);
+
+    // Email 2 — confirmation to CUSTOMER
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '2d1f4770-3081-4ea0-b915-6903a7b5198f',
+        subject:    'We received your message — Gemmines2',
+        from_name:  'Gemmines2',
+        name:       'Gemmines2',
+        email:      email,
+        message:    'Dear ' + name + ',\n\nThank you for contacting Gemmines2. We have received your message and will reply within 24 hours.\n\nYour message:\nTopic: ' + subject + '\n"' + message + '"\n\nFor urgent enquiries:\nWhatsApp: +92 336 214 9415\nEmail: yousefzubair03@gmail.com\n\nWarm regards,\nGemmines2\nIslamabad, Pakistan'
+      })
+    });
+
     document.getElementById('successMsg').classList.add('show');
-    document.getElementById('cName').value='';document.getElementById('cEmail').value='';
-    document.getElementById('cPhone').value='';document.getElementById('cSubject').value='';
-    document.getElementById('cMessage').value='';
-  } catch(e){ showToast('Something went wrong. Please message us on WhatsApp.','error'); }
-  btn.disabled=false; btn.innerHTML='✉ Send Message';
+    document.getElementById('cName').value    = '';
+    document.getElementById('cEmail').value   = '';
+    document.getElementById('cPhone').value   = '';
+    document.getElementById('cSubject').value = '';
+    document.getElementById('cMessage').value = '';
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('errorMsg').classList.add('show');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '✉ Send Message';
 }
 </script>
 </body>
