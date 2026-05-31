@@ -8,6 +8,8 @@
   <title>Checkout | Gemmines2</title>
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
+  <!-- EmailJS for customer confirmation -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     .checkout-header{background:rgba(5,10,26,.98);border-bottom:1px solid var(--border);padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:68px}
     .secure-label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
@@ -70,11 +72,7 @@
 </div>
 
 <div class="checkout-wrap">
-
-  <!-- LEFT: FORM -->
   <div>
-
-    <!-- STEP 1: Contact -->
     <div class="form-card">
       <div class="form-card-title">Contact Information <span>Step 1 of 3</span></div>
       <div class="form-row">
@@ -101,7 +99,6 @@
       </div>
     </div>
 
-    <!-- STEP 2: Shipping -->
     <div class="form-card">
       <div class="form-card-title">Shipping Address <span>Step 2 of 3</span></div>
       <div class="form-group">
@@ -173,7 +170,6 @@
       </div>
     </div>
 
-    <!-- STEP 3: Payment -->
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
       <div class="pay-opts">
@@ -201,7 +197,6 @@
     </p>
   </div>
 
-  <!-- RIGHT: ORDER SUMMARY -->
   <div class="order-sum">
     <div class="os-title">Order Summary</div>
     <div class="os-items" id="osSummary"></div>
@@ -217,7 +212,6 @@
       📱 We will contact you on WhatsApp <strong>+92 336 214 9415</strong> to confirm payment details.
     </div>
   </div>
-
 </div>
 
 <div class="loading-overlay" id="loadingOverlay">
@@ -229,32 +223,24 @@
 <script src="main.js"></script>
 <script>
 
-// ═══════════════════════════════════════════════════════════
-//  WEB3FORMS ACCESS KEY — do not change this line
-// ═══════════════════════════════════════════════════════════
-const WEB3FORMS_KEY = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
+const WEB3FORMS_KEY     = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
+const EMAILJS_SERVICE   = 'service_6xjn39o';
+const EMAILJS_TEMPLATE  = 'template_uku33jb';
+const EMAILJS_PUBLIC    = 'PASTE_YOUR_EMAILJS_PUBLIC_KEY_HERE';
 
-// ── Country "Other" toggle ──────────────────────────────────
+// Init EmailJS
+emailjs.init(EMAILJS_PUBLIC);
+
 function handleCountryChange(select) {
   const other = document.getElementById('countryOther');
-  if (select.value === 'other') {
-    other.style.display = 'block';
-    other.focus();
-  } else {
-    other.style.display = 'none';
-    other.value = '';
-  }
+  if (select.value === 'other') { other.style.display='block'; other.focus(); }
+  else { other.style.display='none'; other.value=''; }
 }
-
 function getCountryValue() {
   const sel = document.getElementById('country');
-  if (sel.value === 'other') {
-    return document.getElementById('countryOther').value.trim();
-  }
-  return sel.value;
+  return sel.value === 'other' ? document.getElementById('countryOther').value.trim() : sel.value;
 }
 
-// ── Render Order Summary ────────────────────────────────────
 function renderSummary() {
   const items = Cart.get();
   const container = document.getElementById('osSummary');
@@ -266,64 +252,54 @@ function renderSummary() {
   container.innerHTML = items.map(i => {
     sub += i.price * (i.qty || 1);
     return `<div class="os-item">
-      <img class="os-item-img" src="${i.image || ''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
+      <img class="os-item-img" src="${i.image||''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
       <div class="os-item-info">
         <div class="os-item-name">${i.name}</div>
-        <div class="os-item-sub">${i.weight || ''} · ${i.origin || ''}</div>
+        <div class="os-item-sub">${i.weight||''} · ${i.origin||''}</div>
       </div>
-      <div class="os-item-price">$${(i.price * (i.qty || 1)).toFixed(2)}</div>
+      <div class="os-item-price">$${(i.price*(i.qty||1)).toFixed(2)}</div>
     </div>`;
   }).join('');
   document.getElementById('osSubtotal').textContent = '$' + sub.toFixed(2);
   document.getElementById('osTotal').textContent = '$' + sub.toFixed(2);
 }
 
-// ── Validate Form ───────────────────────────────────────────
 function validate() {
   const fields = [
-    { id: 'firstName' }, { id: 'lastName' }, { id: 'phone' },
-    { id: 'address' },   { id: 'city' },     { id: 'zip' },
-    { id: 'email', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }
+    {id:'firstName'},{id:'lastName'},{id:'phone'},
+    {id:'address'},{id:'city'},{id:'zip'},
+    {id:'email',pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
   ];
   let ok = true;
   fields.forEach(f => {
-    const el  = document.getElementById(f.id);
-    const err = document.getElementById('e-' + f.id);
-    const v   = el.value.trim();
-    const fail = !v || (f.pattern && !f.pattern.test(v));
-    el.classList.toggle('error', fail);
-    if (err) err.classList.toggle('show', fail);
-    if (fail) ok = false;
+    const el=document.getElementById(f.id);
+    const err=document.getElementById('e-'+f.id);
+    const v=el.value.trim();
+    const fail=!v||(f.pattern&&!f.pattern.test(v));
+    el.classList.toggle('error',fail);
+    if(err) err.classList.toggle('show',fail);
+    if(fail) ok=false;
   });
-  // Country check
-  const countryVal = getCountryValue();
-  const countryEl  = document.getElementById('country');
-  const countryErr = document.getElementById('e-country');
-  if (!countryVal) {
-    countryEl.classList.add('error');
-    if (countryErr) countryErr.classList.add('show');
-    ok = false;
-  } else {
-    countryEl.classList.remove('error');
-    if (countryErr) countryErr.classList.remove('show');
-  }
+  const countryVal=getCountryValue();
+  const countryEl=document.getElementById('country');
+  const countryErr=document.getElementById('e-country');
+  if(!countryVal){countryEl.classList.add('error');if(countryErr)countryErr.classList.add('show');ok=false;}
+  else{countryEl.classList.remove('error');if(countryErr)countryErr.classList.remove('show');}
   return ok;
 }
 
-// ── Place Order ─────────────────────────────────────────────
 async function placeOrder() {
-  if (!validate()) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+  if (!validate()) { window.scrollTo({top:0,behavior:'smooth'}); return; }
   const items = Cart.get();
   if (!items.length) { alert('Your cart is empty.'); return; }
 
-  // Collect form values
-  const orderId  = generateOrderId();
-  const fn       = document.getElementById('firstName').value.trim();
-  const ln       = document.getElementById('lastName').value.trim();
-  const email    = document.getElementById('email').value.trim();
-  const phone    = document.getElementById('phone').value.trim();
-  const country  = getCountryValue();
-  const addr     = [
+  const orderId = generateOrderId();
+  const fn      = document.getElementById('firstName').value.trim();
+  const ln      = document.getElementById('lastName').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const country = getCountryValue();
+  const addr    = [
     document.getElementById('address').value.trim(),
     document.getElementById('city').value.trim(),
     document.getElementById('state').value.trim(),
@@ -333,18 +309,12 @@ async function placeOrder() {
   const payment   = document.querySelector('input[name="payment"]:checked').value;
   const notes     = document.getElementById('notes').value.trim();
   const total     = Cart.total().toFixed(2);
-  const itemLines = items.map(i =>
-    `${i.name} (${i.weight || ''}) — $${(i.price * (i.qty || 1)).toFixed(2)}`
-  ).join('\n');
-  const date = new Date().toLocaleDateString('en-GB', {
-    year: 'numeric', month: 'long', day: 'numeric'
-  });
+  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`).join('\n');
+  const date = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
 
-  // Show loading
   document.getElementById('loadingOverlay').classList.add('show');
   document.getElementById('placeBtn').disabled = true;
 
-  // ── Email 1: Notify YOU at yousefzubair03@gmail.com ────────
   const ownerMsg =
 `NEW ORDER — Gemmines2
 ═══════════════════════════════
@@ -367,89 +337,43 @@ PAYMENT METHOD
 ${payment}
 ═══════════════════════════════
 CUSTOMER NOTES
-${notes || 'None'}
+${notes||'None'}
 ═══════════════════════════════`;
 
-  // ── Email 2: Confirm to CUSTOMER ───────────────────────────
-  const customerMsg =
-`Dear ${fn} ${ln},
-
-Thank you for your order with Gemmines2!
-
-Your order has been received and is being reviewed. We will contact you on WhatsApp and by email within a few hours to confirm payment details.
-
-ORDER DETAILS
-─────────────────────────────
-Order ID:     ${orderId}
-Date:         ${date}
-Total:        $${total}
-Payment:      ${payment}
-
-ITEMS ORDERED
-─────────────────────────────
-${itemLines}
-
-SHIPPING TO
-─────────────────────────────
-${addr}
-
-WHAT HAPPENS NEXT
-─────────────────────────────
-1. We contact you on WhatsApp shortly.
-2. You receive payment instructions (Payoneer or bank transfer).
-3. Once payment is confirmed, your gemstone is carefully packed and dispatched.
-4. Tracking details sent to you via WhatsApp and email.
-
-YOUR NOTES: ${notes || 'None'}
-
-─────────────────────────────
-Questions? We are here to help.
-WhatsApp : +92 336 214 9415
-Email    : yousefzubair03@gmail.com
-Website  : https://gemmines2.github.io/gemmines2-website/
-
-House # 602, Gali #6, Sector G-11/1
-Islamabad 44000 Pakistan
-─────────────────────────────
-© 2026 Gemmines2. All rights reserved.`;
-
   try {
-    // Send to owner
+    // ── Email 1: Notify YOU via Web3Forms ─────────────────
     await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify({
-        access_key:  WEB3FORMS_KEY,
-        subject:     `🔔 New Order ${orderId} — ${fn} ${ln} — $${total}`,
-        from_name:   'Gemmines2 Orders',
-        message:     ownerMsg,
-        replyto:     email
+        access_key: WEB3FORMS_KEY,
+        subject:    `🔔 New Order ${orderId} — ${fn} ${ln} — $${total}`,
+        from_name:  'Gemmines2 Orders',
+        message:    ownerMsg,
+        replyto:    email
       })
     });
 
-    // Send confirmation to customer
-    await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        access_key:  WEB3FORMS_KEY,
-        subject:     `Your Order is Confirmed — ${orderId} | Gemmines2`,
-        from_name:   'Gemmines2',
-        to:          email,
-        message:     customerMsg,
-        replyto:     'yousefzubair03@gmail.com'
-      })
+    // ── Email 2: Confirmation to CUSTOMER via EmailJS ─────
+    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+      to_email:   email,
+      to_name:    fn + ' ' + ln,
+      order_id:   orderId,
+      order_date: date,
+      order_total:'$' + total,
+      payment:    payment,
+      items:      itemLines,
+      address:    addr,
+      notes:      notes || 'None'
     });
 
-  } catch (e) {
-    console.warn('Email send error:', e);
-    // Order still goes through even if email fails
+  } catch(e) {
+    console.warn('Email error:', e);
   }
 
-  // Save order data and redirect
   sessionStorage.setItem('gm2_order', JSON.stringify({
-    orderId, firstName: fn, lastName: ln, email, phone,
-    address: addr, payment, total, items, notes, date
+    orderId, firstName:fn, lastName:ln, email, phone,
+    address:addr, payment, total, items, notes, date
   }));
   Cart.clear();
   window.location.href = 'order-confirmation.html';
@@ -458,4 +382,4 @@ Islamabad 44000 Pakistan
 document.addEventListener('DOMContentLoaded', renderSummary);
 </script>
 </body>
-</html>   
+</html>
