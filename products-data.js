@@ -35,7 +35,7 @@ const PRODUCTS = [
     "type": "cut",
     "treatment": "unheated",
     "origin": "pakistan",
-    "color": "green",
+    "color": "Olive Green",
     "shape": "oval shape",
     "weight": 5,
     "dimensions": "",
