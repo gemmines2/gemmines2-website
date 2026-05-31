@@ -36,7 +36,7 @@ const PRODUCTS = [
     "treatment": "unheated",
     "origin": "pakistan",
     "color": "green",
-    "shape": "oval",
+    "shape": "oval shape",
     "weight": 5,
     "dimensions": "",
     "clarity": "loop clean",
@@ -44,8 +44,8 @@ const PRODUCTS = [
     "price": 500,
     "pricePerCarat": 100,
     "status": "active",
-    "rare": false,
-    "description": "green pakistani peridot",
+    "rare": true,
+    "description": "Natural Unheated Peridot featuring attractive rutile inclusions and a rich olive green color. Sourced from Pakistan, this 5-carat gemstone displays natural beauty with unique internal characteristics that make each stone one of a kind. Untreated and unheated, this Peridot retains its natural appearance and authentic gemstone appeal. The distinctive rutile inclusions create visual interest while enhancing the stone's individuality. Suitable for gemstone collectors, custom jewelry projects, wire wrapping, pendants, rings, and investment collections. This loose Peridot offers excellent transparency, natural color, and genuine Pakistani origin. A beautiful choice for those seeking a natural gemstone with unique character and collectible value.\n\n\nNatural Peridot, Unheated Peridot, Pakistani Peridot, Olive Green Peridot, Rutile Peridot, Loose Gemstone, Natural Gemstone, Collector Gemstone, Peridot Crystal, Investment Gemstone, Genuine Peridot, Jewelry Stone, Untreated Peridot, Rare Peridot, Green Gemstone\n\n#Peridot #NaturalPeridot #UnheatedPeridot #PakistaniPeridot #OliveGreenPeridot #RutilePeridot #LooseGemstone #GemstoneCollector #NaturalGemstones #GemstoneSale #PeridotGemstone #CollectorStone #UntreatedGemstone #Gemmines2 #FineGemstones",
     "gemType": "peridot",
     "images": [
       "images/peridot-1780171470440-0.gif"
