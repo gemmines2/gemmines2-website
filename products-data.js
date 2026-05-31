@@ -23,9 +23,9 @@ const PRODUCTS = [
     "description": "Natural Unheated Rhodolite Garnets from Tanzania Original",
     "gemType": "Garnet",
     "images": [
-      "images/rhodolite-garnets-1780215583524-0.jpg"
+      "images/rhodolite-garnets-1780215788307-0.jpg"
     ],
-    "image": "images/rhodolite-garnets-1780215583524-0.jpg"
+    "image": "images/rhodolite-garnets-1780215788307-0.jpg"
   },
   {
     "id": "peridot-1780171474822",
