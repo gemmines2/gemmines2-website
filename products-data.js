@@ -12,18 +12,19 @@ const PRODUCTS = [
     "origin": "Tanzania",
     "color": "Red",
     "shape": "Oval,Cushion,Rectangular",
-    "weight": 12.2,
+    "weight": 11.9,
     "dimensions": "",
-    "clarity": "loop clean",
+    "clarity": "loupe clean",
     "certificate": "Available on Request",
-    "price": 200,
-    "pricePerCarat": 16,
+    "price": 160,
+    "pricePerCarat": 13,
     "status": "active",
     "rare": false,
     "description": "Natural Unheated Rhodolite Garnets from Tanzania Original",
     "gemType": "Garnet",
     "images": [
-      "images/rhodolite-garnets-1780215788307-0.jpg"
+      "images/rhodolite-garnets-1780215788307-0.jpg",
+      "images/rhodolite-garnets-1780244179003-0.jpg"
     ],
     "image": "images/rhodolite-garnets-1780215788307-0.jpg"
   },
