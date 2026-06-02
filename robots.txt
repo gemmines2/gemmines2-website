@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gemmines2.github.io/gemmines2-website/sitemap.xml
