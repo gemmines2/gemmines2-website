@@ -29,7 +29,9 @@ const Cart = {
     else { items.push({ ...product, qty: 1 }); }
     this.save(items);
     this.updateBadge();
-    showToast(`"${product.name}" added to cart ✓`, 'success');
+    // Show toast then redirect to cart after short delay
+    showToast(`"${product.shortName || product.name}" added — taking you to cart…`, 'success');
+    setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
   },
   remove(id) {
     const items = this.get().filter(i => i.id !== id);
@@ -64,7 +66,6 @@ function showToast(msg, type = 'success') {
 
 /* ── HEADER / NAV ────────────────────────────────────────── */
 function initHeader() {
-  // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
   if (hamburger && mobileNav) {
@@ -72,7 +73,6 @@ function initHeader() {
       hamburger.classList.toggle('open');
       mobileNav.classList.toggle('open');
     });
-    // Close on link click
     mobileNav.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => {
         hamburger.classList.remove('open');
@@ -80,12 +80,10 @@ function initHeader() {
       })
     );
   }
-  // Active nav link
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.main-nav a, .mobile-nav a').forEach(a => {
     if (a.getAttribute('href') === path) a.classList.add('active');
   });
-  // Cart badge
   Cart.updateBadge();
 }
 
@@ -106,10 +104,79 @@ function validateField(id, errId, pattern) {
   return !fail;
 }
 
+/* ── COPYRIGHT & SECURITY PROTECTION ─────────────────────── */
+function initSecurity() {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable image drag
+  document.addEventListener('dragstart', e => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+
+  // Disable text selection on product images
+  document.querySelectorAll('.prod-img-wrap img, .hero img').forEach(img => {
+    img.style.userSelect = 'none';
+    img.style.webkitUserSelect = 'none';
+    img.setAttribute('draggable', 'false');
+  });
+
+  // Disable common keyboard shortcuts for copying/saving
+  document.addEventListener('keydown', e => {
+    // Block Ctrl+S (save), Ctrl+U (view source), Ctrl+Shift+I (devtools)
+    if (e.ctrlKey && (e.key === 's' || e.key === 'u')) e.preventDefault();
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
+    // Block F12 devtools
+    if (e.key === 'F12') e.preventDefault();
+  });
+
+  // Watermark console with copyright notice
+  console.log(
+    '%c© 2026 Gemmines2 — All Rights Reserved\nUnauthorized copying, scraping or redistribution of content is strictly prohibited.',
+    'color:#20b2aa;font-weight:bold;font-size:13px;'
+  );
+}
+
+/* ── STRUCTURED DATA (JSON-LD) ───────────────────────────── */
+function injectStructuredData() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Gemmines2",
+    "url": "https://gemmines2.github.io/gemmines2-website/",
+    "logo": "https://gemmines2.github.io/gemmines2-website/images/logo.png",
+    "description": "100% natural, unheated gemstones from Pakistan and Sri Lanka. Sapphires, rubies, emeralds, garnets and custom silver jewelry. Ethically sourced, worldwide shipping.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "House 602, Gali 6, Sector G11/1",
+      "addressLocality": "Islamabad",
+      "addressCountry": "PK",
+      "postalCode": "44000"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+92-336-214-9415",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Urdu"]
+    },
+    "sameAs": [
+      "https://wa.me/923362149415"
+    ],
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Payoneer, Bank Transfer",
+    "openingHours": "Mo-Su 09:00-21:00"
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(schema);
+  document.head.appendChild(s);
+}
+
 /* ── INIT ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
-  // Init EmailJS if available
+  initSecurity();
+  injectStructuredData();
   if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
