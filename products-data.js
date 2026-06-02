@@ -4,6 +4,30 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "spinel-1780404241958",
+    "name": "Natural Sri Lankan( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone",
+    "shortName": "Natural Spinal",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Blue",
+    "shape": "oval shape",
+    "weight": 1,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 125,
+    "pricePerCarat": 125,
+    "status": "active",
+    "rare": false,
+    "description": "Pure Natural Elegance: This exceptional 1-carat Blue Spinel is sourced directly from the legendary gem fields of Sri Lanka (Ceylon), renowned for producing some of the world's finest colored stones.\n\nUnheated & Untreated: Completely in its natural state. This gemstone has undergone no heat treatment or color enhancement, preserving its authentic value and rare, vivid blue hue.\n\nFlawless Clarity: Graded from eye-clean to loupe-clean, this stone boasts incredible transparency and magnificent brilliance, making it perfect for custom high-end jewelry or a premium addition to your collection.",
+    "gemType": "Spinel",
+    "images": [
+      "images/natural-sri-lankan-ceylon-blue-spin-1780404239284-0.jpg"
+    ],
+    "image": "images/natural-sri-lankan-ceylon-blue-spin-1780404239284-0.jpg"
+  },
+  {
     "id": "garnet-1780215589223",
     "name": "Natural Unheated Rhodolite Garnets 12.2 Carats",
     "shortName": "Rhodolite Garnets",
@@ -428,7 +452,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby â one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby Ã¢ÂÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg"
