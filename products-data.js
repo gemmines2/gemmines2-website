@@ -9,12 +9,12 @@ const PRODUCTS = [
     "shortName": "Natural Spinal",
     "type": "cut",
     "treatment": "unheated",
-    "origin": "Sri Lankan",
+    "origin": "Sri Lanka",
     "color": "Blue",
     "shape": "oval shape",
     "weight": 1,
     "dimensions": "",
-    "clarity": "",
+    "clarity": "Loupe Clean",
     "certificate": "Available on Request",
     "price": 125,
     "pricePerCarat": 125,
@@ -38,13 +38,13 @@ const PRODUCTS = [
     "shape": "Oval, Cushion, Rectangular",
     "weight": 12.2,
     "dimensions": "",
-    "clarity": "Loop Clean",
+    "clarity": "Loupe Clean",
     "certificate": "Available on Request",
     "price": 200,
     "pricePerCarat": 16,
     "status": "active",
     "rare": false,
-    "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loop clean clarity.",
+    "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.",
     "gemType": "Garnet",
     "images": [
       "images/rhodolite-garnets-1780215583524-0.jpg"
@@ -62,13 +62,13 @@ const PRODUCTS = [
     "shape": "Oval",
     "weight": 5,
     "dimensions": "",
-    "clarity": "Loop Clean",
+    "clarity": "Loupe Clean",
     "certificate": "Available on Request",
     "price": 500,
     "pricePerCarat": 100,
     "status": "active",
     "rare": false,
-    "description": "Natural unheated olive green peridot from Pakistan. Oval shape with excellent luster and loop clean clarity.",
+    "description": "Natural unheated olive green peridot from Pakistan. Oval shape with excellent luster and loupe clean clarity.",
     "gemType": "Peridot",
     "images": [
       "images/peridot-1780171470440-0.gif"
@@ -95,9 +95,9 @@ const PRODUCTS = [
     "description": "Opaque quality green jasper from Pakistan with beautiful lustre and color.",
     "gemType": "Jasper",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/green-jasper.jpg"
+      "images/green-jasper.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/green-jasper.jpg"
+    "image": "images/green-jasper.jpg"
   },
   {
     "id": "lemonquartz_012",
@@ -119,9 +119,9 @@ const PRODUCTS = [
     "description": "Vibrant Lemon Quartz from Pakistan. Stone of clarity and positive energy with eye clean transparency.",
     "gemType": "Quartz",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg"
+      "images/lemon-quartz.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg"
+    "image": "images/lemon-quartz.jpg"
   },
   {
     "id": "lemonquartz2_014",
@@ -143,9 +143,9 @@ const PRODUCTS = [
     "description": "AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.",
     "gemType": "Quartz",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg"
+      "images/lemon-quartz2.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg"
+    "image": "images/lemon-quartz2.jpg"
   },
   {
     "id": "bluesapphire_016",
@@ -167,9 +167,9 @@ const PRODUCTS = [
     "description": "Symbol of wisdom, virtue and good fortune. Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.",
     "gemType": "Sapphire",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/bluesapphire.jpg"
+      "images/bluesapphire.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/bluesapphire.jpg"
+    "image": "images/bluesapphire.jpg"
   },
   {
     "id": "emeralds_017",
@@ -191,9 +191,9 @@ const PRODUCTS = [
     "description": "Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.",
     "gemType": "Emerald",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/emeralds.jpg"
+      "images/emeralds.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/emeralds.jpg"
+    "image": "images/emeralds.jpg"
   },
   {
     "id": "fluorite_018",
@@ -215,9 +215,9 @@ const PRODUCTS = [
     "description": "Rare High Clarity Polished Crystal Healing Stone from Pakistan. Beautiful blue fluorite with exceptional clarity.",
     "gemType": "Fluorite",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/fluorite.jpg"
+      "images/fluorite.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/fluorite.jpg"
+    "image": "images/fluorite.jpg"
   },
   {
     "id": "mixedgemstones_019",
@@ -239,9 +239,9 @@ const PRODUCTS = [
     "description": "Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.",
     "gemType": "Mixed",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/mixed-gemstones.jpg"
+      "images/mixed-gemstones.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/mixed-gemstones.jpg"
+    "image": "images/mixed-gemstones.jpg"
   },
   {
     "id": "almandine_028",
@@ -263,9 +263,9 @@ const PRODUCTS = [
     "description": "Polished Reddish Purple Almandine Garnet from Pakistan. Unheated and Untreated with beautiful oval cut.",
     "gemType": "Garnet",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg"
+      "images/almandine.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/almandine.jpg"
+    "image": "images/almandine.jpg"
   },
   {
     "id": "mixed_sapphire_029",
@@ -287,9 +287,9 @@ const PRODUCTS = [
     "description": "Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.",
     "gemType": "Sapphire",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg"
+      "images/mixedsapphire.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg"
+    "image": "images/mixedsapphire.jpg"
   },
   {
     "id": "Natural_Black_Chert_030",
@@ -311,9 +311,9 @@ const PRODUCTS = [
     "description": "Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.",
     "gemType": "Chert",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/chert.jpg"
+      "images/chert.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/chert.jpg"
+    "image": "images/chert.jpg"
   },
   {
     "id": "Kunzite_031",
@@ -335,9 +335,9 @@ const PRODUCTS = [
     "description": "Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.",
     "gemType": "Kunzite",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg"
+      "images/pink-kunzite.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg"
+    "image": "images/pink-kunzite.jpg"
   },
   {
     "id": "034",
@@ -359,9 +359,9 @@ const PRODUCTS = [
     "description": "Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.",
     "gemType": "Quartz",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg"
+      "images/ferruginous.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg"
+    "image": "images/ferruginous.jpg"
   },
   {
     "id": "039",
@@ -383,9 +383,9 @@ const PRODUCTS = [
     "description": "Rare Sri Lankan Origin Bi-Color Sapphire. Unheated and untreated with pear cut. Beautiful two-tone color combination.",
     "gemType": "Sapphire",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg"
+      "images/bi-color-sapphire.jpeg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg"
+    "image": "images/bi-color-sapphire.jpeg"
   },
   {
     "id": "040",
@@ -407,9 +407,9 @@ const PRODUCTS = [
     "description": "Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut. Deep royal blue color with excellent luster.",
     "gemType": "Sapphire",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg"
+      "images/darksapphire.jpeg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg"
+    "image": "images/darksapphire.jpeg"
   },
   {
     "id": "043",
@@ -431,9 +431,9 @@ const PRODUCTS = [
     "description": "Sri Lankan Ceylon Pink-Orange Padparadscha Sapphire with Beautiful Luster. One of the rarest sapphire varieties in the world.",
     "gemType": "Sapphire",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg"
+      "images/Padparadscha-sapphire.jpeg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg"
+    "image": "images/Padparadscha-sapphire.jpeg"
   },
   {
     "id": "044",
@@ -452,12 +452,12 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby Ã¢ÂÂ one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby — one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg"
+      "images/ruby2.jpeg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg"
+    "image": "images/ruby2.jpeg"
   },
   {
     "id": "pinktopaz_101",
@@ -476,14 +476,14 @@ const PRODUCTS = [
     "pricePerCarat": 7,
     "status": "active",
     "rare": false,
-    "description": "Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. This beautiful Cut and Polished gemstone displays a soft light pink color with minor natural inclusions that reflect its genuine natural formation. Free from heat treatment, the gemstone retains its authentic appearance and natural characteristics.\n\nSourced from Pakistan, a region known for producing fine-quality gemstones, this Pink Topaz is suitable for gemstone collectors, jewelry designers, and gemstone enthusiasts seeking a unique natural stone. Its attractive color and impressive size make it an excellent choice for custom rings, pendants, statement jewelry, or gemstone collections.\n\nGemstone Details:\n\nGemstone: Natural Pink Topaz\nColor: Light Pink\nWeight: 18.00 Carats\nTreatment: Unheated / Untreated\nClarity: Minor Natural Inclusions\nOrigin: Pakistan\nType: Cut and Polished\n\nEach natural gemstone is unique and may display individual characteristics that enhance its beauty and authenticity.\n\n\nNatural Pink Topaz, Light Pink Topaz, Pakistan Pink Topaz, Unheated Topaz, Untreated Topaz, Loose Pink Gemstone, Natural Topaz Stone, Pink Gemstone for Jewelry, Collector Gemstone, Faceted Topaz, Pakistan Gemstones, Loose Colored Gemstone, Fine Gemstones, Natural Loose Topaz, Topaz Crystal\n\n\n\n#PinkTopaz #NaturalTopaz #PakistanGemstones #LooseGemstone #UnheatedTopaz #UntreatedGemstone #PinkGemstone #CollectorGemstone #FineGemstones #JewelryGemstone #NaturalGemstones #TopazStone #GemstoneCollection #GemLovers #Gemmines2",
+    "description": "Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. This beautiful Cut and Polished gemstone displays a soft light pink color with minor natural inclusions that reflect its genuine natural formation. Free from heat treatment, the gemstone retains its authentic appearance and natural characteristics.\n\nSourced from Pakistan, a region known for producing fine-quality gemstones, this Pink Topaz is suitable for gemstone collectors, jewelry designers, and gemstone enthusiasts seeking a unique natural stone.",
     "gemType": "Topaz",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.gif",
+      "images/pinktopaz.gif",
       "images/natural-unheated-pink-topaz-18-cara-1780319473513-0.jpg",
       "images/natural-unheated-pink-topaz-18-cara-1780319477585-1.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/pinktopaz.gif"
+    "image": "images/pinktopaz.gif"
   },
   {
     "id": "Greenperidot_102",
@@ -505,9 +505,9 @@ const PRODUCTS = [
     "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance.",
     "gemType": "Peridot",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/peridot.gif"
+      "images/peridot.gif"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/peridot.gif"
+    "image": "images/peridot.gif"
   },
   {
     "id": "rhodolitegarnets_103",
@@ -529,8 +529,8 @@ const PRODUCTS = [
     "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster. Total weight approximately 12 carats.",
     "gemType": "Garnet",
     "images": [
-      "https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg"
+      "images/rhodolite.jpg"
     ],
-    "image": "https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg"
+    "image": "images/rhodolite.jpg"
   }
 ];
