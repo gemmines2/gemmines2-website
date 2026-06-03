@@ -452,7 +452,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby — one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby â one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
@@ -494,12 +494,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Olive Green",
     "shape": "Oval",
-    "weight": null,
+    "weight": 5,
     "dimensions": "",
     "clarity": "Eye Clean with Natural Rutile",
     "certificate": "Available on Request",
     "price": 95,
-    "pricePerCarat": null,
+    "pricePerCarat": 19,
     "status": "active",
     "rare": false,
     "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance.",
