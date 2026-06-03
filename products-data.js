@@ -51,7 +51,6 @@ const PRODUCTS = [
     ],
     "image": "images/rhodolite-garnets-1780215583524-0.jpg"
   },
-  
   {
     "id": "greenjasper_005",
     "name": "Natural Green Jasper Stones 10+ Carats",
@@ -301,12 +300,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Pink",
     "shape": "Oval Cut",
-    "weight": 4.8,
+    "weight": 3.8,
     "dimensions": "",
-    "clarity": "Transparent",
+    "clarity": "loupe clean",
     "certificate": "Available on Request",
     "price": 100,
-    "pricePerCarat": 21,
+    "pricePerCarat": 26,
     "status": "active",
     "rare": false,
     "description": "Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.",
@@ -429,7 +428,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby â one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby Ã¢ÂÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
