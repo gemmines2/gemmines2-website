@@ -308,7 +308,7 @@ const PRODUCTS = [
     "pricePerCarat": 26,
     "status": "active",
     "rare": false,
-    "description": "Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.",
+    "description": "This stunning 3.80 carat Natural Pink Kunzite is a collector's dream. Sourced from premium deposits, this gemstone is completely unheated and untreated, preserving its delicate, authentic \"orchid\" pink hue. It features unique ferruginous characteristics that attest to its natural formation. Known for its exceptional pleochroism—showing different shades from different angles—this Kunzite offers high clarity and a brilliant luster. Perfect for a statement ring or a custom pendant, this stone combines substantial carat weight with the rare \"natural\" status highly sought after in modern lapidary markets. Natural Kunzite, Unheated Gemstone, Pink Spodumene, 4ct Kunzite, Ferruginous Kunzite. #Kunzite #PinkGemstone #UnheatedKunzite #LooseGems #InvestmentGemstone #NaturalSton",
     "gemType": "Kunzite",
     "images": [
       "images/pink-kunzite.jpg"
@@ -428,7 +428,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby Ã¢ÂÂ one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂ¢ÃÂÃÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
