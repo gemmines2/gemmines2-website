@@ -23,7 +23,7 @@ const PRODUCTS = [
     "description": "Pure Natural Elegance: This exceptional 1-carat Blue Spinel is sourced directly from the legendary gem fields of Sri Lanka (Ceylon), renowned for producing some of the world's finest colored stones.\n\nUnheated & Untreated: Completely in its natural state. This gemstone has undergone no heat treatment or color enhancement, preserving its authentic value and rare, vivid blue hue.\n\nFlawless Clarity: Graded from eye-clean to loupe-clean, this stone boasts incredible transparency and magnificent brilliance, making it perfect for custom high-end jewelry or a premium addition to your collection.",
     "gemType": "Spinel",
     "images": [
-      "images/natural-sri-lankan-ceylon-blue-spin-1780404239284-0.jpg"
+      "images/spinel.jpg"
     ],
     "image": "images/natural-sri-lankan-ceylon-blue-spin-1780404239284-0.jpg"
   },
