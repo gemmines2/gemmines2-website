@@ -4,6 +4,30 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "spinel-1780499911496",
+    "name": "Natural Sri Lankan( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone",
+    "shortName": "Natural Spinal",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "oval shape",
+    "weight": null,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Available on Request",
+    "price": 125,
+    "pricePerCarat": null,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Sri Lankan Blue Spinel",
+    "gemType": "Spinel",
+    "images": [
+      "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
+    ],
+    "image": "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
+  },
+  {
     "id": "spinel-1780404241958",
     "name": "Natural Sri Lankan Blue Spinel 1 Carat | Loupe Clean Unheated Gemstone",
     "shortName": "Blue Spinel",
@@ -20,9 +44,11 @@ const PRODUCTS = [
     "pricePerCarat": 125,
     "status": "active",
     "rare": true,
-    "description": "Pure Natural Elegance: This exceptional 1-carat Blue Spinel is sourced directly from the legendary gem fields of Sri Lanka (Ceylon), renowned for producing some of the world's finest colored stones.\n\nUnheated & Untreated: Completely in its natural state. No heat treatment or color enhancement, preserving its authentic value and rare vivid blue hue.\n\nFlawless Clarity: Graded loupe-clean, this stone boasts incredible transparency and magnificent brilliance — perfect for custom high-end jewelry or a premium collection.",
+    "description": "Pure Natural Elegance: This exceptional 1-carat Blue Spinel is sourced directly from the legendary gem fields of Sri Lanka (Ceylon), renowned for producing some of the world's finest colored stones.\n\nUnheated & Untreated: Completely in its natural state. No heat treatment or color enhancement, preserving its authentic value and rare vivid blue hue.\n\nFlawless Clarity: Graded loupe-clean, this stone boasts incredible transparency and magnificent brilliance â perfect for custom high-end jewelry or a premium collection.",
     "gemType": "Spinel",
-    "images": ["images/spinel.jpg"],
+    "images": [
+      "images/spinel.jpg"
+    ],
     "image": "images/spinel.jpg"
   },
   {
@@ -44,7 +70,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.",
     "gemType": "Garnet",
-    "images": ["images/rhodolite-garnets-1780215583524-0.jpg"],
+    "images": [
+      "images/rhodolite-garnets-1780215583524-0.jpg"
+    ],
     "image": "images/rhodolite-garnets-1780215583524-0.jpg"
   },
   {
@@ -66,7 +94,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Opaque quality green jasper from Pakistan with beautiful lustre and color.",
     "gemType": "Jasper",
-    "images": ["images/green-jasper.jpg"],
+    "images": [
+      "images/green-jasper.jpg"
+    ],
     "image": "images/green-jasper.jpg"
   },
   {
@@ -88,7 +118,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Vibrant Lemon Quartz from Pakistan. Stone of clarity and positive energy with eye clean transparency.",
     "gemType": "Quartz",
-    "images": ["images/lemon-quartz.jpg"],
+    "images": [
+      "images/lemon-quartz.jpg"
+    ],
     "image": "images/lemon-quartz.jpg"
   },
   {
@@ -110,7 +142,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.",
     "gemType": "Quartz",
-    "images": ["images/lemon-quartz2.jpg"],
+    "images": [
+      "images/lemon-quartz2.jpg"
+    ],
     "image": "images/lemon-quartz2.jpg"
   },
   {
@@ -132,7 +166,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Symbol of wisdom, virtue and good fortune. Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.",
     "gemType": "Sapphire",
-    "images": ["images/bluesapphire.jpg"],
+    "images": [
+      "images/bluesapphire.jpg"
+    ],
     "image": "images/bluesapphire.jpg"
   },
   {
@@ -154,7 +190,9 @@ const PRODUCTS = [
     "rare": true,
     "description": "Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.",
     "gemType": "Emerald",
-    "images": ["images/emeralds.jpg"],
+    "images": [
+      "images/emeralds.jpg"
+    ],
     "image": "images/emeralds.jpg"
   },
   {
@@ -176,7 +214,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Rare High Clarity Polished Crystal Healing Stone from Pakistan. Beautiful blue fluorite with exceptional clarity.",
     "gemType": "Fluorite",
-    "images": ["images/fluorite.jpg"],
+    "images": [
+      "images/fluorite.jpg"
+    ],
     "image": "images/fluorite.jpg"
   },
   {
@@ -198,7 +238,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.",
     "gemType": "Mixed",
-    "images": ["images/mixed-gemstones.jpg"],
+    "images": [
+      "images/mixed-gemstones.jpg"
+    ],
     "image": "images/mixed-gemstones.jpg"
   },
   {
@@ -220,7 +262,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Polished Reddish Purple Almandine Garnet from Pakistan. Unheated and Untreated with beautiful oval cut.",
     "gemType": "Garnet",
-    "images": ["images/almandine.jpg"],
+    "images": [
+      "images/almandine.jpg"
+    ],
     "image": "images/almandine.jpg"
   },
   {
@@ -242,7 +286,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.",
     "gemType": "Sapphire",
-    "images": ["images/mixedsapphire.jpg"],
+    "images": [
+      "images/mixedsapphire.jpg"
+    ],
     "image": "images/mixedsapphire.jpg"
   },
   {
@@ -264,7 +310,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.",
     "gemType": "Chert",
-    "images": ["images/chert.jpg"],
+    "images": [
+      "images/chert.jpg"
+    ],
     "image": "images/chert.jpg"
   },
   {
@@ -286,7 +334,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.",
     "gemType": "Kunzite",
-    "images": ["images/pink-kunzite.jpg"],
+    "images": [
+      "images/pink-kunzite.jpg"
+    ],
     "image": "images/pink-kunzite.jpg"
   },
   {
@@ -308,7 +358,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.",
     "gemType": "Quartz",
-    "images": ["images/ferruginous.jpg"],
+    "images": [
+      "images/ferruginous.jpg"
+    ],
     "image": "images/ferruginous.jpg"
   },
   {
@@ -330,7 +382,9 @@ const PRODUCTS = [
     "rare": true,
     "description": "Rare Sri Lankan Origin Bi-Color Sapphire. Unheated and untreated with pear cut. Beautiful two-tone color combination.",
     "gemType": "Sapphire",
-    "images": ["images/bi-color-sapphire.jpeg"],
+    "images": [
+      "images/bi-color-sapphire.jpeg"
+    ],
     "image": "images/bi-color-sapphire.jpeg"
   },
   {
@@ -352,7 +406,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut. Deep royal blue color with excellent luster.",
     "gemType": "Sapphire",
-    "images": ["images/darksapphire.jpeg"],
+    "images": [
+      "images/darksapphire.jpeg"
+    ],
     "image": "images/darksapphire.jpeg"
   },
   {
@@ -374,7 +430,9 @@ const PRODUCTS = [
     "rare": true,
     "description": "Sri Lankan Ceylon Pink-Orange Padparadscha Sapphire with Beautiful Luster. One of the rarest sapphire varieties in the world.",
     "gemType": "Sapphire",
-    "images": ["images/Padparadscha-sapphire.jpeg"],
+    "images": [
+      "images/Padparadscha-sapphire.jpeg"
+    ],
     "image": "images/Padparadscha-sapphire.jpeg"
   },
   {
@@ -394,9 +452,11 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby — one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby â one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
-    "images": ["images/ruby2.jpeg"],
+    "images": [
+      "images/ruby2.jpeg"
+    ],
     "image": "images/ruby2.jpeg"
   },
   {
@@ -444,7 +504,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance.",
     "gemType": "Peridot",
-    "images": ["images/peridot.gif"],
+    "images": [
+      "images/peridot.gif"
+    ],
     "image": "images/peridot.gif"
   },
   {
@@ -466,7 +528,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster. Total weight approximately 12 carats.",
     "gemType": "Garnet",
-    "images": ["images/rhodolite.jpg"],
+    "images": [
+      "images/rhodolite.jpg"
+    ],
     "image": "images/rhodolite.jpg"
   },
   {
@@ -488,7 +552,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural Translucent Green Nephrite Jade from Pakistan. Beautiful green color with translucent clarity. Unheated and untreated natural gemstone sourced from Pakistan.",
     "gemType": "Jade",
-    "images": ["images/jade.jpg"],
+    "images": [
+      "images/jade.jpg"
+    ],
     "image": "images/jade.jpg"
   }
 ];
