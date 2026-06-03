@@ -508,5 +508,26 @@ const PRODUCTS = [
       "images/rhodolite.jpg"
     ],
     "image": "images/rhodolite.jpg"
+  
+   ,{
+    "id": "jade_045",
+    "name": "Natural Translucent Green Nephrite Jade Gemstone 2 Carats Pakistan",
+    "shortName": "Green Jade",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Translucent Green",
+    "shape": "Polished",
+    "weight": 2,
+    "clarity": "Translucent",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 40,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Translucent Green Nephrite Jade from Pakistan. Beautiful green color with translucent clarity. Unheated and untreated.",
+    "gemType": "Jade",
+    "images": ["images/jade.jpg"],
+    "image": "images/jade.jpg"
   }
 ];
