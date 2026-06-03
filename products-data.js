@@ -51,30 +51,7 @@ const PRODUCTS = [
     ],
     "image": "images/rhodolite-garnets-1780215583524-0.jpg"
   },
-  {
-    "id": "peridot-1780171474822",
-    "name": "Natural Unheated Pakistani Peridot 5 Carats",
-    "shortName": "Peridot",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Olive Green",
-    "shape": "Oval",
-    "weight": 5,
-    "dimensions": "",
-    "clarity": "Loupe Clean",
-    "certificate": "Available on Request",
-    "price": 500,
-    "pricePerCarat": 100,
-    "status": "active",
-    "rare": false,
-    "description": "Natural unheated olive green peridot from Pakistan. Oval shape with excellent luster and loupe clean clarity.",
-    "gemType": "Peridot",
-    "images": [
-      "images/peridot-1780171470440-0.gif"
-    ],
-    "image": "images/peridot-1780171470440-0.gif"
-  },
+  
   {
     "id": "greenjasper_005",
     "name": "Natural Green Jasper Stones 10+ Carats",
