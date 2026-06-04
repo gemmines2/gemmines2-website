@@ -28,30 +28,6 @@ const PRODUCTS = [
     "image": "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
   },
   {
-    "id": "spinel-1780404241958",
-    "name": "Natural Sri Lankan Blue Spinel 1 Carat | Loupe Clean Unheated Gemstone",
-    "shortName": "Blue Spinel",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Sri Lanka",
-    "color": "Blue",
-    "shape": "Oval",
-    "weight": 1,
-    "dimensions": "",
-    "clarity": "Loupe Clean",
-    "certificate": "Available on Request",
-    "price": 125,
-    "pricePerCarat": 125,
-    "status": "active",
-    "rare": true,
-    "description": "Pure Natural Elegance: This exceptional 1-carat Blue Spinel is sourced directly from the legendary gem fields of Sri Lanka (Ceylon), renowned for producing some of the world's finest colored stones.\n\nUnheated & Untreated: Completely in its natural state. No heat treatment or color enhancement, preserving its authentic value and rare vivid blue hue.\n\nFlawless Clarity: Graded loupe-clean, this stone boasts incredible transparency and magnificent brilliance Ã¢ÂÂ perfect for custom high-end jewelry or a premium collection.",
-    "gemType": "Spinel",
-    "images": [
-      "images/spinel.jpg"
-    ],
-    "image": "images/spinel.jpg"
-  },
-  {
     "id": "garnet-1780215589223",
     "name": "Natural Unheated Rhodolite Garnets 12.2 Carats",
     "shortName": "Rhodolite Garnets",
@@ -452,7 +428,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby Ã¢ÂÂ one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂ¢ÃÂÃÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
@@ -550,7 +526,7 @@ const PRODUCTS = [
     "pricePerCarat": 40,
     "status": "active",
     "rare": false,
-    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Weighing exactly 2 carats, this genuine nephrite jade displays a soft, attractive apple-green to forest-green color with excellent translucency that allows light to glow gently through the stone. Sourced from the emerging nephrite deposits in Pakistan (often compared to high-quality material from British Columbia), this untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for. Its subtle translucency and even green hue make it highly desirable for custom jewelry making, cabochon cutting, or as a collector’s piece. Key Features: 100% Natural – No heat treatment, no dyeing, no enhancements Origin: Pakistan Weight: 2 carats Color: Translucent vibrant green Cut: Polished cabochon (ready for setting) Hardness: 6–6.5 on Mohs scale – extremely durable Nephrite jade has been treasured for thousands of years for its beauty, strength, and metaphysical properties. In many cultures it symbolizes purity, harmony, and protection. This Pakistani green nephrite offers an affordable yet high-quality alternative to more expensive sources while maintaining excellent gemological standards. Perfect for: Handcrafted rings, pendants, and earrings Gemstone collectors Metaphysical and healing crystal enthusiasts Each stone is carefully selected and comes with a basic authenticity guarantee. Worldwide shipping available. Secure packaging for safe delivery. Add this rare Pakistani translucent green nephrite to your collection today – limited stock! (",
+    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Weighing exactly 2 carats, this genuine nephrite jade displays a soft, attractive apple-green to forest-green color with excellent translucency that allows light to glow gently through the stone. Sourced from the emerging nephrite deposits in Pakistan (often compared to high-quality material from British Columbia), this untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for. Its subtle translucency and even green hue make it highly desirable for custom jewelry making, cabochon cutting, or as a collectorâs piece. Key Features: 100% Natural â No heat treatment, no dyeing, no enhancements Origin: Pakistan Weight: 2 carats Color: Translucent vibrant green Cut: Polished cabochon (ready for setting) Hardness: 6â6.5 on Mohs scale â extremely durable Nephrite jade has been treasured for thousands of years for its beauty, strength, and metaphysical properties. In many cultures it symbolizes purity, harmony, and protection. This Pakistani green nephrite offers an affordable yet high-quality alternative to more expensive sources while maintaining excellent gemological standards. Perfect for: Handcrafted rings, pendants, and earrings Gemstone collectors Metaphysical and healing crystal enthusiasts Each stone is carefully selected and comes with a basic authenticity guarantee. Worldwide shipping available. Secure packaging for safe delivery. Add this rare Pakistani translucent green nephrite to your collection today â limited stock! (",
     "gemType": "Jade",
     "images": [
       "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
