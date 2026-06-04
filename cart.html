@@ -5,8 +5,6 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q3WG0QN79D');</script>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart | Gemmines2</title>
-  <meta name="description" content="Review your selected natural gemstones and proceed to checkout. Secure payment via Payoneer or bank transfer.">
-  <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -17,14 +15,14 @@
     .cart-items{display:flex;flex-direction:column;gap:16px}
     .cart-item{display:flex;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;align-items:flex-start;transition:border-color .2s}
     .cart-item:hover{border-color:rgba(32,178,170,.3)}
-    .item-img{width:88px;height:88px;border-radius:6px;object-fit:cover;background:var(--navy3);flex-shrink:0}
+    .item-img{width:88px;height:88px;border-radius:6px;object-fit:cover;background:var(--navy3);flex-shrink:0;font-size:2rem;display:flex;align-items:center;justify-content:center;color:var(--muted2)}
     .item-info{flex:1}
     .item-treatment{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
     .item-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--text);margin-bottom:3px}
     .item-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
     .item-price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold)}
     .item-remove{background:none;border:none;color:var(--muted2);font-size:13px;cursor:pointer;padding:4px 8px;border-radius:3px;transition:color .2s;margin-top:4px}
-    .item-remove:hover{color:#e05}
+    .item-remove:hover{color:var(--red)}
     .empty-cart{text-align:center;padding:80px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px}
     .empty-cart h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:10px}
     .empty-cart p{font-size:14px;color:var(--muted);margin-bottom:24px}
@@ -35,48 +33,18 @@
     .sum-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:9px}
     .sum-row.total{color:var(--text);font-weight:600;font-size:15px;border-top:1px solid var(--border);padding-top:12px;margin-top:10px}
     .sum-row.total .val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold)}
-    .checkout-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:16px;text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    .checkout-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:16px;text-decoration:none}
     .checkout-btn:hover{background:var(--teal2)}
     .sum-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.7}
     .trust-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;justify-content:center}
     .trust-tag{font-size:10px;border:1px solid var(--border);color:var(--muted2);padding:4px 9px;border-radius:3px}
 
-    /* PAYMENT SECTION */
-    .payment-section{margin-top:32px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:26px}
-    .payment-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:6px;color:var(--text)}
-    .payment-subtitle{font-size:12px;color:var(--muted);margin-bottom:20px}
-    .payment-tabs{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
-    .pay-tab{padding:9px 20px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--muted);transition:all .2s}
-    .pay-tab.active{border-color:var(--teal);color:var(--teal);background:rgba(32,178,170,.08)}
-    .pay-panel{display:none}
-    .pay-panel.active{display:block}
-    .bank-secure-box{background:var(--navy2);border:1px solid rgba(32,178,170,.3);border-radius:8px;padding:22px;text-align:center}
-    .bank-secure-box .lock-icon{font-size:2rem;margin-bottom:10px}
-    .bank-secure-box h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--text);margin-bottom:8px}
-    .bank-secure-box p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
-    .bank-info-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px}
-    .bank-info-row:last-of-type{border-bottom:none}
-    .bank-info-row .label{color:var(--muted)}
-    .bank-info-row .value{color:var(--text);font-weight:500}
-    .wa-pay-btn{display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#fff;padding:12px 24px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:background .2s;margin-top:4px}
-    .wa-pay-btn:hover{background:#1ebe5d}
-    .wa-pay-btn svg{width:20px;height:20px;fill:#fff}
-    .payoneer-box{background:var(--navy2);border:1px solid rgba(32,178,170,.3);border-radius:8px;padding:22px;text-align:center}
-    .payoneer-box p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
-    .order-form{display:flex;flex-direction:column;gap:14px;margin-top:6px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .form-group{display:flex;flex-direction:column;gap:6px}
-    .form-group label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-    .form-group input,.form-group textarea,.form-group select{background:var(--navy2);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:4px;font-size:13px;font-family:'Jost',sans-serif;transition:border-color .2s;width:100%;box-sizing:border-box}
-    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--teal)}
-    .form-group textarea{resize:vertical;min-height:80px}
-
-    @media(max-width:768px){.cart-layout{grid-template-columns:1fr}.cart-summary{position:static}.form-row{grid-template-columns:1fr}}
+    @media(max-width:768px){.cart-layout{grid-template-columns:1fr}.cart-summary{position:static}}
     @media(max-width:480px){.cart-item{flex-direction:column}.item-img{width:100%;height:160px;border-radius:6px}}
   </style>
 </head>
 <body>
-<div class="announcement">✦ Insured Wordwide Shipping &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<div class="announcement">✦ Free Insured Shipping Over $500 &nbsp;|&nbsp; 30-Day Returns ✦</div>
 <header class="site-header">
   <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
   <nav class="main-nav">
@@ -98,92 +66,21 @@
 </div>
 
 <div class="cart-layout">
-  <div>
-    <div id="cartItems"></div>
+  <div id="cartItems"></div>
 
-    <!-- PAYMENT SECTION -->
-    <div class="payment-section" id="paymentSection" style="display:none">
-      <div class="payment-title">Complete Your Order</div>
-      <div class="payment-subtitle">Fill in your details and choose a payment method</div>
+  <div class="cart-layout">
+  <div id="cartItems"></div>
 
-      <div class="order-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name *</label>
-            <input type="text" id="buyerName" placeholder="Your full name">
-          </div>
-          <div class="form-group">
-            <label>Email *</label>
-            <input type="email" id="buyerEmail" placeholder="your@email.com" inputmode="email" autocomplete="email">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
-            <input type="tel" id="buyerPhone" placeholder="+1 234 567 8900" inputmode="tel" autocomplete="tel">
-          </div>
-          <div class="form-group">
-            <label>Country *</label>
-            <input type="text" id="buyerCountry" placeholder="Your country" autocomplete="country-name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Shipping Address *</label>
-          <textarea id="buyerAddress" placeholder="Full shipping address including city, postal code"></textarea>
-        </div>
-        <div class="form-group">
-          <label>Notes (optional)</label>
-          <textarea id="buyerNotes" placeholder="Any special requests or questions"></textarea>
-        </div>
-      </div>
-
-      <div style="margin-top:24px">
-        <div class="payment-tabs">
-          <button class="pay-tab active" onclick="switchTab('bank',event)">🏦 Bank Transfer</button>
-          <button class="pay-tab" onclick="switchTab('payoneer',event)">💳 Payoneer</button>
-        </div>
-
-        <div class="pay-panel active" id="panel-bank">
-          <div class="bank-secure-box">
-            <div class="lock-icon">🔒</div>
-            <h3>Secure Bank Transfer</h3>
-            <div class="bank-info-row"><span class="label">Bank</span><span class="value">UBL (United Bank Limited)</span></div>
-            <div class="bank-info-row"><span class="label">Account Title</span><span class="value">Mohamed Yousef Zubair</span></div>
-            <div class="bank-info-row"><span class="label">Branch</span><span class="value">F-11, Islamabad</span></div>
-            <div class="bank-info-row"><span class="label">IBAN / SWIFT</span><span class="value" style="color:var(--teal)">Sent privately via WhatsApp</span></div>
-            <p style="margin-top:16px">For your security, full IBAN and SWIFT code are <strong style="color:var(--teal)">never displayed publicly</strong>. Click below to confirm your order — we will send complete payment details privately on WhatsApp within minutes.</p>
-            <a href="#" class="wa-pay-btn" id="waBankBtn">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Confirm Order via WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <div class="pay-panel" id="panel-payoneer">
-          <div class="payoneer-box">
-            <div class="lock-icon">💳</div>
-            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:8px">Pay via Payoneer</h3>
-            <p>We accept Payoneer payments worldwide. After confirming your order, we will send our Payoneer email address privately via WhatsApp.</p>
-            <a href="#" class="wa-pay-btn" id="waPayoneerBtn">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Confirm Order via WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ORDER SUMMARY -->
   <div class="cart-summary">
     <div class="summary-title">Order Summary</div>
     <div class="sum-row"><span>Subtotal</span><span id="sumSubtotal">$0.00</span></div>
     <div class="sum-row"><span>Shipping</span><span>Confirmed after order</span></div>
     <div class="sum-row"><span>Insurance</span><span>Included</span></div>
     <div class="sum-row total"><span>Total</span><span class="val" id="sumTotal">$0.00</span></div>
-    <!-- FIXED BUTTON: type="button" + onclick — works on all mobile browsers -->
-    <button type="button" class="checkout-btn" id="checkoutBtn" onclick="showPayment()">Proceed to Checkout →</button>
-    <p class="sum-note">🔒 Secure checkout. Payment details sent privately via WhatsApp.</p>
+    
+    <a href="checkout.html" class="checkout-btn" id="checkoutBtn">Proceed to Checkout →</a>
+    
+    <p class="sum-note">🔒 Secure checkout. Payment via Payoneer or Bank Transfer.</p>
     <div class="trust-tags">
       <span class="trust-tag">✦ Certified Natural</span>
       <span class="trust-tag">↩ 30-Day Returns</span>
@@ -199,123 +96,45 @@
     <div class="footer-col"><h4>Help</h4><a href="contact.html">Contact Us</a><a href="track.html">Track Order</a><a href="return.html">Returns</a></div>
     <div class="footer-col"><h4>Policies</h4><a href="shipping.html">Shipping</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan • All Rights Reserved</div>
-    <div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div>
-  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Gemmines2 · Islamabad, Pakistan</div><div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div></div>
 </footer>
-
 <a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script src="products-data.js"></script>
 <script src="main.js"></script>
 <script>
-function switchTab(tab, e) {
-  if (e) e.preventDefault();
-  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
-  if (e && e.target) e.target.classList.add('active');
-  document.getElementById('panel-' + tab).classList.add('active');
-}
-
-function showPayment() {
-  const items = Cart.get();
-  if (!items.length) return;
-  document.getElementById('paymentSection').style.display = 'block';
-  setTimeout(function() {
-    document.getElementById('paymentSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 50);
-}
-
-function buildWhatsAppMessage() {
-  const name    = document.getElementById('buyerName').value.trim();
-  const email   = document.getElementById('buyerEmail').value.trim();
-  const phone   = document.getElementById('buyerPhone').value.trim();
-  const country = document.getElementById('buyerCountry').value.trim();
-  const address = document.getElementById('buyerAddress').value.trim();
-  const notes   = document.getElementById('buyerNotes').value.trim();
-
-  if (!name || !email || !phone || !country || !address) {
-    alert('Please fill in all required fields before confirming your order.');
-    return null;
-  }
-
-  const items = Cart.get();
-  const total = Cart.total().toFixed(2);
-  let itemList = items.map(i => '• ' + (i.shortName || i.name) + ' — $' + i.price).join('\n');
-
-  return '🛒 *New Order — Gemmines2*\n\n' +
-    '*Customer:* ' + name + '\n' +
-    '*Email:* ' + email + '\n' +
-    '*WhatsApp:* ' + phone + '\n' +
-    '*Country:* ' + country + '\n' +
-    '*Address:* ' + address + '\n' +
-    (notes ? '*Notes:* ' + notes + '\n' : '') +
-    '\n*Items:*\n' + itemList + '\n\n' +
-    '*Total: $' + total + '*\n\n' +
-    'Please send payment details. Thank you!';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  ['waBankBtn','waPayoneerBtn'].forEach(function(id) {
-    var btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var msg = buildWhatsAppMessage();
-        if (msg) {
-          window.open('https://wa.me/923362149415?text=' + encodeURIComponent(msg), '_blank');
-        }
-      });
-    }
-  });
-});
-
 function renderCart() {
   const items = Cart.get();
   const container = document.getElementById('cartItems');
   if (!items.length) {
-    container.innerHTML = '<div class="empty-cart">' +
-      '<h2>Your cart is <em style="color:var(--gold)">empty</em></h2>' +
-      '<p>You haven\'t added any gemstones yet.</p>' +
-      '<a href="products.html" class="btn btn-primary">Browse Collection →</a>' +
-      '</div>';
-    var btn = document.getElementById('checkoutBtn');
-    btn.style.opacity = '0.4';
-    btn.style.pointerEvents = 'none';
+    container.innerHTML = `<div class="empty-cart"><h2>Your cart is <em style="color:var(--gold)">empty</em></h2><p>You haven't added any gemstones yet.</p><a href="products.html" class="btn btn-primary">Browse Collection →</a></div>`;
+    document.getElementById('checkoutBtn').style.opacity = '0.4';
+    document.getElementById('checkoutBtn').style.pointerEvents = 'none';
     document.getElementById('sumSubtotal').textContent = '$0.00';
     document.getElementById('sumTotal').textContent = '$0.00';
     return;
   }
   let subtotal = 0;
-  container.innerHTML = items.map(function(item) {
+  container.innerHTML = items.map(item => {
     subtotal += item.price * (item.qty || 1);
-    const meta = [item.origin, item.weight ? item.weight + ' ct' : ''].filter(Boolean).join(' • ');
-    return '<div class="cart-item">' +
-      '<img class="item-img" src="' + (item.image || '') + '" alt="' + item.name + '" onerror="this.style.display=\'none\'">' +
-      '<div class="item-info">' +
-        '<div class="item-treatment ' + (item.treatment === 'unheated' ? 'unheated' : 'heated') + '">' +
-          (item.treatment === 'unheated' ? '✦ Natural Unheated' : '◈ Natural Heated') +
-        '</div>' +
-        '<div class="item-name">' + item.name + '</div>' +
-        '<div class="item-meta">' + meta + '</div>' +
-        '<div class="item-price">$' + (item.price * (item.qty || 1)).toFixed(2) + '</div>' +
-        '<button class="item-remove" onclick="removeItem(\'' + item.id + '\')">✕ Remove</button>' +
-      '</div>' +
-    '</div>';
+    return `<div class="cart-item">
+      <img class="item-img" src="${item.image||''}" alt="${item.name}" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=\\'item-img\\' style=\\'font-size:2rem;display:flex;align-items:center;justify-content:center;background:var(--navy3);flex-shrink:0\\'>💎</div>')">
+      <div class="item-info">
+        <div class="item-treatment ${item.treatment==='unheated'?'unheated':'heated'}">${item.treatment==='unheated'?'✦ Natural Unheated':'◈ Natural Heated'}</div>
+        <div class="item-name">${item.name}</div>
+        <div class="item-meta">${item.origin} · ${item.weight}</div>
+        <div class="item-price">$${(item.price*(item.qty||1)).toFixed(2)}</div>
+        <button class="item-remove" onclick="removeItem('${item.id}')">✕ Remove</button>
+      </div>
+    </div>`;
   }).join('');
   document.getElementById('sumSubtotal').textContent = '$' + subtotal.toFixed(2);
   document.getElementById('sumTotal').textContent = '$' + subtotal.toFixed(2);
-  var btn = document.getElementById('checkoutBtn');
-  btn.style.opacity = '1';
-  btn.style.pointerEvents = 'auto';
 }
-
 function removeItem(id) {
   Cart.remove(id);
   renderCart();
 }
-
 document.addEventListener('DOMContentLoaded', renderCart);
 </script>
 </body>
