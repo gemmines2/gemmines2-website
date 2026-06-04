@@ -21,6 +21,7 @@
     .form-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
     .form-card-title span{font-size:11px;color:var(--muted);font-family:'Jost',sans-serif;font-weight:400}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-row-3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
     .pay-opts{display:flex;flex-direction:column;gap:12px}
     .pay-opt{border:1px solid var(--border);border-radius:6px;padding:16px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:14px}
     .pay-opt:has(input:checked){border-color:var(--teal);background:var(--teal-faint)}
@@ -28,7 +29,6 @@
     .pay-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
     .pay-desc{font-size:12px;color:var(--muted);line-height:1.6}
     .pay-tag{font-size:10px;background:var(--teal-faint);color:var(--teal);border:1px solid rgba(32,178,170,.3);padding:2px 7px;border-radius:10px;font-weight:700;margin-left:7px;letter-spacing:.5px}
-    /* BANK DETAILS BOX */
     .bank-details{display:none;background:var(--navy2);border:1px solid var(--border);border-radius:6px;padding:18px 20px;margin-top:14px}
     .bank-details.show{display:block}
     .bank-details-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
@@ -37,13 +37,11 @@
     .bank-label{color:var(--muted);font-size:11px;letter-spacing:.5px;min-width:110px}
     .bank-value{color:var(--text);font-weight:500;text-align:right}
     .bank-note{font-size:12px;color:var(--gold);margin-top:12px;padding-top:10px;border-top:1px solid var(--border);line-height:1.6}
-    .place-btn{width:100%;padding:16px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+    .place-btn{width:100%;padding:16px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     .place-btn:hover{background:var(--teal2)}
     .place-btn:disabled{opacity:.5;cursor:not-allowed}
     .place-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.7}
     .place-note a{color:var(--teal)}
-    #countryOther{display:none;margin-top:8px;width:100%;padding:10px 14px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:4px;font-size:14px;box-sizing:border-box;font-family:'Jost',sans-serif}
-    #countryOther:focus{outline:none;border-color:var(--teal)}
     .order-sum{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:26px;position:sticky;top:90px;align-self:start}
     .os-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
     .os-items{display:flex;flex-direction:column;gap:12px;margin-bottom:18px;min-height:50px}
@@ -59,7 +57,13 @@
     .os-note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
     .os-trust{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
     .os-trust span{font-size:10px;border:1px solid var(--border);color:var(--muted2);padding:4px 8px;border-radius:3px}
-    @media(max-width:768px){.checkout-wrap{grid-template-columns:1fr}.order-sum{position:static;order:-1}.form-row{grid-template-columns:1fr}}
+    .addr-hint{font-size:11px;color:var(--muted);margin-top:3px;font-style:italic}
+    @media(max-width:768px){
+      .checkout-wrap{grid-template-columns:1fr}
+      .order-sum{position:static;order:-1}
+      .form-row{grid-template-columns:1fr}
+      .form-row-3{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -80,61 +84,72 @@
 
 <div class="checkout-wrap">
   <div>
-    <!-- STEP 1 -->
+    <!-- STEP 1: Contact -->
     <div class="form-card">
       <div class="form-card-title">Contact Information <span>Step 1 of 3</span></div>
       <div class="form-row">
         <div class="form-group">
           <label>First Name <span class="req">*</span></label>
-          <input class="form-input" id="firstName" placeholder="John" required>
+          <input class="form-input" id="firstName" placeholder="John" autocomplete="given-name" required>
           <div class="field-error" id="e-firstName">Required</div>
         </div>
         <div class="form-group">
           <label>Last Name <span class="req">*</span></label>
-          <input class="form-input" id="lastName" placeholder="Smith" required>
+          <input class="form-input" id="lastName" placeholder="Smith" autocomplete="family-name" required>
           <div class="field-error" id="e-lastName">Required</div>
         </div>
       </div>
       <div class="form-group">
         <label>Email Address <span class="req">*</span></label>
-        <input class="form-input" id="email" type="email" placeholder="john@example.com" required>
+        <input class="form-input" id="email" type="email" placeholder="john@example.com" autocomplete="email" inputmode="email" required>
         <div class="field-error" id="e-email">Valid email required</div>
       </div>
       <div class="form-group">
         <label>WhatsApp / Phone <span class="req">*</span></label>
-        <input class="form-input" id="phone" type="tel" placeholder="+1 234 567 8900" required>
+        <input class="form-input" id="phone" type="tel" placeholder="+1 234 567 8900" autocomplete="tel" inputmode="tel" required>
         <div class="field-error" id="e-phone">Required</div>
       </div>
     </div>
 
-    <!-- STEP 2 -->
+    <!-- STEP 2: Shipping Address — proper international format -->
     <div class="form-card">
       <div class="form-card-title">Shipping Address <span>Step 2 of 3</span></div>
-      <div class="form-group">
-        <label>Street Address <span class="req">*</span></label>
-        <input class="form-input" id="address" placeholder="123 Main Street" required>
-        <div class="field-error" id="e-address">Required</div>
-      </div>
+
       <div class="form-row">
         <div class="form-group">
-          <label>City <span class="req">*</span></label>
-          <input class="form-input" id="city" placeholder="London" required>
+          <label>Street Address <span class="req">*</span></label>
+          <input class="form-input" id="street" placeholder="e.g. 14 Baker Street" autocomplete="address-line1" required>
+          <div class="field-error" id="e-street">Required</div>
+        </div>
+        <div class="form-group">
+          <label>Apt / Suite / House No.</label>
+          <input class="form-input" id="apt" placeholder="e.g. Apt 3B, Flat 12" autocomplete="address-line2">
+          <div class="addr-hint">Leave blank if not applicable</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>City / Town <span class="req">*</span></label>
+          <input class="form-input" id="city" placeholder="e.g. London" autocomplete="address-level2" required>
           <div class="field-error" id="e-city">Required</div>
         </div>
         <div class="form-group">
-          <label>State / Province</label>
-          <input class="form-input" id="state" placeholder="England">
+          <label>State / Province / Region</label>
+          <input class="form-input" id="state" placeholder="e.g. England, California" autocomplete="address-level1">
+          <div class="addr-hint">Required for US, Canada, Australia</div>
         </div>
       </div>
+
       <div class="form-row">
         <div class="form-group">
-          <label>Postal Code <span class="req">*</span></label>
-          <input class="form-input" id="zip" placeholder="SW1A 1AA" required>
+          <label>Postal / ZIP Code <span class="req">*</span></label>
+          <input class="form-input" id="zip" placeholder="e.g. SW1A 1AA / 90210" autocomplete="postal-code" inputmode="text" required>
           <div class="field-error" id="e-zip">Required</div>
         </div>
         <div class="form-group">
           <label>Country <span class="req">*</span></label>
-          <select class="form-input" id="country" required onchange="handleCountryChange(this)">
+          <select class="form-input" id="country" autocomplete="country-name" required onchange="handleCountryChange(this)">
             <option value="">Select country...</option>
             <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
             <option>Argentina</option><option>Australia</option><option>Austria</option>
@@ -169,17 +184,18 @@
             <option>Zambia</option><option>Zimbabwe</option>
             <option value="other">Other – type below ↓</option>
           </select>
-          <input type="text" id="countryOther" placeholder="Type your country name..." maxlength="80">
+          <input type="text" id="countryOther" style="display:none;margin-top:8px;width:100%;padding:10px 14px;background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:4px;font-size:14px;box-sizing:border-box;font-family:'Jost',sans-serif" placeholder="Type your country name..." maxlength="80">
           <div class="field-error" id="e-country">Please select or type your country</div>
         </div>
       </div>
+
       <div class="form-group">
         <label>Order Notes (Optional)</label>
         <textarea class="form-input" id="notes" rows="3" placeholder="Certificate requirements, custom requests, special instructions..."></textarea>
       </div>
     </div>
 
-    <!-- STEP 3 -->
+    <!-- STEP 3: Payment — Payoneer and Bank Transfer only -->
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
       <div class="pay-opts">
@@ -197,31 +213,17 @@
             <div class="pay-desc">Direct wire transfer to our business account. Bank details shown below after selection.</div>
           </div>
         </label>
-        <label class="pay-opt">
-          <input type="radio" name="payment" value="JazzCash" onchange="toggleBankDetails()">
-          <div>
-            <div class="pay-name">JazzCash <span class="pay-tag" style="background:rgba(255,100,0,.1);color:#ff6400;border-color:rgba(255,100,0,.3)">PAKISTAN</span></div>
-            <div class="pay-desc">Send payment to our JazzCash account. Account details shown below.</div>
-          </div>
-        </label>
-        <label class="pay-opt">
-          <input type="radio" name="payment" value="EasyPaisa" onchange="toggleBankDetails()">
-          <div>
-            <div class="pay-name">EasyPaisa <span class="pay-tag" style="background:rgba(0,180,0,.1);color:#00b400;border-color:rgba(0,180,0,.3)">PAKISTAN</span></div>
-            <div class="pay-desc">Send payment to our EasyPaisa account. Account details shown below.</div>
-          </div>
-        </label>
       </div>
 
-      <!-- BANK DETAILS — shown when Bank Transfer selected -->
       <div class="bank-details" id="bankDetails">
         <div class="bank-details-title" id="bankDetailsTitle">Bank Transfer Details</div>
         <div id="bankDetailsContent"></div>
-        <div class="bank-note">📱 After transfer, please send a screenshot on WhatsApp: <strong>+92 336 214 9415</strong></div>
+        <div class="bank-note">📧 After transfer, please email your confirmation to <strong>yousefzubair03@gmail.com</strong> with your order number.</div>
       </div>
     </div>
 
-    <button class="place-btn" id="placeBtn" onclick="placeOrder()">🔒 Place Order Securely</button>
+    <!-- FIXED: type="button" prevents mobile form-submit page refresh -->
+    <button type="button" class="place-btn" id="placeBtn" onclick="placeOrder()">🔒 Place Order Securely</button>
     <p class="place-note">
       By ordering you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.<br>
       You will receive a WhatsApp message and email confirmation within hours.
@@ -255,49 +257,40 @@
 <script src="main.js"></script>
 <script>
 // ══════════════════════════════════════════════════════════
-// KEYS — only change EMAILJS_PUBLIC with your real key
+// KEYS — same as your original working version
 // ══════════════════════════════════════════════════════════
-const WEB3FORMS_KEY    = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
-const EMAILJS_SERVICE  = 'service_6xjn39o';
-const EMAILJS_TEMPLATE = 'template_wfzokzd';
-const EMAILJS_PUBLIC   = 'qWdMH7TD9nKyBvBYi';
+var WEB3FORMS_KEY    = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
+var EMAILJS_SERVICE  = 'service_6xjn39o';
+var EMAILJS_TEMPLATE = 'template_wfzokzd';
+var EMAILJS_PUBLIC   = 'qWdMH7TD9nKyBvBYi';
 
 emailjs.init(EMAILJS_PUBLIC);
 
 // ══════════════════════════════════════════════════════════
-// PAYMENT DETAILS — update with your real bank info
+// PAYMENT DETAILS — Payoneer + Bank Transfer only
 // ══════════════════════════════════════════════════════════
-const PAYMENT_DETAILS = {
+var PAYMENT_DETAILS = {
   'Bank Transfer': [
     {label:'Bank Name',     value:'Meezan Bank / HBL'},
     {label:'Account Title', value:'Yousuf Zubair'},
     {label:'Account No',    value:'XXXX-XXXX-XXXX'},
     {label:'IBAN',          value:'PK00XXXX0000000000000000'},
     {label:'SWIFT Code',    value:'MEZNPKKA'},
-    {label:'Branch',        value:'G-11 Branch, Islamabad'},
-  ],
-  'JazzCash': [
-    {label:'Account Title', value:'Yousuf Zubair'},
-    {label:'Mobile No',     value:'0336-2149415'},
-    {label:'CNIC (last 6)', value:'XXXXXX'},
-  ],
-  'EasyPaisa': [
-    {label:'Account Title', value:'Yousuf Zubair'},
-    {label:'Mobile No',     value:'0336-2149415'},
+    {label:'Branch',        value:'G-11 Branch, Islamabad'}
   ]
 };
 
 function toggleBankDetails() {
-  const payment = document.querySelector('input[name="payment"]:checked').value;
-  const box     = document.getElementById('bankDetails');
-  const content = document.getElementById('bankDetailsContent');
-  const title   = document.getElementById('bankDetailsTitle');
-  const details = PAYMENT_DETAILS[payment];
+  var payment = document.querySelector('input[name="payment"]:checked').value;
+  var box     = document.getElementById('bankDetails');
+  var content = document.getElementById('bankDetailsContent');
+  var title   = document.getElementById('bankDetailsTitle');
+  var details = PAYMENT_DETAILS[payment];
   if (details) {
     title.textContent = payment + ' Details';
-    content.innerHTML = details.map(r =>
-      `<div class="bank-row"><span class="bank-label">${r.label}</span><span class="bank-value">${r.value}</span></div>`
-    ).join('');
+    content.innerHTML = details.map(function(r) {
+      return '<div class="bank-row"><span class="bank-label">' + r.label + '</span><span class="bank-value">' + r.value + '</span></div>';
+    }).join('');
     box.classList.add('show');
   } else {
     box.classList.remove('show');
@@ -305,151 +298,179 @@ function toggleBankDetails() {
 }
 
 function handleCountryChange(select) {
-  const other = document.getElementById('countryOther');
-  if (select.value === 'other') { other.style.display='block'; other.focus(); }
-  else { other.style.display='none'; other.value=''; }
+  var other = document.getElementById('countryOther');
+  if (select.value === 'other') { other.style.display = 'block'; other.focus(); }
+  else { other.style.display = 'none'; other.value = ''; }
 }
+
 function getCountryValue() {
-  const sel = document.getElementById('country');
+  var sel = document.getElementById('country');
   return sel.value === 'other' ? document.getElementById('countryOther').value.trim() : sel.value;
 }
 
+// Build full address from the separate fields
+function buildFullAddress() {
+  var street = document.getElementById('street').value.trim();
+  var apt    = document.getElementById('apt').value.trim();
+  var city   = document.getElementById('city').value.trim();
+  var state  = document.getElementById('state').value.trim();
+  var zip    = document.getElementById('zip').value.trim();
+  var country = getCountryValue();
+  var parts = [street];
+  if (apt) parts.push(apt);
+  if (city) parts.push(city);
+  if (state) parts.push(state);
+  if (zip) parts.push(zip);
+  if (country) parts.push(country);
+  return parts.join(', ');
+}
+
 function renderSummary() {
-  const items = Cart.get();
-  const container = document.getElementById('osSummary');
+  var items = Cart.get();
+  var container = document.getElementById('osSummary');
   if (!items.length) {
     container.innerHTML = '<p style="font-size:13px;color:var(--muted)">Your cart is empty. <a href="products.html" style="color:var(--teal)">Browse →</a></p>';
     return;
   }
-  let sub = 0;
-  container.innerHTML = items.map(i => {
+  var sub = 0;
+  container.innerHTML = items.map(function(i) {
     sub += i.price * (i.qty || 1);
-    return `<div class="os-item">
-      <img class="os-item-img" src="${i.image||''}" alt="${i.name}" onerror="this.style.background='var(--navy3)'">
-      <div class="os-item-info">
-        <div class="os-item-name">${i.name}</div>
-        <div class="os-item-sub">${i.weight||''} · ${i.origin||''}</div>
-      </div>
-      <div class="os-item-price">$${(i.price*(i.qty||1)).toFixed(2)}</div>
-    </div>`;
+    return '<div class="os-item">' +
+      '<img class="os-item-img" src="' + (i.image||'') + '" alt="' + i.name + '" onerror="this.style.background=\'var(--navy3)\'">' +
+      '<div class="os-item-info">' +
+        '<div class="os-item-name">' + i.name + '</div>' +
+        '<div class="os-item-sub">' + (i.weight||'') + ' • ' + (i.origin||'') + '</div>' +
+      '</div>' +
+      '<div class="os-item-price">$' + (i.price*(i.qty||1)).toFixed(2) + '</div>' +
+    '</div>';
   }).join('');
   document.getElementById('osSubtotal').textContent = '$' + sub.toFixed(2);
   document.getElementById('osTotal').textContent = '$' + sub.toFixed(2);
 }
 
 function validate() {
-  const fields = [
+  var fields = [
     {id:'firstName'},{id:'lastName'},{id:'phone'},
-    {id:'address'},{id:'city'},{id:'zip'},
-    {id:'email',pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
+    {id:'street'},{id:'city'},{id:'zip'},
+    {id:'email', pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
   ];
-  let ok = true;
-  fields.forEach(f => {
-    const el=document.getElementById(f.id);
-    const err=document.getElementById('e-'+f.id);
-    const v=el.value.trim();
-    const fail=!v||(f.pattern&&!f.pattern.test(v));
-    el.classList.toggle('error',fail);
-    if(err) err.classList.toggle('show',fail);
-    if(fail) ok=false;
+  var ok = true;
+  fields.forEach(function(f) {
+    var el  = document.getElementById(f.id);
+    var err = document.getElementById('e-' + f.id);
+    var v   = el.value.trim();
+    var fail = !v || (f.pattern && !f.pattern.test(v));
+    el.classList.toggle('error', fail);
+    if (err) err.classList.toggle('show', fail);
+    if (fail) ok = false;
   });
-  const countryVal=getCountryValue();
-  const countryEl=document.getElementById('country');
-  const countryErr=document.getElementById('e-country');
-  if(!countryVal){countryEl.classList.add('error');if(countryErr)countryErr.classList.add('show');ok=false;}
-  else{countryEl.classList.remove('error');if(countryErr)countryErr.classList.remove('show');}
+  var countryVal = getCountryValue();
+  var countryEl  = document.getElementById('country');
+  var countryErr = document.getElementById('e-country');
+  if (!countryVal) {
+    countryEl.classList.add('error');
+    if (countryErr) countryErr.classList.add('show');
+    ok = false;
+  } else {
+    countryEl.classList.remove('error');
+    if (countryErr) countryErr.classList.remove('show');
+  }
   return ok;
 }
 
-async function placeOrder() {
-  if (!validate()) { window.scrollTo({top:0,behavior:'smooth'}); return; }
-  const items = Cart.get();
+// ══════════════════════════════════════════════════════════
+// PLACE ORDER — fixed for mobile
+// Key fix: this is called via onclick="placeOrder()" on a
+// type="button" element, so no form submission / page
+// refresh happens on mobile Safari or Chrome.
+// The function is also NOT async at the top level — it uses
+// .then()/.catch() so it works reliably across all browsers.
+// ══════════════════════════════════════════════════════════
+function placeOrder() {
+  if (!validate()) {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
+  var items = Cart.get();
   if (!items.length) { alert('Your cart is empty.'); return; }
 
-  const orderId = generateOrderId();
-  const fn      = document.getElementById('firstName').value.trim();
-  const ln      = document.getElementById('lastName').value.trim();
-  const email   = document.getElementById('email').value.trim();
-  const phone   = document.getElementById('phone').value.trim();
-  const country = getCountryValue();
-  const addr    = [
-    document.getElementById('address').value.trim(),
-    document.getElementById('city').value.trim(),
-    document.getElementById('state').value.trim(),
-    document.getElementById('zip').value.trim(),
-    country
-  ].filter(Boolean).join(', ');
-  const payment   = document.querySelector('input[name="payment"]:checked').value;
-  const notes     = document.getElementById('notes').value.trim();
-  const total     = Cart.total().toFixed(2);
-  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`).join('\n');
-  const date = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  var orderId  = generateOrderId();
+  var fn       = document.getElementById('firstName').value.trim();
+  var ln       = document.getElementById('lastName').value.trim();
+  var email    = document.getElementById('email').value.trim();
+  var phone    = document.getElementById('phone').value.trim();
+  var addr     = buildFullAddress();
+  var payment  = document.querySelector('input[name="payment"]:checked').value;
+  var notes    = document.getElementById('notes').value.trim();
+  var total    = Cart.total().toFixed(2);
+  var itemLines = items.map(function(i) {
+    return i.name + ' (' + (i.weight||'') + ') — $' + (i.price*(i.qty||1)).toFixed(2);
+  }).join('\n');
+  var date = new Date().toLocaleDateString('en-GB', {year:'numeric', month:'long', day:'numeric'});
 
   document.getElementById('loadingOverlay').classList.add('show');
   document.getElementById('placeBtn').disabled = true;
 
-  const ownerMsg =
-`NEW ORDER — Gemmines2
-═══════════════════════════════
-Order ID:       ${orderId}
-Date:           ${date}
-Total:          $${total}
-═══════════════════════════════
-CUSTOMER
-Name:           ${fn} ${ln}
-Email:          ${email}
-Phone:          ${phone}
-═══════════════════════════════
-SHIPPING ADDRESS
-${addr}
-═══════════════════════════════
-ITEMS ORDERED
-${itemLines}
-═══════════════════════════════
-PAYMENT METHOD
-${payment}
-═══════════════════════════════
-CUSTOMER NOTES
-${notes||'None'}
-═══════════════════════════════`;
+  var ownerMsg =
+    'NEW ORDER — Gemmines2\n' +
+    '═══════════════════════════════\n' +
+    'Order ID:       ' + orderId + '\n' +
+    'Date:           ' + date + '\n' +
+    'Total:          $' + total + '\n' +
+    '═══════════════════════════════\n' +
+    'CUSTOMER\n' +
+    'Name:           ' + fn + ' ' + ln + '\n' +
+    'Email:          ' + email + '\n' +
+    'Phone:          ' + phone + '\n' +
+    '═══════════════════════════════\n' +
+    'SHIPPING ADDRESS\n' + addr + '\n' +
+    '═══════════════════════════════\n' +
+    'ITEMS ORDERED\n' + itemLines + '\n' +
+    '═══════════════════════════════\n' +
+    'PAYMENT METHOD\n' + payment + '\n' +
+    '═══════════════════════════════\n' +
+    'CUSTOMER NOTES\n' + (notes||'None') + '\n' +
+    '═══════════════════════════════';
 
-  try {
-    // Email 1: Notify YOU via Web3Forms
-    await fetch('https://api.web3forms.com/submit', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject:    `🔔 New Order ${orderId} — ${fn} ${ln} — $${total}`,
-        from_name:  'Gemmines2 Orders',
-        message:    ownerMsg,
-        replyto:    email
-      })
-    });
+  // Email 1: Notify owner via Web3Forms
+  var web3Promise = fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      subject:    '🔔 New Order ' + orderId + ' — ' + fn + ' ' + ln + ' — $' + total,
+      from_name:  'Gemmines2 Orders',
+      message:    ownerMsg,
+      replyto:    email
+    })
+  });
 
-    // Email 2: Confirmation to CUSTOMER via EmailJS
-    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
-      to_email:   email,
-      to_name:    fn + ' ' + ln,
-      order_id:   orderId,
-      order_date: date,
-      order_total:'$' + total,
-      payment:    payment,
-      items:      itemLines,
-      address:    addr,
-      notes:      notes || 'None'
-    });
+  // Email 2: Confirmation to customer via EmailJS
+  var ejsPromise = emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+    to_email:    email,
+    to_name:     fn + ' ' + ln,
+    order_id:    orderId,
+    order_date:  date,
+    order_total: '$' + total,
+    payment:     payment,
+    items:       itemLines,
+    address:     addr,
+    notes:       notes || 'None'
+  });
 
-  } catch(e) {
-    console.warn('Email error:', e);
-  }
-
-  sessionStorage.setItem('gm2_order', JSON.stringify({
-    orderId, firstName:fn, lastName:ln, email, phone,
-    address:addr, payment, total, items, notes, date
-  }));
-  Cart.clear();
-  window.location.href = 'order-confirmation.html';
+  Promise.allSettled([web3Promise, ejsPromise]).then(function() {
+    sessionStorage.setItem('gm2_order', JSON.stringify({
+      orderId: orderId, firstName: fn, lastName: ln, email: email, phone: phone,
+      address: addr, payment: payment, total: total, items: items, notes: notes, date: date
+    }));
+    Cart.clear();
+    window.location.href = 'order-confirmation.html';
+  }).catch(function(e) {
+    console.warn('Order error:', e);
+    document.getElementById('loadingOverlay').classList.remove('show');
+    document.getElementById('placeBtn').disabled = false;
+    alert('Something went wrong. Please try again or contact us on WhatsApp.');
+  });
 }
 
 document.addEventListener('DOMContentLoaded', renderSummary);
