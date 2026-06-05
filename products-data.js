@@ -20,7 +20,7 @@ const PRODUCTS = [
     "pricePerCarat": 24,
     "status": "active",
     "rare": false,
-    "description": "✨ Custom-Designed Silver Pendant for Sale ✨\n\nBeautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.\n\n💎 Elegant Design\n💎 Premium Quality Materials\n💎 Perfect for Any Occasion\n\n📩 95.00 USD\n\nCertified Gemstone",
+    "description": "✨ Custom-Designed Silver Pendant for Sale ✨\n\nBeautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.\n\n💎 Elegant Design\n💎 Premium Quality Materials\n💎 Perfect for Any Occasion\n\n\n\nCertified Gemstone",
     "gemType": "Zircon",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
