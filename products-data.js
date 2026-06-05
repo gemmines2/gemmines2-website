@@ -30,8 +30,8 @@ const PRODUCTS = [
   },
   {
     "id": "zircon-1780665881053",
-    "name": "Zircon Pendant",
-    "shortName": "Zircon",
+    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "shortName": "Blue Zircon",
     "type": "cut",
     "treatment": "unheated",
     "origin": "Sri Lankan",
@@ -40,12 +40,12 @@ const PRODUCTS = [
     "weight": 3.999,
     "dimensions": "",
     "clarity": "loupe clean",
-    "certificate": "Available on Request",
+    "certificate": "Certificate Available",
     "price": 95,
     "pricePerCarat": 24,
     "status": "active",
-    "rare": false,
-    "description": "Ã¢ÂÂ¨ Custom-Designed Silver Pendant for Sale Ã¢ÂÂ¨\n\nBeautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.\n\nÃ°ÂÂÂ Elegant Design\nÃ°ÂÂÂ Premium Quality Materials\nÃ°ÂÂÂ Perfect for Any Occasion\n\n\n\nCertified Gemstone",
+    "rare": true,
+    "description": "",
     "gemType": "Zircon",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
