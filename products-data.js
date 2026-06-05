@@ -5,7 +5,7 @@
 const PRODUCTS = [
   {
     "id": "zircon-1780667702663",
-    "name": "Pair of Beautiful Blue Zircon Sri Lankan Origin 5.23 Carats both stones",
+    "name": "Pair of Beautiful Blue Zircon Sri Lankan Origin 5.23 Carats both stones (Certified)",
     "shortName": "Zircon",
     "type": "cut",
     "treatment": "unheated",
