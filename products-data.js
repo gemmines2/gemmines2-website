@@ -45,7 +45,7 @@ const PRODUCTS = [
     "pricePerCarat": 24,
     "status": "active",
     "rare": true,
-    "description": "",
+    "description": "Product ID / SKU:\nGM-PEND-1003\n\n925 Sterling Silver Pendant with Natural Zircon and American Diamonds\n\n\n925 Sterling Silver Jewelry > Natural Zircon Pendant > Gemstone Pendant Necklace\n\nBeautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural Zircon gemstone accented by sparkling American diamonds. This elegant jewelry piece features fine craftsmanship, attractive brilliance, and a luxurious appearance suitable for formal wear, gifting, jewelry collections, and everyday elegance. Designed for gemstone and jewelry lovers seeking stylish sterling silver jewelry with natural gemstone beauty and timeless appeal.",
     "gemType": "Zircon",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
