@@ -604,5 +604,28 @@ const PRODUCTS = [
       "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
     ],
     "image": "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
-  }
+  },
+   {
+  "id": "GM-PEND-1003",
+  "name": "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
+  "shortName": "Silver Zircon Pendant",
+  "type": "jewelry",
+  "treatment": "unheated",
+  "origin": "Pakistan",
+  "color": "Silver / White",
+  "shape": "Pendant",
+  "weight": null,
+  "dimensions": "",
+  "clarity": "Excellent",
+  "certificate": "Available on Request",
+  "price": 180,
+  "pricePerCarat": null,
+  "status": "active",
+  "rare": true,
+  "description": "This 925 sterling silver pendant features a natural, unheated zircon gemstone. The design includes sparkling American diamonds for added brilliance. Handcrafted in Pakistan. Perfect for any occasion. Worldwide insured shipping.",
+  "gemType": "Jewelry",
+  "images": [],
+  "image": "",
+  "video": ""
+}
 ];
