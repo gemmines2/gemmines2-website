@@ -99,6 +99,22 @@
     .img-prev{position:relative;width:76px;height:76px}
     .img-prev img{width:100%;height:100%;object-fit:contain;border:1px solid var(--border);border-radius:3px;background:var(--bg3);padding:4px}
     .img-prev button{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:.6rem;cursor:pointer;line-height:18px;text-align:center}
+
+    /* ── VIDEO ZONE ── */
+    .video-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;margin-bottom:.75rem}
+    .video-zone:hover{border-color:var(--gold);background:rgba(201,169,110,.04)}
+    .video-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+    .video-zone-text{font-size:.8rem;color:var(--text2);pointer-events:none}
+    .video-zone-text strong{color:var(--gold)}
+    .video-preview{margin-top:.75rem;display:none}
+    .video-preview video{width:100%;max-height:180px;border-radius:4px;border:1px solid var(--border);background:#000}
+    .video-preview-name{font-size:.72rem;color:var(--text2);margin-top:.4rem}
+    .video-remove{margin-top:.4rem;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;font-size:.68rem;font-family:'Jost',sans-serif;padding:.25rem .6rem;cursor:pointer}
+    .video-remove:hover{background:#5e2e2e}
+    .video-existing{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:.6rem .85rem;font-size:.78rem;color:var(--text2);margin-bottom:.5rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+    .video-existing span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .video-existing button{background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;font-size:.65rem;padding:.2rem .5rem;cursor:pointer;flex-shrink:0}
+
     .btn-primary{padding:.7rem 1.5rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
     .btn-primary:hover{background:var(--gold2)}
     .btn-primary:disabled{opacity:.5;cursor:not-allowed}
@@ -187,7 +203,7 @@
       </div>
       <div class="notice">
         <span style="font-size:1.1rem;flex-shrink:0">✨</span>
-        <div class="notice-text"><strong>Fully Automatic:</strong> Add product + upload image → saves to GitHub instantly → website updates in ~1 minute. No manual steps.</div>
+        <div class="notice-text"><strong>Fully Automatic:</strong> Add product + upload images/video → saves to GitHub instantly → website updates in ~1 minute. No manual steps.</div>
       </div>
       <div class="tbl-wrap">
         <div class="tbl-top"><span class="tbl-top-title">Recent Products</span><button class="btn-add" onclick="showTab('products');openForm()">+ Add New</button></div>
@@ -231,6 +247,8 @@
         <div class="progress-label" id="progress-label">Uploading…</div>
         <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
       </div>
+
+      <!-- IMAGES -->
       <div class="fg full" style="margin-bottom:1.25rem">
         <label>Product Images <span class="req">*</span></label>
         <div class="img-zone" id="drop-zone">
@@ -239,6 +257,22 @@
         </div>
         <div class="img-previews" id="img-previews"></div>
       </div>
+
+      <!-- VIDEO UPLOAD — NEW SECTION -->
+      <div class="fg full" style="margin-bottom:1.25rem">
+        <label>Product Video <span style="color:var(--text2);font-size:.62rem;letter-spacing:0;text-transform:none;font-weight:300">(optional — short clip of the stone)</span></label>
+        <div id="video-existing-wrap"></div>
+        <div class="video-zone" id="video-drop-zone">
+          <input type="file" id="f-video" accept="video/*" onchange="handleVideo(event)">
+          <div class="video-zone-text">🎬<br><strong>Click to upload a video</strong> or drag & drop<br><span style="font-size:.72rem">MP4, MOV, WEBM — max 50MB recommended</span></div>
+        </div>
+        <div class="video-preview" id="video-preview">
+          <video id="video-preview-player" controls muted playsinline></video>
+          <div class="video-preview-name" id="video-preview-name"></div>
+          <button class="video-remove" onclick="removeVideo()">✕ Remove Video</button>
+        </div>
+      </div>
+
       <div class="form-grid">
         <div class="fg full"><label>Product Name <span class="req">*</span></label><input id="f-name" placeholder="e.g. Natural Unheated Kashmir Pink Sapphire"></div>
         <div class="fg full"><label>Short Name</label><input id="f-shortname" placeholder="e.g. Pink Sapphire"></div>
@@ -326,7 +360,6 @@ function showApp() {
   });
 }
 
-// Auto-login if token saved
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('gm2_admin_token');
   if (saved) {
@@ -334,7 +367,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('tokenInput').value = saved;
     showApp();
   }
-  // Enter key on token input
   document.getElementById('tokenInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') doLogin();
   });
@@ -365,7 +397,7 @@ let products = [];
 
 async function loadProducts() {
   const file = await ghGet(GH_FILE);
-  if (!file) throw new Error('product-data.js not found');
+  if (!file) throw new Error('products-data.js not found');
   const raw = atob(file.content.replace(/\n/g, ''));
   const match = raw.match(/const\s+PRODUCTS\s*=\s*(\[[\s\S]*\]);/);
   if (match) {
@@ -407,8 +439,31 @@ async function uploadImageToGitHub(file, filename) {
   });
 }
 
+// ── UPLOAD VIDEO ──────────────────────────────────────────
+async function uploadVideoToGitHub(file, filename) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64 = e.target.result.split(',')[1];
+      const path = `videos/${filename}`;
+      const existing = await ghGet(path);
+      const sha = existing ? existing.sha : undefined;
+      const result = await ghPut(path, base64, `Admin: Upload video ${filename}`, sha);
+      if (result.content) resolve(`videos/${filename}`);
+      else reject(new Error('Video upload failed'));
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 // ── UI ────────────────────────────────────────────────────
-let editingId = null, pendingFiles = [], existingImages = [], filterText = '', filterStatus = '';
+let editingId = null;
+let pendingFiles = [];
+let existingImages = [];
+let pendingVideo = null;      // new video File object
+let existingVideo = '';       // path already saved e.g. "videos/abc.mp4"
+let filterText = '';
+let filterStatus = '';
 
 function showTab(name) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -441,18 +496,20 @@ function renderTable() {
     return nm.includes(filterText.toLowerCase()) && sm;
   });
   document.getElementById('prod-table').innerHTML = list.length
-    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Weight</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(productRow).join('')}</tbody></table>`
+    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Weight</th><th>Price</th><th>Video</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(productRow).join('')}</tbody></table>`
     : `<div class="empty-state"><div class="ei">🔍</div><h3>No products found</h3></div>`;
 }
 
 function productRow(p) {
   const img = (p.images&&p.images[0]) || p.image || '';
   const sc  = {active:'badge-active',sold:'badge-sold',draft:'badge-draft'}[p.status||'active'] || 'badge-active';
+  const vid = p.video ? '🎬' : '';
   return `<tr>
     <td>${img ? `<img class="td-img" src="${img}" onerror="this.style.display='none'">` : ''}</td>
     <td style="max-width:200px"><div>${p.name||'—'}</div><div style="font-size:.72rem;color:var(--text2)">${p.origin||''}</div></td>
     <td style="color:var(--text2);font-size:.78rem">${p.weight ? p.weight+' ct' : '—'}</td>
     <td style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem">$${Number(p.price||0).toLocaleString()}</td>
+    <td style="font-size:.85rem">${vid}</td>
     <td><span class="badge ${sc}">${p.status||'active'}</span></td>
     <td><div class="act-row">
       <button class="btn-sm btn-edit" onclick="openForm('${p.id}')">Edit</button>
@@ -461,9 +518,18 @@ function productRow(p) {
 }
 
 function openForm(id) {
-  editingId = id || null; pendingFiles = []; existingImages = [];
+  editingId = id || null;
+  pendingFiles = [];
+  existingImages = [];
+  pendingVideo = null;
+  existingVideo = '';
+
   document.getElementById('img-previews').innerHTML = '';
   document.getElementById('f-images').value = '';
+  document.getElementById('f-video').value = '';
+  document.getElementById('video-preview').style.display = 'none';
+  document.getElementById('video-existing-wrap').innerHTML = '';
+
   ['name','shortname','price','gemtype','origin','color','shape','weight','dims','clarity','cert','desc'].forEach(f => {
     const el = document.getElementById('f-'+f); if(el) el.value = '';
   });
@@ -496,6 +562,16 @@ function openForm(id) {
     document.getElementById('f-desc').value      = p.description||'';
     existingImages = p.images || (p.image ? [p.image] : []);
     existingImages.forEach(src => addPreviewFromUrl(src));
+
+    // Show existing video if any
+    if (p.video) {
+      existingVideo = p.video;
+      document.getElementById('video-existing-wrap').innerHTML = `
+        <div class="video-existing">
+          <span>🎬 ${p.video}</span>
+          <button onclick="clearExistingVideo()">✕ Remove</button>
+        </div>`;
+    }
   } else {
     document.getElementById('modal-title').innerHTML = 'Add <em>Product</em>';
   }
@@ -504,9 +580,12 @@ function openForm(id) {
 
 function closeForm() {
   document.getElementById('modal').classList.remove('open');
-  editingId = null; pendingFiles = [];
+  editingId = null;
+  pendingFiles = [];
+  pendingVideo = null;
 }
 
+// ── IMAGE HANDLERS ────────────────────────────────────────
 function handleImages(e) {
   Array.from(e.target.files).forEach(f => {
     pendingFiles.push(f);
@@ -534,6 +613,43 @@ function removePreview(btn) {
   item.remove();
 }
 
+// ── VIDEO HANDLERS ────────────────────────────────────────
+function handleVideo(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // Warn if over 50MB
+  if (file.size > 52428800) {
+    showAlert('form-alert','error','Video is larger than 50MB. Please trim it or use a shorter clip. Large videos may fail to upload.');
+    document.getElementById('f-video').value = '';
+    return;
+  }
+
+  pendingVideo = file;
+  const url = URL.createObjectURL(file);
+  document.getElementById('video-preview-player').src = url;
+  document.getElementById('video-preview-name').textContent = file.name + ' (' + (file.size/1024/1024).toFixed(1) + ' MB)';
+  document.getElementById('video-preview').style.display = 'block';
+  // Hide the drop zone while a video is selected
+  document.getElementById('video-drop-zone').style.display = 'none';
+}
+
+function removeVideo() {
+  pendingVideo = null;
+  document.getElementById('f-video').value = '';
+  document.getElementById('video-preview').style.display = 'none';
+  document.getElementById('video-drop-zone').style.display = 'block';
+  const player = document.getElementById('video-preview-player');
+  player.pause();
+  player.src = '';
+}
+
+function clearExistingVideo() {
+  existingVideo = '';
+  document.getElementById('video-existing-wrap').innerHTML = '';
+}
+
+// ── SAVE ─────────────────────────────────────────────────
 async function saveProduct() {
   const name  = document.getElementById('f-name').value.trim();
   const price = document.getElementById('f-price').value;
@@ -548,16 +664,28 @@ async function saveProduct() {
   pWrap.classList.add('show');
 
   try {
+    // Upload images
     const validFiles = pendingFiles.filter(Boolean);
     const uploadedPaths = [];
     for (let i = 0; i < validFiles.length; i++) {
       const f = validFiles[i];
       pLabel.textContent = `Uploading image ${i+1} of ${validFiles.length}…`;
-      pFill.style.width  = ((i / (validFiles.length + 1)) * 75) + '%';
+      pFill.style.width  = ((i / (validFiles.length + (pendingVideo ? 2 : 1))) * 60) + '%';
       const ext      = f.name.split('.').pop().toLowerCase();
       const safeName = name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,35);
       const filename = `${safeName}-${Date.now()}-${i}.${ext}`;
       uploadedPaths.push(await uploadImageToGitHub(f, filename));
+    }
+
+    // Upload video if one is selected
+    let videoPath = existingVideo; // keep existing unless replaced or cleared
+    if (pendingVideo) {
+      pLabel.textContent = `Uploading video… (this may take a moment)`;
+      pFill.style.width  = '65%';
+      const ext      = pendingVideo.name.split('.').pop().toLowerCase();
+      const safeName = name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,35);
+      const filename = `${safeName}-${Date.now()}.${ext}`;
+      videoPath = await uploadVideoToGitHub(pendingVideo, filename);
     }
 
     const allImages = [...existingImages, ...uploadedPaths];
@@ -587,6 +715,7 @@ async function saveProduct() {
       gemType:     document.getElementById('f-gemtype').value.trim(),
       images:      allImages,
       image:       allImages[0] || '',
+      video:       videoPath || '',   // ← video path stored here
     };
 
     if (editingId) { const idx = products.findIndex(p => p.id === editingId); products[idx] = data; }
