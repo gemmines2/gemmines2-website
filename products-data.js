@@ -1,83 +1,31 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function renderCartCount() {
-    const count = cart.reduce((sum, item) => sum + item.qty, 0);
-    const el = document.getElementById("cart-count");
-    if (el) el.textContent = count;
-    document.querySelectorAll('.cart-count').forEach(span => span.textContent = count);
-}
-
-function renderCart() {
-    const itemsDiv = document.getElementById("cart-items");
-    const totalSpan = document.getElementById("grand-total");
-    const checkoutBtn = document.querySelector(".checkout-btn");
-
-    if (!itemsDiv) return;
-
-    itemsDiv.innerHTML = "";
-    let grandTotal = 0;
-
-    if (cart.length === 0) {
-        itemsDiv.innerHTML = `<p style="color:#fff; padding:20px; text-align:center;">Your cart is empty.</p>`;
-        if (totalSpan) totalSpan.textContent = "0.00";
-        if (checkoutBtn) checkoutBtn.style.display = "none";
-        renderCartCount();
-        return;
-    }
-
-    cart.forEach(item => {
-        grandTotal += item.price * item.qty;
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="cart-item-info">
-                <h3>${item.name}</h3>
-                <p>${item.description}</p>
-                <p class="price">$${item.price.toFixed(2)} × ${item.qty}</p>
-            </div>
-            <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
-        `;
-        itemsDiv.appendChild(div);
-    });
-
-    if (totalSpan) {
-        totalSpan.textContent = grandTotal.toFixed(2);
-    }
-    
-    if (checkoutBtn) checkoutBtn.style.display = "block";
-    renderCartCount();
-}
-
-function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    renderCart();
-});
-
-function sendOrderEmail() {
-  emailjs.send("service_6xjn39o", "template_xxxxx", {
-    name: document.getElementById("name")?.value || "",
-    email: document.getElementById("email")?.value || "",
-    product: "Test Product",
-    price: "Test Price",
-    address: document.getElementById("address")?.value || ""
-  })
-  .then(function() {
-    console.log("Email sent");
-  }, function(error) {
-    console.log("Email failed", error);
-  });
-}
-
 /* ═══════════════════════════════════════════
    GEMMINES2 — Product Catalog
+   Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
+  {
+    "id": "zircon-1780749358086",
+    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Brownish",
+    "shape": "Emerald Cut",
+    "weight": 4,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Available on Request",
+    "price": 180,
+    "pricePerCarat": 45,
+    "status": "active",
+    "rare": false,
+    "description": "dsfffaffdd",
+    "gemType": "Zircon",
+    "images": [],
+    "image": "",
+    "video": "videos/beautifully-handcrafted-exclusive-p-1780749353470.mp4"
+  },
   {
     "id": "chrysoberyl-1780742386216",
     "name": "Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )",
@@ -448,7 +396,7 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Deep Black",
     "shape": "Tumbled Stone",
-    "weight": 14.0,
+    "weight": 14,
     "dimensions": "",
     "clarity": "Opaque",
     "certificate": "Available on Request",
