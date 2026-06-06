@@ -502,7 +502,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
@@ -600,34 +600,11 @@ const PRODUCTS = [
     "pricePerCarat": 25,
     "status": "active",
     "rare": false,
-    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Weighing exactly 2 carats, this genuine nephrite jade displays a soft, attractive apple-green to forest-green color with excellent translucency that allows light to glow gently through the stone. Sourced from the emerging nephrite deposits in Pakistan (often compared to high-quality material from British Columbia), this untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for. Its subtle translucency and even green hue make it highly desirable for custom jewelry making, cabochon cutting, or as a collectorÃÂ¢ÃÂÃÂs piece. Key Features: 100% Natural ÃÂ¢ÃÂÃÂ No heat treatment, no dyeing, no enhancements Origin: Pakistan Weight: 3.20carats Color: Translucent, vibrant green Cut: Polished cabochon (ready for setting) Hardness: 6ÃÂ¢ÃÂÃÂ6.5 on Mohs scale ÃÂ¢ÃÂÃÂ extremely durable Nephrite jade has been treasured for thousands of years for its beauty, strength, and metaphysical properties. In many cultures it symbolizes purity, harmony, and protection. This Pakistani green nephrite offers an affordable yet high-quality alternative to more expensive sources while maintaining excellent gemological standards. Perfect for: Handcrafted rings, pendants, and earrings Gemstone collectors Metaphysical and healing crystal enthusiasts Each stone is carefully selected and comes with a basic authenticity guarantee. Worldwide shipping available. Secure packaging for safe delivery. Add this rare Pakistani translucent green nephrite to your collection today ÃÂ¢ÃÂÃÂ limited stock!",
+    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Weighing exactly 2 carats, this genuine nephrite jade displays a soft, attractive apple-green to forest-green color with excellent translucency that allows light to glow gently through the stone. Sourced from the emerging nephrite deposits in Pakistan (often compared to high-quality material from British Columbia), this untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for. Its subtle translucency and even green hue make it highly desirable for custom jewelry making, cabochon cutting, or as a collectorÃÂÃÂ¢ÃÂÃÂÃÂÃÂs piece. Key Features: 100% Natural ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ No heat treatment, no dyeing, no enhancements Origin: Pakistan Weight: 3.20carats Color: Translucent, vibrant green Cut: Polished cabochon (ready for setting) Hardness: 6ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ6.5 on Mohs scale ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ extremely durable Nephrite jade has been treasured for thousands of years for its beauty, strength, and metaphysical properties. In many cultures it symbolizes purity, harmony, and protection. This Pakistani green nephrite offers an affordable yet high-quality alternative to more expensive sources while maintaining excellent gemological standards. Perfect for: Handcrafted rings, pendants, and earrings Gemstone collectors Metaphysical and healing crystal enthusiasts Each stone is carefully selected and comes with a basic authenticity guarantee. Worldwide shipping available. Secure packaging for safe delivery. Add this rare Pakistani translucent green nephrite to your collection today ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ limited stock!",
     "gemType": "Jade",
     "images": [
       "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
     ],
     "image": "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
-  },
-  {
-    "id": "GM-PEND-1003",
-    "name": "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
-    "shortName": "Silver Zircon Pendant",
-    "type": "jewelry",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Silver / White",
-    "shape": "Pendant",
-    "weight": null,
-    "dimensions": "",
-    "clarity": "Excellent",
-    "certificate": "Available on Request",
-    "price": 180,
-    "pricePerCarat": null,
-    "status": "active",
-    "rare": true,
-    "description": "This 925 sterling silver pendant features a natural, unheated zircon gemstone. The design includes sparkling American diamonds for added brilliance. Handcrafted in Pakistan. Perfect for any occasion. Worldwide insured shipping.",
-    "gemType": "Jewelry",
-    "images": [],
-    "image": "",
-    "video": ""
   }
 ];
