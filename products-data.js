@@ -4,6 +4,31 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "zircon-1780730719598",
+    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Brownish",
+    "shape": "Emerald Cut",
+    "weight": 4,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Certificate Available",
+    "price": 180,
+    "pricePerCarat": 45,
+    "status": "active",
+    "rare": false,
+    "description": "fsdffsffaf",
+    "gemType": "Zircon",
+    "images": [
+      "images/beautifully-handcrafted-exclusive-p-1780730712979-0.jpeg"
+    ],
+    "image": "images/beautifully-handcrafted-exclusive-p-1780730712979-0.jpeg",
+    "video": "videos/beautifully-handcrafted-exclusive-p-1780730715460.mp4"
+  },
+  {
     "id": "zircon-1780667702663",
     "name": "Pair of Beautiful Blue Zircon Sri Lankan Origin 5.23 Carats both stones (Certified)",
     "shortName": "Zircon",
