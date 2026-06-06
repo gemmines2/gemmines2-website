@@ -624,8 +624,10 @@ const PRODUCTS = [
     "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.",
     "gemType": "Jade",
     "images": [
-      "images/green-jade.jpg"
+      "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
+      "images/natural-translucent-green-nephrite--1780761897176-1.jpg"
     ],
-    "image": "images/green-jade.jpg"
+    "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
+    "video": ""
   }
 ];
