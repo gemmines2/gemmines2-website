@@ -606,5 +606,82 @@ const PRODUCTS = [
       "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
     ],
     "image": "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
-  }
+  },
+   {
+id: "GM-SPN-1002",
+sku: "GM-SPN-1002",
+name: "Natural Sri Lankan Blue Spinel Pair 1 Carat",
+shortName: "Blue Spinel Pair",
+type: "cut",
+treatment: "unheated",
+origin: "Sri Lanka",
+color: "Blue",
+shape: "Oval Cut",
+weight: 1,
+clarity: "Loupe Clean",
+certificate: "Available on Request",
+price: 180,
+status: "active",
+rare: true,
+description: "Natural unheated Blue Spinel pair from Sri Lanka with attractive blue color and loupe clean clarity.",
+gemType: "Spinel",
+
+images: [
+"images/bluespinelpair.jpeg"
+],
+
+image: "images/bluespinelpair.jpeg"
+},
+
+{
+id: "GM-ZRCN-1002",
+sku: "GM-ZRCN-1002",
+name: "Natural Blue Zircon Pair 5.23 Carats Certified",
+shortName: "Blue Zircon Pair",
+type: "cut",
+treatment: "unheated",
+origin: "Sri Lanka",
+color: "Blue",
+shape: "Oval Cut",
+weight: 5.23,
+clarity: "Eye Clean",
+certificate: "Certified",
+price: 350,
+status: "active",
+rare: true,
+description: "Certified natural Blue Zircon pair from Sri Lanka with attractive brilliance and eye clean clarity.",
+gemType: "Zircon",
+
+images: [
+"images/bluezirconpair.jpeg"
+],
+
+image: "images/bluezirconpair.jpeg"
+},
+
+{
+id: "GM-PEND-1003",
+sku: "GM-PEND-1003",
+name: "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
+shortName: "Silver Pendant",
+type: "jewelry",
+treatment: "natural",
+origin: "Pakistan",
+color: "Silver / White",
+shape: "Pendant",
+clarity: "Excellent",
+certificate: "Available on Request",
+price: 180,
+status: "active",
+rare: true,
+description: "925 sterling silver pendant featuring natural zircon and sparkling American diamonds.",
+gemType: "Jewelry",
+
+images: [
+"images/zirconpendant.jpeg"
+],
+
+image: "images/zirconpendant.jpeg"
+}
+
 ];
