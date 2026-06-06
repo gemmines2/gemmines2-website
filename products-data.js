@@ -1,12 +1,87 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCartCount() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const el = document.getElementById("cart-count");
+    if (el) el.textContent = count;
+    document.querySelectorAll('.cart-count').forEach(span => span.textContent = count);
+}
+
+function renderCart() {
+    const itemsDiv = document.getElementById("cart-items");
+    const totalSpan = document.getElementById("grand-total");
+    const checkoutBtn = document.querySelector(".checkout-btn");
+
+    if (!itemsDiv) return;
+
+    itemsDiv.innerHTML = "";
+    let grandTotal = 0;
+
+    if (cart.length === 0) {
+        itemsDiv.innerHTML = `<p style="color:#fff; padding:20px; text-align:center;">Your cart is empty.</p>`;
+        if (totalSpan) totalSpan.textContent = "0.00";
+        if (checkoutBtn) checkoutBtn.style.display = "none";
+        renderCartCount();
+        return;
+    }
+
+    cart.forEach(item => {
+        grandTotal += item.price * item.qty;
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p class="price">$${item.price.toFixed(2)} × ${item.qty}</p>
+            </div>
+            <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
+        `;
+        itemsDiv.appendChild(div);
+    });
+
+    if (totalSpan) {
+        totalSpan.textContent = grandTotal.toFixed(2);
+    }
+    
+    if (checkoutBtn) checkoutBtn.style.display = "block";
+    renderCartCount();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+});
+
+function sendOrderEmail() {
+  emailjs.send("service_6xjn39o", "template_xxxxx", {
+    name: document.getElementById("name")?.value || "",
+    email: document.getElementById("email")?.value || "",
+    product: "Test Product",
+    price: "Test Price",
+    address: document.getElementById("address")?.value || ""
+  })
+  .then(function() {
+    console.log("Email sent");
+  }, function(error) {
+    console.log("Email failed", error);
+  });
+}
+
 /* ═══════════════════════════════════════════
    GEMMINES2 — Product Catalog
-   Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
-    "id": "chruspberyl-1780742386216",
+    "id": "chrysoberyl-1780742386216",
     "name": "Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )",
-    "shortName": "Chrysoberly",
+    "shortName": "Chrysoberyl",
     "type": "cut",
     "treatment": "unheated",
     "origin": "Sri Lankan",
@@ -20,8 +95,8 @@ const PRODUCTS = [
     "pricePerCarat": 89,
     "status": "active",
     "rare": false,
-    "description": "Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.\nThis specimen is loupe-clean (eye-clean under 10x magnification), showcasing outstanding transparency and minimal inclusions for a radiant sparkle. Sourced from reputable origins known for quality chrysoberyl, it comes with a certificate of authenticity available upon request.\nPerfect for custom jewelry settings such as rings, pendants, or earrings, this versatile gem offers timeless elegance. Whether you're a collector or seeking a unique piece, its natural beauty and rarity make it a standout addition to any collection.                                                                                         #Chrysoberyl\n#NaturalChrysoberyl\n#LooseGemstones\n#NaturalGemstones\n#CertifiedGemstone\n#ChrysoberylGem\n#RareGemstones\n#Srilankangems   \n        #USGemstones\n#EuropeJewelry\n#AmericanJewelryLovers\n#EuropeanGemCollectors\n#NYC Jewelry (or #LondonJewelry, #ParisJewelry)\n#GemstonesUSA\n#GemLovers\n    #Gemstones\n#GemstoneJewelry\n#NaturalGems\n#UnheatedGemstones\n#GemsOfInstagram\n#JewelryOfTheDay\n#LuxuryLifestyle\n#JewelryAddict\n#HandcraftedJewelry\n#BespokeJewelry",
-    "gemType": "Chruspberyl",
+    "description": "Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.\nThis specimen is loupe-clean (eye-clean under 10x magnification), showcasing outstanding transparency and minimal inclusions for a radiant sparkle. Sourced from reputable origins known for quality chrysoberyl, it comes with a certificate of authenticity available upon request.\nPerfect for custom jewelry settings such as rings, pendants, or earrings, this versatile gem offers timeless elegance. Whether you're a collector or seeking a unique piece, its natural beauty and rarity make it a standout addition to any collection.",
+    "gemType": "Chrysoberyl",
     "images": [
       "images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"
     ],
@@ -30,8 +105,8 @@ const PRODUCTS = [
   },
   {
     "id": "zircon-1780734539709",
-    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
-    "shortName": "Zircon",
+    "name": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "shortName": "Zircon Pendant",
     "type": "cut",
     "treatment": "unheated",
     "origin": "Sri Lankan",
@@ -45,7 +120,7 @@ const PRODUCTS = [
     "pricePerCarat": 45,
     "status": "active",
     "rare": false,
-    "description": "fdsfsafsfafadsaf",
+    "description": "Beautiful sterling silver setting with high-quality natural Zircon accent stone.",
     "gemType": "Zircon",
     "images": [],
     "image": "",
@@ -61,14 +136,14 @@ const PRODUCTS = [
     "color": "Blue",
     "shape": "Round / Brilliant Cut",
     "weight": 5.23,
-    "dimensions": "8.66X8.54X4.75 mm  / 8.07x8.03x4.34 mm",
+    "dimensions": "8.66X8.54X4.75 mm / 8.07x8.03x4.34 mm",
     "clarity": "loupe clean",
     "certificate": "Certified by GIA lab",
     "price": 170,
     "pricePerCarat": 33,
     "status": "active",
     "rare": false,
-    "description": "Certified pair of natural Blue Zircon gemstones from Sri Lanka weighing 5.23 carats total. These beautifully faceted gemstones display attractive blue color, excellent transparency, and strong brilliance with exceptional fire. Carefully matched as a pair, these certified Blue Zircons are ideal for custom earrings, rings, pendants, luxury jewelry designs, gemstone collections, and investment purposes. Sri Lankan Blue Zircon gemstones are admired worldwide for their natural beauty and sparkling appearance.                            \n\nCertified Blue Zircon gemstone pair from Sri Lanka weighing 5.23 carats with exceptional brilliance, natural blue color, and ideal matching stones for fine jewelry and gemstone collections.\n\n\n#BlueZircon #SriLankanZircon #CertifiedGemstone #NaturalZircon #LooseGemstone #GemstonePair #LuxuryGemstones #FineJewelry #GemstoneCollector #Gemmines2",
+    "description": "Certified pair of natural Blue Zircon gemstones from Sri Lanka weighing 5.23 carats total. These beautifully faceted gemstones display attractive blue color, excellent transparency, and strong brilliance with exceptional fire. Carefully matched as a pair, these certified Blue Zircons are ideal for custom earrings, rings, pendants, luxury jewelry designs, gemstone collections, and investment purposes.",
     "gemType": "Zircon",
     "images": [
       "images/pair-beautiful-blue-zironc-rare-col-1780667697486-0.jpeg",
@@ -78,7 +153,7 @@ const PRODUCTS = [
   },
   {
     "id": "zircon-1780665881053",
-    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "name": "Beautifully handcrafted exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
     "shortName": "Blue Zircon",
     "type": "cut",
     "treatment": "unheated",
@@ -93,7 +168,7 @@ const PRODUCTS = [
     "pricePerCarat": 24,
     "status": "active",
     "rare": true,
-    "description": "Product ID / SKU:\nGM-PEND-1003\n\n925 Sterling Silver Pendant with Natural Zircon and American Diamonds\n\n\n925 Sterling Silver Jewelry > Natural Zircon Pendant > Gemstone Pendant Necklace\n\nBeautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural Zircon gemstone accented by sparkling American diamonds. This elegant jewelry piece features fine craftsmanship, attractive brilliance, and a luxurious appearance suitable for formal wear, gifting, jewelry collections, and everyday elegance. Designed for gemstone and jewelry lovers seeking stylish sterling silver jewelry with natural gemstone beauty and timeless appeal.",
+    "description": "Product ID / SKU: GM-PEND-1003. Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural Zircon gemstone accented by sparkling American diamonds.",
     "gemType": "Zircon",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
@@ -103,7 +178,7 @@ const PRODUCTS = [
   {
     "id": "spinel-1780499911496",
     "name": "Natural Sri Lankan( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone",
-    "shortName": "Natural Spinal",
+    "shortName": "Natural Spinel",
     "type": "cut",
     "treatment": "unheated",
     "origin": "Sri Lanka",
@@ -117,7 +192,7 @@ const PRODUCTS = [
     "pricePerCarat": 125,
     "status": "active",
     "rare": false,
-    "description": "Natural Sri Lankan Blue Spinel",
+    "description": "Natural Sri Lankan Blue Spinel with pristine loupe clean clarity.",
     "gemType": "Spinel",
     "images": [
       "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
@@ -205,12 +280,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Lemon Yellow",
     "shape": "Faceted",
-    "weight": null,
+    "weight": 8.5,
     "dimensions": "",
     "clarity": "AAA Eye Clean",
     "certificate": "Available on Request",
     "price": 140,
-    "pricePerCarat": null,
+    "pricePerCarat": 16,
     "status": "active",
     "rare": false,
     "description": "AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.",
@@ -253,12 +328,12 @@ const PRODUCTS = [
     "origin": "Zambia",
     "color": "Rich Green",
     "shape": "Faceted",
-    "weight": null,
+    "weight": 2.4,
     "dimensions": "",
     "clarity": "Transparent",
     "certificate": "Available on Request",
     "price": 600,
-    "pricePerCarat": null,
+    "pricePerCarat": 250,
     "status": "active",
     "rare": true,
     "description": "Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.",
@@ -301,12 +376,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Multi-Color",
     "shape": "Mixed Cuts",
-    "weight": null,
+    "weight": 15.3,
     "dimensions": "",
     "clarity": "Transparent",
     "certificate": "Available on Request",
     "price": 600,
-    "pricePerCarat": null,
+    "pricePerCarat": 39,
     "status": "active",
     "rare": false,
     "description": "Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.",
@@ -349,12 +424,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Multi-Color",
     "shape": "Loose Uncut",
-    "weight": null,
+    "weight": 22.1,
     "dimensions": "",
     "clarity": "Transparent/Translucent",
     "certificate": "Available on Request",
     "price": 400,
-    "pricePerCarat": null,
+    "pricePerCarat": 18,
     "status": "active",
     "rare": false,
     "description": "Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.",
@@ -373,12 +448,12 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Deep Black",
     "shape": "Tumbled Stone",
-    "weight": null,
+    "weight": 14.0,
     "dimensions": "",
     "clarity": "Opaque",
     "certificate": "Available on Request",
     "price": 80,
-    "pricePerCarat": null,
+    "pricePerCarat": 5,
     "status": "active",
     "rare": false,
     "description": "Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.",
@@ -413,7 +488,7 @@ const PRODUCTS = [
     "image": "images/pink-kunzite.jpg"
   },
   {
-    "id": "034",
+    "id": "quartz_034",
     "name": "12 Carat Ferruginous Quartz Gemstone",
     "shortName": "Ferruginous Quartz",
     "type": "cut",
@@ -437,7 +512,7 @@ const PRODUCTS = [
     "image": "images/ferruginous.jpg"
   },
   {
-    "id": "039",
+    "id": "sapphire_039",
     "name": "2.15ct Natural Unheated Bi-Color Sapphire Sri Lanka",
     "shortName": "Bi-Color Sapphire",
     "type": "cut",
@@ -461,7 +536,7 @@ const PRODUCTS = [
     "image": "images/bi-color-sapphire.jpeg"
   },
   {
-    "id": "040",
+    "id": "sapphire_040",
     "name": "5.80ct Royal Blue Sapphire Sri Lankan Origin",
     "shortName": "Royal Blue Sapphire",
     "type": "cut",
@@ -485,7 +560,7 @@ const PRODUCTS = [
     "image": "images/darksapphire.jpeg"
   },
   {
-    "id": "043",
+    "id": "sapphire_043",
     "name": "Heated Padparadscha Sapphire 2.93 Carats Sri Lanka",
     "shortName": "Padparadscha Sapphire",
     "type": "cut",
@@ -509,7 +584,7 @@ const PRODUCTS = [
     "image": "images/Padparadscha-sapphire.jpeg"
   },
   {
-    "id": "044",
+    "id": "ruby_044",
     "name": "Natural Unheated Sri Lankan Ruby 1.06 Carats",
     "shortName": "Ceylon Ruby",
     "type": "cut",
@@ -525,7 +600,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby, one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
@@ -549,7 +624,7 @@ const PRODUCTS = [
     "pricePerCarat": 7,
     "status": "active",
     "rare": false,
-    "description": "Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. Soft light pink color with minor natural inclusions confirming authenticity. Free from heat treatment, retaining its natural characteristics.",
+    "description": "Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. Soft light pink color with minor natural inclusions confirming authenticity.",
     "gemType": "Topaz",
     "images": [
       "images/pinktopaz.gif",
@@ -575,7 +650,7 @@ const PRODUCTS = [
     "pricePerCarat": 19,
     "status": "active",
     "rare": false,
-    "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster. Oval shape gemstone featuring natural rutile inclusions and eye-clean appearance.",
+    "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster.",
     "gemType": "Peridot",
     "images": [
       "images/peridot.gif"
@@ -599,7 +674,7 @@ const PRODUCTS = [
     "pricePerCarat": 12,
     "status": "active",
     "rare": false,
-    "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster. Total weight approximately 12 carats.",
+    "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster.",
     "gemType": "Garnet",
     "images": [
       "images/rhodolite.jpg"
@@ -623,34 +698,11 @@ const PRODUCTS = [
     "pricePerCarat": 25,
     "status": "active",
     "rare": false,
-    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Weighing exactly 2 carats, this genuine nephrite jade displays a soft, attractive apple-green to forest-green color with excellent translucency that allows light to glow gently through the stone. Sourced from the emerging nephrite deposits in Pakistan (often compared to high-quality material from British Columbia), this untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for. Its subtle translucency and even green hue make it highly desirable for custom jewelry making, cabochon cutting, or as a collectorÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂs piece. Key Features: 100% Natural ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ No heat treatment, no dyeing, no enhancements Origin: Pakistan Weight: 3.20carats Color: Translucent, vibrant green Cut: Polished cabochon (ready for setting) Hardness: 6ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ6.5 on Mohs scale ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ extremely durable Nephrite jade has been treasured for thousands of years for its beauty, strength, and metaphysical properties. In many cultures it symbolizes purity, harmony, and protection. This Pakistani green nephrite offers an affordable yet high-quality alternative to more expensive sources while maintaining excellent gemological standards. Perfect for: Handcrafted rings, pendants, and earrings Gemstone collectors Metaphysical and healing crystal enthusiasts Each stone is carefully selected and comes with a basic authenticity guarantee. Worldwide shipping available. Secure packaging for safe delivery. Add this rare Pakistani translucent green nephrite to your collection today ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ limited stock!",
+    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.",
     "gemType": "Jade",
     "images": [
-      "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
+      "images/green-jade.jpg"
     ],
-    "image": "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
-  },
-  {
-    "id": "GM-PEND-1003",
-    "name": "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
-    "shortName": "Silver Zircon Pendant",
-    "type": "jewelry",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Silver / White",
-    "shape": "Pendant",
-    "weight": null,
-    "dimensions": "",
-    "clarity": "Excellent",
-    "certificate": "Available on Request",
-    "price": 180,
-    "pricePerCarat": null,
-    "status": "active",
-    "rare": true,
-    "description": "This 925 sterling silver pendant features a natural, unheated zircon gemstone. The design includes sparkling American diamonds for added brilliance. Handcrafted in Pakistan. Perfect for any occasion. Worldwide insured shipping.",
-    "gemType": "Jewelry",
-    "images": [],
-    "image": "",
-    "video": ""
+    "image": "images/green-jade.jpg"
   }
 ];
