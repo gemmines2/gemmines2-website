@@ -75,31 +75,6 @@ const PRODUCTS = [
     "video": "videos/beautifully-handcrafted-exclusive-p-1780734535217.mp4"
   },
   {
-    "id": "zircon-1780667702663",
-    "name": "Pair of Beautiful Blue Zircon Sri Lankan Origin 5.23 Carats both stones (Certified)",
-    "shortName": "Zircon",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Sri Lankan",
-    "color": "Blue",
-    "shape": "Round / Brilliant Cut",
-    "weight": 5.23,
-    "dimensions": "8.66X8.54X4.75 mm / 8.07x8.03x4.34 mm",
-    "clarity": "loupe clean",
-    "certificate": "Certified by GIA lab",
-    "price": 170,
-    "pricePerCarat": 33,
-    "status": "active",
-    "rare": false,
-    "description": "Certified pair of natural Blue Zircon gemstones from Sri Lanka weighing 5.23 carats total. These beautifully faceted gemstones display attractive blue color, excellent transparency, and strong brilliance with exceptional fire. Carefully matched as a pair, these certified Blue Zircons are ideal for custom earrings, rings, pendants, luxury jewelry designs, gemstone collections, and investment purposes.",
-    "gemType": "Zircon",
-    "images": [
-      "images/pair-beautiful-blue-zironc-rare-col-1780667697486-0.jpeg",
-      "images/pair-beautiful-blue-zironc-rare-col-1780667700016-1.jpeg"
-    ],
-    "image": "images/pair-beautiful-blue-zironc-rare-col-1780667697486-0.jpeg"
-  },
-  {
     "id": "zircon-1780665881053",
     "name": "Beautifully handcrafted exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
     "shortName": "Blue Zircon",
