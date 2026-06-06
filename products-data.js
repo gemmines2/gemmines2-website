@@ -4,6 +4,29 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "sapphire-1780764315884",
+    "name": "Natural P Color change Sapphire  Top eye clean Unheated  Color: From Violet to Purple",
+    "shortName": "Natural P Color change Sapphire  Top eye clean Unheated  Color: From Violet to Purple",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Purple",
+    "shape": "Oval Cut",
+    "weight": 1.54,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 150,
+    "pricePerCarat": 97,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the beauty of this natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats. This rare gemstone displays a stunning color shift from violet to rich purple under different lighting conditions. Featuring top eye-clean clarity and excellent natural brilliance, this sapphire is perfect for collectors, custom jewelry, or gemstone enthusiasts seeking a unique and elegant treasure.\n\n Natural Color Change Sapphire, Sri Lankan Sapphire, Unheated Sapphire, Violet Purple Sapphire, 1.54 ct Sapphire, Eye Clean Sapphire, Rare Sapphire Gemstone, Natural Sapphire Pakistan\n\n#ColorChangeSapphire #NaturalSapphire #SriLankanSapphire #UnheatedSapphire #PurpleSapphire #VioletSapphire #RareGemstone #EyeCleanSapphire #Gemstones #LooseGemstone #FineJewelry #CollectorGem #Gemmines",
+    "gemType": "Sapphire",
+    "images": [],
+    "image": "",
+    "video": "videos/natural-p-color-change-sapphire-top-1780764311378.mp4"
+  },
+  {
     "id": "zircon-1780749358086",
     "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
     "shortName": "Zircon",
