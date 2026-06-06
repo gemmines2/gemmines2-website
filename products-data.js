@@ -91,12 +91,13 @@ const PRODUCTS = [
     "pricePerCarat": 24,
     "status": "active",
     "rare": true,
-    "description": "Product ID / SKU: GM-PEND-1003. Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural Zircon gemstone accented by sparkling American diamonds.",
+    "description": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds. This elegant pendant offers a luxurious shine and timeless beauty, making it perfect for daily wear, gifting, or special occasions. Designed with fine craftsmanship and premium quality materials, this stylish silver pendant adds sophistication and charm to any jewelry collection. A perfect choice for those who appreciate classic elegance and modern sparkle.\n925 sterling silver pendant, natural zircon pendant, zircon jewelry, American diamond pendant, handcrafted silver jewelry, luxury pendant for women, gemstone pendant, elegant silver necklace, Pakistan jewelry, exclusive zircon pendant\n\n\n#SterlingSilver #925Silver #ZirconPendant #NaturalZircon #SilverJewelry #AmericanDiamond #HandcraftedJewelry #LuxuryPendant #GemstoneJewelry #ElegantStyle #FashionJewelry #PendantDesign #JewelryLovers #SilverPendant #ExclusiveJewelry",
     "gemType": "Zircon",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
     ],
-    "image": "images/zircon-pendant-1780665878476-0.jpeg"
+    "image": "images/zircon-pendant-1780665878476-0.jpeg",
+    "video": ""
   },
   {
     "id": "spinel-1780499911496",
