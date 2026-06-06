@@ -4,6 +4,29 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "zircon-1780734539709",
+    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Brownish",
+    "shape": "Emerald Cut",
+    "weight": 4.001,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Available on Request",
+    "price": 179.99,
+    "pricePerCarat": 45,
+    "status": "active",
+    "rare": false,
+    "description": "fdsfsafsfafadsaf",
+    "gemType": "Zircon",
+    "images": [],
+    "image": "",
+    "video": "videos/beautifully-handcrafted-exclusive-p-1780734535217.mp4"
+  },
+  {
     "id": "zircon-1780730719598",
     "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
     "shortName": "Zircon",
@@ -502,7 +525,7 @@ const PRODUCTS = [
     "pricePerCarat": 189,
     "status": "active",
     "rare": true,
-    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby one of the most sought after gemstones in the world.",
+    "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
     "images": [
       "images/ruby2.jpeg"
@@ -607,81 +630,27 @@ const PRODUCTS = [
     ],
     "image": "images/natural-translucent-green-nephrite--1780550973229-0.jpg"
   },
-   {
-id: "GM-SPN-1002",
-sku: "GM-SPN-1002",
-name: "Natural Sri Lankan Blue Spinel Pair 1 Carat",
-shortName: "Blue Spinel Pair",
-type: "cut",
-treatment: "unheated",
-origin: "Sri Lanka",
-color: "Blue",
-shape: "Oval Cut",
-weight: 1,
-clarity: "Loupe Clean",
-certificate: "Available on Request",
-price: 180,
-status: "active",
-rare: true,
-description: "Natural unheated Blue Spinel pair from Sri Lanka with attractive blue color and loupe clean clarity.",
-gemType: "Spinel",
-
-images: [
-"images/bluespinelpair.jpeg"
-],
-
-image: "images/bluespinelpair.jpeg"
-},
-
-{
-id: "GM-ZRCN-1002",
-sku: "GM-ZRCN-1002",
-name: "Natural Blue Zircon Pair 5.23 Carats Certified",
-shortName: "Blue Zircon Pair",
-type: "cut",
-treatment: "unheated",
-origin: "Sri Lanka",
-color: "Blue",
-shape: "Oval Cut",
-weight: 5.23,
-clarity: "Eye Clean",
-certificate: "Certified",
-price: 350,
-status: "active",
-rare: true,
-description: "Certified natural Blue Zircon pair from Sri Lanka with attractive brilliance and eye clean clarity.",
-gemType: "Zircon",
-
-images: [
-"images/bluezirconpair.jpeg"
-],
-
-image: "images/bluezirconpair.jpeg"
-},
-
-{
-id: "GM-PEND-1003",
-sku: "GM-PEND-1003",
-name: "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
-shortName: "Silver Pendant",
-type: "jewelry",
-treatment: "natural",
-origin: "Pakistan",
-color: "Silver / White",
-shape: "Pendant",
-clarity: "Excellent",
-certificate: "Available on Request",
-price: 180,
-status: "active",
-rare: true,
-description: "925 sterling silver pendant featuring natural zircon and sparkling American diamonds.",
-gemType: "Jewelry",
-
-images: [
-"images/zirconpendant.jpeg"
-],
-
-image: "images/zirconpendant.jpeg"
-}
-
+  {
+    "id": "GM-PEND-1003",
+    "name": "925 Sterling Silver Pendant with Natural Zircon and American Diamonds",
+    "shortName": "Silver Zircon Pendant",
+    "type": "jewelry",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Silver / White",
+    "shape": "Pendant",
+    "weight": null,
+    "dimensions": "",
+    "clarity": "Excellent",
+    "certificate": "Available on Request",
+    "price": 180,
+    "pricePerCarat": null,
+    "status": "active",
+    "rare": true,
+    "description": "This 925 sterling silver pendant features a natural, unheated zircon gemstone. The design includes sparkling American diamonds for added brilliance. Handcrafted in Pakistan. Perfect for any occasion. Worldwide insured shipping.",
+    "gemType": "Jewelry",
+    "images": [],
+    "image": "",
+    "video": ""
+  }
 ];
