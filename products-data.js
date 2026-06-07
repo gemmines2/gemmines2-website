@@ -3,6 +3,31 @@
    Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
+   {
+  "id": "GM-SAPH-1001",
+  "name": "Natural Sri Lankan Blue Sapphire",
+  "shortName": "Sapphire",
+  "type": "rough",
+  "treatment": "unheated",
+  "origin": "Sri Lankan",
+  "color": "Blue",
+  "shape": "",
+  "weight": 3.8,
+  "dimensions": "",
+  "clarity": "Eye Clean",
+  "certificate": "Certificate Available",
+  "price": 120,
+  "pricePerCarat": 32,
+  "status": "active",
+  "rare": false,
+  "description": "Blue Sapphire - Sri Lankan Origin - Blue - Natural",
+  "gemType": "Blue Sapphire",
+  "images": [
+    "images/gm-saph-1001-1.jpg"
+  ],
+  "image": "images/gm-saph-1001-1.jpg",
+  "video": ""
+},
   {
     "id": "amethys-1780829923587",
     "name": "Ã¢ÂÂ¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  Ã°ÂÂÂ Elegant Design Ã°ÂÂÂ Premium Quality Materials Ã°ÂÂÂ Perfect for Any Occasion  Ã°ÂÂÂ©",
