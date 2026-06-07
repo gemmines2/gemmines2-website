@@ -4,6 +4,32 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
   {
+    "id": "amethys-1780829923587",
+    "name": "✨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  💎 Elegant Design 💎 Premium Quality Materials 💎 Perfect for Any Occasion  📩",
+    "shortName": "Natural Amethyst with American Dianmond",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "",
+    "shape": "Pear Shape",
+    "weight": 3,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Certificate Available",
+    "price": 150,
+    "pricePerCarat": 50,
+    "status": "active",
+    "rare": false,
+    "description": "",
+    "gemType": "Amethys",
+    "images": [
+      "images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg",
+      "images/-custom-designed-stunning-silver-pe-1780829921329-1.jpeg"
+    ],
+    "image": "images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg",
+    "video": ""
+  },
+  {
     "id": "sapphire-1780764315884",
     "name": "Natural P Color change Sapphire  Top eye clean Unheated  Color: From Violet to Purple",
     "shortName": "Natural P Color change Sapphire  Top eye clean Unheated  Color: From Violet to Purple",
