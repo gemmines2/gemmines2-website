@@ -5,7 +5,7 @@
 const PRODUCTS = [
   {
     "id": "amethys-1780829923587",
-    "name": "â¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  ð Elegant Design ð Premium Quality Materials ð Perfect for Any Occasion  ð©",
+    "name": "Ã¢ÂÂ¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  Ã°ÂÂÂ Elegant Design Ã°ÂÂÂ Premium Quality Materials Ã°ÂÂÂ Perfect for Any Occasion  Ã°ÂÂÂ©",
     "shortName": "Natural Amethyst with American Dianmond",
     "type": "cut",
     "treatment": "unheated",
@@ -516,13 +516,13 @@ const PRODUCTS = [
   },
   {
     "id": "sapphire_043",
-    "name": "Heated Padparadscha Sapphire 2.93 Carats Sri Lanka",
+    "name": ".Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster",
     "shortName": "Padparadscha Sapphire",
     "type": "cut",
     "treatment": "heated",
     "origin": "Sri Lanka",
     "color": "Pink-Orange",
-    "shape": "Faceted",
+    "shape": "Oval",
     "weight": 2.93,
     "dimensions": "",
     "clarity": "Transparent",
@@ -531,12 +531,13 @@ const PRODUCTS = [
     "pricePerCarat": 65,
     "status": "active",
     "rare": true,
-    "description": "Sri Lankan Ceylon Pink-Orange Padparadscha Sapphire with Beautiful Luster. One of the rarest sapphire varieties in the world.",
+    "description": "Behold this stunning 2.93 carat heated Padparadscha sapphire from the world-famous gem mines of Sri Lanka (Ceylon)—the classic origin for the finest examples of this coveted variety. Derived from the Sinhalese \"padmaraga\" meaning \"lotus color,\" this gem captivates with its rare delicate pinkish-orange to orangey-pink hue, evoking the soft glow of a lotus blossom at sunset or a tropical dawn—perfectly balanced between warm orange and romantic pink tones. Professionally heated using industry-standard methods, it achieves enhanced color saturation, exceptional uniformity, and a beautiful, bright vitreous luster with lively brilliance and subtle inner glow under all lighting. High transparency, eye-clean clarity, and minimal inclusions highlight its superior fire and sparkle. Padparadscha sapphires are among the rarest gems on earth, highly prized by collectors and jewelers for their poetic elegance and scarcity. This treated stone offers outstanding beauty and value—ideal for exquisite custom rings, pendants, earrings, or as a luxurious heirloom/investment piece. A sophisticated alternative to September birthstones. Full authenticity details available (lab certification recommended). Embrace the timeless allure of Ceylon's legendary \"lotus sapphire\"! #PadparadschaSapphire #HeatedPadparadscha #SriLankanSapphire #CeylonSapphire #Padparadscha #PinkOrangeSapphire #LotusSapphire #SunsetSapphire #RareGemstone #NaturalSapphire #HeatedSapphire #FineGems #GemstoneJewelry #LooseSapphire #SeptemberBirthstone #LuxuryGems #SapphireLovers #CeylonGems #InvestmentGem #GemCollecting",
     "gemType": "Sapphire",
     "images": [
       "images/Padparadscha-sapphire.jpeg"
     ],
-    "image": "images/Padparadscha-sapphire.jpeg"
+    "image": "images/Padparadscha-sapphire.jpeg",
+    "video": ""
   },
   {
     "id": "ruby_044",
