@@ -55,7 +55,7 @@ const PRODUCTS = [
   },
   {
     "id": "amethys-1780829923587",
-    "name": "Natural Sri Lankan Purple Amethsy set in Silver Jewelery",
+    "name": "Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds",
     "shortName": "Natural Amethyst with American Dianmond",
     "type": "cut",
     "treatment": "unheated",
