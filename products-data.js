@@ -106,31 +106,6 @@ const PRODUCTS = [
     "video": "videos/natural-p-color-change-sapphire-top-1780764311378.mp4"
   },
   {
-    "id": "zircon-1780749358086",
-    "name": "Beautifully handcrafted  exclusive pendant is made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
-    "shortName": "Zircon",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Sri Lankan",
-    "color": "Brownish",
-    "shape": "Emerald Cut",
-    "weight": 4,
-    "dimensions": "",
-    "clarity": "loupe clean",
-    "certificate": "Available on Request",
-    "price": 180,
-    "pricePerCarat": 45,
-    "status": "active",
-    "rare": false,
-    "description": "dsfffaffdd",
-    "gemType": "Zircon",
-    "images": [
-      "images/beautifully-handcrafted-exclusive-p-1780840434533-0.jpeg"
-    ],
-    "image": "images/beautifully-handcrafted-exclusive-p-1780840434533-0.jpeg",
-    "video": "videos/beautifully-handcrafted-exclusive-p-1780749353470.mp4"
-  },
-  {
     "id": "chrysoberyl-1780742386216",
     "name": "Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )",
     "shortName": "Chrysoberyl",
