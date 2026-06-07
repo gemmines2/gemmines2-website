@@ -74,8 +74,10 @@ const PRODUCTS = [
     "rare": false,
     "description": "dsfffaffdd",
     "gemType": "Zircon",
-    "images": [],
-    "image": "",
+    "images": [
+      "images/beautifully-handcrafted-exclusive-p-1780840434533-0.jpeg"
+    ],
+    "image": "images/beautifully-handcrafted-exclusive-p-1780840434533-0.jpeg",
     "video": "videos/beautifully-handcrafted-exclusive-p-1780749353470.mp4"
   },
   {
