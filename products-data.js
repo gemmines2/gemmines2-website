@@ -3,34 +3,59 @@
    Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
-   {
-  "id": "GM-SAPH-1001",
-  "name": "Natural Sri Lankan Blue Sapphire",
-  "shortName": "Sapphire",
-  "type": "rough",
-  "treatment": "unheated",
-  "origin": "Sri Lankan",
-  "color": "Blue",
-  "shape": "",
-  "weight": 3.8,
-  "dimensions": "",
-  "clarity": "Eye Clean",
-  "certificate": "Certificate Available",
-  "price": 120,
-  "pricePerCarat": 32,
-  "status": "active",
-  "rare": false,
-  "description": "Blue Sapphire - Sri Lankan Origin - Blue - Natural",
-  "gemType": "Blue Sapphire",
-  "images": [
-    "images/gm-saph-1001-1.jpg"
-  ],
-  "image": "images/gm-saph-1001-1.jpg",
-  "video": ""
-},
+  {
+    "id": "sapphire-1780848740390",
+    "name": "Natural Unheated Blue Sapphire 7.8 Ct Rough Stone Sri Lankan Origin",
+    "shortName": "Blue Sapphire",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Blue",
+    "shape": "",
+    "weight": 7.8,
+    "dimensions": "",
+    "clarity": "loupe clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 15,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats. This natural sapphire displays an attractive blue color with excellent raw crystal character and natural luster. Sourced from Sri Lankan deposits known for producing high-quality sapphires, this gemstone is untreated and suitable for collectors, lapidary work, or custom jewelry designs. A genuine natural rough sapphire with beautiful appearance and natural formation.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"
+    ],
+    "image": "images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg",
+    "video": ""
+  },
+  {
+    "id": "GM-SAPH-1001",
+    "name": "Natural Sri Lankan Blue Sapphire",
+    "shortName": "Sapphire",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Sri Lankan",
+    "color": "Blue",
+    "shape": "",
+    "weight": 3.8,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 120,
+    "pricePerCarat": 32,
+    "status": "active",
+    "rare": false,
+    "description": "Blue Sapphire - Sri Lankan Origin - Blue - Natural",
+    "gemType": "Blue Sapphire",
+    "images": [
+      "images/gm-saph-1001-1.jpg"
+    ],
+    "image": "images/gm-saph-1001-1.jpg",
+    "video": ""
+  },
   {
     "id": "amethys-1780829923587",
-    "name": "Ã¢ÂÂ¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  Ã°ÂÂÂ Elegant Design Ã°ÂÂÂ Premium Quality Materials Ã°ÂÂÂ Perfect for Any Occasion  Ã°ÂÂÂ©",
+    "name": "ÃÂ¢ÃÂÃÂ¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  ÃÂ°ÃÂÃÂÃÂ Elegant Design ÃÂ°ÃÂÃÂÃÂ Premium Quality Materials ÃÂ°ÃÂÃÂÃÂ Perfect for Any Occasion  ÃÂ°ÃÂÃÂÃÂ©",
     "shortName": "Natural Amethyst with American Dianmond",
     "type": "cut",
     "treatment": "unheated",
@@ -556,7 +581,7 @@ const PRODUCTS = [
     "pricePerCarat": 65,
     "status": "active",
     "rare": true,
-    "description": "Behold this stunning 2.93 carat heated Padparadscha sapphire from the world-famous gem mines of Sri Lanka (Ceylon)—the classic origin for the finest examples of this coveted variety. Derived from the Sinhalese \"padmaraga\" meaning \"lotus color,\" this gem captivates with its rare delicate pinkish-orange to orangey-pink hue, evoking the soft glow of a lotus blossom at sunset or a tropical dawn—perfectly balanced between warm orange and romantic pink tones. Professionally heated using industry-standard methods, it achieves enhanced color saturation, exceptional uniformity, and a beautiful, bright vitreous luster with lively brilliance and subtle inner glow under all lighting. High transparency, eye-clean clarity, and minimal inclusions highlight its superior fire and sparkle. Padparadscha sapphires are among the rarest gems on earth, highly prized by collectors and jewelers for their poetic elegance and scarcity. This treated stone offers outstanding beauty and value—ideal for exquisite custom rings, pendants, earrings, or as a luxurious heirloom/investment piece. A sophisticated alternative to September birthstones. Full authenticity details available (lab certification recommended). Embrace the timeless allure of Ceylon's legendary \"lotus sapphire\"! #PadparadschaSapphire #HeatedPadparadscha #SriLankanSapphire #CeylonSapphire #Padparadscha #PinkOrangeSapphire #LotusSapphire #SunsetSapphire #RareGemstone #NaturalSapphire #HeatedSapphire #FineGems #GemstoneJewelry #LooseSapphire #SeptemberBirthstone #LuxuryGems #SapphireLovers #CeylonGems #InvestmentGem #GemCollecting",
+    "description": "Behold this stunning 2.93 carat heated Padparadscha sapphire from the world-famous gem mines of Sri Lanka (Ceylon)âthe classic origin for the finest examples of this coveted variety. Derived from the Sinhalese \"padmaraga\" meaning \"lotus color,\" this gem captivates with its rare delicate pinkish-orange to orangey-pink hue, evoking the soft glow of a lotus blossom at sunset or a tropical dawnâperfectly balanced between warm orange and romantic pink tones. Professionally heated using industry-standard methods, it achieves enhanced color saturation, exceptional uniformity, and a beautiful, bright vitreous luster with lively brilliance and subtle inner glow under all lighting. High transparency, eye-clean clarity, and minimal inclusions highlight its superior fire and sparkle. Padparadscha sapphires are among the rarest gems on earth, highly prized by collectors and jewelers for their poetic elegance and scarcity. This treated stone offers outstanding beauty and valueâideal for exquisite custom rings, pendants, earrings, or as a luxurious heirloom/investment piece. A sophisticated alternative to September birthstones. Full authenticity details available (lab certification recommended). Embrace the timeless allure of Ceylon's legendary \"lotus sapphire\"! #PadparadschaSapphire #HeatedPadparadscha #SriLankanSapphire #CeylonSapphire #Padparadscha #PinkOrangeSapphire #LotusSapphire #SunsetSapphire #RareGemstone #NaturalSapphire #HeatedSapphire #FineGems #GemstoneJewelry #LooseSapphire #SeptemberBirthstone #LuxuryGems #SapphireLovers #CeylonGems #InvestmentGem #GemCollecting",
     "gemType": "Sapphire",
     "images": [
       "images/Padparadscha-sapphire.jpeg"
