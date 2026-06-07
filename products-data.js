@@ -5,7 +5,7 @@
 const PRODUCTS = [
   {
     "id": "amethys-1780829923587",
-    "name": "✨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  💎 Elegant Design 💎 Premium Quality Materials 💎 Perfect for Any Occasion  📩",
+    "name": "â¨ Custom-Designed Stunning Silver Pendant for Sale  this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.  ð Elegant Design ð Premium Quality Materials ð Perfect for Any Occasion  ð©",
     "shortName": "Natural Amethyst with American Dianmond",
     "type": "cut",
     "treatment": "unheated",
@@ -102,29 +102,6 @@ const PRODUCTS = [
     ],
     "image": "images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg",
     "video": ""
-  },
-  {
-    "id": "zircon-1780734539709",
-    "name": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
-    "shortName": "Zircon Pendant",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Sri Lankan",
-    "color": "Brownish",
-    "shape": "Emerald Cut",
-    "weight": 4.001,
-    "dimensions": "",
-    "clarity": "loupe clean",
-    "certificate": "Available on Request",
-    "price": 179.99,
-    "pricePerCarat": 45,
-    "status": "active",
-    "rare": false,
-    "description": "Beautiful sterling silver setting with high-quality natural Zircon accent stone.",
-    "gemType": "Zircon",
-    "images": [],
-    "image": "",
-    "video": "videos/beautifully-handcrafted-exclusive-p-1780734535217.mp4"
   },
   {
     "id": "zircon-1780665881053",
