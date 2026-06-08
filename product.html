@@ -287,6 +287,36 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('related-section').style.display='none';
   }
   Cart.updateBadge();
+});// ── PRODUCT SCHEMA FOR GOOGLE ──
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": p.name,
+    "image": window.location.origin + "/gemmines2-website/" + ((p.images && p.images[0]) || p.image || ""),
+    "description": p.description || "Natural certified gemstone from Gemmines2",
+    "sku": p.id,
+    "mpn": p.id,
+    "brand": { "@type": "Brand", "name": "Gemmines2" },
+    "offers": {
+      "@type": "Offer",
+      "url": window.location.href,
+      "priceCurrency": "USD",
+      "price": p.price,
+      "priceValidUntil": "2027-12-31",
+      "availability": p.status === 'sold' ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "Organization",
+        "name": "Gemmines2",
+        "url": "https://gemmines2.github.io/gemmines2-website/"
+      }
+    }
+  };
+  const tag = document.createElement('script');
+  tag.type = 'application/ld+json';
+  tag.textContent = JSON.stringify(schema);
+  document.head.appendChild(tag);
+
 });
 
 function addToCart(){
@@ -304,3 +334,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 </script>
 </body>
 </html>
+
+
