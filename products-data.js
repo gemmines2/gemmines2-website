@@ -3,6 +3,32 @@
    Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
+
+   {
+  "id": "GM-SAPH-1008",
+  "name": "This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance. Sri Lankan",
+  "shortName": "Yellow Sapphire",
+  "type": "cut",
+  "treatment": "unheated",
+  "origin": "Sri Lanka",
+  "color": "Yellow",
+  "shape": "",
+  "weight": 0.52,
+  "dimensions": "",
+  "clarity": "loupe clean",
+  "certificate": "Available on Request",
+  "price": 100,
+  "pricePerCarat": 192,
+  "status": "active",
+  "rare": false,
+  "description": "This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance. Displaying a rich blue colour and loupe clean clarity, this gemstone offers exceptional transparency and sparkle. Sourced from Sri Lanka, famous for producing premium sapphires, this untreated gemstone is ideal for fine jewellery, collectors, and gemstone enthusiasts seeking natural beauty and rarity",
+  "gemType": "",
+  "images": [
+    "images/GM-SAP-1008.jpg"
+  ],
+  "image": "images/GM-SAP-1008.jpg",
+  "video": ""
+},
   {
     "id": "sapphire-1780901637012",
     "name": "This Natural  Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.",
