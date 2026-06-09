@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemmines2 — Google Merchant Feed Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a08;--bg2:#111110;--bg3:#191917;
+  --border:#2a2a27;--gold:#c9a96e;--gold2:#e8c98a;
+  --text:#e8e4dc;--text2:#9a9488;--teal:#20b2aa;
+  --green:#1e3d2a;--green2:#5ebc7d;--radius:6px
+}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh;padding:0 0 80px}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold)}
+.logo em{font-style:italic;color:var(--gold2)}
+.logo-sub{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text2);margin-top:.1rem}
+.container{max-width:900px;margin:0 auto;padding:2rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold2);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.notice{background:#1a1a10;border:1px solid #3a3a20;border-radius:var(--radius);padding:.85rem 1rem;display:flex;gap:.6rem;font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:1.5rem}
+.notice strong{color:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold)}
+.stat-lbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-top:.2rem}
+.btn-generate{width:100%;padding:1rem;background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);font-family:'Jost',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-bottom:1.5rem}
+.btn-generate:hover{background:var(--gold2)}
+.btn-generate:disabled{opacity:.5;cursor:not-allowed}
+.output-wrap{display:none}
+.output-wrap.show{display:block}
+.output-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem}
+.output-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.btn-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn-copy{padding:.45rem 1rem;background:var(--teal);color:#000;border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.btn-copy:hover{opacity:.85}
+.btn-copy.copied{background:var(--green2);color:#000}
+.btn-download{padding:.45rem 1rem;background:var(--gold);color:var(--bg);border:none;border-radius:3px;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.btn-download:hover{background:var(--gold2)}
+.code-block{background:#0d0d0b;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;font-family:'Courier New',monospace;font-size:.72rem;line-height:1.6;color:#a8d8a8;overflow-x:auto;white-space:pre;max-height:400px;overflow-y:auto}
+.product-list{margin-top:1rem}
+.prod-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.78rem}
+.prod-row:last-child{border-bottom:none}
+.prod-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-ok{background:var(--green2)}
+.dot-warn{background:var(--gold)}
+.dot-err{background:#bc5e5e}
+.prod-name{color:var(--text);flex:1}
+.prod-issue{color:var(--text2);font-size:.7rem}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;display:flex;gap:.85rem;padding:.75rem 0;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--text2);line-height:1.5}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(step);width:22px;height:22px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);color:var(--gold);font-size:.68rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.steps li strong{color:var(--text)}
+.steps li code{background:var(--bg3);border:1px solid var(--border);padding:.1rem .4rem;border-radius:2px;font-size:.72rem;color:var(--gold2)}
+.alert{padding:.75rem 1rem;border-radius:3px;font-size:.8rem;margin-bottom:1rem;display:none}
+.alert.show{display:block}
+.alert.success{background:var(--green);color:var(--green2);border:1px solid #2a5438}
+.alert.error{background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e}
+.csv-block{background:#0d0d0b;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;font-family:'Courier New',monospace;font-size:.68rem;line-height:1.6;color:#d4c4a8;overflow-x:auto;white-space:pre;max-height:300px;overflow-y:auto}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.container{padding:1rem}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="logo">Gem<em>mines</em>2</div>
+    <div class="logo-sub">Google Merchant Feed Generator</div>
+  </div>
+  <div style="font-size:.72rem;color:var(--text2);text-align:right">Generates XML + CSV<br>for Google Merchant Center</div>
+</div>
+
+<div class="container">
+
+  <div class="notice">
+    <span>💡</span>
+    <div><strong>How this works:</strong> This tool reads your products-data.js and generates a Google Merchant compatible XML feed and CSV file. Upload the XML to your GitHub repo as <strong>feed.xml</strong> and submit the URL to Google Merchant Center.</div>
+  </div>
+
+  <div class="alert" id="main-alert"></div>
+
+  <div class="card">
+    <div class="section-title">Product Summary</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val" id="s-total">—</div><div class="stat-lbl">Total Products</div></div>
+      <div class="stat"><div class="stat-val" id="s-ready">—</div><div class="stat-lbl">Feed Ready</div></div>
+      <div class="stat"><div class="stat-val" id="s-warnings">—</div><div class="stat-lbl">Warnings</div></div>
+      <div class="stat"><div class="stat-val" id="s-value">—</div><div class="stat-lbl">Total Value</div></div>
+    </div>
+    <div class="product-list" id="product-list">
+      <div style="color:var(--text2);font-size:.8rem">Loading products…</div>
+    </div>
+  </div>
+
+  <button class="btn-generate" id="gen-btn" onclick="generateFeeds()">⚡ Generate XML + CSV Feeds</button>
+
+  <!-- XML OUTPUT -->
+  <div class="output-wrap" id="xml-output">
+    <div class="card">
+      <div class="output-header">
+        <div class="output-label">📄 Google Merchant XML Feed — save as feed.xml</div>
+        <div class="btn-row">
+          <button class="btn-copy" id="copy-xml-btn" onclick="copyXML()">Copy XML</button>
+          <button class="btn-download" onclick="downloadXML()">⬇ Download feed.xml</button>
+        </div>
+      </div>
+      <div class="code-block" id="xml-content"></div>
+    </div>
+
+    <!-- CSV OUTPUT -->
+    <div class="card">
+      <div class="output-header">
+        <div class="output-label">📊 CSV Feed — for Google Merchant manual upload</div>
+        <div class="btn-row">
+          <button class="btn-copy" id="copy-csv-btn" onclick="copyCSV()">Copy CSV</button>
+          <button class="btn-download" onclick="downloadCSV()">⬇ Download feed.csv</button>
+        </div>
+      </div>
+      <div class="csv-block" id="csv-content"></div>
+    </div>
+
+    <!-- UPLOAD INSTRUCTIONS -->
+    <div class="card">
+      <div class="section-title">How to Submit to Google Merchant Center</div>
+      <ol class="steps">
+        <li><strong>Download feed.xml</strong> using the button above</li>
+        <li><strong>Upload to GitHub:</strong> Go to your repo → click <code>feed.xml</code> → pencil ✏️ → select all → paste XML content → commit</li>
+        <li><strong>Your feed URL will be:</strong> <code>https://gemmines2.github.io/gemmines2-website/feed.xml</code></li>
+        <li><strong>Go to Google Merchant Center</strong> → Products → Feeds → click <strong>+</strong> to add new feed</li>
+        <li><strong>Select:</strong> Country = your target country, Language = English, Feed name = Gemmines2</li>
+        <li><strong>Choose:</strong> "Scheduled fetch" → paste your feed URL → set fetch frequency to Daily</li>
+        <li><strong>Click Fetch Now</strong> to test immediately — Google will show any errors</li>
+        <li><strong>For CSV:</strong> alternatively use Products → Feeds → Upload → select the CSV file directly</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<script src="products-data.js"></script>
+<script>
+const BASE_URL = 'https://gemmines2.github.io/gemmines2-website/';
+let xmlString = '';
+let csvString = '';
+
+function escapeXML(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function getCondition(p) {
+  return 'new';
+}
+
+function getAvailability(p) {
+  return (p.status === 'sold') ? 'out_of_stock' : 'in_stock';
+}
+
+function getGoogleCategory(p) {
+  const gem = (p.gemType || '').toLowerCase();
+  if (p.type === 'jewelry') return 'Apparel &amp; Accessories &gt; Jewelry';
+  if (['sapphire','ruby','emerald','diamond'].includes(gem)) return 'Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones';
+  return 'Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones';
+}
+
+function buildTitle(p) {
+  // Google prefers: Treatment + Stone + Weight + Origin
+  let title = p.name || '';
+  if (title.length > 150) title = title.substring(0, 147) + '...';
+  return title;
+}
+
+function buildDescription(p) {
+  let desc = p.description || '';
+  // Remove hashtags
+  desc = desc.replace(/#\w+/g, '').trim();
+  if (desc.length > 5000) desc = desc.substring(0, 4997) + '...';
+  if (!desc) desc = `Natural ${p.gemType || 'gemstone'} from ${p.origin || 'Pakistan'}. ${p.treatment === 'unheated' ? 'Unheated and untreated.' : 'Heat treated.'} ${p.weight ? p.weight + ' carats.' : ''} ${p.clarity || ''}`.trim();
+  return desc;
+}
+
+function getImageURL(p) {
+  const img = (p.images && p.images[0]) || p.image || '';
+  if (!img) return '';
+  if (img.startsWith('http')) return img;
+  return BASE_URL + img;
+}
+
+function checkProduct(p) {
+  const issues = [];
+  if (!p.name) issues.push('Missing name');
+  if (!p.price || p.price <= 0) issues.push('Missing price');
+  if (!getImageURL(p)) issues.push('Missing image');
+  if (!p.description || p.description.length < 20) issues.push('Description too short');
+  if (!p.origin) issues.push('Missing origin');
+  return issues;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (typeof PRODUCTS === 'undefined') {
+    document.getElementById('product-list').innerHTML = '<div style="color:#bc5e5e;font-size:.8rem">⚠️ products-data.js not found. Make sure this file is in the same folder as products-data.js</div>';
+    return;
+  }
+
+  let ready = 0, warnings = 0;
+  let totalVal = 0;
+  let html = '';
+
+  PRODUCTS.forEach(p => {
+    const issues = checkProduct(p);
+    if (p.status === 'sold') return; // skip sold items from count
+    totalVal += Number(p.price) || 0;
+    if (issues.length === 0) { ready++; }
+    else { warnings++; }
+
+    const dotClass = issues.length === 0 ? 'dot-ok' : (issues.length <= 2 ? 'dot-warn' : 'dot-err');
+    html += `<div class="prod-row">
+      <div class="prod-dot ${dotClass}"></div>
+      <div class="prod-name">${p.name ? p.name.substring(0,60) + (p.name.length > 60 ? '…' : '') : 'Unnamed'}</div>
+      <div class="prod-issue">${issues.length === 0 ? '✓ Ready' : issues.join(', ')}</div>
+    </div>`;
+  });
+
+  document.getElementById('s-total').textContent = PRODUCTS.length;
+  document.getElementById('s-ready').textContent = ready;
+  document.getElementById('s-warnings').textContent = warnings;
+  document.getElementById('s-value').textContent = '$' + totalVal.toLocaleString('en-US', {maximumFractionDigits:0});
+  document.getElementById('product-list').innerHTML = html;
+});
+
+function generateFeeds() {
+  if (typeof PRODUCTS === 'undefined') {
+    showAlert('error', 'products-data.js not loaded. Place this file in the same folder.');
+    return;
+  }
+
+  const btn = document.getElementById('gen-btn');
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
+
+  // Filter active products only
+  const active = PRODUCTS.filter(p => p.status !== 'sold' && p.status !== 'draft');
+
+  // ── GENERATE XML ──
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Gemmines2 — Natural Certified Gemstones</title>
+    <link>${BASE_URL}</link>
+    <description>100% natural, unheated certified gemstones from Pakistan and Sri Lanka. Ethically sourced, worldwide shipping.</description>
+`;
+
+  active.forEach(p => {
+    const imageURL = getImageURL(p);
+    if (!imageURL || !p.price) return; // skip products with no image or price
+
+    const productURL = `${BASE_URL}product.html?id=${escapeXML(p.id)}`;
+    const title = escapeXML(buildTitle(p));
+    const desc = escapeXML(buildDescription(p));
+    const price = Number(p.price).toFixed(2);
+    const weight = p.weight ? `${p.weight} ct` : '';
+    const condition = getCondition(p);
+    const availability = getAvailability(p);
+    const category = getGoogleCategory(p);
+    const brand = 'Gemmines2';
+    const treatment = p.treatment === 'unheated' ? 'Unheated Untreated' : 'Heat Treated';
+
+    xml += `
+    <item>
+      <g:id>${escapeXML(p.id)}</g:id>
+      <g:title>${title}</g:title>
+      <g:description>${desc}</g:description>
+      <g:link>${productURL}</g:link>
+      <g:image_link>${escapeXML(imageURL)}</g:image_link>
+      <g:price>${price} USD</g:price>
+      <g:availability>${availability}</g:availability>
+      <g:condition>${condition}</g:condition>
+      <g:brand>${brand}</g:brand>
+      <g:google_product_category>${category}</g:google_product_category>
+      <g:product_type>${escapeXML(p.gemType || p.type || 'Gemstone')}</g:product_type>
+      <g:mpn>${escapeXML(p.id)}</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>${p.origin ? `
+      <g:material>${escapeXML(p.origin)} Origin${weight ? ' — ' + weight : ''}</g:material>` : ''}${p.color ? `
+      <g:color>${escapeXML(p.color)}</g:color>` : ''}${treatment ? `
+      <g:pattern>${escapeXML(treatment)}</g:pattern>` : ''}${p.images && p.images[1] ? `
+      <g:additional_image_link>${escapeXML(BASE_URL + p.images[1])}</g:additional_image_link>` : ''}
+    </item>`;
+  });
+
+  xml += `
+  </channel>
+</rss>`;
+
+  // ── GENERATE CSV ──
+  const headers = [
+    'id', 'title', 'description', 'link', 'image_link',
+    'price', 'availability', 'condition', 'brand',
+    'google_product_category', 'mpn', 'color',
+    'material', 'identifier_exists'
+  ];
+
+  let csv = headers.join('\t') + '\n';
+
+  active.forEach(p => {
+    const imageURL = getImageURL(p);
+    if (!imageURL || !p.price) return;
+
+    const desc = buildDescription(p).replace(/\t/g, ' ').replace(/\n/g, ' ');
+    const title = buildTitle(p).replace(/\t/g, ' ');
+    const price = Number(p.price).toFixed(2) + ' USD';
+    const productURL = `${BASE_URL}product.html?id=${p.id}`;
+    const treatment = p.treatment === 'unheated' ? 'Unheated Untreated' : 'Heat Treated';
+    const weight = p.weight ? ` ${p.weight}ct` : '';
+    const material = `${p.origin || 'Pakistan'} Origin${weight} — ${treatment}`;
+
+    const row = [
+      p.id,
+      title,
+      desc,
+      productURL,
+      imageURL,
+      price,
+      getAvailability(p),
+      getCondition(p),
+      'Gemmines2',
+      'Arts & Entertainment > Hobbies & Creative Arts > Collectibles > Gemstones',
+      p.id,
+      p.color || '',
+      material,
+      'false'
+    ].map(v => String(v || '').replace(/\t/g, ' ')).join('\t');
+
+    csv += row + '\n';
+  });
+
+  xmlString = xml;
+  csvString = csv;
+
+  document.getElementById('xml-content').textContent = xml;
+  document.getElementById('csv-content').textContent = csv;
+  document.getElementById('xml-output').classList.add('show');
+
+  showAlert('success', `✓ Generated feed with ${active.length} products! Download feed.xml and upload to GitHub, then submit the URL to Google Merchant Center.`);
+
+  btn.disabled = false;
+  btn.textContent = '⚡ Generate XML + CSV Feeds';
+  document.getElementById('xml-output').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyXML() {
+  navigator.clipboard.writeText(xmlString).then(() => {
+    const btn = document.getElementById('copy-xml-btn');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy XML'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+function copyCSV() {
+  navigator.clipboard.writeText(csvString).then(() => {
+    const btn = document.getElementById('copy-csv-btn');
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy CSV'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+function downloadXML() {
+  const blob = new Blob([xmlString], { type: 'application/xml' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'feed.xml';
+  a.click();
+}
+
+function downloadCSV() {
+  const blob = new Blob([csvString], { type: 'text/tab-separated-values' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'feed.csv';
+  a.click();
+}
+
+function showAlert(type, msg) {
+  const el = document.getElementById('main-alert');
+  el.className = 'alert ' + type + ' show';
+  el.textContent = msg;
+  if (type === 'success') setTimeout(() => el.classList.remove('show'), 8000);
+}
+</script>
+</body>
+</html>
