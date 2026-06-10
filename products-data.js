@@ -3,32 +3,33 @@
    Add / edit products here. All pages read from this file.
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
-  {
-    "id": "aquamarine-1781018363040",
-    "name": "730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting",
-    "shortName": "Aquamarine",
-    "type": "rough",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Icy Pastel Blue",
-    "shape": "Rough Stone",
-    "weight": 730,
-    "dimensions": "",
-    "clarity": "Translucent",
-    "certificate": "Certificate Available",
-    "price": 240,
-    "pricePerCarat": 0,
-    "status": "active",
-    "rare": false,
-    "description": "Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.\n\nBoasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.\n\nSourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.",
-    "gemType": "Aquamarine",
-    "images": [
-      "images/730-carat-natural-aquamarine-rough--1781019147007-0.jpg",
-      "images/730-carat-natural-aquamarine-rough--1781019149297-1.png"
-    ],
-    "image": "images/730-carat-natural-aquamarine-rough--1781019147007-0.jpg",
-    "video": "videos/730-carat-natural-aquamarine-rough--1781019151880.png"
-  },
+
+   {
+  "id": "GM-AQUA-GM-AQUA-1009",
+  "name": "730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting",
+  "shortName": "Natural Aquamarine",
+  "type": "rough",
+  "treatment": "unheated",
+  "origin": "Sri Lanka",
+  "color": "Icy Pastel Blue",
+  "shape": "Rough",
+  "weight": 730,
+  "dimensions": "",
+  "clarity": "Translucent",
+  "certificate": "Certificate Available",
+  "price": 240,
+  "pricePerCarat": 0,
+  "status": "active",
+  "rare": false,
+  "description": "Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.\n\nBoasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.\n\nSourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.",
+  "gemType": "Aquamarine",
+  "images": [
+    "images/GM-AQUA-1009.jpg"
+  ],
+  "image": "images/GM-AQUA-1009.jpg",
+  "video": ""
+},
+  
   {
     "id": "sapphire-1780901637012",
     "name": "This Natural  Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.",
