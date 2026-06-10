@@ -15,6 +15,8 @@
     .bc{display:flex;align-items:center;gap:8px;max-width:1100px;margin:0 auto;font-size:12px}
     .bc-step{color:var(--muted2)}.bc-step.active{color:var(--teal);font-weight:600}
     .bc-step a{color:var(--muted);text-decoration:none}.bc-step a:hover{color:var(--teal)}
+    .bc-step.done a{color:var(--teal)}
+    .bc-step.idle{color:var(--muted2);opacity:.5;cursor:default;pointer-events:none}
     .bc-sep{color:var(--muted2);font-size:10px}
     .checkout-wrap{display:grid;grid-template-columns:1fr 380px;gap:36px;max-width:1100px;margin:0 auto;padding:40px 5%}
     .form-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px;margin-bottom:20px}
@@ -25,9 +27,11 @@
     .pay-opt{border:1px solid var(--border);border-radius:6px;padding:16px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:14px}
     .pay-opt:has(input:checked){border-color:var(--teal);background:var(--teal-faint)}
     .pay-opt input{width:15px;height:15px;margin-top:2px;accent-color:var(--teal);flex-shrink:0}
-    .pay-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+    .pay-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
     .pay-desc{font-size:12px;color:var(--muted);line-height:1.6}
     .pay-tag{font-size:10px;background:var(--teal-faint);color:var(--teal);border:1px solid rgba(32,178,170,.3);padding:2px 7px;border-radius:10px;font-weight:700;margin-left:7px;letter-spacing:.5px}
+    /* PayPal logo inline */
+    .paypal-logo{height:18px;vertical-align:middle;margin-left:4px}
     /* BANK DETAILS BOX */
     .bank-details{display:none;background:var(--navy2);border:1px solid var(--border);border-radius:6px;padding:18px 20px;margin-top:14px}
     .bank-details.show{display:block}
@@ -68,13 +72,14 @@
   <div class="secure-label">🔒 Secure Checkout</div>
 </header>
 
+<!-- BREADCRUMB — Confirmation is greyed out (not yet reached) -->
 <div class="breadcrumb">
   <div class="bc">
-    <div class="bc-step"><a href="cart.html">Cart</a></div>
+    <div class="bc-step done"><a href="cart.html">Cart</a></div>
     <div class="bc-sep">›</div>
     <div class="bc-step active">Checkout</div>
     <div class="bc-sep">›</div>
-    <div class="bc-step">Confirmation</div>
+    <div class="bc-step idle">Confirmation</div>
   </div>
 </div>
 
@@ -183,39 +188,55 @@
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
       <div class="pay-opts">
+
         <label class="pay-opt">
-          <input type="radio" name="payment" value="Payoneer" checked onchange="toggleBankDetails()">
+          <input type="radio" name="payment" value="Payoneer" checked>
           <div>
             <div class="pay-name">Payoneer Invoice <span class="pay-tag">RECOMMENDED</span></div>
             <div class="pay-desc">We send a secure Payoneer payment request to your email. Safe, fast, and fully trackable international payments.</div>
           </div>
         </label>
+
         <label class="pay-opt">
-          <input type="radio" name="payment" value="Bank Transfer" onchange="toggleBankDetails()">
+          <input type="radio" name="payment" value="PayPal">
+          <div>
+            <div class="pay-name">
+              <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" class="paypal-logo">
+              <span class="pay-tag" style="background:rgba(0,112,186,.1);color:#0070ba;border-color:rgba(0,112,186,.3)">COMING SOON</span>
+            </div>
+            <div class="pay-desc">PayPal payments — available soon. Select Payoneer or Bank Transfer for now.</div>
+          </div>
+        </label>
+
+        <label class="pay-opt">
+          <input type="radio" name="payment" value="Bank Transfer">
           <div>
             <div class="pay-name">International Bank Transfer (SWIFT / IBAN)</div>
             <div class="pay-desc">Direct wire transfer to our business account. Bank details shown below after selection.</div>
           </div>
         </label>
+
         <label class="pay-opt">
-          <input type="radio" name="payment" value="JazzCash" onchange="toggleBankDetails()">
+          <input type="radio" name="payment" value="JazzCash">
           <div>
             <div class="pay-name">JazzCash <span class="pay-tag" style="background:rgba(255,100,0,.1);color:#ff6400;border-color:rgba(255,100,0,.3)">PAKISTAN</span></div>
             <div class="pay-desc">Send payment to our JazzCash account. Account details shown below.</div>
           </div>
         </label>
+
         <label class="pay-opt">
-          <input type="radio" name="payment" value="EasyPaisa" onchange="toggleBankDetails()">
+          <input type="radio" name="payment" value="EasyPaisa">
           <div>
             <div class="pay-name">EasyPaisa <span class="pay-tag" style="background:rgba(0,180,0,.1);color:#00b400;border-color:rgba(0,180,0,.3)">PAKISTAN</span></div>
             <div class="pay-desc">Send payment to our EasyPaisa account. Account details shown below.</div>
           </div>
         </label>
+
       </div>
 
-      <!-- BANK DETAILS — shown when Bank Transfer selected -->
+      <!-- BANK / PAYMENT DETAILS BOX -->
       <div class="bank-details" id="bankDetails">
-        <div class="bank-details-title" id="bankDetailsTitle">Bank Transfer Details</div>
+        <div class="bank-details-title" id="bankDetailsTitle">Payment Details</div>
         <div id="bankDetailsContent"></div>
         <div class="bank-note">📱 After transfer, please send a screenshot on WhatsApp: <strong>+92 336 214 9415</strong></div>
       </div>
@@ -254,9 +275,6 @@
 <script src="products-data.js"></script>
 <script src="main.js"></script>
 <script>
-// ══════════════════════════════════════════════════════════
-// KEYS — only change EMAILJS_PUBLIC with your real key
-// ══════════════════════════════════════════════════════════
 const WEB3FORMS_KEY    = '2d1f4770-3081-4ea0-b915-6903a7b5198f';
 const EMAILJS_SERVICE  = 'service_6xjn39o';
 const EMAILJS_TEMPLATE = 'template_wfzokzd';
@@ -264,9 +282,6 @@ const EMAILJS_PUBLIC   = 'qWdMH7TD9nKyBvBYi';
 
 emailjs.init(EMAILJS_PUBLIC);
 
-// ══════════════════════════════════════════════════════════
-// PAYMENT DETAILS — update with your real bank info
-// ══════════════════════════════════════════════════════════
 const PAYMENT_DETAILS = {
   'Bank Transfer': [
     {label:'Bank Name',     value:'Meezan Bank / HBL'},
@@ -287,8 +302,11 @@ const PAYMENT_DETAILS = {
   ]
 };
 
+// ── FIX: attach listener AFTER DOM ready, covers all radio buttons ──
 function toggleBankDetails() {
-  const payment = document.querySelector('input[name="payment"]:checked').value;
+  const checked = document.querySelector('input[name="payment"]:checked');
+  if (!checked) return;
+  const payment = checked.value;
   const box     = document.getElementById('bankDetails');
   const content = document.getElementById('bankDetailsContent');
   const title   = document.getElementById('bankDetailsTitle');
@@ -414,7 +432,6 @@ ${notes||'None'}
 ═══════════════════════════════`;
 
   try {
-    // Email 1: Notify YOU via Web3Forms
     await fetch('https://api.web3forms.com/submit', {
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -426,8 +443,6 @@ ${notes||'None'}
         replyto:    email
       })
     });
-
-    // Email 2: Confirmation to CUSTOMER via EmailJS
     await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
       to_email:   email,
       to_name:    fn + ' ' + ln,
@@ -439,7 +454,6 @@ ${notes||'None'}
       address:    addr,
       notes:      notes || 'None'
     });
-
   } catch(e) {
     console.warn('Email error:', e);
   }
@@ -452,6 +466,13 @@ ${notes||'None'}
   window.location.href = 'order-confirmation.html';
 }
 
-document.addEventListener('DOMContentLoaded', renderSummary);
+document.addEventListener('DOMContentLoaded', function() {
+  renderSummary();
+  // Attach change listeners to all payment radio buttons
+  document.querySelectorAll('input[name="payment"]').forEach(function(radio) {
+    radio.addEventListener('change', toggleBankDetails);
+  });
+});
 </script>
 </body>
+</html>
