@@ -4,32 +4,30 @@
    ═══════════════════════════════════════════ */
 const PRODUCTS = [
 
-   {
-  "id": "GM-AQUA-GM-AQUA-1009",
-  "name": "730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting",
-  "shortName": "Natural Aquamarine",
-  "type": "rough",
-  "treatment": "unheated",
-  "origin": "Sri Lanka",
-  "color": "Icy Pastel Blue",
-  "shape": "Rough",
-  "weight": 730,
-  "dimensions": "",
-  "clarity": "Translucent",
-  "certificate": "Certificate Available",
-  "price": 240,
-  "pricePerCarat": 0,
-  "status": "active",
-  "rare": false,
-  "description": "Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.\n\nBoasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.\n\nSourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.",
-  "gemType": "Aquamarine",
-  "images": [
-    "images/GM-AQUA-1009.jpg"
-  ],
-  "image": "images/GM-AQUA-1009.jpg",
-  "video": ""
-},
-  
+  {
+    "id": "GM-AQUA-1009",
+    "name": "730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting",
+    "shortName": "Natural Aquamarine",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Icy Pastel Blue",
+    "shape": "Rough",
+    "weight": 730,
+    "dimensions": "",
+    "clarity": "Translucent",
+    "certificate": "Certificate Available",
+    "price": 240,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.\n\nBoasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.\n\nSourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.",
+    "gemType": "Aquamarine",
+    "images": ["images/GM-AQUA-1009.jpg"],
+    "image": "images/GM-AQUA-1009.jpg",
+    "video": ""
+  },
+
   {
     "id": "sapphire-1780901637012",
     "name": "This Natural  Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.",
@@ -49,9 +47,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance. Displaying a rich blue colour and loupe clean clarity, this gemstone offers exceptional transparency and sparkle. Sourced from Sri Lanka, famous for producing premium sapphires, this untreated gemstone is ideal for fine jewellery, collectors, and gemstone enthusiasts seeking natural beauty and rarity",
     "gemType": "Sapphire",
-    "images": [
-      "images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg"
-    ],
+    "images": ["images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg"],
     "image": "images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg",
     "video": ""
   },
@@ -74,9 +70,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats. This natural sapphire displays an attractive blue color with excellent raw crystal character and natural luster. Sourced from Sri Lankan deposits known for producing high-quality sapphires, this gemstone is untreated and suitable for collectors, lapidary work, or custom jewelry designs. A genuine natural rough sapphire with beautiful appearance and natural formation.",
     "gemType": "Sapphire",
-    "images": [
-      "images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"
-    ],
+    "images": ["images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"],
     "image": "images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg",
     "video": ""
   },
@@ -99,9 +93,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Blue Sapphire - Sri Lankan Origin - Blue - Natural",
     "gemType": "Blue Sapphire",
-    "images": [
-      "images/gm-saph-1001-1.jpg"
-    ],
+    "images": ["images/gm-saph-1001-1.jpg"],
     "image": "images/gm-saph-1001-1.jpg",
     "video": ""
   },
@@ -148,7 +140,7 @@ const PRODUCTS = [
     "pricePerCarat": 97,
     "status": "active",
     "rare": false,
-    "description": "Discover the beauty of this natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats. This rare gemstone displays a stunning color shift from violet to rich purple under different lighting conditions. Featuring top eye-clean clarity and excellent natural brilliance, this sapphire is perfect for collectors, custom jewelry, or gemstone enthusiasts seeking a unique and elegant treasure.\n\n Natural Color Change Sapphire, Sri Lankan Sapphire, Unheated Sapphire, Violet Purple Sapphire, 1.54 ct Sapphire, Eye Clean Sapphire, Rare Sapphire Gemstone, Natural Sapphire Pakistan\n\n#ColorChangeSapphire #NaturalSapphire #SriLankanSapphire #UnheatedSapphire #PurpleSapphire #VioletSapphire #RareGemstone #EyeCleanSapphire #Gemstones #LooseGemstone #FineJewelry #CollectorGem #Gemmines",
+    "description": "Discover the beauty of this natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats. This rare gemstone displays a stunning color shift from violet to rich purple under different lighting conditions. Featuring top eye-clean clarity and excellent natural brilliance, this sapphire is perfect for collectors, custom jewelry, or gemstone enthusiasts seeking a unique and elegant treasure.",
     "gemType": "Sapphire",
     "images": [
       "images/natural-p-color-change-sapphire-top-1780765092779-0.jpg",
@@ -174,11 +166,9 @@ const PRODUCTS = [
     "pricePerCarat": 89,
     "status": "active",
     "rare": false,
-    "description": "Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.\nThis specimen is loupe-clean (eye-clean under 10x magnification), showcasing outstanding transparency and minimal inclusions for a radiant sparkle. Sourced from reputable origins known for quality chrysoberyl, it comes with a certificate of authenticity available upon request.\nPerfect for custom jewelry settings such as rings, pendants, or earrings, this versatile gem offers timeless elegance. Whether you're a collector or seeking a unique piece, its natural beauty and rarity make it a standout addition to any collection.",
+    "description": "Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.",
     "gemType": "Chrysoberyl",
-    "images": [
-      "images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"
-    ],
+    "images": ["images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"],
     "image": "images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg",
     "video": ""
   },
@@ -199,11 +189,9 @@ const PRODUCTS = [
     "pricePerCarat": 24,
     "status": "active",
     "rare": true,
-    "description": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds. This elegant pendant offers a luxurious shine and timeless beauty, making it perfect for daily wear, gifting, or special occasions. Designed with fine craftsmanship and premium quality materials, this stylish silver pendant adds sophistication and charm to any jewelry collection. A perfect choice for those who appreciate classic elegance and modern sparkle.\n925 sterling silver pendant, natural zircon pendant, zircon jewelry, American diamond pendant, handcrafted silver jewelry, luxury pendant for women, gemstone pendant, elegant silver necklace, Pakistan jewelry, exclusive zircon pendant\n\n\n#SterlingSilver #925Silver #ZirconPendant #NaturalZircon #SilverJewelry #AmericanDiamond #HandcraftedJewelry #LuxuryPendant #GemstoneJewelry #ElegantStyle #FashionJewelry #PendantDesign #JewelryLovers #SilverPendant #ExclusiveJewelry",
+    "description": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds.",
     "gemType": "Zircon",
-    "images": [
-      "images/zircon-pendant-1780665878476-0.jpeg"
-    ],
+    "images": ["images/zircon-pendant-1780665878476-0.jpeg"],
     "image": "images/zircon-pendant-1780665878476-0.jpeg",
     "video": ""
   },
@@ -226,9 +214,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural Sri Lankan Blue Spinel with pristine loupe clean clarity.",
     "gemType": "Spinel",
-    "images": [
-      "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
-    ],
+    "images": ["images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"],
     "image": "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"
   },
   {
@@ -250,9 +236,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.",
     "gemType": "Garnet",
-    "images": [
-      "images/rhodolite-garnets-1780215583524-0.jpg"
-    ],
+    "images": ["images/rhodolite-garnets-1780215583524-0.jpg"],
     "image": "images/rhodolite-garnets-1780215583524-0.jpg"
   },
   {
@@ -274,9 +258,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Opaque quality green jasper from Pakistan with beautiful lustre and color.",
     "gemType": "Jasper",
-    "images": [
-      "images/green-jasper.jpg"
-    ],
+    "images": ["images/green-jasper.jpg"],
     "image": "images/green-jasper.jpg"
   },
   {
@@ -298,9 +280,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Vibrant Lemon Quartz from Pakistan. Stone of clarity and positive energy with eye clean transparency.",
     "gemType": "Quartz",
-    "images": [
-      "images/lemon-quartz.jpg"
-    ],
+    "images": ["images/lemon-quartz.jpg"],
     "image": "images/lemon-quartz.jpg"
   },
   {
@@ -322,9 +302,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.",
     "gemType": "Quartz",
-    "images": [
-      "images/lemon-quartz2.jpg"
-    ],
+    "images": ["images/lemon-quartz2.jpg"],
     "image": "images/lemon-quartz2.jpg"
   },
   {
@@ -346,9 +324,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Symbol of wisdom, virtue and good fortune. Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.",
     "gemType": "Sapphire",
-    "images": [
-      "images/bluesapphire.jpg"
-    ],
+    "images": ["images/bluesapphire.jpg"],
     "image": "images/bluesapphire.jpg"
   },
   {
@@ -370,9 +346,7 @@ const PRODUCTS = [
     "rare": true,
     "description": "Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.",
     "gemType": "Emerald",
-    "images": [
-      "images/emeralds.jpg"
-    ],
+    "images": ["images/emeralds.jpg"],
     "image": "images/emeralds.jpg"
   },
   {
@@ -394,9 +368,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Rare High Clarity Polished Crystal Healing Stone from Pakistan. Beautiful blue fluorite with exceptional clarity.",
     "gemType": "Fluorite",
-    "images": [
-      "images/fluorite.jpg"
-    ],
+    "images": ["images/fluorite.jpg"],
     "image": "images/fluorite.jpg"
   },
   {
@@ -418,9 +390,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.",
     "gemType": "Mixed",
-    "images": [
-      "images/mixed-gemstones.jpg"
-    ],
+    "images": ["images/mixed-gemstones.jpg"],
     "image": "images/mixed-gemstones.jpg"
   },
   {
@@ -442,9 +412,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Polished Reddish Purple Almandine Garnet from Pakistan. Unheated and Untreated with beautiful oval cut.",
     "gemType": "Garnet",
-    "images": [
-      "images/almandine.jpg"
-    ],
+    "images": ["images/almandine.jpg"],
     "image": "images/almandine.jpg"
   },
   {
@@ -466,9 +434,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.",
     "gemType": "Sapphire",
-    "images": [
-      "images/mixedsapphire.jpg"
-    ],
+    "images": ["images/mixedsapphire.jpg"],
     "image": "images/mixedsapphire.jpg"
   },
   {
@@ -490,9 +456,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.",
     "gemType": "Chert",
-    "images": [
-      "images/chert.jpg"
-    ],
+    "images": ["images/chert.jpg"],
     "image": "images/chert.jpg"
   },
   {
@@ -514,9 +478,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.",
     "gemType": "Kunzite",
-    "images": [
-      "images/pink-kunzite.jpg"
-    ],
+    "images": ["images/pink-kunzite.jpg"],
     "image": "images/pink-kunzite.jpg"
   },
   {
@@ -538,9 +500,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.",
     "gemType": "Quartz",
-    "images": [
-      "images/ferruginous.jpg"
-    ],
+    "images": ["images/ferruginous.jpg"],
     "image": "images/ferruginous.jpg"
   },
   {
@@ -562,9 +522,7 @@ const PRODUCTS = [
     "rare": true,
     "description": "Rare Sri Lankan Origin Bi-Color Sapphire. Unheated and untreated with pear cut. Beautiful two-tone color combination.",
     "gemType": "Sapphire",
-    "images": [
-      "images/bi-color-sapphire.jpeg"
-    ],
+    "images": ["images/bi-color-sapphire.jpeg"],
     "image": "images/bi-color-sapphire.jpeg"
   },
   {
@@ -586,14 +544,12 @@ const PRODUCTS = [
     "rare": false,
     "description": "Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut. Deep royal blue color with excellent luster.",
     "gemType": "Sapphire",
-    "images": [
-      "images/darksapphire.jpeg"
-    ],
+    "images": ["images/darksapphire.jpeg"],
     "image": "images/darksapphire.jpeg"
   },
   {
     "id": "sapphire_043",
-    "name": ".Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster",
+    "name": "Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster",
     "shortName": "Padparadscha Sapphire",
     "type": "cut",
     "treatment": "heated",
@@ -608,11 +564,9 @@ const PRODUCTS = [
     "pricePerCarat": 65,
     "status": "active",
     "rare": true,
-    "description": "Behold this stunning 2.93 carat heated Padparadscha sapphire from the world-famous gem mines of Sri Lanka (Ceylon)ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂthe classic origin for the finest examples of this coveted variety. Derived from the Sinhalese \"padmaraga\" meaning \"lotus color,\" this gem captivates with its rare delicate pinkish-orange to orangey-pink hue, evoking the soft glow of a lotus blossom at sunset or a tropical dawnÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂperfectly balanced between warm orange and romantic pink tones. Professionally heated using industry-standard methods, it achieves enhanced color saturation, exceptional uniformity, and a beautiful, bright vitreous luster with lively brilliance and subtle inner glow under all lighting. High transparency, eye-clean clarity, and minimal inclusions highlight its superior fire and sparkle. Padparadscha sapphires are among the rarest gems on earth, highly prized by collectors and jewelers for their poetic elegance and scarcity. This treated stone offers outstanding beauty and valueÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂideal for exquisite custom rings, pendants, earrings, or as a luxurious heirloom/investment piece. A sophisticated alternative to September birthstones. Full authenticity details available (lab certification recommended). Embrace the timeless allure of Ceylon's legendary \"lotus sapphire\"! #PadparadschaSapphire #HeatedPadparadscha #SriLankanSapphire #CeylonSapphire #Padparadscha #PinkOrangeSapphire #LotusSapphire #SunsetSapphire #RareGemstone #NaturalSapphire #HeatedSapphire #FineGems #GemstoneJewelry #LooseSapphire #SeptemberBirthstone #LuxuryGems #SapphireLovers #CeylonGems #InvestmentGem #GemCollecting",
+    "description": "Stunning 2.93 carat heated Padparadscha sapphire from Sri Lanka. Rare pinkish-orange to orangey-pink hue evoking the soft glow of a lotus blossom. Professionally heated for enhanced color saturation with excellent luster and brilliance.",
     "gemType": "Sapphire",
-    "images": [
-      "images/Padparadscha-sapphire.jpeg"
-    ],
+    "images": ["images/Padparadscha-sapphire.jpeg"],
     "image": "images/Padparadscha-sapphire.jpeg",
     "video": ""
   },
@@ -635,9 +589,7 @@ const PRODUCTS = [
     "rare": true,
     "description": "Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby, one of the most sought after gemstones in the world.",
     "gemType": "Ruby",
-    "images": [
-      "images/ruby2.jpeg"
-    ],
+    "images": ["images/ruby2.jpeg"],
     "image": "images/ruby2.jpeg"
   },
   {
@@ -685,9 +637,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural unheated olive green peridot from Pakistan with attractive color and good luster.",
     "gemType": "Peridot",
-    "images": [
-      "images/peridot.gif"
-    ],
+    "images": ["images/peridot.gif"],
     "image": "images/peridot.gif"
   },
   {
@@ -709,9 +659,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster.",
     "gemType": "Garnet",
-    "images": [
-      "images/rhodolite.jpg"
-    ],
+    "images": ["images/rhodolite.jpg"],
     "image": "images/rhodolite.jpg"
   },
   {
