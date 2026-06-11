@@ -207,7 +207,9 @@ const PRODUCTS = [
     "description": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds.",
     "gemType": "Zircon",
     "images": [
-      "images/zircon-pendant-1780665878476-0.jpeg"
+      "images/zircon-pendant-1780665878476-0.jpeg",
+      "images/beautifully-handcrafted-exclusive-p-1781192844445-0.jpg",
+      "images/beautifully-handcrafted-exclusive-p-1781192848648-1.jpg"
     ],
     "image": "images/zircon-pendant-1780665878476-0.jpeg",
     "video": ""
