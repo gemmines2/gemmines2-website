@@ -196,9 +196,9 @@ const PRODUCTS = [
     "price": 95,
     "pricePerCarat": 24,
     "status": "active",
-    "rare": true,
-    "description": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds.",
-    "gemType": "Zircon",
+    "rare": false,
+    "description": "Beautifully handcrafted, this exclusive jewelry pendant is meticulously forged from genuine 925 sterling silver and features a stunning, natural unheated brownish zircon gemstone centerpiece. Known for its remarkable fire and brilliant refractive index that rivals a diamond, the genuine zircon is beautifully enhanced by a halo of sparkling precision-cut American diamonds for maximum light performance. Combining timeless elegance with exceptional artisan craftsmanship, this authentic gemstone pendant serves as a sophisticated statement piece for fine jewelry collectors or a perfect luxury gift. Sourced with the highest quality standards, it offers a brilliant, radiant sparkle that transitions effortlessly from day to night wear.",
+    "gemType": "Zircon Pendant",
     "images": [
       "images/zircon-pendant-1780665878476-0.jpeg"
     ],
