@@ -813,4 +813,5 @@ const PRODUCTS = [
     "images": [],
     "image": "",
     "video": ""
+     )
   ];
