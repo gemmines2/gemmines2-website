@@ -152,70 +152,99 @@
 <script src="products-data.js"></script>
 <script src="main.js"></script>
 
-<script>
 function applyFilters() {
-  const typeChecks = [...document.querySelectorAll('.filter-box:first-child input:checked')].map(i=>i.value);
-  const treatChecks = [...document.querySelectorAll('#f-unheated:checked, #f-heated:checked')].map(i=>i.value);
-  const originChecks = [...document.querySelectorAll('#f-srilanka:checked, #f-pakistan:checked')].map(i=>i.value);
+  const typeChecks = [...document.querySelectorAll('#f-cut:checked, #f-rough:checked, #f-jewelry:checked')].map(i => i.value);
+  const treatChecks = [...document.querySelectorAll('#f-unheated:checked, #f-heated:checked')].map(i => i.value);
+  const originChecks = [...document.querySelectorAll('#f-srilanka:checked, #f-pakistan:checked')].map(i => i.value);
   const sort = document.querySelector('.sort-select').value;
 
-  let filtered = [...PRODUCTS];
-  if (typeChecks.length) filtered = filtered.filter(p => typeChecks.includes(p.type));
-  if (treatChecks.length) filtered = filtered.filter(p => treatChecks.includes(p.treatment));
-  if (originChecks.length) filtered = filtered.filter(p => originChecks.some(o => p.origin.includes(o)));
+  let filtered = Array.isArray(PRODUCTS) ? [...PRODUCTS] : [];
+
+  if (typeChecks.length) {
+    filtered = filtered.filter(p => typeChecks.includes(p.type));
+  }
+
+  if (treatChecks.length) {
+    filtered = filtered.filter(p => treatChecks.includes(p.treatment));
+  }
+
+  if (originChecks.length) {
+    filtered = filtered.filter(p => originChecks.includes(p.origin));
+  }
+
   if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
   if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
-  if (sort === 'unheated') filtered.sort((a,b) => (a.treatment==='unheated'?-1:1));
+  if (sort === 'unheated') filtered.sort((a,b) => (a.treatment === 'unheated' ? -1 : 1));
 
   renderProducts(filtered);
 }
+
 function clearFilters() {
   document.querySelectorAll('.filter-option input').forEach(i => i.checked = false);
   document.querySelector('.sort-select').value = 'default';
-  renderProducts(PRODUCTS);
+  renderProducts(PRODUCTS || []);
 }
+
 function renderProducts(list) {
   const grid = document.getElementById('productsGrid');
   const count = document.getElementById('productCount');
-  count.textContent = `Showing ${list.length} product${list.length!==1?'s':''}`;
-  if (!list.length) {
-    grid.innerHTML = '<div class="no-results" style="grid-column:1/-1"><h3>No stones match your filters</h3><p>Try clearing filters or browsing all products.</p></div>';
+
+  if (!Array.isArray(list)) list = [];
+
+  count.textContent = `Showing ${list.length} product${list.length !== 1 ? 's' : ''}`;
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div class="no-results" style="grid-column:1/-1">
+        <h3>No stones found</h3>
+        <p>Try clearing filters or refreshing the page.</p>
+      </div>`;
     return;
   }
+
   grid.innerHTML = list.map(p => {
+
+    const imageSrc = p.image && p.image.trim() !== '' ? p.image : 'images/logo.png';
+
     const weightStr = p.weight ? `${p.weight} ct` : '';
     const meta = [p.origin, weightStr].filter(Boolean).join(' • ');
+
     return `
-    <div class="prod-card">
-      <div class="prod-img-wrap">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="fallback" style="display:none">💎</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'✦ Natural Unheated':'◈ Natural Heated'}</div>
-        <div class="prod-name">${p.name}</div>
-        <div class="prod-meta">${meta}</div>
-        <div class="prod-footer">
-          <div class="prod-price">$${p.price}</div>
-          <div class="prod-btns">
-            <a href="product.html?id=${p.id}" class="btn-view">Learn More</a>
-            <button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>
+      <div class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="${imageSrc}" alt="${p.name}" loading="lazy"
+            onerror="this.src='images/logo.png'">
+
+          <div class="fallback" style="display:none">💎</div>
+        </div>
+
+        <div class="prod-body">
+          <div class="prod-treatment ${p.treatment === 'unheated' ? 'unheated' : 'heated'}">
+            ${p.treatment === 'unheated' ? '✦ Natural Unheated' : '◈ Natural Heated'}
+          </div>
+
+          <div class="prod-name">${p.name}</div>
+          <div class="prod-meta">${meta}</div>
+
+          <div class="prod-footer">
+            <div class="prod-price">$${p.price}</div>
+            <div class="prod-btns">
+              <a href="product.html?id=${p.id}" class="btn-view">Learn More</a>
+              <button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>`;
+    `;
   }).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get('type');
-  if (type) {
-    const cb = document.getElementById(`f-${type}`);
-    if (cb) cb.checked = true;
+  if (typeof PRODUCTS === "undefined") {
+    console.error("PRODUCTS not loaded");
+    return;
   }
-  applyFilters();
+  renderProducts(PRODUCTS);
 });
-</script>
 </body>
 </html>
