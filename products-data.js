@@ -791,3 +791,26 @@ const PRODUCTS = [
     "_origIdx": 29
   }
 ];
+  {
+    "id": "GM-SPN-1011",
+    "name": "Natural unheated Cobalt Spinel from Sri Lanka with vivid cobalt blue color, loupe clean clarity, and excellent brilliance. Certified gemstone.",
+    "shortName": "Cobolt Spinel",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Emerald Cut",
+    "weight": 1,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 140,
+    "pricePerCarat": 140,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Cobalt Spinel gemstone featuring vivid cobalt blue color, loupe clean clarity, and excellent brilliance. Unheated gemstone from Sri Lanka with attractive luster and elegant emerald cut. Certified gemstone suitable for jewelry or gemstone collections.",
+    "gemType": "Spinel",
+    "images": [],
+    "image": "",
+    "video": ""
+  ];
