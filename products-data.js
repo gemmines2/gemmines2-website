@@ -103,10 +103,11 @@ const PRODUCTS = [
     "images": [
       "images/gm-saph-1001-1.jpg"
     ],
-    "image": "images/gm-saph-1001-1.jpg",
-    "video": "",
-    "_origIdx": 3
-  },
+     
+   "images": [
+  "images/GM-SAP-1008.jpg"
+],
+"image": "images/GM-SAP-1008.jpg",
   {
     "id": "amethys-1780829923587",
     "name": "Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds",
