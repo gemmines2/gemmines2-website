@@ -810,7 +810,10 @@ const PRODUCTS = [
     "description": "A rare, 100% natural and unheated Cobalt Blue Spinel. Sourced from Sri Lanka (Ceylon), this exquisite gemstone features an intense, vivid neon blue hue with exceptional clarity. Perfect for high-end custom jewelry settings like 925 sterling silver rings or pendants. Certified authentic, completely untreated, and ethically sourced.",
     "gemType": "Cobalt Spinel",
     "images": [
-      "images/GM-SPN-1010.jpg"
+      "images": [
+  "images/GM-SPN-1010.jpg",
+  "images/GM-SPN-1010-1.jpg"
+
     ],
     "image": "images/GM-SPN-1010.jpg",
     "video": ""
