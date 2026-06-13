@@ -789,5 +789,30 @@ const PRODUCTS = [
     "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
     "video": "",
     "_origIdx": 29
+  },
+  {
+    "id": "GM-SPN-1010",
+    "name": "Natural Cobalt Blue Spinel 1 Carat – Unheated Sri Lankan Origin Loose Gemstone",
+    "shortName": "Spinel",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Cobalt Blue",
+    "shape": "Emerald Cut",
+    "weight": 1,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 180,
+    "pricePerCarat": 180,
+    "status": "active",
+    "rare": true,
+    "description": "A rare, 100% natural and unheated Cobalt Blue Spinel. Sourced from Sri Lanka (Ceylon), this exquisite gemstone features an intense, vivid neon blue hue with exceptional clarity. Perfect for high-end custom jewelry settings like 925 sterling silver rings or pendants. Certified authentic, completely untreated, and ethically sourced.",
+    "gemType": "Cobalt Spinel",
+    "images": [
+      "images/GM-SPN-1010.jpg"
+    ],
+    "image": "images/GM-SPN-1010.jpg",
+    "video": ""
   }
 ];
