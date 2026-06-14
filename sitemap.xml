@@ -1,8 +1,6 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- MAIN PAGES -->
   <url>
     <loc>https://gemmines2.github.io/gemmines2-website/</loc>
     <lastmod>2026-06-09</lastmod>
@@ -10,209 +8,208 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/products.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/products</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/about.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/about</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/contact.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/contact</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/cart.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/cart</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- POLICY PAGES -->
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/return.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/return</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/shipping.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/shipping</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/privacy.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/privacy</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/terms.html</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/terms</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- PRODUCT PAGES -->
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=chrysoberyl-1780742386216</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=chrysoberyl-1780742386216</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=zircon-1780734539709</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=zircon-1780734539709</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=zircon-1780667702663</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=zircon-1780667702663</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=zircon-1780665881053</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=zircon-1780665881053</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=spinel-1780499911496</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=spinel-1780499911496</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=garnet-1780215589223</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=garnet-1780215589223</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=greenjasper_005</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=greenjasper_005</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=lemonquartz_012</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=lemonquartz_012</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=lemonquartz2_014</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=lemonquartz2_014</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=bluesapphire_016</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=bluesapphire_016</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=emeralds_017</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=emeralds_017</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=fluorite_018</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=fluorite_018</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=mixedgemstones_019</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=mixedgemstones_019</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=almandine_028</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=almandine_028</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=mixed_sapphire_029</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=mixed_sapphire_029</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=Natural_Black_Chert_030</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=Natural_Black_Chert_030</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=Kunzite_031</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=Kunzite_031</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=quartz_034</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=quartz_034</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=sapphire_039</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=sapphire_039</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=sapphire_040</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=sapphire_040</loc>
+    <lastmod>2026-06-09</lastmod>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=sapphire_043</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=sapphire_043</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=ruby_044</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=ruby_044</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=pinktopaz_101</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=pinktopaz_101</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=Greenperidot_102</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=Greenperidot_102</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=rhodolitegarnets_103</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=rhodolitegarnets_103</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gemmines2.github.io/gemmines2-website/product.html?id=jade_045</loc>
+    <loc>https://gemmines2.github.io/gemmines2-website/product?id=jade_045</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
