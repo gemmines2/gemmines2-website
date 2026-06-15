@@ -815,5 +815,30 @@ const PRODUCTS = [
     ],
     "image": "images/GM-SPN-1010.jpg",
     "video": ""
+  },
+     {
+    "id": "GM-ZRCN-1013-1",
+    "name": "Natural Green Zircon 2.35 Ct Clean Gemstone with Brilliant Luster Loose Stone - Sri Lanka Origin",
+    "shortName": "Green Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Green",
+    "shape": "Oval Brilliant Cut",
+    "weight": 2.35,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 38,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Green Zircon gemstone weighing 2.35 carats with clean clarity and brilliant luster. This loose gemstone displays strong sparkle, attractive green color, and beautiful brilliance. Ideal for gemstone collectors, custom jewelry designs, rings, pendants, and fine gemstone collections. A bright and elegant zircon with excellent visual appeal and natural beauty.",
+    "gemType": "Zircon",
+    "images": [
+      "images/GM-ZRCN-1013-1.jpeg"
+    ],
+    "image": "images/GM-ZRCN-1013-1.jpeg",
+    "video": ""
   }
 ];
