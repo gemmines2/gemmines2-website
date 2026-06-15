@@ -840,5 +840,31 @@ const PRODUCTS = [
     ],
     "image": "images/GM-ZRCN-1013-1.jpeg",
     "video": "videos/natural-green-zircon-2-35-ct-clean--1781536368490.mp4"
+  },
+ {
+    "id": "GM-SAP-1016",
+    "name": "Natural Blue Sapphire 1.67 Ct Heated Trillion Cut Eye Clean Loose Gemstone - Sri Lanka Origin",
+    "shortName": "Blue Sapphire",
+    "type": "cut",
+    "treatment": "heated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Trillon Shape",
+    "weight": 1.67,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "images/GM-SAP-1016-C.jpeg",
+    "price": 140,
+    "pricePerCarat": 84,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Blue Sapphire weighing 1.67 carats with attractive blue color, heated enhancement, and eye clean clarity. This trillion cut loose gemstone displays beautiful brilliance and elegant luster, making it ideal for gemstone collectors, custom jewelry, rings, pendants, and fine gemstone collections. A vibrant sapphire with excellent visual appeal and sparkle.",
+    "gemType": "Blue Sapphire",
+    "images": [
+      "images/GM-SAP-1016-1.jpeg",
+      "images/GM-SAP-1016-2.jpeg"
+    ],
+    "image": "images/GM-SAP-1016-1.jpeg",
+    "video": "images/GM-SAP-1016.mp4"
   }
 ];
