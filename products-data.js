@@ -792,7 +792,7 @@ const PRODUCTS = [
   },
   {
     "id": "GM-SPN-1010",
-    "name": "Natural Cobalt Blue Spinel 1 Carat – Unheated Sri Lankan Origin Loose Gemstone",
+    "name": "Natural Cobalt Blue Spinel 1 Carat â Unheated Sri Lankan Origin Loose Gemstone",
     "shortName": "Spinel",
     "type": "cut",
     "treatment": "unheated",
@@ -809,14 +809,14 @@ const PRODUCTS = [
     "rare": true,
     "description": "A rare, 100% natural and unheated Cobalt Blue Spinel. Sourced from Sri Lanka (Ceylon), this exquisite gemstone features an intense, vivid neon blue hue with exceptional clarity. Perfect for high-end custom jewelry settings like 925 sterling silver rings or pendants. Certified authentic, completely untreated, and ethically sourced.",
     "gemType": "Cobalt Spinel",
-  "images": [
+    "images": [
       "images/GM-SPN-1010.jpg",
       "images/GM-SPN-1010-1.jpg"
     ],
     "image": "images/GM-SPN-1010.jpg",
     "video": ""
   },
-     {
+  {
     "id": "GM-ZRCN-1013-1",
     "name": "Natural Green Zircon 2.35 Ct Clean Gemstone with Brilliant Luster Loose Stone - Sri Lanka Origin",
     "shortName": "Green Zircon",
@@ -839,6 +839,6 @@ const PRODUCTS = [
       "images/GM-ZRCN-1013-1.jpeg"
     ],
     "image": "images/GM-ZRCN-1013-1.jpeg",
-    "video": ""
+    "video": "videos/natural-green-zircon-2-35-ct-clean--1781536368490.mp4"
   }
 ];
