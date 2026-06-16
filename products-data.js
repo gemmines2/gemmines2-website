@@ -892,5 +892,5 @@ const PRODUCTS = [
     "images/GM-SPN-1017-1.png",
     "images/GM-SPN-1017-2.png"
   ]
-};
+
 ];
