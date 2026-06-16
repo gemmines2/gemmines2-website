@@ -867,7 +867,7 @@ const PRODUCTS = [
     "image": "images/GM-SAP-1016-1.jpeg",
     "video": "images/GM-SAP-1016.mp4"
   },
-   {
+ {
   "id": "GM-SPN-1017",
   "name": "Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color",
   "shortName": "Spinel Lot",
@@ -891,6 +891,6 @@ const PRODUCTS = [
   "images": [
     "images/GM-SPN-1017-1.png",
     "images/GM-SPN-1017-2.png"
-     ]
-    }
+  ]
+}
 ];
