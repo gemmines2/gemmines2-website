@@ -866,5 +866,31 @@ const PRODUCTS = [
     ],
     "image": "images/GM-SAP-1016-1.jpeg",
     "video": "images/GM-SAP-1016.mp4"
-  }
+  },
+   {
+  "id": "GM-SPN-1017",
+  "name": "Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color",
+  "shortName": "Spinel Lot",
+  "type": "cut",
+  "treatment": "unheated",
+  "origin": "Sri Lanka",
+  "color": "Violet, Plum, Purple, Steel Blue, Grey, Teal, Greenish Blue",
+  "shape": "Mixed Cuts",
+  "weight": 6,
+  "dimensions": "",
+  "clarity": "Loupe Clean",
+  "certificate": "Available on Request",
+  "price": 140,
+  "pricePerCarat": 23.33,
+  "status": "active",
+  "rare": false,
+  "description": "Natural unheated spinel lot weighing approximately 6 carats total. This parcel features mixed cuts and a selection of beautiful dark colors with attractive luster. The stones are lightweight and ideal for jewelry designers, collectors, gemstone traders, and custom jewelry projects. Each spinel is untreated and offered as a loose gemstone parcel for flexible use in rings, pendants, earrings, or gemstone collections. Mixed shapes and sizes provide variety while maintaining the rich dark tones that make spinel highly sought after. A practical choice for anyone looking for natural, unheated spinels in a compact 6 ct lot.",
+  "gemType": "Spinel",
+  "image": "images/GM-SPN-1017-1.png",
+  "video": "images/GM-SPN-1017.mp4",
+  "images": [
+    "images/GM-SPN-1017-1.png",
+    "images/GM-SPN-1017-2.png"
+  ]
+};
 ];
