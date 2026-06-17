@@ -894,7 +894,7 @@ const PRODUCTS = [
   ],
     {
   "id": "GM-TPZ-1011",
-  "name": "Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin | Loupe Clean Gemstone",
+  "name": "Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin ",
   "shortName": "Blue Topaz",
   "type": "cut",
   "treatment": "unheated",
