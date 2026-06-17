@@ -913,8 +913,8 @@ const PRODUCTS = [
   "gemType": "Topaz",
   "images": [
     "images/gm-tpz-1011-1.jpeg"
-  
+  ],
   "image": "images/gm-tpz-1011-1.jpeg",
   "video": "videos/gm-tpz-1011.mp4"
-},
+}
 ];
