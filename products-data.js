@@ -892,7 +892,7 @@ const PRODUCTS = [
     "images/GM-SPN-1017-1.png",
     "images/GM-SPN-1017-2.png"
   ],
-    {
+{
   "id": "GM-TPZ-1011",
   "name": "Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin ",
   "shortName": "Blue Topaz",
