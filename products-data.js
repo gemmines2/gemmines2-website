@@ -913,9 +913,10 @@ const PRODUCTS = [
   "description": "Natural Blue Topaz weighing 1 carat, round cut and loupe clean, set in 925 sterling silver jewelry. Sourced from Sri Lanka. Features excellent clarity and attractive blue color. Suitable for daily wear, gifting, jewelry collections, and gemstone enthusiasts.",
   "gemType": "Topaz",
   "images": [
-    "images/gm-tpz-1011-1.jpeg"
+    "images/GM-TPZ-1011-1.jpeg",
+    "images/GM-TPZ-1011-2.jpeg"
   ],
-  "image": "images/gm-tpz-1011-1.jpeg",
-  "video": "videos/gm-tpz-1011.mp4"
+  "image": "images/GM-TPZ-1011-1.jpeg",
+  "video": "videos/GM-TPZ-1011.mp4"
 }
 ];
