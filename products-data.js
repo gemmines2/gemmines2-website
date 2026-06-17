@@ -891,6 +891,30 @@ const PRODUCTS = [
   "images": [
     "images/GM-SPN-1017-1.png",
     "images/GM-SPN-1017-2.png"
-  ]
-}
+  ],
+    {
+  "id": "GM-TPZ-1011",
+  "name": "Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin | Loupe Clean Gemstone",
+  "shortName": "Blue Topaz",
+  "type": "cut",
+  "treatment": "unheated",
+  "origin": "Sri Lanka",
+  "color": "Blue",
+  "shape": "Round Brilliant Cut",
+  "weight": 1,
+  "dimensions": "",
+  "clarity": "Loupe Clean",
+  "certificate": "Available on Request",
+  "price": 90,
+  "pricePerCarat": 90,
+  "status": "active",
+  "rare": false,
+  "description": "Natural Blue Topaz weighing 1 carat, round cut and loupe clean, set in 925 sterling silver jewelry. Sourced from Sri Lanka. Features excellent clarity and attractive blue color. Suitable for daily wear, gifting, jewelry collections, and gemstone enthusiasts.",
+  "gemType": "Topaz",
+  "images": [
+    "images/gm-tpz-1011-1.jpeg"
+  
+  "image": "images/gm-tpz-1011-1.jpeg",
+  "video": "videos/gm-tpz-1011.mp4"
+},
 ];
