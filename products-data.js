@@ -867,6 +867,32 @@ const PRODUCTS = [
     "image": "images/GM-SAP-1016-1.jpeg",
     "video": "images/GM-SAP-1016.mp4"
   },
+   {
+  "id": "GM-SAP-1019",
+  "name": "Natural Unheated Royal Blue Sapphire 2.07 Ct Sri Lanka Origin - Cut and Polished",
+  "shortName": "Royal Blue Sapphire",
+  "type": "cut",
+  "treatment": "unheated",
+  "origin": "Sri Lanka",
+  "color": "Royal Blue",
+  "shape": "Oval Cut",
+  "weight": 2.07,
+  "dimensions": "",
+  "clarity": "Loupe Clean",
+  "certificate": "Certificate Available",
+  "price": 320,
+  "pricePerCarat": 155,
+  "status": "active",
+  "rare": false,
+  "description": "This beautiful Natural Royal Blue Sapphire weighs 2.07 carats and originates from Sri Lanka, one of the world's most respected sources of fine sapphires. Featuring a rich royal blue color, this gemstone displays excellent natural brilliance and luster that enhance its overall beauty and appeal.",
+  "gemType": "Sapphire",
+  "images": [
+    "images/gm-sap-1019-1.png",
+    "images/gm-sap-1019-1.jpg"
+  ],
+  "image": "images/gm-sap-1019-1.png",
+  "video": "videos/gm-sap-1019.mp4"
+},
  {
   "id": "GM-SPN-1017",
   "name": "Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color",
