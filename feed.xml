@@ -1,255 +1,804 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Generate Google Merchant Feed — Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0a08;--bg2:#111110;--bg3:#191917;--border:#2a2a27;--gold:#c9a96e;--gold2:#e8c98a;--text:#e8e4dc;--text2:#9a9488;--teal:#20b2aa;--green:#3a6b4a;--radius:6px}
-    body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh;padding:2rem}
-    .wrap{max-width:860px;margin:0 auto}
-    h1{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--gold2);margin-bottom:.25rem}
-    .sub{font-size:.8rem;color:var(--text2);margin-bottom:2rem}
-    .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem}
-    .card-title{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .step{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
-    .step-num{width:26px;height:26px;background:var(--gold);color:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:.1rem}
-    .step-text{font-size:.85rem;color:var(--text2);line-height:1.7}
-    .step-text strong{color:var(--text)}
-    .btn{padding:.75rem 1.5rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;margin-right:.75rem;margin-bottom:.75rem}
-    .btn:hover{background:var(--gold2)}
-    .btn-secondary{background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
-    .btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-    .alert{display:none;padding:.75rem 1rem;border-radius:3px;font-size:.8rem;margin-top:1rem}
-    .alert.success{display:block;background:#1e3d2a;color:#5ebc7d;border:1px solid #2a5438}
-    .alert.error{display:block;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e}
-    .alert.info{display:block;background:#1a1a10;color:var(--gold);border:1px solid #3a3a20}
-    pre{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:1rem;font-size:.75rem;overflow-x:auto;color:#a8d8b0;margin-top:.75rem;max-height:300px;overflow-y:auto}
-    .notice{background:#1a1a10;border:1px solid #3a3a20;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--text2);line-height:1.7}
-    .notice strong{color:var(--gold)}
-    table{width:100%;border-collapse:collapse;font-size:.8rem}
-    th{padding:.6rem 1rem;text-align:left;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border)}
-    td{padding:.7rem 1rem;border-bottom:1px solid var(--border);color:var(--text2)}
-    td:first-child{color:var(--text)}
-    tr:last-child td{border-bottom:none}
-    .tag{display:inline-block;background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:.1rem .4rem;font-size:.7rem;color:var(--text2)}
-    .progress{display:none;margin-top:1rem}
-    .progress.show{display:block}
-    .progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:.4rem}
-    .progress-fill{height:100%;background:var(--gold);width:0%;transition:width .3s}
-    .progress-label{font-size:.72rem;color:var(--text2)}
-  </style>
-</head>
-<body>
-<div class="wrap">
-  <h1>Google Merchant Feed Generator</h1>
-  <p class="sub">Gemmines2 — Generates feed.xml automatically from your products</p>
-
-  <div class="notice">
-    <strong>⚠️ Important for Google Merchant:</strong> Never delete and re-add products. Always <strong>Edit</strong> existing products in the admin panel. Deleting resets approval history. This tool generates a proper XML feed that Google reads — your approved products keep their history.
-  </div>
-
-  <!-- STEP 1 -->
-  <div class="card">
-    <div class="card-title">Step 1 — Preview Your Feed</div>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text">Click <strong>Generate Preview</strong> to see what your feed will look like. It reads directly from your live <code>products-data.js</code>.</div>
-    </div>
-    <button class="btn" onclick="generatePreview()">Generate Preview</button>
-    <div id="preview-alert" class="alert"></div>
-    <div id="preview-stats" style="display:none;margin-top:1rem">
-      <table>
-        <thead><tr><th>Product</th><th>Price</th><th>Status</th><th>Image</th></tr></thead>
-        <tbody id="preview-table"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- STEP 2 -->
-  <div class="card">
-    <div class="card-title">Step 2 — Download feed.xml</div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text">Download the <strong>feed.xml</strong> file. Then upload it to your GitHub repo root folder.</div>
-    </div>
-    <button class="btn" onclick="downloadFeed()">⬇ Download feed.xml</button>
-    <div id="download-alert" class="alert"></div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div class="card">
-    <div class="card-title">Step 3 — Upload to GitHub & Add to Google Merchant</div>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text">Go to your GitHub repo → click <strong>Add file → Upload files</strong> → upload <code>feed.xml</code> → Commit</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text">Your feed URL will be:<br><strong style="color:var(--teal)">https://gemmines2.github.io/gemmines2-website/feed.xml</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-text">Go to <strong>Google Merchant Center</strong> → Products → Feeds → click <strong>+</strong> → Select <strong>Scheduled fetch</strong> → paste the URL above → Save. Google will fetch it daily automatically.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-text"><strong>Every time you add/edit products</strong> in admin panel → come back here → download new feed.xml → upload to GitHub. Google fetches it automatically daily.</div>
-    </div>
-  </div>
-
-  <!-- XML PREVIEW -->
-  <div class="card" id="xml-preview-card" style="display:none">
-    <div class="card-title">XML Preview</div>
-    <pre id="xml-preview-content"></pre>
-  </div>
-
-</div>
-
-<script>
-const SITE_URL = 'https://gemmines2.github.io/gemmines2-website';
-const PRODUCTS_URL = SITE_URL + '/products-data.js';
-
-let loadedProducts = [];
-
-async function loadProducts() {
-  if (loadedProducts.length) return loadedProducts;
-  const resp = await fetch(PRODUCTS_URL + '?t=' + Date.now());
-  const text = await resp.text();
-  const match = text.match(/const\s+PRODUCTS\s*=\s*(\[[\s\S]*?\]);/);
-  if (!match) throw new Error('Could not parse products-data.js');
-  loadedProducts = JSON.parse(match[1]);
-  return loadedProducts;
-}
-
-async function generatePreview() {
-  const alertEl = document.getElementById('preview-alert');
-  alertEl.className = 'alert info';
-  alertEl.textContent = 'Loading products…';
-
-  try {
-    const products = await loadProducts();
-    const active = products.filter(p => (p.status || 'active') === 'active');
-
-    alertEl.className = 'alert success';
-    alertEl.textContent = `✓ Found ${products.length} products — ${active.length} active, ${products.filter(p=>p.status==='sold').length} sold`;
-
-    const tbody = document.getElementById('preview-table');
-    tbody.innerHTML = products.map(p => {
-      const img = (p.images && p.images[0]) || p.image || '';
-      const hasImg = img && img !== '';
-      const status = p.status || 'active';
-      return `<tr>
-        <td>${p.name}</td>
-        <td style="color:var(--gold)">$${p.price} USD</td>
-        <td><span class="tag" style="${status==='active'?'color:#5ebc7d':''}">${status}</span></td>
-        <td><span class="tag" style="${hasImg?'color:#5ebc7d':'color:#bc5e5e'}">${hasImg?'✓ Has image':'✗ Missing'}</span></td>
-      </tr>`;
-    }).join('');
-
-    document.getElementById('preview-stats').style.display = 'block';
-  } catch(e) {
-    alertEl.className = 'alert error';
-    alertEl.textContent = 'Error: ' + e.message;
-  }
-}
-
-function buildXML(products) {
-  const active = products.filter(p => (p.status || 'active') !== 'draft');
-
-  const items = active.map(p => {
-    const img = (p.images && p.images[0]) || p.image || '';
-    const fullImgUrl = img.startsWith('http') ? img : (img ? SITE_URL + '/' + img : '');
-    const productUrl = `${SITE_URL}/product.html?id=${p.id}`;
-    const availability = p.status === 'sold' ? 'out_of_stock' : 'in_stock';
-    const condition = 'new';
-    const brand = 'Gemmines2';
-    const gtin = '';
-
-    // Build description
-    const desc = [
-      p.description || '',
-      p.weight ? `Weight: ${p.weight} carats.` : '',
-      p.origin ? `Origin: ${p.origin}.` : '',
-      p.treatment ? `Treatment: ${p.treatment === 'unheated' ? 'Unheated & Untreated' : 'Heat Treated'}.` : '',
-      p.color ? `Color: ${p.color}.` : '',
-      p.shape ? `Shape: ${p.shape}.` : '',
-      p.clarity ? `Clarity: ${p.clarity}.` : '',
-      p.certificate ? `Certificate: ${p.certificate}.` : '',
-    ].filter(Boolean).join(' ').trim();
-
-    // Google product category for gemstones
-    const googleCategory = p.type === 'jewelry'
-      ? 'Apparel &amp; Accessories &gt; Jewelry'
-      : 'Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Rocks &amp; Fossils';
-
-    return `    <item>
-      <g:id>${escXml(String(p.id))}</g:id>
-      <g:title>${escXml(p.name)}</g:title>
-      <g:description>${escXml(desc || p.name)}</g:description>
-      <g:link>${escXml(productUrl)}</g:link>
-      ${fullImgUrl ? `<g:image_link>${escXml(fullImgUrl)}</g:image_link>` : ''}
-      <g:price>${p.price}.00 USD</g:price>
-      <g:availability>${availability}</g:availability>
-      <g:condition>${condition}</g:condition>
-      <g:brand>${brand}</g:brand>
-      <g:google_product_category>${googleCategory}</g:google_product_category>
-      ${p.type ? `<g:product_type>${escXml(p.type === 'cut' ? 'Cut Gemstone' : p.type === 'rough' ? 'Rough Stone' : 'Jewelry')}</g:product_type>` : ''}
-      ${p.weight ? `<g:material>${escXml(p.gemType || 'Gemstone')}</g:material>` : ''}
-      ${p.origin ? `<g:origin_country>${escXml(p.origin)}</g:origin_country>` : ''}
-    </item>`;
-  }).join('\n');
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
     <title>Gemmines2 — Natural Certified Gemstones</title>
-    <link>${SITE_URL}</link>
-    <description>100% natural certified gemstones from Pakistan and Sri Lanka. Sapphires, rubies, garnets and more.</description>
-${items}
+    <link>https://gemmines2.github.io/gemmines2-website/</link>
+    <description>100% natural, unheated certified gemstones from Pakistan and Sri Lanka. Ethically sourced, worldwide shipping.</description>
+
+    <item>
+      <g:id>GM-AQUA-1009</g:id>
+      <g:title>730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting</g:title>
+      <g:description>Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.
+
+Boasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.
+
+Sourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-AQUA-1009.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/GM-AQUA-1009.jpg</g:image_link>
+      <g:price>240.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Aquamarine</g:product_type>
+      <g:mpn>GM-AQUA-1009</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 730 ct</g:material>
+      <g:color>Icy Pastel Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>sapphire-1780901637012</g:id>
+      <g:title>This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brillia...</g:title>
+      <g:description>This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance. Displaying a rich Yellow colour and loupe clean clarity, this gemstone offers exceptional transparency and sparkle. Sourced from Sri Lanka, famous for producing premium sapphires, this untreated gemstone is ideal for fine jewellery, collectors, and gemstone enthusiasts seeking natural beauty and rarity</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire-1780901637012.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire-1780901637012</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 0.52 ct</g:material>
+      <g:color>Yellow</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>sapphire-1780848740390</g:id>
+      <g:title>Natural Unheated Blue Sapphire 7.8 Ct Rough Stone Sri Lankan Origin</g:title>
+      <g:description>Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats. This natural sapphire displays an attractive blue color with excellent raw crystal character and natural luster. Sourced from Sri Lankan deposits known for producing high-quality sapphires, this gemstone is untreated and suitable for collectors, lapidary work, or custom jewelry designs.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire-1780848740390.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire-1780848740390</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 7.8 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>GM-SAPH-1001</g:id>
+      <g:title>Natural Sri Lankan Blue Sapphire</g:title>
+      <g:description>Blue Sapphire - Sri Lankan Origin - Blue - Natural</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-SAPH-1001.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/gm-saph-1001-1.jpg</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Blue Sapphire</g:product_type>
+      <g:mpn>GM-SAPH-1001</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 3.8 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SAP-1008.jpg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>amethys-1780829923587</g:id>
+      <g:title>Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst an...</g:title>
+      <g:description>Exclusive pendant made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/amethys-1780829923587.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg</g:image_link>
+      <g:price>150.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Amethyst</g:product_type>
+      <g:mpn>amethys-1780829923587</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 3 ct</g:material>
+      <g:color>Purple</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/-custom-designed-stunning-silver-pe-1780829921329-1.jpeg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>sapphire-1780764315884</g:id>
+      <g:title>Natural P Color change Sapphire Top eye clean Unheated Color: From Violet to Purple</g:title>
+      <g:description>Discover the beauty of this natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats. This rare gemstone displays a stunning color shift from violet to rich purple under different lighting conditions. Featuring top eye-clean clarity and excellent natural brilliance, this sapphire is perfect for collectors, custom jewelry, or gemstone enthusiasts seeking a unique and elegant treasure.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire-1780764315884.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/natural-p-color-change-sapphire-top-1780765092779-0.jpg</g:image_link>
+      <g:price>150.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire-1780764315884</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 1.54 ct</g:material>
+      <g:color>Purple</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/natural-p-color-change-sapphire-top-1780765094874-1.jpeg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>chrysoberyl-1780742386216</g:id>
+      <g:title>Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )</g:title>
+      <g:description>Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/chrysoberyl-1780742386216.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Chrysoberyl</g:product_type>
+      <g:mpn>chrysoberyl-1780742386216</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 1.35 ct</g:material>
+      <g:color>Yellowish Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>zircon-1780665881053</g:id>
+      <g:title>Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.</g:title>
+      <g:description>Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/zircon-1780665881053.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/zircon-pendant-1780665878476-0.jpeg</g:image_link>
+      <g:price>95.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Apparel &amp; Accessories &gt; Jewelry</g:google_product_category>
+      <g:product_type>Zircon</g:product_type>
+      <g:mpn>zircon-1780665881053</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lankan Origin — 3.999 ct</g:material>
+      <g:color>Brownish</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/beautifully-handcrafted-exclusive-p-1781192844445-0.jpg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>spinel-1780499911496</g:id>
+      <g:title>Natural Sri Lankan ( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone</g:title>
+      <g:description>Natural Sri Lankan Blue Spinel with pristine loupe clean clarity.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/spinel-1780499911496.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg</g:image_link>
+      <g:price>125.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Spinel</g:product_type>
+      <g:mpn>spinel-1780499911496</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 1 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>garnet-1780215589223</g:id>
+      <g:title>Natural Unheated Rhodolite Garnets 12.2 Carats</g:title>
+      <g:description>Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/garnet-1780215589223.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/rhodolite-garnets-1780215583524-0.jpg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Garnet</g:product_type>
+      <g:mpn>garnet-1780215589223</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Tanzania Origin — 12.2 ct</g:material>
+      <g:color>Reddish Pink</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>greenjasper_005</g:id>
+      <g:title>Natural Green Jasper Stones 10+ Carats</g:title>
+      <g:description>Opaque quality green jasper from Pakistan with beautiful lustre and color.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/greenjasper_005.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/green-jasper.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Jasper</g:product_type>
+      <g:mpn>greenjasper_005</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 10 ct</g:material>
+      <g:color>Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>lemonquartz_012</g:id>
+      <g:title>Natural Unheated Lemon Quartz 11.15 Carats</g:title>
+      <g:description>Vibrant Lemon Quartz from Pakistan. Stone of clarity and positive energy with eye clean transparency.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/lemonquartz_012.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/lemon-quartz.jpg</g:image_link>
+      <g:price>70.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Quartz</g:product_type>
+      <g:mpn>lemonquartz_012</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 11.15 ct</g:material>
+      <g:color>Lemon Yellow</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>lemonquartz2_014</g:id>
+      <g:title>Natural Eye-Clean Lemon Quartz Cut and Polished</g:title>
+      <g:description>AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/lemonquartz2_014.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/lemon-quartz2.jpg</g:image_link>
+      <g:price>140.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Quartz</g:product_type>
+      <g:mpn>lemonquartz2_014</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 8.5 ct</g:material>
+      <g:color>Lemon Yellow</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>bluesapphire_016</g:id>
+      <g:title>Stunning Sri Lankan Blue Sapphire Heated 1.10 Carats</g:title>
+      <g:description>Symbol of wisdom, virtue and good fortune. Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/bluesapphire_016.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/bluesapphire.jpg</g:image_link>
+      <g:price>320.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>bluesapphire_016</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 1.1 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Heat Treated</g:pattern>
+    </item>
+    <item>
+      <g:id>emeralds_017</g:id>
+      <g:title>Natural Unheated Cut and Polished Zambian Emeralds</g:title>
+      <g:description>Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/emeralds_017.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/emeralds.jpg</g:image_link>
+      <g:price>600.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Emerald</g:product_type>
+      <g:mpn>emeralds_017</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Zambia Origin — 2.4 ct</g:material>
+      <g:color>Rich Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>fluorite_018</g:id>
+      <g:title>Natural Unheated Blue Fluorite 58 Carats</g:title>
+      <g:description>Rare High Clarity Polished Crystal Healing Stone from Pakistan. Beautiful blue fluorite with exceptional clarity.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/fluorite_018.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/fluorite.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Fluorite</g:product_type>
+      <g:mpn>fluorite_018</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 58 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>mixedgemstones_019</g:id>
+      <g:title>Natural Mixed Lot Gemstones Peridot Garnet and Smoky Quartz</g:title>
+      <g:description>Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/mixedgemstones_019.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/mixed-gemstones.jpg</g:image_link>
+      <g:price>600.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Mixed</g:product_type>
+      <g:mpn>mixedgemstones_019</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 15.3 ct</g:material>
+      <g:color>Multi-Color</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>almandine_028</g:id>
+      <g:title>Natural Almandine Garnet 60 Carat Oval Cut</g:title>
+      <g:description>Polished Reddish Purple Almandine Garnet from Pakistan. Unheated and Untreated with beautiful oval cut.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/almandine_028.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/almandine.jpg</g:image_link>
+      <g:price>125.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Garnet</g:product_type>
+      <g:mpn>almandine_028</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 60 ct</g:material>
+      <g:color>Reddish Purple</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>mixed_sapphire_029</g:id>
+      <g:title>Premium Mixed Sapphire Collection Multi-Color</g:title>
+      <g:description>Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/mixed_sapphire_029.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/mixedsapphire.jpg</g:image_link>
+      <g:price>400.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>mixed_sapphire_029</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 22.1 ct</g:material>
+      <g:color>Multi-Color</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>Natural_Black_Chert_030</g:id>
+      <g:title>Natural Black Chert Tumbled Stone from Pakistan</g:title>
+      <g:description>Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/Natural_Black_Chert_030.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/chert.jpg</g:image_link>
+      <g:price>80.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Chert</g:product_type>
+      <g:mpn>Natural_Black_Chert_030</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 14 ct</g:material>
+      <g:color>Deep Black</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>Kunzite_031</g:id>
+      <g:title>Natural Pink Kunzite Gemstone 4.80 Carats</g:title>
+      <g:description>Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/Kunzite_031.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/pink-kunzite.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Kunzite</g:product_type>
+      <g:mpn>Kunzite_031</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 4.8 ct</g:material>
+      <g:color>Pink</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>quartz_034</g:id>
+      <g:title>12 Carat Ferruginous Quartz Gemstone</g:title>
+      <g:description>Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/quartz_034.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/ferruginous.jpg</g:image_link>
+      <g:price>70.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Quartz</g:product_type>
+      <g:mpn>quartz_034</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 12 ct</g:material>
+      <g:color>Yellow/White</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>sapphire_039</g:id>
+      <g:title>2.15ct Natural Unheated Bi-Color Sapphire Sri Lanka</g:title>
+      <g:description>Rare Sri Lankan Origin Bi-Color Sapphire. Unheated and untreated with pear cut. Beautiful two-tone color combination.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire_039.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/bi-color-sapphire.jpeg</g:image_link>
+      <g:price>95.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire_039</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 2.15 ct</g:material>
+      <g:color>Bi-Color</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>sapphire_040</g:id>
+      <g:title>5.80ct Royal Blue Sapphire Sri Lankan Origin</g:title>
+      <g:description>Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut. Deep royal blue color with excellent luster.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire_040.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/darksapphire.jpeg</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire_040</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 5.8 ct</g:material>
+      <g:color>Royal Blue</g:color>
+      <g:pattern>Heat Treated</g:pattern>
+    </item>
+    <item>
+      <g:id>sapphire_043</g:id>
+      <g:title>Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster</g:title>
+      <g:description>Stunning 2.93 carat heated Padparadscha sapphire from Sri Lanka. Rare pinkish-orange to orangey-pink hue evoking the soft glow of a lotus blossom. Professionally heated for enhanced color saturation with excellent luster and brilliance.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/sapphire_043.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/Padparadscha-sapphire.jpeg</g:image_link>
+      <g:price>190.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Sapphire</g:product_type>
+      <g:mpn>sapphire_043</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 2.93 ct</g:material>
+      <g:color>Pink-Orange</g:color>
+      <g:pattern>Heat Treated</g:pattern>
+    </item>
+    <item>
+      <g:id>ruby_044</g:id>
+      <g:title>Natural Unheated Sri Lankan Ruby 1.06 Carats</g:title>
+      <g:description>Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby, one of the most sought after gemstones in the world.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/ruby_044.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/ruby2.jpeg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Ruby</g:product_type>
+      <g:mpn>ruby_044</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 1.06 ct</g:material>
+      <g:color>Vivid Red</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>pinktopaz_101</g:id>
+      <g:title>Natural Unheated Pink Topaz 18 Carats Pakistan</g:title>
+      <g:description>Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. Soft light pink color with minor natural inclusions confirming authenticity.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/pinktopaz_101.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/pinktopaz.gif</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Topaz</g:product_type>
+      <g:mpn>pinktopaz_101</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 18 ct</g:material>
+      <g:color>Light Pink</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/natural-unheated-pink-topaz-18-cara-1780319473513-0.jpg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>Greenperidot_102</g:id>
+      <g:title>Natural Unheated Olive Green Peridot Pakistan</g:title>
+      <g:description>Natural unheated olive green peridot from Pakistan with attractive color and good luster.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/Greenperidot_102.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/peridot.gif</g:image_link>
+      <g:price>95.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Peridot</g:product_type>
+      <g:mpn>Greenperidot_102</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 5 ct</g:material>
+      <g:color>Olive Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>rhodolitegarnets_103</g:id>
+      <g:title>Natural Unheated Rhodolite Garnets 12 Carats Tanzania</g:title>
+      <g:description>Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/rhodolitegarnets_103.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/rhodolite.jpg</g:image_link>
+      <g:price>140.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Garnet</g:product_type>
+      <g:mpn>rhodolitegarnets_103</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Tanzania Origin — 12 ct</g:material>
+      <g:color>Reddish Pink</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>jade_045</g:id>
+      <g:title>Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan</g:title>
+      <g:description>Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/jade_045.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/natural-translucent-green-nephrite--1780761893401-0.jpg</g:image_link>
+      <g:price>80.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Jade</g:product_type>
+      <g:mpn>jade_045</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Pakistan Origin — 3.2 ct</g:material>
+      <g:color>Translucent Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/natural-translucent-green-nephrite--1780761897176-1.jpg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>GM-SPN-1010</g:id>
+      <g:title>Natural Cobalt Blue Spinel 1 Carat — Unheated Sri Lankan Origin Loose Gemstone</g:title>
+      <g:description>A rare, 100% natural and unheated Cobalt Blue Spinel. Sourced from Sri Lanka (Ceylon), this exquisite gemstone features an intense, vivid neon blue hue with exceptional clarity. Perfect for high-end custom jewelry settings like 925 sterling silver rings or pendants. Certified authentic, completely untreated, and ethically sourced.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-SPN-1010.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SPN-1010.jpg</g:image_link>
+      <g:price>180.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Cobalt Spinel</g:product_type>
+      <g:mpn>GM-SPN-1010</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 1 ct</g:material>
+      <g:color>Cobalt Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SPN-1010-1.jpg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>GM-ZRCN-1013-1</g:id>
+      <g:title>Natural Green Zircon 2.35 Ct Clean Gemstone with Brilliant Luster Loose Stone - Sri Lanka Origin</g:title>
+      <g:description>Natural Green Zircon gemstone weighing 2.35 carats with clean clarity and brilliant luster. This loose gemstone displays strong sparkle, attractive green color, and beautiful brilliance. Ideal for gemstone collectors, custom jewelry designs, rings, pendants, and fine gemstone collections. A bright and elegant zircon with excellent visual appeal and natural beauty.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-ZRCN-1013-1.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/GM-ZRCN-1013-1.jpeg</g:image_link>
+      <g:price>90.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Zircon</g:product_type>
+      <g:mpn>GM-ZRCN-1013-1</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 2.35 ct</g:material>
+      <g:color>Green</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+    </item>
+    <item>
+      <g:id>GM-SAP-1016</g:id>
+      <g:title>Natural Blue Sapphire 1.67 Ct Heated Trillion Cut Eye Clean Loose Gemstone - Sri Lanka Origin</g:title>
+      <g:description>Natural Blue Sapphire weighing 1.67 carats with attractive blue color, heated enhancement, and eye clean clarity. This trillion cut loose gemstone displays beautiful brilliance and elegant luster, making it ideal for gemstone collectors, custom jewelry, rings, pendants, and fine gemstone collections. A vibrant sapphire with excellent visual appeal and sparkle.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-SAP-1016.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SAP-1016-1.jpeg</g:image_link>
+      <g:price>140.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Blue Sapphire</g:product_type>
+      <g:mpn>GM-SAP-1016</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 1.67 ct</g:material>
+      <g:color>Blue</g:color>
+      <g:pattern>Heat Treated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SAP-1016-2.jpeg</g:additional_image_link>
+    </item>
+    <item>
+      <g:id>GM-SPN-1017</g:id>
+      <g:title>Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color</g:title>
+      <g:description>Natural unheated spinel lot weighing approximately 6 carats total. This parcel features mixed cuts and a selection of beautiful dark colors with attractive luster. The stones are lightweight and ideal for jewelry designers, collectors, gemstone traders, and custom jewelry projects. Each spinel is untreated and offered as a loose gemstone parcel for flexible use in rings, pendants, earrings, or gemstone collections. Mixed shapes and sizes provide variety while maintaining the rich dark tones that make spinel highly sought after. A practical choice for anyone looking for natural, unheated spinels in a compact 6 ct lot.</g:description>
+      <g:link>https://gemmines2.github.io/gemmines2-website/product/GM-SPN-1017.html</g:link>
+      <g:image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SPN-1017-1.png</g:image_link>
+      <g:price>140.00 USD</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:brand>Gemmines2</g:brand>
+      <g:google_product_category>Arts &amp; Entertainment &gt; Hobbies &amp; Creative Arts &gt; Collectibles &gt; Gemstones</g:google_product_category>
+      <g:product_type>Spinel</g:product_type>
+      <g:mpn>GM-SPN-1017</g:mpn>
+      <g:shipping>
+        <g:country>PK</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:material>Sri Lanka Origin — 6 ct</g:material>
+      <g:color>Violet, Plum, Purple, Steel Blue, Grey, Teal, Greenish Blue</g:color>
+      <g:pattern>Unheated Untreated</g:pattern>
+      <g:additional_image_link>https://gemmines2.github.io/gemmines2-website/images/GM-SPN-1017-2.png</g:additional_image_link>
+    </item>
   </channel>
-</rss>`;
-}
-
-function escXml(str) {
-  if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
-
-async function downloadFeed() {
-  const alertEl = document.getElementById('download-alert');
-  alertEl.className = 'alert info';
-  alertEl.textContent = 'Generating feed…';
-
-  try {
-    const products = await loadProducts();
-    const xml = buildXML(products);
-
-    // Show XML preview
-    document.getElementById('xml-preview-card').style.display = 'block';
-    document.getElementById('xml-preview-content').textContent = xml.substring(0, 2000) + '\n\n... (truncated for preview)';
-
-    // Download
-    const blob = new Blob([xml], { type: 'application/xml' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'feed.xml';
-    a.click();
-
-    alertEl.className = 'alert success';
-    alertEl.textContent = `✓ feed.xml downloaded with ${products.filter(p=>(p.status||'active')!=='draft').length} products. Now upload to GitHub repo root folder.`;
-
-  } catch(e) {
-    alertEl.className = 'alert error';
-    alertEl.textContent = 'Error: ' + e.message;
-  }
-}
-</script>
-</body>
-</html>
+</rss>
