@@ -276,8 +276,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   const related=PRODUCTS.filter(x=>x.id!==p.id&&(x.type===p.type||x.gemType===p.gemType)).slice(0,4);
   if(related.length){
     document.getElementById('related-grid').innerHTML=related.map(r=>`
-      <a href="product/${r.id}.html" class="rel-card">
-        <img src="${(r.images&&r.images[0])||r.image||''}" alt="${r.name}" onerror="this.style.display='none'">
+      <a href="product.html?id=${r.id}" class="rel-card">
+      <img src="${(r.images&&r.images[0])||r.image||''}" alt="${r.name}" onerror="this.style.display='none'">
         <div class="rel-card-body">
           <div class="rel-card-name">${r.name}</div>
           <div class="rel-card-price">$${Number(r.price).toLocaleString()}</div>
