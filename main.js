@@ -1,4 +1,3 @@
-MAIN JS
 /* ═══════════════════════════════════════════
    GEMMINES2 — Global JavaScript
    ═══════════════════════════════════════════ */
@@ -10,10 +9,10 @@ MAIN JS
    3. Create an email template → copy the Template ID below
    4. Get your Public Key from Account → API Keys
    ──────────────────────────────────────────────────────── */
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
 const EMAILJS_TEMPLATE_ORDER = 'YOUR_ORDER_TEMPLATE_ID'; // e.g. 'template_xyz789'
 const EMAILJS_TEMPLATE_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJk'
+const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJk'
 
 /* ── CART ────────────────────────────────────────────────── */
 const Cart = {
@@ -88,6 +87,31 @@ function initHeader() {
   Cart.updateBadge();
 }
 
+/* ── PRODUCT DETAILED PAGE INTERACTION ───────────────────── */
+function initProductPage() {
+  const addToCartBtn = document.getElementById('addToCartBtn');
+  if (!addToCartBtn) return; // Safely exits if it's a non-product page (like index or contact)
+
+  addToCartBtn.addEventListener('click', () => {
+    const idEl = document.getElementById('prod-id');
+    const nameEl = document.getElementById('prod-name');
+    const priceEl = document.getElementById('prod-price');
+    const imgEl = document.getElementById('prod-primary-img');
+
+    // Confirm the page actually has the gemstone info before trying to add it
+    if (idEl && nameEl && priceEl) {
+      const product = {
+        id: idEl.value || idEl.textContent.trim(),
+        name: nameEl.value || nameEl.textContent.trim(),
+        price: parseFloat(priceEl.value || priceEl.textContent.replace(/[^0-9.]/g, '')),
+        image: imgEl ? imgEl.getAttribute('src') : 'images/placeholder.png'
+      };
+      
+      Cart.add(product);
+    }
+  });
+}
+
 /* ── ORDER ID ─────────────────────────────────────────────── */
 function generateOrderId() {
   return 'GM-' + Date.now().toString().slice(-9);
@@ -124,10 +148,8 @@ function initSecurity() {
 
   // Disable common keyboard shortcuts for copying/saving
   document.addEventListener('keydown', e => {
-    // Block Ctrl+S (save), Ctrl+U (view source), Ctrl+Shift+I (devtools)
     if (e.ctrlKey && (e.key === 's' || e.key === 'u')) e.preventDefault();
     if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
-    // Block F12 devtools
     if (e.key === 'F12') e.preventDefault();
   });
 
@@ -176,6 +198,7 @@ function injectStructuredData() {
 /* ── INIT ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
+  initProductPage(); // Wakes up the cart button listener safely
   initSecurity();
   injectStructuredData();
   if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
