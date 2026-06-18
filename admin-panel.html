@@ -1,759 +1,1101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel — Gemmines2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0a08;--bg2:#111110;--bg3:#191917;--bg4:#1f1f1d;--border:#2a2a27;--gold:#c9a96e;--gold2:#e8c98a;--text:#e8e4dc;--text2:#9a9488;--green:#3a6b4a;--red:#8b3a3a;--radius:6px}
-    body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemmines2 — Product Manager</title>
+<style>
+  :root {
+    --bg: #0f0e0c;
+    --surface: #1a1916;
+    --surface2: #242220;
+    --border: #333230;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --text: #f0ece4;
+    --muted: #8a8680;
+    --green: #4caf7d;
+    --red: #e05c5c;
+    --blue: #5b9bd5;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
 
-    /* LOGIN SCREEN */
-    .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
-    .login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;width:100%;max-width:440px}
-    .login-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:.25rem}
-    .login-logo em{font-style:italic;color:var(--gold2)}
-    .login-sub{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:2rem}
-    .login-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);display:block;margin-bottom:.5rem}
-    .login-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Jost',sans-serif;font-size:.85rem;padding:.7rem 1rem;margin-bottom:1rem}
-    .login-input:focus{outline:none;border-color:var(--gold)}
-    .login-btn{width:100%;padding:.85rem;background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-    .login-btn:hover{background:var(--gold2)}
-    .login-note{font-size:.72rem;color:var(--text2);margin-top:1rem;line-height:1.6}
-    .login-note a{color:var(--gold)}
-    .login-error{display:none;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;padding:.6rem .85rem;font-size:.78rem;margin-bottom:1rem}
-    .login-error.show{display:block}
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .logo { font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+  .logo span { color: var(--gold); }
+  .header-meta { color: var(--muted); font-size: 12px; }
 
-    /* MAIN APP */
-    .app{display:none}
-    .app.show{display:block}
-    .layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
-    .sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:2rem 0;position:sticky;top:0;height:100vh;overflow-y:auto}
-    .sidebar-logo{padding:0 1.5rem 1.5rem;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
-    .logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold)}
-    .logo em{font-style:italic;color:var(--gold2)}
-    .logo-sub{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text2);margin-top:.2rem}
-    .nav-item{display:flex;align-items:center;gap:.75rem;padding:.7rem 1.5rem;cursor:pointer;font-size:.78rem;letter-spacing:.08em;color:var(--text2);transition:all .15s;border-left:3px solid transparent}
-    .nav-item:hover,.nav-item.active{background:var(--bg3);color:var(--gold);border-left-color:var(--gold)}
-    .nav-item .ic{font-size:1rem;width:20px;text-align:center}
-    .nav-logout{color:var(--red)!important}
-    .main{padding:2rem 2.5rem}
-    .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-    .page-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400}
-    .page-title em{font-style:italic;color:var(--gold2)}
-    .page-sub{font-size:.78rem;color:var(--text2);margin-top:.2rem}
-    .tab-panel{display:none}.tab-panel.active{display:block}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-bottom:2rem}
-    .stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
-    .stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
-    .stat-lbl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-top:.2rem}
-    .tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-    .tbl-top{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;background:var(--bg3);border-bottom:1px solid var(--border)}
-    .tbl-top-title{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-    table{width:100%;border-collapse:collapse}
-    thead th{padding:.7rem 1rem;text-align:left;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);border-bottom:1px solid var(--border);font-weight:500}
-    tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
-    tbody tr:last-child{border-bottom:none}
-    tbody tr:hover{background:var(--bg3)}
-    td{padding:.8rem 1rem;font-size:.82rem;vertical-align:middle}
-    .td-img{width:44px;height:44px;object-fit:contain;background:var(--bg3);border-radius:3px;border:1px solid var(--border)}
-    .badge{display:inline-block;padding:.18rem .5rem;border-radius:2px;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
-    .badge-active{background:#1e3d2a;color:#5ebc7d}
-    .badge-sold{background:#3d1e1e;color:#bc5e5e}
-    .badge-draft{background:#2a2920;color:#9a9070}
-    .act-row{display:flex;gap:.4rem}
-    .btn-sm{padding:.3rem .65rem;border-radius:3px;font-size:.68rem;font-family:'Jost',sans-serif;cursor:pointer;border:none;transition:all .15s}
-    .btn-edit{background:var(--bg4);color:var(--gold);border:1px solid var(--border)}
-    .btn-edit:hover{border-color:var(--gold)}
-    .btn-del{background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e}
-    .btn-del:hover{background:#5e2e2e}
-    .empty-state{text-align:center;padding:4rem 2rem;color:var(--text2)}
-    .empty-state .ei{font-size:3rem;margin-bottom:1rem}
-    .empty-state h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--text);margin-bottom:.5rem;font-weight:400}
-    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;padding:2rem}
-    .overlay.open{display:flex}
-    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);width:100%;max-width:740px;max-height:90vh;overflow-y:auto}
-    .modal-top{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg2);z-index:1}
-    .modal-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem}
-    .modal-title em{font-style:italic;color:var(--gold2)}
-    .modal-x{background:none;border:none;color:var(--text2);font-size:1.4rem;cursor:pointer;line-height:1;padding:.25rem}
-    .modal-x:hover{color:var(--text)}
-    .modal-body{padding:1.5rem}
-    .modal-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:.75rem;justify-content:flex-end;position:sticky;bottom:0;background:var(--bg2)}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .fg{display:flex;flex-direction:column;gap:.4rem}
-    .fg.full{grid-column:1/-1}
-    label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
-    label .req{color:var(--gold)}
-    input,select,textarea{background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Jost',sans-serif;font-size:.85rem;padding:.6rem .85rem;width:100%;transition:border-color .15s}
-    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-    textarea{resize:vertical;min-height:80px}
-    select option{background:var(--bg3)}
-    .img-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;margin-bottom:.75rem}
-    .img-zone:hover{border-color:var(--gold);background:rgba(201,169,110,.04)}
-    .img-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-    .img-zone-text{font-size:.8rem;color:var(--text2);pointer-events:none}
-    .img-zone-text strong{color:var(--gold)}
-    .img-previews{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
-    .img-prev{position:relative;width:76px;height:76px}
-    .img-prev img{width:100%;height:100%;object-fit:contain;border:1px solid var(--border);border-radius:3px;background:var(--bg3);padding:4px}
-    .img-prev button{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:.6rem;cursor:pointer;line-height:18px;text-align:center}
+  .tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; gap: 2px; }
+  .tab { padding: 12px 20px; cursor: pointer; border-bottom: 2px solid transparent; color: var(--muted); font-size: 13px; font-weight: 500; transition: all .15s; white-space: nowrap; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-    /* ── VIDEO ZONE ── */
-    .video-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative;margin-bottom:.75rem}
-    .video-zone:hover{border-color:var(--gold);background:rgba(201,169,110,.04)}
-    .video-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-    .video-zone-text{font-size:.8rem;color:var(--text2);pointer-events:none}
-    .video-zone-text strong{color:var(--gold)}
-    .video-preview{margin-top:.75rem;display:none}
-    .video-preview video{width:100%;max-height:180px;border-radius:4px;border:1px solid var(--border);background:#000}
-    .video-preview-name{font-size:.72rem;color:var(--text2);margin-top:.4rem}
-    .video-remove{margin-top:.4rem;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;font-size:.68rem;font-family:'Jost',sans-serif;padding:.25rem .6rem;cursor:pointer}
-    .video-remove:hover{background:#5e2e2e}
-    .video-existing{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:.6rem .85rem;font-size:.78rem;color:var(--text2);margin-bottom:.5rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-    .video-existing span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .video-existing button{background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e;border-radius:3px;font-size:.65rem;padding:.2rem .5rem;cursor:pointer;flex-shrink:0}
+  .main { padding: 20px 24px; max-width: 1400px; }
+  .panel { display: none; }
+  .panel.active { display: block; }
 
-    .btn-primary{padding:.7rem 1.5rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
-    .btn-primary:hover{background:var(--gold2)}
-    .btn-primary:disabled{opacity:.5;cursor:not-allowed}
-    .btn-cancel{padding:.7rem 1.2rem;border-radius:var(--radius);background:transparent;color:var(--text2);font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer}
-    .btn-cancel:hover{border-color:var(--text2);color:var(--text)}
-    .btn-add{padding:.6rem 1.2rem;border-radius:var(--radius);background:var(--gold);color:var(--bg);font-family:'Jost',sans-serif;font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer}
-    .btn-add:hover{background:var(--gold2)}
-    .toggle{position:relative;width:36px;height:20px}
-    .toggle input{opacity:0;width:0;height:0}
-    .slider{position:absolute;inset:0;background:var(--border);border-radius:20px;cursor:pointer;transition:background .2s}
-    .slider:before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .2s}
-    .toggle input:checked+.slider{background:var(--green)}
-    .toggle input:checked+.slider:before{transform:translateX(16px)}
-    .alert{display:none;padding:.75rem 1rem;border-radius:3px;font-size:.8rem;margin-bottom:1rem}
-    .alert.success{display:block;background:#1e3d2a;color:#5ebc7d;border:1px solid #2a5438}
-    .alert.error{display:block;background:#3d1e1e;color:#bc5e5e;border:1px solid #5e2e2e}
-    .alert.info{display:block;background:#1a1a10;color:var(--gold);border:1px solid #3a3a20}
-    .progress-wrap{display:none;margin-bottom:1rem}
-    .progress-wrap.show{display:block}
-    .progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:.5rem}
-    .progress-fill{height:100%;background:var(--gold);width:0%;transition:width .3s}
-    .progress-label{font-size:.72rem;color:var(--text2)}
-    .notice{background:#1a1a10;border:1px solid #3a3a20;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem}
-    .notice-text{font-size:.78rem;color:var(--text2);line-height:1.6}
-    .notice-text strong{color:var(--gold)}
-    .tbl-controls{display:flex;gap:.75rem;padding:.9rem 1.5rem;background:var(--bg3);border-bottom:1px solid var(--border)}
-    .search-inp{background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Jost',sans-serif;font-size:.78rem;padding:.45rem .85rem;width:200px}
-    .search-inp:focus{outline:none;border-color:var(--gold)}
-    .filter-sel{background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text2);font-family:'Jost',sans-serif;font-size:.73rem;padding:.45rem .7rem}
-    @media(max-width:768px){.layout{grid-template-columns:1fr}.sidebar{display:none}.stats{grid-template-columns:1fr 1fr}}
-  </style>
+  .stats { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 20px; min-width: 120px; }
+  .stat-num { font-size: 22px; font-weight: 700; color: var(--gold); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .toolbar { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+  .btn { padding: 8px 16px; border-radius: var(--radius); border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .15s; }
+  .btn-gold { background: var(--gold); color: #1a1600; }
+  .btn-gold:hover { background: var(--gold2); }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-green { background: var(--green); color: #fff; }
+  .search-box { padding: 8px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 13px; width: 220px; }
+  .search-box:focus { outline: none; border-color: var(--gold); }
+  select.filter { padding: 8px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 13px; }
+
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--surface2); padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; white-space: nowrap; border-bottom: 1px solid var(--border); position: sticky; top: 0; }
+  td { padding: 10px 12px; border-bottom: 1px solid #1f1e1c; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #1f1d1a; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: .3px; }
+  .badge-unheated { background: #1a3d2b; color: #4caf7d; }
+  .badge-heated { background: #3d2020; color: #e05c5c; }
+  .badge-cut { background: #1a2a3d; color: #5b9bd5; }
+  .badge-rough { background: #2d2a1a; color: #c9a84c; }
+  .badge-jewelry { background: #2a1a3d; color: #c084fc; }
+  .badge-rare { background: #3d2a1a; color: #f59e0b; }
+  .thumb { width: 42px; height: 42px; border-radius: 6px; object-fit: cover; background: var(--surface2); }
+  .prod-id { font-family: monospace; font-size: 11px; color: var(--muted); }
+  .prod-name { font-weight: 500; max-width: 240px; line-height: 1.3; }
+  .price-cell { font-weight: 700; color: var(--gold2); white-space: nowrap; }
+  .action-btns { display: flex; gap: 6px; }
+  .btn-xs { padding: 4px 10px; font-size: 11px; border-radius: 5px; border: none; cursor: pointer; font-weight: 600; }
+  .btn-xs-edit { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+  .btn-xs-edit:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-xs-del { background: #3d1a1a; color: var(--red); border: 1px solid #5a2020; }
+  .btn-xs-del:hover { background: var(--red); color: #fff; }
+  .btn-xs-snippet { background: #1a2d1a; color: var(--green); border: 1px solid #2a5a2a; }
+  .btn-xs-snippet:hover { background: var(--green); color: #fff; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+  .dot-active { background: var(--green); }
+  .dot-inactive { background: var(--muted); }
+
+  .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.75); z-index: 200; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
+  .modal-bg.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; width: 100%; max-width: 760px; margin: auto; }
+  .modal-head { padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .modal-head h3 { font-size: 16px; font-weight: 700; }
+  .modal-body { padding: 24px; }
+  .close-btn { background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; line-height: 1; }
+  .close-btn:hover { color: var(--text); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .4px; text-transform: uppercase; }
+  .field input, .field select, .field textarea {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-size: 13px; padding: 8px 10px; width: 100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+  .field textarea { resize: vertical; min-height: 80px; font-family: inherit; }
+  .modal-foot { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 10px; justify-content: flex-end; }
+
+  .combo-wrap { position: relative; display: flex; flex-direction: column; gap: 4px; }
+  .combo-select { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px 6px 0 0; color: var(--gold2); font-size: 12px; padding: 5px 8px; width: 100%; border-bottom: none; }
+  .combo-select:focus { outline: none; border-color: var(--gold); }
+  .combo-input { background: var(--surface2); border: 1px solid var(--border); border-radius: 0 0 6px 6px; color: var(--text); font-size: 13px; padding: 8px 10px; width: 100%; }
+  .combo-input:focus { outline: none; border-color: var(--gold); }
+
+  /* ── IMAGE & VIDEO UPLOAD ── */
+  .upload-section { grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
+  .upload-section-title { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: .4px; text-transform: uppercase; margin-bottom: 10px; }
+  .upload-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .upload-btn { background: var(--surface2); border: 1px dashed var(--border); border-radius: 6px; color: var(--muted); font-size: 12px; padding: 8px 14px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+  .upload-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .upload-btn input[type=file] { display: none; }
+  .img-previews { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .img-thumb-wrap { position: relative; width: 64px; height: 64px; }
+  .img-thumb-wrap img { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); display: block; }
+  .img-thumb-wrap .remove-img { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; background: var(--red); border: none; border-radius: 50%; color: #fff; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; font-weight: 700; }
+  .img-count-badge { background: var(--gold); color: #1a1600; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; }
+  .video-preview-wrap { margin-top: 8px; }
+  .video-preview-wrap video { width: 100%; max-height: 140px; border-radius: 6px; border: 1px solid var(--border); background: #000; display: block; }
+  .video-name { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .upload-hint { font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .img-paths-display { font-size: 10px; color: var(--muted); margin-top: 6px; font-family: monospace; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; word-break: break-all; line-height: 1.6; }
+
+  /* ── JSON PREVIEW MODAL ── */
+  .preview-modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 300; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
+  .preview-modal-bg.open { display: flex; }
+  .preview-modal { background: var(--surface); border: 1px solid var(--gold); border-radius: 12px; width: 100%; max-width: 800px; margin: auto; }
+  .preview-modal-head { padding: 16px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .preview-modal-head h3 { font-size: 15px; font-weight: 700; color: var(--gold); }
+  .preview-modal-body { padding: 20px 22px; }
+  .preview-modal-foot { padding: 14px 22px; border-top: 1px solid var(--border); display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+  .json-box { background: #0a0908; border: 1px solid var(--border); border-radius: 6px; padding: 14px; font-family: 'Courier New', monospace; font-size: 12px; color: #c9e8a0; max-height: 420px; overflow-y: auto; white-space: pre; word-break: break-all; line-height: 1.5; }
+  .copy-shortcut-hint { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+  .output-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; }
+  .output-head { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .output-head h3 { font-size: 14px; font-weight: 700; }
+  .output-body { padding: 18px; }
+  .code-area { background: #0a0908; border: 1px solid var(--border); border-radius: 6px; padding: 14px; font-family: 'Courier New', monospace; font-size: 12px; color: #c9e8a0; max-height: 400px; overflow-y: auto; white-space: pre; word-break: break-all; line-height: 1.5; }
+  .notice { background: #1a2d1a; border: 1px solid #2a5a2a; border-radius: var(--radius); padding: 12px 16px; color: #7dd87d; font-size: 13px; margin-bottom: 16px; }
+  .warning { background: #2d2a10; border: 1px solid #5a5010; border-radius: var(--radius); padding: 12px 16px; color: #d4c050; font-size: 13px; margin-bottom: 16px; }
+  .info-box { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; font-size: 13px; line-height: 1.7; color: var(--muted); }
+  .info-box strong { color: var(--text); }
+  .step-list { counter-reset: steps; list-style: none; }
+  .step-list li { counter-increment: steps; padding: 10px 0 10px 36px; position: relative; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li::before { content: counter(steps); position: absolute; left: 0; width: 24px; height: 24px; background: var(--gold); color: #1a1600; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; top: 10px; }
+  .step-list li strong { color: var(--text); display: block; }
+  code { background: var(--surface2); padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; color: var(--gold2); }
+
+  .mode-toggle { display: flex; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .mode-btn { flex: 1; padding: 10px 20px; border: none; background: transparent; color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
+  .mode-btn.active { background: var(--gold); color: #1a1600; }
+
+  .feed-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .feed-table th { background: var(--surface2); padding: 8px 10px; text-align: left; color: var(--muted); font-size: 10px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .feed-table td { padding: 7px 10px; border-bottom: 1px solid #1c1b19; vertical-align: top; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .feed-table tr:hover td { background: #1c1b19; }
+
+  #toast { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: #fff; padding: 12px 20px; border-radius: var(--radius); font-size: 13px; font-weight: 600; z-index: 999; transform: translateY(80px); opacity: 0; transition: all .3s; pointer-events: none; }
+  #toast.show { transform: translateY(0); opacity: 1; }
+  #toast.error { background: var(--red); }
+
+  @media (max-width: 700px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .main { padding: 12px; }
+    .header { padding: 12px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ══ LOGIN SCREEN ══ -->
-<div class="login-screen" id="loginScreen">
-  <div class="login-box">
-    <div class="login-logo">Gem<em>mines</em>2</div>
-    <div class="login-sub">Admin Panel</div>
-    <div class="login-error" id="loginError"></div>
-    <label class="login-label">GitHub Personal Access Token</label>
-    <input class="login-input" type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
-    <label class="login-label" style="margin-top:.5rem">
-      <input type="checkbox" id="rememberToken" checked style="width:auto;margin-right:.4rem">
-      Remember on this device
-    </label>
-    <br><br>
-    <button class="login-btn" onclick="doLogin()">Enter Admin Panel</button>
-    <div class="login-note">
-      Your token is stored only in your browser — never in this file or on GitHub.<br><br>
-      Need a token? <a href="https://github.com/settings/tokens?type=classic" target="_blank">github.com/settings/tokens</a> → Generate new token (classic) → tick <strong>repo</strong> only.
+<div class="header">
+  <div class="logo">GEM<span>MINES</span>2 <span style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px;">Product Manager</span></div>
+  <div class="header-meta" id="headerMeta">Loading...</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('products')">📦 Products</div>
+  <div class="tab" onclick="switchTab('generate-js')">⚙️ Generate JS File</div>
+  <div class="tab" onclick="switchTab('merchant-feed')">🛒 Merchant Feed</div>
+  <div class="tab" onclick="switchTab('guide')">📋 How To Use</div>
+</div>
+
+<div class="main">
+
+  <!-- ═══ PRODUCTS TAB ═══ -->
+  <div class="panel active" id="panel-products">
+    <div class="stats" id="statsBar"></div>
+    <div class="toolbar">
+      <button class="btn btn-gold" onclick="openModal()">+ Add Product</button>
+      <input class="search-box" type="text" placeholder="Search products..." oninput="renderTable(this.value)" id="searchInput">
+      <select class="filter" onchange="renderTable()" id="filterType">
+        <option value="">All Types</option>
+        <option value="cut">Cut & Polished</option>
+        <option value="rough">Rough</option>
+        <option value="jewelry">Jewelry</option>
+      </select>
+      <select class="filter" onchange="renderTable()" id="filterTreat">
+        <option value="">All Treatment</option>
+        <option value="unheated">Unheated</option>
+        <option value="heated">Heated</option>
+      </select>
+      <select class="filter" onchange="renderTable()" id="filterOrigin">
+        <option value="">All Origins</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Zambia">Zambia</option>
+      </select>
+      <button class="btn btn-red" onclick="clearAllProducts()" style="margin-left:auto;" title="Delete every product from the list">🗑️ Clear All</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th><th>ID</th><th>Product Name</th><th>Type</th><th>Treatment</th><th>Origin</th><th>Weight</th><th>Price (USD)</th><th>Status</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;color:var(--muted);font-size:12px;" id="tableCount"></div>
+  </div>
+
+  <!-- ═══ GENERATE JS TAB ═══ -->
+  <div class="panel" id="panel-generate-js">
+    <div style="margin-bottom:18px;">
+      <div class="mode-toggle" style="max-width:480px;">
+        <button class="mode-btn active" id="modeBtn-single" onclick="setGenMode('single')">✂️ Single Item Snippet</button>
+        <button class="mode-btn" id="modeBtn-full" onclick="setGenMode('full')">📄 Full JS File (all products)</button>
+      </div>
+      <div style="color:var(--muted);font-size:12px;margin-top:8px;" id="modeDescription">Generate a snippet for one product — copy and paste it into your product-data.js file.</div>
+    </div>
+
+    <div id="singleMode">
+      <div class="notice">✂️ <strong>Single Item Mode:</strong> Pick a product, generate its snippet, then paste it directly into your <code>product-data.js</code> on GitHub — no need to replace the whole file.</div>
+      <div class="output-section">
+        <div class="output-head"><h3>Select a Product to Generate</h3></div>
+        <div class="output-body">
+          <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
+            <div class="field" style="flex:1;min-width:260px;">
+              <label>Choose Product</label>
+              <select id="singleProductSelect" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;padding:8px 10px;width:100%;" onchange="previewSingleProduct()">
+                <option value="">— Select a product —</option>
+              </select>
+            </div>
+            <button class="btn btn-gold" onclick="generateSingleSnippet()">⚡ Generate Snippet</button>
+          </div>
+          <div id="singlePreview" style="margin-top:14px;display:none;">
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--muted);display:flex;gap:16px;align-items:center;">
+              <img id="singlePreviewImg" style="width:48px;height:48px;border-radius:6px;object-fit:cover;background:var(--bg);" src="" onerror="this.style.display='none'">
+              <div>
+                <div id="singlePreviewName" style="color:var(--text);font-weight:600;"></div>
+                <div id="singlePreviewMeta" style="font-size:12px;margin-top:3px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="output-section" id="singleOutputSection" style="display:none;">
+        <div class="output-head">
+          <h3 id="singleOutputTitle">Snippet — Ready to Copy</h3>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-green" onclick="copySingleSnippet()">📋 Copy Snippet</button>
+          </div>
+        </div>
+        <div class="output-body">
+          <div style="background:#1a2d1a;border:1px solid #2a5a2a;border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;font-size:13px;color:#7dd87d;line-height:1.8;">
+            <strong style="color:#a0f0a0;">How to paste this into your file:</strong><br>
+            1️⃣ Copy the snippet using the button above.<br>
+            2️⃣ Go to GitHub → <code style="color:#a0f0a0;">products-data.js</code> → click ✏️ Edit.<br>
+            3️⃣ Find the last product entry — look for <code style="color:#a0f0a0;">];</code> at the bottom.<br>
+            4️⃣ Add a comma after the previous entry, paste the snippet, then commit.
+          </div>
+          <div class="code-area" id="singleOutput" tabindex="0"></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:6px;">💡 Click inside the box above then press <strong>Ctrl+A</strong> to select all, <strong>Ctrl+C</strong> to copy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="fullMode" style="display:none;">
+      <div class="notice">✅ This generates a clean, validated <code>products-data.js</code> file ready to upload to GitHub. Replaces the entire file.</div>
+      <div class="output-section">
+        <div class="output-head">
+          <h3>products-data.js — Ready to Copy & Upload</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="generateJS()">🔄 Regenerate</button>
+            <button class="btn btn-green" onclick="copyJS()">📋 Copy File Content</button>
+            <button class="btn btn-outline" onclick="downloadJS()">⬇ Download .js</button>
+          </div>
+        </div>
+        <div class="output-body">
+          <div class="warning">⚠️ <strong>Before uploading:</strong> Always check the preview below looks correct.</div>
+          <div class="code-area" id="jsOutput" tabindex="0">Click "Regenerate" to generate the file...</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:6px;">💡 Click inside the box then press <strong>Ctrl+A</strong> to select all, <strong>Ctrl+C</strong> to copy.</div>
+        </div>
+      </div>
+      <div class="output-section">
+        <div class="output-head"><h3>📤 Upload Instructions</h3></div>
+        <div class="output-body">
+          <ol class="step-list">
+            <li><strong>Copy the file content above</strong> — click "Copy File Content" or Ctrl+A / Ctrl+C inside the box</li>
+            <li><strong>Go to GitHub</strong> — open <code>github.com/gemmines2/gemmines2-website</code></li>
+            <li><strong>Click products-data.js</strong> — then click ✏️ edit</li>
+            <li><strong>Select ALL</strong> — press Ctrl+A then Ctrl+V to replace</li>
+            <li><strong>Commit changes</strong> — click green button</li>
+            <li><strong>Wait 2 minutes</strong> — GitHub Pages takes ~2 min to deploy.</li>
+          </ol>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ══ MAIN APP ══ -->
-<div class="app" id="app">
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo">Gem<em>mines</em>2</div>
-      <div class="logo-sub">Admin Panel</div>
+  <!-- ═══ MERCHANT FEED TAB ═══ -->
+  <div class="panel" id="panel-merchant-feed">
+    <div class="notice">✅ Generates a Google Merchant Center compliant TSV feed. Download and upload to Merchant Center.</div>
+    <div class="output-section">
+      <div class="output-head"><h3>Google Merchant Feed Settings</h3></div>
+      <div class="output-body">
+        <div class="form-grid" style="max-width:600px;">
+          <div class="field"><label>Store Base URL</label><input type="text" id="feedBaseUrl" value="https://gemmines2.github.io/gemmines2-website" /></div>
+          <div class="field"><label>Currency</label><select id="feedCurrency"><option value="USD" selected>USD — US Dollar</option><option value="GBP">GBP — British Pound</option><option value="EUR">EUR — Euro</option></select></div>
+          <div class="field"><label>Image Base URL</label><input type="text" id="feedImageUrl" value="https://gemmines2.github.io/gemmines2-website" /></div>
+          <div class="field"><label>Availability</label><input type="text" value="in_stock — always set for Google" disabled style="opacity:0.5;cursor:not-allowed;"></div>
+        </div>
+        <button class="btn btn-gold" style="margin-top:14px;" onclick="generateFeed()">🔄 Generate Feed</button>
+      </div>
     </div>
-    <div class="nav-item active" onclick="showTab('dashboard')"><span class="ic">📊</span> Dashboard</div>
-    <div class="nav-item" onclick="showTab('products')"><span class="ic">💎</span> Products</div>
-    <div style="height:1px;background:var(--border);margin:1rem 1.5rem"></div>
-    <div class="nav-item" onclick="window.open('index.html','_blank')"><span class="ic">🌐</span> View Website</div>
-    <div class="nav-item" onclick="window.open('products.html','_blank')"><span class="ic">🛍️</span> View Shop</div>
-    <div style="height:1px;background:var(--border);margin:1rem 1.5rem"></div>
-    <div class="nav-item nav-logout" onclick="logout()"><span class="ic">🚪</span> Log Out</div>
-  </aside>
-
-  <main class="main">
-    <div id="tab-dashboard" class="tab-panel active">
-      <div class="page-header">
-        <div>
-          <h1 class="page-title">Good day, <em>Yousuf</em></h1>
-          <p class="page-sub">Gemmines2 Admin — Islamabad, Pakistan</p>
+    <div class="output-section">
+      <div class="output-head">
+        <h3>Feed Preview</h3>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-green" onclick="copyFeed()">📋 Copy TSV Content</button>
+          <button class="btn btn-outline" onclick="downloadFeed()">⬇ Download .txt Feed</button>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat"><div class="stat-val" id="s-total">0</div><div class="stat-lbl">Total Products</div></div>
-        <div class="stat"><div class="stat-val" id="s-active">0</div><div class="stat-lbl">Active</div></div>
-        <div class="stat"><div class="stat-val" id="s-sold">0</div><div class="stat-lbl">Sold</div></div>
-        <div class="stat"><div class="stat-val" id="s-value" style="font-size:1.4rem">$0</div><div class="stat-lbl">Catalogue Value</div></div>
-      </div>
-      <div class="notice">
-        <span style="font-size:1.1rem;flex-shrink:0">✨</span>
-        <div class="notice-text"><strong>Fully Automatic:</strong> Add product + upload images/video → saves to GitHub instantly → website updates in ~1 minute. No manual steps.</div>
-      </div>
-      <div class="tbl-wrap">
-        <div class="tbl-top"><span class="tbl-top-title">Recent Products</span><button class="btn-add" onclick="showTab('products');openForm()">+ Add New</button></div>
-        <div id="dash-recent"></div>
+      <div class="output-body">
+        <div class="info-box" style="margin-bottom:14px;"><strong>File format:</strong> Tab-separated (.txt) — accepted by Google Merchant Center.</div>
+        <div style="overflow:auto;max-height:350px;" id="feedPreviewTable"></div>
       </div>
     </div>
+  </div>
 
-    <div id="tab-products" class="tab-panel">
-      <div class="page-header">
-        <div><h1 class="page-title"><em>Products</em></h1><p class="page-sub">Manage your gemstone listings</p></div>
-        <button class="btn-add" onclick="openForm()">+ Add Product</button>
-      </div>
-      <div id="prod-alert" class="alert"></div>
-      <div class="tbl-wrap">
-        <div class="tbl-controls">
-          <input class="search-inp" placeholder="Search products…" oninput="filterText=this.value;renderTable()">
-          <select class="filter-sel" onchange="filterStatus=this.value;renderTable()">
-            <option value="">All Status</option>
-            <option value="active">Active</option>
-            <option value="sold">Sold</option>
-            <option value="draft">Draft</option>
-          </select>
-        </div>
-        <div id="prod-table"></div>
+  <!-- ═══ GUIDE TAB ═══ -->
+  <div class="panel" id="panel-guide">
+    <div class="output-section">
+      <div class="output-head"><h3>🔒 How to Avoid Corruption & Stabilize Your Site</h3></div>
+      <div class="output-body">
+        <div class="warning" style="margin-bottom:16px;">⚠️ <strong>Root cause of past corruption:</strong> Editing products-data.js directly on GitHub introduces typos and syntax errors. Never edit JS files directly on GitHub again.</div>
+        <ol class="step-list">
+          <li><strong>Always use THIS tool to manage products</strong><br>Add, edit, or remove products here.</li>
+          <li><strong>Use Single Item Snippet for new products</strong><br>Go to "Generate JS File" → "Single Item Snippet".</li>
+          <li><strong>Use Full JS File only when doing a big cleanup</strong><br>Replaces everything cleanly.</li>
+          <li><strong>For images — upload MULTIPLE images per product</strong><br>Click "Upload Images" and select multiple files at once. All paths save automatically.</li>
+          <li><strong>Wait 2 minutes after GitHub commit</strong><br>GitHub Pages takes 1–3 minutes to publish.</li>
+        </ol>
       </div>
     </div>
-  </main>
-</div>
+  </div>
+
 </div>
 
-<!-- ══ ADD/EDIT MODAL ══ -->
-<div class="overlay" id="modal">
+<!-- ═══ ADD/EDIT MODAL ═══ -->
+<div class="modal-bg" id="modalBg">
   <div class="modal">
-    <div class="modal-top">
-      <h2 class="modal-title" id="modal-title">Add <em>Product</em></h2>
-      <button class="modal-x" onclick="closeForm()">✕</button>
+    <div class="modal-head">
+      <h3 id="modalTitle">Add Product</h3>
+      <button class="close-btn" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-      <div id="form-alert" class="alert"></div>
-      <div class="progress-wrap" id="progress-wrap">
-        <div class="progress-label" id="progress-label">Uploading…</div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-      </div>
-
-      <!-- IMAGES -->
-      <div class="fg full" style="margin-bottom:1.25rem">
-        <label>Product Images <span class="req">*</span></label>
-        <div class="img-zone" id="drop-zone">
-          <input type="file" id="f-images" accept="image/*" multiple onchange="handleImages(event)">
-          <div class="img-zone-text">🖼️<br><strong>Click to upload images</strong> or drag & drop<br><span style="font-size:.72rem">JPG, PNG, WEBP — first image = main image</span></div>
-        </div>
-        <div class="img-previews" id="img-previews"></div>
-      </div>
-
-      <!-- VIDEO UPLOAD — NEW SECTION -->
-      <div class="fg full" style="margin-bottom:1.25rem">
-        <label>Product Video <span style="color:var(--text2);font-size:.62rem;letter-spacing:0;text-transform:none;font-weight:300">(optional — short clip of the stone)</span></label>
-        <div id="video-existing-wrap"></div>
-        <div class="video-zone" id="video-drop-zone">
-          <input type="file" id="f-video" accept="video/*" onchange="handleVideo(event)">
-          <div class="video-zone-text">🎬<br><strong>Click to upload a video</strong> or drag & drop<br><span style="font-size:.72rem">MP4, MOV, WEBM — max 50MB recommended</span></div>
-        </div>
-        <div class="video-preview" id="video-preview">
-          <video id="video-preview-player" controls muted playsinline></video>
-          <div class="video-preview-name" id="video-preview-name"></div>
-          <button class="video-remove" onclick="removeVideo()">✕ Remove Video</button>
-        </div>
-      </div>
-
       <div class="form-grid">
-        <div class="fg full"><label>Product Name <span class="req">*</span></label><input id="f-name" placeholder="e.g. Natural Unheated Kashmir Pink Sapphire"></div>
-        <div class="fg full"><label>Short Name</label><input id="f-shortname" placeholder="e.g. Pink Sapphire"></div>
-        <div class="fg"><label>Price (USD) <span class="req">*</span></label><input type="number" id="f-price" placeholder="450" step="0.01"></div>
-        <div class="fg"><label>Type</label>
-          <select id="f-type"><option value="cut">Cut Gemstone</option><option value="rough">Rough Stone</option><option value="jewelry">Jewelry</option></select>
+        <div class="field full"><label>Full Product Name (for Google)</label><input type="text" id="f_name" placeholder="e.g. Natural Unheated Blue Sapphire 2.5 Carats Sri Lanka"></div>
+        <div class="field"><label>Short Name (display)</label><input type="text" id="f_shortName" placeholder="e.g. Blue Sapphire"></div>
+        <div class="field"><label>Product ID</label><input type="text" id="f_id" placeholder="e.g. sapphire-001"></div>
+
+        <div class="field">
+          <label>Gem Type</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_gemType', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Sapphire</option><option>Ruby</option><option>Emerald</option><option>Aquamarine</option><option>Spinel</option><option>Garnet</option><option>Topaz</option><option>Peridot</option><option>Zircon</option><option>Chrysoberyl</option><option>Amethyst</option><option>Quartz</option><option>Kunzite</option><option>Fluorite</option><option>Jade</option><option>Tourmaline</option><option>Alexandrite</option><option>Mixed</option>
+            </select>
+            <input type="text" id="f_gemType" class="combo-input" placeholder="or type gem name here">
+          </div>
         </div>
-        <div class="fg"><label>Gem Type</label><input id="f-gemtype" placeholder="e.g. Sapphire, Ruby"></div>
-        <div class="fg"><label>Origin</label><input id="f-origin" placeholder="e.g. Pakistan, Sri Lanka"></div>
-        <div class="fg"><label>Color</label><input id="f-color" placeholder="e.g. Vivid Pink"></div>
-        <div class="fg"><label>Treatment</label>
-          <select id="f-treatment">
-            <option value="unheated">Unheated Untreated</option>
-            <option value="heated">Heat Treated</option>
-            <option value="beryllium">Beryllium Diffused</option>
-            <option value="oiled">Oiled</option>
-            <option value="fracture">Fracture Filled</option>
-          </select>
+
+        <div class="field"><label>Price (USD)</label><input type="number" id="f_price" min="0" step="1" placeholder="120"></div>
+        <div class="field"><label>Weight (carats)</label><input type="number" id="f_weight" min="0" step="0.01" placeholder="2.5"></div>
+        <div class="field"><label>Type</label><select id="f_type"><option value="cut">Cut & Polished</option><option value="rough">Rough</option><option value="jewelry">Jewelry</option></select></div>
+        <div class="field"><label>Treatment</label><select id="f_treatment"><option value="unheated">Unheated</option><option value="heated">Heated</option></select></div>
+
+        <div class="field">
+          <label>Origin</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_origin', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Pakistan</option><option>Sri Lanka</option><option>Tanzania</option><option>Zambia</option><option>Madagascar</option><option>Burma (Myanmar)</option><option>Colombia</option><option>Brazil</option><option>India</option><option>Afghanistan</option><option>Kenya</option><option>Mozambique</option>
+            </select>
+            <input type="text" id="f_origin" class="combo-input" placeholder="or type country here">
+          </div>
         </div>
-        <div class="fg"><label>Shape / Cut</label><input id="f-shape" placeholder="e.g. Oval, Rectangular"></div>
-        <div class="fg"><label>Weight (Carats)</label><input type="number" id="f-weight" placeholder="1.10" step="0.001"></div>
-        <div class="fg"><label>Dimensions</label><input id="f-dims" placeholder="e.g. 6.8 × 5.2 × 3.1 mm"></div>
-        <div class="fg"><label>Clarity</label><input id="f-clarity" placeholder="e.g. Eye Clean"></div>
-        <div class="fg"><label>Certificate</label><input id="f-cert" placeholder="e.g. GIA, Available on Request"></div>
-        <div class="fg"><label>Status</label>
-          <select id="f-status">
-            <option value="active">Active — Visible in shop</option>
-            <option value="sold">Sold</option>
-            <option value="draft">Draft — Hidden</option>
-          </select>
+
+        <div class="field">
+          <label>Color</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_color', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Blue</option><option>Royal Blue</option><option>Cornflower Blue</option><option>Yellow</option><option>Lemon Yellow</option><option>Padparadscha (Pink-Orange)</option><option>Pink</option><option>Purple</option><option>Violet</option><option>Red</option><option>Vivid Red</option><option>Green</option><option>Rich Green</option><option>Olive Green</option><option>Yellowish Green</option><option>Reddish Pink</option><option>Bi-Color</option><option>Multi-Color</option><option>Icy Pastel Blue</option><option>Brownish</option><option>Deep Black</option><option>Translucent Green</option>
+            </select>
+            <input type="text" id="f_color" class="combo-input" placeholder="or type color here">
+          </div>
         </div>
-        <div class="fg" style="flex-direction:row;align-items:center;gap:.75rem;padding-top:.75rem">
-          <label style="text-transform:none;letter-spacing:0;font-size:.82rem;color:var(--text)">Mark as Rare</label>
-          <label class="toggle"><input type="checkbox" id="f-rare"><span class="slider"></span></label>
+
+        <div class="field">
+          <label>Shape / Cut</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_shape', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Oval Cut</option><option>Oval Brilliant Cut</option><option>Round Brilliant Cut</option><option>Emerald Cut</option><option>Cushion Cut</option><option>Pear Cut</option><option>Pear Shape</option><option>Princess Cut</option><option>Marquise Cut</option><option>Heart Shape</option><option>Asscher Cut</option><option>Faceted</option><option>Rough</option><option>Rough Crystal</option><option>Tumbled Stone</option><option>Polished Crystal</option><option>Cabochon</option><option>Mixed Cuts</option>
+            </select>
+            <input type="text" id="f_shape" class="combo-input" placeholder="or type shape here">
+          </div>
         </div>
-        <div class="fg full"><label>Description</label><textarea id="f-desc" rows="4" placeholder="Describe the gemstone…"></textarea></div>
+
+        <div class="field">
+          <label>Clarity</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_clarity', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Loupe Clean</option><option>Eye Clean</option><option>AAA Eye Clean</option><option>Eye Clean with Minor Natural Inclusion</option><option>Eye Clean with Natural Rutile</option><option>Transparent</option><option>Translucent</option><option>High Clarity</option><option>Opaque</option>
+            </select>
+            <input type="text" id="f_clarity" class="combo-input" placeholder="or type clarity here">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Certificate</label>
+          <div class="combo-wrap">
+            <select class="combo-select" onchange="comboSelect('f_certificate', this.value)">
+              <option value="">— pick or type below —</option>
+              <option>Available on Request</option><option>Certificate Available</option><option>GIA Certified</option><option>GRS Certified</option><option>AGL Certified</option><option>Gübelin Certified</option><option>IGI Certified</option><option>No Certificate</option>
+            </select>
+            <input type="text" id="f_certificate" class="combo-input" placeholder="or type certificate here">
+          </div>
+        </div>
+
+        <div class="field"><label>Status</label><select id="f_status"><option value="active">Active</option><option value="inactive">Inactive</option></select></div>
+        <div class="field"><label>Rare?</label><select id="f_rare"><option value="false">No</option><option value="true">Yes — mark as rare</option></select></div>
+
+        <div class="field full"><label>Description</label><textarea id="f_description" rows="4" placeholder="Full product description for Google and your website..."></textarea></div>
+
+        <!-- ═══ IMAGE & VIDEO UPLOAD SECTION ═══ -->
+        <div class="upload-section full">
+          <div class="upload-section-title">📷 Images & 🎥 Video</div>
+
+          <div class="upload-row">
+            <label class="upload-btn">
+              📷 Upload Images — Select Multiple at Once
+              <input type="file" id="imgUploadInput" accept="image/jpeg,image/png,image/webp,image/gif" multiple onchange="handleImageUpload(this)">
+            </label>
+            <button type="button" class="upload-btn" onclick="addMoreImages()" style="cursor:pointer;">➕ Add More Images</button>
+            <label class="upload-btn">
+              🎥 Upload Video (MP4, MOV, WEBM)
+              <input type="file" id="vidUploadInput" accept="video/mp4,video/quicktime,video/webm" onchange="handleVideoUpload(this)">
+            </label>
+          </div>
+
+          <!-- Image count badge -->
+          <div id="imgCountBadge" style="display:none;" class="img-count-badge">0 images</div>
+
+          <!-- Thumbnails grid -->
+          <div id="imgPreviewsWrap" class="img-previews"></div>
+
+          <!-- All paths display -->
+          <div id="imgPathsDisplay" class="img-paths-display" style="display:none;"></div>
+
+          <div class="upload-hint" style="margin-top:6px;">✅ Select multiple images at once, or click "Add More Images" to keep adding. Each image gets its own thumbnail with a ✕ remove button.</div>
+
+          <div id="videoPreviewWrap" class="video-preview-wrap" style="display:none;">
+            <video id="videoPreviewEl" controls></video>
+            <div id="videoNameDisplay" class="video-name"></div>
+          </div>
+
+          <div class="field" style="margin-top:10px;">
+            <label>Video Path (auto-filled on upload)</label>
+            <input type="text" id="f_video" placeholder="videos/filename.mp4">
+          </div>
+
+          <div class="field" style="margin-top:8px;">
+            <label>Manual Image Path (optional — or use uploader above)</label>
+            <input type="text" id="f_image" placeholder="images/filename.jpg">
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="modal-foot">
-      <button class="btn-cancel" onclick="closeForm()">Cancel</button>
-      <button class="btn-primary" id="save-btn" onclick="saveProduct()">Save & Publish to Website</button>
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-gold" onclick="saveProduct()">Save Product</button>
+      <button class="btn btn-green" onclick="previewJSON()" title="Preview the JSON before saving">👁 Preview JSON</button>
+      <button class="btn btn-green" onclick="saveAndCopySnippet()" title="Save product AND copy its snippet ready to paste into GitHub">✂️ Save & Copy Snippet</button>
     </div>
   </div>
 </div>
 
+<!-- ═══ JSON PREVIEW MODAL ═══ -->
+<div class="preview-modal-bg" id="previewModalBg">
+  <div class="preview-modal">
+    <div class="preview-modal-head">
+      <h3>👁 JSON Preview — Check before saving</h3>
+      <button class="close-btn" onclick="closePreview()">✕</button>
+    </div>
+    <div class="preview-modal-body">
+      <div class="json-box" id="previewJsonBox" tabindex="0"></div>
+      <div class="copy-shortcut-hint">💡 Click inside the box then press <strong>Ctrl+A</strong> / <strong>Ctrl+C</strong> to copy.</div>
+    </div>
+    <div class="preview-modal-foot">
+      <button class="btn btn-outline" onclick="closePreview()">Close</button>
+      <button class="btn btn-outline" onclick="copyPreviewJSON()">📋 Copy JSON</button>
+      <button class="btn btn-outline" onclick="downloadPreviewJSON()">⬇ Download JSON</button>
+      <button class="btn btn-gold" onclick="confirmSaveFromPreview()">✅ Looks Good — Save Product</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast">Copied!</div>
+
 <script>
-const GH_OWNER  = 'gemmines2';
-const GH_REPO   = 'gemmines2-website';
-const GH_BRANCH = 'main';
-const GH_FILE   = 'products-data.js';
-let GH_TOKEN    = '';
+const INITIAL_PRODUCTS = [
+  {"id":"GM-AQUA-1009","name":"730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting","shortName":"Natural Aquamarine","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Icy Pastel Blue","shape":"Rough","weight":730,"dimensions":"","clarity":"Translucent","certificate":"Certificate Available","price":240,"pricePerCarat":0.33,"status":"active","rare":false,"description":"Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin.","gemType":"Aquamarine","images":["images/GM-AQUA-1009.jpg"],"image":"images/GM-AQUA-1009.jpg","video":""},
+  {"id":"sapphire-1780901637012","name":"This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.","shortName":"Yellow Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellow","shape":"Emerald Cut","weight":0.52,"dimensions":"","clarity":"","certificate":"Available on Request","price":100,"pricePerCarat":192,"status":"active","rare":false,"description":"This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance.","gemType":"Sapphire","images":["images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg"],"image":"images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg","video":""},
+  {"id":"sapphire-1780848740390","name":"Natural Unheated Blue Sapphire 7.8 Ct Rough Stone Sri Lankan Origin","shortName":"Blue Sapphire","type":"rough","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"","weight":7.8,"dimensions":"","clarity":"loupe clean","certificate":"Available on Request","price":120,"pricePerCarat":15,"status":"active","rare":false,"description":"Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats.","gemType":"Sapphire","images":["images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"],"image":"images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg","video":""},
+  {"id":"GM-SAPH-1001","name":"Natural Sri Lankan Blue Sapphire","shortName":"Sapphire","type":"rough","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"","weight":3.8,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":120,"pricePerCarat":32,"status":"active","rare":false,"description":"Blue Sapphire - Sri Lankan Origin - Blue - Natural","gemType":"Blue Sapphire","images":["images/gm-saph-1001-1.jpg"],"image":"images/gm-saph-1001-1.jpg","video":""},
+  {"id":"amethys-1780829923587","name":"Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds","shortName":"Natural Amethyst with American Diamond","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Purple","shape":"Pear Shape","weight":3,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":150,"pricePerCarat":50,"status":"active","rare":false,"description":"Exclusive pendant made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.","gemType":"Amethyst","images":["images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg","images/-custom-designed-stunning-silver-pe-1780829921329-1.jpeg"],"image":"images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg","video":""},
+  {"id":"sapphire-1780764315884","name":"Natural P Color change Sapphire Top eye clean Unheated Color: From Violet to Purple","shortName":"Color Change Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Purple","shape":"Oval Cut","weight":1.54,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":150,"pricePerCarat":97,"status":"active","rare":false,"description":"Natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats.","gemType":"Sapphire","images":["images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","images/natural-p-color-change-sapphire-top-1780765094874-1.jpeg"],"image":"images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","video":"videos/natural-p-color-change-sapphire-top-1780764311378.mp4"},
+  {"id":"chrysoberyl-1780742386216","name":"Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )","shortName":"Chrysoberyl","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellowish Green","shape":"Oval Cut","weight":1.35,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":120,"pricePerCarat":89,"status":"active","rare":false,"description":"Natural chrysoberyl gemstone weighing 1.35 carats from Sri Lanka.","gemType":"Chrysoberyl","images":["images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"],"image":"images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg","video":""},
+  {"id":"zircon-1780665881053","name":"Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.","shortName":"Blue Zircon","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Brownish","shape":"Emerald Cut","weight":3.999,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":95,"pricePerCarat":24,"status":"active","rare":true,"description":"Handcrafted exclusive pendant in 925 sterling silver with natural zircon and American diamonds.","gemType":"Zircon","images":["images/zircon-pendant-1780665878476-0.jpeg"],"image":"images/zircon-pendant-1780665878476-0.jpeg","video":""},
+  {"id":"spinel-1780499911496","name":"Natural Sri Lankan ( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone","shortName":"Natural Spinel","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"oval shape","weight":1,"dimensions":"","clarity":"loupe clean","certificate":"Available on Request","price":125,"pricePerCarat":125,"status":"active","rare":false,"description":"Natural Sri Lankan Blue Spinel with pristine loupe clean clarity.","gemType":"Spinel","images":["images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"],"image":"images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg","video":""},
+  {"id":"garnet-1780215589223","name":"Natural Unheated Rhodolite Garnets 12.2 Carats","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Oval, Cushion, Rectangular","weight":12.2,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":200,"pricePerCarat":16,"status":"active","rare":false,"description":"Natural Unheated Rhodolite Garnets from Tanzania with mixed cuts.","gemType":"Garnet","images":["images/rhodolite-garnets-1780215583524-0.jpg"],"image":"images/rhodolite-garnets-1780215583524-0.jpg","video":""},
+  {"id":"greenjasper_005","name":"Natural Green Jasper Stones 10+ Carats","shortName":"Green Jasper","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Green","shape":"Rough/Tumbled","weight":10,"dimensions":"","clarity":"Opaque","certificate":"Available on Request","price":100,"pricePerCarat":10,"status":"active","rare":false,"description":"Opaque quality green jasper from Pakistan with beautiful lustre and color.","gemType":"Jasper","images":["images/green-jasper.jpg"],"image":"images/green-jasper.jpg","video":""},
+  {"id":"lemonquartz_012","name":"Natural Unheated Lemon Quartz 11.15 Carats","shortName":"Lemon Quartz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":11.15,"dimensions":"","clarity":"Eye Clean","certificate":"Available on Request","price":70,"pricePerCarat":6,"status":"active","rare":false,"description":"Vibrant Lemon Quartz from Pakistan with eye clean transparency.","gemType":"Quartz","images":["images/lemon-quartz.jpg"],"image":"images/lemon-quartz.jpg","video":""},
+  {"id":"lemonquartz2_014","name":"Natural Eye-Clean Lemon Quartz Cut and Polished","shortName":"Lemon Quartz AAA","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":8.5,"dimensions":"","clarity":"AAA Eye Clean","certificate":"Available on Request","price":140,"pricePerCarat":16,"status":"active","rare":false,"description":"AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan.","gemType":"Quartz","images":["images/lemon-quartz2.jpg"],"image":"images/lemon-quartz2.jpg","video":""},
+  {"id":"bluesapphire_016","name":"Stunning Sri Lankan Blue Sapphire Heated 1.10 Carats","shortName":"Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Blue","shape":"Faceted","weight":1.1,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":320,"pricePerCarat":291,"status":"active","rare":false,"description":"Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.","gemType":"Sapphire","images":["images/bluesapphire.jpg"],"image":"images/bluesapphire.jpg","video":""},
+  {"id":"emeralds_017","name":"Natural Unheated Cut and Polished Zambian Emeralds","shortName":"Zambian Emeralds","type":"cut","treatment":"unheated","origin":"Zambia","color":"Rich Green","shape":"Faceted","weight":2.4,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":250,"status":"active","rare":true,"description":"Premium Untreated Loose Gemstones with Rich Green Hue from Zambia.","gemType":"Emerald","images":["images/emeralds.jpg"],"image":"images/emeralds.jpg","video":""},
+  {"id":"fluorite_018","name":"Natural Unheated Blue Fluorite 58 Carats","shortName":"Blue Fluorite","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Blue","shape":"Polished Crystal","weight":58,"dimensions":"","clarity":"High Clarity","certificate":"Available on Request","price":100,"pricePerCarat":2,"status":"active","rare":false,"description":"Rare High Clarity Polished Crystal Healing Stone from Pakistan.","gemType":"Fluorite","images":["images/fluorite.jpg"],"image":"images/fluorite.jpg","video":""},
+  {"id":"mixedgemstones_019","name":"Natural Mixed Lot Gemstones Peridot Garnet and Smoky Quartz","shortName":"Mixed Gemstones","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Mixed Cuts","weight":15.3,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":39,"status":"active","rare":false,"description":"Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz.","gemType":"Mixed","images":["images/mixed-gemstones.jpg"],"image":"images/mixed-gemstones.jpg","video":""},
+  {"id":"almandine_028","name":"Natural Almandine Garnet 60 Carat Oval Cut","shortName":"Almandine Garnet","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Reddish Purple","shape":"Oval Cut","weight":60,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":125,"pricePerCarat":2,"status":"active","rare":false,"description":"Polished Reddish Purple Almandine Garnet from Pakistan with beautiful oval cut.","gemType":"Garnet","images":["images/almandine.jpg"],"image":"images/almandine.jpg","video":""},
+  {"id":"mixed_sapphire_029","name":"Premium Mixed Sapphire Collection Multi-Color","shortName":"Mixed Sapphires","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Loose Uncut","weight":22.1,"dimensions":"","clarity":"Transparent/Translucent","certificate":"Available on Request","price":400,"pricePerCarat":18,"status":"active","rare":false,"description":"Natural multi-color loose sapphire gemstones from Pakistan.","gemType":"Sapphire","images":["images/mixedsapphire.jpg"],"image":"images/mixedsapphire.jpg","video":""},
+  {"id":"Natural_Black_Chert_030","name":"Natural Black Chert Tumbled Stone from Pakistan","shortName":"Black Chert","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Deep Black","shape":"Tumbled Stone","weight":14,"dimensions":"","clarity":"Opaque","certificate":"Available on Request","price":80,"pricePerCarat":5,"status":"active","rare":false,"description":"Smooth river rock specimen with deep black color from Pakistan.","gemType":"Chert","images":["images/chert.jpg"],"image":"images/chert.jpg","video":""},
+  {"id":"Kunzite_031","name":"Natural Pink Kunzite Gemstone 4.80 Carats","shortName":"Pink Kunzite","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Pink","shape":"Oval Cut","weight":4.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":100,"pricePerCarat":21,"status":"active","rare":false,"description":"Unheated transparent oval-cut natural pink kunzite from Pakistan.","gemType":"Kunzite","images":["images/pink-kunzite.jpg"],"image":"images/pink-kunzite.jpg","video":""},
+  {"id":"quartz_034","name":"12 Carat Ferruginous Quartz Gemstone","shortName":"Ferruginous Quartz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Yellow/White","shape":"Loose Stone","weight":12,"dimensions":"","clarity":"Translucent","certificate":"Available on Request","price":70,"pricePerCarat":6,"status":"active","rare":false,"description":"Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.","gemType":"Quartz","images":["images/ferruginous.jpg"],"image":"images/ferruginous.jpg","video":""},
+  {"id":"sapphire_039","name":"2.15ct Natural Unheated Bi-Color Sapphire Sri Lanka","shortName":"Bi-Color Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Bi-Color","shape":"Pear Cut","weight":2.15,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":95,"pricePerCarat":44,"status":"active","rare":true,"description":"Rare Sri Lankan Origin Bi-Color Sapphire with pear cut.","gemType":"Sapphire","images":["images/bi-color-sapphire.jpeg"],"image":"images/bi-color-sapphire.jpeg","video":""},
+  {"id":"sapphire_040","name":"5.80ct Royal Blue Sapphire Sri Lankan Origin","shortName":"Royal Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Royal Blue","shape":"Oval Brilliant Cut","weight":5.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":120,"pricePerCarat":21,"status":"active","rare":false,"description":"Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut.","gemType":"Sapphire","images":["images/darksapphire.jpeg"],"image":"images/darksapphire.jpeg","video":""},
+  {"id":"sapphire_043","name":"Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster","shortName":"Padparadscha Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Pink-Orange","shape":"Oval","weight":2.93,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":190,"pricePerCarat":65,"status":"active","rare":true,"description":"Stunning 2.93 carat heated Padparadscha sapphire from Sri Lanka.","gemType":"Sapphire","images":["images/Padparadscha-sapphire.jpeg"],"image":"images/Padparadscha-sapphire.jpeg","video":""},
+  {"id":"ruby_044","name":"Natural Unheated Sri Lankan Ruby 1.06 Carats","shortName":"Ceylon Ruby","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Vivid Red","shape":"Faceted","weight":1.06,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":200,"pricePerCarat":189,"status":"active","rare":true,"description":"Vivid Red Ceylon Ruby Gemstone with Stunning Luster.","gemType":"Ruby","images":["images/ruby2.jpeg"],"image":"images/ruby2.jpeg","video":""},
+  {"id":"pinktopaz_101","name":"Natural Unheated Pink Topaz 18 Carats Pakistan","shortName":"Pink Topaz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Light Pink","shape":"Emerald Cut","weight":18,"dimensions":"","clarity":"Eye Clean with Minor Natural Inclusion","certificate":"Available on Request","price":120,"pricePerCarat":7,"status":"active","rare":false,"description":"Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats.","gemType":"Topaz","images":["images/pinktopaz.gif","images/natural-unheated-pink-topaz-18-cara-1780319473513-0.jpg","images/natural-unheated-pink-topaz-18-cara-1780319477585-1.jpg"],"image":"images/pinktopaz.gif","video":""},
+  {"id":"Greenperidot_102","name":"Natural Unheated Olive Green Peridot Pakistan","shortName":"Olive Peridot","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Olive Green","shape":"Oval","weight":5,"dimensions":"","clarity":"Eye Clean with Natural Rutile","certificate":"Available on Request","price":95,"pricePerCarat":19,"status":"active","rare":false,"description":"Natural unheated olive green peridot from Pakistan.","gemType":"Peridot","images":["images/peridot.gif"],"image":"images/peridot.gif","video":""},
+  {"id":"rhodolitegarnets_103","name":"Natural Unheated Rhodolite Garnets 12 Carats Tanzania","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Mixed Cuts","weight":12,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":140,"pricePerCarat":12,"status":"active","rare":false,"description":"Natural unheated rhodolite garnets from Tanzania.","gemType":"Garnet","images":["images/rhodolite.jpg"],"image":"images/rhodolite.jpg","video":""},
+  {"id":"jade_045","name":"Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan","shortName":"Green Jade","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Translucent Green","shape":"Oval Cut","weight":3.2,"dimensions":"","clarity":"Translucent","certificate":"Available on Request","price":80,"pricePerCarat":25,"status":"active","rare":false,"description":"Natural translucent green nephrite gemstone from Pakistan.","gemType":"Jade","images":["images/natural-translucent-green-nephrite--1780761893401-0.jpg","images/natural-translucent-green-nephrite--1780761897176-1.jpg"],"image":"images/natural-translucent-green-nephrite--1780761893401-0.jpg","video":""}
+];
 
-// ── LOGIN ─────────────────────────────────────────────────
-function doLogin() {
-  const token = document.getElementById('tokenInput').value.trim();
-  if (!token.startsWith('ghp_') && !token.startsWith('github_pat_')) {
-    const err = document.getElementById('loginError');
-    err.textContent = 'Invalid token format. It should start with ghp_';
-    err.classList.add('show');
-    return;
-  }
-  GH_TOKEN = token;
-  if (document.getElementById('rememberToken').checked) {
-    localStorage.setItem('gm2_admin_token', token);
-  }
-  showApp();
-}
-
-function logout() {
-  localStorage.removeItem('gm2_admin_token');
-  GH_TOKEN = '';
-  document.getElementById('app').classList.remove('show');
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('tokenInput').value = '';
-}
-
-function showApp() {
-  document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('app').classList.add('show');
-  showAlert('prod-alert','info','Loading products from GitHub…');
-  loadProducts().then(() => {
-    document.getElementById('prod-alert').className = 'alert';
-  }).catch(e => {
-    showAlert('prod-alert','error','Could not load products: ' + e.message);
-  });
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('gm2_admin_token');
-  if (saved) {
-    GH_TOKEN = saved;
-    document.getElementById('tokenInput').value = saved;
-    showApp();
-  }
-  document.getElementById('tokenInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') doLogin();
-  });
-});
-
-// ── GITHUB API ────────────────────────────────────────────
-async function ghGet(path) {
-  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`, {
-    headers: { Authorization: `token ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json' }
-  });
-  if (!r.ok) return null;
-  return r.json();
-}
-
-async function ghPut(path, content, message, sha) {
-  const body = { message, content, branch: GH_BRANCH };
-  if (sha) body.sha = sha;
-  const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`, {
-    method: 'PUT',
-    headers: { Authorization: `token ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-  return r.json();
-}
-
-// ── LOAD PRODUCTS ─────────────────────────────────────────
 let products = [];
+let editingIndex = -1;
+let jsText = '';
+let feedText = '';
+let singleSnippetText = '';
+let genMode = 'single';
+let pendingProductForPreview = null;
+// ── MULTI-IMAGE FIX: accumulate paths across multiple upload calls ──
+let uploadedImagePaths = [];
+let uploadedVideoPath = '';
 
-async function loadProducts() {
-  const file = await ghGet(GH_FILE);
-  if (!file) throw new Error('products-data.js not found');
-  const raw = atob(file.content.replace(/\n/g, ''));
-  const match = raw.match(/const\s+PRODUCTS\s*=\s*(\[[\s\S]*\]);/);
-  if (match) {
-    try { products = JSON.parse(match[1]); } catch(e) { products = []; }
-  }
-  renderDashboard();
-  renderTable();
+function loadProducts() {
+  try {
+    const saved = localStorage.getItem('gemmines2_products');
+    products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
+    if (!saved) saveProducts();
+  } catch(e) { products = JSON.parse(JSON.stringify(INITIAL_PRODUCTS)); }
+}
+function saveProducts() { localStorage.setItem('gemmines2_products', JSON.stringify(products)); }
+function comboSelect(id, val) { if (val) document.getElementById(id).value = val; }
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const tabs = ['products','generate-js','merchant-feed','guide'];
+  document.querySelectorAll('.tab')[tabs.indexOf(name)].classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+  if (name === 'generate-js') { populateSingleProductSelect(); if (genMode === 'full') generateJS(); }
+  if (name === 'merchant-feed') generateFeed();
 }
 
-// ── SAVE PRODUCTS ─────────────────────────────────────────
-async function saveProductsToGitHub() {
-  const js = `/* ═══════════════════════════════════════════
-   GEMMINES2 — Product Catalog
-   Add / edit products here. All pages read from this file.
-   ═══════════════════════════════════════════ */
-const PRODUCTS = ${JSON.stringify(products, null, 2)};
-`;
-  const encoded = btoa(unescape(encodeURIComponent(js)));
-  const existing = await ghGet(GH_FILE);
-  const sha = existing ? existing.sha : undefined;
-  const result = await ghPut(GH_FILE, encoded, `Admin: Update products — ${new Date().toLocaleString()}`, sha);
-  if (!result.content) throw new Error(JSON.stringify(result));
+function setGenMode(mode) {
+  genMode = mode;
+  document.getElementById('modeBtn-single').classList.toggle('active', mode === 'single');
+  document.getElementById('modeBtn-full').classList.toggle('active', mode === 'full');
+  document.getElementById('singleMode').style.display = mode === 'single' ? 'block' : 'none';
+  document.getElementById('fullMode').style.display = mode === 'full' ? 'block' : 'none';
+  document.getElementById('modeDescription').textContent = mode === 'single'
+    ? 'Generate a snippet for one product — copy and paste it into your products-data.js file.'
+    : 'Generate the complete products-data.js file — replaces everything on GitHub.';
+  if (mode === 'full') generateJS();
 }
 
-// ── UPLOAD IMAGE ──────────────────────────────────────────
-async function uploadImageToGitHub(file, filename) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const base64 = e.target.result.split(',')[1];
-      const path = `images/${filename}`;
-      const existing = await ghGet(path);
-      const sha = existing ? existing.sha : undefined;
-      const result = await ghPut(path, base64, `Admin: Upload ${filename}`, sha);
-      if (result.content) resolve(`images/${filename}`);
-      else reject(new Error('Image upload failed'));
-    };
-    reader.readAsDataURL(file);
-  });
-}
+// ════════════════════════════════════════════════
+// ── MULTI-IMAGE UPLOAD FIX ──
+// Accumulates images across multiple upload calls
+// instead of resetting each time
+// ════════════════════════════════════════════════
+function handleImageUpload(input) {
+  const files = Array.from(input.files);
+  if (!files.length) return;
 
-// ── UPLOAD VIDEO ──────────────────────────────────────────
-async function uploadVideoToGitHub(file, filename) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const base64 = e.target.result.split(',')[1];
-      const path = `videos/${filename}`;
-      const existing = await ghGet(path);
-      const sha = existing ? existing.sha : undefined;
-      const result = await ghPut(path, base64, `Admin: Upload video ${filename}`, sha);
-      if (result.content) resolve(`videos/${filename}`);
-      else reject(new Error('Video upload failed'));
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-// ── UI ────────────────────────────────────────────────────
-let editingId = null;
-let pendingFiles = [];
-let existingImages = [];
-let pendingVideo = null;      // new video File object
-let existingVideo = '';       // path already saved e.g. "videos/abc.mp4"
-let filterText = '';
-let filterStatus = '';
-
-function showTab(name) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  const idx = ['dashboard','products'].indexOf(name);
-  if (idx >= 0) document.querySelectorAll('.nav-item')[idx].classList.add('active');
-  if (name === 'dashboard') renderDashboard();
-  if (name === 'products') renderTable();
-}
-
-function renderDashboard() {
-  const active = products.filter(p => (p.status||'active') === 'active');
-  const sold   = products.filter(p => p.status === 'sold');
-  const val    = active.reduce((s,p) => s + (Number(p.price)||0), 0);
-  document.getElementById('s-total').textContent  = products.length;
-  document.getElementById('s-active').textContent = active.length;
-  document.getElementById('s-sold').textContent   = sold.length;
-  document.getElementById('s-value').textContent  = '$' + val.toLocaleString('en-US', {maximumFractionDigits:0});
-  const recent = [...products].reverse().slice(0, 5);
-  document.getElementById('dash-recent').innerHTML = recent.length
-    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Status</th></tr></thead><tbody>${recent.map(productRow).join('')}</tbody></table>`
-    : `<div class="empty-state"><div class="ei">💎</div><h3>No products yet</h3><p>Click "+ Add New" to get started.</p></div>`;
-}
-
-function renderTable() {
-  let list = products.filter(p => {
-    const nm = (p.name||'').toLowerCase();
-    const sm = !filterStatus || (p.status||'active') === filterStatus;
-    return nm.includes(filterText.toLowerCase()) && sm;
-  });
-  document.getElementById('prod-table').innerHTML = list.length
-    ? `<table><thead><tr><th>Image</th><th>Name</th><th>Weight</th><th>Price</th><th>Video</th><th>Status</th><th>Actions</th></tr></thead><tbody>${list.map(productRow).join('')}</tbody></table>`
-    : `<div class="empty-state"><div class="ei">🔍</div><h3>No products found</h3></div>`;
-}
-
-function productRow(p) {
-  const img = (p.images&&p.images[0]) || p.image || '';
-  const sc  = {active:'badge-active',sold:'badge-sold',draft:'badge-draft'}[p.status||'active'] || 'badge-active';
-  const vid = p.video ? '🎬' : '';
-  return `<tr>
-    <td>${img ? `<img class="td-img" src="${img}" onerror="this.style.display='none'">` : ''}</td>
-    <td style="max-width:200px"><div>${p.name||'—'}</div><div style="font-size:.72rem;color:var(--text2)">${p.origin||''}</div></td>
-    <td style="color:var(--text2);font-size:.78rem">${p.weight ? p.weight+' ct' : '—'}</td>
-    <td style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem">$${Number(p.price||0).toLocaleString()}</td>
-    <td style="font-size:.85rem">${vid}</td>
-    <td><span class="badge ${sc}">${p.status||'active'}</span></td>
-    <td><div class="act-row">
-      <button class="btn-sm btn-edit" onclick="openForm('${p.id}')">Edit</button>
-      <button class="btn-sm btn-del" onclick="deleteProduct('${p.id}')">Delete</button>
-    </div></td></tr>`;
-}
-
-function openForm(id) {
-  editingId = id || null;
-  pendingFiles = [];
-  existingImages = [];
-  pendingVideo = null;
-  existingVideo = '';
-
-  document.getElementById('img-previews').innerHTML = '';
-  document.getElementById('f-images').value = '';
-  document.getElementById('f-video').value = '';
-  document.getElementById('video-preview').style.display = 'none';
-  document.getElementById('video-existing-wrap').innerHTML = '';
-
-  ['name','shortname','price','gemtype','origin','color','shape','weight','dims','clarity','cert','desc'].forEach(f => {
-    const el = document.getElementById('f-'+f); if(el) el.value = '';
-  });
-  document.getElementById('f-type').value      = 'cut';
-  document.getElementById('f-treatment').value = 'unheated';
-  document.getElementById('f-status').value    = 'active';
-  document.getElementById('f-rare').checked    = false;
-  document.getElementById('form-alert').className = 'alert';
-  document.getElementById('progress-wrap').classList.remove('show');
-  document.getElementById('progress-fill').style.width = '0%';
-
-  if (id) {
-    const p = products.find(x => x.id === id); if (!p) return;
-    document.getElementById('modal-title').innerHTML = 'Edit <em>Product</em>';
-    document.getElementById('f-name').value      = p.name||'';
-    document.getElementById('f-shortname').value = p.shortName||'';
-    document.getElementById('f-price').value     = p.price||'';
-    document.getElementById('f-type').value      = p.type||'cut';
-    document.getElementById('f-gemtype').value   = p.gemType||'';
-    document.getElementById('f-origin').value    = p.origin||'';
-    document.getElementById('f-color').value     = p.color||'';
-    document.getElementById('f-treatment').value = p.treatment||'unheated';
-    document.getElementById('f-shape').value     = p.shape||'';
-    document.getElementById('f-weight').value    = p.weight||'';
-    document.getElementById('f-dims').value      = p.dimensions||'';
-    document.getElementById('f-clarity').value   = p.clarity||'';
-    document.getElementById('f-cert').value      = p.certificate||'';
-    document.getElementById('f-status').value    = p.status||'active';
-    document.getElementById('f-rare').checked    = !!p.rare;
-    document.getElementById('f-desc').value      = p.description||'';
-    existingImages = p.images || (p.image ? [p.image] : []);
-    existingImages.forEach(src => addPreviewFromUrl(src));
-
-    // Show existing video if any
-    if (p.video) {
-      existingVideo = p.video;
-      document.getElementById('video-existing-wrap').innerHTML = `
-        <div class="video-existing">
-          <span>🎬 ${p.video}</span>
-          <button onclick="clearExistingVideo()">✕ Remove</button>
-        </div>`;
+  files.forEach(file => {
+    const safeName = file.name.replace(/\s+/g, '-').toLowerCase();
+    const path = 'images/' + safeName;
+    // Only add if not already in the list
+    if (!uploadedImagePaths.includes(path)) {
+      uploadedImagePaths.push(path);
+      const url = URL.createObjectURL(file);
+      addImageThumb(url, safeName, uploadedImagePaths.length - 1);
     }
+  });
+
+  // Set first image as primary
+  if (uploadedImagePaths.length > 0) {
+    document.getElementById('f_image').value = uploadedImagePaths[0];
+  }
+
+  refreshImageDisplay();
+  showToast('✅ ' + uploadedImagePaths.length + ' image(s) loaded — remember to upload files to GitHub images/ folder');
+
+  // Reset input so same files can be re-selected if needed
+  input.value = '';
+}
+
+function addMoreImages() {
+  // Programmatically trigger the file input
+  document.getElementById('imgUploadInput').click();
+}
+
+function addImageThumb(url, name, idx) {
+  const wrap = document.getElementById('imgPreviewsWrap');
+  const div = document.createElement('div');
+  div.className = 'img-thumb-wrap';
+  div.id = 'thumb-' + idx;
+  div.innerHTML = `
+    <img src="${url}" alt="${name}" title="${name}">
+    <button class="remove-img" onclick="removeUploadedImg(${idx})" title="Remove this image">✕</button>
+    ${idx === 0 ? '<div style="position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:8px;background:var(--gold);color:#000;border-radius:0 0 4px 4px;font-weight:700;">MAIN</div>' : ''}
+  `;
+  wrap.appendChild(div);
+}
+
+function removeUploadedImg(idx) {
+  uploadedImagePaths.splice(idx, 1);
+  // Rebuild all thumbnails
+  rebuildThumbs();
+  if (uploadedImagePaths.length > 0) {
+    document.getElementById('f_image').value = uploadedImagePaths[0];
   } else {
-    document.getElementById('modal-title').innerHTML = 'Add <em>Product</em>';
+    document.getElementById('f_image').value = '';
   }
-  document.getElementById('modal').classList.add('open');
+  refreshImageDisplay();
 }
 
-function closeForm() {
-  document.getElementById('modal').classList.remove('open');
-  editingId = null;
-  pendingFiles = [];
-  pendingVideo = null;
-}
-
-// ── IMAGE HANDLERS ────────────────────────────────────────
-function handleImages(e) {
-  Array.from(e.target.files).forEach(f => {
-    pendingFiles.push(f);
-    const reader = new FileReader();
-    reader.onload = ev => addPreviewImg(ev.target.result, pendingFiles.length - 1);
-    reader.readAsDataURL(f);
+function rebuildThumbs() {
+  // We can't re-create object URLs for removed items, so just refresh display
+  // The thumbs already exist as DOM elements — just remove the deleted one
+  const wrap = document.getElementById('imgPreviewsWrap');
+  const thumbs = wrap.querySelectorAll('.img-thumb-wrap');
+  thumbs.forEach((t, i) => {
+    // Update the MAIN badge — only first thumb gets it
+    const existing = t.querySelector('.main-badge');
+    if (existing) existing.remove();
+    if (i === 0) {
+      const badge = document.createElement('div');
+      badge.className = 'main-badge';
+      badge.style.cssText = 'position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:8px;background:var(--gold);color:#000;border-radius:0 0 4px 4px;font-weight:700;';
+      badge.textContent = 'MAIN';
+      t.appendChild(badge);
+    }
+    // Update remove button index
+    const btn = t.querySelector('.remove-img');
+    if (btn) btn.setAttribute('onclick', `removeUploadedImg(${i})`);
   });
 }
-function addPreviewImg(src, idx) {
-  const c = document.getElementById('img-previews');
-  const d = document.createElement('div'); d.className='img-prev'; d.dataset.idx=idx; d.dataset.type='new';
-  d.innerHTML = `<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
-  c.appendChild(d);
-}
-function addPreviewFromUrl(src) {
-  const c = document.getElementById('img-previews');
-  const d = document.createElement('div'); d.className='img-prev'; d.dataset.src=src; d.dataset.type='existing';
-  d.innerHTML = `<img src="${src}"><button type="button" onclick="removePreview(this)">✕</button>`;
-  c.appendChild(d);
-}
-function removePreview(btn) {
-  const item = btn.parentElement;
-  if (item.dataset.type === 'existing') existingImages = existingImages.filter(s => s !== item.dataset.src);
-  else { const idx = parseInt(item.dataset.idx); pendingFiles[idx] = null; }
-  item.remove();
+
+function refreshImageDisplay() {
+  const count = uploadedImagePaths.length;
+  const badge = document.getElementById('imgCountBadge');
+  const pathsDisplay = document.getElementById('imgPathsDisplay');
+
+  if (count > 0) {
+    badge.style.display = 'inline-block';
+    badge.textContent = count + ' image' + (count !== 1 ? 's' : '') + ' ready';
+    pathsDisplay.style.display = 'block';
+    pathsDisplay.innerHTML = uploadedImagePaths.map((p, i) =>
+      `<span style="color:${i===0?'var(--gold2)':'var(--muted)'};">${i===0?'📷 MAIN: ':'   '}${p}</span>`
+    ).join('<br>');
+  } else {
+    badge.style.display = 'none';
+    pathsDisplay.style.display = 'none';
+  }
 }
 
-// ── VIDEO HANDLERS ────────────────────────────────────────
-function handleVideo(e) {
-  const file = e.target.files[0];
+// ── VIDEO UPLOAD ──
+function handleVideoUpload(input) {
+  const file = input.files[0];
   if (!file) return;
-
-  // Warn if over 50MB
-  if (file.size > 52428800) {
-    showAlert('form-alert','error','Video is larger than 50MB. Please trim it or use a shorter clip. Large videos may fail to upload.');
-    document.getElementById('f-video').value = '';
-    return;
-  }
-
-  pendingVideo = file;
+  const safeName = file.name.replace(/\s+/g, '-').toLowerCase();
+  uploadedVideoPath = 'videos/' + safeName;
   const url = URL.createObjectURL(file);
-  document.getElementById('video-preview-player').src = url;
-  document.getElementById('video-preview-name').textContent = file.name + ' (' + (file.size/1024/1024).toFixed(1) + ' MB)';
-  document.getElementById('video-preview').style.display = 'block';
-  // Hide the drop zone while a video is selected
-  document.getElementById('video-drop-zone').style.display = 'none';
+  const wrap = document.getElementById('videoPreviewWrap');
+  const vid = document.getElementById('videoPreviewEl');
+  const nameEl = document.getElementById('videoNameDisplay');
+  vid.src = url;
+  nameEl.textContent = '📁 Path: ' + uploadedVideoPath + ' — upload this file to GitHub videos/ folder';
+  wrap.style.display = 'block';
+  document.getElementById('f_video').value = uploadedVideoPath;
+  showToast('✅ Video ready — remember to upload the file to GitHub videos/ folder');
 }
 
-function removeVideo() {
-  pendingVideo = null;
-  document.getElementById('f-video').value = '';
-  document.getElementById('video-preview').style.display = 'none';
-  document.getElementById('video-drop-zone').style.display = 'block';
-  const player = document.getElementById('video-preview-player');
-  player.pause();
-  player.src = '';
+function populateSingleProductSelect() {
+  const sel = document.getElementById('singleProductSelect');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">— Select a product —</option>';
+  products.filter(p => p.status === 'active').forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = `${p.shortName || p.gemType || p.id} — ${p.id} ($${p.price})`;
+    sel.appendChild(opt);
+  });
+  if (cur) sel.value = cur;
 }
 
-function clearExistingVideo() {
-  existingVideo = '';
-  document.getElementById('video-existing-wrap').innerHTML = '';
+function previewSingleProduct() {
+  const id = document.getElementById('singleProductSelect').value;
+  const preview = document.getElementById('singlePreview');
+  if (!id) { preview.style.display = 'none'; return; }
+  const p = products.find(x => x.id === id);
+  if (!p) { preview.style.display = 'none'; return; }
+  preview.style.display = 'block';
+  const img = document.getElementById('singlePreviewImg');
+  img.src = p.image ? `https://gemmines2.github.io/gemmines2-website/${p.image}` : '';
+  img.style.display = p.image ? 'block' : 'none';
+  document.getElementById('singlePreviewName').textContent = p.shortName || p.name;
+  document.getElementById('singlePreviewMeta').textContent = `ID: ${p.id}  ·  ${p.gemType || p.type}  ·  ${p.weight}ct  ·  $${p.price}  ·  ${p.origin}`;
 }
 
-// ── SAVE ─────────────────────────────────────────────────
-async function saveProduct() {
-  const name  = document.getElementById('f-name').value.trim();
-  const price = document.getElementById('f-price').value;
-  if (!name || !price) { showAlert('form-alert','error','Please fill in Name and Price.'); return; }
+function generateSingleSnippet() {
+  const id = document.getElementById('singleProductSelect').value;
+  if (!id) { showToast('Please select a product first!', true); return; }
+  const p = products.find(x => x.id === id);
+  if (!p) { showToast('Product not found!', true); return; }
+  singleSnippetText = '  ' + JSON.stringify(p, null, 2).split('\n').join('\n  ');
+  document.getElementById('singleOutputTitle').textContent = `Snippet — ${p.shortName || p.id}`;
+  document.getElementById('singleOutput').textContent = singleSnippetText;
+  document.getElementById('singleOutputSection').style.display = 'block';
+  document.getElementById('singleOutput').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  showToast(`Snippet ready — ${p.shortName || p.id}`);
+}
 
-  const saveBtn = document.getElementById('save-btn');
-  saveBtn.disabled = true; saveBtn.textContent = 'Publishing…';
-  document.getElementById('form-alert').className = 'alert';
-  const pWrap  = document.getElementById('progress-wrap');
-  const pFill  = document.getElementById('progress-fill');
-  const pLabel = document.getElementById('progress-label');
-  pWrap.classList.add('show');
+function copySingleSnippet() {
+  if (!singleSnippetText) { showToast('Generate a snippet first!', true); return; }
+  navigator.clipboard.writeText(singleSnippetText)
+    .then(() => showToast('Snippet copied! Now paste into GitHub.'))
+    .catch(() => { fallbackCopy(singleSnippetText); showToast('Snippet copied!'); });
+}
 
-  try {
-    // Upload images
-    const validFiles = pendingFiles.filter(Boolean);
-    const uploadedPaths = [];
-    for (let i = 0; i < validFiles.length; i++) {
-      const f = validFiles[i];
-      pLabel.textContent = `Uploading image ${i+1} of ${validFiles.length}…`;
-      pFill.style.width  = ((i / (validFiles.length + (pendingVideo ? 2 : 1))) * 60) + '%';
-      const ext      = f.name.split('.').pop().toLowerCase();
-      const safeName = name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,35);
-      const filename = `${safeName}-${Date.now()}-${i}.${ext}`;
-      uploadedPaths.push(await uploadImageToGitHub(f, filename));
-    }
+function updateStats() {
+  const active = products.filter(p => p.status === 'active').length;
+  const unheated = products.filter(p => p.treatment === 'unheated').length;
+  const totalVal = products.reduce((s,p) => s + (p.price||0), 0);
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat"><div class="stat-num">${products.length}</div><div class="stat-label">Total Products</div></div>
+    <div class="stat"><div class="stat-num">${active}</div><div class="stat-label">Active</div></div>
+    <div class="stat"><div class="stat-num">${unheated}</div><div class="stat-label">Unheated</div></div>
+    <div class="stat"><div class="stat-num">$${totalVal.toLocaleString()}</div><div class="stat-label">Total Catalog Value</div></div>`;
+  document.getElementById('headerMeta').textContent = `${products.length} products · Last saved: ${new Date().toLocaleTimeString()}`;
+}
 
-    // Upload video if one is selected
-    let videoPath = existingVideo; // keep existing unless replaced or cleared
-    if (pendingVideo) {
-      pLabel.textContent = `Uploading video… (this may take a moment)`;
-      pFill.style.width  = '65%';
-      const ext      = pendingVideo.name.split('.').pop().toLowerCase();
-      const safeName = name.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/-+/g,'-').slice(0,35);
-      const filename = `${safeName}-${Date.now()}.${ext}`;
-      videoPath = await uploadVideoToGitHub(pendingVideo, filename);
-    }
+function renderTable(searchVal) {
+  const q = (searchVal !== undefined ? searchVal : document.getElementById('searchInput').value).toLowerCase();
+  const typeF = document.getElementById('filterType').value;
+  const treatF = document.getElementById('filterTreat').value;
+  const originF = document.getElementById('filterOrigin').value;
+  const filtered = products.filter(p => {
+    const matchQ = !q || p.name.toLowerCase().includes(q) || p.id.toLowerCase().includes(q) || (p.gemType||'').toLowerCase().includes(q);
+    return matchQ && (!typeF || p.type === typeF) && (!treatF || p.treatment === treatF) && (!originF || (p.origin||'').includes(originF));
+  });
+  const tbody = document.getElementById('productTableBody');
+  tbody.innerHTML = '';
+  filtered.forEach(p => {
+    const origIdx = products.indexOf(p);
+    const imgSrc = p.image || (p.images && p.images[0]) || '';
+    const imgCount = (p.images && p.images.length > 1) ? `<span style="font-size:9px;color:var(--gold);margin-left:4px;">+${p.images.length-1} more</span>` : '';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${imgSrc ? `<img class="thumb" src="https://gemmines2.github.io/gemmines2-website/${imgSrc}" onerror="this.style.background='#2a2820';this.removeAttribute('src')">` : '<div class="thumb"></div>'}${imgCount}</td>
+      <td><span class="prod-id">${escHtml(p.id)}</span></td>
+      <td><div class="prod-name">${escHtml(p.shortName || p.name)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px;">${escHtml(p.gemType||'')} · ${p.weight}ct${p.video?' · 🎥':''}</div></td>
+      <td><span class="badge badge-${p.type}">${p.type}</span></td>
+      <td><span class="badge badge-${p.treatment}">${p.treatment}</span>${p.rare ? ' <span class="badge badge-rare">RARE</span>' : ''}</td>
+      <td>${escHtml(p.origin||'')}</td>
+      <td>${p.weight} ct</td>
+      <td class="price-cell">$${p.price}</td>
+      <td><span class="status-dot dot-${p.status}"></span>${p.status}</td>
+      <td><div class="action-btns">
+        <button class="btn-xs btn-xs-snippet" onclick="quickSnippet(${origIdx})">✂️ Snippet</button>
+        <button class="btn-xs btn-xs-edit" onclick="openModal(${origIdx})">Edit</button>
+        <button class="btn-xs btn-xs-del" onclick="deleteProduct(${origIdx})">Delete</button>
+      </div></td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('tableCount').textContent = `Showing ${filtered.length} of ${products.length} products`;
+  updateStats();
+}
 
-    const allImages = [...existingImages, ...uploadedPaths];
-    pLabel.textContent = 'Saving product list…'; pFill.style.width = '85%';
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-    const weightVal = parseFloat(document.getElementById('f-weight').value) || null;
-    const priceVal  = parseFloat(price);
+function quickSnippet(idx) {
+  const p = products[idx];
+  singleSnippetText = '  ' + JSON.stringify(p, null, 2).split('\n').join('\n  ');
+  navigator.clipboard.writeText(singleSnippetText)
+    .then(() => showToast(`✂️ Snippet copied — ${p.shortName || p.id}`))
+    .catch(() => { fallbackCopy(singleSnippetText); showToast(`✂️ Snippet copied — ${p.shortName || p.id}`); });
+}
 
-    const data = {
-      id:          editingId || (document.getElementById('f-gemtype').value.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'') + '-' + Date.now()),
-      name,
-      shortName:   document.getElementById('f-shortname').value.trim() || name,
-      type:        document.getElementById('f-type').value,
-      treatment:   document.getElementById('f-treatment').value,
-      origin:      document.getElementById('f-origin').value.trim(),
-      color:       document.getElementById('f-color').value.trim(),
-      shape:       document.getElementById('f-shape').value.trim(),
-      weight:      weightVal,
-      dimensions:  document.getElementById('f-dims').value.trim(),
-      clarity:     document.getElementById('f-clarity').value.trim(),
-      certificate: document.getElementById('f-cert').value.trim() || 'Available on Request',
-      price:       priceVal,
-      pricePerCarat: weightVal ? Math.round(priceVal / weightVal) : null,
-      status:      document.getElementById('f-status').value,
-      rare:        document.getElementById('f-rare').checked,
-      description: document.getElementById('f-desc').value.trim(),
-      gemType:     document.getElementById('f-gemtype').value.trim(),
-      images:      allImages,
-      image:       allImages[0] || '',
-      video:       videoPath || '',   // ← video path stored here
-    };
+function openModal(idx) {
+  editingIndex = idx !== undefined ? idx : -1;
+  const p = editingIndex >= 0 ? products[editingIndex] : {};
+  document.getElementById('modalTitle').textContent = editingIndex >= 0 ? 'Edit Product' : 'Add New Product';
+  document.getElementById('f_id').value = p.id || '';
+  document.getElementById('f_name').value = p.name || '';
+  document.getElementById('f_shortName').value = p.shortName || '';
+  document.getElementById('f_gemType').value = p.gemType || '';
+  document.getElementById('f_price').value = p.price || '';
+  document.getElementById('f_weight').value = p.weight || '';
+  document.getElementById('f_type').value = p.type || 'cut';
+  document.getElementById('f_treatment').value = p.treatment || 'unheated';
+  document.getElementById('f_origin').value = p.origin || '';
+  document.getElementById('f_color').value = p.color || '';
+  document.getElementById('f_shape').value = p.shape || '';
+  document.getElementById('f_clarity').value = p.clarity || '';
+  document.getElementById('f_image').value = p.image || '';
+  document.getElementById('f_certificate').value = p.certificate || 'Available on Request';
+  document.getElementById('f_status').value = p.status || 'active';
+  document.getElementById('f_rare').value = p.rare ? 'true' : 'false';
+  document.getElementById('f_description').value = p.description || '';
+  document.getElementById('f_video').value = p.video || '';
+  document.querySelectorAll('.combo-select').forEach(s => s.value = '');
 
-    if (editingId) { const idx = products.findIndex(p => p.id === editingId); products[idx] = data; }
-    else products.unshift(data);
+  // ── Reset upload state fully ──
+  uploadedImagePaths = [];
+  uploadedVideoPath = '';
+  document.getElementById('imgPreviewsWrap').innerHTML = '';
+  document.getElementById('imgPathsDisplay').style.display = 'none';
+  document.getElementById('imgCountBadge').style.display = 'none';
+  document.getElementById('videoPreviewWrap').style.display = 'none';
+  document.getElementById('imgUploadInput').value = '';
+  document.getElementById('vidUploadInput').value = '';
 
-    pLabel.textContent = 'Updating website…'; pFill.style.width = '93%';
-    await saveProductsToGitHub();
-    pFill.style.width = '100%';
-    pLabel.textContent = '✓ Done! Website updates in ~1 minute.';
-
-    closeForm();
-    showAlert('prod-alert','success','✓ Published! Your website will update in about 1 minute.');
-    renderTable(); renderDashboard();
-
-  } catch(err) {
-    console.error(err);
-    showAlert('form-alert','error','Error: ' + err.message);
+  // If editing an existing product with images, show them
+  if (editingIndex >= 0 && p.images && p.images.length > 0) {
+    uploadedImagePaths = [...p.images];
+    const wrap = document.getElementById('imgPreviewsWrap');
+    p.images.forEach((imgPath, i) => {
+      const div = document.createElement('div');
+      div.className = 'img-thumb-wrap';
+      div.id = 'thumb-' + i;
+      div.innerHTML = `
+        <img src="https://gemmines2.github.io/gemmines2-website/${imgPath}" alt="img${i}" onerror="this.src=''">
+        <button class="remove-img" onclick="removeUploadedImg(${i})" title="Remove">✕</button>
+        ${i===0?'<div class="main-badge" style="position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:8px;background:var(--gold);color:#000;border-radius:0 0 4px 4px;font-weight:700;">MAIN</div>':''}
+      `;
+      wrap.appendChild(div);
+    });
+    refreshImageDisplay();
   }
-  saveBtn.disabled = false; saveBtn.textContent = 'Save & Publish to Website';
+
+  document.getElementById('modalBg').classList.add('open');
 }
 
-async function deleteProduct(id) {
-  if (!confirm('Delete this product? Cannot be undone.')) return;
-  products = products.filter(p => p.id !== id);
-  try {
-    await saveProductsToGitHub();
-    showAlert('prod-alert','success','✓ Deleted. Website will update in ~1 minute.');
-  } catch(e) {
-    showAlert('prod-alert','error','Delete failed: ' + e.message);
+function closeModal() { document.getElementById('modalBg').classList.remove('open'); editingIndex = -1; }
+
+function buildProductObject() {
+  const id = document.getElementById('f_id').value.trim();
+  const name = document.getElementById('f_name').value.trim();
+  if (!id || !name) { showToast('ID and Name are required!', true); return null; }
+  if (editingIndex < 0 && products.find(p => p.id === id)) { showToast('Product ID already exists!', true); return null; }
+
+  const manualImgPath = document.getElementById('f_image').value.trim();
+  const videoPath = document.getElementById('f_video').value.trim();
+
+  // ── MULTI-IMAGE FIX: use all accumulated paths ──
+  let allImagePaths = [];
+  if (uploadedImagePaths.length > 0) {
+    allImagePaths = [...uploadedImagePaths];
+  } else if (manualImgPath) {
+    allImagePaths = [manualImgPath];
   }
-  renderTable(); renderDashboard();
+
+  const prod = {
+    id, name,
+    shortName: document.getElementById('f_shortName').value.trim(),
+    type: document.getElementById('f_type').value,
+    treatment: document.getElementById('f_treatment').value,
+    origin: document.getElementById('f_origin').value.trim(),
+    color: document.getElementById('f_color').value.trim(),
+    shape: document.getElementById('f_shape').value.trim(),
+    weight: parseFloat(document.getElementById('f_weight').value) || 0,
+    dimensions: '',
+    clarity: document.getElementById('f_clarity').value.trim(),
+    certificate: document.getElementById('f_certificate').value.trim(),
+    price: parseFloat(document.getElementById('f_price').value) || 0,
+    pricePerCarat: 0,
+    status: document.getElementById('f_status').value,
+    rare: document.getElementById('f_rare').value === 'true',
+    description: document.getElementById('f_description').value.trim(),
+    gemType: document.getElementById('f_gemType').value.trim(),
+    images: allImagePaths,           // ← all images saved
+    image: allImagePaths[0] || '',   // ← first image = main
+    video: videoPath || uploadedVideoPath
+  };
+  if (prod.weight > 0 && prod.price > 0) prod.pricePerCarat = Math.round(prod.price / prod.weight);
+  return prod;
 }
 
-function showAlert(id, type, msg) {
-  const el = document.getElementById(id); if (!el) return;
-  el.className = 'alert ' + type; el.textContent = msg;
-  if (type === 'success') setTimeout(() => el.className = 'alert', 7000);
+// ── JSON PREVIEW ──
+function previewJSON() {
+  const prod = buildProductObject();
+  if (!prod) return;
+  pendingProductForPreview = prod;
+  const json = JSON.stringify(prod, null, 2);
+  document.getElementById('previewJsonBox').textContent = json;
+  document.getElementById('previewModalBg').classList.add('open');
 }
+
+function closePreview() {
+  document.getElementById('previewModalBg').classList.remove('open');
+  pendingProductForPreview = null;
+}
+
+function confirmSaveFromPreview() {
+  if (!pendingProductForPreview) return;
+  const prod = pendingProductForPreview;
+  if (editingIndex >= 0) { products[editingIndex] = prod; showToast('Product updated!'); }
+  else { products.push(prod); showToast('Product added!'); }
+  saveProducts(); closePreview(); closeModal(); renderTable(); populateSingleProductSelect();
+}
+
+function copyPreviewJSON() {
+  const txt = document.getElementById('previewJsonBox').textContent;
+  navigator.clipboard.writeText(txt).then(() => showToast('JSON copied!')).catch(() => { fallbackCopy(txt); showToast('JSON copied!'); });
+}
+
+function downloadPreviewJSON() {
+  if (!pendingProductForPreview) return;
+  const blob = new Blob([JSON.stringify(pendingProductForPreview, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (pendingProductForPreview.id || 'product') + '.json';
+  a.click();
+  showToast('Downloaded JSON');
+}
+
+function saveProduct() {
+  const prod = buildProductObject();
+  if (!prod) return;
+  if (editingIndex >= 0) { products[editingIndex] = prod; showToast('Product updated!'); }
+  else { products.push(prod); showToast('Product added!'); }
+  saveProducts(); closeModal(); renderTable(); populateSingleProductSelect();
+}
+
+function saveAndCopySnippet() {
+  const prod = buildProductObject();
+  if (!prod) return;
+  if (editingIndex >= 0) { products[editingIndex] = prod; } else { products.push(prod); }
+  saveProducts(); closeModal(); renderTable(); populateSingleProductSelect();
+  singleSnippetText = '  ' + JSON.stringify(prod, null, 2).split('\n').join('\n  ');
+  navigator.clipboard.writeText(singleSnippetText)
+    .then(() => showToast('✂️ Saved & snippet copied — paste into GitHub!'))
+    .catch(() => { fallbackCopy(singleSnippetText); showToast('✂️ Saved & snippet copied!'); });
+}
+
+function clearAllProducts() {
+  if (!confirm(`⚠️ This will permanently delete ALL ${products.length} products.\n\nAre you sure?`)) return;
+  if (prompt(`Type DELETE to confirm:`) !== 'DELETE') { showToast('Cancelled.'); return; }
+  products = []; saveProducts(); renderTable(); populateSingleProductSelect(); showToast('All products cleared.');
+}
+
+function deleteProduct(idx) {
+  if (!confirm(`Delete "${products[idx].shortName || products[idx].name}"?`)) return;
+  products.splice(idx, 1); saveProducts(); renderTable(); populateSingleProductSelect(); showToast('Product deleted');
+}
+
+function generateJS() {
+  const lines = ['/* ═══════════════════════════════════════════',
+    '   GEMMINES2 — Product Catalog',
+    '   Generated by Gemmines2 Product Manager',
+    '   Generated: ' + new Date().toISOString(),
+    '   Total products: ' + products.filter(p=>p.status==='active').length,
+    '   DO NOT EDIT MANUALLY — use the Product Manager tool',
+    '   ═══════════════════════════════════════════ */',
+    'const PRODUCTS = [', ''];
+  products.filter(p => p.status === 'active').forEach((p, i, arr) => {
+    lines.push('  ' + JSON.stringify(p, null, 2).split('\n').join('\n  ') + (i < arr.length - 1 ? ',' : ''));
+    lines.push('');
+  });
+  lines.push('];');
+  jsText = lines.join('\n');
+  document.getElementById('jsOutput').textContent = jsText;
+  showToast('JS file generated — ' + products.filter(p=>p.status==='active').length + ' products');
+}
+
+function copyJS() {
+  if (!jsText) generateJS();
+  navigator.clipboard.writeText(jsText).then(() => showToast('JS file content copied!')).catch(() => { fallbackCopy(jsText); showToast('Copied!'); });
+}
+
+function downloadJS() {
+  if (!jsText) generateJS();
+  const blob = new Blob([jsText], {type:'text/javascript'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'products-data.js'; a.click();
+  showToast('Downloaded products-data.js');
+}
+
+function generateFeed() {
+  const baseUrl = document.getElementById('feedBaseUrl').value.replace(/\/$/,'');
+  const imgBase = document.getElementById('feedImageUrl').value.replace(/\/$/,'');
+  const currency = document.getElementById('feedCurrency').value;
+  const cols = ['id','title','description','link','image_link','price','availability','condition','identifier_exists','brand','google_product_category','product_type','custom_label_0','custom_label_1'];
+  const rows = [cols.join('\t')];
+  const active = products.filter(p => p.status === 'active');
+  active.forEach(p => {
+    const row = [
+      p.id,
+      (p.name||'').substring(0,150),
+      (p.description||p.name||'').replace(/[\t\n\r]/g,' ').substring(0,5000),
+      `${baseUrl}/product.html?id=${encodeURIComponent(p.id)}`,
+      p.image ? `${imgBase}/${p.image}` : '',
+      `${Number(p.price).toFixed(2)} ${currency}`,
+      'in_stock','new','no','Gemmines2',
+      p.type==='jewelry' ? 'Jewelry > Fashion Jewelry' : 'Jewelry > Loose Gemstones',
+      `Gemstones > ${p.gemType||'Gemstone'} > ${p.type==='jewelry'?'Jewelry':p.type==='rough'?'Rough Stones':'Cut & Polished'}`,
+      p.treatment==='unheated' ? 'Natural Unheated' : 'Natural Heated',
+      p.origin||''
+    ].map(v => String(v||'').replace(/\t/g,' ')).join('\t');
+    rows.push(row);
+  });
+  feedText = rows.join('\n');
+  const previewCols = ['id','title','price','availability','condition','identifier_exists'];
+  let html = '<table class="feed-table"><thead><tr>'+previewCols.map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
+  active.slice(0,20).forEach(p => {
+    const vals = {id:p.id,title:(p.name||'').substring(0,60)+(p.name.length>60?'...':''),price:`${Number(p.price).toFixed(2)} ${currency}`,availability:'in_stock',condition:'new',identifier_exists:'no'};
+    html += '<tr>'+previewCols.map(c=>`<td title="${escHtml(vals[c])}">${escHtml(vals[c])}</td>`).join('')+'</tr>';
+  });
+  if (active.length>20) html+=`<tr><td colspan="${previewCols.length}" style="color:var(--muted);text-align:center;padding:10px;">... and ${active.length-20} more rows</td></tr>`;
+  html += '</tbody></table>';
+  document.getElementById('feedPreviewTable').innerHTML = html;
+  showToast(`Feed generated — ${active.length} products`);
+}
+
+function copyFeed() {
+  if (!feedText) generateFeed();
+  navigator.clipboard.writeText(feedText).then(() => showToast('Feed TSV copied!')).catch(() => { fallbackCopy(feedText); showToast('Copied!'); });
+}
+
+function downloadFeed() {
+  if (!feedText) generateFeed();
+  const blob = new Blob([feedText],{type:'text/tab-separated-values'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'gemmines2-merchant-feed.txt'; a.click();
+  showToast('Downloaded merchant feed');
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  document.execCommand('copy'); document.body.removeChild(ta);
+}
+
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = isError ? 'show error' : 'show';
+  setTimeout(() => t.className = '', 2800);
+}
+
+loadProducts();
+renderTable();
+populateSingleProductSelect();
 </script>
 </body>
 </html>
