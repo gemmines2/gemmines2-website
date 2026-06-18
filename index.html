@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head><script type="application/ld+json">
@@ -514,7 +515,7 @@
     const grid = document.getElementById('featuredGrid');    if (!grid || typeof PRODUCTS === 'undefined') return;
     PRODUCTS.slice(0, 4).forEach(p => {
       grid.innerHTML += `
-        <a href="product.html?id=${p.id}" class="product-card">
+        <a href="product/${p.id}.html" class="product-card">
           <div class="product-img-wrap">
             <img src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="img-fallback" style="display:none">💎</div>
