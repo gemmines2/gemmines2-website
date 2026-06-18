@@ -1,0 +1,353 @@
+// build-product-pages.js
+// Generates a fully static, pre-rendered HTML file for every product in
+// products-data.js. Unlike product.html (which is one physical file that
+// relies on JavaScript to fill in content after the page loads), each file
+// here is a separate, real document whose title, price, description, images
+// and JSON-LD schema are already present in the raw HTML returned by the
+// server. This is what Google Merchant Center's page-crawl verification
+// needs: per Google's own docs, "Googlebot crawls the data present in the
+// HTML returned from your web server. If data on your website is passed
+// dynamically with JavaScript after the page is loaded, this will trigger
+// an error."
+//
+// Run with: node build-product-pages.js
+// Output:   ./product/<id>.html  (one file per active product)
+
+const fs = require('fs');
+const path = require('path');
+const vm = require('vm');
+
+const SRC_DIR = __dirname;
+const OUT_DIR = path.join(__dirname, 'product');
+const BASE_URL = 'https://gemmines2.github.io/gemmines2-website/';
+
+// ---- load PRODUCTS from products-data.js ----
+const dataSrc = fs.readFileSync(path.join(SRC_DIR, 'products-data.js'), 'utf8');
+const sandbox = {};
+vm.createContext(sandbox);
+vm.runInContext(dataSrc + '\nthis.PRODUCTS = PRODUCTS;', sandbox);
+const PRODUCTS = sandbox.PRODUCTS;
+
+function esc(str) {
+  if (str === undefined || str === null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+function escAttr(str) { return esc(str).replace(/\n/g, ' '); }
+function imgUrl(img) {
+  if (!img) return '';
+  return img.startsWith('http') ? img : BASE_URL + img;
+}
+
+function buildSchema(p, pageUrl) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.name,
+    image: (p.images && p.images.length ? p.images : [p.image]).filter(Boolean).map(img => BASE_URL + img),
+    description: p.description || 'Natural certified gemstone from Gemmines2',
+    sku: p.id,
+    mpn: p.id,
+    brand: { '@type': 'Brand', name: 'Gemmines2' },
+    offers: {
+      '@type': 'Offer',
+      url: pageUrl,
+      priceCurrency: 'USD',
+      price: p.price,
+      priceValidUntil: '2027-12-31',
+      availability: p.status === 'sold' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: 'Gemmines2', url: BASE_URL }
+    }
+  };
+  return JSON.stringify(schema, null, 2);
+}
+
+function relatedProducts(p) {
+  return PRODUCTS.filter(x => x.id !== p.id && x.status !== 'sold' && x.status !== 'draft' &&
+    (x.type === p.type || x.gemType === p.gemType)).slice(0, 4);
+}
+
+function renderProduct(p) {
+  const pageUrl = `${BASE_URL}product/${encodeURIComponent(p.id)}.html`;
+  const images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+  const isUnheated = p.treatment === 'unheated';
+  const isSold = p.status === 'sold';
+  const related = relatedProducts(p);
+
+  const thumbsHtml = images.length > 1 ? images.map((img, i) => `
+        <div class="thumb${i === 0 ? ' active' : ''}" data-img="${escAttr(imgUrl(img))}" onclick="swapMain(this)"><img src="${escAttr(imgUrl(img))}" alt="View ${i + 1}"></div>`).join('') : '';
+
+  const videoHtml = p.video ? `
+    <div class="product-video-wrap" style="display:block">
+      <div class="product-video-label">Stone Video</div>
+      <video id="product-video" controls playsinline preload="metadata" src="${escAttr(imgUrl(p.video))}">
+        Your browser does not support video.
+      </video>
+    </div>` : '';
+
+  const badgeHtml = isSold
+    ? `<span id="badge" class="badge-rare badge-sold" style="display:block">SOLD</span>`
+    : (p.rare ? `<span id="badge" class="badge-rare" style="display:block">RARE</span>` : `<span id="badge" class="badge-rare" style="display:none">RARE</span>`);
+
+  const statusDotClass = isSold ? 'status-dot sold' : 'status-dot';
+  const statusText = isSold ? 'Sold — Contact us for similar stones' : 'In Stock — Ships Worldwide';
+  const cartBtnHtml = isSold
+    ? `<button class="btn-cart" id="btn-cart" disabled>Sold Out</button>`
+    : `<button class="btn-cart" id="btn-cart" onclick="addToCart()">+ Add to Cart</button>`;
+
+  const treatmentHtml = `<span class="${isUnheated ? 'unheated' : 'heated'}">${isUnheated ? '✦ Natural Unheated' : '◈ Natural Heated'}</span>`;
+  const priceSub = p.weight ? `$${(p.price / p.weight).toFixed(0)} per carat · ${p.weight} ct total` : '';
+
+  const detailRow = (label, value, cls) => `
+      <div class="detail-row"><div class="detail-label">${label}</div><div class="detail-value${cls ? ' ' + cls : ''}">${esc(value) || '—'}</div></div>`;
+
+  const detailsHtml = [
+    detailRow('Origin', p.origin),
+    detailRow('Color', p.color),
+    detailRow('Treatment', isUnheated ? 'Unheated & Untreated' : 'Heat Treated', isUnheated ? 'val-unheated' : 'val-heated'),
+    detailRow('Shape / Cut', p.shape),
+    detailRow('Weight', p.weight ? p.weight + ' Carats' : null),
+    detailRow('Dimensions', p.dimensions),
+    detailRow('Clarity', p.clarity),
+    detailRow('Certificate', p.certificate || 'Available on Request'),
+  ].join('');
+
+  const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? p.weight + 'ct — ' : ''}$${p.price})\n${pageUrl}`;
+  const waHref = `https://wa.me/923362149415?text=${encodeURIComponent(waMsg)}`;
+
+  const relatedHtml = related.length ? related.map(r => `
+      <a href="${BASE_URL}product/${encodeURIComponent(r.id)}.html" class="rel-card">
+        <img src="${escAttr(imgUrl((r.images && r.images[0]) || r.image || ''))}" alt="${escAttr(r.name)}" onerror="this.style.display='none'">
+        <div class="rel-card-body">
+          <div class="rel-card-name">${esc(r.shortName || r.name)}</div>
+          <div class="rel-card-price">$${Number(r.price).toLocaleString()}</div>
+        </div>
+      </a>`).join('') : '';
+
+  const relatedSectionStyle = related.length ? '' : ' style="display:none"';
+
+  // Minimal product payload for client-side interactivity only
+  // (add-to-cart). No dependency on products-data.js at runtime.
+  const cartPayload = JSON.stringify({
+    id: p.id, name: p.name, price: p.price, image: imgUrl(images[0] || p.image || ''),
+    weight: p.weight || null, shortName: p.shortName || p.name
+  });
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3WG0QN79D"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q3WG0QN79D');</script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(p.name)} | Gemmines2</title>
+  <meta name="description" content="${escAttr(p.description || 'Natural certified gemstone from Gemmines2')}">
+  <link rel="canonical" href="${pageUrl}">
+  <link rel="icon" href="${BASE_URL}images/logo.png">
+  <link rel="stylesheet" href="${BASE_URL}style.css">
+  <style>
+    .breadcrumb{padding:14px 5%;background:var(--navy2);border-bottom:1px solid var(--border);font-size:12px;color:var(--muted)}
+    .breadcrumb a{color:var(--muted);text-decoration:none;transition:color .2s}
+    .breadcrumb a:hover{color:var(--teal)}
+    .breadcrumb span{margin:0 6px;color:var(--border)}
+    .product-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;padding:40px 5% 80px}
+    .gallery{position:sticky;top:88px;align-self:start}
+    .main-img-wrap{position:relative;background:var(--navy3);border:1px solid var(--border);border-radius:8px;overflow:hidden;aspect-ratio:1;cursor:zoom-in}
+    .main-img-wrap img{width:100%;height:100%;object-fit:contain;padding:1.5rem;transition:transform .4s}
+    .main-img-wrap:hover img{transform:scale(1.04)}
+    .badge-rare{position:absolute;top:12px;left:12px;background:var(--gold);color:#000;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px}
+    .badge-sold{background:#8b3a3a;color:#fff}
+    .thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
+    .thumb{width:68px;height:68px;flex-shrink:0;background:var(--navy3);border:2px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+    .thumb.active,.thumb:hover{border-color:var(--teal)}
+    .thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
+    .product-video-wrap{margin-top:14px;display:none}
+    .product-video-wrap video{width:100%;border-radius:8px;border:1px solid var(--border);background:#000;display:block}
+    .product-video-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+    .product-video-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+    .product-info{display:flex;flex-direction:column;gap:20px}
+    .prod-status{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal)}
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
+    .status-dot.sold{background:#8b3a3a}
+    .prod-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;line-height:1.2;color:var(--text)}
+    .prod-subtitle{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:-12px}
+    .treatment-row{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+    .unheated{color:var(--teal)}.heated{color:var(--gold)}
+    .price-box{background:var(--navy2);border:1px solid var(--border);border-radius:6px;padding:18px 22px;display:flex;align-items:baseline;gap:16px}
+    .price-usd{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold)}
+    .price-sub{font-size:12px;color:var(--muted)}
+    .description{font-size:14px;line-height:1.8;color:var(--muted);border-left:2px solid var(--teal);padding-left:14px;white-space:pre-line}
+    .details-box{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+    .details-head{padding:10px 18px;background:var(--navy2);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);border-bottom:1px solid var(--border)}
+    .detail-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+    .detail-row:last-child{border-bottom:none}
+    .detail-row:hover{background:var(--navy2)}
+    .detail-label{padding:11px 18px;font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;border-right:1px solid var(--border)}
+    .detail-value{padding:11px 18px;font-size:13px;color:var(--text)}
+    .val-unheated{color:var(--teal);font-weight:600}
+    .val-heated{color:var(--gold);font-weight:600}
+    .actions{display:flex;flex-direction:column;gap:10px}
+    .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;background:#1a5c2e;color:#fff;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s}
+    .btn-wa:hover{background:#236b38}
+    .btn-cart{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:var(--teal);color:#000;border:none;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .btn-cart:hover{background:var(--teal2)}
+    .btn-cart:disabled{opacity:.4;cursor:not-allowed}
+    .btn-outline{display:flex;align-items:center;justify-content:center;padding:12px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+    .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--border);padding-top:18px}
+    .trust-item{text-align:center}
+    .trust-icon{font-size:1.2rem;margin-bottom:4px}
+    .trust-label{font-size:10px;color:var(--muted);letter-spacing:.5px}
+    .related-section{max-width:1100px;margin:0 auto;padding:0 5% 80px;border-top:1px solid var(--border)}
+    .related-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;margin:32px 0 20px}
+    .related-title em{font-style:italic;color:var(--gold)}
+    .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .rel-card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;display:block}
+    .rel-card:hover{border-color:rgba(32,178,170,.45);transform:translateY(-2px)}
+    .rel-card img{width:100%;aspect-ratio:1;object-fit:contain;padding:.75rem;background:var(--navy3)}
+    .rel-card-body{padding:10px 12px}
+    .rel-card-name{font-size:12px;margin-bottom:4px;line-height:1.3;color:var(--text)}
+    .rel-card-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold)}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain}
+    .lightbox-close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1}
+    @media(max-width:768px){.product-layout{grid-template-columns:1fr;gap:28px;padding:24px 4% 60px}.gallery{position:static}.related-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+  <script type="application/ld+json">
+${buildSchema(p, pageUrl)}
+  </script>
+</head>
+<body>
+<div class="announcement">✦ Insured Worldwide Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<header class="site-header">
+  <a href="${BASE_URL}index.html" class="logo-wrap"><img src="${BASE_URL}images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
+  <nav class="main-nav">
+    <a href="${BASE_URL}index.html">Home</a><a href="${BASE_URL}products.html" class="active">Collection</a>
+    <a href="${BASE_URL}about.html">About</a><a href="${BASE_URL}contact.html">Contact</a>
+    <a href="${BASE_URL}cart.html" class="nav-cart">Cart <span class="cart-count">(0)</span></a>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="${BASE_URL}index.html">Home</a><a href="${BASE_URL}products.html">Collection</a>
+  <a href="${BASE_URL}about.html">About</a><a href="${BASE_URL}contact.html">Contact</a>
+  <a href="${BASE_URL}cart.html">Cart <span class="cart-count">(0)</span></a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="${BASE_URL}index.html">Home</a><span>›</span>
+  <a href="${BASE_URL}products.html">Collection</a><span>›</span>
+  <span>${esc(p.name)}</span>
+</div>
+
+<div class="product-layout">
+  <div class="gallery">
+    <div class="main-img-wrap" onclick="openLightbox()">
+      ${badgeHtml}
+      <img id="main-img" src="${escAttr(imgUrl(images[0] || ''))}" alt="${escAttr(p.name)}">
+    </div>
+    <div class="thumbs" id="thumbs">${thumbsHtml}</div>
+    ${videoHtml}
+  </div>
+
+  <div class="product-info">
+    <div class="prod-status">
+      <span class="${statusDotClass}"></span>
+      <span>${statusText}</span>
+    </div>
+    <div>
+      <h1 class="prod-title">${esc(p.name)}</h1>
+      <p class="prod-subtitle">${esc((p.gemType ? p.gemType.toUpperCase() : '') + (p.origin ? ' · ' + p.origin : ''))}</p>
+    </div>
+    <div class="treatment-row">${treatmentHtml}</div>
+    <div class="price-box">
+      <div>
+        <div class="price-usd">$${Number(p.price).toLocaleString()}</div>
+        <div class="price-sub">${esc(priceSub)}</div>
+      </div>
+    </div>
+    <p class="description">${esc(p.description || '')}</p>
+    <div class="details-box">
+      <div class="details-head">Stone Details</div>
+      ${detailsHtml}
+    </div>
+    <div class="actions">
+      <a href="${waHref}" class="btn-wa" id="btn-wa" target="_blank">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp
+      </a>
+      ${cartBtnHtml}
+      <a href="${BASE_URL}contact.html" class="btn-outline">✉ Ask a Question / Request Certificate</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-label">Secure Checkout</div></div>
+      <div class="trust-item"><div class="trust-icon">✈️</div><div class="trust-label">Worldwide Shipping</div></div>
+      <div class="trust-item"><div class="trust-icon">↩️</div><div class="trust-label">30-Day Returns</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="related-section" id="related-section"${relatedSectionStyle}>
+  <h2 class="related-title">You May Also <em>Like</em></h2>
+  <div class="related-grid" id="related-grid">${relatedHtml}</div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div><a href="${BASE_URL}index.html" class="logo-wrap"><img src="${BASE_URL}images/logo.png" alt="Gemmines2" style="height:34px"><span class="logo-text" style="font-size:1.2rem">Gem<em>mines</em>2</span></a><p class="footer-brand-desc">Natural certified gemstones from Pakistan and Sri Lanka. Worldwide delivery.</p></div>
+    <div class="footer-col"><h4>Shop</h4><a href="${BASE_URL}products.html?type=cut">Cut Gemstones</a><a href="${BASE_URL}products.html?type=rough">Rough Stones</a><a href="${BASE_URL}products.html?type=jewelry">Custom Jewelry</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="${BASE_URL}about.html">About Us</a><a href="${BASE_URL}contact.html">Contact</a><a href="${BASE_URL}track.html">Track Order</a></div>
+    <div class="footer-col"><h4>Policies</h4><a href="${BASE_URL}return.html">Returns &amp; Refunds</a><a href="${BASE_URL}shipping.html">Shipping Policy</a><a href="${BASE_URL}privacy.html">Privacy Policy</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan</div><div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div></div>
+</footer>
+
+<a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="${escAttr(imgUrl(images[0] || ''))}" alt="">
+</div>
+
+<script src="${BASE_URL}main.js"></script>
+<script>
+const THIS_PRODUCT = ${cartPayload};
+function swapMain(el){
+  const img = el.getAttribute('data-img');
+  document.getElementById('main-img').src = img;
+  document.getElementById('lightbox-img').src = img;
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function addToCart(){
+  if (typeof Cart !== 'undefined') Cart.add(THIS_PRODUCT);
+  const btn = document.getElementById('btn-cart');
+  if (!btn) return;
+  btn.textContent = '✓ Added to Cart';
+  btn.style.background = '#1a5c2e';
+  setTimeout(()=>{ btn.textContent = '+ Add to Cart'; btn.style.background = ''; }, 2500);
+}
+function openLightbox(){document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+</script>
+</body>
+</html>
+`;
+}
+
+// ---- generate ----
+if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+const active = PRODUCTS.filter(p => p.status !== 'draft');
+let count = 0;
+active.forEach(p => {
+  const html = renderProduct(p);
+  fs.writeFileSync(path.join(OUT_DIR, `${p.id}.html`), html);
+  count++;
+});
+console.log(`Generated ${count} static product pages in ${OUT_DIR}/`);
