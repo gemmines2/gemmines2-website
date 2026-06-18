@@ -867,56 +867,56 @@ const PRODUCTS = [
     "image": "images/GM-SAP-1016-1.jpeg",
     "video": "images/GM-SAP-1016.mp4"
   },
-   {
-  "id": "GM-SAP-1019",
-  "name": "Natural Unheated Royal Blue Sapphire 2.07 Ct Sri Lanka Origin - Cut and Polished",
-  "shortName": "Royal Blue Sapphire",
-  "type": "cut",
-  "treatment": "unheated",
-  "origin": "Sri Lanka",
-  "color": "Royal Blue",
-  "shape": "Oval Cut",
-  "weight": 2.07,
-  "dimensions": "",
-  "clarity": "Loupe Clean",
-  "certificate": "Certificate Available",
-  "price": 320,
-  "pricePerCarat": 155,
-  "status": "active",
-  "rare": false,
-  "description": "This beautiful Natural Royal Blue Sapphire weighs 2.07 carats and originates from Sri Lanka, one of the world's most respected sources of fine sapphires. Featuring a rich royal blue color, this gemstone displays excellent natural brilliance and luster that enhance its overall beauty and appeal.",
-  "gemType": "Sapphire",
-  "images": [
-    "images/gm-sap-1019-1.png",
-    "images/gm-sap-1019-1.jpg"
-  ],
-  "image": "images/gm-sap-1019-1.png",
-  "video": "videos/gm-sap-1019.mp4"
-},
- {
-  "id": "GM-SPN-1017",
-  "name": "Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color",
-  "shortName": "Spinel Lot",
-  "type": "cut",
-  "treatment": "unheated",
-  "origin": "Sri Lanka",
-  "color": "Violet, Plum, Purple, Steel Blue, Grey, Teal, Greenish Blue",
-  "shape": "Mixed Cuts",
-  "weight": 6,
-  "dimensions": "",
-  "clarity": "Loupe Clean",
-  "certificate": "Available on Request",
-  "price": 140,
-  "pricePerCarat": 23.33,
-  "status": "active",
-  "rare": false,
-  "description": "Natural unheated spinel lot weighing approximately 6 carats total. This parcel features mixed cuts and a selection of beautiful dark colors with attractive luster. The stones are lightweight and ideal for jewelry designers, collectors, gemstone traders, and custom jewelry projects. Each spinel is untreated and offered as a loose gemstone parcel for flexible use in rings, pendants, earrings, or gemstone collections. Mixed shapes and sizes provide variety while maintaining the rich dark tones that make spinel highly sought after. A practical choice for anyone looking for natural, unheated spinels in a compact 6 ct lot.",
-  "gemType": "Spinel",
-  "image": "images/GM-SPN-1017-1.png",
-  "video": "images/GM-SPN-1017.mp4",
-  "images": [
-    "images/GM-SPN-1017-1.png",
-    "images/GM-SPN-1017-2.png"
-  ]
-}
+  {
+    "id": "GM-SAP-1019",
+    "name": "Natural Unheated Royal Blue Sapphire 2.07 Ct Sri Lanka Origin - Cut and Polished",
+    "shortName": "Royal Blue Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Royal Blue",
+    "shape": "Oval Cut",
+    "weight": 2.07,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 320,
+    "pricePerCarat": 155,
+    "status": "active",
+    "rare": false,
+    "description": "This beautiful Natural Royal Blue Sapphire weighs 2.07 carats and originates from Sri Lanka, one of the world's most respected sources of fine sapphires. Featuring a rich royal blue color, this gemstone displays excellent natural brilliance and luster that enhance its overall beauty and appeal.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/GM-SAP-1019-1.jpg",
+      "images/GM-SAP-1019-2.png"
+    ],
+    "image": "images/GM-SAP-1019-1.jpg",
+    "video": "videos/GM-SAP-1019.mp4"
+  },
+{
+    "id": "GM-SPN-1017",
+    "name": "Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color",
+    "shortName": "Spinel Lot",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Violet, Plum, Purple, Steel Blue, Grey, Teal, Greenish Blue",
+    "shape": "Mixed Cuts",
+    "weight": 6,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 140,
+    "pricePerCarat": 23.33,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated spinel lot weighing approximately 6 carats total. This parcel features mixed cuts and a selection of beautiful dark colors with attractive luster. The stones are lightweight and ideal for jewelry designers, collectors, gemstone traders, and custom jewelry projects. Each spinel is untreated and offered as a loose gemstone parcel for flexible use in rings, pendants, earrings, or gemstone collections. Mixed shapes and sizes provide variety while maintaining the rich dark tones that make spinel highly sought after. A practical choice for anyone looking for natural, unheated spinels in a compact 6 ct lot.",
+    "gemType": "Spinel",
+    "images": [
+      "images/GM-SPN-1017-1.png",
+      "images/GM-SPN-1017-2.png"
+    ],
+    "image": "images/GM-SPN-1017-1.png",
+    "video": "videos/GM-SPN-1017.mp4"
+  }
 ];
