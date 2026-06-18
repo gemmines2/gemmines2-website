@@ -1,18 +1,13 @@
+
 /* ═══════════════════════════════════════════
    GEMMINES2 — Global JavaScript
    ═══════════════════════════════════════════ */
 
-/* ── EMAILJS CONFIG ────────────────────────────────────────
-   SETUP STEPS:
-   1. Go to https://www.emailjs.com and sign in
-   2. Add a Gmail service → copy the Service ID below
-   3. Create an email template → copy the Template ID below
-   4. Get your Public Key from Account → API Keys
-   ──────────────────────────────────────────────────────── */
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ORDER = 'YOUR_ORDER_TEMPLATE_ID'; // e.g. 'template_xyz789'
+/* ── EMAILJS CONFIG ──────────────────────────────────────── */
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';  
+const EMAILJS_TEMPLATE_ORDER = 'YOUR_ORDER_TEMPLATE_ID'; 
 const EMAILJS_TEMPLATE_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJk'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   
 
 /* ── CART ────────────────────────────────────────────────── */
 const Cart = {
@@ -29,9 +24,8 @@ const Cart = {
     else { items.push({ ...product, qty: 1 }); }
     this.save(items);
     this.updateBadge();
-    // Show toast then redirect to cart after short delay
     showToast(`"${product.shortName || product.name}" added — taking you to cart…`, 'success');
-    setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
+    setTimeout(() => { window.location.href = '../cart.html'; }, 1200);
   },
   remove(id) {
     const items = this.get().filter(i => i.id !== id);
@@ -80,6 +74,24 @@ function initHeader() {
       })
     );
   }
+
+  // FIXED: Auto-correct path links when browsing deep inside the /product/ folder
+  if (window.location.pathname.includes('/product/')) {
+    document.querySelectorAll('.main-nav a, .mobile-nav a, .logo-wrap, .breadcrumb a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('../')) {
+        link.setAttribute('href', '../' + href);
+      }
+    });
+    // Fix image paths inside navigation headers if any
+    document.querySelectorAll('.logo-wrap img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && !src.startsWith('../')) {
+        img.setAttribute('src', '../' + src);
+      }
+    });
+  }
+
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.main-nav a, .mobile-nav a').forEach(a => {
     if (a.getAttribute('href') === path) a.classList.add('active');
@@ -106,31 +118,20 @@ function validateField(id, errId, pattern) {
 
 /* ── COPYRIGHT & SECURITY PROTECTION ─────────────────────── */
 function initSecurity() {
-  // Disable right-click context menu
   document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // Disable image drag
   document.addEventListener('dragstart', e => {
     if (e.target.tagName === 'IMG') e.preventDefault();
   });
-
-  // Disable text selection on product images
   document.querySelectorAll('.prod-img-wrap img, .hero img').forEach(img => {
     img.style.userSelect = 'none';
     img.style.webkitUserSelect = 'none';
     img.setAttribute('draggable', 'false');
   });
-
-  // Disable common keyboard shortcuts for copying/saving
   document.addEventListener('keydown', e => {
-    // Block Ctrl+S (save), Ctrl+U (view source), Ctrl+Shift+I (devtools)
     if (e.ctrlKey && (e.key === 's' || e.key === 'u')) e.preventDefault();
     if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
-    // Block F12 devtools
     if (e.key === 'F12') e.preventDefault();
   });
-
-  // Watermark console with copyright notice
   console.log(
     '%c© 2026 Gemmines2 — All Rights Reserved\nUnauthorized copying, scraping or redistribution of content is strictly prohibited.',
     'color:#20b2aa;font-weight:bold;font-size:13px;'
@@ -177,6 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initSecurity();
   injectStructuredData();
+  
+  // PREMIUM TEXT CORRECTION: Change any stray 'Learn More' strings to 'View Details' on page load
+  document.querySelectorAll('a, button, .btn').forEach(el => {
+    if (el.textContent.trim() === 'Learn More') {
+      el.textContent = 'View Details';
+    }
+  });
+
   if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
