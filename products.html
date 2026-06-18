@@ -198,7 +198,7 @@ function renderProducts(list) {
         <div class="prod-footer">
           <div class="prod-price">$${p.price}</div>
           <div class="prod-btns">
-            <a href="product/${p.id}.html" class="btn-view">Learn More</a>
+            <a href="product.html?id=${p.id}" class="btn-view">View Details</a>
             <button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>
           </div>
         </div>
