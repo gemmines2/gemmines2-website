@@ -942,6 +942,6 @@ const PRODUCTS = [
       "images/gm-sap-1023.jpg"
     ],
     "image": "images/gm-sap-1023.jpg",
-    "video": "videos/gm-sap-1023-1.mp4"
+    "video": "images/gm-sap-1023-1.mp4"
 }
    ];
