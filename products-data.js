@@ -918,5 +918,30 @@ const PRODUCTS = [
     ],
     "image": "images/GM-SPN-1017-1.png",
     "video": "videos/GM-SPN-1017.mp4"
-  }
-];
+  },
+     {
+    "id": "gm-sap-1023",
+    "name": "Natural Unheated Mixed Sapphire Lot | Blue, Pink, Violet & Yellow Sapphires | Sri Lanka Origin | Cut & Polished",
+    "shortName": "Mixed Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 170,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Unheated Mixed Sapphire Lot featuring beautiful Blue, Pink, Violet, and Yellow sapphires sourced from Sri Lanka. These genuine natural gemstones are untreated and unheated, preserving their original beauty and character. The collection showcases attractive colors, excellent brilliance, and a variety of cut and polished shapes suitable for gemstone collectors, jewelry making, custom designs, and gemstone enthusiasts. Sri Lanka is renowned worldwide for producing high-quality sapphires with exceptional color and clarity. A unique multi-color sapphire lot offering natural beauty and versatility in one collection.",
+    "gemType": "",
+    "images": [
+      "images/gm-sap-1023.jpg"
+    ],
+    "image": "images/gm-sap-1023.jpg",
+    "video": "videos/gm-sap-1023-1.mp4"
+}
+   ];
