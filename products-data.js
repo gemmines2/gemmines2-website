@@ -943,5 +943,33 @@ const PRODUCTS = [
     ],
     "image": "images/gm-sap-1023.jpg",
     "video": "images/gm-sap-1023-1.mp4"
-}
+},
+   
+   
+     {
+    "id": "GM-ZRCN-1024",
+    "name": "Natural Rare White Zircon Unheated Cut & Polished Gemstone | Sri Lanka Origin | GM-ZRCN-1024",
+    "shortName": "White Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "White",
+    "shape": "Pear Shape",
+    "weight": 40,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 180,
+    "pricePerCarat": 5,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Rare White Zircon sourced from Sri Lanka and expertly cut and polished to enhance its brilliance and sparkle. This unheated gemstone displays a bright white color with excellent natural luster, making it a desirable choice for gemstone collectors, jewelry makers, and custom jewelry designs. Untreated and naturally formed, this Sri Lankan White Zircon offers beauty, durability, and authenticity. A fine loose gemstone suitable for rings, pendants, earrings, and gemstone collections.",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1024-1.jpg"
+    ],
+    "image": "images/gm-zrcn-1024-1.jpg",
+    "video": "videos/gm-zrcn-1024.mp4"
+  }
+    
    ];
