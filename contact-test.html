@@ -1,0 +1,73 @@
+async function sendMessage() {
+  let ok = true;
+  
+  // Validate all required fields
+  [['cName','e-cName'], ['cEmail','e-cEmail'], ['cSubject','e-cSubject'], ['cMessage','e-cMessage']].forEach(([id, eid]) => {
+    const el = document.getElementById(id);
+    const er = document.getElementById(eid);
+    const v = el.value.trim();
+    
+    // Check if empty or if email field doesn't match standard email regex
+    const fail = !v || (id === 'cEmail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    
+    el.classList.toggle('error', fail);
+    er.classList.toggle('show', fail);
+    if (fail) ok = false;
+  });
+  
+  if (!ok) return;
+
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  
+  // Hide any previous status messages
+  document.getElementById('successMsg').classList.remove('show');
+  document.getElementById('errorMsg').classList.remove('show');
+
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const phone = document.getElementById('cPhone').value.trim() || 'Not provided';
+  const subject = document.getElementById('cSubject').value;
+  const message = document.getElementById('cMessage').value.trim();
+
+  try {
+    // Single optimized request to Web3Forms
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '2d1f4770-3081-4ea0-b915-6903a7b5198f',
+        subject: 'New Contact: ' + subject + ' — from ' + name,
+        from_name: 'Gemmines2 Store Alerts', // Hardcoded sender prevents automated spam filters from triggering
+        name: name,
+        email: email,
+        phone: phone,
+        topic: subject,
+        message: message,
+        replyto: email // This allows you to just click "Reply" inside your email to reply directly to the customer
+      })
+    });
+    
+    const result = await res.json();
+    if (!result.success) throw new Error(result.message);
+
+    // Show success notice to user
+    document.getElementById('successMsg').classList.add('show');
+    
+    // Safely clear the input fields for the next message
+    document.getElementById('cName').value = '';
+    document.getElementById('cEmail').value = '';
+    document.getElementById('cPhone').value = '';
+    document.getElementById('cSubject').value = '';
+    document.getElementById('cMessage').value = '';
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('errorMsg').classList.add('show');
+  }
+
+  // Restore button state
+  btn.disabled = false;
+  btn.innerHTML = '✉ Send Message';
+}
