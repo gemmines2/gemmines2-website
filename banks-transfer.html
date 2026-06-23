@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Options | Gemmines2</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero { padding: 60px 5% 40px; background: var(--navy2); border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; }
+    .page-hero h1 em { font-style:italic; color:var(--gold); }
+    .page-hero p { font-size:14px; color:var(--muted); margin-top:8px; }
+
+    .bank-wrap { max-width: 780px; margin: 50px auto; padding: 0 5% 60px; }
+
+    .bank-intro { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: 8px; padding: 20px 24px; margin-bottom: 28px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .bank-intro strong { color: var(--text); }
+
+    /* Scam warning */
+    .scam-box { background: rgba(230,80,60,.08); border: 1px solid rgba(230,80,60,.35); border-left: 3px solid #e6503c; border-radius: 8px; padding: 18px 22px; margin-bottom: 28px; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .scam-box strong.scam-title { display:block; color:#e6503c; font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+    .scam-box strong { color: var(--text); }
+    .scam-box ul { margin: 6px 0 0 18px; padding: 0; }
+    .scam-box li { margin-bottom: 4px; }
+
+    .bank-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+    .bank-card.preferred { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+    .bank-card-header { background: var(--navy2); padding: 16px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+    .bank-card-header .bank-icon { font-size: 1.4rem; }
+    .bank-card-header h2 { font-family:'Cormorant Garamond',serif; font-size: 1.25rem; font-weight: 500; color: var(--text); margin: 0; }
+    .bank-card-header span.tag { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-left: auto; }
+    .pref-badge { background: var(--gold); color: #1a1a1a; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-left: auto; white-space: nowrap; }
+    .bank-card-header .pref-badge + span.tag { margin-left: 10px; }
+
+    .bank-fields { padding: 8px 0; }
+    .bank-row { display: flex; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--border); gap: 16px; }
+    .bank-row:last-child { border-bottom: none; }
+    .bank-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); min-width: 160px; }
+    .bank-value { font-size: 14px; color: var(--text); flex: 1; font-family: 'Courier New', monospace; letter-spacing: 0.5px; }
+    .bank-value.highlight { color: var(--teal); font-weight: 600; font-size: 15px; }
+    .bank-value.pending { color: var(--muted); font-style: italic; font-family: inherit; font-size: 13px; }
+    .copy-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 5px 10px; border-radius: 3px; font-size: 11px; cursor: pointer; transition: all .2s; white-space: nowrap; }
+    .copy-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .copy-btn.copied { border-color: var(--teal); color: var(--teal); background: rgba(32,178,170,.1); }
+
+    .masked-note { padding: 4px 24px 16px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .masked-note a { color: #25d366; font-weight: 600; text-decoration: none; }
+
+    .payoneer-note { padding: 14px 24px 18px; font-size: 13px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); }
+    .payoneer-note strong { color: var(--text); }
+
+    .bank-steps { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px; margin-bottom: 28px; }
+    .bank-steps h3 { font-family:'Cormorant Garamond',serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 20px; color: var(--text); }
+    .step { display: flex; gap: 16px; margin-bottom: 18px; align-items: flex-start; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num { background: var(--teal); color: #000; font-size: 11px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-text { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .step-text strong { color: var(--text); }
+
+    /* Insurance / tracking reminder */
+    .insure-note { display: flex; align-items: flex-start; gap: 10px; background: rgba(32,178,170,.07); border: 1px solid rgba(32,178,170,.25); border-radius: 6px; padding: 14px 18px; margin-bottom: 28px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .insure-note span.ic { font-size: 1.1rem; flex-shrink: 0; }
+    .insure-note strong { color: var(--text); }
+
+    .bank-confirm { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px; }
+    .bank-confirm h3 { font-family:'Cormorant Garamond',serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .bank-confirm p { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+    .confirm-form { display: grid; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--navy2); border: 1px solid var(--border); color: var(--text);
+      padding: 10px 14px; border-radius: 4px; font-size: 13px; transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--teal);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .btn-submit { background: var(--teal); color: #000; border: none; padding: 13px 32px; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: opacity .2s; margin-top: 6px; }
+    .btn-submit:hover { opacity: .85; }
+
+    .wa-note { display: flex; align-items: center; gap: 10px; background: rgba(37,211,102,.07); border: 1px solid rgba(37,211,102,.25); border-radius: 6px; padding: 14px 18px; margin-top: 20px; font-size: 13px; color: var(--muted); }
+    .wa-note svg { width: 20px; height: 20px; fill: #25d366; flex-shrink: 0; }
+    .wa-note a { color: #25d366; text-decoration: none; font-weight: 600; }
+
+    @media(max-width:600px){
+      .bank-row { flex-wrap: wrap; gap: 8px; }
+      .bank-label { min-width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .bank-card-header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+<div class="announcement">✦ Free Insured Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<header class="site-header">
+  <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Collection</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="cart.html" class="nav-cart">Cart <span class="cart-count">(0)</span></a>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="products.html">Collection</a>
+  <a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="cart.html">Cart <span class="cart-count">(0)</span></a>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Payment</span>
+  <h1>Payment <em>Options</em></h1>
+  <p>Payoneer (recommended) or international bank transfer • USD payments accepted</p>
+</div>
+
+<div class="bank-wrap">
+
+  <div class="bank-intro">
+    <strong>How it works:</strong> Send payment using either method below, then confirm with us via the form or WhatsApp. We verify and dispatch your order within <strong>1–2 business days</strong> of confirmed payment.
+  </div>
+
+  <!-- SCAM WARNING -->
+  <div class="scam-box">
+    <strong class="scam-title">⚠ Protect Yourself From Scams</strong>
+    <ul>
+      <li>Only pay to the <strong>Payoneer email</strong> or <strong>bank details listed on this official page</strong>. We will never message you first asking you to pay a different account.</li>
+      <li>If someone contacts you claiming to be Gemmines2 on a different WhatsApp number, social media account, or email — do not pay them. Verify through the contact links on this site only.</li>
+      <li>We will never ask for payment via gift cards, crypto, or unusual third-party apps.</li>
+      <li>Always get a written confirmation from us (WhatsApp or email) before sending payment for any order.</li>
+    </ul>
+  </div>
+
+  <!-- PAYONEER — PREFERRED -->
+  <div class="bank-card preferred">
+    <div class="bank-card-header">
+      <span class="bank-icon">⭐</span>
+      <h2>Payoneer</h2>
+      <span class="pref-badge">Preferred: Faster &amp; Safer</span>
+    </div>
+    <div class="bank-fields">
+      <div class="bank-row">
+        <div class="bank-label">Payoneer Email</div>
+        <div class="bank-value highlight" id="val-payoneer">yousef_zubair@yahoo.com</div>
+        <button class="copy-btn" onclick="copyField('val-payoneer', this)">Copy</button>
+      </div>
+    </div>
+    <div class="payoneer-note">
+      <strong>How to pay:</strong> Log into your Payoneer account and use "Send Money" to the email above. Include your name or order number in the payment note. A direct Payoneer payment request link is coming soon — until then, message us on WhatsApp and we can send you a request invoice directly.
+    </div>
+  </div>
+
+  <!-- BANK TRANSFER — SECONDARY -->
+  <div class="bank-card">
+    <div class="bank-card-header">
+      <span class="bank-icon">🏦</span>
+      <h2>Bank Transfer</h2>
+      <span class="tag">USD • International • Secondary Option</span>
+    </div>
+    <div class="bank-fields">
+
+      <div class="bank-row">
+        <div class="bank-label">Account Title</div>
+        <div class="bank-value highlight" id="val-title">MOHAMED YOUSEF ZUBAIR</div>
+        <button class="copy-btn" onclick="copyField('val-title', this)">Copy</button>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">Bank Name</div>
+        <div class="bank-value" id="val-bank">UBL Bank</div>
+        <button class="copy-btn" onclick="copyField('val-bank', this)">Copy</button>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">Branch Name</div>
+        <div class="bank-value" id="val-branch">F-11 Branch, Islamabad, Pakistan</div>
+        <button class="copy-btn" onclick="copyField('val-branch', this)">Copy</button>
+      </div>
+
+      <div class="bank-row">
+        <!-- TODO: add branch code once available -->
+        <div class="bank-label">Branch Code</div>
+        <div class="bank-value pending" id="val-branchcode">Available on request</div>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">Account Number</div>
+        <div class="bank-value highlight" id="val-accno">•••• •••• 1532</div>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">IBAN</div>
+        <div class="bank-value highlight" id="val-iban">PK12UNIL010900036571-4532</div>
+        <button class="copy-btn" onclick="copyField('val-iban', this)">Copy</button>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">SWIFT / BIC</div>
+        <div class="bank-value" id="val-swift">UNILPKKA</div>
+        <button class="copy-btn" onclick="copyField('val-swift', this)">Copy</button>
+      </div>
+
+      <div class="bank-row">
+        <div class="bank-label">Currency</div>
+        <div class="bank-value">USD (US Dollars)</div>
+      </div>
+
+    </div>
+    <div class="masked-note">
+      For your security, the full account number is only shared once you confirm your order with us — message us on <a href="https://wa.me/923362149415" target="_blank">WhatsApp</a> or use the confirmation form below and we'll send it directly. The IBAN and SWIFT code above are sufficient to complete most international transfers.
+    </div>
+  </div>
+
+  <!-- INSURANCE / TRACKING -->
+  <div class="insure-note">
+    <span class="ic">📦</span>
+    <span><strong>Every order ships fully insured and tracked</strong> via DHL, FedEx, or EMS. Once payment is confirmed and your order is dispatched, you'll receive a tracking number by WhatsApp and email so you can follow your delivery the whole way.</span>
+  </div>
+
+  <!-- STEPS -->
+  <div class="bank-steps">
+    <h3>Transfer Instructions</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Copy your order total</strong> — found in your cart or order confirmation email. Use the exact USD amount.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Choose Payoneer (recommended) or bank transfer</strong> — Payoneer is faster to confirm and generally safer for international buyers. For bank transfer, use the IBAN and SWIFT code above via your bank's international transfer option.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Add reference</strong> — include your name or order number in the payment note/remarks field.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text"><strong>Send us confirmation</strong> — fill the form below or send your receipt via WhatsApp. We confirm receipt within 24 hours.</div>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION FORM -->
+  <div class="bank-confirm">
+    <h3>Payment Confirmation</h3>
+    <p>Sent your payment? Let us know so we can verify and process your order.</p>
+    <div class="confirm-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="cf-name" placeholder="As used for payment">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="cf-email" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Payment Method</label>
+          <select id="cf-method">
+            <option value="Payoneer">Payoneer</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Amount Sent (USD)</label>
+          <input type="number" id="cf-amount" placeholder="e.g. 250">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Transfer / Reference Number</label>
+        <input type="text" id="cf-ref" placeholder="Bank reference, TT number, or Payoneer transaction ID">
+      </div>
+      <div class="form-group">
+        <label>Order Items / Notes</label>
+        <textarea id="cf-notes" placeholder="Which gemstone(s) you ordered, or any notes for us"></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitConfirmation()">Send Confirmation</button>
+    </div>
+
+    <div class="wa-note">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Prefer WhatsApp? Send your receipt to <a href="https://wa.me/923362149415" target="_blank">+92 336 214 9415</a> and we'll confirm within hours.
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2" style="height:34px"><span class="logo-text" style="font-size:1.2rem">Gem<em>mines</em>2</span></a>
+      <p class="footer-brand-desc">Natural certified gemstones from Pakistan and Sri Lanka. Ethically sourced, worldwide delivery.</p>
+    </div>
+    <div class="footer-col"><h4>Shop</h4><a href="products.html?type=cut">Cut Gemstones</a><a href="products.html?type=rough">Rough Stones</a><a href="products.html?type=jewelry">Custom Jewelry</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="track.html">Track Order</a></div>
+    <div class="footer-col"><h4>Policies</h4><a href="return.html">Returns &amp; Refunds</a><a href="shipping.html">Shipping Policy</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan</div>
+    <div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div>
+  </div>
+</footer>
+<a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script src="main.js"></script>
+<script>
+function copyField(id, btn) {
+  const text = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function submitConfirmation() {
+  const name   = document.getElementById('cf-name').value.trim();
+  const email  = document.getElementById('cf-email').value.trim();
+  const method = document.getElementById('cf-method').value;
+  const amount = document.getElementById('cf-amount').value.trim();
+  const ref    = document.getElementById('cf-ref').value.trim();
+  const notes  = document.getElementById('cf-notes').value.trim();
+
+  if (!name || !email || !amount || !ref) {
+    showToast('Please fill in all required fields.', 'error');
+    return;
+  }
+
+  // Send via EmailJS using the existing contact template
+  if (typeof emailjs !== 'undefined') {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONTACT, {
+      from_name: name,
+      from_email: email,
+      message: `PAYMENT CONFIRMATION\n\nMethod: ${method}\nAmount: $${amount} USD\nReference: ${ref}\nNotes: ${notes}`
+    }).then(() => {
+      showToast('Confirmation sent! We will verify within 24 hours.', 'success');
+      document.getElementById('cf-name').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-amount').value = '';
+      document.getElementById('cf-ref').value = '';
+      document.getElementById('cf-notes').value = '';
+    }).catch(() => {
+      showToast('Could not send. Please contact us on WhatsApp.', 'error');
+    });
+  } else {
+    // Fallback — open WhatsApp with details pre-filled
+    const msg = encodeURIComponent(`Payment Confirmation\nMethod: ${method}\nName: ${name}\nEmail: ${email}\nAmount: $${amount}\nRef: ${ref}\nNotes: ${notes}`);
+    window.open(`https://wa.me/923362149415?text=${msg}`, '_blank');
+  }
+}
+</script>
+</body>
+</html>
