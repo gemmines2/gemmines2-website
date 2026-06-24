@@ -387,7 +387,7 @@ async function placeOrder() {
   const payment   = document.querySelector('input[name="payment"]:checked').value;
   const notes     = document.getElementById('notes').value.trim();
   const total     = Cart.total().toFixed(2);
-  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`)..join('<br>');
+  const itemLines = items.map(i=>`${i.name} (${i.weight||''}) — $${(i.price*(i.qty||1)).toFixed(2)}`).join('<br>');
   const date = new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
 
   document.getElementById('loadingOverlay').classList.add('show');
