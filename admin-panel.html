@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +109,6 @@
   .combo-input { background: var(--surface2); border: 1px solid var(--border); border-radius: 0 0 6px 6px; color: var(--text); font-size: 13px; padding: 8px 10px; width: 100%; }
   .combo-input:focus { outline: none; border-color: var(--gold); }
 
-  /* ── IMAGE & VIDEO UPLOAD ── */
   .upload-section { grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
   .upload-section-title { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: .4px; text-transform: uppercase; margin-bottom: 10px; }
   .upload-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -126,7 +126,6 @@
   .upload-hint { font-size: 10px; color: var(--muted); margin-top: 4px; }
   .img-paths-display { font-size: 10px; color: var(--muted); margin-top: 6px; font-family: monospace; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; word-break: break-all; line-height: 1.6; }
 
-  /* ── JSON PREVIEW MODAL ── */
   .preview-modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.85); z-index: 300; align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
   .preview-modal-bg.open { display: flex; }
   .preview-modal { background: var(--surface); border: 1px solid var(--gold); border-radius: 12px; width: 100%; max-width: 800px; margin: auto; }
@@ -166,6 +165,8 @@
   #toast.show { transform: translateY(0); opacity: 1; }
   #toast.error { background: var(--red); }
 
+  .sync-banner { background: #1a2d1a; border: 1px solid #2a5a2a; border-radius: var(--radius); padding: 12px 16px; color: #7dd87d; font-size: 12px; margin-bottom: 16px; }
+
   @media (max-width: 700px) {
     .form-grid { grid-template-columns: 1fr; }
     .main { padding: 12px; }
@@ -189,8 +190,8 @@
 
 <div class="main">
 
-  <!-- ═══ PRODUCTS TAB ═══ -->
   <div class="panel active" id="panel-products">
+    <div class="sync-banner">✅ This copy is pre-loaded with the corrected 38-product catalog (fixed image/video paths included). This is now the ONLY Product Manager file to use — delete any other copies on GitHub or your Desktop.</div>
     <div class="stats" id="statsBar"></div>
     <div class="toolbar">
       <button class="btn btn-gold" onclick="openModal()">+ Add Product</button>
@@ -228,7 +229,6 @@
     <div style="margin-top:10px;color:var(--muted);font-size:12px;" id="tableCount"></div>
   </div>
 
-  <!-- ═══ GENERATE JS TAB ═══ -->
   <div class="panel" id="panel-generate-js">
     <div style="margin-bottom:18px;">
       <div class="mode-toggle" style="max-width:480px;">
@@ -239,7 +239,7 @@
     </div>
 
     <div id="singleMode">
-      <div class="notice">✂️ <strong>Single Item Mode:</strong> Pick a product, generate its snippet, then paste it directly into your <code>product-data.js</code> on GitHub — no need to replace the whole file.</div>
+      <div class="notice">✂️ <strong>Single Item Mode:</strong> Pick a product, generate its snippet, then paste it directly into your <code>products-data.js</code> on GitHub — no need to replace the whole file.</div>
       <div class="output-section">
         <div class="output-head"><h3>Select a Product to Generate</h3></div>
         <div class="output-body">
@@ -317,7 +317,6 @@
     </div>
   </div>
 
-  <!-- ═══ MERCHANT FEED TAB ═══ -->
   <div class="panel" id="panel-merchant-feed">
     <div class="notice">✅ Generates a Google Merchant Center compliant TSV feed. Download and upload to Merchant Center.</div>
     <div class="output-section">
@@ -347,18 +346,18 @@
     </div>
   </div>
 
-  <!-- ═══ GUIDE TAB ═══ -->
   <div class="panel" id="panel-guide">
     <div class="output-section">
       <div class="output-head"><h3>🔒 How to Avoid Corruption & Stabilize Your Site</h3></div>
       <div class="output-body">
-        <div class="warning" style="margin-bottom:16px;">⚠️ <strong>Root cause of past corruption:</strong> Editing products-data.js directly on GitHub introduces typos and syntax errors. Never edit JS files directly on GitHub again.</div>
+        <div class="warning" style="margin-bottom:16px;">⚠️ <strong>Root cause of past corruption:</strong> Opening different copies of this tool (Desktop file vs GitHub URL) creates separate, disconnected data. ALWAYS open this tool the same way — via its GitHub Pages URL — never from a Desktop copy.</div>
         <ol class="step-list">
-          <li><strong>Always use THIS tool to manage products</strong><br>Add, edit, or remove products here.</li>
+          <li><strong>Always open this tool via its GitHub URL</strong><br>e.g. https://gemmines2.github.io/gemmines2-website/admin.html — bookmark it.</li>
           <li><strong>Use Single Item Snippet for new products</strong><br>Go to "Generate JS File" → "Single Item Snippet".</li>
           <li><strong>Use Full JS File only when doing a big cleanup</strong><br>Replaces everything cleanly.</li>
           <li><strong>For images — upload MULTIPLE images per product</strong><br>Click "Upload Images" and select multiple files at once. All paths save automatically.</li>
           <li><strong>Wait 2 minutes after GitHub commit</strong><br>GitHub Pages takes 1–3 minutes to publish.</li>
+          <li><strong>Duplicate ID protection is on</strong><br>The tool already warns you if you try to reuse an existing Product ID.</li>
         </ol>
       </div>
     </div>
@@ -366,7 +365,6 @@
 
 </div>
 
-<!-- ═══ ADD/EDIT MODAL ═══ -->
 <div class="modal-bg" id="modalBg">
   <div class="modal">
     <div class="modal-head">
@@ -455,7 +453,6 @@
 
         <div class="field full"><label>Description</label><textarea id="f_description" rows="4" placeholder="Full product description for Google and your website..."></textarea></div>
 
-        <!-- ═══ IMAGE & VIDEO UPLOAD SECTION ═══ -->
         <div class="upload-section full">
           <div class="upload-section-title">📷 Images & 🎥 Video</div>
 
@@ -471,13 +468,10 @@
             </label>
           </div>
 
-          <!-- Image count badge -->
           <div id="imgCountBadge" style="display:none;" class="img-count-badge">0 images</div>
 
-          <!-- Thumbnails grid -->
           <div id="imgPreviewsWrap" class="img-previews"></div>
 
-          <!-- All paths display -->
           <div id="imgPathsDisplay" class="img-paths-display" style="display:none;"></div>
 
           <div class="upload-hint" style="margin-top:6px;">✅ Select multiple images at once, or click "Add More Images" to keep adding. Each image gets its own thumbnail with a ✕ remove button.</div>
@@ -509,7 +503,6 @@
   </div>
 </div>
 
-<!-- ═══ JSON PREVIEW MODAL ═══ -->
 <div class="preview-modal-bg" id="previewModalBg">
   <div class="preview-modal">
     <div class="preview-modal-head">
@@ -533,36 +526,44 @@
 
 <script>
 const INITIAL_PRODUCTS = [
-  {"id":"GM-AQUA-1009","name":"730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting","shortName":"Natural Aquamarine","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Icy Pastel Blue","shape":"Rough","weight":730,"dimensions":"","clarity":"Translucent","certificate":"Certificate Available","price":240,"pricePerCarat":0.33,"status":"active","rare":false,"description":"Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin.","gemType":"Aquamarine","images":["images/GM-AQUA-1009.jpg"],"image":"images/GM-AQUA-1009.jpg","video":""},
-  {"id":"sapphire-1780901637012","name":"This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.","shortName":"Yellow Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellow","shape":"Emerald Cut","weight":0.52,"dimensions":"","clarity":"","certificate":"Available on Request","price":100,"pricePerCarat":192,"status":"active","rare":false,"description":"This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance.","gemType":"Sapphire","images":["images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg"],"image":"images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg","video":""},
-  {"id":"sapphire-1780848740390","name":"Natural Unheated Blue Sapphire 7.8 Ct Rough Stone Sri Lankan Origin","shortName":"Blue Sapphire","type":"rough","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"","weight":7.8,"dimensions":"","clarity":"loupe clean","certificate":"Available on Request","price":120,"pricePerCarat":15,"status":"active","rare":false,"description":"Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats.","gemType":"Sapphire","images":["images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"],"image":"images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg","video":""},
+  {"id":"GM-AQUA-1009","name":"730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting","shortName":"Natural Aquamarine","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Icy Pastel Blue","shape":"Rough","weight":730,"dimensions":"","clarity":"Translucent","certificate":"Certificate Available","price":240,"pricePerCarat":0.33,"status":"active","rare":false,"description":"Discover an extraordinary, museum-grade 730-carat natural aquamarine rough crystal of verified Pakistani origin. This massive collector-sized gemstone features a highly sought-after, completely natural icy pastel blue color that has not been subjected to any heat treatment or artificial enhancements.\n\nBoasting excellent natural translucency, this loose crystal exhibits a beautiful crystalline structure that allows light to pass through gracefully, showcasing its soft, cooling blue hues. Its impressive 730-carat weight makes it a rare find for high-end gemstone collectors, lapidary artists looking for premium faceting rough, or investment-grade mineral displays.\n\nSourced directly from the world-renowned gem pegmatites of Pakistan, this raw aquamarine is an authentic specimen of Beryl. Whether kept in its natural, magnificent raw form for a high-end mineral collection or cut into custom fine jewelry pieces, its outstanding size and natural color profile offer immense value.","gemType":"Aquamarine","images":["images/GM-AQUA-1009.jpg"],"image":"images/GM-AQUA-1009.jpg","video":""},
+  {"id":"sapphire-1780901637012","name":"This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.","shortName":"Yellow Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellow","shape":"Emerald Cut","weight":0.52,"dimensions":"","clarity":"","certificate":"Available on Request","price":100,"pricePerCarat":192,"status":"active","rare":false,"description":"This natural unheated Sri Lankan sapphire weighs 0.52 carats and features a beautifully faceted cut with good lustre and excellent brilliance. Displaying a rich Yellow colour and loupe clean clarity, this gemstone offers exceptional transparency and sparkle. Sourced from Sri Lanka, famous for producing premium sapphires, this untreated gemstone is ideal for fine jewellery, collectors, and gemstone enthusiasts seeking natural beauty and rarity","gemType":"Sapphire","images":["images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg"],"image":"images/this-natural-unheated-sri-lankan-or-1780901634847-0.jpg","video":""},
+  {"id":"sapphire-1780848740390","name":"Natural Unheated Blue Sapphire 7.8 Ct Rough Stone Sri Lankan Origin","shortName":"Blue Sapphire","type":"rough","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"","weight":7.8,"dimensions":"","clarity":"loupe clean","certificate":"Available on Request","price":120,"pricePerCarat":15,"status":"active","rare":false,"description":"Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats. This natural sapphire displays an attractive blue color with excellent raw crystal character and natural luster. Sourced from Sri Lankan deposits known for producing high-quality sapphires, this gemstone is untreated and suitable for collectors, lapidary work, or custom jewelry designs.","gemType":"Sapphire","images":["images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg"],"image":"images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg","video":""},
   {"id":"GM-SAPH-1001","name":"Natural Sri Lankan Blue Sapphire","shortName":"Sapphire","type":"rough","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"","weight":3.8,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":120,"pricePerCarat":32,"status":"active","rare":false,"description":"Blue Sapphire - Sri Lankan Origin - Blue - Natural","gemType":"Blue Sapphire","images":["images/gm-saph-1001-1.jpg"],"image":"images/gm-saph-1001-1.jpg","video":""},
   {"id":"amethys-1780829923587","name":"Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds","shortName":"Natural Amethyst with American Diamond","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Purple","shape":"Pear Shape","weight":3,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":150,"pricePerCarat":50,"status":"active","rare":false,"description":"Exclusive pendant made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds.","gemType":"Amethyst","images":["images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg","images/-custom-designed-stunning-silver-pe-1780829921329-1.jpeg"],"image":"images/-custom-designed-stunning-silver-pe-1780829918243-0.jpeg","video":""},
-  {"id":"sapphire-1780764315884","name":"Natural P Color change Sapphire Top eye clean Unheated Color: From Violet to Purple","shortName":"Color Change Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Purple","shape":"Oval Cut","weight":1.54,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":150,"pricePerCarat":97,"status":"active","rare":false,"description":"Natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats.","gemType":"Sapphire","images":["images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","images/natural-p-color-change-sapphire-top-1780765094874-1.jpeg"],"image":"images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","video":"videos/natural-p-color-change-sapphire-top-1780764311378.mp4"},
-  {"id":"chrysoberyl-1780742386216","name":"Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )","shortName":"Chrysoberyl","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellowish Green","shape":"Oval Cut","weight":1.35,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":120,"pricePerCarat":89,"status":"active","rare":false,"description":"Natural chrysoberyl gemstone weighing 1.35 carats from Sri Lanka.","gemType":"Chrysoberyl","images":["images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"],"image":"images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg","video":""},
-  {"id":"zircon-1780665881053","name":"Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.","shortName":"Blue Zircon","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Brownish","shape":"Emerald Cut","weight":3.999,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":95,"pricePerCarat":24,"status":"active","rare":true,"description":"Handcrafted exclusive pendant in 925 sterling silver with natural zircon and American diamonds.","gemType":"Zircon","images":["images/zircon-pendant-1780665878476-0.jpeg"],"image":"images/zircon-pendant-1780665878476-0.jpeg","video":""},
+  {"id":"sapphire-1780764315884","name":"Natural P Color change Sapphire Top eye clean Unheated Color: From Violet to Purple","shortName":"Color Change Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Purple","shape":"Oval Cut","weight":1.54,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":150,"pricePerCarat":97,"status":"active","rare":false,"description":"Discover the beauty of this natural unheated Color Change Sapphire from Sri Lanka, weighing 1.54 carats. This rare gemstone displays a stunning color shift from violet to rich purple under different lighting conditions. Featuring top eye-clean clarity and excellent natural brilliance, this sapphire is perfect for collectors, custom jewelry, or gemstone enthusiasts seeking a unique and elegant treasure.","gemType":"Sapphire","images":["images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","images/natural-p-color-change-sapphire-top-1780765094874-1.jpeg"],"image":"images/natural-p-color-change-sapphire-top-1780765092779-0.jpg","video":"videos/natural-p-color-change-sapphire-top-1780764311378.mp4"},
+  {"id":"chrysoberyl-1780742386216","name":"Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )","shortName":"Chrysoberyl","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Yellowish Green","shape":"Oval Cut","weight":1.35,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":120,"pricePerCarat":89,"status":"active","rare":false,"description":"Discover this exquisite natural chrysoberyl gemstone weighing 1.35 carats. Renowned for its exceptional hardness (8.5 on the Mohs scale) and brilliant luster, chrysoberyl is one of the most durable and sought-after gemstones, prized for its subtle honey-yellow to greenish hues and superior clarity.","gemType":"Chrysoberyl","images":["images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg"],"image":"images/natural-chrysoberyl-1-35-ct-loupe-c-1780742383560-0.jpeg","video":""},
+  {"id":"zircon-1780665881053","name":"Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.","shortName":"Blue Zircon","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Brownish","shape":"Emerald Cut","weight":3.999,"dimensions":"","clarity":"loupe clean","certificate":"Certificate Available","price":95,"pricePerCarat":24,"status":"active","rare":true,"description":"Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver, featuring a natural zircon gemstone enhanced with sparkling American diamonds.","gemType":"Zircon","images":["images/zircon-pendant-1780665878476-0.jpeg"],"image":"images/zircon-pendant-1780665878476-0.jpeg","video":""},
   {"id":"spinel-1780499911496","name":"Natural Sri Lankan ( Ceylon ) Blue Spinel 1 Carat | Loupe / Eye Clean Unheated Gemstone","shortName":"Natural Spinel","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"oval shape","weight":1,"dimensions":"","clarity":"loupe clean","certificate":"Available on Request","price":125,"pricePerCarat":125,"status":"active","rare":false,"description":"Natural Sri Lankan Blue Spinel with pristine loupe clean clarity.","gemType":"Spinel","images":["images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg"],"image":"images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg","video":""},
-  {"id":"garnet-1780215589223","name":"Natural Unheated Rhodolite Garnets 12.2 Carats","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Oval, Cushion, Rectangular","weight":12.2,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":200,"pricePerCarat":16,"status":"active","rare":false,"description":"Natural Unheated Rhodolite Garnets from Tanzania with mixed cuts.","gemType":"Garnet","images":["images/rhodolite-garnets-1780215583524-0.jpg"],"image":"images/rhodolite-garnets-1780215583524-0.jpg","video":""},
+  {"id":"garnet-1780215589223","name":"Natural Unheated Rhodolite Garnets 12.2 Carats","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Oval, Cushion, Rectangular","weight":12.2,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":200,"pricePerCarat":16,"status":"active","rare":false,"description":"Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.","gemType":"Garnet","images":["images/rhodolite-garnets-1780215583524-0.jpg"],"image":"images/rhodolite-garnets-1780215583524-0.jpg","video":""},
   {"id":"greenjasper_005","name":"Natural Green Jasper Stones 10+ Carats","shortName":"Green Jasper","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Green","shape":"Rough/Tumbled","weight":10,"dimensions":"","clarity":"Opaque","certificate":"Available on Request","price":100,"pricePerCarat":10,"status":"active","rare":false,"description":"Opaque quality green jasper from Pakistan with beautiful lustre and color.","gemType":"Jasper","images":["images/green-jasper.jpg"],"image":"images/green-jasper.jpg","video":""},
-  {"id":"lemonquartz_012","name":"Natural Unheated Lemon Quartz 11.15 Carats","shortName":"Lemon Quartz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":11.15,"dimensions":"","clarity":"Eye Clean","certificate":"Available on Request","price":70,"pricePerCarat":6,"status":"active","rare":false,"description":"Vibrant Lemon Quartz from Pakistan with eye clean transparency.","gemType":"Quartz","images":["images/lemon-quartz.jpg"],"image":"images/lemon-quartz.jpg","video":""},
-  {"id":"lemonquartz2_014","name":"Natural Eye-Clean Lemon Quartz Cut and Polished","shortName":"Lemon Quartz AAA","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":8.5,"dimensions":"","clarity":"AAA Eye Clean","certificate":"Available on Request","price":140,"pricePerCarat":16,"status":"active","rare":false,"description":"AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan.","gemType":"Quartz","images":["images/lemon-quartz2.jpg"],"image":"images/lemon-quartz2.jpg","video":""},
-  {"id":"bluesapphire_016","name":"Stunning Sri Lankan Blue Sapphire Heated 1.10 Carats","shortName":"Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Blue","shape":"Faceted","weight":1.1,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":320,"pricePerCarat":291,"status":"active","rare":false,"description":"Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.","gemType":"Sapphire","images":["images/bluesapphire.jpg"],"image":"images/bluesapphire.jpg","video":""},
-  {"id":"emeralds_017","name":"Natural Unheated Cut and Polished Zambian Emeralds","shortName":"Zambian Emeralds","type":"cut","treatment":"unheated","origin":"Zambia","color":"Rich Green","shape":"Faceted","weight":2.4,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":250,"status":"active","rare":true,"description":"Premium Untreated Loose Gemstones with Rich Green Hue from Zambia.","gemType":"Emerald","images":["images/emeralds.jpg"],"image":"images/emeralds.jpg","video":""},
-  {"id":"fluorite_018","name":"Natural Unheated Blue Fluorite 58 Carats","shortName":"Blue Fluorite","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Blue","shape":"Polished Crystal","weight":58,"dimensions":"","clarity":"High Clarity","certificate":"Available on Request","price":100,"pricePerCarat":2,"status":"active","rare":false,"description":"Rare High Clarity Polished Crystal Healing Stone from Pakistan.","gemType":"Fluorite","images":["images/fluorite.jpg"],"image":"images/fluorite.jpg","video":""},
-  {"id":"mixedgemstones_019","name":"Natural Mixed Lot Gemstones Peridot Garnet and Smoky Quartz","shortName":"Mixed Gemstones","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Mixed Cuts","weight":15.3,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":39,"status":"active","rare":false,"description":"Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz.","gemType":"Mixed","images":["images/mixed-gemstones.jpg"],"image":"images/mixed-gemstones.jpg","video":""},
-  {"id":"almandine_028","name":"Natural Almandine Garnet 60 Carat Oval Cut","shortName":"Almandine Garnet","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Reddish Purple","shape":"Oval Cut","weight":60,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":125,"pricePerCarat":2,"status":"active","rare":false,"description":"Polished Reddish Purple Almandine Garnet from Pakistan with beautiful oval cut.","gemType":"Garnet","images":["images/almandine.jpg"],"image":"images/almandine.jpg","video":""},
-  {"id":"mixed_sapphire_029","name":"Premium Mixed Sapphire Collection Multi-Color","shortName":"Mixed Sapphires","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Loose Uncut","weight":22.1,"dimensions":"","clarity":"Transparent/Translucent","certificate":"Available on Request","price":400,"pricePerCarat":18,"status":"active","rare":false,"description":"Natural multi-color loose sapphire gemstones from Pakistan.","gemType":"Sapphire","images":["images/mixedsapphire.jpg"],"image":"images/mixedsapphire.jpg","video":""},
-  {"id":"Natural_Black_Chert_030","name":"Natural Black Chert Tumbled Stone from Pakistan","shortName":"Black Chert","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Deep Black","shape":"Tumbled Stone","weight":14,"dimensions":"","clarity":"Opaque","certificate":"Available on Request","price":80,"pricePerCarat":5,"status":"active","rare":false,"description":"Smooth river rock specimen with deep black color from Pakistan.","gemType":"Chert","images":["images/chert.jpg"],"image":"images/chert.jpg","video":""},
-  {"id":"Kunzite_031","name":"Natural Pink Kunzite Gemstone 4.80 Carats","shortName":"Pink Kunzite","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Pink","shape":"Oval Cut","weight":4.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":100,"pricePerCarat":21,"status":"active","rare":false,"description":"Unheated transparent oval-cut natural pink kunzite from Pakistan.","gemType":"Kunzite","images":["images/pink-kunzite.jpg"],"image":"images/pink-kunzite.jpg","video":""},
+  {"id":"lemonquartz_012","name":"Natural Unheated Lemon Quartz 11.15 Carats","shortName":"Lemon Quartz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":11.15,"dimensions":"","clarity":"Eye Clean","certificate":"Available on Request","price":70,"pricePerCarat":6,"status":"active","rare":false,"description":"Vibrant Lemon Quartz from Pakistan. Stone of clarity and positive energy with eye clean transparency.","gemType":"Quartz","images":["images/lemon-quartz.jpg"],"image":"images/lemon-quartz.jpg","video":""},
+  {"id":"lemonquartz2_014","name":"Natural Eye-Clean Lemon Quartz Cut and Polished","shortName":"Lemon Quartz AAA","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Lemon Yellow","shape":"Faceted","weight":8.5,"dimensions":"","clarity":"AAA Eye Clean","certificate":"Available on Request","price":140,"pricePerCarat":16,"status":"active","rare":false,"description":"AAA Grade Faceted Lemon Quartz Loose Stone from Pakistan with exceptional clarity and brilliant cut.","gemType":"Quartz","images":["images/lemon-quartz2.jpg"],"image":"images/lemon-quartz2.jpg","video":""},
+  {"id":"bluesapphire_016","name":"Stunning Sri Lankan Blue Sapphire Heated 1.10 Carats","shortName":"Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Blue","shape":"Faceted","weight":1.1,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":320,"pricePerCarat":291,"status":"active","rare":false,"description":"Symbol of wisdom, virtue and good fortune. Stunning blue sapphire from Sri Lanka with heat treatment for enhanced color.","gemType":"Sapphire","images":["images/bluesapphire.jpg"],"image":"images/bluesapphire.jpg","video":""},
+  {"id":"emeralds_017","name":"Natural Unheated Cut and Polished Zambian Emeralds","shortName":"Zambian Emeralds","type":"cut","treatment":"unheated","origin":"Zambia","color":"Rich Green","shape":"Faceted","weight":2.4,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":250,"status":"active","rare":true,"description":"Premium Untreated Loose Gemstones with Rich Green Hue from Zambia. Natural unheated emeralds with exceptional color saturation.","gemType":"Emerald","images":["images/emeralds.jpg"],"image":"images/emeralds.jpg","video":""},
+  {"id":"fluorite_018","name":"Natural Unheated Blue Fluorite 58 Carats","shortName":"Blue Fluorite","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Blue","shape":"Polished Crystal","weight":58,"dimensions":"","clarity":"High Clarity","certificate":"Available on Request","price":100,"pricePerCarat":2,"status":"active","rare":false,"description":"Rare High Clarity Polished Crystal Healing Stone from Pakistan. Beautiful blue fluorite with exceptional clarity.","gemType":"Fluorite","images":["images/fluorite.jpg"],"image":"images/fluorite.jpg","video":""},
+  {"id":"mixedgemstones_019","name":"Natural Mixed Lot Gemstones Peridot Garnet and Smoky Quartz","shortName":"Mixed Gemstones","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Mixed Cuts","weight":15.3,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":600,"pricePerCarat":39,"status":"active","rare":false,"description":"Collection of rare mixed gemstones including Peridot, Garnet and Smoky Quartz. Perfect for collectors.","gemType":"Mixed","images":["images/mixed-gemstones.jpg"],"image":"images/mixed-gemstones.jpg","video":""},
+  {"id":"almandine_028","name":"Natural Almandine Garnet 60 Carat Oval Cut","shortName":"Almandine Garnet","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Reddish Purple","shape":"Oval Cut","weight":60,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":125,"pricePerCarat":2,"status":"active","rare":false,"description":"Polished Reddish Purple Almandine Garnet from Pakistan. Unheated and Untreated with beautiful oval cut.","gemType":"Garnet","images":["images/almandine.jpg"],"image":"images/almandine.jpg","video":""},
+  {"id":"mixed_sapphire_029","name":"Premium Mixed Sapphire Collection Multi-Color","shortName":"Mixed Sapphires","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Multi-Color","shape":"Loose Uncut","weight":22.1,"dimensions":"","clarity":"Transparent/Translucent","certificate":"Available on Request","price":400,"pricePerCarat":18,"status":"active","rare":false,"description":"Natural multi-color loose sapphire gemstones from Pakistan. Beautiful collection of unheated sapphires in various colors.","gemType":"Sapphire","images":["images/mixedsapphire.jpg"],"image":"images/mixedsapphire.jpg","video":""},
+  {"id":"Natural_Black_Chert_030","name":"Natural Black Chert Tumbled Stone from Pakistan","shortName":"Black Chert","type":"rough","treatment":"unheated","origin":"Pakistan","color":"Deep Black","shape":"Tumbled Stone","weight":14,"dimensions":"","clarity":"Opaque","certificate":"Available on Request","price":80,"pricePerCarat":5,"status":"active","rare":false,"description":"Smooth river rock specimen with deep black color from Pakistan. Natural tumbled chert stone.","gemType":"Chert","images":["images/chert.jpg"],"image":"images/chert.jpg","video":""},
+  {"id":"Kunzite_031","name":"Natural Pink Kunzite Gemstone 4.80 Carats","shortName":"Pink Kunzite","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Pink","shape":"Oval Cut","weight":4.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":100,"pricePerCarat":21,"status":"active","rare":false,"description":"Unheated transparent oval-cut natural pink kunzite from Pakistan. Beautiful pink color with excellent transparency.","gemType":"Kunzite","images":["images/pink-kunzite.jpg"],"image":"images/pink-kunzite.jpg","video":""},
   {"id":"quartz_034","name":"12 Carat Ferruginous Quartz Gemstone","shortName":"Ferruginous Quartz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Yellow/White","shape":"Loose Stone","weight":12,"dimensions":"","clarity":"Translucent","certificate":"Available on Request","price":70,"pricePerCarat":6,"status":"active","rare":false,"description":"Vibrant Yellow with White Hues. Natural Loose Ferruginous Quartz Stone from Pakistan.","gemType":"Quartz","images":["images/ferruginous.jpg"],"image":"images/ferruginous.jpg","video":""},
-  {"id":"sapphire_039","name":"2.15ct Natural Unheated Bi-Color Sapphire Sri Lanka","shortName":"Bi-Color Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Bi-Color","shape":"Pear Cut","weight":2.15,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":95,"pricePerCarat":44,"status":"active","rare":true,"description":"Rare Sri Lankan Origin Bi-Color Sapphire with pear cut.","gemType":"Sapphire","images":["images/bi-color-sapphire.jpeg"],"image":"images/bi-color-sapphire.jpeg","video":""},
-  {"id":"sapphire_040","name":"5.80ct Royal Blue Sapphire Sri Lankan Origin","shortName":"Royal Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Royal Blue","shape":"Oval Brilliant Cut","weight":5.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":120,"pricePerCarat":21,"status":"active","rare":false,"description":"Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut.","gemType":"Sapphire","images":["images/darksapphire.jpeg"],"image":"images/darksapphire.jpeg","video":""},
-  {"id":"sapphire_043","name":"Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster","shortName":"Padparadscha Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Pink-Orange","shape":"Oval","weight":2.93,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":190,"pricePerCarat":65,"status":"active","rare":true,"description":"Stunning 2.93 carat heated Padparadscha sapphire from Sri Lanka.","gemType":"Sapphire","images":["images/Padparadscha-sapphire.jpeg"],"image":"images/Padparadscha-sapphire.jpeg","video":""},
-  {"id":"ruby_044","name":"Natural Unheated Sri Lankan Ruby 1.06 Carats","shortName":"Ceylon Ruby","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Vivid Red","shape":"Faceted","weight":1.06,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":200,"pricePerCarat":189,"status":"active","rare":true,"description":"Vivid Red Ceylon Ruby Gemstone with Stunning Luster.","gemType":"Ruby","images":["images/ruby2.jpeg"],"image":"images/ruby2.jpeg","video":""},
-  {"id":"pinktopaz_101","name":"Natural Unheated Pink Topaz 18 Carats Pakistan","shortName":"Pink Topaz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Light Pink","shape":"Emerald Cut","weight":18,"dimensions":"","clarity":"Eye Clean with Minor Natural Inclusion","certificate":"Available on Request","price":120,"pricePerCarat":7,"status":"active","rare":false,"description":"Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats.","gemType":"Topaz","images":["images/pinktopaz.gif","images/natural-unheated-pink-topaz-18-cara-1780319473513-0.jpg","images/natural-unheated-pink-topaz-18-cara-1780319477585-1.jpg"],"image":"images/pinktopaz.gif","video":""},
-  {"id":"Greenperidot_102","name":"Natural Unheated Olive Green Peridot Pakistan","shortName":"Olive Peridot","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Olive Green","shape":"Oval","weight":5,"dimensions":"","clarity":"Eye Clean with Natural Rutile","certificate":"Available on Request","price":95,"pricePerCarat":19,"status":"active","rare":false,"description":"Natural unheated olive green peridot from Pakistan.","gemType":"Peridot","images":["images/peridot.gif"],"image":"images/peridot.gif","video":""},
-  {"id":"rhodolitegarnets_103","name":"Natural Unheated Rhodolite Garnets 12 Carats Tanzania","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Mixed Cuts","weight":12,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":140,"pricePerCarat":12,"status":"active","rare":false,"description":"Natural unheated rhodolite garnets from Tanzania.","gemType":"Garnet","images":["images/rhodolite.jpg"],"image":"images/rhodolite.jpg","video":""},
-  {"id":"jade_045","name":"Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan","shortName":"Green Jade","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Translucent Green","shape":"Oval Cut","weight":3.2,"dimensions":"","clarity":"Translucent","certificate":"Available on Request","price":80,"pricePerCarat":25,"status":"active","rare":false,"description":"Natural translucent green nephrite gemstone from Pakistan.","gemType":"Jade","images":["images/natural-translucent-green-nephrite--1780761893401-0.jpg","images/natural-translucent-green-nephrite--1780761897176-1.jpg"],"image":"images/natural-translucent-green-nephrite--1780761893401-0.jpg","video":""}
+  {"id":"sapphire_039","name":"2.15ct Natural Unheated Bi-Color Sapphire Sri Lanka","shortName":"Bi-Color Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Bi-Color","shape":"Pear Cut","weight":2.15,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":95,"pricePerCarat":44,"status":"active","rare":true,"description":"Rare Sri Lankan Origin Bi-Color Sapphire. Unheated and untreated with pear cut. Beautiful two-tone color combination.","gemType":"Sapphire","images":["images/bi-color-sapphire.jpeg"],"image":"images/bi-color-sapphire.jpeg","video":""},
+  {"id":"sapphire_040","name":"5.80ct Royal Blue Sapphire Sri Lankan Origin","shortName":"Royal Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Royal Blue","shape":"Oval Brilliant Cut","weight":5.8,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":120,"pricePerCarat":21,"status":"active","rare":false,"description":"Heated Royal Blue Sapphire from Sri Lanka with Oval Brilliant Cut. Deep royal blue color with excellent luster.","gemType":"Sapphire","images":["images/darksapphire.jpeg"],"image":"images/darksapphire.jpeg","video":""},
+  {"id":"sapphire_043","name":"Heated Padparadscha Sapphire 2.93 Ct - Sri Lankan Ceylon Pink-Orange Gem with Beautiful Luster","shortName":"Padparadscha Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Pink-Orange","shape":"Oval","weight":2.93,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":190,"pricePerCarat":65,"status":"active","rare":true,"description":"Stunning 2.93 carat heated Padparadscha sapphire from Sri Lanka. Rare pinkish-orange to orangey-pink hue evoking the soft glow of a lotus blossom. Professionally heated for enhanced color saturation with excellent luster and brilliance.","gemType":"Sapphire","images":["images/Padparadscha-sapphire.jpeg"],"image":"images/Padparadscha-sapphire.jpeg","video":""},
+  {"id":"ruby_044","name":"Natural Unheated Sri Lankan Ruby 1.06 Carats","shortName":"Ceylon Ruby","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Vivid Red","shape":"Faceted","weight":1.06,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":200,"pricePerCarat":189,"status":"active","rare":true,"description":"Vivid Red Ceylon Ruby Gemstone with Stunning Luster. Natural unheated Sri Lankan ruby, one of the most sought after gemstones in the world.","gemType":"Ruby","images":["images/ruby2.jpeg"],"image":"images/ruby2.jpeg","video":""},
+  {"id":"pinktopaz_101","name":"Natural Unheated Pink Topaz 18 Carats Pakistan","shortName":"Pink Topaz","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Light Pink","shape":"Emerald Cut","weight":18,"dimensions":"","clarity":"Eye Clean with Minor Natural Inclusion","certificate":"Available on Request","price":120,"pricePerCarat":7,"status":"active","rare":false,"description":"Natural Unheated Light Pink Topaz from Pakistan weighing 18.00 carats. Soft light pink color with minor natural inclusions confirming authenticity.","gemType":"Topaz","images":["images/pinktopaz.gif","images/natural-unheated-pink-topaz-18-cara-1780319473513-0.jpg","images/natural-unheated-pink-topaz-18-cara-1780319477585-1.jpg"],"image":"images/pinktopaz.gif","video":""},
+  {"id":"Greenperidot_102","name":"Natural Unheated Olive Green Peridot Pakistan","shortName":"Olive Peridot","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Olive Green","shape":"Oval","weight":5,"dimensions":"","clarity":"Eye Clean with Natural Rutile","certificate":"Available on Request","price":95,"pricePerCarat":19,"status":"active","rare":false,"description":"Natural unheated olive green peridot from Pakistan with attractive color and good luster.","gemType":"Peridot","images":["images/peridot.gif"],"image":"images/peridot.gif","video":""},
+  {"id":"rhodolitegarnets_103","name":"Natural Unheated Rhodolite Garnets 12 Carats Tanzania","shortName":"Rhodolite Garnets","type":"cut","treatment":"unheated","origin":"Tanzania","color":"Reddish Pink","shape":"Mixed Cuts","weight":12,"dimensions":"","clarity":"Transparent","certificate":"Available on Request","price":140,"pricePerCarat":12,"status":"active","rare":false,"description":"Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster.","gemType":"Garnet","images":["images/rhodolite.jpg"],"image":"images/rhodolite.jpg","video":""},
+  {"id":"jade_045","name":"Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan","shortName":"Green Jade","type":"cut","treatment":"unheated","origin":"Pakistan","color":"Translucent Green","shape":"Oval Cut","weight":3.2,"dimensions":"","clarity":"Translucent","certificate":"Available on Request","price":80,"pricePerCarat":25,"status":"active","rare":false,"description":"Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.","gemType":"Jade","images":["images/natural-translucent-green-nephrite--1780761893401-0.jpg","images/natural-translucent-green-nephrite--1780761897176-1.jpg"],"image":"images/natural-translucent-green-nephrite--1780761893401-0.jpg","video":""},
+  {"id":"GM-SPN-1010","name":"Natural Cobalt Blue Spinel 1 Carat – Unheated Sri Lankan Origin Loose Gemstone","shortName":"Spinel","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Cobalt Blue","shape":"Emerald Cut","weight":1,"dimensions":"","clarity":"Loupe Clean","certificate":"Certificate Avaialable","price":180,"pricePerCarat":180,"status":"active","rare":true,"description":"A rare, 100% natural and unheated Cobalt Blue Spinel. Sourced from Sri Lanka (Ceylon), this exquisite gemstone features an intense, vivid neon blue hue with exceptional clarity. Perfect for high-end custom jewelry settings like 925 sterling silver rings or pendants. Certified authentic, completely untreated, and ethically sourced.","gemType":"Cobalt Spinel","images":["images/GM-SPN-1010.jpg"],"image":"images/GM-SPN-1010.jpg","video":""},
+  {"id":"GM-ZRCN-1013-1","name":"Natural Green Zircon 2.35 Ct Clean Gemstone with Brilliant Luster Loose Stone - Sri Lanka Origin","shortName":"Green Zircon","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Green","shape":"Oval Brilliant Cut","weight":2.35,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":90,"pricePerCarat":38,"status":"active","rare":false,"description":"Natural Green Zircon gemstone weighing 2.35 carats with clean clarity and brilliant luster. This loose gemstone displays strong sparkle, attractive green color, and beautiful brilliance. Ideal for gemstone collectors, custom jewelry designs, rings, pendants, and fine gemstone collections. A bright and elegant zircon with excellent visual appeal and natural beauty.","gemType":"Zircon","images":["images/GM-ZRCN-1013-1.jpeg"],"image":"images/GM-ZRCN-1013-1.jpeg","video":"videos/GM-ZRCN-1013.mp4"},
+  {"id":"GM-SAP-1016","name":"Natural Blue Sapphire 1.67 Ct Heated Trillion Cut Eye Clean Loose Gemstone - Sri Lanka Origin","shortName":"Blue Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"Trillon Shape","weight":1.67,"dimensions":"","clarity":"Eye Clean","certificate":"Certificate Available","price":140,"pricePerCarat":84,"status":"active","rare":false,"description":"Natural Blue Sapphire weighing 1.67 carats with attractive blue color, heated enhancement, and eye clean clarity. This trillion cut loose gemstone displays beautiful brilliance and elegant luster, making it ideal for gemstone collectors, custom jewelry, rings, pendants, and fine gemstone collections. A vibrant sapphire with excellent visual appeal and sparkle.","gemType":"Blue Sapphire","images":["images/GM-SAP-1016-1.jpeg","images/GM-SAP-1016-2.jpeg","images/GM-SAP-1016-C.jpeg"],"image":"images/GM-SAP-1016-1.jpeg","video":"videos/GM-SAP-1016.mp4"},
+  {"id":"GM-SPN-1017-1","name":"Natural Unheated Spinel Lot 6 Carats Mixed Cuts Dark / Light Color","shortName":"Spinel Lot","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Violet, Plum, Purple, Steel Blue, Grey,Teal, Greenish Blue","shape":"Mixed Cuts","weight":6,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":140,"pricePerCarat":23,"status":"active","rare":false,"description":"Natural unheated spinel lot weighing approximately 6 carats total. This parcel features mixed cuts and a selection of beautiful dark colors with attractive luster. The stones are lightweight and ideal for jewelry designers, collectors, gemstone traders, and custom jewelry projects. Each spinel is untreated and offered as a loose gemstone parcel for flexible use in rings, pendants, earrings, or gemstone collections. Mixed shapes and sizes provide variety while maintaining the rich dark tones that make spinel highly sought after. A practical choice for anyone looking for natural, unheated spinels in a compact 6 ct lot.","gemType":"Spinel","images":["images/GM-SPN-1017-1.png","images/GM-SPN-1017-2.png"],"image":"images/GM-SPN-1017-1.png","video":"videos/GM-SPN-1017.mp4"},
+  {"id":"GM-TPZ-1011","name":"Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin | Loupe Clean Gemstone","shortName":"Blue Topaz","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Blue","shape":"Round Brilliant Cut","weight":1,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":90,"pricePerCarat":90,"status":"active","rare":false,"description":"Natural Blue Topaz weighing 1 carat, round cut and loupe clean, set in 925 sterling silver jewelry. Sourced from Sri Lanka. Features excellent clarity and attractive blue color. Suitable for daily wear, gifting, jewelry collections, and gemstone enthusiasts.","gemType":"Topaz","images":["images/GM-TPZ-1011-1.jpeg","images/GM-TPZ-1011-2.jpeg"],"image":"images/GM-TPZ-1011-1.jpeg","video":"videos/GM-TPZ-1011.mp4"},
+  {"id":"GM-SAP-1019","name":"Natural Unheated Royal Blue Sapphire 2.07 Ct Sri Lanka Origin - Cut and Polished","shortName":"Royal Blue Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Royal Blue","shape":"Oval Cut","weight":2.07,"dimensions":"","clarity":"Loupe Clean","certificate":"Certificate Available","price":320,"pricePerCarat":155,"status":"active","rare":false,"description":"This beautiful Natural Royal Blue Sapphire weighs 2.07 carats and originates from Sri Lanka, one of the world's most respected sources of fine sapphires. Featuring a rich royal blue color, this gemstone displays excellent natural brilliance and luster that enhance its overall beauty and appeal.","gemType":"Sapphire","images":["images/GM-SAP-1019-1.jpg","images/GM-SAP-1019-2.png"],"image":"images/GM-SAP-1019-1.jpg","video":"videos/GM-SAP-1019.mp4"},
+  {"id":"GM-SAP-1020","name":"Natural Cornflower Blue Sapphire 0.80 Ct Oval Cut Sri Lanka Origin | Cut and Polished","shortName":"Cornflower  Blue Sapphire","type":"cut","treatment":"heated","origin":"Sri Lanka","color":"Cornflower Blue","shape":"Oval Cut","weight":0.8,"dimensions":"","clarity":"Loupe Clean","certificate":"Available on Request","price":120,"pricePerCarat":150,"status":"active","rare":false,"description":"Natural Cornflower Blue Sapphire from Sri Lanka, known for producing some of the world's finest sapphires. This elegant gemstone weighs 0.80 carats and features a well-proportioned oval cut that enhances its brilliance and light reflection.\n\nThe stone displays a premium cornflower blue color, highly valued for its rich yet soft royal tone and exceptional visual appeal. With loupe clean clarity, it offers excellent transparency and minimal visible inclusions, making it suitable for fine jewelry use.\n\nThis sapphire shows strong natural brilliance with excellent shine and sparkle under light. Treatment status is currently unknown (may be heated or unheated), which is common in natural gemstones.","gemType":"Sapphire","images":["images/GM-SAP-1021-1.jpg","images/GM-SAP-1021-2.jpg"],"image":"images/GM-SAP-1021-1.jpg","video":"videos/GM-SAP-1021.mp4"},
+  {"id":"gm-sap-1023","name":"Natural Unheated Mixed Sapphire Lot | Blue, Pink, Violet & Yellow Sapphires | Sri Lanka Origin | Cut & Polished","shortName":"Mixed Sapphire","type":"cut","treatment":"unheated","origin":"Sri Lanka","color":"Multi-Color","shape":"Mixed Cuts","weight":0,"dimensions":"","clarity":"Eye Clean","certificate":"Available on Request","price":170,"pricePerCarat":0,"status":"active","rare":false,"description":"Natural Unheated Mixed Sapphire Lot featuring beautiful Blue, Pink, Violet, and Yellow sapphires sourced from Sri Lanka. These genuine natural gemstones are untreated and unheated, preserving their original beauty and character. The collection showcases attractive colors, excellent brilliance, and a variety of cut and polished shapes suitable for gemstone collectors, jewelry making, custom designs, and gemstone enthusiasts. Sri Lanka is renowned worldwide for producing high-quality sapphires with exceptional color and clarity. A unique multi-color sapphire lot offering natural beauty and versatility in one collection.","gemType":"","images":["images/gm-sap-1023.jpg"],"image":"images/gm-sap-1023.jpg","video":"videos/gm-sap-1023-1.mp4"}
 ];
 
 let products = [];
@@ -572,18 +573,20 @@ let feedText = '';
 let singleSnippetText = '';
 let genMode = 'single';
 let pendingProductForPreview = null;
-// ── MULTI-IMAGE FIX: accumulate paths across multiple upload calls ──
 let uploadedImagePaths = [];
 let uploadedVideoPath = '';
 
 function loadProducts() {
+  // Always start from the corrected INITIAL_PRODUCTS baked into this file.
+  // This avoids the old bug where a stale browser localStorage copy (e.g. 30-product
+  // version) would silently override the real current catalog.
   try {
-    const saved = localStorage.getItem('gemmines2_products');
+    const saved = localStorage.getItem('gemmines2_products_v2');
     products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
     if (!saved) saveProducts();
   } catch(e) { products = JSON.parse(JSON.stringify(INITIAL_PRODUCTS)); }
 }
-function saveProducts() { localStorage.setItem('gemmines2_products', JSON.stringify(products)); }
+function saveProducts() { localStorage.setItem('gemmines2_products_v2', JSON.stringify(products)); }
 function comboSelect(id, val) { if (val) document.getElementById(id).value = val; }
 
 function switchTab(name) {
@@ -608,11 +611,6 @@ function setGenMode(mode) {
   if (mode === 'full') generateJS();
 }
 
-// ════════════════════════════════════════════════
-// ── MULTI-IMAGE UPLOAD FIX ──
-// Accumulates images across multiple upload calls
-// instead of resetting each time
-// ════════════════════════════════════════════════
 function handleImageUpload(input) {
   const files = Array.from(input.files);
   if (!files.length) return;
@@ -620,7 +618,6 @@ function handleImageUpload(input) {
   files.forEach(file => {
     const safeName = file.name.replace(/\s+/g, '-').toLowerCase();
     const path = 'images/' + safeName;
-    // Only add if not already in the list
     if (!uploadedImagePaths.includes(path)) {
       uploadedImagePaths.push(path);
       const url = URL.createObjectURL(file);
@@ -628,20 +625,17 @@ function handleImageUpload(input) {
     }
   });
 
-  // Set first image as primary
   if (uploadedImagePaths.length > 0) {
     document.getElementById('f_image').value = uploadedImagePaths[0];
   }
 
   refreshImageDisplay();
-  showToast('✅ ' + uploadedImagePaths.length + ' image(s) loaded — remember to upload files to GitHub images/ folder');
+  showToast('✅ ' + uploadedImagePaths.length + ' image(s) loaded — remember to upload the actual files to GitHub images/ folder with this exact same filename/case');
 
-  // Reset input so same files can be re-selected if needed
   input.value = '';
 }
 
 function addMoreImages() {
-  // Programmatically trigger the file input
   document.getElementById('imgUploadInput').click();
 }
 
@@ -660,7 +654,6 @@ function addImageThumb(url, name, idx) {
 
 function removeUploadedImg(idx) {
   uploadedImagePaths.splice(idx, 1);
-  // Rebuild all thumbnails
   rebuildThumbs();
   if (uploadedImagePaths.length > 0) {
     document.getElementById('f_image').value = uploadedImagePaths[0];
@@ -671,12 +664,9 @@ function removeUploadedImg(idx) {
 }
 
 function rebuildThumbs() {
-  // We can't re-create object URLs for removed items, so just refresh display
-  // The thumbs already exist as DOM elements — just remove the deleted one
   const wrap = document.getElementById('imgPreviewsWrap');
   const thumbs = wrap.querySelectorAll('.img-thumb-wrap');
   thumbs.forEach((t, i) => {
-    // Update the MAIN badge — only first thumb gets it
     const existing = t.querySelector('.main-badge');
     if (existing) existing.remove();
     if (i === 0) {
@@ -686,7 +676,6 @@ function rebuildThumbs() {
       badge.textContent = 'MAIN';
       t.appendChild(badge);
     }
-    // Update remove button index
     const btn = t.querySelector('.remove-img');
     if (btn) btn.setAttribute('onclick', `removeUploadedImg(${i})`);
   });
@@ -710,7 +699,6 @@ function refreshImageDisplay() {
   }
 }
 
-// ── VIDEO UPLOAD ──
 function handleVideoUpload(input) {
   const file = input.files[0];
   if (!file) return;
@@ -721,10 +709,10 @@ function handleVideoUpload(input) {
   const vid = document.getElementById('videoPreviewEl');
   const nameEl = document.getElementById('videoNameDisplay');
   vid.src = url;
-  nameEl.textContent = '📁 Path: ' + uploadedVideoPath + ' — upload this file to GitHub videos/ folder';
+  nameEl.textContent = '📁 Path: ' + uploadedVideoPath + ' — upload this file to GitHub videos/ folder with this exact filename/case';
   wrap.style.display = 'block';
   document.getElementById('f_video').value = uploadedVideoPath;
-  showToast('✅ Video ready — remember to upload the file to GitHub videos/ folder');
+  showToast('✅ Video ready — remember to upload the actual file to GitHub videos/ folder');
 }
 
 function populateSingleProductSelect() {
@@ -857,7 +845,6 @@ function openModal(idx) {
   document.getElementById('f_video').value = p.video || '';
   document.querySelectorAll('.combo-select').forEach(s => s.value = '');
 
-  // ── Reset upload state fully ──
   uploadedImagePaths = [];
   uploadedVideoPath = '';
   document.getElementById('imgPreviewsWrap').innerHTML = '';
@@ -867,7 +854,6 @@ function openModal(idx) {
   document.getElementById('imgUploadInput').value = '';
   document.getElementById('vidUploadInput').value = '';
 
-  // If editing an existing product with images, show them
   if (editingIndex >= 0 && p.images && p.images.length > 0) {
     uploadedImagePaths = [...p.images];
     const wrap = document.getElementById('imgPreviewsWrap');
@@ -899,7 +885,6 @@ function buildProductObject() {
   const manualImgPath = document.getElementById('f_image').value.trim();
   const videoPath = document.getElementById('f_video').value.trim();
 
-  // ── MULTI-IMAGE FIX: use all accumulated paths ──
   let allImagePaths = [];
   if (uploadedImagePaths.length > 0) {
     allImagePaths = [...uploadedImagePaths];
@@ -925,15 +910,14 @@ function buildProductObject() {
     rare: document.getElementById('f_rare').value === 'true',
     description: document.getElementById('f_description').value.trim(),
     gemType: document.getElementById('f_gemType').value.trim(),
-    images: allImagePaths,           // ← all images saved
-    image: allImagePaths[0] || '',   // ← first image = main
+    images: allImagePaths,
+    image: allImagePaths[0] || '',
     video: videoPath || uploadedVideoPath
   };
   if (prod.weight > 0 && prod.price > 0) prod.pricePerCarat = Math.round(prod.price / prod.weight);
   return prod;
 }
 
-// ── JSON PREVIEW ──
 function previewJSON() {
   const prod = buildProductObject();
   if (!prod) return;
