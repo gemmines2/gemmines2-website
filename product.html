@@ -207,7 +207,7 @@ document.getElementById('btn-cart').textContent='Sold Out';
 }
 
 document.getElementById('prod-title').textContent=p.name;
-document.getElementById('prod-subtitle').textContent=(p.gemType?p.gemType.toUpperCase():'')+' · '+(p.origin||'');
+document.getElementById('prod-subtitle').textContent=(p.gemType?p.gemType.toUpperCase():'')+' · ORIGIN: '+(p.origin||'');
 
 const isUnheated=p.treatment==='unheated';
 document.getElementById('treatment-row').innerHTML=`<span class="${isUnheated?'unheated':'heated'}">${isUnheated?'✦ Natural Unheated':'◈ Natural Heated'}</span>`;
