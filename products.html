@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,11 +70,16 @@
     .no-results h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--text); margin-bottom:8px; }
 
     @media(max-width:900px){ .shop-layout{grid-template-columns:1fr} .sidebar{position:static} .products-grid{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:480px){ .products-grid{grid-template-columns:repeat(2,1fr); gap:12px} }
+    @media(max-width:480px){
+      .products-grid{grid-template-columns:repeat(2,1fr); gap:12px}
+      .prod-footer{flex-direction:column; align-items:flex-start; gap:8px}
+      .prod-btns{width:100%}
+      .btn-view, .btn-add{flex:1; text-align:center; padding:7px 8px; font-size:10px}
+    }
   </style>
 </head>
 <body>
-<div class="announcement"> ✦ Free Insured Shipping&nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<div class="announcement">&#10038; Free Insured Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns &#10038;</div>
 <header class="site-header">
   <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
   <nav class="main-nav">
@@ -94,7 +98,7 @@
 <div class="page-hero">
   <span class="section-label">Our Collection</span>
   <h1>Natural <em>Gemstones</em></h1>
-  <p>100% earth-mined • Full treatment disclosure • Pakistan &amp; Sri Lanka</p>
+  <p>100% earth-mined &bull; Full treatment disclosure &bull; Pakistan &amp; Sri Lanka</p>
 </div>
 
 <div class="shop-layout">
@@ -118,7 +122,7 @@
     </div>
     <button class="clear-filters" onclick="clearFilters()">Clear All Filters</button>
   </aside>
-  
+
   <!-- PRODUCTS -->
   <div class="products-area">
     <div class="products-toolbar">
@@ -145,11 +149,11 @@
     <div class="footer-col"><h4>Policies</h4><a href="return.html">Returns &amp; Refunds</a><a href="shipping.html">Shipping Policy</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan</div>
+    <div class="footer-copy">&copy; 2026 Gemmines2 &bull; Islamabad, Pakistan</div>
     <div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div>
   </div>
 </footer>
-<a href="https://wa.me/923362149415" class="wa-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://wa.me/923362149415" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="products-data.js"></script>
 <script src="main.js"></script>
 <script>
@@ -184,15 +188,15 @@ function renderProducts(list) {
   }
   grid.innerHTML = list.map(p => {
     const weightStr = p.weight ? `${p.weight} ct` : '';
-    const meta = [p.origin, weightStr].filter(Boolean).join(' • ');
+    const meta = [p.origin, weightStr].filter(Boolean).join(' \u2022 ');
     return `
     <div class="prod-card">
       <div class="prod-img-wrap">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="fallback" style="display:none">💎</div>
+        <img src="${p.image}" alt="${p.name}" loading="lazy" width="400" height="400" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback" style="display:none">\u{1F48E}</div>
       </div>
       <div class="prod-body">
-      <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'✦ Natural Unheated':'◈ Natural Heated'}</div>  
+        <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'\u2726 Natural Unheated':'\u25C8 Natural Heated'}</div>
         <div class="prod-name">${p.name}</div>
         <div class="prod-meta">${meta}</div>
         <div class="prod-footer">
