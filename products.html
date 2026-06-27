@@ -75,7 +75,7 @@
   </style>
 </head>
 <body>
-<div class="announcement">âœ¦ Free Insured Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns âœ¦</div>
+<div class="announcement">✦¦ Free Insured Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
 <header class="site-header">
   <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
   <nav class="main-nav">
@@ -94,7 +94,7 @@
 <div class="page-hero">
   <span class="section-label">Our Collection</span>
   <h1>Natural <em>Gemstones</em></h1>
-  <p>100% earth-mined â€¢ Full treatment disclosure â€¢ Pakistan &amp; Sri Lanka</p>
+  <p>100% earth-mined • Full treatment disclosure • Pakistan &amp; Sri Lanka</p>
 </div>
 
 <div class="shop-layout">
@@ -118,7 +118,7 @@
     </div>
     <button class="clear-filters" onclick="clearFilters()">Clear All Filters</button>
   </aside>
-
+  
   <!-- PRODUCTS -->
   <div class="products-area">
     <div class="products-toolbar">
@@ -145,7 +145,7 @@
     <div class="footer-col"><h4>Policies</h4><a href="return.html">Returns &amp; Refunds</a><a href="shipping.html">Shipping Policy</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">Â© 2026 Gemmines2 â€¢ Islamabad, Pakistan</div>
+    <div class="footer-copy">© 2026 Gemmines2 • Islamabad, Pakistan</div>
     <div class="footer-pay"><span>PAYONEER</span><span>BANK TRANSFER</span></div>
   </div>
 </footer>
@@ -184,15 +184,15 @@ function renderProducts(list) {
   }
   grid.innerHTML = list.map(p => {
     const weightStr = p.weight ? `${p.weight} ct` : '';
-    const meta = [p.origin, weightStr].filter(Boolean).join(' â€¢ ');
+    const meta = [p.origin, weightStr].filter(Boolean).join(' • ');
     return `
     <div class="prod-card">
       <div class="prod-img-wrap">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="fallback" style="display:none">ðŸ’Ž</div>
+        <div class="fallback" style="display:none">💎</div>
       </div>
       <div class="prod-body">
-        <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'âœ¦ Natural Unheated':'â—ˆ Natural Heated'}</div>
+        <div class="prod-treatment ${p.treatment==='unheated'?'unheated':'heated'}">${p.treatment==='unheated'?'✦ Natural Unheated':'â—ˆ Natural Heated'}</div>
         <div class="prod-name">${p.name}</div>
         <div class="prod-meta">${meta}</div>
         <div class="prod-footer">
