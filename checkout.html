@@ -141,37 +141,8 @@
           <label>Country <span class="req">*</span></label>
           <select class="form-input" id="country" required onchange="handleCountryChange(this)">
             <option value="">Select country...</option>
-            <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
-            <option>Argentina</option><option>Australia</option><option>Austria</option>
-            <option>Azerbaijan</option><option>Bahrain</option><option>Bangladesh</option>
-            <option>Belarus</option><option>Belgium</option><option>Brazil</option>
-            <option>Bulgaria</option><option>Cambodia</option><option>Canada</option>
-            <option>Chile</option><option>China</option><option>Colombia</option>
-            <option>Croatia</option><option>Czech Republic</option><option>Denmark</option>
-            <option>Egypt</option><option>Ethiopia</option><option>Finland</option>
-            <option>France</option><option>Germany</option><option>Ghana</option>
-            <option>Greece</option><option>Hong Kong</option><option>Hungary</option>
-            <option>India</option><option>Indonesia</option><option>Iran</option>
-            <option>Iraq</option><option>Ireland</option><option>Israel</option>
-            <option>Italy</option><option>Japan</option><option>Jordan</option>
-            <option>Kazakhstan</option><option>Kenya</option><option>Kuwait</option>
-            <option>Lebanon</option><option>Libya</option><option>Malaysia</option>
-            <option>Mexico</option><option>Morocco</option><option>Myanmar</option>
-            <option>Nepal</option><option>Netherlands</option><option>New Zealand</option>
-            <option>Nigeria</option><option>Norway</option><option>Oman</option>
-            <option>Pakistan</option><option>Palestine</option><option>Peru</option>
-            <option>Philippines</option><option>Poland</option><option>Portugal</option>
-            <option>Qatar</option><option>Romania</option><option>Russia</option>
-            <option>Saudi Arabia</option><option>Singapore</option>
-            <option>South Africa</option><option>South Korea</option>
-            <option>Spain</option><option>Sri Lanka</option><option>Sudan</option>
-            <option>Sweden</option><option>Switzerland</option><option>Taiwan</option>
-            <option>Tanzania</option><option>Thailand</option><option>Tunisia</option>
-            <option>Turkey</option><option>UAE</option><option>Uganda</option>
-            <option>Ukraine</option><option>United Kingdom</option>
-            <option>United States</option><option>Uzbekistan</option>
-            <option>Vietnam</option><option>Yemen</option>
-            <option>Zambia</option><option>Zimbabwe</option>
+            <option>Pakistan</option><option>Sri Lanka</option><option>United States</option>
+            <option>United Kingdom</option><option>Other</option>
             <option value="other">Other – type below ↓</option>
           </select>
           <input type="text" id="countryOther" placeholder="Type your country name..." maxlength="80">
@@ -184,7 +155,7 @@
       </div>
     </div>
 
-    <!-- STEP 3 — PayPal REMOVED, 4 options only -->
+    <!-- STEP 3 -->
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
       <div class="pay-opts">
@@ -201,7 +172,7 @@
           <input type="radio" name="payment" value="Bank Transfer">
           <div>
             <div class="pay-name">International Bank Transfer (SWIFT / IBAN)</div>
-            <div class="pay-desc">Direct wire transfer to our business account. Bank details provided via WhatsApp after order is placed.</div>
+            <div class="pay-desc">Direct wire transfer to our business account. Full bank details shown below.</div>
           </div>
         </label>
 
@@ -278,6 +249,17 @@ const EMAILJS_PUBLIC   = 'qWdMH7TD9nKyBvBYi';
 emailjs.init(EMAILJS_PUBLIC);
 
 const PAYMENT_DETAILS = {
+  'Payoneer': [
+    {label:'Payoneer Email', value:'yousef_zubair@yahoo.com'},
+  ],
+  'Bank Transfer': [
+    {label:'Account Title', value:'MOHAMED YOUSEF ZUBAIR'},
+    {label:'Bank Name',     value:'UBL Bank'},
+    {label:'Branch',        value:'F-11 Branch, Islamabad, Pakistan'},
+    {label:'IBAN',          value:'PK12UNIL010900036571-4532'},
+    {label:'SWIFT / BIC',   value:'UNILPKKA'},
+    {label:'Currency',      value:'USD (US Dollars)'},
+  ],
   'JazzCash': [
     {label:'Account Title', value:'Yousuf Zubair'},
     {label:'Mobile No',     value:'0336-2149415'},
