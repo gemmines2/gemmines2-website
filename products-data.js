@@ -857,6 +857,31 @@ const PRODUCTS = [
     "image": "images/GM-SPN-1017-1.png",
     "video": "images/GM-SPN-1017.mp4"
   },
+    {
+    "id": "gm-sap-1027",
+    "name": "Natural Correndum Pink Sapphire 1.19 Caats - Natural Unheated - Sri Lanka Origin",
+    "shortName": "Pink Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "",
+    "shape": "Octagen Step Cut",
+    "weight": 1.19,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 140,
+    "pricePerCarat": 118,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Pink Sapphire (Corundum) weighing 1.19 carats, expertly cut in an elegant octagon step cut to enhance its natural beauty and brilliance. Sourced from Sri Lanka, this loose gemstone features an attractive natural pink color and is suitable for custom rings, pendants, earrings, or gemstone collections. A fine choice for jewelers, collectors, and gemstone enthusiasts seeking a genuine natural sapphire. Each gemstone is carefully selected for quality and presentation.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1027-1.jpg"
+    ],
+    "image": "images/gm-sap-1027-1.jpg",
+    "video": "videos/gm-sap-1027.mp4"
+  },
   {
     "id": "GM-TPZ-1011",
     "name": "Natural Blue Topaz 1 Ct Round Cut Set in 925 Sterling Silver Jewelry | Sri Lanka Origin | Loupe Clean Gemstone",
