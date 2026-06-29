@@ -880,7 +880,7 @@ const PRODUCTS = [
       "images/gm-sap-1027-1.jpg"
     ],
     "image": "images/gm-sap-1027-1.jpg",
-    "video": "videos/gm-sap-1027.mp4"
+   "video": "images/gm-sap-1027.mp4"
   },
   {
     "id": "GM-TPZ-1011",
