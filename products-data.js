@@ -987,7 +987,7 @@ const PRODUCTS = [
   },
   
     {
-    "id": "1028",
+    "id": "gm-sap-1028",
     "name": "Natural Royal Blue Sapphire 1.50 Carat Unheated Oval Cut",
     "shortName": "BlueSapphire",
     "type": "cut",
