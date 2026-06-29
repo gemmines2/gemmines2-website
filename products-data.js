@@ -1034,7 +1034,7 @@ const PRODUCTS = [
       "images/gm-strsap-1029-1.jpg"
     ],
     "image": "images/gm-strsap-1029-1.jpg",
-    "video": "videos/gm-strsap-1029.mp4"
+    "video": "images/gm-strsap-1029.mp4"
   },
   {
     "id": "gm-sap-1025",
