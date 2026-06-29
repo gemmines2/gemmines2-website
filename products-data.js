@@ -985,6 +985,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1023.jpg",
     "video": "images/gm-sap-1023-1.mp4"
   },
+  
+    {
+    "id": "1028",
+    "name": "Natural Royal Blue Sapphire 1.50 Carat Unheated Oval Cut",
+    "shortName": "BlueSapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Royal Blue",
+    "shape": "Oval Cut",
+    "weight": 1.5,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 1400.00,
+    "pricePerCarat": 93,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Royal Blue Sapphire (Corundum) weighing 1.50 carats, featuring a rich royal blue color with excellent brilliance and a loupe clean clarity. This genuine loose gemstone is unheated, preserving its natural beauty and rarity. Ethically sourced from Sri Lanka and expertly cut and polished, it is ideal for custom engagement rings, pendants, earrings, or gemstone collections. A premium-quality sapphire suitable for jewelers, collectors, and gemstone enthusiasts seeking a natural, untreated gemstone.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1028.jpg"
+    ],
+    "image": "images/gm-sap-1028.jpg",
+    "video": "images/gm-sap-1028-1.mp4"
+  },
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
