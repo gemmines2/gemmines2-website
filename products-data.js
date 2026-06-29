@@ -1011,6 +1011,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1028.jpg",
     "video": "images/gm-sap-1028-1.mp4"
   },
+    {
+    "id": "gm-strsap-1029",
+    "name": "Natural Pink Star Sapphire 1.65 Carat Clean Strong Centered Star Natural Gemstone Sri Lanka",
+    "shortName": "Star Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "",
+    "shape": "Cabochon",
+    "weight": 1.65,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 73,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Pink Star Sapphire weighing 1.65 carats, sourced from Sri Lanka. This premium gemstone features a beautiful, evenly saturated pink color with a strong, well-centered six-ray star effect visible under direct light. The stone has excellent clarity, high purity, and a natural polished finish that enhances its brilliance. Ideal for collectors, gemstone enthusiasts, or custom jewelry including rings and pendants. A genuine natural sapphire selected for its quality, attractive color, and distinct star phenomenon.",
+    "gemType": "Star Sapphire",
+    "images": [
+      "images/gm-strsap-1029-1.jpg"
+    ],
+    "image": "images/gm-strsap-1029-1.jpg",
+    "video": "videos/gm-strsap-1029.mp4"
+  },
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
