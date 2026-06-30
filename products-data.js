@@ -1037,29 +1037,7 @@ const PRODUCTS = [
     "video": "images/gm-strsap-1029.mp4"
   },
   
-  {
-    "id": "gm-grn-1030",
-    "name": "Rhodolite Garnets",
-    "shortName": "Garnets",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "",
-    "color": "Red",
-    "shape": "Oval Cut",
-    "weight": 2,
-    "dimensions": "",
-    "clarity": "Eye Clean",
-    "certificate": "Available on Request",
-    "price": 100,
-    "pricePerCarat": 50,
-    "status": "active",
-    "rare": false,
-    "description": "red garnet",
-    "gemType": "Garnet",
-    "images": [],
-    "image": "",
-    "video": "videos/gm-rhod-1015.mp4"
-  },
+ 
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
