@@ -1064,7 +1064,32 @@ const PRODUCTS = [
     "video": "images/gm-sap-1032-2.mp4"
   },
   
- 
+  {
+    "id": "gm-zrcn-1033",
+    "name": "Natural Blue Zircon Pair 5.23 Carats (2.90 ct & 2.33 ct) Sri Lanka Origin -Cut & Polished",
+    "shortName": "Blue Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Round Brilliant Cut",
+    "weight": 2.33,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 200,
+    "pricePerCarat": 86,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Sri Lanka Origin Blue Zircon pair featuring two beautifully matched cut and polished gemstones weighing 2.90 carats and 2.33 carats, with a combined weight of 5.23 carats. These genuine loose gemstones display an attractive natural blue color, excellent brilliance, and outstanding sparkle, making them ideal for fine jewelry, matching earrings, pendants, custom rings, or gemstone collections. Carefully selected for quality and sourced from Sri Lanka.",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1033.jpeg"
+    ],
+    "image": "images/gm-zrcn-1033.jpeg",
+    "video": ""
+  },
+
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
