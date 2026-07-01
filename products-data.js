@@ -1037,6 +1037,33 @@ const PRODUCTS = [
     "video": "images/gm-strsap-1029.mp4"
   },
   
+    {
+    "id": "gm-sap-1032",
+    "name": "Natural Heated Blue Sapphire 1.68 Carat ( heated ) - Sri Lanka Origin",
+    "shortName": "Blue Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Round Shape",
+    "weight": 1.68,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 0,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Heated Blue Sapphire weighing 1.68 carats, precision cut in a classic round shape with excellent brilliance and sparkle. This genuine sapphire features a beautiful natural blue color and top eye-clean clarity, making it an excellent choice for fine jewelry or gemstone collections. The gemstone has undergone standard heat treatment to enhance its natural beauty and comes with a gemstone certificate for authenticity. Ethically sourced from Sri Lanka, this loose sapphire is carefully selected for its quality, durability, and attractive appearance. Secure worldwide shipping is available.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1032.jpeg",
+      "images/gm-sap-1032-1.jpeg"
+    ],
+    "image": "images/gm-sap-1032.jpeg",
+    "video": "videos/gm-sap-1032-2.mp4"
+  },
+  
  
   {
     "id": "gm-sap-1025",
