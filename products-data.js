@@ -1050,7 +1050,7 @@ const PRODUCTS = [
     "dimensions": "",
     "clarity": "Eye Clean",
     "certificate": "Certificate Available",
-    "price": 0,
+    "price": 300.00,
     "pricePerCarat": 0,
     "status": "active",
     "rare": false,
