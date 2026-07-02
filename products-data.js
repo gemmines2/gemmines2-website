@@ -98,7 +98,7 @@ const PRODUCTS = [
       "images/gm-zrcn-1034-1.jpeg"
     ],
     "image": "images/gm-zrcn-1034.jpeg",
-    "video": "videos/gm-zrcn-1034-2.mp4"
+    "video": "images/gm-zrcn-1034-2.mp4"
   },
   {
     "id": "amethys-1780829923587",
