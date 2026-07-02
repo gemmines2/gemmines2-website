@@ -74,30 +74,31 @@ const PRODUCTS = [
     "image": "images/natural-unheated-blue-sapphire-7-8--1780848737504-0.jpg",
     "video": ""
   },
-  {
-    "id": "GM-SAPH-1001",
-    "name": "Natural Sri Lankan Blue Sapphire",
-    "shortName": "Sapphire",
-    "type": "rough",
+   {
+    "id": "gm-zrcn-1034",
+    "name": "Natural Rare Green Zircon 1.15 Carats | Sri Lanka Origin | Cut & Polished",
+    "shortName": "Green Zircon",
+    "type": "cut",
     "treatment": "unheated",
     "origin": "Sri Lanka",
-    "color": "Blue",
-    "shape": "",
-    "weight": 3.8,
+    "color": "Green",
+    "shape": "Emerald Cut",
+    "weight": 1.15,
     "dimensions": "",
-    "clarity": "Eye Clean",
-    "certificate": "Certificate Available",
-    "price": 120,
-    "pricePerCarat": 32,
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 61,
     "status": "active",
-    "rare": false,
-    "description": "Blue Sapphire - Sri Lankan Origin - Blue - Natural",
-    "gemType": "Blue Sapphire",
+    "rare": true,
+    "description": "Natural rare Green Zircon from Sri Lanka weighing 1.15 carats. This genuine loose gemstone has been expertly cut and polished to enhance its natural brilliance, sparkle, and attractive green color. Sourced from the renowned gem deposits of Sri Lanka, this zircon is valued for its rarity, exceptional clarity, and excellent luster. A beautiful choice for custom jewelry or gemstone collections, it offers timeless appeal and the quality expected from one of the world's finest gemstone origins. Suitable for rings, pendants, earrings,",
+    "gemType": "Zircon",
     "images": [
-      "images/gm-saph-1001-1.jpg"
+      "images/gm-zrcn-1034.jpeg",
+      "images/gm-zrcn-1034-1.jpeg"
     ],
-    "image": "images/gm-saph-1001-1.jpg",
-    "video": ""
+    "image": "images/gm-zrcn-1034.jpeg",
+    "video": "videos/gm-zrcn-1034-2.mp4"
   },
   {
     "id": "amethys-1780829923587",
