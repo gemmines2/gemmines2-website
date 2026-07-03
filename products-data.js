@@ -1113,7 +1113,7 @@ const PRODUCTS = [
       "images/gm-ctrn-1037.jpeg"
     ],
     "image": "images/gm-ctrn-1037.jpeg",
-    "video": "videos/gm-ctrn-1037-1.mp4"
+    "video": "images/gm-ctrn-1037-1.mp4"
   },
   {
     "id": "gm-sap-1025",
