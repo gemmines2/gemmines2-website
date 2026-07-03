@@ -1090,7 +1090,31 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1033.jpeg",
     "video": ""
   },
-
+  {
+    "id": "gm-ctrn-1037",
+    "name": "Natural Golden Yellow Citrine 53.00 Carats - Sri Lanka Origin",
+    "shortName": "Citrines",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Lemon Yellow",
+    "shape": "Emerald Cut",
+    "weight": 53,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 170,
+    "pricePerCarat": 3,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Golden Yellow Citrine weighing 53.00 carats, expertly cut in a beautiful square shape with excellent precision cutting for outstanding brilliance. This gemstone displays a bright golden lemon yellow color with exceptional transparency and a loupe clean clarity, making it an excellent choice for fine jewelry or gemstone collectors.",
+    "gemType": "Golden Citrine",
+    "images": [
+      "images/gm-ctrn-1037.jpeg"
+    ],
+    "image": "images/gm-ctrn-1037.jpeg",
+    "video": "videos/gm-ctrn-1037-1.mp4"
+  },
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
