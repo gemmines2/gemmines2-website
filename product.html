@@ -215,7 +215,7 @@ document.getElementById('prod-subtitle').textContent=(p.gemType?p.gemType.toUppe
 const isUnheated=p.treatment==='unheated';
 document.getElementById('treatment-row').innerHTML=`<span class="${isUnheated?'unheated':'heated'}">${isUnheated?'✦ Natural Unheated':'◈ Natural Heated'}</span>`;
 
-document.getElementById('price-usd').textContent='$'+Number(p.price).toLocaleString();
+document.getElementById('price-usd').textContent='$'+Number(p.price).toFixed(2);
 if(p.weight) document.getElementById('price-sub').textContent='$'+(p.price/p.weight).toFixed(0)+' per carat · '+p.weight+' ct total';
 
 document.getElementById('description').textContent=p.description||'';
