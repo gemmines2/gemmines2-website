@@ -92,7 +92,7 @@ input, select, textarea { font-family: inherit; }
   border-radius: 3px;
   transition: color 0.2s;
 }
-.main-nav a:hover, .main-nav a.active { color: var(--text); }
+.main-nav a:hover, .main-nav a.active { color: var(--teal); }
 .main-nav .nav-cart {
   background: var(--teal-faint);
   border: 1px solid var(--border);
