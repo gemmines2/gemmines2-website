@@ -207,7 +207,7 @@ function renderProducts(list) {
       <div class="prod-btns">
             <a href="product.html?id=${p.id}" class="btn-view">View Details</a>
             ${p.status==='sold' ? '<button class="btn-add" disabled style="opacity:.5;cursor:not-allowed">Sold Out</button>' : `<button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>`}
-          </div>   
+          </div>
         </div>
       </div>
     </div>`;
