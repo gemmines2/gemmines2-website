@@ -204,10 +204,10 @@ function renderProducts(list) {
         <div class="prod-meta">${meta}</div>
         <div class="prod-footer">
           <div class="prod-price">$${p.price.toFixed(2)}</div>
-          <div class="prod-btns">
+      <div class="prod-btns">
             <a href="product.html?id=${p.id}" class="btn-view">View Details</a>
-            <button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>
-          </div>
+            ${p.status==='sold' ? '<button class="btn-add" disabled style="opacity:.5;cursor:not-allowed">Sold Out</button>' : `<button class="btn-add" onclick='Cart.add(${JSON.stringify(p)})'>+ Cart</button>`}
+          </div>   
         </div>
       </div>
     </div>`;
