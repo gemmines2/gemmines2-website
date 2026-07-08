@@ -522,12 +522,18 @@ let pendingProductForPreview = null;
 let uploadedImagePaths = [];
 let uploadedVideoPath = '';
 
-function loadProducts() {
+async function loadProducts() {
   try {
+    const res = await fetch('https://gemmines2.github.io/gemmines2-website/products-data.js?t=' + Date.now());
+    const text = await res.text();
+    const match = text.match(/const PRODUCTS = (\[[\s\S]*\]);/);
+    products = JSON.parse(match[1]);
+    saveProducts();
+  } catch(e) {
     const saved = localStorage.getItem('gemmines2_products_v2');
     products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
-    if (!saved) saveProducts();
-  } catch(e) { products = JSON.parse(JSON.stringify(INITIAL_PRODUCTS)); }
+  }
+  renderTable(); populateSingleProductSelect(); updateStats();
 }
 function saveProducts() { localStorage.setItem('gemmines2_products_v2', JSON.stringify(products)); }
 function comboSelect(id, val) { if (val) document.getElementById(id).value = val; }
@@ -535,7 +541,7 @@ function comboSelect(id, val) { if (val) document.getElementById(id).value = val
 function switchTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  const tabs = ['products','generate-js','merchant-feed','guide'];
+  const tabs = ['products','generate-js','merchant-feed','guide']; 
   document.querySelectorAll('.tab')[tabs.indexOf(name)].classList.add('active');
   document.getElementById('panel-' + name).classList.add('active');
   if (name === 'generate-js') { populateSingleProductSelect(); if (genMode === 'full') generateJS(); }
