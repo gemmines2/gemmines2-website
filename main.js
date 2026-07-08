@@ -28,9 +28,10 @@ const Cart = {
     const idx = items.findIndex(i => i.id === product.id);
     if (idx > -1) { items[idx].qty = (items[idx].qty || 1) + 1; }
     else { items.push({ ...product, qty: 1 }); }
-    this.save(items);
+   this.save(items);
     this.updateBadge();
-    showToast(`"${product.shortName || product.name}" added to cart`, 'success');
+    showToast(`"${product.shortName || product.name}" added — taking you to cart…`, 'success');
+    setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
   
   },
   remove(id) {
