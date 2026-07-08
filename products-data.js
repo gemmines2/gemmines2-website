@@ -1115,6 +1115,32 @@ const PRODUCTS = [
     "image": "images/gm-ctrn-1037.jpeg",
     "video": "images/gm-ctrn-1037-1.mp4"
   },
+    {
+    "id": "gm-grn-1039",
+    "name": "Natural Red Garnet Lot 11.00 Carats | Sri Lankan Origin |  Precision Cut | Cut & Polished |",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Reddish Pink",
+    "shape": "Precision Cut",
+    "weight": 11,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 140,
+    "pricePerCarat": 13,
+    "status": "active",
+    "rare": false,
+    "description": "Beautiful natural red garnet lot from Sri Lanka, featuring outstanding brilliance and excellent precision cutting. Total weight is 11.00 carats, with individual gemstones ranging from 1.50 to 3.50 carats. These garnets are  rich, vibrant natural red color and exceptional sparkle. Expertly cut and polished, they are ideal for creating fine jewelry such as rings, pendants, earrings, or for gemstone collections. A genuine Sri Lankan garnet lot selected for its beauty, clarity, and quality.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1039-1.jpeg",
+      "images/gm-grn-1039-2.jpeg"
+    ],
+    "image": "images/gm-grn-1039-1.jpeg",
+    "video": "images/gm-grn-1039.mp4"
+  },
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
