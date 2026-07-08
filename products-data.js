@@ -1141,6 +1141,33 @@ const PRODUCTS = [
     "image": "images/gm-grn-1039-1.jpeg",
     "video": "images/gm-grn-1039.mp4"
   },
+    {
+    "id": "gm-taf-1040",
+    "name": "Natural Violet Taaffeite 1.05 Carats | Rare Collector Gem | Sri Lanka Origin|",
+    "shortName": "Taffeite",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Violet",
+    "shape": "Mixed Cushion Cut",
+    "weight": 1.05,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 800,
+    "pricePerCarat": 762,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Violet Taaffeite is among the world's rarest collector gemstones, admired for its exceptional scarcity, attractive violet hue, and remarkable optical brilliance. This genuine Sri Lankan gemstone has been expertly cut and polished to maximize its natural beauty while preserving its unique character. Its elegant appearance makes it an outstanding choice for bespoke fine jewelry or advanced gemstone collections. Accompanied by an IGLC gemological certificate, this rare Taaffeite offers collectors and enthusiasts the opportunity to own an authentic gemstone that is seldom available on the market.",
+    "gemType": "",
+    "images": [
+      "images/gm-taf-1040-3.png",
+      "images/gm-taf-1040.jpeg",
+      "images/gm-taf-1040-c.jpeg"
+    ],
+    "image": "images/gm-taf-1040-3.png",
+    "video": "images/gm-taf-1040-1.mp4"
+  },
   {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
