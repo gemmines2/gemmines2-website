@@ -64,7 +64,7 @@ const PRODUCTS = [
     "certificate": "Available on Request",
     "price": 120,
     "pricePerCarat": 15,
-    "status": "active",
+    "status": "sold",
     "rare": false,
     "description": "Natural unheated Blue Sapphire rough stone from Sri Lanka weighing 7.8 carats. This natural sapphire displays an attractive blue color with excellent raw crystal character and natural luster. Sourced from Sri Lankan deposits known for producing high-quality sapphires, this gemstone is untreated and suitable for collectors, lapidary work, or custom jewelry designs.",
     "gemType": "Sapphire",
