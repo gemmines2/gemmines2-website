@@ -30,9 +30,8 @@ const Cart = {
     else { items.push({ ...product, qty: 1 }); }
     this.save(items);
     this.updateBadge();
-    // Show toast then redirect to cart after short delay
-    showToast(`"${product.shortName || product.name}" added — taking you to cart…`, 'success');
-    setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
+    showToast(`"${product.shortName || product.name}" added to cart`, 'success');
+  
   },
   remove(id) {
     const items = this.get().filter(i => i.id !== id);
