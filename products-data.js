@@ -1187,11 +1187,13 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural zircon is admired for its exceptional brilliance, high refractive index, and vibrant fire, making it one of the most attractive natural gemstones. Mined from the famous gem deposits of Sri Lanka, these cut and polished zircons are carefully selected for their beauty, clarity, and precision craftsmanship. Suitable for custom jewellery, gemstone collections, or investment, each stone showcases the natural character and sparkle that have made Sri Lankan zircon highly valued by gem enthusiasts and jewellers around the world. each weighing over 1.00 carat.",
     "gemType": "Zircon",
-    "images": [],
-    "image": "",
-    "video": ""
+    "images": [
+      "images/gm-zrcn-1041-2.jpg"
+    ],
+    "image": "images/gm-zrcn-1041-2.jpg",
+    "video": "images/gm-zrcn-1041.mp4"
   },
-  {
+      {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
     "shortName": "Blue Sapphire",
