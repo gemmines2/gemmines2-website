@@ -181,7 +181,7 @@ const PRODUCTS = [
     "id": "zircon-1780665881053",
     "name": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
     "shortName": "Blue Zircon",
-    "type": "cut",
+    "type": "jewelry",
     "treatment": "unheated",
     "origin": "Sri Lanka",
     "color": "Brownish",
