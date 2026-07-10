@@ -1193,6 +1193,33 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1041-2.jpg",
     "video": "images/gm-zrcn-1041.mp4"
   },
+    {
+    "id": "gm-sap-1042",
+    "name": "Natural Sri Lanka Blue Sapphire Lot - 7.80 Carats 10 Pieces - Unheated & Heated Mix Cut",
+    "shortName": "Blue Sapphire",
+    "type": "cut",
+    "treatment": "heated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Mixed Cuts",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Loupe Clean - Eye Clean",
+    "certificate": "Available on Request",
+    "price": 540,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1042.jpeg",
+      "images/gm-sap-1042-2.jpeg",
+      "images/gm-sap-1042-1.jpeg"
+    ],
+    "image": "images/gm-sap-1042.jpeg",
+    "video": "images/gm-sap-1042v.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
