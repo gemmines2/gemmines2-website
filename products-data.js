@@ -104,7 +104,7 @@ const PRODUCTS = [
     "id": "amethys-1780829923587",
     "name": "Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds",
     "shortName": "Natural Amethyst with American Diamond",
-    "type": "cut",
+    "type": "jewelry",
     "treatment": "unheated",
     "origin": "Sri Lanka",
     "color": "Purple",
