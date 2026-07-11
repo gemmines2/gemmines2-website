@@ -1220,6 +1220,34 @@ const PRODUCTS = [
     "image": "images/gm-sap-1042.jpeg",
     "video": "images/gm-sap-1042v.mp4"
   },
+
+  {
+    "id": "gm-sap-1043",
+    "name": "Natural Unheated Purple Sapphire 1.70 Carat| Excellent Lustre | Sri Lanka Origin",
+    "shortName": "Purple Sapphire",
+    "type": "cut",
+    "treatment": "unheadted",
+    "origin": "Sri Lanka",
+    "color": "Purple",
+    "shape": "Emerald Cut",
+    "weight": 1.7,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 160,
+    "pricePerCarat": 94,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated purple sapphire showcasing a rich violet-purple hue with exceptional brilliance and excellent lustre. Expertly cut and polished to maximize light reflection, this gemstone displays outstanding clarity, vibrant color, and natural beauty without heat enhancement. Sourced from the renowned gem deposits of Sri Lanka, it is an excellent choice for fine jewellery, custom engagement rings, pendants, or gemstone collections. Every sapphire is individually selected for its quality,",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1043-2g.png",
+      "images/gm-sap-1043-2.jpg",
+      "images/gm-sap-1043.jpg"
+    ],
+    "image": "images/gm-sap-1043-2g.png",
+    "video": "images/gm-sap-1043v.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
