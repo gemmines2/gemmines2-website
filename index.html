@@ -139,12 +139,13 @@
     .stat-item { }
     .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--teal); line-height: 1; }
     .stat-lbl { font-size: 11px; color: var(--muted2); letter-spacing: 1px; margin-top: 3px; text-transform: uppercase; }
-    .hero-gem-float {
-      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-      z-index: 1; opacity: 0.12; font-size: 18rem; line-height: 1;
-      animation: floatGem 6s ease-in-out infinite;
-      user-select: none; pointer-events: none;
-    }
+   .hero-gem-float {
+  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+  z-index: 1; opacity: 0.9; width: 280px; height: auto;
+  animation: floatGem 6s ease-in-out infinite;
+  user-select: none; pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
     @keyframes floatGem { 0%,100%{transform:translateY(-50%) rotate(-5deg)} 50%{transform:translateY(-54%) rotate(5deg)} }
 
     /* ── TRUST BAR ── */
