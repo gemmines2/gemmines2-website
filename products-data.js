@@ -1230,7 +1230,7 @@ const PRODUCTS = [
     "origin": "Sri Lanka",
     "color": "Purple",
     "shape": "Emerald Cut",
-    "weight": 1.7,
+    "weight": 1.70,
     "dimensions": "",
     "clarity": "Eye Clean",
     "certificate": "Available on Request",
