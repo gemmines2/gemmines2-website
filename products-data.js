@@ -1248,6 +1248,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1043-2g.png",
     "video": "images/gm-sap-1043v.mp4"
   },
+    {
+    "id": "gm-sap-1044",
+    "name": "Natural Heated Blue Sapphire 3.65 Carats | Heated  - Sri Lanka Origin",
+    "shortName": "Blue Sapphire",
+    "type": "cut",
+    "treatment": "heated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Cushion Cut",
+    "weight": 3.65,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 240,
+    "pricePerCarat": 66,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Blue Sapphire from Sri Lanka, expertly cut and polished to showcase its vibrant blue colour and exceptional brilliance. This heated sapphire displays excellent transparency, attractive lustre, and a refined finish that enhances its natural beauty. Sourced from one of the world's most renowned sapphire",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1044-1.jpeg"
+    ],
+    "image": "images/gm-sap-1044-1.jpeg",
+    "video": "images/gm-sap-1044-2.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
