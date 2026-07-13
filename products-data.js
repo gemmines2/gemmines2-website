@@ -1273,6 +1273,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1044-1.jpeg",
     "video": "images/gm-sap-1044-2.mp4"
   },
+    {
+    "id": "gm-zrcn-1045",
+    "name": "Premium Sri Lankan Natural Zircon Mixed Lot  110.35 Carats - Multi Colours",
+    "shortName": "Mixed Zirocn",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 110.35,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 380,
+    "pricePerCarat": 3,
+    "status": "active",
+    "rare": false,
+    "description": "This premium natural zircon parcel offers exceptional brilliance, outstanding fire, and excellent transparency. Carefully selected for superior quality, each gemstone features precise faceting that maximizes sparkle and enhances its natural beauty. The parcel is ideal for creating luxury rings, earrings, pendants, bracelets, or bespoke jewelry collections. Suitable for jewelers, gemstone collectors, designers, and dealers seeking high-quality loose zircons with consistent appearance and fine craftsmanship. A versatile selection of premium gemstones for both investment and elegant jewelry creatio",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1045-1.jpeg",
+      "images/gm-zrcn-1045-4.jpeg"
+    ],
+    "image": "images/gm-zrcn-1045-1.jpeg",
+    "video": "images/gm-zrcn-1045v.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
