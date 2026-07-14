@@ -1,0 +1,46 @@
+name: Rebuild feed, product pages, and sitemap
+
+# Runs automatically whenever products-data.js changes on main,
+# or can be triggered manually from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths:
+      - products-data.js
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Regenerate Merchant feed (feed.xml / feed.csv)
+        run: node build-feed.js
+
+      - name: Regenerate static product pages (/product/*.html)
+        run: node build-product-pages.js
+
+      - name: Regenerate sitemap.xml
+        run: node build-sitemap.js
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "gemmines2-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add feed.xml feed.csv sitemap.xml product/
+          if git diff --cached --quiet; then
+            echo "Nothing changed — feed, pages, and sitemap already up to date."
+          else
+            git commit -m "Auto-rebuild feed, product pages, and sitemap [skip ci]"
+            git push
+          fi
