@@ -1299,6 +1299,32 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1045-1.jpeg",
     "video": "images/gm-zrcn-1045v.mp4"
   },
+   {
+    "id": "gm-grn-1045",
+    "name": "Natural Tsavorite Garnet Lot 25 Carats | Rare Green Garnet",
+    "shortName": "Tsavorite Garnets",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Green",
+    "shape": "Mixed Cuts",
+    "weight": 25,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 1200,
+    "pricePerCarat": 48,
+    "status": "active",
+    "rare": false,
+    "description": "A beautiful lot of natural Tsavorite Garnets, celebrated for their rich green color, exceptional brilliance, and rarity. Tsavorite is one of the world's finest green garnets, valued for its vivid color and outstanding durability. Each gemstone has been expertly faceted to enhance its natural sparkle, making this lot ideal for custom jewelry, matching sets, or gemstone collections. Highly sought after by collectors and jewelry designers, natural Tsavorite Garnet offers lasting beauty and excellent value for fine jewelry creations.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1043.jpg"
+    ],
+    "image": "images/gm-grn-1043.jpg",
+    "video": "images/gm-grn-1043v.mp4"
+  },
+
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
