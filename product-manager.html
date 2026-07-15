@@ -838,7 +838,7 @@ function buildProductObject() {
   const id = document.getElementById('f_id').value.trim();
   const name = document.getElementById('f_name').value.trim();
   if (!id || !name) { showToast('ID and Name are required!', true); return null; }
-  if (editingIndex < 0 && products.find(p => p.id === id)) { showToast('Product ID already exists!', true); return null; }
+  if (editingIndex < 0 && products.find(p => p.id.trim().toLowerCase() === id.toLowerCase())) { showToast('Product ID already exists!', true); return null; }
 
   const manualImgPath = document.getElementById('f_image').value.trim();
   const videoPath = document.getElementById('f_video').value.trim();
