@@ -1325,6 +1325,31 @@ const PRODUCTS = [
     "video": "images/gm-grn-1046v.mp4"
   },
 
+   {
+    "id": "gm-alx-1047",
+    "name": "Natural Alexandrite Rare Colour Change Gemstone 1.01 Ct Eye",
+    "shortName": "Alexandrite",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Bi-Color",
+    "shape": "Emerald Cut",
+    "weight": 1.01,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 800,
+    "pricePerCarat": 792,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Alexandrite is among the world's rarest gemstones, admired for its remarkable ability to display different colours under changing light conditions. This fine gemstone exhibits an attractive green appearance in daylight and transforms to rich red tones under warmer lighting, making every viewing unique. Its eye-clean clarity enhances brilliance and transparency, while the vivid red fluorescence under UV light adds another fascinating natural characteristic.",
+    "gemType": "Alexandrite",
+    "images": [
+      "images/gm-alex-1047.jpeg"
+    ],
+    "image": "images/gm-alex-1047.jpeg",
+    "video": ""
+  }, 
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
