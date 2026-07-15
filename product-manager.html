@@ -985,7 +985,7 @@ function generateFeed() {
     const row = [
       p.id,
       (p.name||'').substring(0,150),
-      (p.description||p.name||'').replace(/[\t\n\r]/g,' ').substring(0,5000),
+      (p.description||p.name||'').replace(/[\t\n\r]/g,' ').substring(0,5000), 
       `${baseUrl}/product.html?id=${encodeURIComponent(p.id)}`,
       p.image ? `${imgBase}/${p.image}` : '',
       `${Number(p.price).toFixed(2)} ${currency}`,
