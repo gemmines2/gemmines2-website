@@ -1,7 +1,7 @@
 const PRODUCTS = [
   {
     "id": "GM-AQUA-1009",
-    "name": "730 Carat Natural Aquamarine Rough Crystal, Unheated Icy Pastel Blue Pakistani Origin, Translucent Loose Gemstone for Faceting",
+    "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
     "shortName": "Natural Aquamarine",
     "type": "rough",
     "treatment": "unheated",
@@ -26,7 +26,7 @@ const PRODUCTS = [
   },
   {
     "id": "sapphire-1780901637012",
-    "name": "This Natural Unheated Sri Lankan origin Yellow sapphire weighs 0.52 carats and features a beautifully faceted cut with excellent lustre and Brilliance.",
+    "name": "Natural Unheated Yellow Sapphire 0.52 Ct - Sri Lanka, Faceted",
     "shortName": "Yellow Sapphire",
     "type": "cut",
     "treatment": "unheated",
@@ -102,7 +102,7 @@ const PRODUCTS = [
   },
   {
     "id": "amethys-1780829923587",
-    "name": "Custom-Designed Stunning Silver Pendant for Sale this exclusive pendant is made from genuine 925 sterling silver and set with a natural Amethyst and sparkling American diamonds",
+    "name": "Natural Amethyst Pendant 3 Ct - 925 Sterling Silver with CZ Accents",
     "shortName": "Natural Amethyst with American Diamond",
     "type": "jewelry",
     "treatment": "unheated",
@@ -179,7 +179,7 @@ const PRODUCTS = [
   },
   {
     "id": "zircon-1780665881053",
-    "name": "Beautifully handcrafted exclusive pendant made from genuine 925 sterling silver and set with a natural zircon and sparkling American diamonds.",
+    "name": "Natural Zircon Pendant 3.999 Ct - 925 Sterling Silver with CZ Accents",
     "shortName": "Blue Zircon",
     "type": "jewelry",
     "treatment": "unheated",
