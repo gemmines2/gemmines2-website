@@ -169,6 +169,9 @@ function injectStructuredData() {
     "name": "Gemmines2",
     "url": "https://gemmines2.github.io/gemmines2-website/",
     "logo": "https://gemmines2.github.io/gemmines2-website/images/logo.png",
+    "image": "https://gemmines2.github.io/gemmines2-website/images/logo.png",
+    "telephone": "+92-336-214-9415",
+    "priceRange": "$$",
     "description": "100% natural, unheated gemstones from Pakistan and Sri Lanka. Sapphires, rubies, emeralds, garnets and custom silver jewelry. Ethically sourced, worldwide shipping.",
     "address": {
       "@type": "PostalAddress",
@@ -187,7 +190,7 @@ function injectStructuredData() {
       "https://wa.me/923362149415"
     ],
     "currenciesAccepted": "USD",
-    "paymentAccepted": "Payoneer, Bank Transfer",
+    "paymentAccepted": "Payoneer, Bank Transfer, JazzCash, EasyPaisa",
     "openingHours": "Mo-Su 09:00-21:00"
   };
   const s = document.createElement('script');
