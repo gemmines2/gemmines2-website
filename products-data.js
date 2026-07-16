@@ -1350,6 +1350,33 @@ const PRODUCTS = [
     "image": "images/gm-alex-1047.jpeg",
     "video": ""
   }, 
+  {
+    "id": "gm-grn-1050",
+    "name": "Natural Rhodolite Garnet - Lot 5 Pcs with Excellent Lustre",
+    "shortName": "Rhodolite Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "",
+    "shape": "Mixed Cuts",
+    "weight": 5.7,
+    "dimensions": "",
+    "clarity": "Loupe Clean - Eye Clean",
+    "certificate": "Available on Request",
+    "price": 110,
+    "pricePerCarat": 19,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Rhodolite Garnet is admired for its rich raspberry-red to deep red color, excellent brilliance, and outstanding durability. This matching lot is carefully selected for its attractive color consistency and high clarity, making it ideal for creating elegant rings, earrings, pendants, bracelets, or custom jewelry sets. Rhodolite is a prized member of the garnet family, appreciated by collector",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1050.jpeg"
+    ],
+    "image": "images/gm-grn-1050.jpeg",
+    "video": "images/gm-grn-1050v.mp4"
+  },
+
+  
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
