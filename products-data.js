@@ -1401,7 +1401,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1051.jpeg",
     "video": "images/gm-sap-1051v.mp4"
   },
-  
+  {
+    "id": "gm-zrcn-1052",
+    "name": "Natural Green Zircon Loose Gemstone Parcel 8.55 CTS 8 Loupe Clean",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Green",
+    "shape": "Mixed Cuts",
+    "weight": 8.55,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 11,
+    "status": "active",
+    "rare": false,
+    "description": "This parcel of natural green zircon gemstones offers a beautiful combination of vibrant color, exceptional brilliance, and excellent cutting quality. Carefully matched for consistency, these faceted gemstones display a fresh green hue with outstanding sparkle and loupe-clean clarity. Ideal for creating custom rings, earrings, pendants, bracelets, or other fine jewelry, this collection is equally suited to gemstone collectors and professional jewelers. Green zircon is appreciated for its natural beauty, impressive fire, and rarity",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1052.jpeg"
+    ],
+    "image": "images/gm-zrcn-1052.jpeg",
+    "video": "images/gm-zrcn-1052v.mp4"
+  },
+
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
