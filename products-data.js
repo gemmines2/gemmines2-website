@@ -1375,7 +1375,32 @@ const PRODUCTS = [
     "image": "images/gm-grn-1050.jpeg",
     "video": "images/gm-grn-1050v.mp4"
   },
-
+  {
+    "id": "gm-sap-1051",
+    "name": "Natural Mixed Sapphire Lot 5.55 Carats 23 Pieces - Beautful Lustre",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 5.55,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 16,
+    "status": "active",
+    "rare": false,
+    "description": "Beautiful natural mixed sapphire gemstone lot featuring vibrant colors, excellent brilliance, and precision cutting. Ideal for custom rings, pendants, earrings, gemstone collections, and jewelry manufacturing. Carefully selected for quality and sourced from the famous gemstone mines",
+    "gemType": "Mixed Sapphire Lot",
+    "images": [
+      "images/gm-sap-1051.jpeg",
+      "images/gm-sap-1051-2.jpeg"
+    ],
+    "image": "images/gm-sap-1051.jpeg",
+    "video": "images/gm-sap-1051v.mp4"
+  },
   
       {
     "id": "gm-sap-1025",
