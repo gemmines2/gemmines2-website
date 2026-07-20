@@ -8,7 +8,7 @@ const PRODUCTS = [
     "origin": "Pakistan",
     "color": "Icy Pastel Blue",
     "shape": "Rough",
-    "weight": 730,
+    "weight": 160.00,
     "dimensions": "",
     "clarity": "Translucent",
     "certificate": "Certificate Available",
