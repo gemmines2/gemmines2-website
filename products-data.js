@@ -24,6 +24,32 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+    {
+    "id": "gm-sap-1066",
+    "name": "Natural Unheated Blue Sapphire 1.98 Carat Sea Blue -Sri Lanka Origina",
+    "shortName": "Sea Blue Colour",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Sea Blue",
+    "shape": "Pear Shape",
+    "weight": 1.98,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 61,
+    "status": "active",
+    "rare": false,
+    "description": "Experience the timeless beauty of a natural unheated blue sapphire featuring a refreshing sea blue hue with exceptional brilliance. This eye-clean gemstone displays excellent transparency and a lively sparkle, making it an outstanding choice for custom engagement rings, pendants, earrings, or fine jewelry. Untreated sapphires are highly valued by collectors and gemstone enthusiasts because their natural color has not been enhanced by heat treatment.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1066g.png",
+      "images/gm-sap-1066.jpg"
+    ],
+    "image": "images/gm-sap-1066g.png",
+    "video": "images/gm-sap-1066v.mp4"
+  },
   {
     "id": "sapphire-1780901637012",
     "name": "Natural Unheated Yellow Sapphire 0.52 Ct - Sri Lanka, Faceted",
