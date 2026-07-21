@@ -1430,6 +1430,33 @@ const PRODUCTS = [
     "image": "images/rhodolite-garnets-1780215583524-0.jpg",
     "video": ""
   },
+    {
+    "id": "gm-grn-1068",
+    "name": "Natural African Rhodolite Garnet Raspberry Red Gemstone Lot 12.20 Carats 8 Pieces",
+    "shortName": "Rhodolite Garnetd",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Africa",
+    "color": "Red",
+    "shape": "Mixed Cuts",
+    "weight": 12.2,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 140,
+    "pricePerCarat": 11,
+    "status": "active",
+    "rare": false,
+    "description": "Natural African Rhodolite Garnet lot featuring a rich raspberry red color with excellent brilliance and attractive luster. This matched collection includes 8 natural loose gemstones totaling 12.20 carats in a selection of cushion, oval, and emerald-cut shapes. Carefully faceted to enhance sparkle and color, these gemstones are ideal for custom rings, earrings, pendants, bracelets, or coordinated jewelry sets. The vibrant raspberry red hue and quality cutting make this lot an excellent choice for jewelers, gemstone collectors, and designers seeking premium natural garnets                          \nStone Weights: 2.05 ct, 1.95 ct, 1.65 ct, 1.55 ct, 1.30 ct, 1.30 ct, 1.25 ct, 1.15 ct\nOrigin: Africa\nTotal Weight: 12.20 Carats\nQuantity: 8 Natural Rhodolite Garnets",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1068.jpg",
+      "images/gm-grn-1068-1.jpg"
+    ],
+    "image": "images/gm-grn-1068.jpg",
+    "video": ""
+  },
+  
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
