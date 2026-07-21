@@ -253,31 +253,7 @@ const PRODUCTS = [
     "image": "images/natural-sri-lankan-ceylon-blue-spin-1780499908961-0.jpg",
     "video": ""
   },
-  {
-    "id": "garnet-1780215589223",
-    "name": "Natural Unheated Rhodolite Garnets 12.2 Carats",
-    "shortName": "Rhodolite Garnets",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Tanzania",
-    "color": "Reddish Pink",
-    "shape": "Oval, Cushion, Rectangular",
-    "weight": 12.2,
-    "dimensions": "",
-    "clarity": "Loupe Clean",
-    "certificate": "Available on Request",
-    "price": 200,
-    "pricePerCarat": 16,
-    "status": "active",
-    "rare": false,
-    "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.",
-    "gemType": "Garnet",
-    "images": [
-      "images/rhodolite-garnets-1780215583524-0.jpg"
-    ],
-    "image": "images/rhodolite-garnets-1780215583524-0.jpg",
-    "video": ""
-  },
+ 
   {
     "id": "greenjasper_005",
     "name": "Natural Green Jasper Stones 10+ Carats",
