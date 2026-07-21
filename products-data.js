@@ -706,31 +706,7 @@ const PRODUCTS = [
     "image": "images/peridot.gif",
     "video": ""
   },
-  {
-    "id": "rhodolitegarnets_103",
-    "name": "Natural Unheated Rhodolite Garnets 12 Carats Tanzania",
-    "shortName": "Rhodolite Garnets",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Tanzania",
-    "color": "Reddish Pink",
-    "shape": "Mixed Cuts",
-    "weight": 12,
-    "dimensions": "",
-    "clarity": "Transparent",
-    "certificate": "Available on Request",
-    "price": 140,
-    "pricePerCarat": 12,
-    "status": "active",
-    "rare": false,
-    "description": "Natural unheated rhodolite garnets from Tanzania featuring mixed gemstone cuts, reddish pink color, and good luster.",
-    "gemType": "Garnet",
-    "images": [
-      "images/rhodolite.jpg"
-    ],
-    "image": "images/rhodolite.jpg",
-    "video": ""
-  },
+ 
   {
     "id": "jade_045",
     "name": "Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan",
