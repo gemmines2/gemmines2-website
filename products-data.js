@@ -1456,7 +1456,31 @@ const PRODUCTS = [
     "image": "images/gm-grn-1068.jpg",
     "video": ""
   },
-  
+    {
+    "id": "gm-sap-1069",
+    "name": "Natural Unheated Madagascar Blue Sapphire 4.241 Carat Cushion Cut Loupe Clean Faceted",
+    "shortName": "Blue Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Madagascar",
+    "color": "Vivid Blue",
+    "shape": "Faceted Cushion Cut",
+    "weight": 4.241,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 12,
+    "pricePerCarat": 3,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the beauty of this natural unheated Madagascar Blue Sapphire weighing 4.241 carats. Expertly faceted in an elegant cushion cut, this loose gemstone displays excellent brilliance, rich natural blue color, and loupe clean clarity for outstanding visual appeal. Untreated sapphires are highly sought after by collectors, investors, and jewelry designers because they retain their natural characteristics. Sourced from Madagascar, one of the world's leading producers of fine sapphires,",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1069c.jpeg"
+    ],
+    "image": "images/gm-sap-1069c.jpeg",
+    "video": "images/gm-sap-1069v.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
