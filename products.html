@@ -192,7 +192,7 @@ function renderProducts(list) {
     return;
   }
   grid.innerHTML = list.map(p => {
-    const weightStr = p.weight ? `${p.weight} ct` : '';
+    const weightStr = p.weight ? `${Number(p.weight).toFixed(2)} ct` : '';
     const meta = [p.origin, weightStr].filter(Boolean).join(' \u2022 ');
     return `
     <div class="prod-card">
