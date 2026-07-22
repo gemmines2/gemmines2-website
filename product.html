@@ -220,7 +220,7 @@ const isUnheated=p.treatment==='unheated';
 document.getElementById('treatment-row').innerHTML=`<span class="${isUnheated?'unheated':'heated'}">${isUnheated?'✦ Natural Unheated':'◈ Natural Heated'}</span>`;
 
 document.getElementById('price-usd').textContent='$'+Number(p.price).toFixed(2);
-if(p.weight) document.getElementById('price-sub').textContent='$'+(p.price/p.weight).toFixed(0)+' per carat · '+p.weight+' ct total';
+if(p.weight) document.getElementById('price-sub').textContent='$'+(p.price/p.weight).toFixed(0)+' per carat · '+Number(p.weight).toFixed(2)+' ct total';
 
 document.getElementById('description').textContent=p.description||'';
 
@@ -230,7 +230,7 @@ const treatEl=document.getElementById('d-treatment');
 treatEl.textContent=isUnheated?'Unheated & Untreated':'Heat Treated';
 treatEl.className='detail-value '+(isUnheated?'val-unheated':'val-heated');
 setVal('d-shape',p.shape);
-setVal('d-weight',p.weight?p.weight+' Carats':null);
+setVal('d-weight',p.weight?Number(p.weight).toFixed(2)+' Carats':null);
 setVal('d-dims',p.dimensions);
 setVal('d-clarity',p.clarity);
 setVal('d-cert',p.certificate||'Available on Request');
@@ -264,8 +264,7 @@ const videoEl=document.getElementById('product-video');
 videoEl.src=p.video;
 videoWrap.style.display='block';
 }
-
-const waMsg=`Hi, I'm interested in: *${p.name}* (${p.weight?p.weight+'ct — ':''}$${p.price})\n${window.location.href}`;
+  const waMsg=`Hi, I'm interested in: *${p.name}* (${p.weight?Number(p.weight).toFixed(2)+'ct — ':''}$${p.price})\n${window.location.href}`;
 document.getElementById('btn-wa').href=`https://wa.me/923362149415?text=${encodeURIComponent(waMsg)}`;
 
 // BUG FIX: changed product/${r.id}.html → product.html?id=${r.id}
