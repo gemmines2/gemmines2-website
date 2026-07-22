@@ -1404,32 +1404,7 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1052.jpeg",
     "video": "images/gm-zrcn-1052v.mp4"
   },
-  {
-    "id": "garnet-1780215589223",
-    "name": "Natural African Rhodolite Garnet Raspberry Red Gemstone 0 Good Lustre",
-    "shortName": "Rhodolite Garnets",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Africa",
-    "color": "Raspberry Red",
-    "shape": "Mixed Cuts",
-    "weight": 12.2,
-    "dimensions": "",
-    "clarity": "Loupe Clean",
-    "certificate": "Available on Request",
-    "price": 140,
-    "pricePerCarat": 11,
-    "status": "active",
-    "rare": false,
-    "description": "Natural Unheated Rhodolite Garnets from Tanzania. Mixed cuts including oval, cushion and rectangular shapes. Reddish pink color with excellent luster and loupe clean clarity.",
-    "gemType": "Garnet",
-    "images": [
-      "images/rhodolite-garnets-1780215583524-0.jpg",
-      "images/img_20260508_143413.jpg"
-    ],
-    "image": "images/rhodolite-garnets-1780215583524-0.jpg",
-    "video": ""
-  },
+ 
     {
     "id": "gm-grn-1068",
     "name": "Natural Tanzanian Rhodolite Garnet Raspberry Red Gemstone Lot 12.20 Carats 8 Pieces",
