@@ -1481,6 +1481,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1069g.jpg",
     "video": "images/gm-sap-1069v.mp4"
   },
+
+    {
+    "id": "gm-sap-1070",
+    "name": "Natural Blue Sapphire Loose Gemstone - 2.05 Carats, Oval Cut, Heat Treated, Authentic",
+    "shortName": "Blue Sapphire",
+    "type": "cut & polished ",
+    "treatment": "heat treated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Princess Cut",
+    "weight": 2.05,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 160,
+    "pricePerCarat": 78,
+    "status": "active",
+    "rare": false,
+    "description": "Elevate your fine jewelry designs with this exquisite 2.05-carat natural blue sapphire sourced directly from the renowned gemstone deposits of Sri Lanka (Ceylon). Famous worldwide for producing sapphires of unmatched clarity and vibrant color saturation, this authentic stone features a rich, classic blue hue that captures and reflects light beautifully.(rs)",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1070g.jpg"
+    ],
+    "image": "images/gm-sap-1070g.jpg",
+    "video": "images/gm-sap-1070v.mp4"
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
