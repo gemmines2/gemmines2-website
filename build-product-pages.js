@@ -120,7 +120,7 @@ function renderProduct(p) {
     : `<button class="btn-cart" id="btn-cart" onclick="addToCart()">+ Add to Cart</button>`;
 
   const treatmentHtml = `<span class="${isUnheated ? 'unheated' : 'heated'}">${isUnheated ? '✦ Natural Unheated' : '◈ Natural Heated'}</span>`;
-  const priceSub = p.weight ? `$${(p.price / p.weight).toFixed(0)} per carat · ${p.weight} ct total` : '';
+  const priceSub = p.weight ? `$${(p.price / p.weight).toFixed(0)} per carat · ${Number(p.weight).toFixed(2)} ct total` : '';
 
   const detailRow = (label, value, cls) => `
       <div class="detail-row"><div class="detail-label">${label}</div><div class="detail-value${cls ? ' ' + cls : ''}">${esc(value) || '—'}</div></div>`;
@@ -130,13 +130,13 @@ function renderProduct(p) {
     detailRow('Color', p.color),
     detailRow('Treatment', isUnheated ? 'Unheated & Untreated' : 'Heat Treated', isUnheated ? 'val-unheated' : 'val-heated'),
     detailRow('Shape / Cut', p.shape),
-    detailRow('Weight', p.weight ? p.weight + ' Carats' : null),
+    detailRow('Weight', p.weight ? Number(p.weight).toFixed(2) + ' Carats' : null),
     detailRow('Dimensions', p.dimensions),
     detailRow('Clarity', p.clarity),
     detailRow('Certificate', p.certificate || 'Available on Request'),
   ].join('');
 
-  const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? p.weight + 'ct — ' : ''}$${p.price})\n${pageUrl}`;
+const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? Number(p.weight).toFixed(2) + 'ct — ' : ''}$${p.price})\n${pageUrl}`;
   const waHref = `https://wa.me/923362149415?text=${encodeURIComponent(waMsg)}`;
 
   const relatedHtml = related.length ? related.map(r => `
