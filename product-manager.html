@@ -846,16 +846,7 @@ function openModal(idx) {
 function closeModal() { document.getElementById('modalBg').classList.remove('open'); editingIndex = -1; }
 
 function buildProductObject() {
-  function checkIdDuplicate() {
-  const id = document.getElementById('f_id').value.trim().toLowerCase();
-  const warn = document.getElementById('idWarning');
-  if (editingIndex < 0 && id && products.find(p => p.id.trim().toLowerCase() === id)) {
-    warn.textContent = 'This ID already exists — choose a different number.';
-  } else {
-    warn.textContent = '';
-  }
-}
-  const id = document.getElementById('f_id').value.trim();
+   const id = document.getElementById('f_id').value.trim();
   const name = document.getElementById('f_name').value.trim();
   if (!id || !name) { showToast('ID and Name are required!', true); return null; }
   if (editingIndex < 0 && products.find(p => p.id.trim().toLowerCase() === id.toLowerCase())) { showToast('Product ID already exists!', true); return null; }
