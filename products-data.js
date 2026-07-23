@@ -1380,6 +1380,32 @@ const PRODUCTS = [
     "video": "images/gm-sap-1051v.mp4"
   },
   {
+    "id": "gm-grn-1071",
+    "name": "1.93 Ct Natural Malaya Garnet - Octagonal Cut Loupe Clean Orange-Pink Gemstone",
+    "shortName": "Malaya Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Madagascar",
+    "color": "Red",
+    "shape": "Octagonal lCut",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 120,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": true,
+    "description": "Elevate your fine jewelry collection with this rare and breathtaking 1.93 Carat Natural Malaya Garnet. Known for its captivating blend of warm orange and soft pink hues—reminiscent of the sought-after Padparadscha shade—this gemstone boasts exceptional brilliance and eye-catching fire.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1071.jpg"
+    ],
+    "image": "images/gm-grn-1071.jpg",
+    "video": "images/gm-sap-1071v.mp4"
+  },
+
+  {
     "id": "gm-zrcn-1052",
     "name": "Natural Green Zircon Loose Gemstone Parcel 8.55 CTS 8 Loupe Clean",
     "shortName": "Zircon",
