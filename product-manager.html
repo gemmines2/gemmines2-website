@@ -179,7 +179,7 @@
     <div class="sync-banner">✅ This copy is pre-loaded with the corrected catalog (fixed image/video paths included). This is now the ONLY Product Manager file to use — delete any other copies on GitHub or your Desktop.</div>
     <div class="stats" id="statsBar"></div>
     <div class="toolbar">
-      <button class="btn btn-gold" onclick="openModal()">+ Add Product</button>
+      <button class="btn btn-gold" id="addProductBtn" onclick="openModal()" disabled>Loading products…</button>
       <input class="search-box" type="text" placeholder="Search products..." oninput="renderTable(this.value)" id="searchInput">
       <select class="filter" onchange="renderTable()" id="filterType">
         <option value="">All Types</option>
@@ -546,6 +546,8 @@ async function loadProducts() {
     products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
   }
   renderTable(); populateSingleProductSelect(); updateStats();
+  document.getElementById('addProductBtn').disabled = false;
+  document.getElementById('addProductBtn').textContent = '+ Add Product';
 }
 function saveProducts() { localStorage.setItem('gemmines2_products_v2', JSON.stringify(products)); }
 function comboSelect(id, val) { if (val) document.getElementById(id).value = val; }
