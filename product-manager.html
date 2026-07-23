@@ -361,7 +361,7 @@
       <div class="form-grid">
         <div class="field full"><label>Full Product Name (for Google)</label><input type="text" id="f_name" placeholder="e.g. Natural Unheated Blue Sapphire 2.5 Carats Sri Lanka"></div>
         <div class="field"><label>Short Name (display)</label><input type="text" id="f_shortName" placeholder="e.g. Blue Sapphire"></div>
-        <div class="field"><label>Product ID</label><input type="text" id="f_id" placeholder="e.g. sapphire-001"></div>
+        <div class="field"><label>Product ID</label><input type="text" id="f_id" placeholder="e.g. sapphire-001"><div id="nextIdHint" style="font-size:12px;color:#4ade80;margin-top:4px;"></div></div>
 
         <div class="field">
           <label>Gem Type</label>
@@ -787,6 +787,13 @@ function openModal(idx) {
   const p = editingIndex >= 0 ? products[editingIndex] : {};
   document.getElementById('modalTitle').textContent = editingIndex >= 0 ? 'Edit Product' : 'Add New Product';
   document.getElementById('f_id').value = p.id || '';
+  if (editingIndex < 0) {
+    const nums = products.map(pr => parseInt((pr.id.match(/(\d+)$/) || [0,0])[1])).filter(n => !isNaN(n));
+    const next = nums.length ? Math.max(...nums) + 1 : 1001;
+    document.getElementById('nextIdHint').textContent = `Next available number: ${next}`;
+  } else {
+    document.getElementById('nextIdHint').textContent = '';
+  }
   document.getElementById('f_name').value = p.name || '';
   document.getElementById('f_shortName').value = p.shortName || '';
   document.getElementById('f_gemType').value = p.gemType || '';
