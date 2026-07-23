@@ -361,8 +361,7 @@
       <div class="form-grid">
         <div class="field full"><label>Full Product Name (for Google)</label><input type="text" id="f_name" placeholder="e.g. Natural Unheated Blue Sapphire 2.5 Carats Sri Lanka"></div>
         <div class="field"><label>Short Name (display)</label><input type="text" id="f_shortName" placeholder="e.g. Blue Sapphire"></div>
-        <div class="field"><label>Product ID</label><input type="text" id="f_id" placeholder="e.g. sapphire-001"><div id="nextIdHint" style="font-size:12px;color:#4ade80;margin-top:4px;"></div></div>
-
+       <div class="field"><label>Product ID</label><input type="text" id="f_id" placeholder="e.g. sapphire-001"><div id="nextIdHint" style="font-size:12px;color:#4ade80;margin-top:4px;"></div></div>
         <div class="field">
           <label>Gem Type</label>
           <div class="combo-wrap">
@@ -847,6 +846,15 @@ function openModal(idx) {
 function closeModal() { document.getElementById('modalBg').classList.remove('open'); editingIndex = -1; }
 
 function buildProductObject() {
+  function checkIdDuplicate() {
+  const id = document.getElementById('f_id').value.trim().toLowerCase();
+  const warn = document.getElementById('idWarning');
+  if (editingIndex < 0 && id && products.find(p => p.id.trim().toLowerCase() === id)) {
+    warn.textContent = 'This ID already exists — choose a different number.';
+  } else {
+    warn.textContent = '';
+  }
+}
   const id = document.getElementById('f_id').value.trim();
   const name = document.getElementById('f_name').value.trim();
   if (!id || !name) { showToast('ID and Name are required!', true); return null; }
