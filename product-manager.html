@@ -788,7 +788,7 @@ function openModal(idx) {
   document.getElementById('modalTitle').textContent = editingIndex >= 0 ? 'Edit Product' : 'Add New Product';
   document.getElementById('f_id').value = p.id || '';
   if (editingIndex < 0) {
-    const nums = products.map(pr => parseInt((pr.id.match(/(\d+)$/) || [0,0])[1])).filter(n => !isNaN(n));
+   const nums = products.map(pr => { const m = pr.id.match(/^gm-[a-z]+-(\d{3,5})$/i); return m ? parseInt(m[1]) : null; }).filter(n => n !== null);
     const next = nums.length ? Math.max(...nums) + 1 : 1001;
     document.getElementById('nextIdHint').textContent = `Next available number: ${next}`;
   } else {
