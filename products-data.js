@@ -1484,29 +1484,29 @@ const PRODUCTS = [
   },
 
     {
-    "id": "gm-sap-1070",
-    "name": "Natural Blue Sapphire Loose Gemstone - 2.05 Carats, Oval Cut, Heat Treated, Authentic",
-    "shortName": "Blue Sapphire",
-    "type": "cut & polished ",
-    "treatment": "heat treated",
-    "origin": "Sri Lanka",
-    "color": "Blue",
-    "shape": "Princess Cut",
-    "weight": 2.05,
+    "id": "gm-grn-1071",
+    "name": "1.93 Ct Natural Malaya Garnet - Octagonal Cut Loupe Clean Orange-Pink Gemstone",
+    "shortName": "Malaya Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Madagascar",
+    "color": "Red",
+    "shape": "Octagonal lCut",
+    "weight": 0,
     "dimensions": "",
-    "clarity": "Eye Clean",
-    "certificate": "Available on Request",
-    "price": 160,
-    "pricePerCarat": 78,
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 120,
+    "pricePerCarat": 0,
     "status": "active",
-    "rare": false,
-    "description": "Elevate your fine jewelry designs with this exquisite 2.05-carat natural blue sapphire sourced directly from the renowned gemstone deposits of Sri Lanka (Ceylon). Famous worldwide for producing sapphires of unmatched clarity and vibrant color saturation, this authentic stone features a rich, classic blue hue that captures and reflects light beautifully.(rs)",
-    "gemType": "Sapphire",
+    "rare": true,
+    "description": "Elevate your fine jewelry collection with this rare and breathtaking 1.93 Carat Natural Malaya Garnet. Known for its captivating blend of warm orange and soft pink hues—reminiscent of the sought-after Padparadscha shade—this gemstone boasts exceptional brilliance and eye-catching fire.",
+    "gemType": "Garnet",
     "images": [
-      "images/gm-sap-1070g.jpg"
+      "images/gm-grn-1071.jpg"
     ],
-    "image": "images/gm-sap-1070g.jpg",
-    "video": "images/gm-sap-1070v.mp4"
+    "image": "images/gm-grn-1071.jpg",
+    "video": "images/gm-sap-1071v.mp4"
   },
       {
     "id": "gm-sap-1025",
