@@ -1353,6 +1353,32 @@ const PRODUCTS = [
     "image": "images/gm-grn-1050.jpeg",
     "video": "images/gm-grn-1050v.mp4"
   },
+    {
+    "id": "gm-prdt-1072",
+    "name": "Natural Unheated Pakistani Peridot Rough Stone Lot | Untreated Green Gemstones |",
+    "shortName": "Green Peridot",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Green",
+    "shape": "",
+    "weight": 200,
+    "dimensions": "",
+    "clarity": "Rough Stones",
+    "certificate": "Available on Request",
+    "price": 1400,
+    "pricePerCarat": 7,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Pakistani Peridot rough stone lot featuring untreated green gemstone crystals sourced from Pakistan's renowned gem-producing regions. These rough peridot stones retain their natural crystal structure and vibrant olive-green color, making them ideal for faceting, cabochon cutting, carving, lapidary work, mineral collections, and custom jewelry. Every stone is supplied in its natural, untreated condition with no heat treatment or artificial enhancement. A great choice for gem collectors, jewelers, and gemstone enthusiasts seeking authentic Pakistani Peridot rough.",
+    "gemType": "Peridot",
+    "images": [
+      "images/gm-prdt-1072.jpg",
+      "images/gm-prdt-1072-1.jpg"
+    ],
+    "image": "images/gm-prdt-1072.jpg",
+    "video": ""
+  },
   {
     "id": "gm-sap-1051",
     "name": "Natural Mixed Sapphire Lot 5.55 Carats 23 Pieces - Beautful Lustre",
