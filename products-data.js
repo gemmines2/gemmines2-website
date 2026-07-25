@@ -1508,7 +1508,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1069g.jpg",
     "video": "images/gm-sap-1069v.mp4"
   },
-
+  {
+    "id": "gm-ruby-1073",
+    "name": "Natural Ruby 0.80 Carat Pigeon Blood Red Colour - Good Lustre",
+    "shortName": "Ruby",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Pigeon Blood REad",
+    "shape": "Oval Cut",
+    "weight": 0.08,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 280,
+    "pricePerCarat": 3500,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Ruby weighing 0.80 carat, featuring the highly sought-after Pigeon Blood Red color with excellent eye-clean clarity. This attractive loose ruby displays a rich, vivid red hue prized by gemstone collectors, jewelers, and those seeking a premium gemstone for custom jewelry. Suitable for engagement rings, pendants, earrings, or gemstone collections. Carefully selected for its beauty and quality.  Perfect for collectors and jewelry enthusiasts looking for a genuine natural ruby with exceptional color.",
+    "gemType": "Ruby",
+    "images": [
+      "images/gm-ruby-1073.jpg"
+    ],
+    "image": "images/gm-ruby-1073.jpg",
+    "video": "images/gm-ruby-1073v.mp4"
+  },
     {
     "id": "gm-grn-1071",
     "name": "1.93 Ct Natural Malaya Garnet - Octagonal Cut Loupe Clean Orange-Pink Gemstone",
