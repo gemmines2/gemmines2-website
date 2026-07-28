@@ -1198,7 +1198,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1042.jpeg",
     "video": "images/gm-sap-1042v.mp4"
   },
-
+  {
+    "id": "gm-grn-1074",
+    "name": "Natural Hessonite Garnet  20 carats Lot (1ct-2ct sizes) Good Lustre",
+    "shortName": "Hessonite Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Orange",
+    "shape": "Mixed Cuts",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Exclusive 20-carat lot of natural, unheated Hessonite Garnets from Sri Lanka. This parcel contains high-brilliance loose gems ranging from 1 to 2 carats each. Graded eye clean with zero eye-visible inclusions, these Ceylon stones showcase rich, natural tangerine and amber-orange tones without any heat treatment. Perfect for fine jewelry designs, custom rings, or collectors.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1074.jpg"
+    ],
+    "image": "images/gm-grn-1074.jpg",
+    "video": "images/gm-grn-1071v.mp4"
+  },
   {
     "id": "gm-sap-1043",
     "name": "Natural Unheated Purple Sapphire 1.70 Carat| Excellent Lustre | Sri Lanka Origin",
