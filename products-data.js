@@ -1581,11 +1581,11 @@ const PRODUCTS = [
     ],
     "image": "images/gm-grn-1071.jpg",
     "video": "images/gm-sap-1071v.mp4"
-   {
+     {
     "id": "gm-aqua-1075",
-    "name": "Natural Unheated Aquamarine Gemstone - Rich Sea Blue Colour",
-    "shortName": "Aquamarine",
-    "type": "cut",
+    "name": "Natural Unheated Aquamarine Gemstone Rich Sea Blue Colour",
+    "shortName": "Aqumarine",
+    "type": "cut & Polished ",
     "treatment": "unheated",
     "origin": "Madagascar",
     "color": "Rich Sea Blue",
@@ -1598,14 +1598,13 @@ const PRODUCTS = [
     "pricePerCarat": 136,
     "status": "active",
     "rare": false,
-    "description": "Discover a genuine natural unheated Aquamarine loose gemstone, prized for its beautiful Rich Sea Blue color, excellent transparency, and brilliant faceting. Carefully selected for collectors, gemstone investors, jewelry designers, and custom engagement or fine jewelry projects. This authentic Aquamarine is supplied as a loose gemstone and is suitable for rings, pendants, earrings, and bespoke jewelry.",
-    "gemType": "Aquamarie",
-    "images": [],
-    "image": "",
+    "description": "Discover a genuine natural unheated Aquamarine loose gemstone, prized for its beautiful Rich sea blue color, excellent transparency, and brilliant faceting. Carefully selected for collectors, gemstone investors, jewelry designers, and custom engagement or fine jewelry projects.",
+    "gemType": "Aquamarine",
+    "images": [
+      "images/gm-aqua-1075.jpg"
+    ],
+    "image": "images/gm-aqua-1075.jpg",
     "video": "images/gm-aqua-1075v.mp4"
-  },
-    "image": "images/gm-aqu-1075.jpg",
-    "video": "images/aqua.mp4"
   },
       {
     "id": "gm-sap-1025",
