@@ -1586,7 +1586,7 @@ const PRODUCTS = [
     "id": "gm-aqua-1075",
     "name": "Natural Unheated Aquamarine Gemstone | Faceted Loose Blue Aquamarine |",
     "shortName": "Aquamarine",
-    "type": "cut",
+    "type": "cut & Polished ",
     "treatment": "unheated",
     "origin": "Madagascar",
     "color": "Rich Sea Blue",
