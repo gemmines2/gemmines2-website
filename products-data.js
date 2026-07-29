@@ -1602,7 +1602,7 @@ const PRODUCTS = [
     "gemType": "Aquamarine",
     "images": [
       "images/gm-aqua-1075.jpg"
-    ],
+    
     "image": "images/gm-aqua-1075.jpg",
     "video": "images/gm-aqua-1075v.mp4"
   },
