@@ -1585,7 +1585,7 @@ const PRODUCTS = [
     "id": "gm-aqua-1075",
     "name": "Natural Unheated Aquamarine Gemstone Rich Sea Blue Colour",
     "shortName": "Aqumarine",
-    "type": "cut & Polished ",
+    "type": "cut",
     "treatment": "unheated",
     "origin": "Madagascar",
     "color": "Rich Sea Blue",
