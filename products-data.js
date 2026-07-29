@@ -1604,7 +1604,7 @@ const PRODUCTS = [
     "images": [
       "images/gm-aqu-1074.jpg"
     ],
-    "image": "images/gm-aqu-1074.jpg",
+    "image": "images/gm-aqu-1075.jpg",
     "video": "images/aqua.mp4"
   },
       {
