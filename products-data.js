@@ -1557,7 +1557,7 @@ const PRODUCTS = [
     "image": "images/gm-ruby-1073.jpg",
     "video": "images/gm-ruby-1073v.mp4"
   },
-    {
+   {
     "id": "gm-grn-1071",
     "name": "1.93 Ct Natural Malaya Garnet - Octagonal Cut Loupe Clean Orange-Pink Gemstone",
     "shortName": "Malaya Garnet",
@@ -1576,12 +1576,11 @@ const PRODUCTS = [
     "rare": true,
     "description": "Elevate your fine jewelry collection with this rare and breathtaking 1.93 Carat Natural Malaya Garnet. Known for its captivating blend of warm orange and soft pink hues—reminiscent of the sought-after Padparadscha shade—this gemstone boasts exceptional brilliance and eye-catching fire.",
     "gemType": "Garnet",
-    "images": [
-      "images/gm-grn-1071.jpg"
-    ],
+    "images": ["images/gm-grn-1071.jpg"],
     "image": "images/gm-grn-1071.jpg",
     "video": "images/gm-sap-1071v.mp4"
-     {
+  },
+  {
     "id": "gm-aqua-1075",
     "name": "Natural Unheated Aquamarine Gemstone Rich Sea Blue Colour",
     "shortName": "Aqumarine",
@@ -1600,9 +1599,7 @@ const PRODUCTS = [
     "rare": false,
     "description": "Discover a genuine natural unheated Aquamarine loose gemstone, prized for its beautiful Rich sea blue color, excellent transparency, and brilliant faceting. Carefully selected for collectors, gemstone investors, jewelry designers, and custom engagement or fine jewelry projects.",
     "gemType": "Aquamarine",
-    "images": [
-      "images/gm-aqua-1075.jpg"
-    
+    "images": ["images/gm-aqua-1075.jpg"],
     "image": "images/gm-aqua-1075.jpg",
     "video": "images/gm-aqua-1075v.mp4"
   },
