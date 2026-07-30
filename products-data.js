@@ -1603,6 +1603,31 @@ const PRODUCTS = [
     "image": "images/gm-aqua-1075.jpg",
     "video": "images/gm-aqua-1075v.mp4"
   },
+    {
+    "id": "gm-grn-1076",
+    "name": "Natural Unheated Padparadscha Sapphire 1.13 Carats Cut & Polished",
+    "shortName": "Padparadscha Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Padparadscha (Pink-Orange)",
+    "shape": "Oval Cut",
+    "weight": 1.13,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 400,
+    "pricePerCarat": 354,
+    "status": "active",
+    "rare": true,
+    "description": "Discover the beauty of this Natural Unheated Padparadscha Sapphire weighing 1.13 carats. This rare loose gemstone displays the highly sought-after delicate blend of  pink,  hues that make Padparadscha sapphires among the world's most desirable gemstones. Untreated and unheated, it preserves its natural color and exceptional beauty.",
+    "gemType": "Padparadscha Sapphire",
+    "images": [
+      "images/gm-grn-1076.jpg"
+    ],
+    "image": "images/gm-grn-1076.jpg",
+    "video": ""
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
