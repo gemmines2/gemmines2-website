@@ -838,7 +838,7 @@ const PRODUCTS = [
   },
     {
     "id": "gm-sap-1027",
-    "name": "Natural Corundum Pink Sapphire 1.19 Caats - Natural Unheated - Sri Lanka Origin",
+    "name": "Natural Corundum Pink Sapphire 1.19 Carats - Natural Unheated - Sri Lanka Origin",
     "shortName": "Pink Sapphire",
     "type": "cut",
     "treatment": "unheated",
