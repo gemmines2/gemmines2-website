@@ -26,7 +26,7 @@ const PRODUCTS = [
   },
     {
     "id": "gm-sap-1066",
-    "name": "Natural Unheated Blue Sapphire 1.98 Carat Sea Blue -Sri Lanka Origina",
+    "name": "Natural Unheated Blue Sapphire 1.98 Carat Sea Blue -Sri Lanka Origin",
     "shortName": "Sea Blue Colour",
     "type": "cut",
     "treatment": "unheated",
@@ -838,7 +838,7 @@ const PRODUCTS = [
   },
     {
     "id": "gm-sap-1027",
-    "name": "Natural Correndum Pink Sapphire 1.19 Caats - Natural Unheated - Sri Lanka Origin",
+    "name": "Natural Corundum Pink Sapphire 1.19 Caats - Natural Unheated - Sri Lanka Origin",
     "shortName": "Pink Sapphire",
     "type": "cut",
     "treatment": "unheated",
