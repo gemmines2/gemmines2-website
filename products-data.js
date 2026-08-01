@@ -1480,7 +1480,33 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1052.jpeg",
     "video": "images/gm-zrcn-1052v.mp4"
   },
- 
+   {
+    "id": "gm-aven-1077",
+    "name": "Natural Green Aventurine Gemstone 3 Carat Translucent River Tumbled Stone",
+    "shortName": "Aventurine",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Green",
+    "shape": "Oval Cut",
+    "weight": 3,
+    "dimensions": "",
+    "clarity": "Translucent",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 27,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the natural elegance of this authentic 3 Carat Translucent Green Aventurine gemstone (SKU: GM-AVEN-1077) from GemMines. Hand-selected and naturally river-tumbled in Pakistan, this polished stone features a subtle translucent light-green color with smooth, smooth contours and organic gem texture. Perfect for custom jewelry crafting, wire wrapping, gem collection, or display. \n\nKey Details:\n- Gemstone: Natural Green Aventurine\n- Weight: 3 Carats (Ct)\n- Finish: River Tumbled / Polished\n- Transparency: Translucent\n- Origin: Pakistan\n- Item SKU / ID: GM-AVEN-1077\n-\n\nEvery gemstone is genuine and inspected for quality. Ideal for jeweler projects, crystal collections, and unique gemstone art.",
+    "gemType": "Aventurine",
+    "images": [
+      "images/gm-aven-1077.png",
+      "images/gm-aven-1077-1.png",
+      "images/gm-aven-1077g.png"
+    ],
+    "image": "images/gm-aven-1077.png",
+    "video": ""
+  },
     {
     "id": "gm-grn-1068",
     "name": "Natural Tanzanian Rhodolite Garnet Raspberry Red Gemstone Lot 12.20 Carats 8 Pieces",
