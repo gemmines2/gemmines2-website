@@ -1654,6 +1654,32 @@ const PRODUCTS = [
     "image": "images/gm-grn-1076.jpg",
     "video": ""
   },
+    {
+    "id": "gm-lemn-1078",
+    "name": "Natural Lemon Quartz 4.85 Carat Step Cut Faceted Loose Gemstone - Bright Yellow Clarity",
+    "shortName": "Lemon Quartz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Lemon Yellow",
+    "shape": "Step Cut",
+    "weight": 4.85,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 12,
+    "status": "active",
+    "rare": false,
+    "description": "Elevate your next custom jewelry design or collection with this vibrant and genuine 4.85 Carat Natural Lemon Quartz loose gemstone (SKU: ID LEMN-1075). Expertly faceted into a clean, precise step-cut shape, this stone showcases exceptional clarity and brilliant internal light refractions. The lively, bright lemon-yellow color is eye-clean, providing a fresh and premium look. Ideal for setting in rings, pendants, or unique artisan jewelry.\n\nKey Details:\n- Gemstone: Natural Lemon Quartz\n- Weight: 4.85 Carats (Ct)\n- Shape/Cut: Step Cut (similar to Emerald Cut)\n- Clarity: Eye-clean\n- Color: Lemon Yellow (Treated/Enhanced)\n- Origin: Sourced from quality global suppliers\n\nEvery gemstone from GemMines is genuine and inspected for quality. Perfect for jewelers, gem collectors, and crystal enthusiasts.",
+    "gemType": "Lemon Quartz",
+    "images": [
+      "images/gm-lemn-1078.jpg",
+      "images/gm-lemn-1078g.png"
+    ],
+    "image": "images/gm-lemn-1078.jpg",
+    "video": ""
+  },
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
