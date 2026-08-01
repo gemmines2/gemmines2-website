@@ -24,6 +24,33 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+  {
+    "id": "gm-moon-1075",
+    "name": "Natural Black Moonstone Cabochon Opaque Gemstone | Polished Oval Loose Stone | Genuine Collector Gem",
+    "shortName": "Moonstone",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "",
+    "shape": "Cabochon",
+    "weight": 28.35,
+    "dimensions": "",
+    "clarity": "Opaque",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 3,
+    "status": "active",
+    "rare": false,
+    "description": "atural Black Moonstone featuring a polished oval cabochon cut with an attractive dark gray to black body color and opaque appearance. This genuine feldspar gemstone is appreciated for its natural character and subtle sheen that may become visible under changing light. Carefully selected for collectors, gemstone enthusiasts, jewelry designers, and custom jewelry creations, each stone displays its own unique natural patterns and inclusions. Sourced as a genuine natural gemstone and professionally polished for an attractive finish, this Black Moonstone is suitable for rings, pendants, artisan jewelry, or mineral collections.",
+    "gemType": "Moonstone",
+    "images": [
+      "images/gm-moon-1075.jpg",
+      "images/gm-moon-1075g.jpg"
+    ],
+    "image": "images/gm-moon-1075.jpg",
+    "video": ""
+  },
+  
     {
     "id": "gm-sap-1066",
     "name": "Natural Unheated Blue Sapphire 1.98 Carat Sea Blue -Sri Lanka Origin",
