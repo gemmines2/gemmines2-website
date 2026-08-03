@@ -1,4 +1,3 @@
-
 /* ═══════════════════════════════════════════
    GEMMINES2 — Global JavaScript
    ═══════════════════════════════════════════ */
@@ -175,10 +174,9 @@ function injectStructuredData() {
     "description": "100% natural, unheated gemstones from Pakistan and Sri Lanka. Sapphires, rubies, emeralds, garnets and custom silver jewelry. Ethically sourced, worldwide shipping.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "House 602, Gali 6, Sector G11/1",
+      "streetAddress": "H# 602, Gali # 6, Sector G-11/1",
       "addressLocality": "Islamabad",
-      "addressCountry": "PK",
-      "postalCode": "44000"
+      "addressCountry": "PK"
     },
     "contactPoint": {
       "@type": "ContactPoint",
