@@ -1707,6 +1707,33 @@ const PRODUCTS = [
     "image": "images/gm-lemn-1078.jpg",
     "video": ""
   },
+  {
+    "id": "gm-grn-1079",
+    "name": "Natural Hessonite Garnet Loose Gemstone 1.85 Carat Oval Cut Deep Red Orange Cinnamon Honey Goned",
+    "shortName": "Hessonite Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red Orange Cinnamon",
+    "shape": "Oval Cut",
+    "weight": 1.85,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 32,
+    "status": "active",
+    "rare": false,
+    "description": "Elevate your fine jewelry collection with this 1.85 Carat Natural Hessonite Garnet Loose Gemstone, offered by Gemmines2. Featuring a classic oval facet cut, this untreated gemstone showcases a rich reddish-orange to cinnamon-honey tone that reflects light beautifully.\n\nBelonging to the grossular garnet family, natural Hessonite (also known as Gomed) is celebrated for its deep warm hues and optical clarity. This 100% natural, unheated stone remains completely free from artificial enhancements, preserving its authentic beauty and value straight from the earth.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1079.jpg",
+      "images/gm-grn-1079-1.jpg"
+    ],
+    "image": "images/gm-grn-1079.jpg",
+    "video": ""
+  },
+  
       {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
