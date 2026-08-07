@@ -24,6 +24,31 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+    {
+    "id": "gm-sap-1081-1",
+    "name": "Natural Heated Orange Sapphire 1.15 Carat Round Cut | Rare Orange Colour",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "heated",
+    "origin": "Sri Lanka",
+    "color": "Orange",
+    "shape": "Round Brilliant Cut",
+    "weight": 1.15,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 70,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a beautiful Natural Heated Orange Sapphire weighing 1.15 carats, sourced from the famous gem deposits of Sri Lanka (Ceylon). Displaying a naturally rare orange colour, this sapphire has been enhanced only through traditional heat treatment, a permanent and widely accepted practice in the gemstone industry.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1081-1.jpg"
+    ],
+    "image": "images/gm-sap-1081-1.jpg",
+    "video": ""
+  },
   {
     "id": "gm-moon-1075",
     "name": "Natural Black Moonstone Cabochon Opaque Gemstone | Polished Oval Loose Stone | Genuine Collector Gem",
