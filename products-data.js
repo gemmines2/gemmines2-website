@@ -24,7 +24,7 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
-    {
+     {
     "id": "gm-sap-1081-1",
     "name": "Natural Heated Orange Sapphire 1.15 Carat Round Cut | Rare Orange Colour",
     "shortName": "Sapphire",
