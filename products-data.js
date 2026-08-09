@@ -24,6 +24,32 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+    {
+    "id": "gm-sap-1082",
+    "name": "Natural Blue Sapphire 2.51 Ct Cushion Mixed Cut Top Eye Clean Heated",
+    "shortName": "Blue",
+    "type": "cut",
+    "treatment": "heated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Cushion Cut",
+    "weight": 2.51,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 300,
+    "pricePerCarat": 120,
+    "status": "active",
+    "rare": false,
+    "description": "Natural blue sapphire weighing 2.51 carats with top eye-clean clarity and an attractive blue color. The gemstone is precision cut in a cushion mixed cut with dimensions of 7.69 × 7.26 × 4.63 mm. This loose sapphire has been heat treated and is suitable for jewelry making, collection, or custom designs.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1082.jpeg",
+      "images/gm-sap-1082c.jpeg"
+    ],
+    "image": "images/gm-sap-1082.jpeg",
+    "video": "images/gm-sap-1082v.mp4"
+  },
      {
     "id": "gm-sap-1081-1",
     "name": "Natural Heated Orange Sapphire 1.15 Carat Round Cut | Rare Orange Colour",
