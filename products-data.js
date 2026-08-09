@@ -24,9 +24,9 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
-    {
+     {
     "id": "gm-pad-1083",
-    "name": "Natural Unheated Pinkish Orange Sapphire – 1.00 Ct",
+    "name": "Natural Unheated Padparadscha Pinkish Orange Sapphire – 1.00 Ct - Rare",
     "shortName": "Padpharaja Sapphire",
     "type": "cut",
     "treatment": "unheated",
@@ -41,7 +41,7 @@ const PRODUCTS = [
     "pricePerCarat": 320,
     "status": "active",
     "rare": true,
-    "description": "A natural unheated sapphire with an attractive pinkish-orange “Sunset” color. The gemstone is loupe clean, weighing 1.00 carat, and precision cut in an Oval Mixed Cut for good brilliance.",
+    "description": "A natural unheated Padparadscha  sapphire with an attractive pinkish-orange “Sunset” color. The gemstone is loupe clean, weighing 1.00 carat, and precision cut in an Oval Mixed Cut for good brilliance.",
     "gemType": "Sapphire",
     "images": [
       "images/gm-pad-1083.jpeg",
