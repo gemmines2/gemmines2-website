@@ -25,6 +25,33 @@ const PRODUCTS = [
     "video": ""
   },
     {
+    "id": "gm-pad-1083",
+    "name": "Natural Unheated Pinkish Orange Sapphire – 1.00 Ct",
+    "shortName": "Padpharaja Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "",
+    "shape": "Oval - Mixed Cut",
+    "weight": 1,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 320,
+    "pricePerCarat": 320,
+    "status": "active",
+    "rare": true,
+    "description": "A natural unheated sapphire with an attractive pinkish-orange “Sunset” color. The gemstone is loupe clean, weighing 1.00 carat, and precision cut in an Oval Mixed Cut for good brilliance.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-pad-1083.jpeg",
+      "images/gm-pad-1083-2.jpeg",
+      "images/gm-pad-1083c.jpeg"
+    ],
+    "image": "images/gm-pad-1083.jpeg",
+    "video": ""
+  },
+    {
     "id": "gm-sap-1082",
     "name": "Natural Blue Sapphire 2.51 Ct Cushion Mixed Cut Top Eye Clean Heated",
     "shortName": "Blue",
