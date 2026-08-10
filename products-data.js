@@ -24,6 +24,30 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+
+    {
+    "id": "gm-jewl-1084",
+    "name": "Natural Gemstone Silver Rings from Pakistan – Emerald, Ruby, Garnet, Feroza & More",
+    "shortName": "Mixed Gemstones",
+    "type": "jewelry",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Multi-Color",
+    "shape": "",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 160,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover our collection of silver rings featuring natural gemstones from Pakistan and other gem-rich regions. The collection includes emerald, ruby, garnet, feroza/turquoise, amethyst, citrine, topaz and other natural gemstones. Each ring has its own gemstone color, cut and character and is set in silver. Suitable for everyday wear, gifting, collectors and gemstone enthusiasts. Shipping available worldwide from Pakistan. Contact us for ring sizes, gemstone details, prices and customization options.",
+    "gemType": "Mixed",
+    "images": [],
+    "image": "",
+    "video": "images/gm-jewl-1084vs.mp4"
+  },
      {
     "id": "gm-pad-1083",
     "name": "Natural Unheated Padparadscha Pinkish Orange Sapphire – 1.00 Ct - Rare",
