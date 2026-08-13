@@ -174,19 +174,7 @@
     <div class="form-card">
       <div class="form-card-title">Payment Method <span>Step 3 of 3</span></div>
 
-      <div id="payoneerCheckoutBox" style="background:var(--teal-faint);border:1px solid var(--teal);border-radius:8px;padding:20px;margin-bottom:18px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-          <span style="font-size:18px;">⚡</span>
-          <strong style="font-size:14px;color:var(--text);">Pay Instantly with Card</strong>
-          <span class="pay-tag">FASTEST</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:14px;">
-          Pay securely now with your debit/credit card via Payoneer Checkout. Your order is confirmed immediately — no waiting required.
-        </p>
-        <button type="button" class="place-btn" id="payNowBtn" onclick="payNow()" style="margin:0;">⚡ Pay Now &amp; Place Order</button>
-      </div>
-
-      <div style="text-align:center;font-size:11px;color:var(--muted2);letter-spacing:1px;text-transform:uppercase;margin:14px 0;">— or pay manually —</div>
+      <div style="text-align:center;font-size:11px;color:var(--muted2);letter-spacing:1px;text-transform:uppercase;margin:14px 0;">Choose a payment method</div>
 
       <div class="pay-opts">
 
@@ -311,30 +299,14 @@ const PAYMENT_DETAILS = {
 };
 
 /* ═══════════════════════════════════════════
-   PAYONEER CHECKOUT — INSTANT PAYMENT
-   TODO: Replace PAYONEER_CHECKOUT_LINK below with your real
-   Payoneer "Request a Payment" / Checkout link once available
-   from your Payoneer dashboard. Until then, this falls back
-   to the manual payment flow automatically.
+   REAL INSTANT CARD PAYMENT — NOT YET CONNECTED
+   When a real hosted checkout exists (Stripe Payment Link,
+   Payoneer Checkout, etc.), add a button back that redirects to
+   it with the order total. Do NOT re-add any "instant / confirmed
+   immediately" copy until that link is live and tested end-to-end —
+   claiming instant checkout that silently falls back to manual
+   transfer is a real Misrepresentation risk with Google Merchant Center.
    ═══════════════════════════════════════════ */
-const PAYONEER_CHECKOUT_LINK = ''; // ← paste your real Payoneer Checkout/payment link here when ready
-
-function payNow() {
-  if (!validate()) { window.scrollTo({top:0,behavior:'smooth'}); return; }
-  const items = Cart.get();
-  if (!items.length) { alert('Your cart is empty.'); return; }
-
-  if (PAYONEER_CHECKOUT_LINK) {
-    // Real instant payment flow — redirect to Payoneer's secure hosted checkout
-    const total = Cart.total().toFixed(2);
-    window.location.href = `${PAYONEER_CHECKOUT_LINK}?amount=${total}`;
-  } else {
-    // Fallback while real link isn't configured yet — proceed with manual Payoneer transfer
-    document.querySelector('input[name="payment"][value="Payoneer"]').checked = true;
-    toggleBankDetails();
-    placeOrder();
-  }
-}
 
 function toggleBankDetails() {
   const checked = document.querySelector('input[name="payment"]:checked');
