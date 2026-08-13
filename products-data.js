@@ -24,30 +24,30 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
-  {
-    "id": "gm-amy-1085",
-    "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean",
-    "shortName": "Amethyst",
-    "type": "cut",
+    {
+    "id": "gm-jewl-1084",
+    "name": "Natural Gemstone Silver Rings from Pakistan – Emerald, Ruby, Garnet, Feroza & More",
+    "shortName": "Mixed Gemstones",
+    "type": "jewelry",
     "treatment": "unheated",
-    "origin": "Sri Lanka",
-    "color": "Purple",
-    "shape": "Mixed Cuts",
-    "weight": 8,
+    "origin": "",
+    "color": "Multi-Color",
+    "shape": "",
+    "weight": 0,
     "dimensions": "",
-    "clarity": "Loupe Clean",
+    "clarity": "Eye Clean",
     "certificate": "Available on Request",
-    "price": 110,
-    "pricePerCarat": 14,
+    "price": 160,
+    "pricePerCarat": 0,
     "status": "active",
     "rare": false,
-    "description": "Natural unheated Amethyst gemstone lot with a total weight of 8.10 carats. The lot contains three loose gemstones weighing 3.65 ct, 2.30 ct, and 2.15 ct. The stones have a purple color and are loupe clean",
-    "gemType": "Amethyst",
+    "description": "Discover our collection of silver rings featuring natural gemstones from Pakistan and other gem-rich regions. The collection includes emerald, ruby, garnet, feroza/turquoise, amethyst, citrine, topaz and other natural gemstones. Each ring has its own gemstone color, cut and character and is set in silver. Suitable for everyday wear, gifting, collectors and gemstone enthusiasts. Shipping available worldwide from Pakistan. Contact us for ring sizes, gemstone details, prices and customization options.",
+    "gemType": "Mixed",
     "images": [
-      "images/gm-amy-1086.png"
+      "images/gm-jewl-1084-2.jpg"
     ],
-    "image": "images/gm-amy-1086.png",
-    "video": "images/gm-amy-1086v.mp4"
+    "image": "images/gm-jewl-1084-2.jpg",
+    "video": "images/gm-jewl-1084vs.mp4"
   },
     {
     "id": "gm-jewl-1084",
