@@ -25,6 +25,31 @@ const PRODUCTS = [
     "video": ""
   },
     {
+    "id": "gm-amy-1086",
+    "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
+    "shortName": "Amethyst",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Purple",
+    "shape": "Mixed Cuts",
+    "weight": 8,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 15,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Amethyst gemstone lot with a total weight of 8.10 carats. The lot contains three loose gemstones weighing 3.65 ct, 2.30 ct, and 2.15 ct. The stones have a purple color and are loupe clean",
+    "gemType": "Amethyst",
+    "images": [
+      "images/gm-amy-1086.png"
+    ],
+    "image": "images/gm-amy-1086.png",
+    "video": ""
+  },
+    {
     "id": "gm-jewl-1084",
     "name": "Natural Gemstone Silver Rings from Pakistan – Emerald, Ruby, Garnet, Feroza & More",
     "shortName": "Mixed Gemstones",
