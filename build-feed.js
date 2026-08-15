@@ -10,6 +10,10 @@ const PRODUCTS = sandbox.PRODUCTS;
 
 const BASE_URL = 'https://gemmines2.github.io/gemmines2-website/';
 
+// Must exactly match the label name of your Return Policy in
+// Merchant Center -> Tools -> Return and refund policies.
+const RETURN_POLICY_LABEL = 'default';
+
 function escapeXML(str) {
   if (!str) return '';
   return String(str)
@@ -56,7 +60,7 @@ let xml = `<?xml version="1.0" encoding="UTF-8"?>
     <description>100% natural, unheated certified gemstones from Pakistan and Sri Lanka. Ethically sourced, worldwide shipping.</description>
 `;
 
-const headers = ['id','title','description','link','image_link','price','availability','condition','brand','google_product_category','mpn','color','material','identifier_exists'];
+const headers = ['id','title','description','link','image_link','price','availability','condition','brand','google_product_category','mpn','color','material','identifier_exists','return_policy_label'];
 let csv = headers.join('\t') + '\n';
 
 active.forEach(p => {
@@ -93,7 +97,8 @@ active.forEach(p => {
         <g:service>Standard</g:service>
         <g:price>0 USD</g:price>
       </g:shipping>
-      <g:identifier_exists>false</g:identifier_exists>${p.origin ? `
+      <g:identifier_exists>false</g:identifier_exists>
+      <g:return_policy_label>${RETURN_POLICY_LABEL}</g:return_policy_label>${p.origin ? `
       <g:material>${escapeXML(p.origin)} Origin${weight ? ' — ' + weight : ''}</g:material>` : ''}${p.color ? `
       <g:color>${escapeXML(p.color)}</g:color>` : ''}${treatment ? `
       <g:pattern>${escapeXML(treatment)}</g:pattern>` : ''}${p.images && p.images[1] ? `
@@ -105,7 +110,7 @@ active.forEach(p => {
   const csvPrice = Number(p.price).toFixed(2) + ' USD';
   const csvMaterial = `${p.origin || 'Pakistan'} Origin${weight ? ' ' + weight : ''} — ${treatment}`;
   const row = [p.id, csvTitle, csvDesc, productURL, imageURL, csvPrice, availability, condition, brand,
-    'Arts & Entertainment > Hobbies & Creative Arts > Collectibles > Gemstones', p.id, p.color || '', csvMaterial, 'false'];
+    'Arts & Entertainment > Hobbies & Creative Arts > Collectibles > Gemstones', p.id, p.color || '', csvMaterial, 'false', RETURN_POLICY_LABEL];
   csv += row.join('\t') + '\n';
 });
 
