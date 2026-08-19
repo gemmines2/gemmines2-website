@@ -25,6 +25,31 @@ const PRODUCTS = [
     "video": ""
   },
     {
+    "id": "1087",
+    "name": "Natural Unheated Green Zircon – Sri Lankan Origin, 1.50 Carats",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Green",
+    "shape": "Oval Cut",
+    "weight": 1.5,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 53,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Green Zircon from Sri Lankan origin, weighing 1.50 carats. This attractive loose gemstone displays a beautiful natural green colour with excellent lustre and brilliance. The stone is natural and unheated, making it an appealing choice for gemstone collectors and jewellery enthusiasts.\n\nIdeal for custom rings, pendants, earrings, or other fine jewellery designs. The gemstone is offered as a loose stone and is photographed to show its actual appearance. Please review the photographs and specifications carefully before purchase.",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1087.jpg"
+    ],
+    "image": "images/gm-zrcn-1087.jpg",
+    "video": "images/green-zircon--1087v.mp4"
+  },
+    {
     "id": "gm-amy-1086",
     "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
     "shortName": "Amethyst",
