@@ -24,8 +24,8 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
-    {
-    "id": "1087",
+     {
+    "id": "gm-zrcn-1087",
     "name": "Natural Unheated Green Zircon – Sri Lankan Origin, 1.50 Carats",
     "shortName": "Zircon",
     "type": "cut",
