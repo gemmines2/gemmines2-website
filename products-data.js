@@ -1,4 +1,31 @@
 const PRODUCTS = [
+    {
+    "id": "gm-spnl-1088",
+    "name": "Natural Unheated Royal Blue Spinel – Sri Lankan Origin, 1.30 Carats",
+    "shortName": "Spinel",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Blue",
+    "shape": "Round Brilliant Cut",
+    "weight": 1.3,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 69,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Royal Blue Spinel from Sri Lankan origin, weighing 1.30 carats. This beautiful loose gemstone displays an attractive royal blue colour with excellent brilliance and natural character. The stone is untreated/unheated, making it an appealing choice for collectors and jewellery enthusiasts seeking a natural gemstone.",
+    "gemType": "Spinel",
+    "images": [
+      "images/gm-spnl-1088.jpg"
+    ],
+    "image": "images/gm-spnl-1088.jpg",
+    "video": "images/gm-spnl-1088v.mp4"
+  },
+  
+  
   {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
