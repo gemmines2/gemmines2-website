@@ -25,7 +25,31 @@ const PRODUCTS = [
     "video": "images/gm-spnl-1088v.mp4"
   },
   
-  
+    {
+    "id": "gm-grn-1089",
+    "name": "Natural Unheated Hessonite Garnet 3.35 Carats | Eye Clean Loose Gemstone",
+    "shortName": "Hessonite Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Orange / Reddish",
+    "shape": "Step Cut",
+    "weight": 3.35,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 18,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Hessonite Garnet weighing 3.35 carats, offered as a beautiful faceted loose gemstone with an attractive warm reddish-orange to cinnamon-red body color. This gemstone has an eye-clean appearance, making it an appealing choice for collectors, gemstone enthusiasts, jewelry designers, and anyone looking for a distinctive natural garnet.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1089g.jpg"
+    ],
+    "image": "images/gm-grn-1089g.jpg",
+    "video": "images/gm-grn-1089v.mp4"
+  },
   {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
