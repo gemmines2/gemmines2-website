@@ -24,7 +24,6 @@ const PRODUCTS = [
     "image": "images/gm-spnl-1088.jpg",
     "video": "images/gm-spnl-1088v.mp4"
   },
-  
     {
     "id": "gm-grn-1089",
     "name": "Natural Unheated Hessonite Garnet 3.35 Carats | Eye Clean Loose Gemstone",
@@ -50,6 +49,7 @@ const PRODUCTS = [
     "image": "images/gm-grn-1089g.jpg",
     "video": "images/gm-grn-1089v.mp4"
   },
+   
   {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
