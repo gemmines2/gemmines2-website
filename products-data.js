@@ -49,7 +49,7 @@ const PRODUCTS = [
     "image": "images/gm-grn-1089g.jpg",
     "video": "images/gm-grn-1089v.mp4"
   },
-  {
+   {
     "id": "gm-amy-1090",
     "name": "Natural Unheated Amethyst 3.20 Carat Pear Shape Loupe Clean Purple",
     "shortName": "Amethyst",
@@ -74,7 +74,6 @@ const PRODUCTS = [
     "image": "images/gm-amy-1090.jpg",
     "video": "images/gm-amy-1090v.mp4"
   },
-
   {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
