@@ -99,7 +99,8 @@ const PRODUCTS = [
     ],
     "image": "images/gm-zrcn-1087.jpg",
     "video": "images/gm-zrcn-1087v.mp4"
-  },  {
+  }, 
+      {
     "id": "gm-amy-1090",
     "name": "Natural Unheated Amethyst 3.20 Carat Pear Shape Loupe Clean Purple",
     "shortName": "Amethyst",
