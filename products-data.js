@@ -99,7 +99,32 @@ const PRODUCTS = [
     ],
     "image": "images/gm-zrcn-1087.jpg",
     "video": "images/gm-zrcn-1087v.mp4"
+  },  {
+    "id": "gm-amy-1090",
+    "name": "Natural Unheated Amethyst 3.20 Carat Pear Shape Loupe Clean Purple",
+    "shortName": "Amethyst",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Purple",
+    "shape": "Pear Cut",
+    "weight": 3.2,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Certificate Available",
+    "price": 90,
+    "pricePerCarat": 28,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this beautiful Natural Unheated Amethyst weighing 3.20 carats, expertly fashioned in an elegant pear shape to enhance its natural color, brilliance, and visual appeal. This loose amethyst gemstone displays an attractive purple hue with a classic pear-shaped faceted cut that allows light to interact beautifully with the stone.",
+    "gemType": "Amethyst",
+    "images": [
+      "images/gm-amy-1090.jpg"
+    ],
+    "image": "images/gm-amy-1090.jpg",
+    "video": "images/gm-amy-1090v.mp4"
   },
+    
     {
     "id": "gm-amy-1086",
     "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
