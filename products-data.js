@@ -49,31 +49,7 @@ const PRODUCTS = [
     "image": "images/gm-grn-1089g.jpg",
     "video": "images/gm-grn-1089v.mp4"
   },
-   {
-    "id": "gm-amy-1090",
-    "name": "Natural Unheated Amethyst 3.20 Carat Pear Shape Loupe Clean Purple",
-    "shortName": "Amethyst",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "",
-    "color": "Purple",
-    "shape": "Pear Shape",
-    "weight": 3.2,
-    "dimensions": "",
-    "clarity": "",
-    "certificate": "Available on Request",
-    "price": 90,
-    "pricePerCarat": 28,
-    "status": "active",
-    "rare": false,
-    "description": "Discover this beautiful Natural Unheated Amethyst weighing 3.20 carats, expertly fashioned in an elegant pear shape to enhance its natural color, brilliance, and visual appeal. This loose amethyst gemstone displays an attractive purple hue with a classic pear-shaped faceted cut that allows light to interact beautifully with the stone.",
-    "gemType": "Amethyst",
-    "images": [
-      "images/gm-amy-1090.jpg"
-    ],
-    "image": "images/gm-amy-1090.jpg",
-    "video": "images/gm-amy-1090v.mp4"
-  },
+   
   {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
