@@ -144,11 +144,9 @@ const PRODUCTS = [
     "rare": false,
     "description": "Discover the natural beauty of a 1.13-carat yellow sapphire from Sri Lanka, presented in a classic faceted cut designed to enhance its natural colour and brilliance. This gemstone displays an attractive yellow tone with the lively sparkle associated with a well-faceted sapphire.",
     "gemType": "Sapphire",
-    "images": [
-      "images/gm-sap-1091.jpg"
-    ],
-    "image": "images/gm-sap-1091.jpg",
-    "video": "images/gm-sap-1091v.mp4"
+    "images": [],
+    "image": "",
+    "video": "images/gm-sap-1092v.mp4"
   },
     {
     "id": "gm-amy-1086",
