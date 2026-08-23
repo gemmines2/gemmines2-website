@@ -260,6 +260,31 @@ const PRODUCTS = [
     "video": ""
   },
   {
+    "id": "gm-sap-1092",
+    "name": "Natural Unheated Yellow Sapphire 1.13 Carats – Sri Lankan Origin, Faceted Gemstone",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Yellow",
+    "shape": "Oval Cut Faceted",
+    "weight": 1.13,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 95,
+    "pricePerCarat": 84,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the natural beauty of a 1.13-carat yellow sapphire from Sri Lanka, presented in a classic faceted cut designed to enhance its natural colour and brilliance. This gemstone displays an attractive yellow tone with the lively sparkle associated with a well-faceted sapphire.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1091.jpg"
+    ],
+    "image": "images/gm-sap-1091.jpg",
+    "video": "images/gm-sap-1091v.mp4"
+  },
+  {
     "id": "gm-moon-1075",
     "name": "Natural Black Moonstone Cabochon Opaque Gemstone | Polished Oval Loose Stone | Genuine Collector Gem",
     "shortName": "Moonstone",
