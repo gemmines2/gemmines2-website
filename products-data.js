@@ -49,8 +49,7 @@ const PRODUCTS = [
     "image": "images/gm-grn-1089g.jpg",
     "video": "images/gm-grn-1089v.mp4"
   },
-   
-  {
+    {
     "id": "GM-AQUA-1009",
     "name": "Natural Unheated Aquamarine Rough 730 Ct - Pakistan Origin, Icy Pastel Blue",
     "shortName": "Natural Aquamarine",
@@ -150,30 +149,7 @@ const PRODUCTS = [
     "image": "images/gm-sap-1092.jpg",
     "video": "images/gm-sap-1092v.mp4"
   }, 
-      {
-    "id": "gm-sap-1092",
-    "name": "Natural Unheated Yellow Sapphire 1.13 Carats – Sri Lankan Origin, Faceted Gemstone",
-    "shortName": "Sapphire",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Sri Lanka",
-    "color": "Yellow",
-    "shape": "Oval Cut Faceted",
-    "weight": 1.13,
-    "dimensions": "",
-    "clarity": "Eye Clean",
-    "certificate": "Available on Request",
-    "price": 95,
-    "pricePerCarat": 84,
-    "status": "active",
-    "rare": false,
-    "description": "Discover the natural beauty of a 1.13-carat yellow sapphire from Sri Lanka, presented in a classic faceted cut designed to enhance its natural colour and brilliance. This gemstone displays an attractive yellow tone with the lively sparkle associated with a well-faceted sapphire.",
-    "gemType": "Sapphire",
-    "images": [],
-    "image": "",
-    "video": "images/gm-sap-1092v.mp4"
-  },
-    {
+          {
     "id": "gm-amy-1086",
     "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
     "shortName": "Amethyst",
