@@ -149,8 +149,7 @@ const PRODUCTS = [
     ],
     "image": "images/gm-sap-1092.jpg",
     "video": "images/gm-sap-1092v.mp4"
-  },
-    
+  }, 
       {
     "id": "gm-sap-1092",
     "name": "Natural Unheated Yellow Sapphire 1.13 Carats – Sri Lankan Origin, Faceted Gemstone",
@@ -199,8 +198,6 @@ const PRODUCTS = [
     "image": "images/gm-amy-1086.png",
     "video": ""
   },
- 
-    
     {
     "id": "gm-jewl-1084",
     "name": "Natural Gemstone Silver Rings from Pakistan – Emerald, Ruby, Garnet, Feroza & More",
@@ -303,9 +300,7 @@ const PRODUCTS = [
     ],
     "image": "images/gm-sap-1081-1.jpg",
     "video": ""
-  },
- 
-    
+  },   
   {
     "id": "gm-moon-1075",
     "name": "Natural Black Moonstone Cabochon Opaque Gemstone | Polished Oval Loose Stone | Genuine Collector Gem",
