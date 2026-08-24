@@ -200,9 +200,6 @@ const PRODUCTS = [
     "video": ""
   },
  
-    "image": "images/gm-sap-1091.jpg",
-    "video": "images/gm-sap-1091v.mp4"
-  },
     
     {
     "id": "gm-jewl-1084",
@@ -308,9 +305,7 @@ const PRODUCTS = [
     "video": ""
   },
  
-    "image": "images/gm-sap-1091.jpg",
-    "video": "images/gm-sap-1091v.mp4"
-  },
+    
   {
     "id": "gm-moon-1075",
     "name": "Natural Black Moonstone Cabochon Opaque Gemstone | Polished Oval Loose Stone | Genuine Collector Gem",
