@@ -500,7 +500,7 @@
             <div class="product-name">${p.name}</div>
             <div class="product-meta">${p.origin} · ${p.weight}</div>
             <div class="product-footer">
-              <div class="product-price">$${p.price}</div>
+              <div class="product-price">$${Number(p.price).toFixed(2)}</div>
               <button class="product-add" onclick="event.preventDefault();Cart.add(${JSON.stringify(p).replace(/"/g,'&quot;')})">Add to Cart</button>
             </div>
           </div>
