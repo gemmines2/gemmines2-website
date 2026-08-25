@@ -136,7 +136,7 @@ function renderProduct(p) {
     detailRow('Certificate', p.certificate || 'Available on Request'),
   ].join('');
 
-const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? Number(p.weight).toFixed(2) + 'ct — ' : ''}$${p.price})\n${pageUrl}`;
+const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? Number(p.weight).toFixed(2) + 'ct — ' : ''}$${Number(p.price).toFixed(2)})\n${pageUrl}`;
   const waHref = `https://wa.me/923362149415?text=${encodeURIComponent(waMsg)}`;
 
   const relatedHtml = related.length ? related.map(r => `
@@ -144,7 +144,7 @@ const waMsg = `Hi, I'm interested in: *${p.name}* (${p.weight ? Number(p.weight)
         <img src="${escAttr(imgUrl((r.images && r.images[0]) || r.image || ''))}" alt="${escAttr(r.name)}" onerror="this.style.display='none'">
         <div class="rel-card-body">
           <div class="rel-card-name">${esc(r.shortName || r.name)}</div>
-          <div class="rel-card-price">$${Number(r.price).toLocaleString()}</div>
+          <div class="rel-card-price">$${Number(r.price).toFixed(2)}</div>
         </div>
       </a>`).join('') : '';
 
@@ -286,7 +286,7 @@ ${buildSchema(p, pageUrl)}
     <div class="treatment-row">${treatmentHtml}</div>
     <div class="price-box">
       <div>
-        <div class="price-usd">$${Number(p.price).toLocaleString()}</div>
+        <div class="price-usd">$${Number(p.price).toFixed(2)}</div>
         <div class="price-sub">${esc(priceSub)}</div>
       </div>
     </div>
