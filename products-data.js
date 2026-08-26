@@ -1561,7 +1561,7 @@ const PRODUCTS = [
     "shortName": "Mixed Zirocn",
     "type": "cut",
     "treatment": "unheated",
-    "origin": "",
+    "origin": "Sri Lanka ",
     "color": "Multi-Color",
     "shape": "Mixed Cuts",
     "weight": 110.35,
