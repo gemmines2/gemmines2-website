@@ -1613,7 +1613,7 @@ const PRODUCTS = [
     "shortName": "Alexandrite",
     "type": "cut",
     "treatment": "unheated",
-    "origin": "",
+    "origin": "undisclosed",
     "color": "Bi-Color",
     "shape": "Emerald Cut",
     "weight": 1.01,
