@@ -1940,7 +1940,7 @@ const PRODUCTS = [
     "shortName": "Lemon Quartz",
     "type": "cut",
     "treatment": "unheated",
-    "origin": "",
+    "origin": "undisclosed",
     "color": "Lemon Yellow",
     "shape": "Step Cut",
     "weight": 4.85,
