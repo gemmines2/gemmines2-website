@@ -180,7 +180,7 @@ const PRODUCTS = [
     "shortName": "Mixed Gemstones",
     "type": "jewelry",
     "treatment": "unheated",
-    "origin": "",
+    "origin": "Pakistan",
     "color": "Multi-Color",
     "shape": "",
     "weight": 0,
