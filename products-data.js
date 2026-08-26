@@ -1689,7 +1689,7 @@ const PRODUCTS = [
     "shortName": "Sapphire",
     "type": "cut",
     "treatment": "unheated",
-    "origin": "",
+    "origin": "Sri Lanka",
     "color": "Multi-Color",
     "shape": "Mixed Cuts",
     "weight": 5.55,
