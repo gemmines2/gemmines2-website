@@ -149,6 +149,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1092.jpg",
     "video": "images/gm-sap-1092v.mp4"
   }, 
+  {
+    "id": "gm-tour-1093",
+    "name": "Natural UnheatedTourmaline 1.60 Carats – Loupe Clean.",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Brownish",
+    "shape": "Emerald Cut",
+    "weight": 1.6,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 110,
+    "pricePerCarat": 69,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Tourmaline gemstone weighing 1.60 carats, sourced from Sri Lanka and offered in loupe-clean clarity. This beautifully faceted natural tourmaline displays attractive colour, excellent transparency and appealing brilliance under light.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1093.jpg"
+    ],
+    "image": "images/gm-tour-1093.jpg",
+    "video": "images/gm-tour-1093v.mp4"
+  },
           {
     "id": "gm-amy-1086",
     "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
