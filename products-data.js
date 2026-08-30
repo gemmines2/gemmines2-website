@@ -431,6 +431,31 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1034.jpeg",
     "video": "images/gm-zrcn-1034-2.mp4"
   },
+      {
+    "id": "gm-tour-1094",
+    "name": "Natural Tourmaline 2.75 Carats Emerald Cut Deep Red Burgundy",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red",
+    "shape": "Emerald Cut",
+    "weight": 2.75,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 44,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the striking beauty of this 2.75-carat Tourmaline, precision cut in an elegant Emerald Cut. The gemstone displays a rich, deep red to burgundy body colour with darker tones, creating an attractive contrast as light moves across its step-cut facets.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1094.jpg"
+    ],
+    "image": "images/gm-tour-1094.jpg",
+    "video": "images/gm-tour-1094v.mp4"
+  },
   {
     "id": "amethys-1780829923587",
     "name": "Natural Amethyst Pendant 3 Ct - 925 Sterling Silver with CZ Accents",
