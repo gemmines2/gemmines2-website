@@ -1449,6 +1449,32 @@ const PRODUCTS = [
     "image": "images/gm-grn-1039-1.jpeg",
     "video": "images/gm-grn-1039.mp4"
   },
+   {
+    "id": "gm-prdt-1095",
+    "name": "Natural Unheated Pakistani Peridot – 530 Carats Lot",
+    "shortName": "Peridot",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Pakistan",
+    "color": "Olive Green",
+    "shape": "Mixed Cuts",
+    "weight": 530,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 500,
+    "pricePerCarat": 1,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a stunning 530-carat lot of natural, unheated Peridot from Pakistan, featuring a beautiful natural green color and a selection of cut and polished gemstones. The lot contains a variety of attractive cuts and sizes, making it suitable for jewellery designers, gemstone collectors, resellers, and jewellery manufacturers.",
+    "gemType": "Peridot",
+    "images": [
+      "images/gm-prdt-1095.jpg"
+    ],
+    "image": "images/gm-prdt-1095.jpg",
+    "video": "images/gm-prdt-1095v.mp4"
+  },
+
     {
     "id": "gm-taf-1040",
     "name": "Natural Violet Taaffeite 1.05 Carats | Rare Collector Gem | Sri Lanka Origin|",
