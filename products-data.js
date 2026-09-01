@@ -1462,7 +1462,7 @@ const PRODUCTS = [
     "dimensions": "",
     "clarity": "Loupe Clean",
     "certificate": "Available on Request",
-    "price": 500,
+    "price": 5000,
     "pricePerCarat": 1,
     "status": "active",
     "rare": false,
