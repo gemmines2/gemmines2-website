@@ -100,6 +100,31 @@ const PRODUCTS = [
     "video": "images/gm-zrcn-1087v.mp4"
   }, 
       {
+    "id": "gm-spnl-1096",
+    "name": "Natural Unheated Sri Lankan Spinel — 6 Carats Total — Mixed Colours — Faceted Multiple Stones",
+    "shortName": "Spinal",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 6,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 190,
+    "pricePerCarat": 32,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Unheated Sri Lankan Spinel gemstone lot with a total weight of approximately 6 carats. This attractive mixed-colour collection features faceted Spinel gemstones in a variety of natural colour appearances, including pink, purple, blue-green/teal and darker tones.",
+    "gemType": "Spinal",
+    "images": [
+      "images/gm-spnl-1096.jpg"
+    ],
+    "image": "images/gm-spnl-1096.jpg",
+    "video": "images/gm-spnl-1096v.mp4"
+  },
+      {
     "id": "gm-amy-1090",
     "name": "Natural Unheated Amethyst 3.20 Carat Pear Shape Loupe Clean Purple",
     "shortName": "Amethyst",
