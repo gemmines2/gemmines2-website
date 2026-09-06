@@ -380,6 +380,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1066g.png",
     "video": "images/gm-sap-1066v.mp4"
   },
+      {
+    "id": "gm-chrsy-1098",
+    "name": "Beautiful Yellowish-Green Chrysoberyl – 1.25 Carats",
+    "shortName": "Chrsoberyl",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Yellowish Green",
+    "shape": "Oval Cut",
+    "weight": 1.25,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 110,
+    "pricePerCarat": 88,
+    "status": "active",
+    "rare": true,
+    "description": "beautiful oval-shaped faceted gemstone sourced from Sri Lanka, weighing 1.25 carats. This attractive yellowish-green stone chrysoberyl and features a lovely colour suitable for collectors and custom jewelry designs.",
+    "gemType": "Chrysoberyl",
+    "images": [
+      "images/gm-chrsy-1098.jpg"
+    ],
+    "image": "images/gm-chrsy-1098.jpg",
+    "video": "images/gm-chrsy-1098v.mp4"
+  },
   {
     "id": "sapphire-1780901637012",
     "name": "Natural Unheated Yellow Sapphire 0.52 Ct - Sri Lanka, Faceted",
