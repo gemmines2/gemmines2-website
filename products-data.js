@@ -1835,6 +1835,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1051.jpeg",
     "video": "images/gm-sap-1051v.mp4"
   },
+      {
+    "id": "gm-grn-1099",
+    "name": "Natural Hessonite Garnet 3.45 Carats Emerald Cut Loupe Clean",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Orange / Reddish",
+    "shape": "Emerald Cut",
+    "weight": 3.45,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 23,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Hessonite Garnet weighing 3.45 carats, expertly fashioned in an elegant emerald cut. This attractive loose gemstone offers a clean appearance.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1099.jpg"
+    ],
+    "image": "images/gm-grn-1099.jpg",
+    "video": "images/gm-grn-1099v.mp4"
+  },
   {
     "id": "gm-sap-1070",
     "name": "Natural Blue Sapphire Loose Gemstone - 2.05 Carats, Oval Cut, Heat Treated, Authentic",
