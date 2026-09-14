@@ -353,7 +353,31 @@ const PRODUCTS = [
     "image": "images/gm-moon-1075.jpg",
     "video": ""
   },
-  
+    {
+    "id": "citrine_026",
+    "name": "Natural Unheated Golden Citrine 3 Carat Italian Silver Jewelry with Side Zircons",
+    "shortName": "Citrine Ring",
+    "type": "jewelry",
+    "treatment": "unheated",
+    "origin": "",
+    "color": "Golden",
+    "shape": "",
+    "weight": 3,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 120.00,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated golden colour citrine gemstone weighing approximately 3 carats, set in Italian silver with zircon accents on the sides. The warm golden colour of the citrine gives this piece an elegant and classic appearance, suitable for everyday wear, gifting, or gemstone jewellery collections",
+    "gemType": "Citrine",
+    "images": [
+      "images/citrine_26.jpg"
+    ],
+    "image": "images/citrine_26.jpg",
+    "video": ""
+  },
     {
     "id": "gm-sap-1066",
     "name": "Natural Unheated Blue Sapphire 1.98 Carat Sea Blue -Sri Lanka Origin",
