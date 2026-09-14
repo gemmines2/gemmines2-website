@@ -302,6 +302,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1082.jpeg",
     "video": "images/gm-sap-1082v.mp4"
   },
+    {
+    "id": "gm-pad-1100g",
+    "name": "Natural Padparadscha Sapphire - Unheated Sri Lankan Sapphire",
+    "shortName": "Padparadscha",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Padparadscha (Pink-Orange)",
+    "shape": "Rough",
+    "weight": 0.8,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 150,
+    "status": "active",
+    "rare": true,
+    "description": "Natural unheated pink Padparadscha sapphire of Sri Lankan origin, weighing 0.80 carats. This is a rough loose gemstone in its unheated condition, with loupe-clean clarity and an attractive pink colour.",
+    "gemType": "Padparadscha",
+    "images": [
+      "images/gm-pad-1100g.jpg"
+    ],
+    "image": "images/gm-pad-1100g.jpg",
+    "video": "images/gm-pad-1100.mp4"
+  },
+
      {
     "id": "gm-sap-1081-1",
     "name": "Natural Heated Orange Sapphire 1.15 Carat Round Cut | Rare Orange Colour",
