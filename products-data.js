@@ -455,6 +455,31 @@ const PRODUCTS = [
     "image": "images/gm-chrsy-1098.jpg",
     "video": "images/gm-chrsy-1098v.mp4"
   },
+     {
+    "id": "gm-tour-1101",
+    "name": "Natural Rubellite Tourmaline 1.86 Carats Pear Shape",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Unknown",
+    "color": "Reddish Pink",
+    "shape": "Pear Shape",
+    "weight": 1.86,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 140,
+    "pricePerCarat": 75,
+    "status": "active",
+    "rare": false,
+    "description": "Natural rubellite tourmaline loose gemstone weighing 1.86 carats, featuring a beautiful red to pink-red color and elegant pear shape. The gemstone is eye clean,",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1101.jpg"
+    ],
+    "image": "images/gm-tour-1101.jpg",
+    "video": "images/gm-tour-1101v.mp4"
+  },
   {
     "id": "sapphire-1780901637012",
     "name": "Natural Unheated Yellow Sapphire 0.52 Ct - Sri Lanka, Faceted",
