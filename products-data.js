@@ -734,6 +734,31 @@ const PRODUCTS = [
     "image": "images/green-jasper.jpg",
     "video": ""
   },
+      {
+    "id": "gm-sap-1102",
+    "name": "Natural Lavender / Purple Sapphire Rough",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Lavender / Purple",
+    "shape": "Rough",
+    "weight": 1.15,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 110,
+    "pricePerCarat": 96,
+    "status": "active",
+    "rare": true,
+    "description": "This 1.15-carat natural lavender sapphire is offered in its original rough form, making it suitable for gemstone cutters, collectors, and buyers looking for Sri Lankan sapphire rough.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1102.png"
+    ],
+    "image": "images/gm-sap-1102.png",
+    "video": ""
+  },
   {
     "id": "lemonquartz_012",
     "name": "Natural Unheated Lemon Quartz 11.15 Carats",
