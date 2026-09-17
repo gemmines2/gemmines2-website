@@ -658,6 +658,31 @@ const PRODUCTS = [
     "image": "images/natural-p-color-change-sapphire-top-1780765092779-0.jpg",
     "video": "videos/natural-p-color-change-sapphire-top-1780764311378.mp4"
   },
+      {
+    "id": "gm-zrcn-1104",
+    "name": "Natural Sri Lankan Hessonite Garnet 60 Carats",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Orange / Brown",
+    "shape": "Mixed Cuts",
+    "weight": 60,
+    "dimensions": "",
+    "clarity": "Loupe Clean / Eye Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 2,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Sri Lankan Hessonite garnet gemstones, cut and polished in a variety of mixed cuts, with a total weight of 60 carats. These natural garnets display the characteristic warm honey, orange-brown and reddish-brown tones.",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1104g.jpg"
+    ],
+    "image": "images/gm-zrcn-1104g.jpg",
+    "video": "images/gm-grn-1104.mp4"
+  },
   {
     "id": "chrysoberyl-1780742386216",
     "name": "Natural Chrysoberyl 1.35 ct - Loupe Clean, Certified Gemstone ( Sri Lankan )",
