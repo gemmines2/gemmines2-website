@@ -431,6 +431,31 @@ const PRODUCTS = [
     "video": "images/gm-sap-1066v.mp4"
   },
       {
+    "id": "gm-zrcn-1103",
+    "name": "Natural Unheated Sri Lankan Zircon – 1.75 Carats",
+    "shortName": "Ziron",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Reddish Brown",
+    "shape": "Step Rectangular",
+    "weight": 1.75,
+    "dimensions": "",
+    "clarity": "Eye Clean with Minor Natural Inclusion",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 46,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Sri Lankan zircon weighing 1.75 carats, featuring an attractive reddish-brown to reddish tone and a beautifully faceted rectangular step cut.",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1103g.png"
+    ],
+    "image": "images/gm-zrcn-1103g.png",
+    "video": "images/gm-zrcn-1103v.mp4"
+  },
+      {
     "id": "gm-chrsy-1098",
     "name": "Beautiful Yellowish-Green Chrysoberyl – 1.25 Carats",
     "shortName": "Chrsoberyl",
