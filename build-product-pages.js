@@ -242,7 +242,7 @@ ${buildSchema(p, pageUrl)}
   </script>
 </head>
 <body>
-<div class="announcement">✦ Insured Worldwide Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 30-Day Returns ✦</div>
+<div class="announcement">✦ Insured Worldwide Shipping &nbsp;|&nbsp; Certificate on Request &nbsp;|&nbsp; 14-Day Returns ✦</div>
 <header class="site-header">
   <a href="${BASE_URL}index.html" class="logo-wrap"><img src="${BASE_URL}images/logo.png" alt="Gemmines2"><span class="logo-text">Gem<em>mines</em>2</span></a>
   <nav class="main-nav">
@@ -306,7 +306,7 @@ ${buildSchema(p, pageUrl)}
     <div class="trust-row">
       <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-label">Secure Checkout</div></div>
       <div class="trust-item"><div class="trust-icon">✈️</div><div class="trust-label">Worldwide Shipping</div></div>
-      <div class="trust-item"><div class="trust-icon">↩️</div><div class="trust-label">30-Day Returns</div></div>
+      <div class="trust-item"><div class="trust-icon">↩️</div><div class="trust-label">14-Day Returns</div></div>
     </div>
   </div>
 </div>
