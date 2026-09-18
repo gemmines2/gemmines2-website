@@ -2338,6 +2338,31 @@ const PRODUCTS = [
     "image": "images/gm-rvr-1097.jpg",
     "video": "images/gm-rvr-1097v.mp4"
   },
+      {
+    "id": "gm-mix-1105",
+    "name": "Natural Garnet & Blue Topaz Gemstones – Cut & Polished",
+    "shortName": "Garnet / Blue Topaz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 6,
+    "dimensions": "",
+    "clarity": "Loupe Clean / Eye Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 12,
+    "status": "active",
+    "rare": false,
+    "description": "Natural cut and polished gemstone pair featuring a 1.55 carat Garnet and 1.15 carat Blue Topaz, with an additional 2.00 carat Garnet and 1.00 carat Blue Topaz specification as provided. The stones are presented with good visual clarity, described as loupe clean / top eye clean.",
+    "gemType": "Garnet / Blue Topaz",
+    "images": [
+      "images/gm-mix-1105g.jpg"
+    ],
+    "image": "images/gm-mix-1105g.jpg",
+    "video": "images/gm-mix-1105v.mp4"
+  },
     {
     "id": "gm-sap-1025",
     "name": "Natural Blue Sapphire 1 Carat Heated Eye Clean Cushion Cut  Cut & Polished",
