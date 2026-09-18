@@ -30,7 +30,7 @@ const Cart = {
    this.save(items);
     this.updateBadge();
     showToast(`"${product.shortName || product.name}" added — taking you to cart…`, 'success');
-    setTimeout(() => { window.location.href = 'cart.html'; }, 1200);
+   setTimeout(() => { window.location.href = 'https://gemmines2.github.io/gemmines2-website/cart.html'; }, 1200); 
   
   },
   remove(id) {
