@@ -2139,6 +2139,31 @@ const PRODUCTS = [
     "image": "images/gm-sap-1069g.jpg",
     "video": "images/gm-sap-1069v.mp4"
   },
+      {
+    "id": "gm-tour-1106",
+    "name": "Natural Unheated Sri Lankan Tourmaline 1.90 Carats",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red",
+    "shape": "Oval Cut",
+    "weight": 1.9,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 37,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Sri Lankan Tourmaline weighing 1.90 carats, featuring an attractive oval cut. This loose gemstone is of Sri Lankan origin and has not been heat treated.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1106.jpg"
+    ],
+    "image": "images/gm-tour-1106.jpg",
+    "video": "images/gm-tour-1106v.mp4"
+  },
   {
     "id": "gm-ruby-1073",
     "name": "Natural Ruby 0.80 Carat Pigeon Blood Red Colour - Good Lustre",
