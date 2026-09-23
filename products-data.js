@@ -2114,6 +2114,30 @@ const PRODUCTS = [
     "image": "images/gm-grn-1068.jpg",
     "video": ""
   },
+   {
+    "id": "gm-zrcn-1108v",
+    "name": "Natural Rose Garnet 1.65 Carat | Sri Lankan Origin",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red",
+    "shape": "Oval Cut",
+    "weight": 1.65,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 36,
+    "status": "active",
+    "rare": false,
+    "description": "Natural rose garnet weighing 1.65 carats, Sri Lankan origin. This attractive gemstone features a soft rose-pink color and has been cut and polished to enhance its natural appearance and brilliance.",
+    "gemType": "Garnet",
+    "images": [],
+    "image": "",
+    "video": "images/gm-zrcn-1108v.mp4"
+  },
+
        {
     "id": "gm-sap-1069",
     "name": "Natural Unheated Madagascar Blue Sapphire 4.241 Carat Cushion Cut Loupe Clean Faceted",
