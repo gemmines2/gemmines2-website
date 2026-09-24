@@ -2115,7 +2115,31 @@ const PRODUCTS = [
     "video": ""
   },
    
-
+  {
+    "id": "gm-grn-1109",
+    "name": "Beautiful 2.20 carat Rose Garnet in an elegant Emerald Cut",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Pink / Red",
+    "shape": "Emerald Cut",
+    "weight": 2.2,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 27,
+    "status": "active",
+    "rare": false,
+    "description": "Beautiful 2.20 carat Rose Garnet in an elegant Emerald Cut, featuring an attractive rose-pink color and elongated faceting.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1109.jpg"
+    ],
+    "image": "images/gm-grn-1109.jpg",
+    "video": "images/gm-grn-1109v.mp4"
+  },
        {
     "id": "gm-sap-1069",
     "name": "Natural Unheated Madagascar Blue Sapphire 4.241 Carat Cushion Cut Loupe Clean Faceted",
