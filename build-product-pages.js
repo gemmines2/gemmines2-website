@@ -77,7 +77,7 @@ function buildSchema(p, pageUrl) {
         '@type': 'MerchantReturnPolicy',
         applicableCountry: ['US', 'GB', 'CA', 'AU', 'AE', 'PK', 'DE', 'FR'],
         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-        merchantReturnDays: 30,
+        merchantReturnDays: 14,
         returnMethod: 'https://schema.org/ReturnByMail',
         returnFees: 'https://schema.org/FreeReturn'
       }
