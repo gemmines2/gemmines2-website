@@ -44,7 +44,7 @@
     <p>Enter your Order ID below to check your order status. Your Order ID starts with <strong>GM-</strong> and was sent to you via WhatsApp and email after placing your order.</p>
     <div class="form-group" style="text-align:left">
       <label style="font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.5px;margin-bottom:6px;display:block">Order ID</label>
-      <input class="form-input" id="orderInput" placeholder="e.g. GM-177893217391" style="text-align:center;font-size:15px;letter-spacing:1px">
+      <input class="form-input" id="orderInput" placeholder="e.g. GM-20260924-1530" style="text-align:center;font-size:15px;letter-spacing:1px">
     </div>
     <button class="btn btn-primary btn-full" style="margin-top:4px" onclick="trackOrder()">Track Order →</button>
 
@@ -78,16 +78,7 @@ function trackOrder(){
   if(!id){res.style.display='block';res.innerHTML='<p style="color:var(--red);text-align:center">Please enter your Order ID</p>';return;}
   if(!id.startsWith('GM-')){res.style.display='block';res.innerHTML='<p style="color:var(--red);text-align:center">Order IDs begin with GM- — please check and try again</p>';return;}
   res.style.display='block';
-  res.innerHTML='<p style="text-align:center;color:var(--muted)">Looking up order...</p>';
-  setTimeout(()=>{
-    res.innerHTML=`
-      <div class="tr-row"><span class="lbl">Order ID</span><span class="val" style="color:var(--teal)">${id}</span></div>
-      <div class="tr-row"><span class="lbl">Status</span><span class="val" style="color:var(--gold)">Processing</span></div>
-      <div class="tr-row"><span class="lbl">Payment</span><span class="val">Verification in progress</span></div>
-      <div class="tr-row"><span class="lbl">Shipping</span><span class="val">Pending payment confirmation</span></div>
-      <div class="tr-row"><span class="lbl">Tracking Number</span><span class="val">Will be sent via WhatsApp after dispatch</span></div>
-      <p style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center">For a real-time update message us: <a href="https://wa.me/923362149415?text=Hi, tracking order ${encodeURIComponent(id)}" style="color:var(--teal)">WhatsApp +92 336 214 9415</a></p>`;
-  },700);
+  res.innerHTML='<p style="text-align:center;color:var(--muted);line-height:1.8">We update order status manually. Please message us on WhatsApp with Order ID <strong style="color:var(--teal)">'+id+'</strong> for your current status:<br><a href="https://wa.me/923362149415?text='+encodeURIComponent('Hi, tracking order '+id)+'" style="color:var(--teal)">WhatsApp +92 336 214 9415</a></p>';
 }
 document.getElementById('orderInput').addEventListener('keydown',e=>{if(e.key==='Enter')trackOrder();});
 </script>
