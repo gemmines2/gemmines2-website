@@ -1908,6 +1908,31 @@ const PRODUCTS = [
     "image": "images/gm-alex-1047.jpeg",
     "video": ""
   }, 
+      {
+    "id": "gm-amy-1110g",
+    "name": "Beautiful natural Amethyst weighing 6.50 carats, featuring an elegant oval shape.",
+    "shortName": "Amethyst",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Unknown",
+    "color": "Purple",
+    "shape": "Oval Brilliant Cut",
+    "weight": 6.5,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 14,
+    "status": "active",
+    "rare": false,
+    "description": "This gemstone is ideal for collectors, jewelry designers, or anyone looking for a natural Amethyst for a special piece. We can also customize jewelry using this gemstone on request.",
+    "gemType": "Amethyst",
+    "images": [
+      "images/gm-amy-1110g.jpg"
+    ],
+    "image": "images/gm-amy-1110g.jpg",
+    "video": "images/gm-amy-1110v.mp4"
+  },
   {
     "id": "gm-grn-1050",
     "name": "Natural Rhodolite Garnet - Lot 5 Pcs with Excellent Lustre",
