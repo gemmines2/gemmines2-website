@@ -2035,7 +2035,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1070g.jpg",
     "video": "images/gm-sap-1070v.mp4"
   },
-
+  {
+    "id": "gm-tpz-1111",
+    "name": "Swiss Blue Topaz 21.49 Ct Natural Gemstone – Cut & Polished, Ideal for Pendant & Bracelet",
+    "shortName": "Blue Topaz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "unknown",
+    "color": "Blue",
+    "shape": "Step Cut",
+    "weight": 21.49,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 120,
+    "pricePerCarat": 6,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Swiss Blue Topaz, 21.49 carats, with a beautiful blue color and a cut-and-polished finish. Its attractive size makes it suitable for creating a statement pendant, bracelet, or other custom jewelry designs. The gemstone is offered as a loose stone and can be selected for a personalized jewelry setting according to your requirements.",
+    "gemType": "Topaz",
+    "images": [
+      "images/gm-tpz-1111.jpg",
+      "images/gm-tpz-1111-1.jpg"
+    ],
+    "image": "images/gm-tpz-1111.jpg",
+    "video": "images/gm-tpz-1111.mp4"
+  },
   {
     "id": "gm-zrcn-1052",
     "name": "Natural Green Zircon Loose Gemstone Parcel 8.55 CTS 8 Loupe Clean",
