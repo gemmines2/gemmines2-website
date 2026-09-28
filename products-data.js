@@ -24,6 +24,32 @@ const PRODUCTS = [
     "image": "images/gm-spnl-1088.jpg",
     "video": "images/gm-spnl-1088v.mp4"
   },
+      {
+    "id": "gm-sap-1112",
+    "name": "Natural Pink Sapphire 0.60 Carat Oval Shape Gemstone | Custom Silver Ring Jewelry",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Pink",
+    "shape": "Oval Cut",
+    "weight": 0.6,
+    "dimensions": "",
+    "clarity": "AAA Eye Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 133,
+    "status": "active",
+    "rare": false,
+    "description": "A natural 0.60-carat pink sapphire with a delicate pale-pink appearance and an oval shape. The gemstone displays a soft, attractive pink colour and is suitable for custom jewelry designs.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1112g.jpg",
+      "images/gm-sap-1112r.png"
+    ],
+    "image": "images/gm-sap-1112g.jpg",
+    "video": ""
+  },
     {
     "id": "gm-grn-1089",
     "name": "Natural Unheated Hessonite Garnet 3.35 Carats | Eye Clean Loose Gemstone",
