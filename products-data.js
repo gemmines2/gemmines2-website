@@ -28,7 +28,7 @@ const PRODUCTS = [
     "id": "gm-sap-1112",
     "name": "Natural Pink Sapphire 0.60 Carat Oval Shape Gemstone | Custom Silver Ring Jewelry",
     "shortName": "Sapphire",
-    "type": "cut",
+    "type": "jewely",
     "treatment": "unheated",
     "origin": "Sri Lanka",
     "color": "Pink",
