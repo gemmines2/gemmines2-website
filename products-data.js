@@ -175,6 +175,31 @@ const PRODUCTS = [
     "image": "images/gm-amy-1090.jpg",
     "video": "images/gm-amy-1090v.mp4"
   },
+      {
+    "id": "gm-sap-1114g",
+    "name": "Natural Unheated Light Purple Sapphire – Sri Lankan Origin",
+    "shortName": "Sapphire",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Light Purple",
+    "shape": "Rough",
+    "weight": 0.9,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 89,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated light purple sapphire of Sri Lankan origin. This genuine sapphire is offered in its natural rough form and has not been heat treated. The stone can be professionally cut and polished according to your preferred shape and style.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1114g.jpeg"
+    ],
+    "image": "images/gm-sap-1114g.jpeg",
+    "video": "images/gm-sap-1114v.mp4"
+  },
   {
     "id": "gm-sap-1092",
     "name": "Natural Unheated Yellow Sapphire 1.13 Carats – Sri Lankan Origin, Faceted Gemstone",
