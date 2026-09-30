@@ -1263,32 +1263,31 @@ const PRODUCTS = [
     "video": ""
   },
  
-  {
-    "id": "jade_045",
-    "name": "Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan",
-    "shortName": "Green Jade",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Translucent Green",
-    "shape": "Oval Cut",
-    "weight": 3.2,
-    "dimensions": "",
-    "clarity": "Translucent",
-    "certificate": "Available on Request",
-    "price": 80,
-    "pricePerCarat": 25,
-    "status": "active",
-    "rare": false,
-    "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.",
-    "gemType": "Jade",
-    "images": [
-      "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
-      "images/natural-translucent-green-nephrite--1780761897176-1.jpg"
-    ],
-    "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
-    "video": ""
-  },
+ {
+  "id": "jade_045",
+  "name": "Natural Translucent Green Nephrite Jade Gemstone 3.20 Carats Pakistan",
+  "shortName": "Green Jade",
+  "type": "cut",
+  "treatment": "unheated",
+  "origin": "Pakistan",
+  "color": "Translucent Green",
+  "shape": "Oval Cut",
+  "weight": 3.2,
+  "dimensions": "",
+  "clarity": "Translucent",
+  "certificate": "Available on Request",
+  "price": 80,
+  "pricePerCarat": 25,
+  "status": "active",
+  "rare": false,
+  "description": "Discover this beautiful natural translucent green nephrite gemstone from Pakistan. Untreated and unenhanced gemstone features the classic silky texture and toughness that nephrite is famous for.",
+  "gemType": "Jade",
+  "images": [
+    "images/natural-translucent-green-nephrite--1780761893401-0.jpg.jpg"
+  ],
+  "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg.jpg",
+  "video": ""
+},
   {
     "id": "GM-SPN-1010",
     "name": "Natural Cobalt Blue Spinel 1 Carat – Unheated Sri Lankan Origin Loose Gemstone",
