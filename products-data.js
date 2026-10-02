@@ -556,6 +556,31 @@ const PRODUCTS = [
     "image": "images/gm-tour-1101.jpg",
     "video": "images/gm-tour-1101v.mp4"
   },
+      {
+    "id": "gm-qrtz-1115g",
+    "name": "Natural Unheated Quartz 12.40 Carats | Genuine Natural Gemstone",
+    "shortName": "Quartz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Unknown",
+    "color": "Colourless",
+    "shape": "Pear Shape",
+    "weight": 12.4,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 6,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this Natural Unheated Quartz weighing 12.40 carats, offered as a natural gemstone for collectors, jewelry designers, and gemstone enthusiasts. The stone has not been heat treated, allowing it to retain its natural characteristics.\n\nThis 12.40-carat quartz can be considered for custom jewelry designs such as a ring, pendant, or other silver jewelry setting, depending on the buyer’s preferred design.",
+    "gemType": "Quartz",
+    "images": [
+      "images/gm-qrtz-1115g.jpg"
+    ],
+    "image": "images/gm-qrtz-1115g.jpg",
+    "video": "images/gm-qrtz-1115v.mp4"
+  },
   {
     "id": "sapphire-1780901637012",
     "name": "Natural Unheated Yellow Sapphire 0.52 Ct - Sri Lanka, Faceted",
