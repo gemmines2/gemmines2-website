@@ -250,6 +250,32 @@ const PRODUCTS = [
     "image": "images/gm-tour-1093.jpg",
     "video": "images/gm-tour-1093v.mp4"
   },
+      {
+    "id": "gm-mix-1115g",
+    "name": "Natural Mixed Gemstone Lot Amethyst Citrine Peridot & Rubellite 7.00 Carats",
+    "shortName": "Mixed Lot",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Oval Cut",
+    "weight": 7,
+    "dimensions": "",
+    "clarity": "Loupe Clean / Eye Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 10,
+    "status": "active",
+    "rare": false,
+    "description": "Natural mixed gemstone lot featuring Amethyst, Citrine, Peridot and Rubellite, with a total weight of 7.00 carats.",
+    "gemType": "Mixed",
+    "images": [
+      "images/gm-mix-1116g.jpg",
+      "images/gm-mix-1116r.png"
+    ],
+    "image": "images/gm-mix-1116g.jpg",
+    "video": "images/gm-mix-1116v.mp4"
+  },
           {
     "id": "gm-amy-1086",
     "name": "Natural Unheated Amethyst Lot 8.10 Carats, Loupe Clean, Purple, Mixed Sizes",
