@@ -1387,7 +1387,7 @@ const PRODUCTS = [
   "images": [
     "images/natural-translucent-green-nephrite--1780761893401-0.jpg.jpg"
   ],
-  "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg.jpg",
+  "image": "images/natural-translucent-green-nephrite--1780761893401-0.jpg",
   "video": ""
 },
   {
