@@ -101,6 +101,32 @@ const PRODUCTS = [
     "video": ""
   },
       {
+    "id": "gm-qrtz-1117g",
+    "name": "Natural Unheated Quartz 80 Carats – Loupe Clean Natural Gemstone",
+    "shortName": "Quartz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Brownish",
+    "shape": "Oval Cut",
+    "weight": 80,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 1,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Unheated Quartz weighing 80.00 Carats, featuring a clean and attractive appearance. The gemstone is described as loupe clean and has not been heat treated. An excellent option for gemstone collectors, jewelry designers, custom jewelry projects, and those looking for a substantial natural quartz gemstone.",
+    "gemType": "Quartz",
+    "images": [
+      "images/gm-qrtz-1117g.jpg",
+      "images/gm-qrtz-1117j.png"
+    ],
+    "image": "images/gm-qrtz-1117g.jpg",
+    "video": "images/gm-qrtz-1117v.mp4"
+  },
+      {
     "id": "gm-zrcn-1087",
     "name": "Natural Unheated Green Zircon – Sri Lankan Origin, 1.50 Carats",
     "shortName": "Zircon",
