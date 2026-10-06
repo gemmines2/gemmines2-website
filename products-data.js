@@ -559,6 +559,32 @@ const PRODUCTS = [
     "video": "images/gm-zrcn-1103v.mp4"
   },
       {
+    "id": "gm-sap-1119g",
+    "name": "Natural Sri Lankan Star Sapphire Lot – Pink & Bluish Grey",
+    "shortName": "Star Sapphire",
+    "type": "cut",
+    "treatment": "untreated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Cabochon",
+    "weight": 6.17,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 190,
+    "pricePerCarat": 31,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Star Sapphires of Sri Lankan origin featuring attractive pink and bluish-grey colours. This collection includes 5 pieces with a total weight of approximately 617 carats. The stones are described as top eye clean, with a natural appearance suitable for collectors, gemstone enthusiasts, or future custom cutting and jewelry projects.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1119g.jpg",
+      "images/gm-sap-1119c.jpg"
+    ],
+    "image": "images/gm-sap-1119g.jpg",
+    "video": "images/gm-sap-1119v.mp4"
+  },
+      {
     "id": "gm-chrsy-1098",
     "name": "Beautiful Yellowish-Green Chrysoberyl – 1.25 Carats",
     "shortName": "Chrsoberyl",
