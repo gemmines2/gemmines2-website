@@ -127,6 +127,32 @@ const PRODUCTS = [
     "video": "images/gm-qrtz-1117v.mp4"
   },
       {
+    "id": "gm-sap-1120g",
+    "name": "Natural Unheated Yellow Sapphire Ring | Sri Lankan Origin | Silver Ring | Custom Jewelry Available",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Bi-Color",
+    "shape": "Rounded Rectangle / Cushion",
+    "weight": 1.14,
+    "dimensions": "",
+    "clarity": "Eye Clean",
+    "certificate": "Available on Request",
+    "price": 90,
+    "pricePerCarat": 79,
+    "status": "active",
+    "rare": true,
+    "description": "This is a natural bi-colour Yellow Sapphire of Sri Lankan origin, unheated. The gemstone displays an attractive combination of natural yellow colour tones and has its own natural characteristics.\n\nGemstone: Natural Bi-Colour Yellow Sapphire\nOrigin: Sri Lanka\nTreatment: Unheated\nJewelry Setting: Silver / 925 Sterling Silver\nCustomization: Custom ring and jewelry designs available on request\nCertificate: Available on request\n\nCustomers can request a customized silver ring, pendant, or other jewelry design using this gemstone. Design, setting and jewelry style can be discussed according to your preference.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1120g.jpg",
+      "images/gm-sap-1120j.png"
+    ],
+    "image": "images/gm-sap-1120g.jpg",
+    "video": ""
+  },
+      {
     "id": "gm-zrcn-1087",
     "name": "Natural Unheated Green Zircon – Sri Lankan Origin, 1.50 Carats",
     "shortName": "Zircon",
