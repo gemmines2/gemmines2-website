@@ -25,6 +25,32 @@ const PRODUCTS = [
     "video": "images/gm-spnl-1088v.mp4"
   },
       {
+    "id": "gm-tpz-1121g",
+    "name": "Natural Blue Topaz 4.45 Carats | Loupe Clean |  Jewelry & Custom Design",
+    "shortName": "Topaz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Emerald Cut",
+    "weight": 4.45,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 16,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Blue Topaz gemstone weighing 4.45 carats, with a beautiful blue color and loupe-clean clarity. This attractive loose gemstone is suitable for rings, pendants, earrings, bracelets, or other custom jewelry designs.",
+    "gemType": "Topaz",
+    "images": [
+      "images/gm-sap-1121g.jpg",
+      "images/gm-tpz-1121j.png"
+    ],
+    "image": "images/gm-sap-1121g.jpg",
+    "video": "images/gm-tpz-1121v.mp4"
+  },
+      {
     "id": "gm-sap-1112",
     "name": "Natural Pink Sapphire 0.60 Carat Oval Shape Gemstone | Custom Silver Ring Jewelry",
     "shortName": "Sapphire",
