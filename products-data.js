@@ -1,4 +1,31 @@
 const PRODUCTS = [
+     {
+    "id": "gm-tour-1123j",
+    "name": "Natural Green Tourmaline 3.20 Carats Round Brilliant Cut",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Green",
+    "shape": "Round Brilliant Cut",
+    "weight": 3.2,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 25,
+    "status": "active",
+    "rare": false,
+    "description": "Beautiful natural green tourmaline weighing 3.20 carats, featuring a round shape and attractive green coloration. Custom jewelry design is available on request. Customers may request a personalized ring, pendant, or other jewelry setting according to their preferred style.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1123h.jpg",
+      "images/gm-tour-1123j.png"
+    ],
+    "image": "images/gm-tour-1123h.jpg",
+    "video": "images/gm-tour-1123v.mp4"
+  },
+    
     {
     "id": "gm-spnl-1088",
     "name": "Natural Unheated Royal Blue Spinel – Sri Lankan Origin, 1.30 Carats",
