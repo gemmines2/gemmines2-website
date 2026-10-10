@@ -8,6 +8,13 @@
 <meta name="description" id="page-desc" content="Natural certified gemstone from Gemmines2">
 <link rel="icon" href="images/logo.png">
 <link rel="canonical" id="page-canonical" href="https://gemmines2.github.io/gemmines2-website/product.html">
+<!-- Open Graph tags — filled dynamically once product data loads -->
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Gemmines2">
+<meta property="og:title" id="og-title" content="Gemmines2">
+<meta property="og:description" id="og-desc" content="Natural certified gemstone from Gemmines2">
+<meta property="og:image" id="og-image" content="https://gemmines2.github.io/gemmines2-website/images/logo.png">
+<meta property="og:url" id="og-url" content="https://gemmines2.github.io/gemmines2-website/product.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap">
@@ -29,7 +36,6 @@
 .thumb{width:68px;height:68px;flex-shrink:0;background:var(--navy3);border:2px solid var(--border);border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color .2s}
 .thumb.active,.thumb:hover{border-color:var(--teal)}
 .thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
-/* ── VIDEO PLAYER ── */
 .product-video-wrap{margin-top:14px;display:none}
 .product-video-wrap video{width:100%;border-radius:8px;border:1px solid var(--border);background:#000;display:block}
 .product-video-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:6px}
@@ -112,7 +118,6 @@
 <img id="main-img" src="" alt="Gemstone">
 </div>
 <div class="thumbs" id="thumbs"></div>
-<!-- VIDEO PLAYER — appears below thumbnails if product has a video -->
 <div class="product-video-wrap" id="product-video-wrap">
 <div class="product-video-label">Stone Video</div>
 <video id="product-video" controls playsinline preload="metadata">
@@ -201,9 +206,15 @@ document.getElementById('page-title').textContent=p.name+' | Gemmines2';
 document.getElementById('page-desc').content=p.description||'';
 document.getElementById('bc-name').textContent=p.name;
 
-// Set this product's own canonical URL — each product page must point to itself,
-// never to a shared/generic URL, or Google will treat every product as a duplicate.
-document.getElementById('page-canonical').href = window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(id);
+const canonicalUrl = window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(id);
+document.getElementById('page-canonical').href = canonicalUrl;
+
+// ── OPEN GRAPH TAGS — fixes missing social preview data on WhatsApp/Facebook/Instagram shares ──
+const ogImage = window.location.origin + '/gemmines2-website/' + ((p.images && p.images[0]) || p.image || 'images/logo.png');
+document.getElementById('og-title').setAttribute('content', p.name + ' | Gemmines2');
+document.getElementById('og-desc').setAttribute('content', (p.description || 'Natural certified gemstone from Gemmines2').substring(0, 200));
+document.getElementById('og-image').setAttribute('content', ogImage);
+document.getElementById('og-url').setAttribute('content', canonicalUrl);
 
 const badge=document.getElementById('badge');
 if(p.status==='sold'){badge.textContent='SOLD';badge.classList.add('badge-sold');badge.style.display='block';}
@@ -225,7 +236,9 @@ const isUnheated=p.treatment==='unheated';
 document.getElementById('treatment-row').innerHTML=`<span class="${isUnheated?'unheated':'heated'}">${isUnheated?'✦ Natural Unheated':'◈ Natural Heated'}</span>`;
 
 document.getElementById('price-usd').textContent='$'+Number(p.price).toFixed(2);
-if(p.weight) document.getElementById('price-sub').textContent='$'+(p.price/p.weight).toFixed(0)+' per carat · '+Number(p.weight).toFixed(2)+' ct total';
+// FIX: per-carat price previously used .toFixed(0), rounding anything under $0.50/ct down to "$0".
+// .toFixed(2) now shows the real value (e.g. $0.33/ct) instead of the misleading "$0 per carat".
+if(p.weight) document.getElementById('price-sub').textContent='$'+(p.price/p.weight).toFixed(2)+' per carat · '+Number(p.weight).toFixed(2)+' ct total';
 
 document.getElementById('description').textContent=p.description||'';
 
@@ -262,7 +275,6 @@ thumbsEl.appendChild(d);
 }
 }
 
-// ── VIDEO PLAYER ──────────────────────────────────────
 if(p.video){
 const videoWrap=document.getElementById('product-video-wrap');
 const videoEl=document.getElementById('product-video');
@@ -272,7 +284,6 @@ videoWrap.style.display='block';
   const waMsg=`Hi, I'm interested in: *${p.name}* (${p.weight?Number(p.weight).toFixed(2)+'ct — ':''}$${p.price})\n${window.location.href}`;
 document.getElementById('btn-wa').href=`https://wa.me/923362149415?text=${encodeURIComponent(waMsg)}`;
 
-// BUG FIX: changed product/${r.id}.html → product.html?id=${r.id}
 const related=PRODUCTS.filter(x=>x.id!==p.id&&(x.type===p.type||x.gemType===p.gemType)).slice(0,4);
 if(related.length){
 document.getElementById('related-grid').innerHTML=related.map(r=>`
@@ -289,7 +300,6 @@ document.getElementById('related-section').style.display='none';
 
 Cart.updateBadge();
 
-// ── PRODUCT SCHEMA FOR GOOGLE ──
 const schema = {
 "@context": "https://schema.org",
 "@type": "Product",
