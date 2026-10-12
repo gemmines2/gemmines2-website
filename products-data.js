@@ -25,6 +25,31 @@ const PRODUCTS = [
     "image": "images/gm-tour-1123h.jpg",
     "video": "images/gm-tour-1123v.mp4"
   },
+       {
+    "id": "gm-zrcn-1124g",
+    "name": "Natural Unheated Yellow Zircon 4.45 Carats - Good Lustre",
+    "shortName": "Zircon",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Yellow",
+    "shape": "Round Brilliant Cut",
+    "weight": 4.45,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 13,
+    "status": "active",
+    "rare": false,
+    "description": "",
+    "gemType": "Zircon",
+    "images": [
+      "images/gm-zrcn-1124g.jpg"
+    ],
+    "image": "images/gm-zrcn-1124g.jpg",
+    "video": "images/gm-zrcn-1124v.mp4"
+  },
     
     {
     "id": "gm-spnl-1088",
