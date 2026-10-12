@@ -25,7 +25,7 @@ const PRODUCTS = [
     "image": "images/gm-tour-1123h.jpg",
     "video": "images/gm-tour-1123v.mp4"
   },
-      {
+       {
     "id": "gm-zrcn-1124g",
     "name": "Natural Unheated Yellow Zircon 4.45 Carats - Good Lustre",
     "shortName": "Zircon",
@@ -45,7 +45,8 @@ const PRODUCTS = [
     "description": "Natural unheated yellow zircon weighing 4.45 carats, featuring an elegant oval shape and attractive natural yellow colour. This gemstone is presented as a loose stone and is suitable for collectors, jewellery designers, and customers looking for a distinctive natural gemstone. Natural, unheated and untreated. Custom jewellery design is available on request, including rings, pendants, earrings and other jewellery styles.",
     "gemType": "Zircon",
     "images": [
-      "images/gm-zrcn-1124g.jpg"
+      "images/gm-zrcn-1124g.jpg",
+      "images/gm-zrcn-1124j.png"
     ],
     "image": "images/gm-zrcn-1124g.jpg",
     "video": "images/gm-zrcn-1124v.mp4"
