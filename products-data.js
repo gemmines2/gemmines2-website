@@ -51,6 +51,32 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1124g.jpg",
     "video": "images/gm-zrcn-1124v.mp4"
   },
+       {
+    "id": "gm-chrys-1127g",
+    "name": "Natural Chrysoberyl 1.30 Carats – Sri Lankan Origin",
+    "shortName": "Chrysoberyl",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Yellow",
+    "shape": "Cushion Cut",
+    "weight": 1.3,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 54,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a natural Chrysoberyl gemstone weighing 1.30 carats, originating from Sri Lanka. Described as loupe clean, this gemstone is a beautiful choice for collectors, gemstone enthusiasts, or custom jewelry designs. Suitable for creating a personalized silver or gold ring, pendant, or other fine jewelry piece. Worldwide shipping available. Custom jewelry design can be arranged on request.",
+    "gemType": "Chrysoberyl",
+    "images": [
+      "images/gm-chrsy-1127g.jpg",
+      "images/gm-chrsy-1127j.png"
+    ],
+    "image": "images/gm-chrsy-1127g.jpg",
+    "video": "images/gm-chrsy-1127v.mp4"
+  },
     {
     "id": "gm-spnl-1088",
     "name": "Natural Unheated Royal Blue Spinel – Sri Lankan Origin, 1.30 Carats",
