@@ -77,6 +77,32 @@ const PRODUCTS = [
     "image": "images/gm-chrsy-1127g.jpg",
     "video": "images/gm-chrsy-1127v.mp4"
   },
+       {
+    "id": "gm-grn-1128g",
+    "name": "Natural Hessonite Garnet 2.25 Carats - Beautiful Colour",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red",
+    "shape": "Oval Cut",
+    "weight": 2.25,
+    "dimensions": "",
+    "clarity": "",
+    "certificate": "Available on Request",
+    "price": 50,
+    "pricePerCarat": 22,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this natural Hessonite Garnet, weighing 2.25 carats. This loose gemstone is suitable for collectors, gemstone enthusiasts, and customers looking to create personalized jewelry. It can be considered for a custom-designed silver or gold ring, pendant, or other jewelry piece,",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1028g.jpg",
+      "images/gm-grn-1128j.png"
+    ],
+    "image": "images/gm-grn-1028g.jpg",
+    "video": "images/gm-grn-1128v.mp4"
+  },
     {
     "id": "gm-spnl-1088",
     "name": "Natural Unheated Royal Blue Spinel – Sri Lankan Origin, 1.30 Carats",
