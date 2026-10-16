@@ -230,6 +230,32 @@ const PRODUCTS = [
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
   },
+       {
+    "id": "gm-chrys-1129g",
+    "name": "Natural Unheated Sri Lankan Chrysoberyl 1.40 Carats – Loupe Clean",
+    "shortName": "Chrysoberyl",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Yellow",
+    "shape": "Oval Cut",
+    "weight": 1.4,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 43,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a natural 1.40-carat Chrysoberyl gemstone of Sri Lankan origin, described as unheated and loupe clean. Its attractive yellowish-green colour makes it a beautiful choice for fine jewellery and gemstone collectors.",
+    "gemType": "Chrysoberyl",
+    "images": [
+      "images/gm-chrsy-1129g.jpg",
+      "images/gm-chrys-1129j.png"
+    ],
+    "image": "images/gm-chrsy-1129g.jpg",
+    "video": "images/gm-chrsy-1129v.mp4"
+  },
       {
     "id": "gm-qrtz-1117g",
     "name": "Natural Unheated Quartz 80 Carats – Loupe Clean Natural Gemstone",
