@@ -78,6 +78,31 @@ const PRODUCTS = [
     "video": "images/gm-chrsy-1127v.mp4"
   },
        {
+    "id": "gm-alex-1133v",
+    "name": "Natural Unheated Alexandrite – 3.05 Carats | Certified | Emerald Cut",
+    "shortName": "Alexandrite",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Emerald Cut",
+    "weight": 3.05,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 450,
+    "pricePerCarat": 148,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a beautiful 3.05-carat natural, unheated Alexandrite, featuring an eye-clean appearance and an elegant emerald cut. This remarkable gemstone displays a yellowish-green colour in daylight and transforms to brownish-red under incandescent light, showcasing its fascinating colour-changing phenomenon. Its UV response is working perfectly, as stated.",
+    "gemType": "Alexandrite",
+    "images": [
+      "images/gm-alex-1133g.jpg"
+    ],
+    "image": "images/gm-alex-1133g.jpg",
+    "video": "images/gm-alex-1133v.mp4"
+  },
+       {
     "id": "gm-grn-1128g",
     "name": "Natural Hessonite Garnet 2.25 Carats - Beautiful Colour",
     "shortName": "Garnet",
