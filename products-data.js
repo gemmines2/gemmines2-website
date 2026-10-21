@@ -281,6 +281,32 @@ const PRODUCTS = [
     "image": "images/gm-chrsy-1129g.jpg",
     "video": "images/gm-chrsy-1129v.mp4"
   },
+       {
+    "id": "gm-morgn-1134g",
+    "name": "Dark Teal Greenish Blue Moissanite Loose Faceted Gemstones",
+    "shortName": "Moissanite",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "unknown",
+    "color": "dark teal, greenish-blue, and greyish",
+    "shape": "Mixed Cuts",
+    "weight": 1103,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 320,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a collection of faceted moissanite gemstones featuring dark teal, greenish-blue, and greyish tones with attractive rainbow-like light reflections. These loose stones are suitable for jewellery makers, designers, collectors, and buyers looking for distinctive gemstones for customized rings, pendants, earrings, and other jewellery creations. Custom jewellery design is available on request through Gemmines2.",
+    "gemType": "Moissanite",
+    "images": [
+      "images/gm-mogn-1134g.jpg",
+      "images/gm-mogn-1134-1.jpg"
+    ],
+    "image": "images/gm-mogn-1134g.jpg",
+    "video": "images/gm-mogn+1134v.mp4"
+  },
       {
     "id": "gm-qrtz-1117g",
     "name": "Natural Unheated Quartz 80 Carats – Loupe Clean Natural Gemstone",
