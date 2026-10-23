@@ -612,6 +612,32 @@ const PRODUCTS = [
     "image": "images/gm-pad-1083.jpeg",
     "video": ""
   },
+       {
+    "id": "gm-tour-1135g",
+    "name": "Natural Unheated Tourmaline 4.65 Carats – Loupe Clean",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Dark Olive Brown",
+    "shape": "Emerald Cut",
+    "weight": 4.65,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 15,
+    "status": "active",
+    "rare": false,
+    "description": "iscover this natural 4.65-carat tourmaline of Sri Lankan origin, featuring distinctive dark olive-brown tones with golden-brown and blue-green reflections. This gemstone is described as unheated and loupe clean, making it an appealing choice for gemstone collectors and custom jewellery designs.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1135g.jpg",
+      "images/gm-tour-1135j.png"
+    ],
+    "image": "images/gm-tour-1135g.jpg",
+    "video": "images/gm-tour-1135v.mp4"
+  },
     {
     "id": "gm-sap-1082",
     "name": "Natural Blue Sapphire 2.51 Ct Cushion Mixed Cut Top Eye Clean Heated",
