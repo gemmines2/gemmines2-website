@@ -254,7 +254,32 @@ const PRODUCTS = [
     ],
     "image": "images/GM-AQUA-1009.jpg",
     "video": ""
+  },  {
+    "id": "gm-quartz-1138g",
+    "name": "Natural Brown Quartz Gemstone – 594 Carats",
+    "shortName": "Quartz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Brownish",
+    "shape": "Oval Cut",
+    "weight": 594,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 150,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this impressive natural brown quartz gemstone weighing 594 carats. Featuring an attractive brown colour, this single large quartz piece is suitable for gemstone collectors, jewelry designers, lapidaries, and gemstone enthusiasts.",
+    "gemType": "Quartz",
+    "images": [
+      "images/gm-qrtz-1138g.jpg"
+    ],
+    "image": "images/gm-qrtz-1138g.jpg",
+    "video": "images/gm-qrtz-1138v.mp4"
   },
+     
        {
     "id": "gm-chrys-1129g",
     "name": "Natural Unheated Sri Lankan Chrysoberyl 1.40 Carats – Loupe Clean",
