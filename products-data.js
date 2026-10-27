@@ -358,6 +358,31 @@ const PRODUCTS = [
     "image": "images/gm-qrtz-1117g.jpg",
     "video": "images/gm-qrtz-1117v.mp4"
   },
+       {
+    "id": "gm-tpz-1140g",
+    "name": "Natural Blue Topaz Gemstone – 7.50 Carats, Pear Cut",
+    "shortName": "Topaz",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Blue",
+    "shape": "Pear Cut",
+    "weight": 7.5,
+    "dimensions": "",
+    "clarity": "Eye Clean with Minor Natural Inclusion",
+    "certificate": "Available on Request",
+    "price": 70,
+    "pricePerCarat": 9,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this beautiful 7.50-carat natural blue topaz featuring a deep blue colour, pear-shaped faceted cut, and eye-clean appearance. This loose gemstone is suitable for jewelry making, including pendants, rings, and custom-designed jewelry.",
+    "gemType": "Topaz",
+    "images": [
+      "images/gm-tpz-1140g.jpg"
+    ],
+    "image": "images/gm-tpz-1140g.jpg",
+    "video": "images/gm-tpz-1140v.mp4"
+  },
       {
     "id": "gm-sap-1120g",
     "name": "Natural Unheated Yellow Sapphire Ring | Sri Lankan Origin | Silver Ring | Custom Jewelry Available",
