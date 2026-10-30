@@ -560,6 +560,31 @@ const PRODUCTS = [
     "image": "images/gm-tour-1093.jpg",
     "video": "images/gm-tour-1093v.mp4"
   },
+       {
+    "id": "gm-sap-1142g",
+    "name": "Natural Milky White Sapphire – 13.50 Carats | Sri Lankan Origin |",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Milky White",
+    "shape": "Cabochon",
+    "weight": 13.5,
+    "dimensions": "",
+    "clarity": "Translucent",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 6,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the natural beauty of this 13.50-carat milky white sapphire, originating from Sri Lanka. This beautiful natural gemstone features a distinctive milky white appearance with six visible natural lines, creating an interesting pattern within the stone.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1142g.jpg"
+    ],
+    "image": "images/gm-sap-1142g.jpg",
+    "video": "images/gm-sap-1142.mp4"
+  },
       {
     "id": "gm-mix-1115g",
     "name": "Natural Mixed Gemstone Lot Amethyst Citrine Peridot & Rubellite 7.00 Carats",
