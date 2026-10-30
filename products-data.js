@@ -585,31 +585,7 @@ const PRODUCTS = [
     "image": "images/gm-sap-1142g.jpg",
     "video": "images/gm-sap-1142.mp4"
   },
-       {
-    "id": "gm-amy-1144",
-    "name": "Natural Unheated Sri Lankan Amethyst – 8.10 Carats | Loupe Clean | Purple",
-    "shortName": "Amethyst",
-    "type": "cut",
-    "treatment": "unheated",
-    "origin": "Pakistan",
-    "color": "Purple",
-    "shape": "Mixed Cuts",
-    "weight": 8.1,
-    "dimensions": "",
-    "clarity": "Loupe Clean",
-    "certificate": "Available on Request",
-    "price": 120,
-    "pricePerCarat": 15,
-    "status": "sold",
-    "rare": false,
-    "description": "Discover this beautiful collection of natural, unheated Amethyst gemstones from Pakistan. This lot contains three loose gemstones with an attractive purple colour and loupe-clean clarity.",
-    "gemType": "",
-    "images": [
-      "images/gm-amy-1144.png"
-    ],
-    "image": "images/gm-amy-1144.png",
-    "video": ""
-  },
+     
       {
     "id": "gm-mix-1115g",
     "name": "Natural Mixed Gemstone Lot Amethyst Citrine Peridot & Rubellite 7.00 Carats",
