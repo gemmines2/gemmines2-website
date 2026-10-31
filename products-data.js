@@ -50,7 +50,32 @@ const PRODUCTS = [
     ],
     "image": "images/gm-zrcn-1124g.jpg",
     "video": "images/gm-zrcn-1124v.mp4"
+  },  {
+    "id": "gm-agate-1145g",
+    "name": "Natural Agate Stone Bracelets – Multicolour & Sea Blue | Free Size",
+    "shortName": "Agate",
+    "type": "jewelry",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "Translucent",
+    "certificate": "Available on Request",
+    "price": 45,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the natural beauty of agate stone bracelets, available in a beautiful selection of multicolour designs and refreshing sea blue shades. These attractive bracelets feature natural agate stones with distinctive colours and patterns, making each piece unique.",
+    "gemType": "Agate",
+    "images": [
+      "images/gm-agate-1145g.jpg"
+    ],
+    "image": "images/gm-agate-1145g.jpg",
+    "video": "images/gm-agate-1145v.mp4"
   },
+     
        {
     "id": "gm-chrys-1127g",
     "name": "Natural Chrysoberyl 1.30 Carats – Sri Lankan Origin",
