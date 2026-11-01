@@ -9,6 +9,8 @@ on:
     branches: [main]
     paths:
       - 'products-data.js'
+      - 'reviews-data.js'
+      - 'build-product-pages.js'
 permissions:
   contents: write
 jobs:
