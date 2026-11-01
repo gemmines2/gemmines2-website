@@ -26,6 +26,31 @@ const PRODUCTS = [
     "video": "images/gm-tour-1123v.mp4"
   },
        {
+    "id": "gm-amthyst-1147g",
+    "name": "Natural Unheated Amethyst Gemstone Lot – 108.62 Carats",
+    "shortName": "Amethyst",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Unknown",
+    "color": "Purple",
+    "shape": "Mixed Cuts",
+    "weight": 108.62,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 380,
+    "pricePerCarat": 3,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this collection of natural, unheated Amethyst gemstones with a total weight of 108.62 carats. The lot features attractive purple gemstones in various sizes, ranging from approximately 6 mm to 11 mm, with pear and oval-shaped cuts.",
+    "gemType": "Amethyst",
+    "images": [
+      "images/gm-amy-1147g.jpg"
+    ],
+    "image": "images/gm-amy-1147g.jpg",
+    "video": "images/gm-amy-1147v.mp4"
+  },
+       {
     "id": "gm-zrcn-1124g",
     "name": "Natural Unheated Yellow Zircon 4.45 Carats - Good Lustre",
     "shortName": "Zircon",
