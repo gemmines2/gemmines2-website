@@ -96,7 +96,32 @@ const PRODUCTS = [
     "gemType": "Agate",
     "images": [
       "images/gm-agate-1145g.jpg"
+    ],  {
+    "id": "gm-morg-1148g",
+    "name": "Natural Colourless Morganite Beryl Gemstone – 14 Carats, Pure White",
+    "shortName": "Morganite",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "unknown",
+    "color": "white colourless",
+    "shape": "Emerald Cut",
+    "weight": 14,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 65,
+    "pricePerCarat": 5,
+    "status": "active",
+    "rare": false,
+    "description": "Explore this 14-carat colourless gemstone, described by the seller as pure, colourless beryl. Belonging to the beryl mineral family, which also includes emerald, aquamarine and morganite, colourless beryl is an interesting option for gemstone collectors and jewellery enthusiasts.",
+    "gemType": "Morganite",
+    "images": [
+      "images/gm-morg-1148g.jpg"
     ],
+    "image": "images/gm-morg-1148g.jpg",
+    "video": "images/gm-morg-1148v.mp4"
+  },
+            
     "image": "images/gm-agate-1145g.jpg",
     "video": "images/gm-agate-1145v.mp4"
   },
