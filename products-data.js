@@ -76,7 +76,7 @@ const PRODUCTS = [
     "image": "images/gm-zrcn-1124g.jpg",
     "video": "images/gm-zrcn-1124v.mp4"
   }, 
-     {
+       {
     "id": "gm-agate-1145g",
     "name": "Natural Agate Stone Bracelets – Multicolour & Sea Blue | Free Size",
     "shortName": "Agate",
@@ -97,8 +97,11 @@ const PRODUCTS = [
     "gemType": "Agate",
     "images": [
       "images/gm-agate-1145g.jpg"
-    ], 
-     {
+    ],
+    "image": "images/gm-agate-1145g.jpg",
+    "video": "images/gm-agate-1145v.mp4"
+  },
+  {
     "id": "gm-morg-1148g",
     "name": "Natural Colourless Morganite Beryl Gemstone – 14 Carats, Pure White",
     "shortName": "Morganite",
@@ -122,10 +125,6 @@ const PRODUCTS = [
     ],
     "image": "images/gm-morg-1148g.jpg",
     "video": "images/gm-morg-1148v.mp4"
-  },
-            
-    "image": "images/gm-agate-1145g.jpg",
-    "video": "images/gm-agate-1145v.mp4"
   },
      
        {
