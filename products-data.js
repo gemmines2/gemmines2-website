@@ -96,7 +96,8 @@ const PRODUCTS = [
     "gemType": "Agate",
     "images": [
       "images/gm-agate-1145g.jpg"
-    ],  {
+    ], 
+            {
     "id": "gm-morg-1148g",
     "name": "Natural Colourless Morganite Beryl Gemstone – 14 Carats, Pure White",
     "shortName": "Morganite",
