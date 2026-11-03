@@ -24,7 +24,32 @@ const PRODUCTS = [
     ],
     "image": "images/gm-tour-1123h.jpg",
     "video": "images/gm-tour-1123v.mp4"
+  },  {
+    "id": "gm-grn-1150g",
+    "name": "Natural Unheated Almandine Garnet Lot – 106.40 Carats | Oval & Round Cut | Eye Clean",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "",
+    "shape": "Mixed Cuts",
+    "weight": 290,
+    "dimensions": "",
+    "clarity": "AAA Eye Clean",
+    "certificate": "Available on Request",
+    "price": 290,
+    "pricePerCarat": 1,
+    "status": "active",
+    "rare": false,
+    "description": "Discover this beautiful collection of natural, unheated Almandine Garnets, with a combined total weight of 106.40 carats. Each individual gemstone weighs above 5 carats, with sizes including approximately 5.00, 5.50, 6.00, 7.00 and 9.50 carats.\n\nFeaturing attractive oval and round shapes, these garnets display rich natural colour, good lustre and an eye-clean appearance, making them suitable for fine jewellery designs and gemstone collection",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1150g.jpg"
+    ],
+    "image": "images/gm-grn-1150g.jpg",
+    "video": "images/gm-grn-1150v.mp4"
   },
+     
        {
     "id": "gm-amthyst-1147g",
     "name": "Natural Unheated Amethyst Gemstone Lot – 108.62 Carats",
