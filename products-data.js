@@ -49,7 +49,31 @@ const PRODUCTS = [
     "image": "images/gm-grn-1150g.jpg",
     "video": "images/gm-grn-1150v.mp4"
   },
-     
+       {
+    "id": "gm-tour-1151g",
+    "name": "Natural Unheated Multicolour Gemstone Lot – 150 Carats | Mixed Colours & Elegant Cuts",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "unknown",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "AAA Eye Clean",
+    "certificate": "Certificate Available",
+    "price": 1.2,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": false,
+    "description": "Discover a beautiful collection of natural, unheated gemstones with a total weight of 150 carats. This assorted gemstone lot features an attractive range of natural colours, including green, olive green, yellowish green, golden, brown-orange, pink, hot pink, red, burgundy and peach.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1151g.jpg"
+    ],
+    "image": "images/gm-tour-1151g.jpg",
+    "video": "images/gm-tour-1151v.mp4"
+  },
        {
     "id": "gm-amthyst-1147g",
     "name": "Natural Unheated Amethyst Gemstone Lot – 108.62 Carats",
