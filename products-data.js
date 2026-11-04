@@ -62,7 +62,7 @@ const PRODUCTS = [
     "dimensions": "",
     "clarity": "AAA Eye Clean",
     "certificate": "Certificate Available",
-    "price": 1.2,
+    "price": 1200,
     "pricePerCarat": 0,
     "status": "active",
     "rare": false,
