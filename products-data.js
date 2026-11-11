@@ -74,6 +74,31 @@ const PRODUCTS = [
     "image": "images/gm-tour-1151g.jpg",
     "video": "images/gm-tour-1151v.mp4"
   },
+     {
+    "id": "gm-grn-1160g",
+    "name": "Natural Red Garnet (Gomedha) – 15.50 Carats | Sri Lankan Origin | Natural Unheated Gemstone",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Red",
+    "shape": "Emerald Cut",
+    "weight": 15.5,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 4,
+    "status": "active",
+    "rare": false,
+    "description": "Discover the rich beauty of this 15.50-carat natural red Garnet (Gomedha), sourced from Sri Lanka. This attractive gemstone displays a beautiful red colour with natural brilliance, making it an appealing choice for gemstone collectors, jewellery designers, and those looking for a distinctive centre stone.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1160g.jpg"
+    ],
+    "image": "images/gm-grn-1160g.jpg",
+    "video": "images/gm-grn-1160v.mp4"
+  },  
        {
     "id": "gm-amthyst-1147g",
     "name": "Natural Unheated Amethyst Gemstone Lot – 108.62 Carats",
