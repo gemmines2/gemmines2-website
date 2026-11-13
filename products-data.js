@@ -48,7 +48,9 @@ const PRODUCTS = [
     ],
     "image": "images/gm-grn-1150g.jpg",
     "video": "images/gm-grn-1150v.mp4"
-  },  {
+  },  
+
+       {
     "id": "gm-tour-1161g",
     "name": "Natural Sri Lankan Bi-Colour Tourmaline Gemstone 4.60 Carats Eye Clean",
     "shortName": "Tourmaline",
@@ -67,8 +69,10 @@ const PRODUCTS = [
     "rare": false,
     "description": "Natural bi-colour tourmaline gemstone of Sri Lankan origin, weighing 4.60 carats. This eye-clean loose gemstone displays an attractive combination of colours, making it suitable for jewellery making, gemstone collections and custom-designed rings or pendants. Worldwide shipping available.",
     "gemType": "Tourmaline",
-    "images": [],
-    "image": "",
+    "images": [
+      "images/gm-tour-1161g.jpg"
+    ],
+    "image": "images/gm-tour-1161g.jpg",
     "video": "images/gm-tour-1161v.mp4"
   },
      
