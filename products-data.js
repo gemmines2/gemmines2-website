@@ -103,7 +103,7 @@ const PRODUCTS = [
   },
      {
     "id": "gm-grn-1160g",
-    "name": "Natural Red Garnet (Gomedha) – 15.50 Carats | Sri Lankan Origin | Natural Unheated Gemstone",
+    "name": "Natural Red Garnet Hessonite – 15.50 Carats | Sri Lankan Origin | Natural Unheated Gemstone",
     "shortName": "Garnet",
     "type": "cut",
     "treatment": "unheated",
