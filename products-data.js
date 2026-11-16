@@ -24,8 +24,8 @@ const PRODUCTS = [
     ],
     "image": "images/gm-tour-1123h.jpg",
     "video": "images/gm-tour-1123v.mp4"
-  },  
-       {
+  },    
+     {
     "id": "gm-sap-1164g",
     "name": "Natural Blue Sapphire Gemstone – Heated.",
     "shortName": "Sapphire",
@@ -44,10 +44,13 @@ const PRODUCTS = [
     "rare": false,
     "description": "Discover the timeless appeal of natural blue sapphire gemstones from Gemmines2. These beautiful blue sapphires are available in three individual weights: 10.54 carats, 0.64 carats and 3.76 carats.",
     "gemType": "Sapphire",
-    "images": [],
-    "image": "",
+    "images": [
+      "images/gm-sap-1164g.jpg"
+    ],
+    "image": "images/gm-sap-1164g.jpg",
     "video": "images/gm-sap-1164v.mp4"
   },
+       
      {
     "id": "gm-grn-1150g",
     "name": "Natural Unheated Almandine Garnet Lot – 106.40 Carats | Oval & Round Cut | Eye Clean",
