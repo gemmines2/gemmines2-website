@@ -102,7 +102,31 @@ const PRODUCTS = [
     "image": "images/gm-tour-1161g.jpg",
     "video": "images/gm-tour-1161v.mp4"
   },
-     
+       {
+    "id": "gm-sap-1166g",
+    "name": "Natural Bi-Colour Sapphire – 0.70 Carats",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Bi-Color",
+    "shape": "Rough",
+    "weight": 0,
+    "dimensions": "",
+    "clarity": "High Clarity",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 0,
+    "status": "active",
+    "rare": true,
+    "description": "Natural Unheated Sri Lankan Bi-Colour Sapphire weighing 0.70 carats, offered in its natural rough and uncut form. This gemstone displays an attractive combination of pink, violet and deep blue colour tones.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1166g.jpeg"
+    ],
+    "image": "images/gm-sap-1166g.jpeg",
+    "video": "images/gm-sap-1166v.mp4"
+  },
        {
     "id": "gm-tour-1151g",
     "name": "Natural Unheated Multicolour Gemstone Lot – 150 Carats | Mixed Colours & Elegant Cuts",
