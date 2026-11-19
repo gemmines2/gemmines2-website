@@ -24,7 +24,34 @@ const PRODUCTS = [
     ],
     "image": "images/gm-tour-1123h.jpg",
     "video": "images/gm-tour-1123v.mp4"
-  },    
+  },
+       {
+    "id": "gm-sap-1167g",
+    "name": "Natural Unheated Sri Lankan Sapphire – Mixed Colours",
+    "shortName": "Sappphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Multi-Color",
+    "shape": "Mixed Cuts",
+    "weight": 2.5,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 540,
+    "pricePerCarat": 216,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Unheated Sri Lankan Sapphire Gemstones in beautiful mixed colours, including blue, pink and purple. This collection features individually faceted and polished natural sapphires in various fancy shapes.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1167g.jpg",
+      "images/gm-sap-1167.jpg",
+      "images/gm-sap-1167j.png"
+    ],
+    "image": "images/gm-sap-1167g.jpg",
+    "video": ""
+  },
      {
     "id": "gm-sap-1164g",
     "name": "Natural Blue Sapphire Gemstone – Heated.",
