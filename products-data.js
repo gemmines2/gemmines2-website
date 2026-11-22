@@ -26,6 +26,31 @@ const PRODUCTS = [
     "video": "images/gm-tour-1123v.mp4"
   },
        {
+    "id": "gm-tour-1169g",
+    "name": "Natural Unheated Sri Lankan Tourmaline 8.75 Carats",
+    "shortName": "Tourmaline",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Brownish",
+    "shape": "Emerald Cut",
+    "weight": 8.75,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 9,
+    "status": "active",
+    "rare": false,
+    "description": "atural unheated Tourmaline gemstone weighing 8.75 carats, sourced from Sri Lanka. A natural loose gemstone suitable for custom rings, pendants and fine jewellery.",
+    "gemType": "Tourmaline",
+    "images": [
+      "images/gm-tour-1169g.jpg"
+    ],
+    "image": "images/gm-tour-1169g.jpg",
+    "video": "images/gm-tour-1169v.mp4"
+  },
+       {
     "id": "gm-sap-1167g",
     "name": "Natural Unheated Sri Lankan Sapphire – Mixed Colours",
     "shortName": "Sappphire",
