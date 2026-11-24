@@ -156,7 +156,7 @@ const PRODUCTS = [
   },
   {
     "id": "gm-sap-1170g",
-    "name": "Sri Lankan Pink Gemstone 0.035 Carats",
+    "name": "Sri Lankan Pink Sapphire Gemstone 0.035 Carats",
     "shortName": "Sapphire",
     "type": "cut",
     "treatment": "unheated",
