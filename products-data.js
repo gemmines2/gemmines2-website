@@ -154,6 +154,32 @@ const PRODUCTS = [
     "image": "images/gm-tour-1161g.jpg",
     "video": "images/gm-tour-1161v.mp4"
   },
+  {
+    "id": "gm-sap-1170g",
+    "name": "Sri Lankan Pink Gemstone 0.035 Carats",
+    "shortName": "Sapphire",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Pink",
+    "shape": "Oval Cut",
+    "weight": 0.32,
+    "dimensions": "",
+    "clarity": "AAA Eye Clean",
+    "certificate": "Available on Request",
+    "price": 80,
+    "pricePerCarat": 250,
+    "status": "active",
+    "rare": false,
+    "description": "Beautiful pale pink faceted oval gemstone of Sri Lankan origin, weighing 0.035 carats (3.5 points). Its delicate colour and sparkling facets make it suitable for fine jewellery and delicate custom-made settings.",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1170g.jpg"
+    ],
+    "image": "images/gm-sap-1170g.jpg",
+    "video": "images/gm-sap-1170v.mp4"
+  },
+     
        {
     "id": "gm-sap-1166g",
     "name": "Natural Bi-Colour Sapphire – 0.70 Carats",
