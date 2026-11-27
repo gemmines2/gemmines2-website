@@ -75,6 +75,32 @@ const PRODUCTS = [
     "image": "images/gm-sap-1172g.jpeg",
     "video": "images/gm-sap-1172v-(2).mp4"
   }, 
+  {
+    "id": "gm-sap-1172g",
+    "name": "Natural Unheated Sri Lankan Purple Sapphire 1.30 Carats",
+    "shortName": "Sapphire",
+    "type": "rough",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Purple",
+    "shape": "Rough",
+    "weight": 1.3,
+    "dimensions": "",
+    "clarity": "Transparent",
+    "certificate": "Available on Request",
+    "price": 60,
+    "pricePerCarat": 46,
+    "status": "active",
+    "rare": false,
+    "description": "Natural unheated Purple Sapphire weighing 1.30 carats, originating from Sri Lanka. A genuine coloured gemstone suitable for fine jewellery,",
+    "gemType": "Sapphire",
+    "images": [
+      "images/gm-sap-1172g.jpeg"
+    ],
+    "image": "images/gm-sap-1172g.jpeg",
+    "video": "images/gm-sap-1172v.mp4"
+  },
+     
        {
     "id": "gm-sap-1167g",
     "name": "Natural Unheated Sri Lankan Sapphire – Mixed Colours",
