@@ -49,7 +49,32 @@ const PRODUCTS = [
     ],
     "image": "images/gm-tour-1169g.jpg",
     "video": "images/gm-tour-1169v.mp4"
+  },  {
+    "id": "gm-grn-1173g",
+    "name": "Natural Rose Garnet 2.60 Ct Oval Cut – Sri Lankan Origin",
+    "shortName": "Garnet",
+    "type": "cut",
+    "treatment": "unheated",
+    "origin": "Sri Lanka",
+    "color": "Rose Colour",
+    "shape": "Oval Brilliant Cut",
+    "weight": 2.6,
+    "dimensions": "",
+    "clarity": "Loupe Clean",
+    "certificate": "Available on Request",
+    "price": 40,
+    "pricePerCarat": 15,
+    "status": "active",
+    "rare": false,
+    "description": "Natural Sri Lankan Rose Garnet weighing 2.60 carats, featuring an elegant oval cut, loupe-clean clarity, beautiful rose colour and attractive lustre.",
+    "gemType": "Garnet",
+    "images": [
+      "images/gm-grn-1173g.jpg"
+    ],
+    "image": "images/gm-grn-1173g.jpg",
+    "video": "images/gm-grn-1173v.mp4"
   },
+     
       {
     "id": "gm-sap-1172g",
     "name": "Natural Unheated Sri Lankan Purple Sapphire 1.30 Carats",
